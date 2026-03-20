@@ -1,0 +1,609 @@
+{
+  "nav": {
+    "home": "Home",
+    "education": "Education",
+    "tourism": "Tourism",
+    "trade": "Trade",
+    "about": "About",
+    "contact": "Contact Us",
+    "apply": "Apply Now",
+    "select_language": "Select Language",
+    "toggle_theme": "Toggle Theme"
+  },
+  "home": {
+    "hero": {
+      "badge": "Your Strategic Gateway",
+      "title": "Bridge to East Asia",
+      "description": "Navigating the complexities of cross-border growth. We empower students, travelers, and businesses to succeed in China and beyond.",
+      "explore": "Explore Programs",
+      "talk_advisor": "Talk to an Advisor",
+      "students_placed": "Students Placed",
+      "years_experience": "Years Experience",
+      "countries_served": "Countries Served",
+      "alt_edu": "University campus",
+      "alt_tourism": "Tea plantation",
+      "alt_trade": "Shipping port"
+    },
+    "marquee": {
+      "item_01": "Placed at Tsinghua University — Rahul M.",
+      "item_02": "Full MBBS scholarship — Priya S.",
+      "item_03": "Sourced 40ft containers monthly — TechTrade India",
+      "item_04": "Educational tour to Shanghai — 45 Students"
+    },
+    "expertise": {
+      "badge": "Our Pillars",
+      "pillar_badge": "Pillar",
+      "title": "Unmatched Expertise",
+      "pillar_01": "Education",
+      "pillar_02": "Tourism",
+      "pillar_03": "Trade",
+      "edu_panel": {
+        "title": "Premier Education Consulting",
+        "description": "Study at China's top universities with fully funded scholarships and end-to-end relocation support.",
+        "feature_01": "MBBS & Engineering Specialists",
+        "feature_02": "CSC & University Scholarships",
+        "feature_03": "HSK Language Training",
+        "cta": "Explore Programs",
+        "learn_more": "Learn more about Education",
+        "stat_unis": "Partner Universities",
+        "stat_visa": "Visa Success",
+        "stat_scholarship": "Scholarships"
+      },
+      "tourism_panel": {
+        "title": "Curated East Asian Journeys",
+        "description": "From cultural heritage circuits to high-level business delegations, experience Asia with local experts.",
+        "feature_01": "Bespoke Itinerary Planning",
+        "feature_02": "Visa & Logistics Concierge",
+        "feature_03": "Vetted Premium Stays",
+        "cta": "Browse Destinations",
+        "learn_more": "Learn more about Tourism",
+        "stat_unis": "Regions",
+        "stat_visa": "Guides",
+        "stat_scholarship": "Experiences"
+      },
+      "trade_panel": {
+        "title": "Cross-Border Trade Solutions",
+        "description": "Bridge the manufacturing and supply chain gap between India and China with our expert on-ground teams.",
+        "feature_01": "Factory Audits & Verification",
+        "feature_02": "End-to-End Logistics",
+        "feature_03": "Quality Control Protocols",
+        "cta": "Trade Inquiries",
+        "learn_more": "Learn more about Trade",
+        "stat_unis": "Suppliers",
+        "stat_visa": "Turnaround",
+        "stat_scholarship": "Trade Volume"
+      }
+    },
+    "advantage": {
+      "badge": "The Advantage",
+      "title": "Why We Are Different.",
+      "years_exp_title": "Years Experience",
+      "years_exp_desc": "Operating with local teams on both sides of the border since 2012.",
+      "impact_title": "Lives Impacted",
+      "impact_desc": "More than just numbers; we build lifelong career trajectories.",
+      "point_01_title": "Lived on both sides",
+      "point_01_desc": "Our leadership hasn't just studied these markets; they've built lives and businesses in them. We understand the unspoken rules of negotiation in Beijing and the academic rigors of New Delhi. This cultural dual-citizenship is our greatest asset.",
+      "point_02_title": "One firm, Three capabilities",
+      "point_02_desc": "Unlike boutique agencies that focus only on education or logistics, we provide an ecosystem. A student today is a trade partner tomorrow. A tourist today is an investor tomorrow. We manage the full lifecycle of your global journey.",
+      "point_03_title": "Network is the product",
+      "point_03_desc": "You aren't just paying for paperwork. You are buying access to a verified network of university deans, trade commissioners, and logistics hubs. We've spent a decade filtering for reliability so you don't have to."
+    },
+    "pillars_deep": {
+      "edu_badge": "Academic Excellence",
+      "edu_title": "Subsidized Global Education",
+      "edu_desc": "We specialize in securing medical and engineering seats in Asia's highest-ranked institutions. Our packages include tuition-free opportunities, world-class dormitories, and complete career counseling.",
+      "edu_cta": "View Partner Universities",
+      "tourism_badge": "Cultural Exploration",
+      "tourism_title": "Bespoke Heritage Journeys",
+      "tourism_desc": "Experience Asia beyond the brochures. From specialized student educational tours to high-end heritage circuits, we curate travel that educates and inspires.",
+      "tourism_cta": "Explore Destinations",
+      "trade_badge": "Economic Corridor",
+      "trade_title": "Cross-Border Trade Solutions",
+      "trade_desc": "Bridge the manufacturing and supply chain gap between India and China. We provide sourcing, quality control, and logistics management for businesses looking to scale internationally.",
+      "trade_cta": "Trade Inquiries"
+    },
+    "testimonial": {
+      "quote": "\"RouteToAbroad didn't just find me a university; they found me a future. The scholarship coverage for my MBBS at Peking University was seamless, and the on-ground support made China feel like home.\"",
+      "name": "Ananya Krishnan",
+      "role": "MBBS, Peking University (Class of 2024)"
+    },
+    "cta_strip": {
+      "title": "Ready to make your move?",
+      "edu": "Education Inquiry",
+      "tourism": "Tourism Inquiry",
+      "trade": "Trade Inquiry"
+    }
+  },
+  "education": {
+    "hero": {
+      "badge": "Education",
+      "title_part1": "Study in China.",
+      "title_part2": "Change Everything.",
+      "description": "Access world-class degrees, full scholarships, and a global network. We navigate the complexities so you can focus on your future.",
+      "cta_primary": "Apply for a Scholarship",
+      "cta_secondary": "Download University Guide",
+      "stat_label": "Visa Success Rate",
+      "alt_hero": "University student smiling on a modern campus"
+    },
+    "programs": {
+      "title": "Programs Offered",
+      "mbbs": {
+        "title": "MBBS",
+        "desc": "Globally recognized medical degrees with English-taught curriculums and clinical internships."
+      },
+      "engineering": {
+        "title": "Engineering",
+        "desc": "Advanced technical programs in Civil, Mechanical, and AI-driven Computer Science fields."
+      },
+      "language": {
+        "title": "Language",
+        "desc": "Immersive Mandarin Chinese programs ranging from HSK 1 to professional business fluency."
+      },
+      "business": {
+        "title": "Business",
+        "desc": "International trade, economics, and MBA programs designed for the global Asian market."
+      },
+      "undergrad": {
+        "title": "Undergraduate",
+        "desc": "Comprehensive 4-year bachelor degrees across social sciences and humanities."
+      },
+      "research": {
+        "title": "Research",
+        "desc": "Masters and PhD positions with access to state-of-the-art labs and government grants."
+      },
+      "explore_curriculum": "Explore Curriculum"
+    },
+    "process": {
+      "title": "Your Journey to Success",
+      "subtitle": "The Complete Process",
+      "step_01": {
+        "title": "Initial Consultation",
+        "desc": "We assess your profile and academic goals.",
+        "duration": "1-2 Days"
+      },
+      "step_02": {
+        "title": "University Matching",
+        "desc": "Selection of top 3 universities aligned with your budget.",
+        "duration": "3-5 Days"
+      },
+      "step_03": {
+        "title": "Application Filing",
+        "desc": "Submission of documents to university portals.",
+        "duration": "1-2 Weeks"
+      },
+      "step_04": {
+        "title": "Visa Processing",
+        "desc": "JW202 issuance and embassy appointment guidance.",
+        "duration": "4-8 Weeks"
+      },
+      "step_05": {
+        "title": "Arrival & Enrollment",
+        "desc": "Airport pickup and campus registration support.",
+        "duration": "Ongoing"
+      }
+    },
+    "calculator": {
+      "title": "Are you eligible for a <span class=\"text-education-blue\">Chinese scholarship?</span>",
+      "title_part1": "Are you eligible for a ",
+      "title_part2": "Chinese scholarship?",
+      "description": "Our AI-driven eligibility tool analyzes your academic record and background to match you with over 200+ scholarship opportunities.",
+      "step": "STEP {{current}} OF {{total}}",
+      "gpa_label": "What is your current CGPA / Grade?",
+      "gpa_placeholder": "Select Grade Range",
+      "next": "Next Question",
+      "result_title": "You have a strong chance",
+      "result_desc": "Based on preliminary data, you qualify for Category A (Full Tuition + Stipend) scholarships at 15+ partner universities.",
+      "result_cta_primary": "Book a Free Consultation",
+      "result_cta_secondary": "Save My Results"
+    },
+    "partners": {
+      "badge": "Collaborating with Global Leaders",
+      "rank_label": "China Rank",
+      "students_label": "Int'l Students"
+    },
+    "form": {
+      "title": "Ready to start? Send an Inquiry",
+      "label_name": "Full Name",
+      "label_email": "Email Address",
+      "label_phone": "Phone Number",
+      "label_level": "Current Education Level",
+      "edu_level_hs": "High School",
+      "edu_level_bach": "Bachelor's Degree",
+      "edu_level_mast": "Master's Degree",
+      "label_program": "Interested Program",
+      "label_intake": "Target Intake",
+      "label_budget": "Estimated Budget (Annual)",
+      "label_notes": "Additional Notes",
+      "label_upload": "Upload Resume/Transcripts (Optional)",
+      "placeholder_name": "John Doe",
+      "placeholder_email": "john@example.com",
+      "placeholder_phone": "+91 XXXX XXX XXX",
+      "placeholder_notes": "Tell us more about your background...",
+      "upload_hint": "Drag & drop or browse files",
+      "submit": "Submit Application Inquiry",
+      "next_steps_title": "What happens next?",
+      "next_step_01_title": "Verification:",
+      "next_step_01_text": "Our consultants review your data within 24 hours.",
+      "next_step_02_title": "Callback:",
+      "next_step_02_text": "We schedule a 15-minute call to discuss your top 3 options.",
+      "next_step_03_title": "Roadmap:",
+      "next_step_03_text": "Receive a customized application timeline and scholarship pack.",
+      "chatbot_title": "Need instant help?",
+      "chatbot_desc": "Talk to our AI Education Counselor for quick answers about requirements and costs.",
+      "chatbot_cta": "Open Chatbot",
+      "success_title": "Application Received!",
+      "success_message": "Our team will review your details and reach out within 24 hours.",
+      "send_another": "Submit another inquiry"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "Is Chinese MBBS recognized in my country?",
+      "a1": "Yes, all universities we represent are listed in the WHO World Directory of Medical Schools and are recognized by major national medical councils like PMDC, NMC, and ECFMG.",
+      "q2": "Are scholarships fully funded?",
+      "q3": "What are the Chinese language requirements?",
+      "q4": "How long does the visa process take?"
+    }
+  },
+  "tourism": {
+    "hero": {
+      "alt": "Scenic East Asian Landscape",
+      "title": "Discover East Asia. Your Way.",
+      "description": "Unparalleled access to curated experiences across the Middle Kingdom and beyond. From business delegations to cultural heritage journeys.",
+      "cta_primary": "Browse Destinations",
+      "cta_secondary": "View Itineraries"
+    },
+    "destinations": {
+      "china": {
+        "badge": "DESTINATION 01",
+        "title": "The Middle Kingdom",
+        "description": "Experience the breathtaking fusion of ancient history and futuristic ambition. From the Great Wall to the neon skylines of Shanghai.",
+        "item_01_title": "Imperial Heritage",
+        "item_01_desc": "Beijing & Xi'an Historical Circuit",
+        "item_02_title": "The Silk Road",
+        "item_02_desc": "Ancient Trade Routes of Western China",
+        "item_03_title": "Greater Bay Area",
+        "item_03_desc": "Modern Trade & Innovation Hubs",
+        "alt_traditional": "Traditional China",
+        "alt_modern": "Modern Shanghai",
+        "alt_nature": "China Nature"
+      },
+      "japan": {
+        "badge": "DESTINATION 02",
+        "title": "Nippon Traditions",
+        "description": "Where zen gardens meet bustling technopolises. Discover the meticulous beauty of Japanese craftsmanship and hospitality.",
+        "kyoto_title": "Kyoto Zen",
+        "kyoto_desc": "Temples, tea ceremonies, and timeless gardens.",
+        "tokyo_title": "Tokyo Tech",
+        "tokyo_desc": "Akihabara exploration and business networking.",
+        "badge_value": "14",
+        "badge_label": "Unique Regions",
+        "alt_landscape": "Japan Landscape"
+      }
+    },
+    "modes": {
+      "title": "Travel Modes",
+      "subtitle": "Tailored approaches for diverse requirements, ensuring every journey meets its objective.",
+      "culture_title": "Cultural Immersion",
+      "culture_desc": "Deep dives into local history, arts, and culinary traditions with expert guides.",
+      "business_title": "Business Delegations",
+      "business_desc": "Logistical support for trade fairs, factory visits, and corporate summit travel.",
+      "custom_title": "Custom & Group",
+      "custom_desc": "Bespoke itineraries for families or private groups looking for exclusive access.",
+      "explore": "EXPLORE"
+    },
+    "care": {
+      "title": "Comprehensive Care",
+      "description": "We handle every detail so you can focus on the experience. Our end-to-end service is standard for all bookings.",
+      "guarantee_value": "100%",
+      "guarantee_label": "Peace of Mind Guarantee",
+      "service_01_title": "Priority Flights",
+      "service_01_desc": "Global airline partnerships for optimal routing.",
+      "service_02_title": "Premium Stays",
+      "service_02_desc": "Vetted 5-star hotels and boutique heritage stays.",
+      "service_03_title": "Smart Itinerary",
+      "service_03_desc": "Dynamic scheduling optimized for travel time.",
+      "service_04_title": "Visa Concierge",
+      "service_04_desc": "Expert handling of L, M, and F visa categories.",
+      "service_05_title": "Local Transport",
+      "service_05_desc": "Private chauffeured transfers in all cities.",
+      "service_06_title": "24/7 Support",
+      "service_06_desc": "Dedicated multi-lingual ground support team."
+    },
+    "form": {
+      "title": "Plan Your Journey",
+      "description": "Tell us your preferences and our experts will draft a custom proposal within 24 hours.",
+      "destination_label": "Destination(s)",
+      "type_label": "Travel Type",
+      "travelers_label": "Travelers Count",
+      "budget_label": "Est. Budget (pp)",
+      "dates_label": "Preferred Dates",
+      "option_china": "Mainland China",
+      "option_japan": "Japan",
+      "option_korea": "South Korea",
+      "option_multi": "Multi-Destination",
+      "type_cultural": "Cultural Immersion",
+      "type_business": "Business Delegation",
+      "type_custom": "Custom Group",
+      "budget_placeholder": "$5,000+",
+      "dates_placeholder": "e.g. Sept 2026 - Oct 2026",
+      "submit": "Send Inquiry",
+      "success_title": "Inquiry Received!",
+      "success_message": "Our travel experts will get back to you within 24 hours.",
+      "send_another": "Submit another inquiry"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "q1": "How do visas for China work?",
+      "a1": "We provide full concierge support for visa applications. Whether you need a Tourist (L) or Business (M) visa, our team handles the documentation, invitation letters, and filing process to ensure a smooth approval.",
+      "q2": "When is the best time to visit East Asia?",
+      "a2": "Spring (March–May) for cherry blossoms and Autumn (September–November) for temperate weather and fall foliage are generally considered the best times for general tourism.",
+      "q3": "Can you arrange high-level business meetings?",
+      "a3": "Yes. Through our Trade arm, we have access to various industry hubs and can arrange factory tours, government meetings, and local chamber of commerce introductions.",
+      "q4": "How are dietary restrictions handled?",
+      "a4": "Your guide will be briefed on any allergies or dietary preferences (Vegan, Halal, Gluten-Free). We pre-vet all restaurants and provide \"preference cards\" in the local language.",
+      "q5": "Is travel insurance included?",
+      "a5": "Standard travel insurance is not included in the base price, but we offer a comprehensive \"Digital Diplomat\" coverage add-on that includes medical evacuation and high-value equipment protection."
+    }
+  },
+  "trade": {
+    "hero": {
+      "trade_tab": "TRADE OVERVIEW",
+      "title_main": "Your supply chain doesn't need",
+      "title_sub": "more complexity.",
+      "description": "We bridge the gap between Indian ambition and Chinese manufacturing. End-to-end procurement, quality control, and logistics managed by experts.",
+      "cta_primary": "Start a Trade Inquiry",
+      "cta_secondary": "View Service Fees",
+      "alt_map": "Subtle abstract map"
+    },
+    "services": {
+      "badge": "End-to-End Solutions",
+      "title": "Supply Chain Orchestration",
+      "count": "05",
+      "count_label": "Core Disciplines",
+      "sourcing_title": "Product Sourcing",
+      "sourcing_desc": "Direct access to top-tier manufacturers. We negotiate price, verify factory capacity, and ensure ethical compliance before you commit.",
+      "sourcing_stat_01_val": "5000+",
+      "sourcing_stat_01_label": "Suppliers",
+      "sourcing_stat_02_val": "24hr",
+      "sourcing_stat_02_label": "Response",
+      "qc_title": "Quality Control",
+      "qc_desc": "Pre-shipment inspections and mid-production audits to ensure zero defects.",
+      "qc_cta": "VIEW PROTOCOLS",
+      "customs_title": "Customs",
+      "customs_desc": "Navigating HSN codes, duty structures, and documentation without the headaches.",
+      "customs_cta": "COMPLIANCE GUIDE",
+      "logistics_title": "Smart Logistics",
+      "logistics_desc": "From LCL/FCL sea freight to urgent air cargo. Real-time tracking and localized warehousing in Delhi, Mumbai, and Guangzhou.",
+      "logistics_stat_01_val": "18-22",
+      "logistics_stat_01_label": "Avg Days Sea",
+      "logistics_stat_02_val": "3-5",
+      "logistics_stat_02_label": "Avg Days Air",
+      "logistics_stat_03_val": "100%",
+      "logistics_stat_03_label": "Insured Transit",
+      "consulting_badge": "STRATEGIC",
+      "consulting_title": "Global Trade Consulting",
+      "consulting_desc": "Expert-led strategy for large scale imports, market entry analysis, and tariff optimization for enterprises looking to scale their supply chain sustainably.",
+      "consulting_cta": "Speak to an Advisor",
+      "alt_consulting": "Strategic background"
+    },
+    "process": {
+      "title": "Simple, Transparent Process",
+      "description": "Our workflow is designed to give you complete visibility without the operational burden.",
+      "step_01_title": "Tell Us What You Need",
+      "step_01_text": "Submit your product specs, target pricing, and volume requirements.",
+      "step_02_title": "We Source & Verify",
+      "step_02_text": "Our on-ground team identifies 3 vetted suppliers and sends samples for approval.",
+      "step_03_title": "Logistics & Customs",
+      "step_03_text": "We handle the freight booking, export docs, and Indian customs clearance.",
+      "step_04_title": "Delivery & Support",
+      "step_04_text": "Door-step delivery to your warehouse with dedicated after-sales support."
+    },
+    "industries": {
+      "title": "Industry Specializations",
+      "cat_01": "Electronics",
+      "cat_02": "Textiles & Apparel",
+      "cat_03": "Industrial Machinery",
+      "cat_04": "Auto Parts",
+      "cat_05": "Consumer Goods",
+      "cat_06": "Chemicals",
+      "cat_07": "Home Décor",
+      "cat_08": "Medical Equipment",
+      "cat_09": "Packaging Materials"
+    },
+    "form": {
+      "title": "Start a Trade Inquiry",
+      "description": "Our senior trade consultants will review your requirements and respond within 24 hours.",
+      "label_company": "Company Name",
+      "label_direction": "Trade Direction",
+      "label_category": "Product Category",
+      "label_volume": "Monthly Volume",
+      "label_desc": "Requirement Description",
+      "placeholder_company": "Acme International Ltd.",
+      "option_import": "Import to India",
+      "option_export": "Export from India",
+      "option_bilateral": "Bilateral / Both",
+      "cat_electronics": "Electronics",
+      "cat_machinery": "Machinery",
+      "cat_textiles": "Textiles",
+      "cat_other": "Other",
+      "placeholder_volume": "e.g. 2 x 40ft Containers",
+      "placeholder_desc": "Detail specifications...",
+      "submit": "Submit Trade Inquiry",
+      "alt_form": "Technical background"
+    },
+    "faq": {
+      "badge": "F.A.Q.",
+      "title": "Trade Intel",
+      "description": "Quick answers to common questions about cross-border commerce.",
+      "cta_desc": "Need a custom consultation?",
+      "cta_link": "Email our trade desk",
+      "q1": "What is the Minimum Order Quantity (MOQ)?",
+      "a1": "MOQs vary by industry. Typically, for custom electronics it starts at 500-1000 units, while for industrial machinery it can be a single unit. We specialize in negotiating MOQs for growing businesses.",
+      "q2": "How do you ensure Quality Assurance?",
+      "a2": "Our inspectors are on the factory floor during production and before sealing the container. We follow AQL standard (Acceptable Quality Limit) protocols.",
+      "q3": "What are the typical shipping timeframes?",
+      "a3": "Air freight takes 3-7 days. Sea freight from China ports to Mumbai or Mundra typically takes 18-25 days depending on the service route.",
+      "q4": "Can you handle Customs and BIS certifications?",
+      "a4": "Yes, we provide full support for BIS, WPC, and other regulatory filings required by the Indian government for specific electronic imports.",
+      "q5": "What are the payment terms (LC/TT)?",
+      "a5": "Standard terms are 30% deposit via TT and 70% against Bill of Lading. For established enterprise clients, we can facilitate LC (Letter of Credit) arrangements.",
+      "q6": "Do you support OEM and Private Labeling?",
+      "a6": "Absolutely. We help you find factories that specialize in white-labeling and can manage the branding and packaging customization process for you."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Let's build your future, together.",
+      "description": "Have questions about studying abroad, custom tours, or global trade? Our team is across the globe and ready to help.",
+      "badge": "Contact Us"
+    },
+    "options": {
+      "title": "Choose your pathway",
+      "description": "Select the service you're interested in so we can connect you with the right specialist.",
+      "edu_title": "Education Support",
+      "edu_desc": "Scholarships, university matching, and visa guidance.",
+      "tourism_title": "Travel & Tourism",
+      "tourism_desc": "Bespoke itineraries and business delegations.",
+      "trade_title": "Trade & Sourcing",
+      "trade_desc": "Procurement, QC, and logistics management."
+    },
+    "form": {
+      "title": "Send us a message",
+      "subtitle": "Fill out the form below and we'll get back to you within 24 hours.",
+      "submit": "Send Message",
+      "success": "Message sent! We'll be in touch soon.",
+      "send_another": "Send another message"
+    },
+    "info": {
+      "visit_us": "Visit Us",
+      "call_us": "Call Us",
+      "email_us": "Email Us",
+      "socials": "Follow Us",
+      "india_office": "New Delhi, India",
+      "china_office": "Guangzhou, China"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "We don't just connect countries. We connect people.",
+      "description": "Bridging horizons through dedicated pathways in education, tourism, and global trade. Our journey is defined by the lives we transform across borders.",
+      "badge": "About Us"
+    },
+    "story": {
+      "p1": "Founded on the principle of seamless global mobility, RouteToAbroad began as a vision to simplify the complexities of international transitions. We recognized that behind every visa application, trade agreement, or travel itinerary, there is a human ambition seeking growth.",
+      "quote1": "Our mission has never been about the distance traveled, but the depth of the connection established. We build corridors of opportunity that empower individuals to dream beyond their local maps.",
+      "ceo": "— Mr. Minhaj Al Shukoor, CEO",
+      "p2": "As we expanded into Education, Tourism, and Trade, our core philosophy remained unchanged: transparency and integrity. In an era of automated responses, we prioritize personalized guidance that respects the unique narrative of every client.",
+      "quote2": "Navigating international waters requires more than just logistics; it requires empathy. We act as the digital diplomat for those venturing into new territories, ensuring they never feel like a stranger.",
+      "director": "— Mr. Vijeesh Vijayan, Director",
+      "p3": "Today, RouteToAbroad stands as a multi-pillar institution, serving as a trusted partner for students, entrepreneurs, and explorers worldwide. We continue to innovate our processes while staying rooted in our founding promise of human-centric global service."
+    },
+    "values": {
+      "v1_title": "Relationships Over Transactions",
+      "v1_desc": "We view every client engagement as a long-term partnership, prioritizing trust and mutual growth over short-term gains.",
+      "v2_title": "Both Sides of the Bridge",
+      "v2_desc": "Understanding both the origin and destination cultures allows us to facilitate smoother transitions and deeper integrations.",
+      "v3_title": "No Shortcuts",
+      "v3_desc": "Compliance and ethical rigor are non-negotiable. We take the right path, ensuring security and peace of mind for our clients."
+    },
+    "leadership": {
+      "badge": "Leadership",
+      "title": "The Visionaries Behind RouteToAbroad",
+      "ceo_role": "Chief Executive Officer",
+      "ceo_bio": "A pioneer in cross-border logistics with over 15 years of experience in international relations. Minhaj leads the strategic direction of RouteToAbroad.",
+      "dir_role": "Director",
+      "dir_bio": "Expert in global education pathways and student migration policy. Vijeesh ensures our academic partnerships remain at the highest global standards.",
+      "linkedin": "LINKEDIN PROFILE",
+      "member1_name": "Sarah Jenkins",
+      "member1_role": "Head of Tourism",
+      "member2_name": "David Chen",
+      "member2_role": "Trade Consultant",
+      "member3_name": "Amara Okafor",
+      "member3_role": "Academic Liaison",
+      "member4_name": "Lucas Moretti",
+      "member4_role": "Compliance Lead"
+    },
+    "contact_cta": {
+      "title": "Let's talk.",
+      "description": "Ready to begin your journey? Our consultants are standing by to guide you through your international transition.",
+      "contact_us": "Contact Us",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "description": "Your strategic gateway to East Asia. Bridging borders through education, tourism, and trade excellence since 2018.",
+    "links": {
+      "education": "Education",
+      "tourism": "Tourism",
+      "trade": "Trade",
+      "about": "About Us",
+      "blog": "Insights",
+      "careers": "Careers",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy"
+    },
+    "categories": {
+      "company": "Company",
+      "services": "Services",
+      "legal": "Legal"
+    },
+    "copyright": "© 2026 RouteToAbroad. All rights reserved."
+  },
+  "common": {
+    "hotline": "Hotline",
+    "email_us": "Email Us",
+    "whatsapp": "WhatsApp",
+    "full_name": "Full Name",
+    "email": "Email Address",
+    "phone": "Phone Number",
+    "additional_notes": "Additional Notes",
+    "notes_placeholder": "Tell us more...",
+    "upload_label": "Upload Documents",
+    "upload_hint": "Drag & drop",
+    "browse": "browse",
+    "what_next": "What's Next?",
+    "instant_help": "Instant Help",
+    "chatbot_desc": "Talk to our AI Agent.",
+    "open_chatbot": "Open Chatbot",
+    "email_support": "Email Support",
+    "faq_title": "F.A.Q.",
+    "duration": "Duration",
+    "step_indicator": "Step {{current}} of {{total}}",
+    "free_consultation": "Free Consultation",
+    "save_results": "Save Results",
+    "next_question": "Next Question",
+    "stats": {
+      "students": "500+",
+      "years": "12+",
+      "countries": "3",
+      "success": "98%",
+      "partners": "150+",
+      "regions": "50+",
+      "suppliers": "200+",
+      "scholarships": "$2M+",
+      "guides": "12k+",
+      "volume": "10k+",
+      "support": "24hr"
+    },
+    "programs": {
+      "mbbs": "MBBS",
+      "engineering": "Engineering",
+      "business": "Business"
+    },
+    "dates": {
+      "sept_2026": "September 2026",
+      "march_2027": "March 2027"
+    },
+    "universities": {
+      "peking": "Peking University",
+      "tsinghua": "Tsinghua University",
+      "fudan": "Fudan University",
+      "zhejiang": "Zhejiang University",
+      "sjtu": "Shanghai Jiao Tong University"
+    },
+    "phone_numbers": {
+      "india": "+91 98765 43210",
+      "china": "+86 123 4567 8900"
+    }
+  }
+}

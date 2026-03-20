@@ -1,0 +1,591 @@
+{
+  "nav": {
+    "home": "首页",
+    "education": "教育",
+    "tourism": "旅游",
+    "trade": "贸易",
+    "about": "关于我们",
+    "contact": "联系我们",
+    "apply": "立即申请",
+    "select_language": "选择语言",
+    "toggle_theme": "切换主题"
+  },
+  "home": {
+    "hero": {
+      "badge": "您的战略门户",
+      "title": "通往东亚的桥梁",
+      "description": "应对跨境增长的复杂性。我们赋能学生、旅行者和企业，助力他们在海外取得成功。",
+      "explore": "探索项目",
+      "talk_advisor": "咨询顾问",
+      "students_placed": "已安置学生",
+      "years_experience": "多年经验",
+      "countries_served": "服务国家",
+      "alt_edu": "大学校园",
+      "alt_tourism": "茶园",
+      "alt_trade": "货运港口"
+    },
+    "marquee": {
+      "item_01": "就读清华大学 — Rahul M.",
+      "item_02": "全额医学奖学金 — Priya S.",
+      "item_03": "每月采购40英尺集装箱 — TechTrade India",
+      "item_04": "上海教育之旅 — 45名学生"
+    },
+    "expertise": {
+      "badge": "我们的支柱",
+      "pillar_badge": "支柱",
+      "title": "卓越的专业知识",
+      "pillar_01": "教育",
+      "pillar_02": "旅游",
+      "pillar_03": "贸易",
+      "edu_panel": {
+        "title": "顶尖教育咨询",
+        "description": "在海外顶尖大学学习，享受全额奖学金和端到端的搬迁支持。",
+        "feature_01": "医学与工程专家",
+        "feature_02": "CSC及大学奖学金",
+        "feature_03": "HSK语言培训",
+        "cta": "探索项目",
+        "learn_more": "了解更多关于教育的信息",
+        "stat_unis": "合作伙伴大学",
+        "stat_visa": "签证成功率",
+        "stat_scholarship": "奖学金"
+      },
+      "tourism_panel": {
+        "title": "精心策划的东亚之旅",
+        "description": "从文化遗产线路到高层商业代表团，由当地专家带您体验东亚。",
+        "feature_01": "定制行程规划",
+        "feature_02": "签证与物流礼宾",
+        "feature_03": "经审查的优质住宿",
+        "cta": "浏览目的地",
+        "learn_more": "了解更多关于旅游的信息",
+        "stat_unis": "地区",
+        "stat_visa": "导游",
+        "stat_scholarship": "体验"
+      },
+      "trade_panel": {
+        "title": "跨境贸易解决方案",
+        "description": "通过我们的专业实地团队，架起制造业与供应链之间的桥梁。",
+        "feature_01": "工厂审核与验证",
+        "feature_02": "端到端物流",
+        "feature_03": "质量控制协议",
+        "cta": "贸易查询",
+        "learn_more": "了解更多关于贸易的信息",
+        "stat_unis": "供应商",
+        "stat_visa": "周转周期",
+        "stat_scholarship": "贸易额"
+      }
+    },
+    "advantage": {
+      "badge": "核心优势",
+      "title": "我们的与众不同之处",
+      "years_exp_title": "多年经验",
+      "years_exp_desc": "自2012年以来，我们在边境两侧均设有当地团队。",
+      "impact_title": "影响深远",
+      "impact_desc": "不仅仅是数字；我们打造终身的职业轨迹。",
+      "point_01_title": "两地生活经验",
+      "point_01_desc": "我们的领导层不仅研究过这些市场，还在这些市场生活和创业过。我们了解北京谈判的潜规则和新德里的学术严谨。这种双重文化身份是我们最大的资产。",
+      "point_02_title": "一家公司，三项能力",
+      "point_02_desc": "不只是普通的机构。今天的学生就是明天的贸易伙伴。今天的游客就是明天的投资者。我们为您管理全球旅程的全生命周期。",
+      "point_03_title": "网络即产品",
+      "point_03_desc": "您不仅是在支付文书费用，更是在获取经过验证的网络。我们花十年时间筛选可靠性，让您无需担心。"
+    },
+    "pillars_deep": {
+      "edu_badge": "学术卓越",
+      "edu_title": "全球教育支持",
+      "edu_desc": "我们专注于在亚洲排名最高的机构中获得席位。我们的方案包括免学费机会、世界一流的宿舍和完整的职业咨询。",
+      "edu_cta": "查看合作伙伴大学",
+      "tourism_badge": "文化探索",
+      "tourism_title": "定制遗产之旅",
+      "tourism_desc": "超越旅游手册的体验。从专门的学生教育之旅到高端遗产线路，我们的旅行既有教育意义又能启发灵感。",
+      "tourism_cta": "探索目的地",
+      "trade_badge": "经济走廊",
+      "trade_title": "跨境贸易解决方案",
+      "trade_desc": "衔接各方制造业与供应链。我们为寻求国际化扩张的企业提供采购、质量控制和物流管理。",
+      "trade_cta": "贸易查询"
+    },
+    "testimonial": {
+      "quote": "“RouteToAbroad 不仅为我找到了大学，还为我找到了未来。北京大学留学奖学金覆盖非常顺利，实地支持让我感觉像在家一样。”",
+      "name": "Ananya Krishnan",
+      "role": "北京大学医学学士（2024届）"
+    },
+    "cta_strip": {
+      "title": "准备好开始了吗？",
+      "edu": "教育咨询",
+      "tourism": "旅游咨询",
+      "trade": "贸易咨询"
+    }
+  },
+  "education": {
+    "hero": {
+      "badge": "教育",
+      "title_part1": "留学中国。",
+      "title_part2": "改变一切。",
+      "description": "获得世界一流的学位、全额奖学金和全球网络。我们帮您处理复杂事务，让您可以专注于未来。",
+      "cta_primary": "申请奖学金",
+      "cta_secondary": "下载大学指南",
+      "stat_label": "签证成功率",
+      "alt_hero": "大学校园里微笑的学生"
+    },
+    "programs": {
+      "title": "提供的项目",
+      "mbbs": {
+        "title": "MBBS",
+        "desc": "全球认可的医学学位，采用英语授课课程和临床实习。"
+      },
+      "engineering": {
+        "title": "工程学",
+        "desc": "土木、机械和人工智能驱动的计算机科学领域的高级技术课程。"
+      },
+      "language": {
+        "title": "语言",
+        "desc": "沉浸式普通话课程，范围从 HSK 1 到专业商务流利。"
+      },
+      "business": {
+        "title": "商业",
+        "desc": "专为全球亚洲市场设计的国际贸易、经济和 MBA 课程。"
+      },
+      "undergrad": {
+        "title": "本科",
+        "desc": "涵盖社会科学和人文科学的综合 4 年制学士学位。"
+      },
+      "research": {
+        "title": "研究",
+        "desc": "提供最先进实验室和政府资助的硕士和博士职位。"
+      },
+      "explore_curriculum": "探索课程"
+    },
+    "process": {
+      "title": "您的成功之旅",
+      "subtitle": "完整流程",
+      "step_01": {
+        "title": "初步咨询",
+        "desc": "我们评估您的背景和学术目标。",
+        "duration": "1-2 天"
+      },
+      "step_02": {
+        "title": "大学匹配",
+        "desc": "选择符合您预算的前 3 所大学。",
+        "duration": "3-5 天"
+      },
+      "step_03": {
+        "title": "提交申请",
+        "desc": "向大学门户提交文件。",
+        "duration": "1-2 周"
+      },
+      "step_04": {
+        "title": "签证办理",
+        "desc": "JW202 发放和使馆预约指导。",
+        "duration": "4-8 周"
+      },
+      "step_05": {
+        "title": "抵港及入学",
+        "desc": "机场接机和校园注册支持。",
+        "duration": "持续进行"
+      }
+    },
+    "calculator": {
+      "title": "您有资格获得 <span class=\"text-education-blue\">中国奖学金吗？</span>",
+      "title_part1": "您是否有资格获得",
+      "title_part2": "中国奖学金？",
+      "description": "我们的 AI 驱动评估工具会分析您的学术记录，为您匹配 200 多个奖学金机会。",
+      "step": "第 {{current}} 步，共 {{total}} 步",
+      "gpa_label": "您目前的平均绩点 (CGPA) / 成绩是多少？",
+      "gpa_placeholder": "选择成绩范围",
+      "next": "下一个问题",
+      "result_title": "您有很大的机会",
+      "result_desc": "根据初步数据，您有资格获得 15 多所合作伙伴大学的 A 类（全额学费 + 生活费）奖学金。",
+      "result_cta_primary": "预约免费咨询",
+      "result_cta_secondary": "保存我的结果"
+    },
+    "partners": {
+      "badge": "与全球领军者合作",
+      "rank_label": "排名",
+      "students_label": "国际学生"
+    },
+    "form": {
+      "title": "准备好开始了吗？发送咨询",
+      "label_name": "全名",
+      "label_email": "电子邮件地址",
+      "label_phone": "电话号码",
+      "label_level": "当前教育程度",
+      "edu_level_hs": "高中",
+      "edu_level_bach": "学士学位",
+      "edu_level_mast": "硕士学位",
+      "label_program": "感兴趣的项目",
+      "label_intake": "目标入学季",
+      "label_budget": "预估预算（年度）",
+      "label_notes": "备注",
+      "label_upload": "上传简历/成绩单（可选）",
+      "placeholder_name": "张三",
+      "placeholder_email": "zhang@example.com",
+      "placeholder_phone": "+86 XXX XXXX XXXX",
+      "placeholder_notes": "请告诉我们更多关于您的背景...",
+      "upload_hint": "拖拽或浏览文件",
+      "submit": "提交申请咨询",
+      "next_steps_title": "接下来的步骤？",
+      "next_step_01_title": "验证：",
+      "next_step_01_text": "我们的顾问将在24小时内审核您的数据。",
+      "next_step_02_title": "回访：",
+      "next_step_02_text": "我们将安排15分钟的通话，讨论最适合您的3个选项。",
+      "next_step_03_title": "规划：",
+      "next_step_03_text": "收到定制的申请时间表和奖学金方案。",
+      "chatbot_title": "需要即时帮助？",
+      "chatbot_desc": "咨询我们的AI教育顾问，快速了解要求和费用。",
+      "chatbot_cta": "开启聊天",
+      "success_title": "申请已收到！",
+      "success_message": "我们的团队将在24小时内审核您的信息并与您联系。",
+      "send_another": "提交另一个咨询"
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": "医学学位在我的国家得到认可吗？",
+      "a1": "是的，我们代理的所有大学都列在世界卫生组织（WHO）世界医学院名录中，并得到各国主要医学委员会的认可。",
+      "q2": "奖学金是全额资助的吗？",
+      "q3": "对汉语水平有什么要求？",
+      "q4": "签证办理需要多长时间？"
+    }
+  },
+  "tourism": {
+    "hero": {
+      "alt": "壮丽的风景",
+      "title": "探索东亚。随心所欲。",
+      "description": "无与伦比的定制体验。从商业代表团到文化遗产之旅。",
+      "cta_primary": "浏览目的地",
+      "cta_secondary": "查看行程"
+    },
+    "destinations": {
+      "china": {
+        "badge": "目的地 01",
+        "title": "魅力之旅",
+        "description": "体验历史与现代的融合。从长城到上海的霓虹天际。体验悠久的文明与现代的辉煌。",
+        "item_01_title": "皇室遗产",
+        "item_01_desc": "北京与西安历史线路",
+        "item_02_title": "丝绸之路",
+        "item_02_desc": "中国西部古老贸易路线",
+        "item_03_title": "大湾区",
+        "item_03_desc": "现代贸易与创新中心",
+        "alt_traditional": "传统建筑",
+        "alt_modern": "现代上海",
+        "alt_nature": "自然风光"
+      },
+      "japan": {
+        "badge": "目的地 02",
+        "title": "和风传统",
+        "description": "禅意花园与繁华都市的交汇。发现日本工艺与待客之道的细腻之美。",
+        "kyoto_title": "京都禅意",
+        "kyoto_desc": "寺庙、茶道与永恒的花园。",
+        "tokyo_title": "东京科技",
+        "tokyo_desc": "秋叶原探索与商业网络。",
+        "badge_value": "14",
+        "badge_label": "独特地区",
+        "alt_landscape": "日本风光"
+      }
+    },
+    "modes": {
+      "title": "旅游模式",
+      "subtitle": "为不同需求量身定制，确保每一次旅程都能达到目标。",
+      "culture_title": "文化沉浸",
+      "culture_desc": "在专家导游的带领下深入了解历史、艺术和传统。",
+      "business_title": "商业代表团",
+      "business_desc": "为贸易展览会、工厂参观和企业峰会提供物流支持。",
+      "custom_title": "个性化定制",
+      "custom_desc": "为寻找专属体验的家庭或私人团体提供定制行程。",
+      "explore": "探索"
+    },
+    "care": {
+      "title": "全面服务",
+      "description": "我们处理每一个细节，让您专注于体验。我们的端到端服务是所有预订的标准配置。",
+      "guarantee_value": "100%",
+      "guarantee_label": "安心保障",
+      "service_01_title": "优先航班",
+      "service_01_desc": "航空公司合作伙伴，为您提供最佳航线。",
+      "service_02_title": "优质住宿",
+      "service_02_desc": "经过审查的五星级酒店和特色住宿。",
+      "service_03_title": "智能行程",
+      "service_03_desc": "针对旅行时间优化的动态安排。",
+      "service_04_title": "签证礼宾",
+      "service_04_desc": "专家处理 L、M 和 F 类签证。",
+      "service_05_title": "当地交通",
+      "service_05_desc": "所有城市的私人专车接送。",
+      "service_06_title": "24/7 支持",
+      "service_06_desc": "专业的全天候地面支持团队。"
+    },
+    "form": {
+      "title": "规划您的旅程",
+      "description": "告诉我们您的偏好，我们的专家将在24小时内起草定制提案。",
+      "label_destinations": "目的地",
+      "label_type": "旅行类型",
+      "label_count": "旅行人数",
+      "label_budget": "预估预算（每人）",
+      "label_dates": "首选日期",
+      "option_china": "中国大陆",
+      "option_japan": "日本",
+      "option_korea": "韩国",
+      "option_multi": "多目的地",
+      "destination_label": "目的地",
+      "type_label": "旅行类型",
+      "travelers_label": "旅行人数",
+      "budget_label": "预计预算（每人）",
+      "dates_label": "首选出发日期",
+      "type_cultural": "文化沉浸",
+      "type_business": "商务代表团",
+      "type_custom": "定制团体",
+      "budget_placeholder": "5000美元以上",
+      "dates_placeholder": "例如：2026年9月 - 2026年10月",
+      "submit": "发送咨询",
+      "success_title": "咨询已收到！",
+      "success_message": "我们的旅行专家将在24小时内回复您。",
+      "send_another": "提交另一个咨询"
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": "签证如何办理？",
+      "a1": "我们提供全方位的签证协助。无论您需要旅游 (L) 还是商务 (M) 签证，我们的团队都会处理相关文件和流程。",
+      "q2": "什么时候去最好？",
+      "a2": "春季（3月-5月）赏樱和秋季（9月-11月）赏枫通常被认为是最佳旅游时间。",
+      "q3": "可以安排商务会议吗？",
+      "a3": "可以。通过我们的贸易部门，我们可以安排工厂参观、政府会议等。",
+      "q4": "饮食限制如何处理？",
+      "a4": "我们会提前了解您的饮食要求（素食、清真等），并为您提供当地语言的“偏好卡”。",
+      "q5": "包含旅游保险吗？",
+      "a5": "标准价格不包含旅游保险，但我们提供全面的增值保障方案。"
+    }
+  },
+  "trade": {
+    "hero": {
+      "alt": "抽象地图",
+      "title_main": "您的供应链不需要",
+      "title_sub": "更多的复杂性。",
+      "description": "我们衔接各方制造业。由专家管理的端到端采购、质量控制和物流。",
+      "cta_primary": "启动贸易咨询",
+      "cta_secondary": "查看服务费"
+    },
+    "services": {
+      "badge": "端到端解决方案",
+      "title": "供应链协调",
+      "stat_label": "核心领域",
+      "sourcing_title": "产品采购",
+      "sourcing_desc": "直接联系顶级制造商。我们在您承诺之前协商价格、验证工厂产能并确保道德合规。",
+      "sourcing_stat_01": "供应商",
+      "sourcing_stat_02": "响应时间",
+      "qc_title": "质量控制",
+      "qc_desc": "装运前检验和生产中审核，确保零缺陷。",
+      "qc_cta": "查看协议",
+      "customs_title": "报关手续",
+      "customs_desc": "轻松应对编码、关税结构和文书工作。",
+      "customs_cta": "合规指南",
+      "logistics_title": "智能物流",
+      "logistics_desc": "从海运到紧急空运。实时跟踪以及在各大城市的本地化仓储。",
+      "logistics_stat_01": "海运均值",
+      "logistics_stat_02": "空运均值",
+      "logistics_stat_03": "全额投保",
+      "consulting_badge": "战略",
+      "consulting_title": "全球贸易咨询",
+      "consulting_desc": "由专家主导的战略，为寻求可持续规模化供应链的企业提供市场准入分析和关税优化。",
+      "consulting_cta": "咨询顾问",
+      "alt_consulting": "战略背景"
+    },
+    "process": {
+      "title": "简单透明的流程",
+      "description": "我们的工作流程旨在让您在没有运营负担的情况下获得完全的透明度。",
+      "step_01_title": "告知需求",
+      "step_01_text": "提交您的产品规格、目标价格和数量要求。",
+      "step_02_title": "采购与验证",
+      "step_02_text": "我们的团队确定3家经审查的供应商并发送样品。",
+      "step_03_title": "物流与清关",
+      "step_03_text": "我们处理货运预订、出口单证和进口清关。",
+      "step_04_title": "交付与支持",
+      "step_04_text": "送货上门，并提供专属的售后支持。"
+    },
+    "industries": {
+      "title": "行业专长"
+    },
+    "form": {
+      "alt": "背景图",
+      "title": "启动贸易咨询",
+      "description": "我们的资深贸易顾问将审核您的要求并在24小时内回复。",
+      "label_company": "公司名称",
+      "label_direction": "贸易方向",
+      "label_category": "产品类别",
+      "label_volume": "每月货量",
+      "label_desc": "需求说明",
+      "placeholder_company": "某某国际有限公司",
+      "placeholder_volume": "例如：每月2个40尺柜",
+      "placeholder_desc": "详细规格说明...",
+      "submit": "提交贸易咨询"
+    },
+    "faq": {
+      "badge": "常见问题",
+      "title": "贸易情报",
+      "description": "有关跨境商务常见问题的快速解答。",
+      "cta_desc": "需要定制咨询？",
+      "cta_link": "联系我们的贸易服务台",
+      "q1": "起订量是多少？",
+      "a1": "起订量因行业而异。通常，定制电子产品从500-1000件开始，而工业机械可以是一台。",
+      "q2": "如何保证质量？",
+      "a2": "我们的检验员会在生产过程中和封箱前到工厂现场，遵循 AQL 标准协议。",
+      "q3": "典型的货运时效是多久？",
+      "a3": "空运 3-7 天。海运通常需要 18-25 天。",
+      "q4": "可以处理清关和认证吗？",
+      "a4": "可以，我们提供针对特定进口所需的各项监管文件的全方位支持。",
+      "q5": "付款条件是什么？",
+      "a5": "标准条款是 30% 定金，70% 凭提单副本。我们也接受信用证 (LC) 安排。",
+      "q6": "支持 OEM 吗？",
+      "a6": "支持。我们协助您寻找专门从事贴牌生产的工厂并管理品牌流程。"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "让我们共同打造您的未来。",
+      "description": "对出国留学、定制旅游或全球贸易有疑问吗？我们的团队遍布全球，随时准备为您提供帮助。",
+      "badge": "联系我们"
+    },
+    "options": {
+      "title": "选择您的路径",
+      "description": "选择您感兴趣的服务，以便我们为您对接合适的专家。",
+      "edu_title": "教育支持",
+      "edu_desc": "奖学金、大学匹配和签证指导。",
+      "tourism_title": "旅行与旅游",
+      "tourism_desc": "定制行程和商业代表团。",
+      "trade_title": "贸易与采购",
+      "trade_desc": "采购、质量控制和物流管理。"
+    },
+    "form": {
+      "title": "向我们发送消息",
+      "subtitle": "填写下面的表格，我们将在 24 小时内回复您。",
+      "submit": "发送消息",
+      "success": "消息已发送！我们将尽快与您联系。",
+      "send_another": "再发一条消息"
+    },
+    "info": {
+      "visit_us": "访问我们",
+      "call_us": "致电我们",
+      "email_us": "给我们发邮件",
+      "socials": "关注我们",
+      "india_office": "印度新德里",
+      "china_office": "中国广州"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "我们不仅连接国家，更连接人心。",
+      "description": "通过教育、旅游和全球贸易实现跨境梦想。我们的旅程由我们影响的生命所定义。",
+      "badge": "关于我们"
+    },
+    "story": {
+      "p1": "RouteToAbroad 始于一个愿景，即简化国际转型的复杂性。我们意识到在每一份签证申请或贸易协议背后，都是一颗追求成长的进取之心。",
+      "quote1": "我们的使命从来不在于旅行的距离，而在于建立联系的深度。我们建立机会走廊，赋能个人超越眼前的地图去追逐梦想。",
+      "ceo": "— Minhaj Al Shukoor 先生, CEO",
+      "p2": "随着我们业务扩展到教育、旅游和贸易，我们的核心理念始终未变：透明与诚信。我们优先考虑个性化指导，尊重每位客户的独特故事。",
+      "quote2": "航行在国际水域需要的不仅仅是物流，更需要共情。我们充当各方的外交官，确保您在陌生的土地上永远不会感到像个陌生人。",
+      "director": "— Vijeesh Vijayan 先生, 董事",
+      "p3": "今天，RouteToAbroad 是一家多支柱机构，是全球学生、企业家和探索者的可靠合作伙伴。在坚持初心的同时，我们不断创新流程。"
+    },
+    "values": {
+      "v1_title": "关系重于交易",
+      "v1_desc": "我们将每一次客户参与视为长期的合作伙伴关系，优先考虑信任和共同成长。",
+      "v2_title": "桥梁的两端",
+      "v2_desc": "了解两端的文化，使我们能够促进更顺畅的转型和更深层的融合。",
+      "v3_title": "拒绝捷径",
+      "v3_desc": "合规与道德严谨是不容谈判的。我们走正确的道路，确保您的安全与安心。"
+    },
+    "leadership": {
+      "badge": "领导团队",
+      "title": "背后的远见者",
+      "ceo_role": "首席执行官",
+      "ceo_bio": "跨境物流领域的先驱，拥有超过15年的国际关系经验。领导集团的战略方向。",
+      "dir_role": "董事",
+      "dir_bio": "全球教育路径和学生移民政策专家。确保我们的学术合作伙伴保持最高标准。",
+      "linkedin": "领英主页",
+      "member1_name": "Sarah Jenkins",
+      "member1_role": "旅游部主管",
+      "member2_name": "David Chen",
+      "member2_role": "贸易顾问",
+      "member3_name": "Amara Okafor",
+      "member3_role": "学术联络员",
+      "member4_name": "Lucas Moretti",
+      "member4_role": "合规主管"
+    },
+    "contact_cta": {
+      "title": "让我们开始谈谈吧。",
+      "description": "准备好开始您的旅程了吗？我们的顾问随时准备为您提供指导。",
+      "contact_us": "联系我们",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "description": "您通往东亚的战略门户。自2018年以来，通过卓越的服务架起沟通的桥梁。",
+    "links": {
+      "education": "教育",
+      "tourism": "旅游",
+      "trade": "贸易",
+      "about": "关于我们",
+      "blog": "见解",
+      "careers": "职业",
+      "terms": "服务条款",
+      "privacy": "隐私政策"
+    },
+    "categories": {
+      "company": "公司",
+      "services": "服务",
+      "legal": "法律"
+    },
+    "copyright": "© 2026 RouteToAbroad. 版权所有。"
+  },
+  "common": {
+    "hotline": "热线电话",
+    "email_us": "邮件联系",
+    "whatsapp": "WhatsApp",
+    "full_name": "全名",
+    "email": "电子邮件",
+    "phone": "电话号码",
+    "additional_notes": "备注",
+    "notes_placeholder": "请告诉我们更多...",
+    "upload_label": "上传文件",
+    "upload_hint": "拖放或",
+    "browse": "浏览",
+    "what_next": "接下来做什么？",
+    "instant_help": "即时帮助",
+    "chatbot_desc": "咨询我们的 AI 助手。",
+    "open_chatbot": "打开聊天",
+    "email_support": "邮件支持",
+    "faq_title": "常见问题",
+    "duration": "持续时间",
+    "step_indicator": "第 {{current}} 步，共 {{total}} 步",
+    "free_consultation": "免费咨询",
+    "save_results": "保存结果",
+    "next_question": "下一题",
+    "stats": {
+      "students": "500+",
+      "years": "12+",
+      "countries": "3",
+      "success": "98%",
+      "partners": "150+",
+      "regions": "50+",
+      "suppliers": "200+",
+      "scholarships": "$2M+",
+      "guides": "12k+",
+      "volume": "10k+",
+      "support": "24小时"
+    },
+    "programs": {
+      "mbbs": "医学本科 (MBBS)",
+      "engineering": "工程学",
+      "business": "商业学"
+    },
+    "dates": {
+      "sept_2026": "2026年9月",
+      "march_2027": "2027年3月"
+    },
+    "universities": {
+      "peking": "北京大学",
+      "tsinghua": "清华大学",
+      "fudan": "复旦大学",
+      "zhejiang": "浙江大学",
+      "sjtu": "上海交通大学"
+    },
+    "phone_numbers": {
+      "india": "+91 98765 43210",
+      "china": "+86 123 4567 8900"
+    }
+  }
+}

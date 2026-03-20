@@ -1,0 +1,606 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "education": "Éducation",
+    "tourism": "Tourisme",
+    "trade": "Commerce",
+    "about": "À Propos",
+    "contact": "Contactez-nous",
+    "apply": "Postuler",
+    "select_language": "Changer la langue",
+    "toggle_theme": "Changer le thème"
+  },
+  "home": {
+    "hero": {
+      "badge": "Votre Passerelle Stratégique",
+      "title": "Un Pont vers l'Asie de l'Est",
+      "description": "Naviguer dans la complexité de la croissance transfrontalière. Nous donnons aux étudiants, aux voyageurs et aux entreprises les moyens de réussir.",
+      "explore": "Explorer nos Programmes",
+      "talk_advisor": "Parler à un Conseiller",
+      "students_placed": "Étudiants Placés",
+      "years_experience": "Années d'Expérience",
+      "countries_served": "Pays Servis",
+      "alt_edu": "Campus universitaire",
+      "alt_tourism": "Plantation de thé",
+      "alt_trade": "Port d'expédition"
+    },
+    "marquee": {
+      "item_01": "Placé à l'Université de Tsinghua — Rahul M.",
+      "item_02": "Bourse complète en médecine- Priya S.",
+      "item_03": "Sourcing mensuel de conteneurs — TechTrade India",
+      "item_04": "Tour éducatif à Shanghai — 45 Étudiants"
+    },
+    "expertise": {
+      "badge": "Nos Piliers",
+      "pillar_badge": "Pilier",
+      "title": "Expertise Inégalée",
+      "pillar_01": "Éducation",
+      "pillar_02": "Tourisme",
+      "pillar_03": "Commerce",
+      "edu_panel": {
+        "title": "Consulting Éducation de Premier Plan",
+        "description": "Étudiez dans les meilleures universités d'Asie avec des bourses d'études complètes et un soutien de bout en bout.",
+        "feature_01": "Spécialistes Médecine et Ingénierie",
+        "feature_02": "Bourses CSC et Universitaires",
+        "feature_03": "Formation linguistique HSK",
+        "cta": "Explorer les Programmes",
+        "learn_more": "En savoir plus sur l'Éducation",
+        "stat_unis": "Universités Partenaires",
+        "stat_visa": "Succès Visa",
+        "stat_scholarship": "Bourses d'Études"
+      },
+      "tourism_panel": {
+        "title": "Voyages Curatés en Asie",
+        "description": "Des circuits patrimoine culturel aux délégations d'affaires de haut niveau, découvrez l'Asie avec des experts locaux.",
+        "feature_01": "Planification d'Itinéraire Sur Mesure",
+        "feature_02": "Conciergerie Visa et Logistique",
+        "feature_03": "Séjours de Luxe Vérifiés",
+        "cta": "Parcourir les Destinations",
+        "learn_more": "En savoir plus sur le Tourisme",
+        "stat_unis": "Régions",
+        "stat_visa": "Guides",
+        "stat_scholarship": "Expériences"
+      },
+      "trade_panel": {
+        "title": "Solutions de Commerce Transfrontalier",
+        "description": "Comblez le fossé entre la fabrication et la chaîne d'approvisionnement avec nos équipes locales expertes.",
+        "feature_01": "Audits et Vérification d'Usines",
+        "feature_02": "Logistique de Bout en Bout",
+        "feature_03": "Protocoles de Contrôle Qualité",
+        "cta": "Demandes Commerciales",
+        "learn_more": "En savoir plus sur le Commerce",
+        "stat_unis": "Fournisseurs",
+        "stat_visa": "Délai de traitement",
+        "stat_scholarship": "Volume d'Échanges"
+      }
+    },
+    "advantage": {
+      "badge": "L'Avantage",
+      "title": "Pourquoi nous sommes différents",
+      "years_exp_title": "Années d'Expérience",
+      "years_exp_desc": "Opérant avec des équipes locales de chaque côté de la frontière depuis 2012.",
+      "impact_title": "Vies Impactées",
+      "impact_desc": "Plus que des chiffres ; nous bâtissons des trajectoires de carrière à vie.",
+      "point_01_title": "Vivre des deux côtés",
+      "point_01_desc": "Nos dirigeants n'ont pas seulement étudié ces marchés; ils y ont bâti des vies et des entreprises. Nous comprenons les règles non écrites de la négociation à Pékin et la rigueur académique de New Delhi. Ce patrimoine culturel est notre plus grand atout.",
+      "point_02_title": "Une entreprise, Trois capacités",
+      "point_02_desc": "Contrairement aux agences classiques, nous offrons un écosystème. L'étudiant d'aujourd'hui est le partenaire commercial de demain. Nous gérons le cycle de vie complet de votre parcours.",
+      "point_03_title": "Le réseau est le produit",
+      "point_03_desc": "Vous ne payez pas seulement pour de la paperasse. Vous achetez l'accès à un réseau vérifié de doyens d'universités et de hubs logistiques. Nous avons passé une décennie à filtrer pour la fiabilité."
+    },
+    "pillars_deep": {
+      "edu_badge": "Excellence Académique",
+      "edu_title": "Éducation Mondiale Subventionnée",
+      "edu_desc": "Nous nous spécialisons dans l'obtention de places en médecine et en ingénierie dans les meilleures institutions d'Asie. Nos forfaits incluent des opportunités de scolarité gratuite.",
+      "edu_cta": "Voir les Universités Partenaires",
+      "tourism_badge": "Exploration Culturelle",
+      "tourism_title": "Voyages Patrimoniaux sur Mesure",
+      "tourism_desc": "Découvrez l'Asie au-delà des brochures. Des visites éducatives pour étudiants aux circuits patrimoine de luxe.",
+      "tourism_cta": "Explorer les Destinations",
+      "trade_badge": "Corridor Économique",
+      "trade_title": "Solutions de Commerce Transfrontalier",
+      "trade_desc": "Comblez le fossé entre la fabrication et la chaîne d'approvisionnement à l'échelle internationale.",
+      "trade_cta": "Demandes Commerciales"
+    },
+    "testimonial": {
+      "quote": "\"RouteToAbroad ne m'a pas seulement trouvé une université; ils m'ont trouvé un avenir. La couverture de ma bourse à l'Université de Pékin s'est déroulée sans accroc.\"",
+      "name": "Ananya Krishnan",
+      "role": "MBBS, Université de Pékin (Promo 2024)"
+    },
+    "cta_strip": {
+      "title": "Prêt à franchir le pas ?",
+      "edu": "Demande Éducation",
+      "tourism": "Demande Tourisme",
+      "trade": "Demande Commerce"
+    }
+  },
+  "education": {
+    "hero": {
+      "badge": "Éducation",
+      "title_part1": "Étudier à l'étranger.",
+      "title_part2": "Tout changer.",
+      "description": "Accédez à des diplômes de classe mondiale et à des bourses complètes. Nous naviguons dans les complexités pour que vous puissiez vous concentrer sur votre avenir.",
+      "cta_primary": "Postuler pour une Bourse",
+      "cta_secondary": "Télécharger le Guide Universitaire",
+      "stat_label": "Taux de Succès Visa",
+      "alt_hero": "Étudiant souriant sur un campus moderne"
+    },
+    "programs": {
+      "title": "Programmes Offerts",
+      "mbbs": {
+        "title": "MBBS",
+        "desc": "Diplômes de médecine reconnus mondialement avec des cursus en anglais et des stages cliniques."
+      },
+      "engineering": {
+        "title": "Ingénierie",
+        "desc": "Programmes techniques avancés en génie civil, mécanique et informatique orientée IA."
+      },
+      "language": {
+        "title": "Langue",
+        "desc": "Programmes de chinois mandarin en immersion allant du HSK 1 à la fluidité professionnelle."
+      },
+      "business": {
+        "title": "Affaires",
+        "desc": "Commerce international, économie et programmes MBA conçus pour le marché asiatique mondial."
+      },
+      "undergrad": {
+        "title": "Licence",
+        "desc": "Licences complètes sur 4 ans en sciences sociales et en sciences humaines."
+      },
+      "research": {
+        "title": "Recherche",
+        "desc": "Postes de Master et de Doctorat avec accès à des laboratoires de pointe et des bourses gouvernementales."
+      },
+      "explore_curriculum": "Explorer le Cursus"
+    },
+    "process": {
+      "title": "Votre Parcours vers le Succès",
+      "subtitle": "Le Processus Complet",
+      "step_01": {
+        "title": "Consultation Initiale",
+        "desc": "Nous évaluons votre profil et vos objectifs académiques.",
+        "duration": "1-2 Jours"
+      },
+      "step_02": {
+        "title": "Correspondance Universitaire",
+        "desc": "Sélection du top 3 des universités alignées sur votre budget.",
+        "duration": "3-5 Jours"
+      },
+      "step_03": {
+        "title": "Dépôt des Candidatures",
+        "desc": "Soumission des documents sur les portails universitaires.",
+        "duration": "1-2 Semaines"
+      },
+      "step_04": {
+        "title": "Traitement du Visa",
+        "desc": "Émission du JW202 et conseils pour le rendez-vous à l'ambassade.",
+        "duration": "4-8 Semaines"
+      },
+      "step_05": {
+        "title": "Arrivée et Inscription",
+        "desc": "Accueil à l'aéroport et soutien à l'enregistrement sur le campus.",
+        "duration": "Continu"
+      }
+    },
+    "calculator": {
+      "title": "Êtes-vous éligible à une <span class=\"text-education-blue\">bourse chinoise?</span>",
+      "title_part1": "Êtes-vous éligible à une ",
+      "title_part2": "bourse chinoise ?",
+      "description": "Notre outil d'éligibilité basé sur l'IA analyse votre dossier académique pour vous proposer plus de 200 opportunités de bourses.",
+      "step": "ÉTAPE {{current}} SUR {{total}}",
+      "gpa_label": "Quelle est votre moyenne actuelle ?",
+      "gpa_placeholder": "Sélectionner la plage de notes",
+      "next": "Question Suivante",
+      "result_title": "Vous avez de fortes chances",
+      "result_desc": "Selon les données préliminaires, vous êtes éligible aux bourses de catégorie A (Scolarité complète + Allocation).",
+      "result_cta_primary": "Réserver une Consultation Gratuite",
+      "result_cta_secondary": "Enregistrer mes Résultats"
+    },
+    "partners": {
+      "badge": "Collaboration avec les Leaders Mondiaux",
+      "rank_label": "Rang en Asie",
+      "students_label": "Étudiants Int'l"
+    },
+    "form": {
+      "title": "Prêt à commencer ? Envoyez une demande",
+      "label_name": "Nom Complet",
+      "label_email": "Adresse E-mail",
+      "label_phone": "Numéro de Téléphone",
+      "label_level": "Niveau d'Études Actuel",
+      "edu_level_hs": "Lycée",
+      "edu_level_bach": "Licence",
+      "edu_level_mast": "Master",
+      "label_program": "Programme Intéressé",
+      "label_intake": "Session Cible",
+      "label_budget": "Budget Estimé (Annuel)",
+      "label_notes": "Notes Complémentaires",
+      "label_upload": "Télécharger CV / Relevés (Optionnel)",
+      "placeholder_name": "Jean Dupont",
+      "placeholder_email": "jean.dupont@example.fr",
+      "placeholder_phone": "+33 X XX XX XX XX",
+      "placeholder_notes": "Parlez-nous de votre parcours...",
+      "upload_hint": "Glissez-déposez ou parcourez les fichiers",
+      "submit": "Envoyer la Demande d'Inscription",
+      "next_steps_title": "Que se passe-t-il après ?",
+      "next_step_01_title": "Vérification :",
+      "next_step_01_text": "Nos conseillers examinent vos données sous 24h.",
+      "next_step_02_title": "Rappel :",
+      "next_step_02_text": "Nous planifions un appel de 15 min pour discuter de vos options.",
+      "next_step_03_title": "Feuille de Route :",
+      "next_step_03_text": "Recevez un calendrier personnalisé et un pack bourses.",
+      "chatbot_title": "Besoin d'aide immédiate ?",
+      "chatbot_desc": "Parlez à notre IA pour des réponses rapides sur les coûts.",
+      "chatbot_cta": "Ouvrir le Chatbot",
+      "success_title": "Demande reçue !",
+      "success_message": "Notre équipe examinera vos détails et vous contactera dans les 24 heures.",
+      "send_another": "Soumettre une autre demande"
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "q1": "Le diplôme est-il reconnu dans mon pays ?",
+      "a1": "Oui, toutes les universités que nous représentons sont listées dans l'annuaire de l'OMS et sont reconnues mondialement.",
+      "q2": "Les bourses sont-elles entièrement financées ?",
+      "q3": "Quelles sont les exigences linguistiques ?",
+      "q4": "Combien de temps prend le processus de visa ?"
+    }
+  },
+  "tourism": {
+    "hero": {
+      "alt": "Paysage d'Asie de l'Est",
+      "title": "Découvrez l'Asie. À Votre Manière.",
+      "description": "Accès privilégié à des expériences curatées à travers le Royaume du Milieu et au-delà.",
+      "cta_primary": "Parcourir les Destinations",
+      "cta_secondary": "Voir les Itinéraires"
+    },
+    "destinations": {
+      "china": {
+        "badge": "DESTINATION 01",
+        "title": "Le Royaume du Milieu",
+        "description": "Fusion époustouflante d'histoire ancienne et d'ambition futuriste. De la Grande Muraille aux gratte-ciel de Shanghai.",
+        "item_01_title": "Patrimoine Impérial",
+        "item_01_desc": "Circuit Historique Pékin et Xi'an",
+        "item_02_title": "La Route de la Soie",
+        "item_02_desc": "Régions de l'Ouest de la Chine",
+        "item_03_title": "Baie de Guangdong",
+        "item_03_desc": "Hubs Modernes d'Innovation",
+        "alt_traditional": "Chine Traditionnelle",
+        "alt_modern": "Shanghai Moderne",
+        "alt_nature": "Nature de Chine"
+      },
+      "japan": {
+        "badge": "DESTINATION 02",
+        "title": "Traditions du Japon",
+        "description": "Où les jardins zen rencontrent les technopoles animées.",
+        "kyoto_title": "Kyoto Zen",
+        "kyoto_desc": "Temples, cérémonies du thé et jardins.",
+        "tokyo_title": "Tokyo Tech",
+        "tokyo_desc": "Exploration d'Akihabara et networking d'affaires.",
+        "badge_value": "14",
+        "badge_label": "Régions Uniques",
+        "alt_landscape": "Paysage du Japon"
+      }
+    },
+    "modes": {
+      "title": "Modes de Voyage",
+      "subtitle": "Approches sur mesure pour répondre à chaque objectif de voyage.",
+      "culture_title": "Immersion Culturelle",
+      "culture_desc": "Plongez dans l'histoire et les arts avec des guides experts.",
+      "business_title": "Délégations d'Affaires",
+      "business_desc": "Soutien logistique pour foires commerciales et visites d'usines.",
+      "custom_title": "Privé et Groupe",
+      "custom_desc": "Itinéraires sur mesure pour familles ou groupes privés.",
+      "explore": "EXPLORER"
+    },
+    "care": {
+      "title": "Prise en Charge Complète",
+      "description": "Nous gérons chaque détail pour que vous puissiez profiter de l'expérience.",
+      "guarantee_value": "100%",
+      "guarantee_label": "Garantie Tranquillité d'Esprit",
+      "service_01_title": "Vols Prioritaires",
+      "service_01_desc": "Partenariats aériens pour un routage optimal.",
+      "service_02_title": "Séjours de Luxe",
+      "service_02_desc": "Hôtels 5 étoiles et riads de charme vérifiés.",
+      "service_03_title": "Itinéraire Intelligent",
+      "service_03_desc": "Planification optimisée pour le temps de voyage.",
+      "service_04_title": "Conciergerie Visa",
+      "service_04_desc": "Gestion experte des catégories L, M et F.",
+      "service_05_title": "Transport Local",
+      "service_05_desc": "Transferts privés avec chauffeur dans toutes les villes.",
+      "service_06_title": "Support 24/7",
+      "service_06_desc": "Équipe d'assistance locale multilingue dédiée."
+    },
+    "form": {
+      "title": "Planifiez Votre Voyage",
+      "description": "Nos experts rédigeront une proposition personnalisée sous 24h.",
+      "destination_label": "Destination(s)",
+      "type_label": "Type de Voyage",
+      "travelers_label": "Nombre de Voyageurs",
+      "budget_label": "Budget Estimé (par pers.)",
+      "dates_label": "Dates Souhaitées",
+      "option_china": "Chine Continentale",
+      "option_japan": "Japon",
+      "option_korea": "Corée du Sud",
+      "option_multi": "Multi-Destination",
+      "type_cultural": "Immersion Culturelle",
+      "type_business": "Délégation d'Affaires",
+      "type_custom": "Groupe Sur Mesure",
+      "budget_placeholder": "5 000 €+",
+      "dates_placeholder": "ex: sept 2026 - oct 2026",
+      "submit": "Envoyer la Demande"
+    },
+    "faq": {
+      "title": "Foire Aux Questions",
+      "q1": "Comment fonctionnent les visas ?",
+      "a1": "Nous offrons un soutien complet. Notre équipe gère la documentation et les invitations.",
+      "q2": "Quelle est la meilleure période pour visiter ?",
+      "a2": "Le printemps pour les cerisiers en fleurs et l'automne pour les couleurs sont idéaux.",
+      "q3": "Pouvez-vous organiser des réunions d'affaires ?",
+      "a3": "Oui, par notre branche Commerce, nous organisons des visites d'usines et des rencontres sectorielles.",
+      "q4": "Comment sont gérées les restrictions alimentaires ?",
+      "a4": "Nous fournissons des cartes de préférence en langue locale pour vos allergies.",
+      "q5": "L'assurance voyage est-elle incluse ?",
+      "a5": "L'assurance standard n'est pas incluse, mais nous proposons une option complète."
+    }
+  },
+  "trade": {
+    "hero": {
+      "trade_tab": "APERÇU DU COMMERCE",
+      "title_main": "Votre chaîne d'approvisionnement",
+      "title_sub": "moins complexe.",
+      "description": "Nous comblons le fossé entre les ambitions et la fabrication internationale. Gestion experte de bout en bout.",
+      "cta_primary": "Démarrer une demande Commerce",
+      "cta_secondary": "Voir les frais de service",
+      "alt_map": "Carte abstraite subtile"
+    },
+    "services": {
+      "badge": "Solutions de Bout en Bout",
+      "title": "Orchestration de la Chaîne d'Approvisionnement",
+      "count": "05",
+      "count_label": "Disciplines Clés",
+      "sourcing_title": "Sourcing de Produits",
+      "sourcing_desc": "Accès direct aux meilleurs fabricants. Nous négocions les prix et vérifions la conformité éthique.",
+      "sourcing_stat_01_val": "5000+",
+      "sourcing_stat_01_label": "Fournisseurs",
+      "sourcing_stat_02_val": "24h",
+      "sourcing_stat_02_label": "Réponse",
+      "qc_title": "Contrôle Qualité",
+      "qc_desc": "Inspections avant expédition pour garantir zéro défaut.",
+      "qc_cta": "VOIR LES PROTOCOLES",
+      "customs_title": "Douanes",
+      "customs_desc": "Gestion des codes douaniers et des taxes sans maux de tête.",
+      "customs_cta": "GUIDE DE CONFORMITÉ",
+      "logistics_title": "Logistique Intelligente",
+      "logistics_desc": "Du fret maritime au fret aérien urgent. Suivi en temps réel et entrepôts locaux.",
+      "logistics_stat_01_val": "18-22",
+      "logistics_stat_01_label": "Moy. Jours Mer",
+      "logistics_stat_02_val": "3-5",
+      "logistics_stat_02_label": "Moy. Jours Air",
+      "logistics_stat_03_val": "100%",
+      "logistics_stat_03_label": "Transit Assuré",
+      "consulting_badge": "STRATÉGIQUE",
+      "consulting_title": "Consulting Trade Global",
+      "consulting_desc": "Stratégie menée par des experts pour les importations à grande échelle et l'entrée sur le marché.",
+      "consulting_cta": "Parler à un Advisor",
+      "alt_consulting": "Arrière-plan stratégique"
+    },
+    "process": {
+      "title": "Processus Simple et Transparent",
+      "description": "Notre flux de travail vous donne une visibilité complète sans le fardeau opérationnel.",
+      "step_01_title": "Dites-nous vos besoins",
+      "step_01_text": "Spécifications du produit, prix cible et volumes.",
+      "step_02_title": "Sourcing et Vérification",
+      "step_02_text": "Nous identifions les meilleurs fournisseurs et envoyons des échantillons.",
+      "step_03_title": "Logistique et Douanes",
+      "step_03_text": "Nous gérons le fret et le dédouanement.",
+      "step_04_title": "Livraison et Support",
+      "step_04_text": "Livraison à votre entrepôt avec support après-vente dédié."
+    },
+    "industries": {
+      "title": "Spécialisations Sectorielles",
+      "cat_01": "Électronique",
+      "cat_02": "Textile et Habillement",
+      "cat_03": "Machines Industrielles",
+      "cat_04": "Pièces Automobiles",
+      "cat_05": "Biens de Consommation",
+      "cat_06": "Produits Chimiques",
+      "cat_07": "Décoration de la Maison",
+      "cat_08": "Équipement Médical",
+      "cat_09": "Matériaux d'Emballage"
+    },
+    "form": {
+      "title": "Démarrer une demande Commerce",
+      "description": "Nos consultants examineront vos besoins sous 24h.",
+      "label_company": "Nom de l'Entreprise",
+      "label_direction": "Sens des Échanges",
+      "label_category": "Catégorie de Produit",
+      "label_volume": "Volume Mensuel",
+      "label_desc": "Description du Besoin",
+      "placeholder_company": "Société Exemple SAS",
+      "option_import": "Import vers l'Inde",
+      "option_export": "Export de l'Inde",
+      "option_bilateral": "Bilatéral / Les deux",
+      "cat_electronics": "Électronique",
+      "cat_machinery": "Machines",
+      "cat_textiles": "Textiles",
+      "cat_other": "Autre",
+      "placeholder_volume": "ex: 2 conteneurs de 40ft",
+      "placeholder_desc": "Détails des spécifications...",
+      "submit": "Soumettre la Demande",
+      "alt_form": "Arrière-plan technique"
+    },
+    "faq": {
+      "badge": "F.A.Q.",
+      "title": "Trade Intel",
+      "description": "Réponses aux questions courantes sur le commerce transfrontalier.",
+      "cta_desc": "Besoin d'une consultation ?",
+      "cta_link": "E-mail desk commerce",
+      "q1": "Quelle est la quantité minimum (MOQ) ?",
+      "a1": "Les MOQs varient selon l'industrie. Nous négocions pour les entreprises en croissance.",
+      "q2": "Comment assurez-vous la qualité ?",
+      "a2": "Nos inspecteurs sont sur place avant le scellement du conteneur selon les protocoles AQL.",
+      "q3": "Quels sont les délais d'expédition ?",
+      "a3": "Air: 3-7 jours. Mer: 18-25 jours généralement.",
+      "q4": "Géres-vous les certifications ?",
+      "a4": "Oui, nous fournissons un soutien complet pour tous les dossiers réglementaires.",
+      "q5": "Quelles sont les conditions de paiement ?",
+      "a5": "Termes standards: 30% acompte, 70% contre document.",
+      "q6": "Supportez-vous l'OEM ?",
+      "a6": "Absolument. Nous aidons à trouver des usines pour votre propre marque."
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Construisons votre avenir ensemble.",
+      "description": "Des questions sur les études à l'étranger, les voyages personnalisés ou le commerce mondial ? Notre équipe est prête à vous aider.",
+      "badge": "Contactez-nous"
+    },
+    "options": {
+      "title": "Choisissez votre voie",
+      "description": "Sélectionnez le service qui vous intéresse afin que nous puissions vous mettre en relation avec le bon spécialiste.",
+      "edu_title": "Soutien à l'Éducation",
+      "edu_desc": "Bourses, correspondance universitaire et conseils en matière de visa.",
+      "tourism_title": "Voyages et Tourisme",
+      "tourism_desc": "Itinéraires sur mesure et délégations d'affaires.",
+      "trade_title": "Commerce et Sourcing",
+      "trade_desc": "Approvisionnement, contrôle qualité et gestion logistique."
+    },
+    "form": {
+      "title": "Envoyez-nous un message",
+      "subtitle": "Remplissez le formulaire ci-dessous et nous vous répondrons sous 24 heures.",
+      "submit": "Envoyer le Message",
+      "success": "Message envoyé ! Nous vous contacterons bientôt.",
+      "send_another": "Envoyer un autre message"
+    },
+    "info": {
+      "visit_us": "Visitez-nous",
+      "call_us": "Appelez-nous",
+      "email_us": "Écrivez-nous",
+      "socials": "Suivez-nous",
+      "india_office": "New Delhi, Inde",
+      "china_office": "Guangzhou, Chine"
+    }
+  },
+  "about": {
+    "hero": {
+      "title": "Nous ne connectons pas seulement les pays. Nous connectons les gens.",
+      "description": "Bâtir des horizons à travers l'éducation, le tourisme et le commerce mondial.",
+      "badge": "À Propos"
+    },
+    "story": {
+      "p1": "Fondée sur le principe de mobilité globale fluide, RouteToAbroad est née d'une vision consistant à simplifier les transitions internationales.",
+      "quote1": "Notre mission n'a jamais été la distance parcourue, mais la profondeur de la connexion établie.",
+      "ceo": "— Mr. Minhaj Al Shukoor, CEO",
+      "p2": "Notre philosophie reste inchangée : transparence et intégrité. Nous privilégions un accompagnement personnalisé.",
+      "quote2": "Naviguer en eaux internationales nécessite de l'empathie. Nous agissons comme un diplomate pour vous.",
+      "director": "— Mr. Vijeesh Vijayan, Directeur",
+      "p3": "Aujourd'hui, RouteToAbroad est un partenaire de confiance pour les étudiants et entrepreneurs du monde entier."
+    },
+    "values": {
+      "v1_title": "Relations Avant Transactions",
+      "v1_desc": "Nous voyons chaque engagement client comme un partenariat durable.",
+      "v2_title": "Les Deux Côtés du Pont",
+      "v2_desc": "Comprendre les deux cultures permet une intégration plus profonde.",
+      "v3_title": "Pas de Raccourcis",
+      "v3_desc": "La conformité et l'éthique sont non négociables. Nous prenons le bon chemin."
+    },
+    "leadership": {
+      "badge": "Leadership",
+      "title": "Les Visionnaires",
+      "ceo_role": "CEO",
+      "ceo_bio": "Un pionnier de la logistique avec plus de 15 ans d'expérience.",
+      "dir_role": "Directeur",
+      "dir_bio": "Expert en parcours d'éducation globale.",
+      "linkedin": "PROFIL LINKEDIN",
+      "member1_name": "Sarah Jenkins",
+      "member1_role": "Responsable Tourisme",
+      "member2_name": "David Chen",
+      "member2_role": "Consultant Trade",
+      "member3_name": "Amara Okafor",
+      "member3_role": "Liaison Académique",
+      "member4_name": "Lucas Moretti",
+      "member4_role": "Responsable Conformité"
+    },
+    "contact_cta": {
+      "title": "Discutons.",
+      "description": "Prêt à commencer votre voyage ? Nos consultants sont là pour vous guider.",
+      "contact_us": "Contactez-nous",
+      "whatsapp": "WhatsApp"
+    }
+  },
+  "footer": {
+    "description": "Votre passerelle stratégique vers l'Asie de l'Est. Excellence depuis 2018.",
+    "links": {
+      "education": "Éducation",
+      "tourism": "Tourisme",
+      "trade": "Commerce",
+      "about": "À Propos",
+      "blog": "Insights",
+      "careers": "Carrières",
+      "terms": "Conditions",
+      "privacy": "Confidentialité"
+    },
+    "categories": {
+      "company": "Entreprise",
+      "services": "Services",
+      "legal": "Légal"
+    },
+    "copyright": "© 2026 RouteToAbroad. Tous droits réservés."
+  },
+  "common": {
+    "hotline": "Hotline",
+    "email_us": "E-mail",
+    "whatsapp": "WhatsApp",
+    "full_name": "Nom Complet",
+    "email": "Adresse E-mail",
+    "phone": "Numéro de Téléphone",
+    "additional_notes": "Notes Complémentaires",
+    "notes_placeholder": "Parlez-nous de vous...",
+    "upload_label": "Charger des Documents",
+    "upload_hint": "Glissez-déposez ou",
+    "browse": "parcourir",
+    "what_next": "Et après ?",
+    "instant_help": "Aide Immédiate",
+    "chatbot_desc": "Parlez à notre agent IA.",
+    "open_chatbot": "Ouvrir le Chat",
+    "email_support": "Support E-mail",
+    "faq_title": "F.A.Q.",
+    "duration": "Durée",
+    "step_indicator": "Étape {{current}} sur {{total}}",
+    "free_consultation": "Consultation Gratuite",
+    "save_results": "Enregistrer les Résultats",
+    "next_question": "Question Suivante",
+    "stats": {
+      "students": "500+",
+      "years": "12+",
+      "countries": "3",
+      "success": "98%",
+      "partners": "150+",
+      "regions": "50+",
+      "suppliers": "200+",
+      "scholarships": "$2M+",
+      "guides": "12k+",
+      "volume": "10k+",
+      "support": "24h"
+    },
+    "programs": {
+      "mbbs": "MBBS",
+      "engineering": "Ingénierie",
+      "business": "Commerce"
+    },
+    "dates": {
+      "sept_2026": "Septembre 2026",
+      "march_2027": "Mars 2027"
+    },
+    "universities": {
+      "peking": "Université de Pékin",
+      "tsinghua": "Université Tsinghua",
+      "fudan": "Université Fudan",
+      "zhejiang": "Université du Zhejiang",
+      "sjtu": "Université Jiao Tong de Shanghai"
+    },
+    "phone_numbers": {
+      "india": "+91 98765 43210",
+      "china": "+86 123 4567 8900"
+    }
+  }
+}
