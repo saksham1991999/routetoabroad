@@ -28,7 +28,7 @@ const Tourism = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -99,12 +99,12 @@ const Tourism = () => {
                   <img
                     src="/assets/images/tourism_traditional.jpg"
                     alt={t('tourism.destinations.china.alt_traditional')}
-                    className="rounded-3xl h-64 w-full object-cover shadow-2xl"
+                    className="rounded-3xl h-48 sm:h-64 w-full object-cover shadow-2xl"
                   />
                   <img
                     src="/assets/images/tourism_shanghai.jpg"
                     alt={t('tourism.destinations.china.alt_modern')}
-                    className="rounded-3xl h-80 w-full object-cover shadow-2xl"
+                    className="rounded-3xl h-56 sm:h-80 w-full object-cover shadow-2xl"
                   />
                 </div>
                 <div className="pt-8">
@@ -260,7 +260,7 @@ const Tourism = () => {
       <section className="py-24 bg-white dark:bg-slate-900" id="inquiry">
         <div className="max-w-7xl mx-auto px-4">
           <Reveal variant="slide-up">
-            <div className="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-800/50 rounded-[3rem] p-8 md:p-16 border border-slate-100 dark:border-slate-800">
+            <div className="max-w-4xl mx-auto bg-slate-50 dark:bg-slate-800/50 rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 border border-slate-100 dark:border-slate-800">
               <div className="text-center mb-12">
                 <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">{t('tourism.form.title')}</h2>
                 <p className="text-slate-600 dark:text-slate-400">{t('tourism.form.description')}</p>

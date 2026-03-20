@@ -8,9 +8,9 @@ export default function About() {
 
   return (
     <>
-      <main className="pt-[72px] transition-colors duration-300">
+      <main className="transition-colors duration-300">
         {/* Hero Section */}
-        <section className="py-24 px-8 bg-surface dark:bg-slate-950">
+        <section className="py-24 px-4 sm:px-8 bg-surface dark:bg-slate-950">
           <div className="max-w-[720px] mx-auto text-left md:text-center">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-semibold mb-6 block">
               {t('about.hero.badge')}
@@ -25,7 +25,7 @@ export default function About() {
         </section>
 
         {/* Our Story Section */}
-        <section className="py-24 px-8 bg-surface-container-lowest dark:bg-slate-900/30">
+        <section className="py-24 px-4 sm:px-8 bg-surface-container-lowest dark:bg-slate-900/30">
           <div className="max-w-[720px] mx-auto">
             <div className="prose prose-slate prose-lg lg:prose-xl text-slate-600 dark:text-slate-400 font-body leading-relaxed max-w-none">
               <p className="mb-8">
@@ -54,7 +54,7 @@ export default function About() {
         </section>
 
         {/* Values Section */}
-        <section className="py-24 px-8 bg-surface-container-low dark:bg-slate-900/50">
+        <section className="py-24 px-4 sm:px-8 bg-surface-container-low dark:bg-slate-900/50">
           <div className="max-w-[1200px] mx-auto">
             <Reveal variant="slide-up">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -63,7 +63,7 @@ export default function About() {
                   { icon: 'swap_horiz', title: t('about.values.v2_title'), desc: t('about.values.v2_desc'), color: 'emerald' },
                   { icon: 'shield', title: t('about.values.v3_title'), desc: t('about.values.v3_desc'), color: 'violet' }
                 ].map((value) => (
-                  <div key={value.title} className="bg-white dark:bg-slate-800 p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-outline-variant/10">
+                  <div key={value.title} className="bg-white dark:bg-slate-800 p-6 md:p-10 rounded-3xl shadow-sm hover:shadow-xl transition-all group border border-outline-variant/10">
                     <div className="w-14 h-14 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300 bg-blue-100 text-blue-600 dark:bg-blue-500/10 dark:text-blue-400">
                       <span className="material-symbols-outlined text-3xl">{value.icon}</span>
                     </div>
@@ -77,7 +77,7 @@ export default function About() {
         </section>
 
         {/* Leadership Section */}
-        <section className="py-24 px-8 bg-surface dark:bg-slate-950">
+        <section className="py-24 px-4 sm:px-8 bg-surface dark:bg-slate-950">
           <div className="max-w-[1200px] mx-auto">
             <div className="mb-20">
               <span className="font-mono text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-semibold mb-4 block">
@@ -121,7 +121,7 @@ export default function About() {
 
             {/* Support Team Grid */}
             <Reveal variant="slide-up">
-              <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                 {[
                   { name: t('about.leadership.member1_name'), role: t('about.leadership.member1_role'), img: '/assets/images/team_sarah.jpg' },
                   { name: t('about.leadership.member2_name'), role: t('about.leadership.member2_role'), img: '/assets/images/team_david.jpg' },
@@ -146,7 +146,7 @@ export default function About() {
         </section>
 
         {/* Contact CTA */}
-        <section className="py-24 px-8 bg-surface-container-low dark:bg-slate-900/50">
+        <section className="py-24 px-4 sm:px-8 bg-surface-container-low dark:bg-slate-900/50">
           <div className="max-w-[800px] mx-auto text-center">
             <h2 className="text-5xl md:text-6xl font-headline font-extrabold text-slate-950 dark:text-white mb-8 tracking-tighter">
               {t('about.contact_cta.title')}

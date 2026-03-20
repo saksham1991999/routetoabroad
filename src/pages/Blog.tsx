@@ -33,7 +33,7 @@ export default function Blog() {
       {/* Hero */}
       <section className="bg-slate-950 py-24 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 blur-[120px] pointer-events-none" />
-        <div className="max-w-[1440px] mx-auto px-8 relative z-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-8 relative z-10">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">
             {t('nav.blog')}
           </span>
@@ -47,7 +47,7 @@ export default function Blog() {
       </section>
 
       {/* Filter + Grid */}
-      <section className="py-16 px-8 max-w-[1440px] mx-auto">
+      <section className="py-16 px-4 sm:px-8 max-w-[1440px] mx-auto">
         {/* Filter tabs */}
         <div className="flex flex-wrap gap-3 mb-12">
           {filters.map(({ key, label }) => (
@@ -88,7 +88,7 @@ export default function Blog() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                   <div className="absolute bottom-3 left-4">
                     <Badge variant={blog.category} size="sm">
-                      {blog.category.charAt(0).toUpperCase() + blog.category.slice(1)}
+                      {t(`blog.categories.${blog.category}`)}
                     </Badge>
                   </div>
                 </div>

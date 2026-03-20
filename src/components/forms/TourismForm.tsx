@@ -79,8 +79,8 @@ export default function TourismForm() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center text-center py-16 px-8">
-        <div className="w-24 h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-8 shadow-inner ring-8 ring-emerald-50 dark:ring-emerald-900/10">
+      <div className="flex flex-col items-center justify-center text-center py-10 px-6 md:py-16 md:px-8">
+        <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-8 shadow-inner ring-4 md:ring-8 ring-emerald-50 dark:ring-emerald-900/10">
           <CheckCircle2 className="w-12 h-12 text-emerald-600 dark:text-emerald-400" strokeWidth={1.75} />
         </div>
         <h3 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">

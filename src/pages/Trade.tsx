@@ -30,7 +30,7 @@ const Trade = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden bg-slate-950">
         <div className="absolute inset-0 opacity-20">
@@ -180,7 +180,7 @@ const Trade = () => {
       <section className="py-24 bg-slate-50 dark:bg-slate-800/50">
         <div className="max-w-7xl mx-auto px-4">
           <Reveal variant="slide-up">
-            <div className="bg-slate-900 rounded-[3rem] overflow-hidden relative">
+            <div className="bg-slate-900 rounded-[1.5rem] md:rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden relative">
               <div className="absolute top-0 right-0 w-1/2 h-full opacity-30">
                 <img
                   src="/assets/images/trade_consulting.jpg"
@@ -220,7 +220,7 @@ const Trade = () => {
             </p>
           </Reveal>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { id: '01', title: t('trade.process.step_01_title'), desc: t('trade.process.step_01_text'), icon: Search },
               { id: '02', title: t('trade.process.step_02_title'), desc: t('trade.process.step_02_text'), icon: Box },
@@ -271,8 +271,8 @@ const Trade = () => {
       <section className="py-24 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4">
           <Reveal variant="slide-up">
-            <div className="max-w-5xl mx-auto bg-blue-600 rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
-              <div className="lg:w-1/2 p-12 md:p-20 text-white relative flex flex-col justify-between">
+            <div className="max-w-5xl mx-auto bg-blue-600 rounded-[1.5rem] md:rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden shadow-2xl flex flex-col lg:flex-row">
+              <div className="lg:w-1/2 p-8 md:p-12 lg:p-20 text-white relative flex flex-col justify-between">
                 <div className="relative z-10">
                   <h2 className="text-4xl font-bold mb-6">{t('trade.form.title')}</h2>
                   <p className="text-blue-100 text-lg mb-12">{t('trade.form.description')}</p>
@@ -299,7 +299,7 @@ const Trade = () => {
                 />
               </div>
 
-              <div className="lg:w-1/2 bg-white dark:bg-slate-800 p-8 md:p-16">
+              <div className="lg:w-1/2 bg-white dark:bg-slate-800 p-6 md:p-8 lg:p-16">
                 <TradeForm />
               </div>
             </div>

@@ -76,7 +76,7 @@ export default function EducationForm() {
 
   if (status === 'success') {
     return (
-      <div className="flex flex-col items-center justify-center text-center py-16 px-8 bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
+      <div className="flex flex-col items-center justify-center text-center py-10 px-6 md:py-16 md:px-8 bg-white dark:bg-slate-900 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
         <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-6 shadow-inner">
           <CheckCircle2 className="w-10 h-10 text-emerald-600 dark:text-emerald-400" />
         </div>
@@ -126,7 +126,7 @@ export default function EducationForm() {
   ];
 
   return (
-    <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
+    <div className="bg-white dark:bg-slate-900 p-6 md:p-10 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
       <form
         className="space-y-6"
         onSubmit={handleSubmit}

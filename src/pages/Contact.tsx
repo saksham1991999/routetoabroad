@@ -39,7 +39,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-0">
       {/* Hero Section */}
       <section className="relative py-24 bg-slate-50 dark:bg-slate-900/50 overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -72,7 +72,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
 
             {/* Left: Contact Info & Options */}
-            <div className="lg:col-span-12 xl:col-span-5 space-y-12">
+            <div className="lg:col-span-5 space-y-12">
               <Reveal variant="slide-up" delay={0}>
                 <div>
                   <h2 className="text-3xl font-bold text-slate-950 dark:text-white mb-4">
@@ -84,7 +84,7 @@ const Contact = () => {
                 </div>
               </Reveal>
 
-              <div className="grid grid-cols-1 sm:grid-cols-3 xl:grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-4">
                 {contactOptions.map((option, idx) => (
                   <Reveal key={option.id} variant="slide-left" delay={idx * 80}>
                     <button
@@ -161,9 +161,9 @@ const Contact = () => {
             </div>
 
             {/* Right: Contact Form */}
-            <div className="lg:col-span-12 xl:col-span-7">
+            <div className="lg:col-span-7">
               <Reveal variant="slide-right" delay={100}>
-                <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 md:p-12 rounded-[3rem] shadow-2xl">
+                <div className="bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-8 md:p-12 rounded-[1.5rem] md:rounded-[2.5rem] lg:rounded-[3rem] shadow-2xl">
                   <div className="mb-10">
                     <h3 className="text-3xl font-bold text-slate-950 dark:text-white mb-2">
                       {t('contact.form.title')}
@@ -184,16 +184,16 @@ const Contact = () => {
       {/* Social / Quote Section */}
       <section className="py-24 bg-slate-950 text-white overflow-hidden relative">
         <div className="absolute inset-0 opacity-20">
-          <Globe2 className="w-[800px] h-[800px] absolute -right-64 -bottom-64 text-blue-500 animate-[spin_60s_linear_infinite]" />
+          <Globe2 className="w-[400px] h-[400px] md:w-[800px] md:h-[800px] absolute -right-32 -bottom-32 md:-right-64 md:-bottom-64 text-blue-500 animate-[spin_60s_linear_infinite]" />
         </div>
         <div className="max-w-7xl mx-auto px-4 relative z-10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-12">
             <Reveal variant="slide-left" delay={0} className="max-w-xl">
               <h2 className="text-4xl font-bold mb-6 italic">
-                "A journey of a thousand miles begins with a single conversation."
+                {t('contact.info.quote')}
               </h2>
               <p className="text-slate-400 text-lg leading-relaxed">
-                Connect with our local experts today and let us simplify your global transition. We're not just consultants; we're your partners in East Asian growth.
+                {t('contact.info.quote_desc')}
               </p>
             </Reveal>
 

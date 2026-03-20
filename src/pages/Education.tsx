@@ -80,7 +80,7 @@ const Education = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center overflow-hidden bg-slate-50 dark:bg-slate-900">
         <div className="absolute inset-0 bg-grid-slate-200 dark:bg-grid-slate-800 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
@@ -90,7 +90,7 @@ const Education = () => {
               <GraduationCap className="w-4 h-4 mr-2" />
               {t('education.hero.badge')}
             </span>
-            <h1 className="text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1] mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-slate-900 dark:text-white leading-[1.1] mb-6">
               {t('education.hero.title_part1')}<br/>
               <span className="text-education-blue">{t('education.hero.title_part2')}</span>
             </h1>
@@ -127,11 +127,11 @@ const Education = () => {
 
           <div className="relative animate-fade-in group">
             <div className="absolute -inset-4 bg-education-blue/10 rounded-[2rem] blur-2xl group-hover:bg-education-blue/20 transition-colors" />
-            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
+            <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white dark:border-slate-800">
               <img
                 src="/assets/images/edu-hero.svg"
                 alt={t('education.hero.alt_hero')}
-                className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
+                className="w-full h-[300px] md:h-[450px] lg:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>
           </div>
@@ -193,15 +193,15 @@ const Education = () => {
               <div className="grid gap-6 w-full">
                 {steps.map((stepKey, idx) => (
                   <div key={stepKey} className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                    <div className="flex items-center gap-6">
-                      <div className="w-12 h-12 rounded-full bg-education-blue/20 text-education-blue flex items-center justify-center font-bold text-xl border border-education-blue/30">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6">
+                      <div className="w-12 h-12 rounded-full bg-education-blue/20 text-education-blue flex items-center justify-center font-bold text-xl border border-education-blue/30 shrink-0">
                         {idx + 1}
                       </div>
                       <div>
                         <h3 className="text-xl font-bold mb-1">{t(`education.process.${stepKey}.title`)}</h3>
                         <p className="text-slate-400">{t(`education.process.${stepKey}.desc`)}</p>
                       </div>
-                      <div className="ml-auto text-education-blue font-medium px-4 py-1 rounded-full bg-education-blue/10 border border-education-blue/20">
+                      <div className="sm:ml-auto text-education-blue font-medium px-4 py-1 rounded-full bg-education-blue/10 border border-education-blue/20">
                         {t(`education.process.${stepKey}.duration`)}
                       </div>
                     </div>
@@ -217,7 +217,7 @@ const Education = () => {
       <section className="py-24 bg-slate-50 dark:bg-slate-900/50">
         <div className="max-w-4xl mx-auto px-4">
           <div className="bg-white dark:bg-slate-900 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800 overflow-hidden">
-            <div className="p-12">
+            <div className="p-6 md:p-12">
               <div className="flex items-center gap-3 mb-8">
                 <div className="p-3 bg-education-blue/10 rounded-xl text-education-blue">
                   <Calculator className="w-6 h-6" />
@@ -347,7 +347,7 @@ const Education = () => {
                 </div>
               </div>
 
-              <div className="p-8 rounded-[2.5rem] bg-indigo-900 dark:bg-black text-white relative overflow-hidden group border border-white/10">
+              <div className="p-6 md:p-8 rounded-[1.5rem] md:rounded-[2.5rem] bg-indigo-900 dark:bg-black text-white relative overflow-hidden group border border-white/10">
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-white/20 transition-colors" />
                 <h3 className="text-2xl font-bold mb-4">{t('education.form.chatbot_title')}</h3>
                 <p className="text-indigo-200 mb-8 max-w-xs">{t('education.form.chatbot_desc')}</p>

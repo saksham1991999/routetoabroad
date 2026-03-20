@@ -31,9 +31,9 @@ export default function Home() {
   const featuredBlogs = BLOGS.filter((b) => b.featured);
 
   const testimonialCategoryLabel: Record<string, string> = {
-    education: 'Education',
-    tourism: 'Tourism',
-    trade: 'Trade',
+    education: t('education.hero.badge'),
+    tourism: t('tourism.hero.title_part1') || 'Tourism',
+    trade: t('trade.hero.trade_tab'),
   };
 
   const pillars: PillarConfig[] = [
@@ -48,7 +48,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="min-h-[calc(100vh-72px)] flex flex-col md:flex-row overflow-hidden mesh-grain">
           {/* Left Content (55%) */}
-          <div className="w-full md:w-[55%] px-8 md:px-24 flex flex-col justify-center py-16">
+          <div className="w-full md:w-[55%] px-4 sm:px-8 md:px-24 flex flex-col justify-center py-16">
             <div className="inline-flex items-center gap-3 mb-8">
               <div className="h-[2px] w-12 bg-secondary"></div>
               <span className="font-mono text-sm font-semibold tracking-widest text-secondary uppercase whitespace-normal">{t('home.hero.badge')}</span>
@@ -68,7 +68,7 @@ export default function Home() {
               </Link>
             </div>
             {/* Trust Strip */}
-            <div className="grid grid-cols-3 gap-8 pt-12 border-t border-outline-variant/20">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-8 pt-12 border-t border-outline-variant/20">
               <div>
                 <div className="font-mono text-3xl font-bold text-primary dark:text-blue-400 mb-1">{t('common.stats.students')}</div>
                 <div className="text-xs uppercase tracking-widest text-on-surface-variant font-semibold">{t('home.hero.students_placed')}</div>
@@ -84,7 +84,7 @@ export default function Home() {
             </div>
           </div>
           {/* Right Visual (45%) */}
-          <div className="w-full md:w-[45%] relative bg-surface-container-low dark:bg-slate-900 overflow-hidden min-h-[500px] flex items-center justify-center">
+          <div className="w-full md:w-[45%] relative bg-surface-container-low dark:bg-slate-900 overflow-hidden min-h-[300px] md:min-h-[500px] flex items-center justify-center">
             <div className="relative w-full max-w-[500px] aspect-square">
               {/* Geometric Composition */}
               <div className="absolute top-0 right-0 w-3/4 h-3/4 rounded-[48px] overflow-hidden shadow-2xl rotate-3 bg-blue-100 p-2 dark:bg-blue-900/30">
@@ -113,7 +113,7 @@ export default function Home() {
         </div>
 
         {/* Pillar Navigator */}
-        <section className="py-24 px-8 max-w-[1440px] mx-auto bg-white dark:bg-slate-950">
+        <section className="py-24 px-4 sm:px-8 max-w-[1440px] mx-auto bg-white dark:bg-slate-950">
           <div className="flex flex-col items-center mb-16 text-center">
             <span className="font-mono text-xs uppercase tracking-[0.2em] text-on-surface-variant dark:text-slate-500 font-bold mb-4">{t('home.expertise.badge')}</span>
             <h2 className="text-4xl md:text-5xl font-headline font-bold text-primary dark:text-blue-400">{t('home.expertise.title')}</h2>
@@ -148,7 +148,7 @@ export default function Home() {
 
               {/* Content Panel */}
               <div className="lg:col-span-8 overflow-hidden">
-                <div className="grid md:grid-cols-2 gap-12 items-center min-h-[400px]">
+                <div className="grid md:grid-cols-2 gap-12 items-center min-h-[300px] md:min-h-[400px]">
                   <div className="space-y-8 animate-in fade-in slide-in-from-right-4 duration-500">
                     <h3 className="text-3xl font-headline font-bold text-primary dark:text-blue-400">{t(`home.expertise.${activePillar}_panel.title`)}</h3>
                     <p className="text-on-surface-variant dark:text-slate-400 leading-relaxed">
@@ -212,19 +212,19 @@ export default function Home() {
         </section>
 
         {/* Why RouteToAbroad (Sticky Narrative) */}
-        <section className="py-24 bg-surface dark:bg-slate-950 px-8 transition-colors duration-300">
+        <section className="py-24 bg-surface dark:bg-slate-950 px-4 sm:px-8 transition-colors duration-300">
           <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
             <div className="md:sticky md:top-32 h-fit">
               <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">{t('home.advantage.badge')}</span>
               <h2 className="text-5xl md:text-6xl font-headline font-extrabold text-primary dark:text-blue-400 mb-12">{t('home.advantage.title')}</h2>
               <div className="space-y-12">
                 <div>
-                  <div className="font-mono text-7xl font-extrabold text-primary/10 dark:text-blue-400/10 tracking-tighter mb-[-1.5rem] relative z-0">{t('common.stats.years')}</div>
+                  <div className="font-mono text-5xl md:text-7xl font-extrabold text-primary/10 dark:text-blue-400/10 tracking-tighter mb-[-1.5rem] relative z-0">{t('common.stats.years')}</div>
                   <div className="text-xl font-bold relative z-10 text-primary dark:text-blue-300">{t('home.advantage.years_exp_title')}</div>
                   <p className="text-on-surface-variant dark:text-slate-400 max-w-xs mt-2">{t('home.advantage.years_exp_desc')}</p>
                 </div>
                 <div>
-                  <div className="font-mono text-7xl font-extrabold text-primary/10 dark:text-blue-400/10 tracking-tighter mb-[-1.5rem] relative z-0">{t('common.stats.students')}</div>
+                  <div className="font-mono text-5xl md:text-7xl font-extrabold text-primary/10 dark:text-blue-400/10 tracking-tighter mb-[-1.5rem] relative z-0">{t('common.stats.students')}</div>
                   <div className="text-xl font-bold relative z-10 text-primary dark:text-blue-300">{t('home.advantage.impact_title')}</div>
                   <p className="text-on-surface-variant dark:text-slate-400 max-w-xs mt-2">{t('home.advantage.impact_desc')}</p>
                 </div>
@@ -259,21 +259,21 @@ export default function Home() {
         {/* Stats Bar */}
         <Reveal variant="slide-up">
           <div className="bg-surface-container-low dark:bg-slate-900 py-12 border-y border-outline-variant/10">
-            <div className="max-w-[1440px] mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
               <div className="text-center md:border-r border-outline-variant/20 last:border-0">
-                <div className="font-mono text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.students')}</div>
+                <div className="font-mono text-2xl sm:text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.students')}</div>
                 <div className="text-xs uppercase tracking-widest font-bold opacity-60 text-slate-500">{t('home.hero.students_placed')}</div>
               </div>
               <div className="text-center md:border-r border-outline-variant/20 last:border-0">
-                <div className="font-mono text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.years')}</div>
+                <div className="font-mono text-2xl sm:text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.years')}</div>
                 <div className="text-xs uppercase tracking-widest font-bold opacity-60 text-slate-500">{t('home.hero.years_experience')}</div>
               </div>
               <div className="text-center md:border-r border-outline-variant/20 last:border-0">
-                <div className="font-mono text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.success')}</div>
+                <div className="font-mono text-2xl sm:text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.success')}</div>
                 <div className="text-xs uppercase tracking-widest font-bold opacity-60 text-slate-500">{t('education.hero.stat_label')}</div>
               </div>
               <div className="text-center">
-                <div className="font-mono text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.countries')}</div>
+                <div className="font-mono text-2xl sm:text-4xl font-extrabold text-primary dark:text-blue-400 mb-2">{t('common.stats.countries')}</div>
                 <div className="text-xs uppercase tracking-widest font-bold opacity-60 text-slate-500">{t('home.hero.countries_served')}</div>
               </div>
             </div>
@@ -282,7 +282,7 @@ export default function Home() {
 
         {/* Three Pillars Deep-Dive Cards */}
         <Reveal variant="slide-up">
-          <section className="py-24 space-y-24 px-8 max-w-[1440px] mx-auto bg-white dark:bg-slate-950">
+          <section className="py-24 space-y-24 px-4 sm:px-8 max-w-[1440px] mx-auto bg-white dark:bg-slate-950">
             {/* Education */}
             <div className="flex flex-col md:flex-row items-center gap-12 group">
               <div className="w-full md:w-1/2 aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl bg-blue-100 dark:bg-blue-900/20 relative">
@@ -339,7 +339,7 @@ export default function Home() {
 
         {/* Latest Insights */}
         <Reveal variant="slide-up">
-          <section className="py-24 px-8 max-w-[1440px] mx-auto">
+          <section className="py-24 px-4 sm:px-8 max-w-[1440px] mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-12">
               <div>
                 <span className="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-3 block">{t('home.insights.badge')}</span>
@@ -399,7 +399,7 @@ export default function Home() {
         <Reveal variant="slide-up">
           <section className="bg-slate-950 py-32 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 blur-[120px]"></div>
-            <div className="max-w-[1440px] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+            <div className="max-w-[1440px] mx-auto px-4 sm:px-8 relative z-10 flex flex-col items-center text-center">
               <svg className="text-white/20 mb-8" fill="none" height="60" viewBox="0 0 24 24" width="60">
                 <path d="M10 11L8 17H5L7 11H5V7H11V11H10ZM18 11L16 17H13L15 11H13V7H19V11H18Z" fill="currentColor"></path>
               </svg>
@@ -436,7 +436,7 @@ export default function Home() {
                     onClick={() => setActiveTestimonial(idx)}
                     aria-label={`Go to testimonial ${idx + 1}`}
                     className={cn(
-                      'rounded-full transition-all duration-300',
+                      'p-3 rounded-full transition-all duration-300',
                       idx === activeTestimonial
                         ? 'w-6 h-2 bg-secondary'
                         : 'w-2 h-2 bg-white/30 hover:bg-white/60'
@@ -451,7 +451,7 @@ export default function Home() {
         {/* CTA Section */}
         <section className="bg-secondary-container py-24 relative overflow-hidden">
           <div className="absolute inset-0 bg-white/5 grain-overlay mix-blend-overlay"></div>
-          <div className="max-w-[1440px] mx-auto px-8 relative z-10 text-center">
+          <div className="max-w-[1440px] mx-auto px-4 sm:px-8 relative z-10 text-center">
             <h2 className="text-4xl md:text-6xl font-headline font-extrabold text-white mb-12">{t('home.cta_strip.title')}</h2>
             <div className="flex flex-wrap justify-center gap-4 mb-12">
               <Link to="/education" className="bg-white text-secondary-container px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-all active:scale-95">{t('home.cta_strip.edu')}</Link>
