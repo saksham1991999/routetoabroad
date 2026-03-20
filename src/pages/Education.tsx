@@ -1,18 +1,22 @@
 import { useState } from 'react';
-import { 
-  GraduationCap, 
-  BookOpen, 
-  Globe, 
-  Search, 
-  Compass, 
-  Calculator, 
-  ArrowRight, 
-  CheckCircle2, 
-  MessageSquare, 
+import {
+  GraduationCap,
+  BookOpen,
+  Globe,
+  Search,
+  Compass,
+  Calculator,
+  ArrowRight,
+  CheckCircle2,
+  MessageSquare,
   Award,
   Users
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import Accordion from '../components/ui/Accordion';
+import type { AccordionItem } from '../components/ui/Accordion';
+import EducationForm from '../components/forms/EducationForm';
+import Reveal from '../components/animation/Reveal';
 
 const Education = () => {
   const { t } = useTranslation();
@@ -20,39 +24,39 @@ const Education = () => {
   const [showResult, setShowResult] = useState(false);
 
   const programs = [
-    { 
-      id: 'mbbs', 
-      icon: GraduationCap, 
+    {
+      id: 'mbbs',
+      icon: GraduationCap,
       color: 'bg-blue-100 text-blue-600',
       tag: 'Medicine'
     },
-    { 
-      id: 'engineering', 
-      icon: Compass, 
+    {
+      id: 'engineering',
+      icon: Compass,
       color: 'bg-indigo-100 text-indigo-600',
       tag: 'Technology'
     },
-    { 
-      id: 'language', 
-      icon: Globe, 
+    {
+      id: 'language',
+      icon: Globe,
       color: 'bg-emerald-100 text-emerald-600',
       tag: 'Cultural'
     },
-    { 
-      id: 'business', 
-      icon: Award, 
+    {
+      id: 'business',
+      icon: Award,
       color: 'bg-amber-100 text-amber-600',
       tag: 'Corporate'
     },
-    { 
-      id: 'undergrad', 
-      icon: BookOpen, 
+    {
+      id: 'undergrad',
+      icon: BookOpen,
       color: 'bg-rose-100 text-rose-600',
       tag: 'Academic'
     },
-    { 
-      id: 'research', 
-      icon: Search, 
+    {
+      id: 'research',
+      icon: Search,
       color: 'bg-violet-100 text-violet-600',
       tag: 'Scientific'
     }
@@ -61,11 +65,18 @@ const Education = () => {
   const steps = ['step_01', 'step_02', 'step_03', 'step_04', 'step_05'];
 
   const universities = [
-    { id: 'peking', rank: 'Asia #1', students: '10,000+', image: '/assets/edu-1.jpg' },
-    { id: 'tsinghua', rank: 'Asia #2', students: '9,500+', image: '/assets/edu-2.jpg' },
-    { id: 'fudan', rank: 'Asia #5', students: '7,000+', image: '/assets/edu-3.jpg' },
-    { id: 'zhejiang', rank: 'Asia #8', students: '6,500+', image: '/assets/edu-4.jpg' },
-    { id: 'sjtu', rank: 'Asia #10', students: '8,000+', image: '/assets/edu-5.jpg' }
+    { id: 'peking', rank: 'Asia #1', students: '10,000+', image: '/assets/images/edu-1.svg' },
+    { id: 'tsinghua', rank: 'Asia #2', students: '9,500+', image: '/assets/images/edu-2.svg' },
+    { id: 'fudan', rank: 'Asia #5', students: '7,000+', image: '/assets/images/edu-3.svg' },
+    { id: 'zhejiang', rank: 'Asia #8', students: '6,500+', image: '/assets/images/edu-4.svg' },
+    { id: 'sjtu', rank: 'Asia #10', students: '8,000+', image: '/assets/images/edu-5.svg' }
+  ];
+
+  const faqItems: AccordionItem[] = [
+    { id: 1, question: t('education.faq.q1'), answer: t('education.faq.a1') },
+    { id: 2, question: t('education.faq.q2'), answer: t('education.faq.a2') },
+    { id: 3, question: t('education.faq.q3'), answer: t('education.faq.a3') },
+    { id: 4, question: t('education.faq.q4'), answer: t('education.faq.a4') },
   ];
 
   return (
@@ -87,7 +98,7 @@ const Education = () => {
               {t('education.hero.description')}
             </p>
             <div className="flex flex-wrap gap-4">
-              <button 
+              <button
                 onClick={() => document.getElementById('education-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
                 className="px-8 py-4 bg-education-blue text-white rounded-xl font-semibold hover:bg-education-blue/90 transition-all flex items-center group shadow-lg shadow-education-blue/25"
               >
@@ -98,12 +109,12 @@ const Education = () => {
                 {t('education.hero.cta_secondary')}
               </button>
             </div>
-            
+
             <div className="mt-12 flex items-center gap-6 p-4 bg-white/80 dark:bg-slate-800/80 backdrop-blur rounded-2xl border border-white/50 dark:border-slate-700 w-fit">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/150?u=${i+10}`} alt="Student" />
+                    <img src={`/assets/images/student_${(i % 6) + 1}.svg`} alt="Student" className="w-12 h-12 rounded-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -113,12 +124,12 @@ const Education = () => {
               </div>
             </div>
           </div>
-          
+
           <div className="relative animate-fade-in group">
             <div className="absolute -inset-4 bg-education-blue/10 rounded-[2rem] blur-2xl group-hover:bg-education-blue/20 transition-colors" />
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-8 border-white dark:border-slate-800">
-              <img 
-                src="/assets/edu-hero.jpg" 
+              <img
+                src="/assets/images/edu-hero.svg"
                 alt={t('education.hero.alt_hero')}
                 className="w-full h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -134,27 +145,29 @@ const Education = () => {
             <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-4">{t('education.programs.title')}</h2>
             <div className="h-1.5 w-24 bg-education-blue mx-auto rounded-full" />
           </div>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {programs.map((program) => {
-              const Icon = program.icon;
-              return (
-                <div key={program.id} className="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-education-blue/30 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all duration-300">
-                  <div className={`w-14 h-14 ${program.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-7 h-7" />
+
+          <Reveal variant="slide-up">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {programs.map((program) => {
+                const Icon = program.icon;
+                return (
+                  <div key={program.id} className="group p-8 rounded-3xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:border-education-blue/30 hover:bg-white dark:hover:bg-slate-800 hover:shadow-xl transition-all duration-300">
+                    <div className={`w-14 h-14 ${program.color} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform`}>
+                      <Icon className="w-7 h-7" />
+                    </div>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t(`education.programs.${program.id}.title`)}</h3>
+                    <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
+                      {t(`education.programs.${program.id}.desc`)}
+                    </p>
+                    <button className="text-education-blue font-bold flex items-center group/btn">
+                      {t('education.programs.explore_curriculum')}
+                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-3">{t(`education.programs.${program.id}.title`)}</h3>
-                  <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
-                    {t(`education.programs.${program.id}.desc`)}
-                  </p>
-                  <button className="text-education-blue font-bold flex items-center group/btn">
-                    {t('education.programs.explore_curriculum')}
-                    <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                  </button>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -162,7 +175,7 @@ const Education = () => {
       <section className="py-24 bg-slate-900 dark:bg-black text-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 relative">
           <div className="absolute top-0 right-0 w-96 h-96 bg-education-blue/20 blur-[120px] rounded-full" />
-          
+
           <div className="flex flex-col lg:flex-row gap-16 items-center">
             <div className="lg:w-1/3">
               <span className="text-education-blue font-bold tracking-wider uppercase mb-4 block">
@@ -175,25 +188,27 @@ const Education = () => {
                 {t('education.hero.description')}
               </p>
             </div>
-            
-            <div className="lg:w-2/3 grid gap-6 w-full">
-              {steps.map((stepKey, idx) => (
-                <div key={stepKey} className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
-                  <div className="flex items-center gap-6">
-                    <div className="w-12 h-12 rounded-full bg-education-blue/20 text-education-blue flex items-center justify-center font-bold text-xl border border-education-blue/30">
-                      {idx + 1}
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold mb-1">{t(`education.process.${stepKey}.title`)}</h3>
-                      <p className="text-slate-400">{t(`education.process.${stepKey}.desc`)}</p>
-                    </div>
-                    <div className="ml-auto text-education-blue font-medium px-4 py-1 rounded-full bg-education-blue/10 border border-education-blue/20">
-                      {t(`education.process.${stepKey}.duration`)}
+
+            <Reveal variant="slide-up" className="lg:w-2/3 w-full">
+              <div className="grid gap-6 w-full">
+                {steps.map((stepKey, idx) => (
+                  <div key={stepKey} className="group relative p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all">
+                    <div className="flex items-center gap-6">
+                      <div className="w-12 h-12 rounded-full bg-education-blue/20 text-education-blue flex items-center justify-center font-bold text-xl border border-education-blue/30">
+                        {idx + 1}
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold mb-1">{t(`education.process.${stepKey}.title`)}</h3>
+                        <p className="text-slate-400">{t(`education.process.${stepKey}.desc`)}</p>
+                      </div>
+                      <div className="ml-auto text-education-blue font-medium px-4 py-1 rounded-full bg-education-blue/10 border border-education-blue/20">
+                        {t(`education.process.${stepKey}.duration`)}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
+                ))}
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -211,17 +226,20 @@ const Education = () => {
                   {t('education.calculator.step', { current: 1, total: 3 })}
                 </span>
               </div>
-              
+
               {!showResult ? (
                 <div className="animate-fade-in">
-                  <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight" dangerouslySetInnerHTML={{ __html: t('education.calculator.title') }} />
+                  <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-6 leading-tight">
+                    {t('education.calculator.title_part1')}
+                    <span className="text-blue-600 dark:text-blue-400">{t('education.calculator.title_part2')}</span>
+                  </h2>
                   <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed">
                     {t('education.calculator.description')}
                   </p>
-                  
+
                   <div className="space-y-6">
                     <label className="block text-lg font-bold text-slate-700 dark:text-slate-200">{t('education.calculator.gpa_label')}</label>
-                    <select 
+                    <select
                       value={cgpa}
                       onChange={(e) => setCgpa(e.target.value)}
                       className="w-full p-5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-2xl focus:border-education-blue focus:ring-4 focus:ring-education-blue/5 outline-none transition-all text-lg font-medium dark:text-white"
@@ -234,7 +252,7 @@ const Education = () => {
                     </select>
                   </div>
 
-                  <button 
+                  <button
                     onClick={() => setShowResult(true)}
                     className="mt-10 w-full py-5 bg-education-blue text-white rounded-2xl font-bold text-xl hover:bg-education-blue/90 transition-all shadow-xl shadow-education-blue/20"
                   >
@@ -251,7 +269,7 @@ const Education = () => {
                     {t('education.calculator.result_desc')}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button 
+                    <button
                       onClick={() => document.getElementById('education-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
                       className="px-8 py-4 bg-education-blue text-white rounded-xl font-bold shadow-lg shadow-education-blue/20"
                     >
@@ -339,59 +357,7 @@ const Education = () => {
               </div>
             </div>
 
-            <div className="bg-white dark:bg-slate-900 p-10 rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
-              <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('common.full_name')}</label>
-                    <input type="text" placeholder="John Doe" className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border-2 border-slate-50 dark:border-slate-700 focus:border-education-blue outline-none transition-all dark:text-white" />
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('common.email')}</label>
-                    <input type="email" placeholder="john@example.com" className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border-2 border-slate-50 dark:border-slate-700 focus:border-education-blue outline-none transition-all dark:text-white" />
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <label className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('education.form.label_level')}</label>
-                  <select className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border-2 border-slate-50 dark:border-slate-700 focus:border-education-blue outline-none transition-all dark:text-white">
-                    <option>{t('education.form.edu_level_hs')}</option>
-                    <option>{t('education.form.edu_level_bach')}</option>
-                    <option>{t('education.form.edu_level_mast')}</option>
-                  </select>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('education.form.label_program')}</label>
-                    <select className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border-2 border-slate-50 dark:border-slate-700 focus:border-education-blue outline-none transition-all dark:text-white">
-                      <option>{t('common.programs.mbbs')}</option>
-                      <option>{t('common.programs.engineering')}</option>
-                      <option>{t('common.programs.business')}</option>
-                    </select>
-                  </div>
-                  <div className="space-y-2">
-                    <label className="text-sm font-bold text-slate-700 dark:text-slate-200">{t('education.form.label_intake')}</label>
-                    <select className="w-full p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border-2 border-slate-50 dark:border-slate-700 focus:border-education-blue outline-none transition-all dark:text-white">
-                      <option>{t('common.dates.sept_2026')}</option>
-                      <option>{t('common.dates.march_2027')}</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div className="space-y-3">
-                  <div className="flex justify-between text-sm font-bold text-slate-700 dark:text-slate-200">
-                    <label>{t('education.form.label_budget')}</label>
-                    <span className="text-education-blue">$15,000</span>
-                  </div>
-                  <input type="range" className="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-lg appearance-none cursor-pointer accent-education-blue" />
-                </div>
-
-                <button className="w-full py-5 bg-education-blue text-white rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-education-blue/20 transition-all">
-                  {t('education.form.submit')}
-                </button>
-              </form>
-            </div>
+            <EducationForm />
           </div>
         </div>
       </section>
@@ -400,22 +366,8 @@ const Education = () => {
       <section className="py-24 bg-white dark:bg-slate-950">
         <div className="max-w-3xl mx-auto px-4">
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">{t('education.faq.title')}</h2>
-          <div className="space-y-4">
-            {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="group p-6 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 hover:bg-white dark:hover:bg-slate-800 hover:border-education-blue/20 transition-all cursor-pointer">
-                <div className="flex items-center justify-between mb-2">
-                  <h4 className="text-lg font-bold text-slate-900 dark:text-white">{t(`education.faq.q${i}`)}</h4>
-                  <ArrowRight className="w-5 h-5 text-education-blue group-hover:translate-x-1 transition-transform" />
-                </div>
-                {i === 1 && (
-                  <p className="text-slate-500 dark:text-slate-400 leading-relaxed mt-4 animate-fade-in">
-                    {t('education.faq.a1')}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-          
+          <Accordion items={faqItems} pillar="education" />
+
           <div className="mt-16 p-8 rounded-[2rem] bg-education-blue/5 border border-education-blue/10 flex flex-col md:flex-row items-center gap-8 justify-between">
             <div className="flex items-center gap-4">
               <div className="w-14 h-14 rounded-full bg-education-blue text-white flex items-center justify-center shadow-lg shadow-education-blue/30 scale-110">

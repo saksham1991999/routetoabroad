@@ -28,12 +28,14 @@ export const ROUTES = {
   trade: '/trade',
   about: '/about',
   contact: '/contact',
+  blog: '/blog',
 } as const;
 
 export const NAV_LINKS = [
   { label: 'Education', path: '/education', translationKey: 'nav.education' },
   { label: 'Tourism', path: '/tourism', translationKey: 'nav.tourism' },
   { label: 'Trade', path: '/trade', translationKey: 'nav.trade' },
+  { label: 'Insights', path: '/blog', translationKey: 'nav.blog' },
   { label: 'About', path: '/about', translationKey: 'nav.about' },
   { label: 'Contact', path: '/contact', translationKey: 'nav.contact' },
 ];

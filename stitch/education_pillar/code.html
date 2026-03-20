@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Education - RouteToAbroad</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "background": "#f9f9ff",
+              "tertiary": "#000000",
+              "primary-container": "#151b2b",
+              "on-tertiary-fixed": "#2f1500",
+              "surface-container-low": "#f0f3ff",
+              "surface-container-high": "#dee8ff",
+              "on-primary": "#ffffff",
+              "secondary": "#bb0112",
+              "on-tertiary-fixed-variant": "#6e3900",
+              "on-surface": "#111c2d",
+              "inverse-on-surface": "#ecf1ff",
+              "tertiary-fixed-dim": "#ffb77d",
+              "outline-variant": "#c6c6cd",
+              "surface-container-lowest": "#ffffff",
+              "surface": "#f9f9ff",
+              "secondary-container": "#e02928",
+              "surface-tint": "#585e70",
+              "on-error-container": "#93000a",
+              "secondary-fixed": "#ffdad6",
+              "on-primary-fixed-variant": "#414658",
+              "on-background": "#111c2d",
+              "tertiary-fixed": "#ffdcc3",
+              "on-tertiary-container": "#c76c00",
+              "primary-fixed": "#dde2f8",
+              "on-error": "#ffffff",
+              "surface-container-highest": "#d8e3fb",
+              "secondary-fixed-dim": "#ffb4ab",
+              "surface-bright": "#f9f9ff",
+              "on-primary-fixed": "#151b2b",
+              "tertiary-container": "#2f1500",
+              "error": "#ba1a1a",
+              "on-secondary-container": "#fffbff",
+              "primary": "#000000",
+              "on-secondary-fixed-variant": "#93000b",
+              "on-secondary": "#ffffff",
+              "inverse-primary": "#c1c6db",
+              "surface-dim": "#cfdaf2",
+              "outline": "#76777d",
+              "on-surface-variant": "#45464c",
+              "surface-container": "#e7eeff",
+              "inverse-surface": "#263143",
+              "primary-fixed-dim": "#c1c6db",
+              "on-secondary-fixed": "#410002",
+              "surface-variant": "#d8e3fb",
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#7e8397",
+              "error-container": "#ffdad6",
+              "education-blue": "#2563EB",
+              "tourism-emerald": "#059669",
+              "trade-violet": "#7C3AED"
+            },
+            fontFamily: {
+              "headline": ["Inter"],
+              "body": ["Inter"],
+              "label": ["Inter"],
+              "mono": ["JetBrains Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .grainy-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full h-[72px] z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center justify-between px-8 w-full max-w-[1440px] mx-auto h-full">
+<div class="text-xl flex items-center gap-0.5 tracking-tighter cursor-pointer font-headline font-extrabold text-slate-950 dark:text-slate-50">
+                RouteToAbroad
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-headline font-semibold text-sm tracking-tight text-education-blue border-b-2 border-education-blue h-[72px] flex items-center" href="#">Education</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-950 transition-all duration-200" href="#">Tourism</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-950 transition-all duration-200" href="#">Trade</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-950 transition-all duration-200" href="#">About</a>
+<a class="font-headline font-medium text-sm tracking-tight text-slate-600 dark:text-slate-400 hover:text-slate-950 transition-all duration-200" href="#">Blog</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-headline font-medium text-sm hover:opacity-90 transition-all active:scale-95 duration-150 flex items-center gap-2">
+                    Get Started
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- SideNavBar (Insights Anchor) -->
+<aside class="fixed top-32 right-8 w-64 h-fit rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-lg shadow-slate-200/50 dark:shadow-none z-40 hidden xl:block">
+<div class="p-6 border-b border-slate-200/50">
+<h3 class="font-headline font-bold text-slate-900 tracking-tight">Insights</h3>
+<p class="text-xs text-slate-500 font-medium">Global perspectives</p>
+</div>
+<div class="flex flex-col gap-2 p-4">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-200 group" href="#">
+<span class="material-symbols-outlined">article</span>
+<span class="font-['Inter'] text-xs font-semibold uppercase tracking-widest">Blog</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">star</span>
+<span class="font-['Inter'] text-xs font-semibold uppercase tracking-widest">Testimonials</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 py-3 px-4 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all duration-200" href="#">
+<span class="material-symbols-outlined">mail</span>
+<span class="font-['Inter'] text-xs font-semibold uppercase tracking-widest">Newsletter</span>
+</a>
+</div>
+</aside>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center overflow-hidden bg-surface-container-low/30 px-8">
+<div class="absolute inset-0 bg-education-blue/5 pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-16 items-center py-20">
+<div class="relative z-10 space-y-8">
+<div class="flex items-center gap-3">
+<div class="w-12 h-1 bg-education-blue"></div>
+<span class="font-mono text-sm font-bold tracking-widest text-education-blue uppercase">EDUCATION</span>
+</div>
+<h1 class="text-6xl md:text-7xl font-headline font-extrabold tracking-tighter text-slate-950 leading-[1.1]">
+                        Study in China.<br/><span class="text-education-blue">Change Everything.</span>
+</h1>
+<p class="text-lg text-slate-600 max-w-lg leading-relaxed">
+                        Access world-class degrees, full scholarships, and a global network. We navigate the complexities so you can focus on your future.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-education-blue text-white px-8 py-4 rounded-xl font-headline font-bold text-base hover:shadow-xl hover:-translate-y-1 transition-all">
+                            Apply for a Scholarship
+                        </button>
+<button class="border-2 border-slate-200 text-slate-900 px-8 py-4 rounded-xl font-headline font-bold text-base hover:bg-slate-50 transition-all flex items-center gap-2">
+                            Download University Guide
+                            <span class="material-symbols-outlined">download</span>
+</button>
+</div>
+</div>
+<div class="relative">
+<div class="rounded-3xl overflow-hidden shadow-2xl rotate-2 hover:rotate-0 transition-transform duration-500">
+<img class="w-full aspect-[4/5] object-cover" data-alt="University student smiling on a modern campus" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0qkj_4XJx14f1h1RBRBsCONL6UbbcOXQ8lv_1jxB3WSS97aea3BzU1m7C5xlrK2NTt5RCc3kDttOuDTQMW2mOQYprKoCRkxvYd6G8SeuBJDbe_snxkqjXzpmcpFi-hznc2MI-R-jy9yrfwAs4o6MfxXOueB59Qtv4ebnuS_F5hHhCWyEXiNWRdDE1IqtBs64LXupAFoiImeqUuFho1OL3L5G6UhStqsBEm3rT6kTtJDjvZvKDvZ8c4a5k2N8_R7dgE26ILXHbmuY"/>
+</div>
+<!-- Floating Card -->
+<div class="absolute -bottom-8 -left-8 bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 flex items-center gap-4 animate-bounce-slow">
+<div class="w-16 h-16 rounded-full bg-education-blue/10 flex items-center justify-center">
+<span class="material-symbols-outlined text-education-blue text-3xl" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+</div>
+<div>
+<div class="font-mono text-3xl font-bold text-slate-950 tracking-tight">98%</div>
+<div class="text-sm font-medium text-slate-500">Visa Success Rate</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Programs Grid -->
+<section class="py-24 px-8 max-w-[1440px] mx-auto">
+<div class="mb-16">
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-slate-950">Programs Offered</h2>
+<div class="w-20 h-1.5 bg-education-blue mt-4"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Program Card -->
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">medical_services</span>
+<span class="font-mono text-xs font-bold text-slate-400">01</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">MBBS</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Globally recognized medical degrees with English-taught curriculums and clinical internships.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">engineering</span>
+<span class="font-mono text-xs font-bold text-slate-400">02</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">Engineering</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Advanced technical programs in Civil, Mechanical, and AI-driven Computer Science fields.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">translate</span>
+<span class="font-mono text-xs font-bold text-slate-400">03</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">Language</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Immersive Mandarin Chinese programs ranging from HSK 1 to professional business fluency.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">business_center</span>
+<span class="font-mono text-xs font-bold text-slate-400">04</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">Business</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">International trade, economics, and MBA programs designed for the global Asian market.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">school</span>
+<span class="font-mono text-xs font-bold text-slate-400">05</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">Undergraduate</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Comprehensive 4-year bachelor degrees across social sciences and humanities.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+<div class="group bg-surface-container-lowest rounded-2xl overflow-hidden border border-slate-100 hover:shadow-2xl transition-all duration-300">
+<div class="h-1.5 bg-education-blue w-full"></div>
+<div class="p-8">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-3xl text-education-blue">biotech</span>
+<span class="font-mono text-xs font-bold text-slate-400">06</span>
+</div>
+<h4 class="text-xl font-bold mb-3 text-slate-900">Research</h4>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Masters and PhD positions with access to state-of-the-art labs and government grants.</p>
+<a class="text-education-blue font-bold text-sm flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                            Explore Curriculum <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Timeline -->
+<section class="py-24 bg-surface-container-low/50 relative overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="text-center mb-20">
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-slate-950">Your Journey to Success</h2>
+<p class="text-slate-500 mt-4 font-mono uppercase text-xs tracking-widest font-bold">The Complete Process</p>
+</div>
+<div class="relative">
+<!-- Vertical Line -->
+<div class="absolute left-1/2 -translate-x-1/2 top-0 bottom-0 w-0.5 bg-slate-200 hidden md:block"></div>
+<!-- Step 1 -->
+<div class="relative mb-16 md:mb-24 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 text-center md:text-right pr-0 md:pr-16 mb-8 md:mb-0">
+<h4 class="text-xl font-extrabold text-slate-900 mb-2">Initial Consultation</h4>
+<p class="text-slate-500 text-sm">We assess your profile and academic goals.</p>
+<span class="inline-block mt-4 font-mono text-xs text-education-blue bg-education-blue/5 px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Duration: 1-2 Days</span>
+</div>
+<div class="z-10 w-8 h-8 rounded-full border-4 border-white bg-education-blue shadow-lg mb-8 md:mb-0"></div>
+<div class="md:w-1/2 pl-0 md:pl-16 hidden md:block"></div>
+</div>
+<!-- Step 2 -->
+<div class="relative mb-16 md:mb-24 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 pr-0 md:pr-16 hidden md:block"></div>
+<div class="z-10 w-8 h-8 rounded-full border-4 border-white bg-education-blue shadow-lg mb-8 md:mb-0"></div>
+<div class="md:w-1/2 text-center md:text-left pl-0 md:pl-16">
+<h4 class="text-xl font-extrabold text-slate-900 mb-2">University Matching</h4>
+<p class="text-slate-500 text-sm">Selection of top 3 universities aligned with your budget.</p>
+<span class="inline-block mt-4 font-mono text-xs text-education-blue bg-education-blue/5 px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Duration: 3-5 Days</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="relative mb-16 md:mb-24 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 text-center md:text-right pr-0 md:pr-16 mb-8 md:mb-0">
+<h4 class="text-xl font-extrabold text-slate-900 mb-2">Application Filing</h4>
+<p class="text-slate-500 text-sm">Submission of documents to university portals.</p>
+<span class="inline-block mt-4 font-mono text-xs text-education-blue bg-education-blue/5 px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Duration: 1-2 Weeks</span>
+</div>
+<div class="z-10 w-8 h-8 rounded-full border-4 border-white bg-education-blue shadow-lg mb-8 md:mb-0"></div>
+<div class="md:w-1/2 pl-0 md:pl-16 hidden md:block"></div>
+</div>
+<!-- Step 4 -->
+<div class="relative mb-16 md:mb-24 flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 pr-0 md:pr-16 hidden md:block"></div>
+<div class="z-10 w-8 h-8 rounded-full border-4 border-white bg-education-blue shadow-lg mb-8 md:mb-0"></div>
+<div class="md:w-1/2 text-center md:text-left pl-0 md:pl-16">
+<h4 class="text-xl font-extrabold text-slate-900 mb-2">Visa Processing</h4>
+<p class="text-slate-500 text-sm">JW202 issuance and embassy appointment guidance.</p>
+<span class="inline-block mt-4 font-mono text-xs text-education-blue bg-education-blue/5 px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Duration: 2-4 Weeks</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="relative flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 text-center md:text-right pr-0 md:pr-16 mb-8 md:mb-0">
+<h4 class="text-xl font-extrabold text-slate-900 mb-2">Arrival &amp; Enrollment</h4>
+<p class="text-slate-500 text-sm">Airport pickup and campus registration support.</p>
+<span class="inline-block mt-4 font-mono text-xs text-education-blue bg-education-blue/5 px-3 py-1 rounded-full uppercase font-bold tracking-tighter">Duration: Ongoing</span>
+</div>
+<div class="z-10 w-8 h-8 rounded-full border-4 border-white bg-education-blue shadow-lg mb-8 md:mb-0"></div>
+<div class="md:w-1/2 pl-0 md:pl-16 hidden md:block"></div>
+</div>
+</div>
+</div>
+</section>
+<!-- Scholarship Calculator -->
+<section class="py-24 px-8 max-w-[1440px] mx-auto">
+<div class="bg-slate-50 rounded-[2rem] p-12 lg:p-20 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-education-blue/5 -skew-x-12 transform translate-x-20"></div>
+<div class="grid lg:grid-cols-2 gap-16 relative z-10">
+<div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-slate-950 mb-6 leading-tight">Are you eligible for a<br/>Chinese scholarship?</h2>
+<p class="text-slate-600 mb-8 max-w-md">Our AI-driven eligibility tool analyzes your academic record and background to match you with over 200+ scholarship opportunities.</p>
+<!-- Progress Bar -->
+<div class="mb-12">
+<div class="flex justify-between items-center mb-3">
+<span class="font-mono text-xs font-bold text-slate-400">STEP 1 OF 4</span>
+<span class="font-mono text-xs font-bold text-education-blue">25%</span>
+</div>
+<div class="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+<div class="bg-education-blue h-full w-1/4"></div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="space-y-3">
+<label class="block text-sm font-bold text-slate-900">What is your current CGPA / Grade?</label>
+<select class="w-full bg-white border-slate-200 rounded-xl py-3 px-4 focus:ring-2 focus:ring-education-blue/20 transition-all">
+<option>Select Grade Range</option>
+<option>3.5 - 4.0 (A/A+)</option>
+<option>3.0 - 3.4 (B+)</option>
+<option>2.5 - 2.9 (B)</option>
+</select>
+</div>
+<button class="w-full bg-education-blue text-white py-4 rounded-xl font-bold hover:shadow-lg transition-all">Next Question</button>
+</div>
+</div>
+<div class="flex flex-col justify-center">
+<!-- Result Card -->
+<div class="bg-white p-10 rounded-3xl shadow-2xl border border-slate-100/50">
+<div class="w-16 h-16 bg-tourism-emerald/10 rounded-full flex items-center justify-center mb-6">
+<span class="material-symbols-outlined text-tourism-emerald text-3xl">task_alt</span>
+</div>
+<h3 class="text-2xl font-extrabold text-slate-950 mb-4">You have a strong chance</h3>
+<p class="text-slate-500 mb-8 leading-relaxed">Based on preliminary data, you qualify for Category A (Full Tuition + Stipend) scholarships at 15+ partner universities.</p>
+<div class="flex flex-col gap-4">
+<button class="w-full bg-slate-950 text-white py-4 rounded-xl font-bold flex items-center justify-center gap-2">
+                                    Book a Free Consultation
+                                    <span class="material-symbols-outlined text-sm">calendar_today</span>
+</button>
+<button class="w-full bg-slate-100 text-slate-900 py-4 rounded-xl font-bold">Save My Results</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- University Partners -->
+<section class="py-24 bg-white border-y border-slate-100 overflow-hidden">
+<div class="max-w-[1440px] mx-auto px-8">
+<p class="text-center font-mono text-xs font-bold text-slate-400 uppercase tracking-widest mb-12">Collaborating with Global Leaders</p>
+<div class="flex overflow-x-auto gap-12 pb-8 no-scrollbar scroll-smooth">
+<!-- Partner Logo Card -->
+<div class="flex-none w-72 bg-slate-50 p-8 rounded-2xl grayscale hover:grayscale-0 transition-all cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-slate-200 rounded-lg"></div>
+<span class="font-bold text-slate-900">Peking University</span>
+</div>
+<div class="flex gap-4">
+<div>
+<div class="font-mono text-lg font-bold">#1</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">China Rank</div>
+</div>
+<div class="w-[1px] bg-slate-200"></div>
+<div>
+<div class="font-mono text-lg font-bold">12k+</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Int'l Students</div>
+</div>
+</div>
+</div>
+<!-- Repeated Partner 2 -->
+<div class="flex-none w-72 bg-slate-50 p-8 rounded-2xl grayscale hover:grayscale-0 transition-all cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-slate-200 rounded-lg"></div>
+<span class="font-bold text-slate-900">Tsinghua Univ.</span>
+</div>
+<div class="flex gap-4">
+<div>
+<div class="font-mono text-lg font-bold">#2</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">China Rank</div>
+</div>
+<div class="w-[1px] bg-slate-200"></div>
+<div>
+<div class="font-mono text-lg font-bold">9k+</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Int'l Students</div>
+</div>
+</div>
+</div>
+<!-- Repeated Partner 3 -->
+<div class="flex-none w-72 bg-slate-50 p-8 rounded-2xl grayscale hover:grayscale-0 transition-all cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-slate-200 rounded-lg"></div>
+<span class="font-bold text-slate-900">Fudan Univ.</span>
+</div>
+<div class="flex gap-4">
+<div>
+<div class="font-mono text-lg font-bold">#3</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">China Rank</div>
+</div>
+<div class="w-[1px] bg-slate-200"></div>
+<div>
+<div class="font-mono text-lg font-bold">7k+</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Int'l Students</div>
+</div>
+</div>
+</div>
+<!-- Repeated Partner 4 -->
+<div class="flex-none w-72 bg-slate-50 p-8 rounded-2xl grayscale hover:grayscale-0 transition-all cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-slate-200 rounded-lg"></div>
+<span class="font-bold text-slate-900">Zhejiang Univ.</span>
+</div>
+<div class="flex gap-4">
+<div>
+<div class="font-mono text-lg font-bold">#4</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">China Rank</div>
+</div>
+<div class="w-[1px] bg-slate-200"></div>
+<div>
+<div class="font-mono text-lg font-bold">6k+</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Int'l Students</div>
+</div>
+</div>
+</div>
+<!-- Repeated Partner 5 -->
+<div class="flex-none w-72 bg-slate-50 p-8 rounded-2xl grayscale hover:grayscale-0 transition-all cursor-default">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-12 h-12 bg-slate-200 rounded-lg"></div>
+<span class="font-bold text-slate-900">SJTU</span>
+</div>
+<div class="flex gap-4">
+<div>
+<div class="font-mono text-lg font-bold">#5</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">China Rank</div>
+</div>
+<div class="w-[1px] bg-slate-200"></div>
+<div>
+<div class="font-mono text-lg font-bold">5k+</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Int'l Students</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Education Inquiry Form -->
+<section class="py-24 px-8 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16">
+<div class="lg:col-span-7 bg-white p-10 md:p-16 rounded-[2rem] shadow-sm border border-slate-100">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-slate-950 mb-8">Ready to start? Send an Inquiry</h2>
+<form class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Full Name</label>
+<input class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Email Address</label>
+<input class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20" placeholder="john@example.com" type="email"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Phone Number</label>
+<input class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20" placeholder="+1 (555) 000-0000" type="tel"/>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Current Education Level</label>
+<select class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20">
+<option>High School</option>
+<option>Bachelor Degree</option>
+<option>Masters</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Interested Program</label>
+<select class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20">
+<option>MBBS</option>
+<option>Engineering</option>
+<option>Business</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-sm font-bold text-slate-900">Target Intake</label>
+<select class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20">
+<option>September 2026</option>
+<option>March 2027</option>
+</select>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-sm font-bold text-slate-900">Estimated Budget (Annual)</label>
+<input class="w-full accent-education-blue" type="range"/>
+</div>
+<div class="md:col-span-2 space-y-2">
+<label class="text-sm font-bold text-slate-900">Additional Notes</label>
+<textarea class="w-full bg-slate-50 border-transparent rounded-xl py-4 focus:ring-2 focus:ring-education-blue/20" placeholder="Tell us more about your background..." rows="4"></textarea>
+</div>
+<div class="md:col-span-2">
+<label class="text-sm font-bold text-slate-900 mb-2 block">Upload Resume/Transcripts (Optional)</label>
+<div class="border-2 border-dashed border-slate-200 rounded-xl p-8 text-center bg-slate-50 hover:bg-slate-100 transition-all cursor-pointer">
+<span class="material-symbols-outlined text-slate-400 mb-2">cloud_upload</span>
+<p class="text-xs text-slate-500 font-medium">Drag &amp; drop or <span class="text-education-blue">browse files</span></p>
+</div>
+</div>
+<div class="md:col-span-2 pt-4">
+<button class="w-full bg-education-blue text-white py-5 rounded-xl font-bold text-lg hover:shadow-xl transition-all">Submit Application Inquiry</button>
+</div>
+</form>
+</div>
+<div class="lg:col-span-5 space-y-12">
+<div>
+<h3 class="text-2xl font-extrabold text-slate-950 mb-6">What happens next?</h3>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="flex-none w-8 h-8 bg-education-blue/10 text-education-blue rounded-full flex items-center justify-center font-mono font-bold text-sm">1</div>
+<p class="text-sm text-slate-600"><span class="font-bold text-slate-900">Verification:</span> Our consultants review your data within 24 hours.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex-none w-8 h-8 bg-education-blue/10 text-education-blue rounded-full flex items-center justify-center font-mono font-bold text-sm">2</div>
+<p class="text-sm text-slate-600"><span class="font-bold text-slate-900">Callback:</span> We schedule a 15-minute call to discuss your top 3 options.</p>
+</div>
+<div class="flex gap-4">
+<div class="flex-none w-8 h-8 bg-education-blue/10 text-education-blue rounded-full flex items-center justify-center font-mono font-bold text-sm">3</div>
+<p class="text-sm text-slate-600"><span class="font-bold text-slate-900">Roadmap:</span> Receive a customized application timeline and scholarship pack.</p>
+</div>
+</div>
+</div>
+<div class="p-8 bg-slate-900 rounded-2xl text-white relative group overflow-hidden">
+<div class="absolute inset-0 grainy-bg"></div>
+<h4 class="text-xl font-bold mb-4 relative z-10">Need instant help?</h4>
+<p class="text-slate-400 text-sm mb-6 relative z-10">Talk to our AI Education Counselor for quick answers about requirements and costs.</p>
+<button class="bg-white text-slate-950 px-6 py-3 rounded-xl font-bold flex items-center gap-3 relative z-10 group-hover:bg-education-blue group-hover:text-white transition-all">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">smart_toy</span>
+                            Open Chatbot
+                        </button>
+</div>
+<div class="space-y-4">
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-200">
+<span class="material-symbols-outlined text-education-blue">mail</span>
+<div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Email Support</div>
+<div class="font-bold text-slate-900">edu@routetoabroad.com</div>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 rounded-xl border border-slate-200">
+<span class="material-symbols-outlined text-tourism-emerald">call</span>
+<div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Hotline</div>
+<div class="font-bold text-slate-900">+86 123 4567 8900</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ Section -->
+<section class="py-24 px-8 max-w-[720px] mx-auto">
+<h2 class="text-3xl font-headline font-extrabold tracking-tight text-center text-slate-950 mb-12">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<div class="border-l-4 border-education-blue bg-white p-6 rounded-r-2xl shadow-sm">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-slate-950">Is Chinese MBBS recognized in my country?</h4>
+<span class="material-symbols-outlined text-slate-400">remove</span>
+</div>
+<p class="mt-4 text-slate-600 text-sm leading-relaxed">Yes, all universities we represent are listed in the WHO World Directory of Medical Schools and are recognized by major national medical councils like PMDC, NMC, and ECFMG.</p>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-all">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-slate-950">Are scholarships fully funded?</h4>
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-all">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-slate-950">What are the Chinese language requirements?</h4>
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+</div>
+<div class="bg-white p-6 rounded-2xl border border-slate-100 hover:border-slate-200 transition-all">
+<div class="flex justify-between items-center cursor-pointer">
+<h4 class="font-bold text-slate-950">How long does the visa process take?</h4>
+<span class="material-symbols-outlined text-slate-400">add</span>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-16 px-8 mt-auto bg-slate-950 border-t border-slate-800">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
+<div class="col-span-1 md:col-span-1">
+<span class="text-2xl font-extrabold text-white mb-6 block tracking-tighter">RouteToAbroad</span>
+<p class="text-slate-400 text-sm leading-relaxed mb-8">Empowering students and businesses to bridge the gap between their ambitions and global opportunities.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">share</span>
+</div>
+</div>
+</div>
+<div>
+<h5 class="font-mono text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Sectors</h5>
+<ul class="space-y-4">
+<li><a class="text-white font-medium text-sm" href="#">Education</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Tourism</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Trade</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-mono text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Company</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">About Us</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Blog</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Careers</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Contact</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-mono text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">Legal</h5>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors text-sm" href="#">Terms of Service</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-16 pt-8 border-t border-slate-900 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-slate-500 text-xs font-mono">© 2026 RouteToAbroad. All rights reserved.</p>
+<div class="flex gap-8">
+<span class="text-slate-500 text-xs font-mono">EN</span>
+<span class="text-slate-500 text-xs font-mono">CN</span>
+<span class="text-slate-500 text-xs font-mono">PK</span>
+</div>
+</div>
+</footer>
+</body></html>

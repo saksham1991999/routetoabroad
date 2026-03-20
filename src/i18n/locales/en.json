@@ -6,6 +6,7 @@
     "trade": "Trade",
     "about": "About",
     "contact": "Contact Us",
+    "blog": "Insights",
     "apply": "Apply Now",
     "select_language": "Select Language",
     "toggle_theme": "Toggle Theme"
@@ -37,7 +38,7 @@
       "pillar_01": "Education",
       "pillar_02": "Tourism",
       "pillar_03": "Trade",
-      "edu_panel": {
+      "education_panel": {
         "title": "Premier Education Consulting",
         "description": "Study at China's top universities with fully funded scholarships and end-to-end relocation support.",
         "feature_01": "MBBS & Engineering Specialists",
@@ -112,7 +113,28 @@
       "edu": "Education Inquiry",
       "tourism": "Tourism Inquiry",
       "trade": "Trade Inquiry"
+    },
+    "insights": {
+      "badge": "From the Blog",
+      "title": "Latest Insights",
+      "cta": "View All Articles"
     }
+  },
+  "blog": {
+    "hero_title": "Insights & Resources",
+    "hero_desc": "Guides, stories, and expert perspectives on education, travel, and trade across East Asia.",
+    "all": "All",
+    "filter_education": "Education",
+    "filter_tourism": "Tourism",
+    "filter_trade": "Trade",
+    "read_article": "Read Article",
+    "back": "All Articles",
+    "related": "Related Articles",
+    "min_read": "min read",
+    "by": "By",
+    "not_found_title": "Article not found",
+    "not_found_desc": "The article you are looking for does not exist.",
+    "back_to_blog": "Back to Insights"
   },
   "education": {
     "hero": {
@@ -240,8 +262,11 @@
       "q1": "Is Chinese MBBS recognized in my country?",
       "a1": "Yes, all universities we represent are listed in the WHO World Directory of Medical Schools and are recognized by major national medical councils like PMDC, NMC, and ECFMG.",
       "q2": "Are scholarships fully funded?",
+      "a2": "Many of our partner universities offer fully funded scholarships covering tuition, accommodation, and a monthly stipend through the CSC (China Scholarship Council) program. Partial scholarships are also available based on academic merit.",
       "q3": "What are the Chinese language requirements?",
-      "q4": "How long does the visa process take?"
+      "a3": "Most English-taught programs (MBBS, Engineering) do not require Chinese proficiency at enrollment. However, students are required to pass HSK 4 before clinical rotations. We provide HSK preparation courses as part of our support package.",
+      "q4": "How long does the visa process take?",
+      "a4": "The typical visa process takes 4-8 weeks from the time you receive your JW202 form. We guide you through every step including document preparation, embassy appointment scheduling, and interview preparation."
     }
   },
   "tourism": {
@@ -429,7 +454,10 @@
       "placeholder_volume": "e.g. 2 x 40ft Containers",
       "placeholder_desc": "Detail specifications...",
       "submit": "Submit Trade Inquiry",
-      "alt_form": "Technical background"
+      "alt_form": "Technical background",
+      "success_title": "Trade Inquiry Received!",
+      "success_message": "Our trade specialists will contact you within 24 hours.",
+      "send_another": "Submit another inquiry"
     },
     "faq": {
       "badge": "F.A.Q.",

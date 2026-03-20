@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-background: #f9f9ff;
   --color-tertiary: #000000;
@@ -78,7 +80,16 @@
 }
 
 .mesh-grain {
-    background-image: radial-gradient(at 0% 0%, rgba(187, 1, 18, 0.05) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(21, 27, 43, 0.05) 0, transparent 50%), url('/assets/textures/noise.svg')
+    background-image: radial-gradient(at 0% 0%, rgba(187, 1, 18, 0.05) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(21, 27, 43, 0.05) 0, transparent 50%), url('/assets/textures/mesh-gradient.png');
+    background-size: cover;
+    background-position: center;
+}
+.dark .mesh-grain {
+    background-color: #020617;
+    background-image: radial-gradient(at 0% 0%, rgba(187, 1, 18, 0.08) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(200, 210, 255, 0.06) 0, transparent 50%), url('/assets/textures/mesh-gradient.png');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: soft-light;
 }
 .material-symbols-outlined {
     font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;

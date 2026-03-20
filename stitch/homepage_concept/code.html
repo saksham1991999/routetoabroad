@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RouteToAbroad | Education. Tourism. Trade.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "background": "#f9f9ff",
+                        "tertiary": "#000000",
+                        "primary-container": "#151b2b",
+                        "on-tertiary-fixed": "#2f1500",
+                        "surface-container-low": "#f0f3ff",
+                        "surface-container-high": "#dee8ff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#bb0112",
+                        "on-tertiary-fixed-variant": "#6e3900",
+                        "on-surface": "#111c2d",
+                        "inverse-on-surface": "#ecf1ff",
+                        "tertiary-fixed-dim": "#ffb77d",
+                        "outline-variant": "#c6c6cd",
+                        "surface-container-lowest": "#ffffff",
+                        "surface": "#f9f9ff",
+                        "secondary-container": "#e02928",
+                        "surface-tint": "#585e70",
+                        "on-error-container": "#93000a",
+                        "secondary-fixed": "#ffdad6",
+                        "on-primary-fixed-variant": "#414658",
+                        "on-background": "#111c2d",
+                        "tertiary-fixed": "#ffdcc3",
+                        "on-tertiary-container": "#c76c00",
+                        "primary-fixed": "#dde2f8",
+                        "on-error": "#ffffff",
+                        "surface-container-highest": "#d8e3fb",
+                        "secondary-fixed-dim": "#ffb4ab",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#151b2b",
+                        "tertiary-container": "#2f1500",
+                        "error": "#ba1a1a",
+                        "on-secondary-container": "#fffbff",
+                        "primary": "#000000",
+                        "on-secondary-fixed-variant": "#93000b",
+                        "on-secondary": "#ffffff",
+                        "inverse-primary": "#c1c6db",
+                        "surface-dim": "#cfdaf2",
+                        "outline": "#76777d",
+                        "on-surface-variant": "#45464c",
+                        "surface-container": "#e7eeff",
+                        "inverse-surface": "#263143",
+                        "primary-fixed-dim": "#c1c6db",
+                        "on-secondary-fixed": "#410002",
+                        "surface-variant": "#d8e3fb",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#7e8397",
+                        "error-container": "#ffdad6"
+                    },
+                    fontFamily: {
+                        "headline": ["Inter"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["JetBrains Mono"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+<style>.mesh-grain {
+    background-image: radial-gradient(at 0% 0%, rgba(187, 1, 18, 0.05) 0, transparent 50%), radial-gradient(at 100% 100%, rgba(21, 27, 43, 0.05) 0, transparent 50%), url(https://lh3.googleusercontent.com/aida-public/AB6AXuCqCGgGzkWN15ISG46sLoeAKqsr41uzuraov1p5xxKOPs3WC037-W-IqUiUeFblepGIOmVotKRTtcf7BcpJmKGKVPM3Z9YD1xSsoPU3IcBHqutNFPUWucoG0QJfNxs_GcqAypRZ7vW_Ego96WqSZA2sE0A6QIofqIGawU8QYq-wrAhoY-fjfazBwkhto3za69zogAihmwpBKDkJMD6csntYbjqczLfozpLaFdEG9MGen6v52Tb6uWfEEc7foxPhpRUcIPpphl03zT0)
+    }
+.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    vertical-align: middle;
+    line-height: 1
+    }
+.no-scrollbar::-webkit-scrollbar {
+    display: none
+    }</style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-secondary selection:text-white">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full h-[72px] z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-xl border-b border-slate-200 dark:border-slate-800 shadow-sm dark:shadow-none">
+<div class="flex items-center justify-between px-8 w-full max-w-[1440px] mx-auto h-full">
+<div class="text-xl flex items-center gap-0.5 tracking-tighter cursor-pointer font-headline font-bold text-slate-950 dark:text-slate-50">
+                RouteToAbroad
+            </div>
+<div class="hidden md:flex items-center gap-8 font-['Inter'] font-medium text-sm tracking-tight">
+<a class="text-blue-600 dark:text-blue-400 font-semibold border-b-2 border-blue-600 transition-all duration-200 ease-in-out" href="#">Education</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 transition-all duration-200 ease-in-out" href="#">Tourism</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 transition-all duration-200 ease-in-out" href="#">Trade</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 transition-all duration-200 ease-in-out" href="#">About</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 transition-all duration-200 ease-in-out" href="#">Blog</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-slate-950 dark:hover:text-slate-100 transition-all duration-200 ease-in-out" href="#">Contact</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="bg-primary text-on-primary px-6 py-2.5 rounded-lg text-sm font-semibold flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all">
+                    Get Started
+                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="pt-[72px]">
+<!-- Hero Section -->
+<section class="min-h-[calc(100vh-72px)] flex flex-col md:flex-row overflow-hidden mesh-grain">
+<!-- Left Content (55%) -->
+<div class="w-full md:w-[55%] px-8 md:px-24 flex flex-col justify-center py-16">
+<div class="inline-flex items-center gap-3 mb-8">
+<div class="h-[2px] w-12 bg-secondary"></div>
+<span class="font-mono text-sm font-semibold tracking-widest text-secondary uppercase">Your Bridge to East Asia</span>
+</div>
+<h1 class="text-5xl md:text-7xl font-headline font-extrabold text-primary leading-[1.05] tracking-tight mb-8">
+                    Education. Tourism.<br/>Trade. One Partner.
+                </h1>
+<p class="text-lg md:text-xl text-on-surface-variant max-w-xl leading-relaxed mb-12">
+                    We navigate the complexities of international mobility and commerce. From securing medical scholarships in China to sourcing logistics in Southeast Asia, we are your boots on the ground.
+                </p>
+<div class="flex flex-wrap gap-4 mb-16">
+<button class="bg-secondary text-on-secondary px-8 py-4 rounded-xl font-bold flex items-center gap-3 shadow-md hover:-translate-y-1 transition-all duration-300">
+                        Explore Our Services <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="bg-surface-container-lowest text-primary border border-outline-variant px-8 py-4 rounded-xl font-bold hover:bg-surface-container-low transition-all">
+                        Talk to an Advisor
+                    </button>
+</div>
+<!-- Trust Strip -->
+<div class="grid grid-cols-3 gap-8 pt-12 border-t border-outline-variant/20">
+<div>
+<div class="font-mono text-3xl font-bold text-primary mb-1">500+</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Students Placed</div>
+</div>
+<div>
+<div class="font-mono text-3xl font-bold text-primary mb-1">12+</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Years Experience</div>
+</div>
+<div>
+<div class="font-mono text-3xl font-bold text-primary mb-1">3</div>
+<div class="text-xs uppercase tracking-widest text-on-surface-variant font-semibold">Countries Served</div>
+</div>
+</div>
+</div>
+<!-- Right Visual (45%) -->
+<div class="w-full md:w-[45%] relative bg-surface-container-low overflow-hidden min-h-[500px] flex items-center justify-center">
+<div class="relative w-full max-w-[500px] aspect-square">
+<!-- Geometric Composition -->
+<div class="absolute top-0 right-0 w-3/4 h-3/4 rounded-[48px] overflow-hidden shadow-2xl rotate-3 bg-blue-100 p-2">
+<img class="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply" data-alt="University campus building with blue architectural sky tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZvzPw7aXMgJI-kBVLoX33ChoYgTD1xRA29snBlEbNmwV1meDjUsFwH40o-whcUa7gaQkXrj1dYsYqRtUc_pqwl-VCAbMlU87wQwRNoIEqzGjpyQWnl0u7ov7Zj14E9KEnJFL92An73dlx9ePo-IeVJoPGmDkOzWwGzuXI4S95OV-eBwQFnur1-MjoUIp8WXu5AzbfOGXgU6w9A9jzvvndBw1SKBmF6IgEaufSa7M_qNnGQfhF5mFHuMBxDs1ll17D3nOuHkMRcCg"/>
+</div>
+<div class="absolute bottom-10 left-0 w-2/3 h-2/3 rounded-[48px] overflow-hidden shadow-2xl -rotate-6 bg-emerald-100 p-2">
+<img class="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply" data-alt="Lush green tea plantation landscape with emerald tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBjpRR7GMrOuvt1ngKV89xm-ZuJG8K5pOLLJRukQVZoBpwa_eOELVvLu3JCaa-VLQp8LrbuWce5KeCufr0Sar-_x61nsNw_lovAPON4zWmCna81tKEtkAPAfgWMqqFbnFEJPtVIZxl-dmdrcsNekjRiTyFqTysaNNFW2yKHPyJW-l6SOunPOWXbc23N7fD7iu4KmNEsldKceD4AB563ffC56JnGqzrR99YfXkmSAQQ1GntR8onjyfXq_Ugo_WmuD2aXDQsnQ6PPXCA"/>
+</div>
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 rounded-[48px] overflow-hidden shadow-2xl rotate-12 bg-violet-100 p-2 border-4 border-white">
+<img class="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply" data-alt="Modern shipping container port with violet industrial tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6CN8h0FVnxFwruF-b7AA8s5enxZ5czoSeYtf7abarBUB4AIkd6cBRldT6wqu2jkhxIvmhNU6cgPo8t3_uko-Qq2fGGtnA2RxOK7gbiIP4zpuhuKgTwQBbhsJePN_vz14q0hxrdWxes28UKCY5ra4UfALF52mTAoyQx62GhOEMjs5W5U85_iPBqvxaJURZiNCpFfP-hLkCdpQYJo9hDW-l_DQKsiSpJSPzWJiAyRdand9BrlmmUpQKRtAoS3Dqt79BGBG8UsGUJwA"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Social Proof Ticker -->
+<div class="bg-surface-container-low py-4 overflow-hidden border-y border-outline-variant/10">
+<div class="flex whitespace-nowrap gap-12 animate-marquee font-mono text-sm font-medium text-on-surface-variant uppercase tracking-tight">
+<span class="flex items-center gap-4">Placed at Tsinghua University — Rahul M. <span class="text-secondary">●</span></span>
+<span class="flex items-center gap-4">Full MBBS scholarship — Priya S. <span class="text-secondary">●</span></span>
+<span class="flex items-center gap-4">Sourced 40ft containers monthly — TechTrade India <span class="text-secondary">●</span></span>
+<span class="flex items-center gap-4">Educational tour to Shanghai — 45 Students <span class="text-secondary">●</span></span>
+<span class="flex items-center gap-4">Placed at Tsinghua University — Rahul M. <span class="text-secondary">●</span></span>
+<span class="flex items-center gap-4">Full MBBS scholarship — Priya S. <span class="text-secondary">●</span></span>
+</div>
+</div>
+<!-- Pillar Navigator -->
+<section class="py-24 px-8 max-w-[1440px] mx-auto">
+<div class="flex flex-col items-center mb-16 text-center">
+<span class="font-mono text-xs uppercase tracking-[0.2em] text-on-surface-variant font-bold mb-4">Our Expertise</span>
+<h2 class="text-4xl md:text-5xl font-headline font-bold text-primary">Core Pillars of Success</h2>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 bg-surface-container-lowest rounded-[32px] p-8 md:p-12 shadow-sm border border-outline-variant/10">
+<!-- Interactive Tabs -->
+<div class="lg:col-span-4 flex flex-col gap-4">
+<button class="flex items-center justify-between p-6 rounded-2xl bg-primary-container text-white shadow-lg group transition-all duration-300 text-left">
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest opacity-60 mb-1">Pillar 01</span>
+<span class="text-xl font-bold">Education</span>
+</div>
+<span class="material-symbols-outlined opacity-40 group-hover:opacity-100 transition-opacity">school</span>
+</button>
+<button class="flex items-center justify-between p-6 rounded-2xl hover:bg-surface-container-low transition-all text-left">
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Pillar 02</span>
+<span class="text-xl font-bold text-on-surface">Tourism</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">explore</span>
+</button>
+<button class="flex items-center justify-between p-6 rounded-2xl hover:bg-surface-container-low transition-all text-left">
+<div class="flex flex-col">
+<span class="text-xs uppercase tracking-widest text-on-surface-variant mb-1">Pillar 03</span>
+<span class="text-xl font-bold text-on-surface">Trade</span>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant">inventory_2</span>
+</button>
+</div>
+<!-- Content Panel (Education Active) -->
+<div class="lg:col-span-8 grid md:grid-cols-2 gap-12 items-center">
+<div class="space-y-8">
+<h3 class="text-3xl font-headline font-bold text-primary">Scholarships That Change Lives</h3>
+<p class="text-on-surface-variant leading-relaxed">
+                            Access premium education in top-tier Asian universities with subsidized or full funding. We manage the entire lifecycle from university selection to visa procurement.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 font-medium">
+<span class="material-symbols-outlined text-[#2563EB]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                MBBS &amp; Engineering Specialties
+                            </li>
+<li class="flex items-center gap-3 font-medium">
+<span class="material-symbols-outlined text-[#2563EB]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Language Immersion Programs
+                            </li>
+<li class="flex items-center gap-3 font-medium">
+<span class="material-symbols-outlined text-[#2563EB]" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                                Comprehensive Visa Support
+                            </li>
+</ul>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-primary text-on-primary px-8 py-3 rounded-xl font-bold hover:opacity-90">Apply for a Scholarship</button>
+<button class="text-primary font-mono text-sm font-bold flex items-center gap-2 group">
+                                Learn more about Education <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/10">
+<div class="font-mono text-2xl font-bold text-[#2563EB] mb-1">150+</div>
+<div class="text-[10px] uppercase font-bold tracking-wider opacity-60">Partner Unis</div>
+</div>
+<div class="p-6 bg-surface-container-low rounded-2xl border border-outline-variant/10">
+<div class="font-mono text-2xl font-bold text-[#2563EB] mb-1">100%</div>
+<div class="text-[10px] uppercase font-bold tracking-wider opacity-60">Visa Success</div>
+</div>
+<div class="col-span-2 p-6 bg-surface-container-low rounded-2xl border border-outline-variant/10 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-white flex items-center justify-center">
+<span class="material-symbols-outlined text-[#2563EB]">verified</span>
+</div>
+<div>
+<div class="font-mono text-xl font-bold text-primary">$2M+</div>
+<div class="text-[10px] uppercase font-bold tracking-wider opacity-60">Scholarships Disbursed</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Why RouteToAbroad (Sticky Narrative) -->
+<section class="py-24 bg-surface px-8">
+<div class="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-24">
+<div class="md:sticky md:top-32 h-fit">
+<span class="font-mono text-xs uppercase tracking-[0.2em] text-secondary font-bold mb-4 block">The Advantage</span>
+<h2 class="text-5xl md:text-6xl font-headline font-extrabold text-primary mb-12">Why We Are<br/>Different.</h2>
+<div class="space-y-12">
+<div>
+<div class="font-mono text-7xl font-extrabold text-primary/10 tracking-tighter mb-[-1.5rem] relative z-0">12+</div>
+<div class="text-xl font-bold relative z-10 text-primary">Years Experience</div>
+<p class="text-on-surface-variant max-w-xs mt-2">Operating with local teams on both sides of the border since 2012.</p>
+</div>
+<div>
+<div class="font-mono text-7xl font-extrabold text-primary/10 tracking-tighter mb-[-1.5rem] relative z-0">500+</div>
+<div class="text-xl font-bold relative z-10 text-primary">Lives Impacted</div>
+<p class="text-on-surface-variant max-w-xs mt-2">More than just numbers; we build lifelong career trajectories.</p>
+</div>
+</div>
+</div>
+<div class="space-y-32 py-12">
+<div class="group">
+<div class="w-16 h-1 w-0 bg-secondary group-hover:w-16 transition-all duration-500 mb-8"></div>
+<h3 class="text-3xl font-headline font-bold mb-6">Lived on both sides</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            Our leadership hasn't just studied these markets; they've built lives and businesses in them. We understand the unspoken rules of negotiation in Beijing and the academic rigors of New Delhi. This cultural dual-citizenship is our greatest asset.
+                        </p>
+</div>
+<div class="group">
+<div class="w-16 h-1 w-0 bg-secondary group-hover:w-16 transition-all duration-500 mb-8"></div>
+<h3 class="text-3xl font-headline font-bold mb-6">One firm, Three capabilities</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            Unlike boutique agencies that focus only on education or logistics, we provide an ecosystem. A student today is a trade partner tomorrow. A tourist today is an investor tomorrow. We manage the full lifecycle of your global journey.
+                        </p>
+</div>
+<div class="group">
+<div class="w-16 h-1 w-0 bg-secondary group-hover:w-16 transition-all duration-500 mb-8"></div>
+<h3 class="text-3xl font-headline font-bold mb-6">Network is the product</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                            You aren't just paying for paperwork. You are buying access to a verified network of university deans, trade commissioners, and logistics hubs. We've spent a decade filtering for reliability so you don't have to.
+                        </p>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Bar -->
+<div class="bg-surface-container-low py-12 border-y border-outline-variant/10">
+<div class="max-w-[1440px] mx-auto px-8 grid grid-cols-2 md:grid-cols-4 gap-8">
+<div class="text-center md:border-r border-outline-variant/20 last:border-0">
+<div class="font-mono text-4xl font-extrabold text-primary mb-2">500+</div>
+<div class="text-xs uppercase tracking-widest font-bold opacity-60">Students Placed</div>
+</div>
+<div class="text-center md:border-r border-outline-variant/20 last:border-0">
+<div class="font-mono text-4xl font-extrabold text-primary mb-2">12+</div>
+<div class="text-xs uppercase tracking-widest font-bold opacity-60">Years Experience</div>
+</div>
+<div class="text-center md:border-r border-outline-variant/20 last:border-0">
+<div class="font-mono text-4xl font-extrabold text-primary mb-2">98%</div>
+<div class="text-xs uppercase tracking-widest font-bold opacity-60">Success Rate</div>
+</div>
+<div class="text-center">
+<div class="font-mono text-4xl font-extrabold text-primary mb-2">3</div>
+<div class="text-xs uppercase tracking-widest font-bold opacity-60">Primary Hubs</div>
+</div>
+</div>
+</div>
+<!-- Three Pillars Deep-Dive Cards -->
+<section class="py-24 space-y-24 px-8 max-w-[1440px] mx-auto">
+<!-- Education -->
+<div class="flex flex-col md:flex-row items-center gap-12 group">
+<div class="w-full md:w-1/2 aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl bg-blue-100 relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 transition-transform duration-700 group-hover:scale-110" data-alt="Modern university library with blue architectural tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBv-XPzpdYq3Qvus-zgyMmnlx3FXCwl7gm1iZZSbu6aC0alxFRHga6xCDUa9im-N09S_1GUNUu55nDyNNmr8Nz3fKL03w1fddT9--Tea3motHOWKayLEyKjQkIrCKMNwYRaIDSBBNxl27exhFD6YZlq5szkMfEwEy4AShpCXFv1iILel2JqZ3XSlW2a5MQiIBrPgAK2Ndeci3qsVyQGZU6xk2ObFvP6XvXoM0y9KQQ6FC_EEWs9tvvZin26UcW9PBvUMfuTaomxUMc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-blue-900/40 to-transparent"></div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<span class="font-mono text-xs font-bold text-[#2563EB] tracking-[0.2em] uppercase">Academic Excellence</span>
+<h3 class="text-4xl font-headline font-bold text-primary">Subsidized Global Education</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        We specialize in securing medical and engineering seats in Asia's highest-ranked institutions. Our packages include tuition-free opportunities, world-class dormitories, and complete career counseling.
+                    </p>
+<button class="bg-surface-container-low hover:bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all">
+                        View Partner Universities <span class="material-symbols-outlined">school</span>
+</button>
+</div>
+</div>
+<!-- Tourism -->
+<div class="flex flex-col md:flex-row-reverse items-center gap-12 group">
+<div class="w-full md:w-1/2 aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl bg-emerald-100 relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 transition-transform duration-700 group-hover:scale-110" data-alt="Panoramic mountain landscape with emerald tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzj1sMI5Y-Uu8abeAD57vq4MvowImPf80-bAmJ73qZ3jOkCAyLziCdlUpbPPtufpiryAxa5utRPjfnq-JId3mJUlts5mc7mybcghldQKcKBgKWVsuEREvDky9QvjzXrxJQHDYO8QIjab4vl9ioayLWKe-1kSyzxqXZNQVftDGQfROl0W6ckuMI9riHBH5KN25hJ_0lGI1DOGEtYeQXkT9Q-j1_v7CRI_g1zCncABBs-uhUMdG-5sEB4GyNIWj4CHgdG22ggbb2Yy0"/>
+<div class="absolute inset-0 bg-gradient-to-t from-emerald-900/40 to-transparent"></div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<span class="font-mono text-xs font-bold text-[#059669] tracking-[0.2em] uppercase">Cultural Exploration</span>
+<h3 class="text-4xl font-headline font-bold text-primary">Bespoke Heritage Journeys</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Experience Asia beyond the brochures. From specialized student educational tours to high-end heritage circuits, we curate travel that educates and inspires.
+                    </p>
+<button class="bg-surface-container-low hover:bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all">
+                        Explore Destinations <span class="material-symbols-outlined">explore</span>
+</button>
+</div>
+</div>
+<!-- Trade -->
+<div class="flex flex-col md:flex-row items-center gap-12 group">
+<div class="w-full md:w-1/2 aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl bg-violet-100 relative">
+<img class="w-full h-full object-cover mix-blend-multiply opacity-80 transition-transform duration-700 group-hover:scale-110" data-alt="Industrial container ship in port with violet tint" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAYG-LmKQuDm1emzOHQ2u7qr_alfcEMfaozWWmauGBeLHecAIpS5NlIx-tZhKEn2rFvn0bBNZrCV_CyB-7_bjRIB_QE07NJfupZtZ0vVMeP9RZXGtZh64WalT2fKiJSYEGf0AWuMpkQNCXMervXt2RYfdd6jg2bv7aOpYOOslhqF3k3X64YNTtc1_4DDemC9NZKl5jj7KT79n77Pd3_uSKJLbnFXlXudIQ6ymmcTxGeY0OpTGpRecN4-2lZc2bZGowQN37hhgcBvVk"/>
+<div class="absolute inset-0 bg-gradient-to-t from-violet-900/40 to-transparent"></div>
+</div>
+<div class="w-full md:w-1/2 space-y-6">
+<span class="font-mono text-xs font-bold text-[#7C3AED] tracking-[0.2em] uppercase">Economic Corridor</span>
+<h3 class="text-4xl font-headline font-bold text-primary">Cross-Border Trade Solutions</h3>
+<p class="text-lg text-on-surface-variant leading-relaxed">
+                        Bridge the manufacturing and supply chain gap between India and China. We provide sourcing, quality control, and logistics management for businesses looking to scale internationally.
+                    </p>
+<button class="bg-surface-container-low hover:bg-surface-container-high text-primary px-8 py-4 rounded-xl font-bold flex items-center gap-3 transition-all">
+                        Trade Inquiries <span class="material-symbols-outlined">inventory_2</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Featured Testimonial -->
+<section class="bg-slate-950 py-32 relative overflow-hidden">
+<div class="absolute top-0 right-0 w-96 h-96 bg-secondary/10 blur-[120px]"></div>
+<div class="max-w-[1440px] mx-auto px-8 relative z-10 flex flex-col items-center text-center">
+<svg class="text-white/20 mb-12" fill="none" height="60" viewbox="0 0 24 24" width="60">
+<path d="M10 11L8 17H5L7 11H5V7H11V11H10ZM18 11L16 17H13L15 11H13V7H19V11H18Z" fill="currentColor"></path>
+</svg>
+<h3 class="text-3xl md:text-5xl font-headline italic font-light text-white leading-tight max-w-4xl mb-16">
+                    "RouteToAbroad didn't just find me a university; they found me a future. The scholarship coverage for my MBBS at Peking University was seamless, and the on-ground support made China feel like home."
+                </h3>
+<div class="flex flex-col items-center">
+<div class="w-20 h-20 rounded-full border-2 border-secondary p-1 mb-4">
+<img class="w-full h-full object-cover rounded-full" data-alt="Portrait of Ananya Krishnan, professional student headshot" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVVqkwwxsTVCpNMUcKibt8Agg6flR-SewE0dnLizOZZLhr4yugV2ds10YY7c7uDrVh5zVTmZHuz2jcf6RhEmSocbCQSxwISO7MF_vIOIYiN6gqWI55tlCVtnWaEH7C6eGHFC9q-l9w2hl-zdhD3TjpiAHepRnjsp6EnLJCsmPWzZOPcT8ITxuEnZUcQRyF_EpoQ3S8NQPraXkRz6iWMC2IYu5lAi5P5EKMMgjATfN1XjlZJ0lV8_KWanFhcvudjvbtK_0ZTenMPYM"/>
+</div>
+<div class="text-white font-bold text-xl">Ananya Krishnan</div>
+<div class="font-mono text-sm text-slate-400 uppercase tracking-widest mt-1">MBBS, Peking University (Class of 2024)</div>
+</div>
+<div class="mt-16 inline-flex items-center gap-2 bg-white/5 border border-white/10 px-6 py-2 rounded-full">
+<div class="flex -space-x-2">
+<div class="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-800"></div>
+<div class="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-700"></div>
+<div class="w-8 h-8 rounded-full border-2 border-slate-950 bg-slate-600"></div>
+</div>
+<span class="text-white/60 text-xs font-medium">Join 2,000+ community members on WhatsApp</span>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="bg-secondary-container py-24 relative overflow-hidden">
+<div class="absolute inset-0 bg-white/5 grain-overlay mix-blend-overlay"></div>
+<div class="max-w-[1440px] mx-auto px-8 relative z-10 text-center">
+<h2 class="text-4xl md:text-6xl font-headline font-extrabold text-white mb-12">Ready to make your move?</h2>
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+<button class="bg-white text-secondary-container px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-all active:scale-95">Education Inquiry</button>
+<button class="bg-white text-secondary-container px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-all active:scale-95">Tourism Inquiry</button>
+<button class="bg-white text-secondary-container px-8 py-4 rounded-xl font-bold shadow-lg hover:bg-slate-50 transition-all active:scale-95">Trade Inquiry</button>
+</div>
+<div class="text-white/80 font-mono text-lg flex items-center justify-center gap-3">
+<span class="material-symbols-outlined">call</span>
+                    +91 98765 43210
+                </div>
+</div>
+</section>
+</main>
+<!-- SideNavBar (Sticky Insights) -->
+<aside class="hidden lg:flex fixed top-32 right-8 w-64 h-fit rounded-2xl bg-slate-50 dark:bg-slate-900 shadow-lg shadow-slate-200/50 dark:shadow-none flex-col gap-2 p-4 z-40">
+<div class="px-4 py-2 mb-2">
+<div class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Insights</div>
+<div class="text-sm font-bold text-slate-900 dark:text-slate-100">Global perspectives</div>
+</div>
+<a class="bg-white dark:bg-slate-800 text-slate-950 dark:text-white shadow-sm rounded-xl py-3 px-4 flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-widest group" href="#">
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 duration-200">article</span>
+            Blog
+        </a>
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-widest hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 duration-200">star</span>
+            Testimonials
+        </a>
+<a class="text-slate-500 dark:text-slate-400 py-3 px-4 flex items-center gap-3 font-mono text-[10px] font-semibold uppercase tracking-widest hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl group transition-all" href="#">
+<span class="material-symbols-outlined text-sm group-hover:translate-x-1 duration-200">mail</span>
+            Newsletter
+        </a>
+</aside>
+<!-- Footer -->
+<footer class="w-full py-16 px-8 mt-auto bg-slate-950 dark:bg-black border-t border-slate-800">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-[1440px] mx-auto font-['Inter'] text-sm leading-relaxed">
+<div class="col-span-1 md:col-span-1">
+<span class="text-2xl font-bold text-white mb-6 block">RouteToAbroad</span>
+<p class="text-slate-400 mb-8">Empowering cross-border mobility and trade through localized expertise and deep cultural networks.</p>
+<div class="flex gap-4">
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">public</span></a>
+<a class="text-slate-400 hover:text-white transition-colors" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Services</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Education</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Tourism</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Trade</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Follow Us</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Instagram</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Twitter</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">YouTube</a></li>
+</ul>
+</div>
+<div>
+<h4 class="text-white font-bold uppercase tracking-widest text-xs mb-6">Support</h4>
+<ul class="space-y-4">
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">WhatsApp</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Contact Us</a></li>
+<li><a class="text-slate-400 hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto px-8 mt-16 pt-8 border-t border-slate-900">
+<p class="text-slate-500 text-xs">© 2026 RouteToAbroad. All rights reserved.</p>
+</div>
+</footer>
+<style>
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 40s linear infinite;
+        }
+    </style>
+</body></html>

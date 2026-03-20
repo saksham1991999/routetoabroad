@@ -6,6 +6,7 @@
     "trade": "Commerce",
     "about": "À Propos",
     "contact": "Contactez-nous",
+    "blog": "Insights",
     "apply": "Postuler",
     "select_language": "Changer la langue",
     "toggle_theme": "Changer le thème"
@@ -37,7 +38,7 @@
       "pillar_01": "Éducation",
       "pillar_02": "Tourisme",
       "pillar_03": "Commerce",
-      "edu_panel": {
+      "education_panel": {
         "title": "Consulting Éducation de Premier Plan",
         "description": "Étudiez dans les meilleures universités d'Asie avec des bourses d'études complètes et un soutien de bout en bout.",
         "feature_01": "Spécialistes Médecine et Ingénierie",
@@ -112,7 +113,28 @@
       "edu": "Demande Éducation",
       "tourism": "Demande Tourisme",
       "trade": "Demande Commerce"
+    },
+    "insights": {
+      "badge": "Du Blog",
+      "title": "Derniers Insights",
+      "cta": "Voir Tous les Articles"
     }
+  },
+  "blog": {
+    "hero_title": "Insights & Ressources",
+    "hero_desc": "Guides, récits et perspectives d'experts sur l'éducation, le voyage et le commerce en Asie de l'Est.",
+    "all": "Tout",
+    "filter_education": "Éducation",
+    "filter_tourism": "Tourisme",
+    "filter_trade": "Commerce",
+    "read_article": "Lire l'Article",
+    "back": "Tous les Articles",
+    "related": "Articles Connexes",
+    "min_read": "min de lecture",
+    "by": "Par",
+    "not_found_title": "Article introuvable",
+    "not_found_desc": "L'article que vous recherchez n'existe pas.",
+    "back_to_blog": "Retour aux Insights"
   },
   "education": {
     "hero": {
@@ -240,8 +262,11 @@
       "q1": "Le diplôme est-il reconnu dans mon pays ?",
       "a1": "Oui, toutes les universités que nous représentons sont listées dans l'annuaire de l'OMS et sont reconnues mondialement.",
       "q2": "Les bourses sont-elles entièrement financées ?",
+      "a2": "Beaucoup de nos universités partenaires offrent des bourses entièrement financées couvrant les frais de scolarité, l'hébergement et une allocation mensuelle via le programme CSC. Des bourses partielles sont également disponibles selon le mérite académique.",
       "q3": "Quelles sont les exigences linguistiques ?",
-      "q4": "Combien de temps prend le processus de visa ?"
+      "a3": "La plupart des programmes enseignés en anglais (Médecine, Ingénierie) ne requièrent pas de maîtrise du chinois à l'inscription. Cependant, les étudiants doivent réussir le HSK 4 avant les stages cliniques. Nous proposons des cours de préparation au HSK dans notre offre d'accompagnement.",
+      "q4": "Combien de temps prend le processus de visa ?",
+      "a4": "Le processus de visa prend généralement 4 à 8 semaines à partir de la réception du formulaire JW202. Nous vous guidons à chaque étape, y compris la préparation des documents, la prise de rendez-vous à l'ambassade et la préparation à l'entretien."
     }
   },
   "tourism": {
@@ -326,7 +351,10 @@
       "type_custom": "Groupe Sur Mesure",
       "budget_placeholder": "5 000 €+",
       "dates_placeholder": "ex: sept 2026 - oct 2026",
-      "submit": "Envoyer la Demande"
+      "submit": "Envoyer la Demande",
+      "success_title": "Demande reçue !",
+      "success_message": "Nos experts en voyage vous répondront dans les 24 heures.",
+      "send_another": "Soumettre une autre demande"
     },
     "faq": {
       "title": "Foire Aux Questions",
@@ -426,7 +454,10 @@
       "placeholder_volume": "ex: 2 conteneurs de 40ft",
       "placeholder_desc": "Détails des spécifications...",
       "submit": "Soumettre la Demande",
-      "alt_form": "Arrière-plan technique"
+      "alt_form": "Arrière-plan technique",
+      "success_title": "Demande commerciale reçue !",
+      "success_message": "Nos spécialistes du commerce vous contacteront dans les 24 heures.",
+      "send_another": "Soumettre une autre demande"
     },
     "faq": {
       "badge": "F.A.Q.",
