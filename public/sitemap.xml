@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Main Static Pages -->
+  <url>
+    <loc>https://routetoabroad.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://routetoabroad.com/"/>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/hero_edu.jpg</image:loc>
+      <image:title>RouteToAbroad - Education, Tourism, Trade Gateway to East Asia</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/education"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/education"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/education"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/education"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/tourism"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/tourism"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/tourism"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/tourism"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/trade"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/trade"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/trade"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/trade"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/about</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/about"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/about"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/about"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/about"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/contact</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/contact"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/contact"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/contact"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://routetoabroad.com/blog"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://routetoabroad.com/zh/blog"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://routetoabroad.com/fr/blog"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://routetoabroad.com/ar/blog"/>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Blog Posts -->
+  <url>
+    <loc>https://routetoabroad.com/blog/mbbs-in-china-5-things-to-know</loc>
+    <lastmod>2025-02-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/pillar_edu.jpg</image:loc>
+      <image:title>5 Things to Know Before Starting MBBS in China</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog/csc-scholarship-step-by-step-guide</loc>
+    <lastmod>2025-01-10</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/hero_edu.jpg</image:loc>
+      <image:title>How to Apply for the CSC Scholarship: A Step-by-Step Guide</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog/top-5-historical-sites-beijing</loc>
+    <lastmod>2025-03-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/tourism_traditional.jpg</image:loc>
+      <image:title>Top 5 Historical Sites to Visit in Beijing</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog/food-guide-indian-students-china</loc>
+    <lastmod>2024-12-12</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/tourism_culture.jpg</image:loc>
+      <image:title>A Food Guide for Indian Students in China</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog/india-china-trade-practical-guide-2025</loc>
+    <lastmod>2025-01-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/trade_hero_map.jpg</image:loc>
+      <image:title>Navigating India–China Trade in 2025: A Practical Guide</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/blog/managing-supply-chain-risks-china</loc>
+    <lastmod>2025-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://routetoabroad.com/assets/images/trade_consulting.jpg</image:loc>
+      <image:title>Managing Supply Chain Risks: Lessons from the Field</image:title>
+    </image:image>
+  </url>
+
+  <!-- Programmatic SEO Pages - Education -->
+  <url>
+    <loc>https://routetoabroad.com/education/mbbs-in-china-complete-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/csc-scholarship-guide-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/china-student-visa-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/hsk-exam-preparation-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/study-in-china-from-india</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/mbbs-in-china-vs-india</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/china-medical-university-rankings-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Programmatic SEO Pages - Universities -->
+  <url>
+    <loc>https://routetoabroad.com/education/peking-university-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/tsinghua-university-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/fudan-university-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/zhejiang-university-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/education/shanghai-jiao-tong-university-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Programmatic SEO Pages - Tourism -->
+  <url>
+    <loc>https://routetoabroad.com/tourism/china-travel-guide-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/japan-travel-guide-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/beijing-travel-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/shanghai-travel-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/guangzhou-travel-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/china-business-delegation-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/china-visa-types-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Programmatic SEO Pages - Trade -->
+  <url>
+    <loc>https://routetoabroad.com/trade/india-china-trade-guide-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/china-sourcing-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/factory-audit-guide-china</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/china-supplier-verification-checklist</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/sea-freight-vs-air-freight-china-india</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/india-china-customs-clearance-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/electronics-import-from-china-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/textile-sourcing-china-guide</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- FAQ Pages -->
+  <url>
+    <loc>https://routetoabroad.com/education/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/tourism/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://routetoabroad.com/trade/faq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+</urlset>

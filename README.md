@@ -1,73 +1,154 @@
-# React + TypeScript + Vite
+# RouteToAbroad
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Your Strategic Gateway Between India & East Asia
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+A multilingual marketing and service website bridging cross-border growth for students, travelers, and businesses across China and beyond. Operating since 2012 with offices in New Delhi and Guangzhou.
 
-## React Compiler
+[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)](https://react.dev)
+[![TypeScript](https://img.shields.io/badge/TypeScript-Strict%20Mode-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-v4-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Vite](https://img.shields.io/badge/Vite-8-646CFF?logo=vite&logoColor=white)](https://vitejs.dev)
+[![i18n](https://img.shields.io/badge/i18n-4%20Languages-25A162?logo=i18next&logoColor=white)](https://www.i18next.com)
+[![React Router](https://img.shields.io/badge/React%20Router-v7-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🎯 Our Three Pillars
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Education
+Study in China with RouteToAbroad — MBBS, Engineering, Business, Language & Research programs. Partner universities include Peking, Tsinghua, Fudan, Zhejiang, and SJTU. Over **500+ students placed** with **98% visa success rate**.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- CSC & university scholarships
+- HSK language training
+- Scholarship eligibility calculator
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Tourism
+Experience East Asia through culturally immersive journeys — Cultural tours, Business delegations, and Custom travel across China, Japan, and South Korea.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- 24/7 multilingual ground support
+- Visa concierge (L, M, F categories)
+- Custom & group travel options
+
+### Trade
+India-China supply chain solutions — Product sourcing from verified factories, quality control, customs clearance, and logistics.
+
+- Electronics, Textiles, Machinery, Auto Parts
+- Sea freight (18-22 days) & Air freight (3-5 days)
+- AQL quality protocols & BIS/WPC certifications
+
+---
+
+## 🚀 Quick Start
+
+```bash
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Tech Stack
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Category | Technology |
+|----------|------------|
+| **Framework** | React 19 (SPA) with Vite |
+| **Language** | TypeScript (strict mode) |
+| **Styling** | Tailwind CSS v4 |
+| **Routing** | React Router v7 |
+| **i18n** | react-i18next + browser language detection |
+| **State** | React Context API |
+| **Icons** | lucide-react + Material Symbols |
+| **Animation** | Framer Motion + Intersection Observer |
+| **Utilities** | clsx + tailwind-merge |
+
+---
+
+## 📁 Project Structure
+
 ```
+src/
+├── components/
+│   ├── animation/       # Reveal (scroll animations)
+│   ├── forms/          # Education, Tourism, Trade, Contact forms
+│   ├── layout/         # Navbar, Footer, ScrollToTop
+│   ├── seo/            # Meta tags, Open Graph, hreflang
+│   └── ui/             # Button, Input, Select, Card, Toast, etc.
+├── constants/          # Routes, Nav links, Company info
+├── context/            # ThemeContext, ToastContext
+├── data/               # Blogs, Testimonials
+├── hooks/              # useFormValidation, useMobileMenu
+├── i18n/
+│   └── locales/        # en, zh, fr, ar translations
+├── pages/              # Home, Education, Tourism, Trade, About, Contact, Blog
+└── utils/              # cn() helper
+```
+
+---
+
+## ✨ Key Features
+
+### 🌐 Internationalization
+Support for **4 languages** with automatic browser detection and localStorage persistence:
+
+| Language | Code | RTL |
+|----------|------|-----|
+| English | `en` | No |
+| 中文 (Chinese) | `zh` | No |
+| Français (French) | `fr` | No |
+| العربية (Arabic) | `ar` | Yes |
+
+### 🌓 Dark Mode
+Class-based dark mode with localStorage persistence and flash prevention via inline script in `index.html`.
+
+### 📝 Forms & Validation
+Typed form handling with built-in validation rules: `required`, `minLength`, `maxLength`, `email`, `phone`, `pattern`.
+
+### 🎬 Animations
+Scroll-triggered entrance animations using Intersection Observer with variants: `fade`, `slide-up`, `slide-left`, `slide-right`.
+
+### 📱 Mobile Responsive
+Mobile navigation with body scroll lock and Escape key handling.
+
+---
+
+## 📜 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start Vite dev server with HMR |
+| `npm run build` | Type-check with TypeScript, then build |
+| `npm run lint` | Run ESLint with flat config |
+| `npm run preview` | Preview production build locally |
+
+---
+
+## 📬 Contact
+
+### Offices
+
+**New Delhi, India**
+> Contact for Education & Tourism inquiries
+
+**Guangzhou, China**
+> Contact for Trade inquiries
+
+### Get in Touch
+- **Email**: info@routetoabroad.com
+- **WhatsApp**: Available on website
+
+---
+
+## 📄 License
+
+Proprietary — RouteToAbroad © 2012-2026. All rights reserved.

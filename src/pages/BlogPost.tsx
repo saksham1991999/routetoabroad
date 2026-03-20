@@ -1,15 +1,23 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { cn } from '../utils/cn';
+import { useEffect } from 'react';
 import Badge from '../components/ui/Badge';
 import Reveal from '../components/animation/Reveal';
 import { BLOGS } from '../data/blogs';
 import type { BlogCategory, ContentBlock } from '../data/blogs';
+import { articleSchema, breadcrumbSchema } from '../components/seo';
 
 const categoryColorBar: Record<BlogCategory, string> = {
   education: 'bg-blue-500',
   tourism: 'bg-emerald-500',
   trade: 'bg-violet-500',
+};
+
+const categoryLabels: Record<BlogCategory, string> = {
+  education: 'Education',
+  tourism: 'Tourism',
+  trade: 'Trade',
 };
 
 function renderBlock(block: ContentBlock, idx: number) {
@@ -46,11 +54,75 @@ function renderBlock(block: ContentBlock, idx: number) {
   );
 }
 
+function parseDate(dateStr: string): string {
+  const months: Record<string, string> = {
+    'January': '01', 'February': '02', 'March': '03', 'April': '04',
+    'May': '05', 'June': '06', 'July': '07', 'August': '08',
+    'September': '09', 'October': '10', 'November': '11', 'December': '12'
+  };
+  const parts = dateStr.split(' ');
+  if (parts.length === 3) {
+    const month = months[parts[0]] || '01';
+    const day = parts[1].replace(',', '').padStart(2, '0');
+    const year = parts[2];
+    return `${year}-${month}-${day}`;
+  }
+  return dateStr;
+}
+
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
 
   const post = BLOGS.find((b) => b.slug === slug);
+
+  useEffect(() => {
+    if (post) {
+      document.title = `${post.title} | ${categoryLabels[post.category]} | RouteToAbroad`;
+    }
+    return () => {
+      document.title = 'RouteToAbroad | Education. Tourism. Trade.';
+    };
+  }, [post]);
+
+  useEffect(() => {
+    if (!post) return;
+
+    const publishedTime = parseDate(post.date);
+    const articleSchemaData = articleSchema({
+      title: post.title,
+      description: post.excerpt,
+      url: `https://routetoabroad.com/blog/${post.slug}`,
+      image: post.coverImage,
+      author: post.author,
+      authorRole: post.authorRole || 'Contributor',
+      publishedTime,
+      modifiedTime: publishedTime,
+      category: post.category,
+      tags: post.tags,
+    });
+
+    const breadcrumbData = breadcrumbSchema([
+      { name: 'Home', url: 'https://routetoabroad.com/' },
+      { name: 'Insights', url: 'https://routetoabroad.com/blog' },
+      { name: categoryLabels[post.category], url: `https://routetoabroad.com/blog?category=${post.category}` },
+      { name: post.title, url: `https://routetoabroad.com/blog/${post.slug}` },
+    ]);
+
+    const script = document.createElement('script');
+    script.type = 'application/ld+json';
+    script.id = 'article-schema';
+    script.textContent = JSON.stringify([articleSchemaData, breadcrumbData]);
+    
+    const existing = document.getElementById('article-schema');
+    if (existing) existing.remove();
+    document.head.appendChild(script);
+
+    return () => {
+      const el = document.getElementById('article-schema');
+      if (el) el.remove();
+    };
+  }, [post]);
 
   if (!post) {
     return (
@@ -68,15 +140,47 @@ export default function BlogPost() {
 
   return (
     <>
+      {/* Breadcrumb */}
+      <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label="Breadcrumb">
+        <div className="max-w-[1440px] mx-auto">
+          <ol className="flex items-center gap-2 text-sm font-mono">
+            <li>
+              <Link to="/" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
+                Home
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-slate-400">/</span>
+              <Link to="/blog" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
+                Insights
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-slate-400">/</span>
+              <Link to={`/blog?category=${post.category}`} className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
+                {categoryLabels[post.category]}
+              </Link>
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-slate-400">/</span>
+              <span className="text-slate-900 dark:text-white truncate max-w-[200px]">{post.title}</span>
+            </li>
+          </ol>
+        </div>
+      </nav>
+
       {/* Hero */}
       <section className="bg-slate-950 relative overflow-hidden">
-        {/* Cover image */}
         {post.coverImage && (
           <div className="absolute inset-0">
             <img
               src={post.coverImage}
               alt={post.title}
+              loading="eager"
+              decoding="async"
               className="w-full h-full object-cover opacity-20"
+              width={1200}
+              height={630}
             />
             <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-950/80 to-slate-950" />
           </div>
@@ -85,13 +189,6 @@ export default function BlogPost() {
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 blur-[120px] pointer-events-none" />
         )}
         <div className="max-w-[800px] mx-auto px-8 py-20 relative z-10">
-          <Link
-            to="/blog"
-            className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm font-mono mb-8"
-          >
-            <span className="material-symbols-outlined text-base">arrow_back</span>
-            {t('blog.back')}
-          </Link>
           <Badge variant={post.category} size="md" className="mb-6">
             {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
           </Badge>
@@ -99,10 +196,10 @@ export default function BlogPost() {
             {post.title}
           </h1>
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
-            <div>
-              <span className="text-slate-500 mr-1">{t('blog.by')}</span>
+            <div className="flex items-center gap-2">
+              <span className="text-slate-500">By</span>
               <span className="text-white font-semibold">{post.author}</span>
-              <span className="text-slate-500 ml-2">{post.authorRole}</span>
+              {post.authorRole && <span className="text-slate-500">({post.authorRole})</span>}
             </div>
             <span className="font-mono">{post.date}</span>
             <span className="font-mono bg-slate-800 px-3 py-1 rounded-full">{post.readTime} {t('blog.min_read')}</span>
@@ -131,7 +228,7 @@ export default function BlogPost() {
           {post.tags.map((tag) => (
             <span
               key={tag}
-              className="text-xs font-mono font-medium px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-full"
+              className="text-xs font-mono font-medium px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400 rounded-full hover:bg-slate-200 dark:hover:bg-slate-700 cursor-pointer transition-colors"
             >
               #{tag}
             </span>
@@ -158,7 +255,11 @@ export default function BlogPost() {
                       <img
                         src={b.coverImage}
                         alt={b.title}
+                        loading="lazy"
+                        decoding="async"
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        width={400}
+                        height={200}
                       />
                     </div>
                   )}

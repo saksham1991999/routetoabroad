@@ -586,6 +586,18 @@
     },
     "copyright": "版权所有。"
   },
+  "chatbot": {
+    "title": "RouteToAbroad 助手",
+    "toggle": "打开聊天助手",
+    "close": "关闭聊天",
+    "inputPlaceholder": "输入您的消息...",
+    "send": "发送",
+    "messageHistory": "聊天记录",
+    "welcome": "您好！我是 RouteToAbroad 助手。我可以帮您解答关于赴华留学、东亚旅游或跨境贸易咨询的问题。有什么可以帮您的？",
+    "errorConfig": "聊天助手暂时不可用。",
+    "newConversation": "新对话",
+    "poweredBy": "由 Claude 提供支持"
+  },
   "common": {
     "hotline": "热线电话",
     "email_us": "邮件联系",

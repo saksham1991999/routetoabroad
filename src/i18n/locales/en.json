@@ -592,6 +592,18 @@
     },
     "copyright": "All rights reserved."
   },
+  "chatbot": {
+    "title": "RouteToAbroad Assistant",
+    "toggle": "Open chat assistant",
+    "close": "Close chat",
+    "inputPlaceholder": "Type your message...",
+    "send": "Send",
+    "messageHistory": "Chat message history",
+    "welcome": "Hello! I'm the RouteToAbroad assistant. I can help you with questions about studying in China, travel across East Asia, or cross-border trade consulting. How can I help you today?",
+    "errorConfig": "Chat assistant is currently unavailable.",
+    "newConversation": "New conversation",
+    "poweredBy": "Powered by Claude"
+  },
   "common": {
     "hotline": "Hotline",
     "email_us": "Email Us",

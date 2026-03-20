@@ -10,6 +10,7 @@ import SectionDivider from '../components/ui/SectionDivider';
 import DecorativeBlob from '../components/ui/DecorativeBlob';
 import { TESTIMONIALS } from '../data/testimonials';
 import { BLOGS } from '../data/blogs';
+import Seo from '../components/seo/Seo';
 
 interface PillarConfig {
   id: PillarId;
@@ -71,6 +72,12 @@ export default function Home() {
 
   return (
     <>
+      <Seo
+        title="RouteToAbroad | Your Strategic Gateway to East Asia - Education, Tourism & Trade"
+        description="Expert guidance for studying in China, traveling East Asia, and navigating India-China trade. 500+ students placed, 12+ years experience. Offices in New Delhi & Guangzhou."
+        keywords="study in china, mbbs in china, china education consultant, east asia travel, india china trade, chinese scholarship, csc scholarship"
+        canonical="https://routetoabroad.com/"
+      />
       <main className="pt-0 transition-colors duration-300">
         {/* ───── Hero Section ───── */}
         <section className="min-h-[calc(100vh-72px)] flex flex-col md:flex-row overflow-hidden mesh-grain">
