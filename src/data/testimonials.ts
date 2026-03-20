@@ -24,6 +24,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Rohan Sharma',
     role: 'B.Tech Computer Science, BJTU Beijing (Class of 2025)',
     category: 'education',
+    image: '/assets/images/student_1.svg',
   },
   {
     id: 'priya',
@@ -31,6 +32,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Priya Mehta',
     role: 'Educational Group Tour, Shanghai & Beijing (2024)',
     category: 'tourism',
+    image: '/assets/images/student_3.svg',
   },
   {
     id: 'meera',
@@ -38,6 +40,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Meera Nair',
     role: 'MBA, Fudan University (Class of 2025)',
     category: 'education',
+    image: '/assets/images/student_2.svg',
   },
   {
     id: 'arjun',
@@ -45,5 +48,6 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Arjun Patel',
     role: 'Founder, Apex Components India — Trade Client (2024)',
     category: 'trade',
+    image: '/assets/images/student_4.svg',
   },
 ];

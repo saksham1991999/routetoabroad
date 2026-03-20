@@ -23,7 +23,9 @@
       "countries_served": "Pays Servis",
       "alt_edu": "Campus universitaire",
       "alt_tourism": "Plantation de thé",
-      "alt_trade": "Port d'expédition"
+      "alt_trade": "Port d'expédition",
+      "trust_badge": "La confiance de plus de 500 étudiants dans 3 pays",
+      "google_rating": "4.9 sur Google"
     },
     "marquee": {
       "item_01": "Placé à l'Université de Tsinghua — Rahul M.",
@@ -108,8 +110,14 @@
       "name": "Ananya Krishnan",
       "role": "MBBS, Université de Pékin (Promo 2024)"
     },
+    "testimonials": {
+      "badge": "Témoignages",
+      "title": "Ils ont franchi le pas"
+    },
     "cta_strip": {
       "title": "Prêt à franchir le pas ?",
+      "subtitle": "Commencez par une consultation gratuite. Sans engagement, juste de la clarté.",
+      "call_label": "Ou appelez-nous directement",
       "edu": "Demande Éducation",
       "tourism": "Demande Tourisme",
       "trade": "Demande Commerce"
@@ -127,6 +135,11 @@
     "filter_education": "Éducation",
     "filter_tourism": "Tourisme",
     "filter_trade": "Commerce",
+    "categories": {
+      "education": "Éducation",
+      "tourism": "Tourisme",
+      "trade": "Commerce"
+    },
     "read_article": "Lire l'Article",
     "back": "Tous les Articles",
     "related": "Articles Connexes",
@@ -508,7 +521,9 @@
       "email_us": "Écrivez-nous",
       "socials": "Suivez-nous",
       "india_office": "New Delhi, Inde",
-      "china_office": "Guangzhou, Chine"
+      "china_office": "Guangzhou, Chine",
+      "quote": "\"Un voyage de mille lieues commence par une simple conversation.\"",
+      "quote_desc": "Connectez-vous avec nos experts locaux dès aujourd'hui et laissez-nous simplifier votre transition globale. Nous ne sommes pas seulement des consultants ; nous sommes vos partenaires pour votre croissance en Asie de l'Est."
     }
   },
   "about": {
@@ -575,7 +590,7 @@
       "services": "Services",
       "legal": "Légal"
     },
-    "copyright": "© 2026 RouteToAbroad. Tous droits réservés."
+    "copyright": "Tous droits réservés."
   },
   "common": {
     "hotline": "Hotline",

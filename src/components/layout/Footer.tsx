@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer className="bg-slate-950 text-slate-300">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-12">
 
           {/* Brand column */}
@@ -111,9 +111,9 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500">
-            © {new Date().getFullYear()} {COMPANY.name}. {t('footer.copyright').replace(/^©\s*\d{4}\s*RouteToAbroad\.\s*/i, '')}
-          </p>
+            <p className="text-xs text-slate-500">
+              © {new Date().getFullYear()} {COMPANY.name}. {t('footer.copyright')}
+            </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
               {t('footer.links.privacy')}

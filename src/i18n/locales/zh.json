@@ -23,7 +23,9 @@
       "countries_served": "服务国家",
       "alt_edu": "大学校园",
       "alt_tourism": "茶园",
-      "alt_trade": "货运港口"
+      "alt_trade": "货运港口",
+      "trust_badge": "受到3个国家500多名学生的信赖",
+      "google_rating": "Google 4.9 分"
     },
     "marquee": {
       "item_01": "就读清华大学 — Rahul M.",
@@ -108,8 +110,14 @@
       "name": "Ananya Krishnan",
       "role": "北京大学医学学士（2024届）"
     },
+    "testimonials": {
+      "badge": "客户故事",
+      "title": "听听那些跨出这一步的人怎么说"
+    },
     "cta_strip": {
       "title": "准备好开始了吗？",
+      "subtitle": "今天开始免费咨询。无需承诺，只需明确方向。",
+      "call_label": "或直接致电我们",
       "edu": "教育咨询",
       "tourism": "旅游咨询",
       "trade": "贸易咨询"
@@ -127,6 +135,11 @@
     "filter_education": "教育",
     "filter_tourism": "旅游",
     "filter_trade": "贸易",
+    "categories": {
+      "education": "教育",
+      "tourism": "旅游",
+      "trade": "贸易"
+    },
     "read_article": "阅读文章",
     "back": "所有文章",
     "related": "相关文章",
@@ -502,7 +515,9 @@
       "email_us": "给我们发邮件",
       "socials": "关注我们",
       "india_office": "印度新德里",
-      "china_office": "中国广州"
+      "china_office": "中国广州",
+      "quote": "“千里之行，始于足下（一次交谈）。”",
+      "quote_desc": "立即联系我们的当地专家，让我们简化您的全球转型。我们不只是顾问；我们是您在东亚增长的合作伙伴。"
     }
   },
   "about": {
@@ -569,7 +584,7 @@
       "services": "服务",
       "legal": "法律"
     },
-    "copyright": "© 2026 RouteToAbroad. 版权所有。"
+    "copyright": "版权所有。"
   },
   "common": {
     "hotline": "热线电话",

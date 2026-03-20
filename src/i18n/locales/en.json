@@ -23,7 +23,9 @@
       "countries_served": "Countries Served",
       "alt_edu": "University campus",
       "alt_tourism": "Tea plantation",
-      "alt_trade": "Shipping port"
+      "alt_trade": "Shipping port",
+      "trust_badge": "Trusted by 500+ students across 3 countries",
+      "google_rating": "4.9 on Google"
     },
     "marquee": {
       "item_01": "Placed at Tsinghua University — Rahul M.",
@@ -108,8 +110,14 @@
       "name": "Ananya Krishnan",
       "role": "MBBS, Peking University (Class of 2024)"
     },
+    "testimonials": {
+      "badge": "Client Stories",
+      "title": "Hear From Those Who Made the Leap"
+    },
     "cta_strip": {
       "title": "Ready to make your move?",
+      "subtitle": "Start with a free consultation today. No commitment, just clarity.",
+      "call_label": "Or call us directly",
       "edu": "Education Inquiry",
       "tourism": "Tourism Inquiry",
       "trade": "Trade Inquiry"
@@ -127,6 +135,11 @@
     "filter_education": "Education",
     "filter_tourism": "Tourism",
     "filter_trade": "Trade",
+    "categories": {
+      "education": "Education",
+      "tourism": "Tourism",
+      "trade": "Trade"
+    },
     "read_article": "Read Article",
     "back": "All Articles",
     "related": "Related Articles",
@@ -508,7 +521,9 @@
       "email_us": "Email Us",
       "socials": "Follow Us",
       "india_office": "New Delhi, India",
-      "china_office": "Guangzhou, China"
+      "china_office": "Guangzhou, China",
+      "quote": "\"A journey of a thousand miles begins with a single conversation.\"",
+      "quote_desc": "Connect with our local experts today and let us simplify your global transition. We're not just consultants; we're your partners in East Asian growth."
     }
   },
   "about": {
@@ -575,7 +590,7 @@
       "services": "Services",
       "legal": "Legal"
     },
-    "copyright": "© 2026 RouteToAbroad. All rights reserved."
+    "copyright": "All rights reserved."
   },
   "common": {
     "hotline": "Hotline",
