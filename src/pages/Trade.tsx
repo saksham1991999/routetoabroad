@@ -36,9 +36,10 @@ const Trade = () => {
         <div className="absolute inset-0 opacity-20">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.2),transparent)] md:animate-pulse" />
           <img
-            src="/assets/images/trade_hero_map.jpg"
+            src="/assets/images/trade_hero_map.webp"
             alt={t('trade.hero.alt_map')}
             className="w-full h-full object-cover mix-blend-overlay"
+            fetchPriority="high"
           />
         </div>
 
@@ -183,9 +184,10 @@ const Trade = () => {
             <div className="bg-slate-900 rounded-[1.5rem] md:rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden relative">
               <div className="absolute top-0 right-0 w-1/2 h-full opacity-30">
                 <img
-                  src="/assets/images/trade_consulting.jpg"
+                  src="/assets/images/trade_consulting.webp"
                   alt={t('trade.services.alt_consulting')}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-l from-transparent to-slate-900" />
               </div>
@@ -293,9 +295,10 @@ const Trade = () => {
                   </div>
                 </div>
                 <img
-                  src="/assets/images/trade_form_bg.jpg"
+                  src="/assets/images/trade_form_bg.webp"
                   alt={t('trade.form.alt_form')}
                   className="absolute inset-0 w-full h-full object-cover opacity-20"
+                  loading="lazy"
                 />
               </div>
 

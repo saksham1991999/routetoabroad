@@ -16,7 +16,7 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'Ananya Krishnan',
     role: 'MBBS, Peking University (Class of 2024)',
     category: 'education',
-    image: '/assets/images/testimonial_ananya.jpg',
+    image: '/assets/images/testimonial_ananya.webp',
   },
   {
     id: 'rohan',

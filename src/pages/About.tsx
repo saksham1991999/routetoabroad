@@ -91,15 +91,15 @@ export default function About() {
             {/* Founders Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
               {[
-                { name: 'Mr. Minhaj Al Shukoor', role: t('about.leadership.ceo_role'), img: '/assets/images/ceo_minhaj.jpg', bio: t('about.leadership.ceo_bio') },
-                { name: 'Mr. Vijeesh Vijayan', role: t('about.leadership.dir_role'), img: '/assets/images/director_vijeesh.jpg', bio: t('about.leadership.dir_bio') }
+                { name: 'Mr. Minhaj Al Shukoor', role: t('about.leadership.ceo_role'), img: '/assets/images/ceo_minhaj.webp', bio: t('about.leadership.ceo_bio') },
+                { name: 'Mr. Vijeesh Vijayan', role: t('about.leadership.dir_role'), img: '/assets/images/director_vijeesh.webp', bio: t('about.leadership.dir_bio') }
               ].map((leader) => (
                 <div key={leader.name} className="group">
                   <div
                     className="aspect-[4/5] bg-slate-200 dark:bg-slate-800 rounded-3xl overflow-hidden mb-8 relative border border-outline-variant/10 shadow-2xl"
                     aria-label={`${leader.name} — ${leader.bio}`}
                   >
-                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={leader.img} alt={leader.name} />
+                    <img className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src={leader.img} alt={leader.name} loading="lazy" />
                     <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-10 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
                       <p className="text-white text-sm leading-relaxed opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">{leader.bio}</p>
                     </div>
@@ -123,10 +123,10 @@ export default function About() {
             <Reveal variant="slide-up">
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
                 {[
-                  { name: t('about.leadership.member1_name'), role: t('about.leadership.member1_role'), img: '/assets/images/team_sarah.jpg' },
-                  { name: t('about.leadership.member2_name'), role: t('about.leadership.member2_role'), img: '/assets/images/team_david.jpg' },
-                  { name: t('about.leadership.member3_name'), role: t('about.leadership.member3_role'), img: '/assets/images/team_amara.jpg' },
-                  { name: t('about.leadership.member4_name'), role: t('about.leadership.member4_role'), img: '/assets/images/team_lucas.jpg' }
+                  { name: t('about.leadership.member1_name'), role: t('about.leadership.member1_role'), img: '/assets/images/team_sarah.webp' },
+                  { name: t('about.leadership.member2_name'), role: t('about.leadership.member2_role'), img: '/assets/images/team_david.webp' },
+                  { name: t('about.leadership.member3_name'), role: t('about.leadership.member3_role'), img: '/assets/images/team_amara.webp' },
+                  { name: t('about.leadership.member4_name'), role: t('about.leadership.member4_role'), img: '/assets/images/team_lucas.webp' }
                 ].map((member) => (
                   <div key={member.name} className="group text-center">
                     <div className="aspect-square bg-slate-100 dark:bg-slate-800 rounded-2xl overflow-hidden mb-6 border border-outline-variant/5 group-hover:shadow-lg transition-all duration-500">
@@ -134,6 +134,7 @@ export default function About() {
                         className="w-full h-full object-cover grayscale motion-safe:group-hover:grayscale-0 transition-all duration-700 group-hover:scale-110"
                         src={member.img}
                         alt={member.name}
+                        loading="lazy"
                       />
                     </div>
                     <h4 className="font-bold text-slate-950 dark:text-white text-lg mb-1">{member.name}</h4>

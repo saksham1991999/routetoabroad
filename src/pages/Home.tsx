@@ -39,9 +39,9 @@ const advantagePoints = [
 ] as const;
 
 const deepDivePillars = [
-  { dir: 'md:flex-row', badgeKey: 'home.pillars_deep.edu_badge', titleKey: 'home.pillars_deep.edu_title', descKey: 'home.pillars_deep.edu_desc', ctaKey: 'home.pillars_deep.edu_cta', route: '/education', icon: 'school', img: '/assets/images/pillar_edu.jpg', bgLight: 'bg-blue-100', bgDark: 'dark:bg-blue-900/20', gradientFrom: 'from-blue-900/50', badgeColor: 'text-[#2563EB]', borderColor: 'border-blue-500' },
-  { dir: 'md:flex-row-reverse', badgeKey: 'home.pillars_deep.tourism_badge', titleKey: 'home.pillars_deep.tourism_title', descKey: 'home.pillars_deep.tourism_desc', ctaKey: 'home.pillars_deep.tourism_cta', route: '/tourism', icon: 'explore', img: '/assets/images/pillar_tourism.jpg', bgLight: 'bg-emerald-100', bgDark: 'dark:bg-emerald-900/20', gradientFrom: 'from-emerald-900/50', badgeColor: 'text-[#059669]', borderColor: 'border-emerald-500' },
-  { dir: 'md:flex-row', badgeKey: 'home.pillars_deep.trade_badge', titleKey: 'home.pillars_deep.trade_title', descKey: 'home.pillars_deep.trade_desc', ctaKey: 'home.pillars_deep.trade_cta', route: '/trade', icon: 'inventory_2', img: '/assets/images/pillar_trade.jpg', bgLight: 'bg-violet-100', bgDark: 'dark:bg-violet-900/20', gradientFrom: 'from-violet-900/50', badgeColor: 'text-[#7C3AED]', borderColor: 'border-violet-500' },
+  { dir: 'md:flex-row', badgeKey: 'home.pillars_deep.edu_badge', titleKey: 'home.pillars_deep.edu_title', descKey: 'home.pillars_deep.edu_desc', ctaKey: 'home.pillars_deep.edu_cta', route: '/education', icon: 'school', img: '/assets/images/pillar_edu.webp', bgLight: 'bg-blue-100', bgDark: 'dark:bg-blue-900/20', gradientFrom: 'from-blue-900/50', badgeColor: 'text-[#2563EB]', borderColor: 'border-blue-500' },
+  { dir: 'md:flex-row-reverse', badgeKey: 'home.pillars_deep.tourism_badge', titleKey: 'home.pillars_deep.tourism_title', descKey: 'home.pillars_deep.tourism_desc', ctaKey: 'home.pillars_deep.tourism_cta', route: '/tourism', icon: 'explore', img: '/assets/images/pillar_tourism.webp', bgLight: 'bg-emerald-100', bgDark: 'dark:bg-emerald-900/20', gradientFrom: 'from-emerald-900/50', badgeColor: 'text-[#059669]', borderColor: 'border-emerald-500' },
+  { dir: 'md:flex-row', badgeKey: 'home.pillars_deep.trade_badge', titleKey: 'home.pillars_deep.trade_title', descKey: 'home.pillars_deep.trade_desc', ctaKey: 'home.pillars_deep.trade_cta', route: '/trade', icon: 'inventory_2', img: '/assets/images/pillar_trade.webp', bgLight: 'bg-violet-100', bgDark: 'dark:bg-violet-900/20', gradientFrom: 'from-violet-900/50', badgeColor: 'text-[#7C3AED]', borderColor: 'border-violet-500' },
 ] as const;
 
 export default function Home() {
@@ -143,13 +143,13 @@ export default function Home() {
             <div className="relative w-full max-w-[500px] aspect-square">
               {/* Geometric Composition */}
               <div className="absolute top-0 right-0 w-3/4 h-3/4 rounded-[48px] overflow-hidden shadow-2xl rotate-3 bg-blue-100 p-2 dark:bg-blue-900/30 animate-float-slow">
-                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_edu')} src="/assets/images/hero_edu.jpg" />
+                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_edu')} src="/assets/images/hero_edu.webp" fetchPriority="high" width="500" height="500" />
               </div>
               <div className="absolute bottom-10 left-0 w-2/3 h-2/3 rounded-[48px] overflow-hidden shadow-2xl -rotate-6 bg-emerald-100 p-2 dark:bg-emerald-900/30 animate-float-delayed">
-                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_tourism')} src="/assets/images/hero_tourism.jpg" />
+                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_tourism')} src="/assets/images/hero_tourism.webp" loading="lazy" />
               </div>
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-1/2 rounded-[48px] overflow-hidden shadow-2xl rotate-12 bg-violet-100 p-2 border-4 border-white dark:border-slate-800 dark:bg-violet-900/30 animate-float">
-                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_trade')} src="/assets/images/hero_trade.jpg" />
+                <img className="w-full h-full object-cover rounded-[40px] opacity-80 mix-blend-multiply dark:mix-blend-overlay" alt={t('home.hero.alt_trade')} src="/assets/images/hero_trade.webp" loading="lazy" />
               </div>
             </div>
           </div>
@@ -347,7 +347,7 @@ export default function Home() {
             <Reveal key={pillar.route} variant="slide-up" delay={idx * 200}>
               <div className={cn("flex flex-col items-center gap-12 group", pillar.dir)}>
                 <div className={cn("w-full md:w-1/2 aspect-[4/3] rounded-[32px] overflow-hidden shadow-xl relative", pillar.bgLight, pillar.bgDark)}>
-                  <img className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay opacity-80 transition-transform duration-700 group-hover:scale-110" alt={t(pillar.badgeKey)} src={pillar.img} />
+                  <img className="w-full h-full object-cover mix-blend-multiply dark:mix-blend-overlay opacity-80 transition-transform duration-700 group-hover:scale-110" alt={t(pillar.badgeKey)} src={pillar.img} loading="lazy" />
                   <div className={cn("absolute inset-0 bg-gradient-to-t via-transparent to-transparent", pillar.gradientFrom)} />
                 </div>
                 <div className={cn("w-full md:w-1/2 space-y-6 border-s-4 ps-8", pillar.borderColor)}>
@@ -459,6 +459,7 @@ export default function Home() {
                       className="w-full h-full object-cover rounded-full"
                       alt={TESTIMONIALS[activeTestimonial].name}
                       src={TESTIMONIALS[activeTestimonial].image}
+                      loading="lazy"
                     />
                   ) : (
                     <span className="material-symbols-outlined text-4xl text-slate-500">person</span>
@@ -483,7 +484,7 @@ export default function Home() {
                   >
                     <div className="w-8 h-8 rounded-full overflow-hidden bg-slate-700 flex-shrink-0 flex items-center justify-center">
                       {testimonial.image ? (
-                        <img src={testimonial.image} alt="" className="w-full h-full object-cover" />
+                        <img src={testimonial.image} alt="" className="w-full h-full object-cover" loading="lazy" />
                       ) : (
                         <span className="material-symbols-outlined text-sm text-slate-500">person</span>
                       )}

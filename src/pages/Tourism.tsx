@@ -33,9 +33,10 @@ const Tourism = () => {
       <div className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="/assets/images/hero_tourism.jpg"
+            src="/assets/images/hero_tourism.webp"
             alt={t('tourism.hero.alt')}
             className="w-full h-full object-cover"
+            fetchPriority="high"
           />
           <div className="absolute inset-0 bg-black/40 backdrop-blur-[2px]" />
         </div>
@@ -100,18 +101,21 @@ const Tourism = () => {
                     src="/assets/images/tourism_traditional.jpg"
                     alt={t('tourism.destinations.china.alt_traditional')}
                     className="rounded-3xl h-48 sm:h-64 w-full object-cover shadow-2xl"
+                    loading="lazy"
                   />
                   <img
-                    src="/assets/images/tourism_shanghai.jpg"
+                    src="/assets/images/tourism_shanghai.webp"
                     alt={t('tourism.destinations.china.alt_modern')}
                     className="rounded-3xl h-56 sm:h-80 w-full object-cover shadow-2xl"
+                    loading="lazy"
                   />
                 </div>
                 <div className="pt-8">
                   <img
-                    src="/assets/images/tourism_nature.jpg"
+                    src="/assets/images/tourism_nature.webp"
                     alt={t('tourism.destinations.china.alt_nature')}
                     className="rounded-3xl h-full w-full object-cover shadow-2xl"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -126,9 +130,10 @@ const Tourism = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal variant="slide-right" className="relative">
               <img
-                src="/assets/images/tourism_japan.jpg"
+                src="/assets/images/tourism_japan.webp"
                 alt={t('tourism.destinations.japan.alt_landscape')}
                 className="rounded-[3rem] shadow-2xl"
+                loading="lazy"
               />
               <div className="absolute -bottom-8 -right-8 bg-white dark:bg-slate-900 p-8 rounded-[2rem] shadow-2xl border border-slate-100 dark:border-slate-800 hidden md:block">
                 <div className="text-center">
