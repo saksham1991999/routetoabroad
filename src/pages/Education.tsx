@@ -13,6 +13,7 @@ import {
   Users
 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import { SOCIAL_LINKS } from '../constants';
 import Accordion from '../components/ui/Accordion';
 import type { AccordionItem } from '../components/ui/Accordion';
 import EducationForm from '../components/forms/EducationForm';
@@ -105,7 +106,10 @@ const Education = () => {
                 {t('education.hero.cta_primary')}
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all">
+              <button
+                onClick={() => document.getElementById('education-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-4 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded-xl font-semibold hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
+              >
                 {t('education.hero.cta_secondary')}
               </button>
             </div>
@@ -159,7 +163,10 @@ const Education = () => {
                     <p className="text-slate-600 dark:text-slate-400 mb-6 leading-relaxed">
                       {t(`education.programs.${program.id}.desc`)}
                     </p>
-                    <button className="text-education-blue font-bold flex items-center group/btn">
+                    <button
+                      onClick={() => document.getElementById('education-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="text-education-blue font-bold flex items-center group/btn"
+                    >
                       {t('education.programs.explore_curriculum')}
                       <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
@@ -275,7 +282,10 @@ const Education = () => {
                     >
                       {t('education.calculator.result_cta_primary')}
                     </button>
-                    <button className="px-8 py-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl font-bold">
+                    <button
+                      onClick={() => document.getElementById('education-inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+                      className="px-8 py-4 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 rounded-xl font-bold"
+                    >
                       {t('education.calculator.result_cta_secondary')}
                     </button>
                   </div>
@@ -351,7 +361,10 @@ const Education = () => {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 blur-[80px] rounded-full translate-x-1/2 -translate-y-1/2 group-hover:bg-white/20 transition-colors" />
                 <h3 className="text-2xl font-bold mb-4">{t('education.form.chatbot_title')}</h3>
                 <p className="text-indigo-200 mb-8 max-w-xs">{t('education.form.chatbot_desc')}</p>
-                <button className="px-6 py-3 bg-white text-indigo-900 rounded-xl font-bold hover:shadow-lg hover:shadow-white/20 transition-all">
+                <button
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-chatbot'))}
+                  className="px-6 py-3 bg-white text-indigo-900 rounded-xl font-bold hover:shadow-lg hover:shadow-white/20 transition-all"
+                >
                   {t('education.form.chatbot_cta')}
                 </button>
               </div>
@@ -378,9 +391,14 @@ const Education = () => {
                 <div className="text-slate-500 dark:text-slate-400 font-medium">China Office: {t('common.phone_numbers.china')}</div>
               </div>
             </div>
-            <button className="px-8 py-3 bg-white dark:bg-slate-800 text-education-blue border border-education-blue rounded-xl font-bold hover:bg-education-blue hover:text-white transition-all">
+            <a
+              href={SOCIAL_LINKS.whatsapp}
+              target="_blank"
+              rel="noreferrer"
+              className="px-8 py-3 bg-white dark:bg-slate-800 text-education-blue border border-education-blue rounded-xl font-bold hover:bg-education-blue hover:text-white transition-all"
+            >
               {t('common.whatsapp')}
-            </button>
+            </a>
           </div>
         </div>
       </section>

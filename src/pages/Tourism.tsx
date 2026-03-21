@@ -49,11 +49,17 @@ const Tourism = () => {
             {t('tourism.hero.description')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-8 py-4 bg-orange-600 text-white rounded-full font-semibold hover:bg-orange-700 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-orange-900/20">
+            <button
+              onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-orange-600 text-white rounded-full font-semibold hover:bg-orange-700 transition-all flex items-center justify-center gap-2 group shadow-xl shadow-orange-900/20"
+            >
               {t('tourism.hero.cta_primary')}
               <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>
-            <button className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-semibold hover:bg-white/20 transition-all">
+            <button
+              onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+              className="px-8 py-4 bg-white/10 backdrop-blur-md text-white border border-white/20 rounded-full font-semibold hover:bg-white/20 transition-all"
+            >
               {t('tourism.hero.cta_secondary')}
             </button>
           </div>
@@ -211,7 +217,10 @@ const Tourism = () => {
                   </div>
                   <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4">{mode.title}</h3>
                   <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-6">{mode.desc}</p>
-                  <button className="text-orange-600 font-bold flex items-center gap-2 group/btn">
+                  <button
+                    onClick={() => document.getElementById('inquiry')?.scrollIntoView({ behavior: 'smooth' })}
+                    className="text-orange-600 font-bold flex items-center gap-2 group/btn"
+                  >
                     {t('tourism.modes.explore')}
                     <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>

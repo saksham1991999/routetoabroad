@@ -64,6 +64,13 @@ export default function Chatbot() {
     ]);
   }, [t]);
 
+  // Listen for external open requests (e.g. "Open Chatbot" button on Education page)
+  useEffect(() => {
+    const handler = () => open();
+    window.addEventListener('open-chatbot', handler);
+    return () => window.removeEventListener('open-chatbot', handler);
+  }, [open]);
+
   // Escape key to close
   useEffect(() => {
     if (!isOpen) return;

@@ -18,6 +18,9 @@ const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 
+const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./pages/TermsOfService'));
+
 const MBBSInChinaGuide = lazy(() => import('./pages/seo/MBBSInChinaGuide'));
 const CSCScholarshipGuide = lazy(() => import('./pages/seo/CSCScholarshipGuide'));
 const IndiaChinaTradeGuide = lazy(() => import('./pages/seo/IndiaChinaTradeGuide'));
@@ -66,6 +69,8 @@ function App() {
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />
                   <Route path="/blog/:slug" element={<BlogPost />} />
+                  <Route path="/privacy" element={<PrivacyPolicy />} />
+                  <Route path="/terms" element={<TermsOfService />} />
                 </Routes>
               </Suspense>
             </ErrorBoundary>

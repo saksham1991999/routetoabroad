@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { ROUTES } from '../constants';
 import { useTranslation } from 'react-i18next';
 import { cn } from '../utils/cn';
 import type { PillarId } from '../types';
@@ -228,21 +229,25 @@ export default function Home() {
                       ))}
                     </ul>
                     <div className="flex flex-wrap gap-4 pt-4">
-                      <Button
-                        pillar={activePillar}
-                        size="lg"
-                        className="rounded-xl shadow-md active:scale-95"
-                      >
-                        {t(`home.expertise.${activePillar}_panel.cta`)}
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="md"
-                        className="text-primary dark:text-blue-400 font-mono text-sm font-bold group p-0 shadow-none"
-                        iconRight={<span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>}
-                      >
-                        {t(`home.expertise.${activePillar}_panel.learn_more`)}
-                      </Button>
+                      <Link to={ROUTES[activePillar]} className="inline-flex">
+                        <Button
+                          pillar={activePillar}
+                          size="lg"
+                          className="rounded-xl shadow-md active:scale-95"
+                        >
+                          {t(`home.expertise.${activePillar}_panel.cta`)}
+                        </Button>
+                      </Link>
+                      <Link to={ROUTES[activePillar]} className="inline-flex">
+                        <Button
+                          variant="ghost"
+                          size="md"
+                          className="text-primary dark:text-blue-400 font-mono text-sm font-bold group p-0 shadow-none"
+                          iconRight={<span className="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>}
+                        >
+                          {t(`home.expertise.${activePillar}_panel.learn_more`)}
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">

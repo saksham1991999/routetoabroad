@@ -115,12 +115,12 @@ export default function Footer() {
               © {new Date().getFullYear()} {COMPANY.name}. {t('footer.copyright')}
             </p>
           <div className="flex items-center gap-4">
-            <a href="#" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+            <Link to="/privacy" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
               {t('footer.links.privacy')}
-            </a>
-            <a href="#" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
+            </Link>
+            <Link to="/terms" className="text-xs text-slate-500 hover:text-slate-300 transition-colors">
               {t('footer.links.terms')}
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -29,6 +29,8 @@ export const ROUTES = {
   about: '/about',
   contact: '/contact',
   blog: '/blog',
+  privacy: '/privacy',
+  terms: '/terms',
 } as const;
 
 export const NAV_LINKS = [

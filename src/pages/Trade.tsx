@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { ROUTES } from '../constants';
 import {
   ShieldCheck,
   Truck,
@@ -327,9 +329,9 @@ const Trade = () => {
             <Reveal variant="slide-left">
               <div className="text-right">
                 <p className="text-slate-500 dark:text-slate-400 text-sm mb-2">{t('trade.faq.cta_desc')}</p>
-                <a href="#" className="text-blue-600 font-bold flex items-center justify-end gap-1">
+                <Link to={ROUTES.contact} className="text-blue-600 font-bold flex items-center justify-end gap-1">
                   {t('trade.faq.cta_link')} <ChevronRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </Reveal>
           </div>
