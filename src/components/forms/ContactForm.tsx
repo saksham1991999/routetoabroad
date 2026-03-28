@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Send } from 'lucide-react';
 import Input from '../ui/Input';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
-import { useToast } from '../ui/ToastContext';
 import { useFormValidation } from '../../hooks/useFormValidation';
 import { COMPANY } from '../../constants';
+import { useForm } from '@formspree/react';
 
 interface ContactFormValues {
   [key: string]: string;
@@ -35,29 +34,24 @@ const VALIDATION_RULES = {
 
 export default function ContactForm({ activeTab }: ContactFormProps) {
   const { t } = useTranslation();
-  const { addToast } = useToast();
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [state, handleFormspreeSubmit] = useForm("xjgpgllz");
 
   const { values, errors, touched, handleChange, handleBlur, validate, reset } =
     useFormValidation<ContactFormValues>(INITIAL_VALUES, VALIDATION_RULES);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-      addToast(t('contact.form.success'), 'success');
-    }, 1500);
+    await handleFormspreeSubmit(e);
   };
 
   const handleSendAnother = () => {
     reset();
-    setFormStatus('idle');
+    window.location.reload();
   };
 
-  if (formStatus === 'success') {
+  if (state.succeeded) {
     return (
       <div className="py-20 text-center space-y-6">
         <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -157,7 +151,7 @@ export default function ContactForm({ activeTab }: ContactFormProps) {
           pillar="education"
           size="lg"
           fullWidth
-          loading={formStatus === 'submitting'}
+          loading={state.submitting}
           iconRight={<Send className="w-4 h-4" />}
         >
           {t('contact.form.submit')}

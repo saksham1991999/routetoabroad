@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFormValidation } from '../../hooks/useFormValidation';
-import { useToast } from '../ui/ToastContext';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
-
-type SubmitStatus = 'idle' | 'submitting' | 'success';
+import { useForm } from '@formspree/react';
 
 interface TourismFormFields {
   [key: string]: string;
@@ -49,8 +46,7 @@ const VALIDATION_RULES = {
 
 export default function TourismForm() {
   const { t } = useTranslation();
-  const { addToast } = useToast();
-  const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [state, handleFormspreeSubmit] = useForm("xjgpgllz");
 
   const {
     values,
@@ -66,18 +62,15 @@ export default function TourismForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    setStatus('submitting');
-    await new Promise<void>((resolve) => setTimeout(resolve, 1500));
-    setStatus('success');
-    addToast(t('tourism.form.success_message'), 'success');
+    await handleFormspreeSubmit(e);
   };
 
   const handleReset = () => {
     reset();
-    setStatus('idle');
+    window.location.reload();
   };
 
-  if (status === 'success') {
+  if (state.succeeded) {
     return (
       <div className="flex flex-col items-center justify-center text-center py-10 px-6 md:py-16 md:px-8">
         <div className="w-16 h-16 md:w-24 md:h-24 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-8 shadow-inner ring-4 md:ring-8 ring-emerald-50 dark:ring-emerald-900/10">
@@ -263,8 +256,8 @@ export default function TourismForm() {
           pillar="tourism"
           size="lg"
           fullWidth
-          loading={status === 'submitting'}
-          disabled={status === 'submitting'}
+          loading={state.submitting}
+          disabled={state.submitting}
           className="!bg-orange-600 hover:!bg-orange-700 border-orange-600 shadow-xl shadow-orange-900/20"
         >
           {t('tourism.form.submit')}

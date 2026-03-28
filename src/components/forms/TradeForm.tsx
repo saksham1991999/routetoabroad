@@ -1,12 +1,11 @@
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { CheckCircle2 } from 'lucide-react';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
-import { useToast } from '../ui/ToastContext';
 import { useFormValidation } from '../../hooks/useFormValidation';
+import { useForm } from '@formspree/react';
 
 interface TradeFormValues {
   [key: string]: string;
@@ -32,26 +31,21 @@ const VALIDATION_RULES = {
 
 export default function TradeForm() {
   const { t } = useTranslation();
-  const { addToast } = useToast();
-  const [formStatus, setFormStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const [state, handleFormspreeSubmit] = useForm("xjgpgllz");
 
   const { values, errors, touched, handleChange, handleBlur, validate, reset } =
     useFormValidation<TradeFormValues>(INITIAL_VALUES, VALIDATION_RULES);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!validate()) return;
 
-    setFormStatus('submitting');
-    setTimeout(() => {
-      setFormStatus('success');
-      addToast(t('trade.form.success_title'), 'success');
-    }, 1500);
+    await handleFormspreeSubmit(e);
   };
 
   const handleSendAnother = () => {
     reset();
-    setFormStatus('idle');
+    window.location.reload();
   };
 
   const tradeDirectionOptions = [
@@ -67,7 +61,7 @@ export default function TradeForm() {
     { value: 'other', label: t('trade.form.cat_other') },
   ];
 
-  if (formStatus === 'success') {
+  if (state.succeeded) {
     return (
       <div className="py-16 text-center space-y-6">
         <div className="w-20 h-20 bg-emerald-100 dark:bg-emerald-900/30 text-emerald-600 rounded-full flex items-center justify-center mx-auto">
@@ -167,7 +161,7 @@ export default function TradeForm() {
           pillar="trade"
           size="lg"
           fullWidth
-          loading={formStatus === 'submitting'}
+          loading={state.submitting}
         >
           {t('trade.form.submit')}
         </Button>

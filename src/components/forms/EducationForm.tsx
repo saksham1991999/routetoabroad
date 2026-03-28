@@ -1,14 +1,11 @@
-import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { useFormValidation } from '../../hooks/useFormValidation';
-import { useToast } from '../ui/ToastContext';
 import Input from '../ui/Input';
 import Select from '../ui/Select';
 import Textarea from '../ui/Textarea';
 import Button from '../ui/Button';
-
-type SubmitStatus = 'idle' | 'submitting' | 'success';
+import { useForm } from '@formspree/react';
 
 interface EducationFormFields {
   [key: string]: string;
@@ -46,8 +43,7 @@ const VALIDATION_RULES = {
 
 export default function EducationForm() {
   const { t } = useTranslation();
-  const { addToast } = useToast();
-  const [status, setStatus] = useState<SubmitStatus>('idle');
+  const [state, handleFormspreeSubmit] = useForm("xjgpgllz");
 
   const {
     values,
@@ -63,18 +59,15 @@ export default function EducationForm() {
     e.preventDefault();
     if (!validate()) return;
 
-    setStatus('submitting');
-    await new Promise<void>((resolve) => setTimeout(resolve, 1500));
-    setStatus('success');
-    addToast(t('education.form.success_message'), 'success');
+    await handleFormspreeSubmit(e);
   };
 
   const handleReset = () => {
     reset();
-    setStatus('idle');
+    window.location.reload();
   };
 
-  if (status === 'success') {
+  if (state.succeeded) {
     return (
       <div className="flex flex-col items-center justify-center text-center py-10 px-6 md:py-16 md:px-8 bg-white dark:bg-slate-900 rounded-[1.5rem] md:rounded-[2.5rem] shadow-2xl border border-slate-100 dark:border-slate-800">
         <div className="w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center mb-6 shadow-inner">
@@ -242,8 +235,8 @@ export default function EducationForm() {
           pillar="education"
           size="lg"
           fullWidth
-          loading={status === 'submitting'}
-          disabled={status === 'submitting'}
+          loading={state.submitting}
+          disabled={state.submitting}
         >
           {t('education.form.submit')}
         </Button>
