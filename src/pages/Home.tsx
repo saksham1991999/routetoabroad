@@ -61,7 +61,7 @@ export default function Home() {
 
   const testimonialCategoryLabel: Record<string, string> = {
     education: t('education.hero.badge'),
-    tourism: t('tourism.hero.title_part1') || 'Tourism',
+    tourism: t('nav.tourism'),
     trade: t('trade.hero.trade_tab'),
   };
 

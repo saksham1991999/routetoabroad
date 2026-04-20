@@ -88,7 +88,7 @@ export default function ContactForm({ activeTab }: ContactFormProps) {
         <Input
           name="fullName"
           label={t('common.full_name')}
-          placeholder="John Doe"
+          placeholder={t('common.placeholders.name')}
           required
           autoComplete="name"
           value={values.fullName}
@@ -120,7 +120,7 @@ export default function ContactForm({ activeTab }: ContactFormProps) {
           name="phone"
           type="tel"
           label={t('common.phone')}
-          placeholder="+91 XXXX XXX XXX"
+          placeholder={t('common.placeholders.phone')}
           autoComplete="tel"
           value={values.phone}
           onChange={(e) => handleChange('phone', e.target.value)}

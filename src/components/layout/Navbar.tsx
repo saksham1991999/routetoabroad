@@ -51,7 +51,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 inset-x-0 z-40 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-slate-200/80 dark:border-slate-800/80">
-        <nav className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between" aria-label="Main navigation">
+        <nav className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between" aria-label={t('common.accessibility.main_navigation')}>
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0" onClick={closeMobile}>
             <span className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
@@ -78,7 +78,7 @@ export default function Navbar() {
                 className="flex items-center gap-1.5 px-3 py-2.5 rounded-lg text-sm font-medium text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px]"
                 aria-expanded={langOpen}
                 aria-haspopup="listbox"
-                aria-label="Select language"
+                aria-label={t('nav.select_language')}
               >
                 <Globe className="w-4 h-4" aria-hidden="true" />
                 <span>{currentLang.code.toUpperCase()}</span>
@@ -87,7 +87,7 @@ export default function Navbar() {
               {langOpen && (
                 <ul
                   role="listbox"
-                  aria-label="Available languages"
+                  aria-label={t('common.accessibility.available_languages')}
                   className={cn(
                     'absolute top-full mt-1 w-40 bg-white dark:bg-slate-900 rounded-xl shadow-lg border border-slate-200 dark:border-slate-700 py-1 z-50',
                     isRTL ? 'left-0' : 'right-0',
@@ -120,7 +120,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={theme === 'dark' ? t('common.accessibility.switch_to_light') : t('common.accessibility.switch_to_dark')}
               className="p-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" aria-hidden="true" /> : <Moon className="w-5 h-5" aria-hidden="true" />}
@@ -141,7 +141,7 @@ export default function Navbar() {
             <button
               type="button"
               onClick={toggleTheme}
-              aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label={theme === 'dark' ? t('common.accessibility.switch_to_light') : t('common.accessibility.switch_to_dark')}
               className="p-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               {theme === 'dark' ? <Sun className="w-5 h-5" aria-hidden="true" /> : <Moon className="w-5 h-5" aria-hidden="true" />}
@@ -153,7 +153,7 @@ export default function Navbar() {
               onClick={toggleMobile}
               aria-expanded={mobileOpen}
               aria-controls="mobile-menu"
-              aria-label={mobileOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-label={mobileOpen ? t('common.accessibility.close_navigation') : t('common.accessibility.open_navigation')}
               className="p-2.5 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
             >
               {mobileOpen ? <X className="w-5 h-5" aria-hidden="true" /> : <Menu className="w-5 h-5" aria-hidden="true" />}
@@ -166,7 +166,7 @@ export default function Navbar() {
       <div
         id="mobile-menu"
         role="dialog"
-        aria-label="Navigation menu"
+        aria-label={t('common.accessibility.navigation_menu')}
         aria-modal="true"
         className={cn(
           'fixed inset-0 z-30 md:hidden bg-white dark:bg-slate-950 flex flex-col',
@@ -201,7 +201,7 @@ export default function Navbar() {
 
           {/* Language selector in mobile */}
           <p className="px-4 text-xs font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider mb-1">
-            Language
+            {t('common.language')}
           </p>
           <div className="grid grid-cols-2 gap-2">
             {LANGUAGES.map((lang) => (

@@ -1,4 +1,5 @@
 import { useState, useCallback } from 'react';
+import i18n from '../i18n/i18n';
 
 type ValidationRule = {
   required?: boolean;
@@ -29,19 +30,23 @@ const PHONE_REGEX = /^[+]?[\d\s\-().]{7,20}$/;
 
 function validateField(value: string, rule?: ValidationRule, label?: string): string {
   if (!rule) return '';
-  const displayLabel = label ?? 'This field';
+  const displayLabel = label ?? i18n.t('common.validation.field_label');
 
-  if (rule.required && !value.trim()) return `${displayLabel} is required`;
+  if (rule.required && !value.trim()) {
+    return i18n.t('common.validation.required', { field: displayLabel });
+  }
   if (!value.trim()) return '';
   if (rule.minLength && value.trim().length < rule.minLength) {
-    return `${displayLabel} must be at least ${rule.minLength} characters`;
+    return i18n.t('common.validation.min_length', { field: displayLabel, count: rule.minLength });
   }
   if (rule.maxLength && value.trim().length > rule.maxLength) {
-    return `${displayLabel} must be at most ${rule.maxLength} characters`;
+    return i18n.t('common.validation.max_length', { field: displayLabel, count: rule.maxLength });
   }
-  if (rule.email && !EMAIL_REGEX.test(value)) return 'Please enter a valid email address';
-  if (rule.phone && !PHONE_REGEX.test(value)) return 'Please enter a valid phone number';
-  if (rule.pattern && !rule.pattern.test(value)) return rule.patternMessage ?? `${displayLabel} is invalid`;
+  if (rule.email && !EMAIL_REGEX.test(value)) return i18n.t('common.validation.invalid_email');
+  if (rule.phone && !PHONE_REGEX.test(value)) return i18n.t('common.validation.invalid_phone');
+  if (rule.pattern && !rule.pattern.test(value)) {
+    return rule.patternMessage ?? i18n.t('common.validation.invalid_field', { field: displayLabel });
+  }
   return '';
 }
 
@@ -69,7 +74,7 @@ export function useFormValidation<T extends object>(
     setTouched((prev) => ({ ...prev, [field]: true }));
     setErrors((prev) => ({
       ...prev,
-      [field]: validateField((values as Record<string, string>)[field as string] ?? '', rules[field], String(field)),
+      [field]: validateField((values as Record<string, string>)[field as string] ?? '', rules[field]),
     }));
   }, [values, rules]);
 
@@ -80,7 +85,7 @@ export function useFormValidation<T extends object>(
 
     for (const field of Object.keys(rules) as Array<keyof T>) {
       newTouched[field] = true;
-      const err = validateField(String((values as Record<string, string>)[field as string] ?? ''), rules[field], String(field));
+      const err = validateField(String((values as Record<string, string>)[field as string] ?? ''), rules[field]);
       if (err) {
         newErrors[field] = err;
         valid = false;

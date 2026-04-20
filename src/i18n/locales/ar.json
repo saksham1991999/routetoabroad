@@ -229,7 +229,11 @@
       "result_title": "لديك فرصة قوية",
       "result_desc": "بناءً على البيانات الأولية، أنت مؤهل لمنح الفئة أ (رسوم كاملة + راتب شهري).",
       "result_cta_primary": "احجز استشارة مجانية",
-      "result_cta_secondary": "احفظ نتائجي"
+      "result_cta_secondary": "احفظ نتائجي",
+      "grade_90_plus": "90% فأكثر (A+)",
+      "grade_80_to_89": "80% - 89% (A)",
+      "grade_70_to_79": "70% - 79% (B)",
+      "grade_below_70": "أقل من 70%"
     },
     "partners": {
       "badge": "التعاون مع القادة العالميين",
@@ -505,7 +509,7 @@
       "edu_desc": "المنح الدراسية، مطابقة الجامعات، وتوجيهات التأشيرة.",
       "tourism_title": "السفر والسياحة",
       "tourism_desc": "برامج مخصصة ووفود أعمال.",
-      "trade_title": "التجارة والتأمين",
+      "trade_title": "التجارة والتوريد",
       "trade_desc": "المصادر ومراقبة الجودة وإدارة اللوجستيات."
     },
     "form": {
@@ -659,6 +663,53 @@
     "phone_numbers": {
       "india": "+91 98765 43210",
       "china": "+86 123 4567 8900"
+    },
+    "language": "اللغة",
+    "no_image": "لا توجد صورة",
+    "image_load_failed": "فشل تحميل الصورة",
+    "error_boundary_title": "حدث خطأ ما",
+    "error_boundary_description": "حدث خطأ غير متوقع. يرجى محاولة تحديث الصفحة.",
+    "reload_page": "إعادة تحميل الصفحة",
+    "what_we_offer": "ما الذي نقدمه",
+    "related_resources": "موارد ذات صلة",
+    "learn_more": "اعرف المزيد",
+    "frequently_asked_questions": "الأسئلة الشائعة",
+    "ready_to_get_started": "هل أنت مستعد للبدء؟",
+    "connect_with_experts": "تواصل مع خبرائنا اليوم واتخذ الخطوة الأولى نحو أهدافك.",
+    "still_have_questions": "هل لا تزال لديك أسئلة؟",
+    "faq_help_text": "فريقنا هنا لمساعدتك. تواصل معنا وسنرد عليك خلال 24 ساعة.",
+    "placeholders": {
+      "name": "أحمد علي",
+      "email": "name@example.com",
+      "phone": "+971 50 000 0000",
+      "select_program": "اختر البرنامج",
+      "select_intake": "اختر فترة الالتحاق",
+      "select_destination": "اختر الوجهة",
+      "select_travel_type": "اختر نوع الرحلة",
+      "traveler_count": "2",
+      "select_level": "اختر مستواك الحالي"
+    },
+    "accessibility": {
+      "main_navigation": "التنقل الرئيسي",
+      "available_languages": "اللغات المتاحة",
+      "navigation_menu": "قائمة التنقل",
+      "breadcrumb": "مسار التنقل",
+      "dismiss_notification": "إغلاق الإشعار",
+      "notifications": "الإشعارات",
+      "open_navigation": "فتح قائمة التنقل",
+      "close_navigation": "إغلاق قائمة التنقل",
+      "switch_to_light": "التبديل إلى الوضع الفاتح",
+      "switch_to_dark": "التبديل إلى الوضع الداكن",
+      "student_avatar": "صورة طالب"
+    },
+    "validation": {
+      "field_label": "هذا الحقل",
+      "required": "{{field}} مطلوب",
+      "min_length": "يجب أن يحتوي {{field}} على {{count}} أحرف على الأقل",
+      "max_length": "يجب ألا يزيد {{field}} عن {{count}} أحرف",
+      "invalid_email": "يرجى إدخال بريد إلكتروني صالح",
+      "invalid_phone": "يرجى إدخال رقم هاتف صالح",
+      "invalid_field": "{{field}} غير صالح"
     }
   }
 }

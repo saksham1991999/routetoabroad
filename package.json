@@ -6,9 +6,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "eslint . && npm run i18n:check",
     "preview": "vite preview",
-    "convert-images": "node scripts/convert-images.mjs"
+    "convert-images": "node scripts/convert-images.mjs",
+    "i18n:check": "node scripts/check-i18n-parity.mjs && node scripts/check-i18n-references.mjs"
   },
   "dependencies": {
     "@formspree/react": "^3.0.0",

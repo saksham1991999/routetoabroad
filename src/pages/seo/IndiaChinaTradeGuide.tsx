@@ -15,6 +15,8 @@ const pageData = {
   keywords: 'india china trade, india china import export, china sourcing guide, india china trade 2026, china supplier, import from china guide',
   heroTitle: 'India-China Trade Guide 2026',
   heroDescription: 'Navigate the $100 billion bilateral trade corridor with confidence. Expert insights on sourcing, compliance, logistics, and building sustainable supplier relationships.',
+  heroImage: '/assets/images/guide_trade_hero.webp',
+  heroImageAlt: 'Container terminal and logistics hub at dusk',
   canonical: 'https://routetoabroad.com/trade/india-china-trade-guide-2026',
   breadcrumbItems: [
     { name: 'Trade', url: '/trade' },

@@ -15,6 +15,8 @@ const pageData = {
   keywords: 'csc scholarship, china scholarship council, chinese government scholarship, study in china free, scholarship for mbbs in china, csc application',
   heroTitle: 'CSC Scholarship Guide 2026',
   heroDescription: 'Your comprehensive roadmap to securing a fully-funded scholarship for studying in China. Expert guidance on eligibility, documentation, and application strategy.',
+  heroImage: '/assets/images/guide_csc_hero.webp',
+  heroImageAlt: 'Illuminated university campus at night',
   canonical: 'https://routetoabroad.com/education/csc-scholarship-guide-2026',
   breadcrumbItems: [
     { name: 'Education', url: '/education' },

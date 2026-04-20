@@ -229,7 +229,11 @@
       "result_title": "Vous avez de fortes chances",
       "result_desc": "Selon les données préliminaires, vous êtes éligible aux bourses de catégorie A (Scolarité complète + Allocation).",
       "result_cta_primary": "Réserver une Consultation Gratuite",
-      "result_cta_secondary": "Enregistrer mes Résultats"
+      "result_cta_secondary": "Enregistrer mes Résultats",
+      "grade_90_plus": "90 % + (note A+)",
+      "grade_80_to_89": "80 % - 89 % (note A)",
+      "grade_70_to_79": "70 % - 79 % (note B)",
+      "grade_below_70": "Moins de 70 %"
     },
     "partners": {
       "badge": "Collaboration avec les Leaders Mondiaux",
@@ -659,6 +663,53 @@
     "phone_numbers": {
       "india": "+91 98765 43210",
       "china": "+86 123 4567 8900"
+    },
+    "language": "Langue",
+    "no_image": "Aucune image",
+    "image_load_failed": "Échec du chargement de l’image",
+    "error_boundary_title": "Un problème est survenu",
+    "error_boundary_description": "Une erreur inattendue est survenue. Veuillez actualiser la page.",
+    "reload_page": "Recharger la page",
+    "what_we_offer": "Ce Que Nous Proposons",
+    "related_resources": "Ressources Connexes",
+    "learn_more": "En savoir plus",
+    "frequently_asked_questions": "Questions Fréquemment Posées",
+    "ready_to_get_started": "Prêt à commencer ?",
+    "connect_with_experts": "Contactez nos experts dès aujourd’hui et faites le premier pas vers vos objectifs.",
+    "still_have_questions": "Vous avez encore des questions ?",
+    "faq_help_text": "Notre équipe est là pour vous aider. Contactez-nous et nous vous répondrons sous 24 heures.",
+    "placeholders": {
+      "name": "Jean Dupont",
+      "email": "nom@example.com",
+      "phone": "+33 6 00 00 00 00",
+      "select_program": "Sélectionnez un programme",
+      "select_intake": "Sélectionnez la période d’admission",
+      "select_destination": "Sélectionnez une destination",
+      "select_travel_type": "Sélectionnez un type de voyage",
+      "traveler_count": "2",
+      "select_level": "Sélectionnez votre niveau actuel"
+    },
+    "accessibility": {
+      "main_navigation": "Navigation principale",
+      "available_languages": "Langues disponibles",
+      "navigation_menu": "Menu de navigation",
+      "breadcrumb": "Fil d’Ariane",
+      "dismiss_notification": "Fermer la notification",
+      "notifications": "Notifications",
+      "open_navigation": "Ouvrir le menu de navigation",
+      "close_navigation": "Fermer le menu de navigation",
+      "switch_to_light": "Passer au mode clair",
+      "switch_to_dark": "Passer au mode sombre",
+      "student_avatar": "Avatar d’étudiant"
+    },
+    "validation": {
+      "field_label": "Ce champ",
+      "required": "{{field}} est requis",
+      "min_length": "{{field}} doit contenir au moins {{count}} caractères",
+      "max_length": "{{field}} doit contenir au plus {{count}} caractères",
+      "invalid_email": "Veuillez saisir une adresse e-mail valide",
+      "invalid_phone": "Veuillez saisir un numéro de téléphone valide",
+      "invalid_field": "{{field}} est invalide"
     }
   }
 }

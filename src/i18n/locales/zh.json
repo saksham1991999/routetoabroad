@@ -229,7 +229,11 @@
       "result_title": "您有很大的机会",
       "result_desc": "根据初步数据，您有资格获得 15 多所合作伙伴大学的 A 类（全额学费 + 生活费）奖学金。",
       "result_cta_primary": "预约免费咨询",
-      "result_cta_secondary": "保存我的结果"
+      "result_cta_secondary": "保存我的结果",
+      "grade_90_plus": "90% 以上（A+）",
+      "grade_80_to_89": "80% - 89%（A）",
+      "grade_70_to_79": "70% - 79%（B）",
+      "grade_below_70": "低于 70%"
     },
     "partners": {
       "badge": "与全球领军者合作",
@@ -350,11 +354,6 @@
     "form": {
       "title": "规划您的旅程",
       "description": "告诉我们您的偏好，我们的专家将在24小时内起草定制提案。",
-      "label_destinations": "目的地",
-      "label_type": "旅行类型",
-      "label_count": "旅行人数",
-      "label_budget": "预估预算（每人）",
-      "label_dates": "首选日期",
       "option_china": "中国大陆",
       "option_japan": "日本",
       "option_korea": "韩国",
@@ -390,21 +389,19 @@
   },
   "trade": {
     "hero": {
-      "alt": "抽象地图",
       "title_main": "您的供应链不需要",
       "title_sub": "更多的复杂性。",
       "description": "我们衔接各方制造业。由专家管理的端到端采购、质量控制和物流。",
       "cta_primary": "启动贸易咨询",
-      "cta_secondary": "查看服务费"
+      "cta_secondary": "查看服务费",
+      "trade_tab": "贸易概览",
+      "alt_map": "抽象地图"
     },
     "services": {
       "badge": "端到端解决方案",
       "title": "供应链协调",
-      "stat_label": "核心领域",
       "sourcing_title": "产品采购",
       "sourcing_desc": "直接联系顶级制造商。我们在您承诺之前协商价格、验证工厂产能并确保道德合规。",
-      "sourcing_stat_01": "供应商",
-      "sourcing_stat_02": "响应时间",
       "qc_title": "质量控制",
       "qc_desc": "装运前检验和生产中审核，确保零缺陷。",
       "qc_cta": "查看协议",
@@ -413,14 +410,23 @@
       "customs_cta": "合规指南",
       "logistics_title": "智能物流",
       "logistics_desc": "从海运到紧急空运。实时跟踪以及在各大城市的本地化仓储。",
-      "logistics_stat_01": "海运均值",
-      "logistics_stat_02": "空运均值",
-      "logistics_stat_03": "全额投保",
       "consulting_badge": "战略",
       "consulting_title": "全球贸易咨询",
       "consulting_desc": "由专家主导的战略，为寻求可持续规模化供应链的企业提供市场准入分析和关税优化。",
       "consulting_cta": "咨询顾问",
-      "alt_consulting": "战略背景"
+      "alt_consulting": "战略背景",
+      "count": "05",
+      "count_label": "核心领域",
+      "sourcing_stat_01_val": "5000+",
+      "sourcing_stat_01_label": "供应商",
+      "sourcing_stat_02_val": "24小时",
+      "sourcing_stat_02_label": "响应时间",
+      "logistics_stat_01_val": "18-22",
+      "logistics_stat_01_label": "海运均值",
+      "logistics_stat_02_val": "3-5",
+      "logistics_stat_02_label": "空运均值",
+      "logistics_stat_03_val": "100%",
+      "logistics_stat_03_label": "全程投保"
     },
     "process": {
       "title": "简单透明的流程",
@@ -447,7 +453,6 @@
       "cat_09": "包装材料"
     },
     "form": {
-      "alt": "背景图",
       "title": "启动贸易咨询",
       "description": "我们的资深贸易顾问将审核您的要求并在24小时内回复。",
       "label_company": "公司名称",
@@ -464,7 +469,12 @@
       "option_bilateral": "双向/两者",
       "success_title": "贸易咨询已收到！",
       "success_message": "我们的贸易专家将在24小时内联系您。",
-      "send_another": "提交另一个咨询"
+      "send_another": "提交另一个咨询",
+      "cat_electronics": "电子产品",
+      "cat_machinery": "机械设备",
+      "cat_textiles": "纺织品",
+      "cat_other": "其他",
+      "alt_form": "技术背景"
     },
     "faq": {
       "badge": "常见问题",
@@ -653,6 +663,53 @@
     "phone_numbers": {
       "india": "+91 98765 43210",
       "china": "+86 123 4567 8900"
+    },
+    "language": "语言",
+    "no_image": "暂无图片",
+    "image_load_failed": "图片加载失败",
+    "error_boundary_title": "出现错误",
+    "error_boundary_description": "发生了意外错误。请尝试刷新页面。",
+    "reload_page": "重新加载页面",
+    "what_we_offer": "我们提供的服务",
+    "related_resources": "相关资源",
+    "learn_more": "了解更多",
+    "frequently_asked_questions": "常见问题",
+    "ready_to_get_started": "准备开始了吗？",
+    "connect_with_experts": "立即联系我们的专家，迈出实现目标的第一步。",
+    "still_have_questions": "还有疑问吗？",
+    "faq_help_text": "我们的团队随时为您提供帮助。联系我们后，我们会在 24 小时内回复。",
+    "placeholders": {
+      "name": "张伟",
+      "email": "name@example.com",
+      "phone": "+86 138 0000 0000",
+      "select_program": "选择课程",
+      "select_intake": "选择入学时间",
+      "select_destination": "选择目的地",
+      "select_travel_type": "选择旅行类型",
+      "traveler_count": "2",
+      "select_level": "选择您当前的学历层级"
+    },
+    "accessibility": {
+      "main_navigation": "主导航",
+      "available_languages": "可用语言",
+      "navigation_menu": "导航菜单",
+      "breadcrumb": "面包屑导航",
+      "dismiss_notification": "关闭通知",
+      "notifications": "通知",
+      "open_navigation": "打开导航菜单",
+      "close_navigation": "关闭导航菜单",
+      "switch_to_light": "切换到浅色模式",
+      "switch_to_dark": "切换到深色模式",
+      "student_avatar": "学生头像"
+    },
+    "validation": {
+      "field_label": "此字段",
+      "required": "{{field}}为必填项",
+      "min_length": "{{field}}至少需要 {{count}} 个字符",
+      "max_length": "{{field}}最多只能有 {{count}} 个字符",
+      "invalid_email": "请输入有效的电子邮件地址",
+      "invalid_phone": "请输入有效的电话号码",
+      "invalid_field": "{{field}}无效"
     }
   }
 }

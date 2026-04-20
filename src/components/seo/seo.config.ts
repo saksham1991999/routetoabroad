@@ -16,7 +16,7 @@ export interface SeoMetaProps {
 }
 
 export const BASE_URL = 'https://routetoabroad.com';
-export const DEFAULT_IMAGE = `${BASE_URL}/assets/images/hero_edu.jpg`;
+export const DEFAULT_IMAGE = `${BASE_URL}/assets/images/social_share.jpg`;
 
 export const LOCALES = ['en', 'zh', 'fr', 'ar'] as const;
 export type Locale = typeof LOCALES[number];

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { CheckCircle, XCircle, Info, X } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useToast, type Toast } from './ToastContext';
+import i18n from '../../i18n/i18n';
 
 const typeConfig = {
   success: { icon: CheckCircle, classes: 'bg-green-50 border-green-200 text-green-800 dark:bg-green-900/30 dark:border-green-700 dark:text-green-300' },
@@ -34,7 +35,7 @@ function ToastItem({ toast }: { toast: Toast }) {
         type="button"
         onClick={() => removeToast(toast.id)}
         className="flex-shrink-0 opacity-60 hover:opacity-100 transition-opacity"
-        aria-label="Dismiss notification"
+        aria-label={i18n.t('common.accessibility.dismiss_notification')}
       >
         <X className="w-4 h-4" />
       </button>
@@ -49,7 +50,7 @@ export function ToastContainer() {
 
   return (
     <div
-      aria-label="Notifications"
+      aria-label={i18n.t('common.accessibility.notifications')}
       className="fixed bottom-4 end-4 z-[9999] flex flex-col gap-2 pointer-events-none"
     >
       {toasts.map((toast) => (

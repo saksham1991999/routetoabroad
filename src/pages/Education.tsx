@@ -66,11 +66,11 @@ const Education = () => {
   const steps = ['step_01', 'step_02', 'step_03', 'step_04', 'step_05'];
 
   const universities = [
-    { id: 'peking', rank: 'Asia #1', students: '10,000+', image: '/assets/images/edu-1.svg' },
-    { id: 'tsinghua', rank: 'Asia #2', students: '9,500+', image: '/assets/images/edu-2.svg' },
-    { id: 'fudan', rank: 'Asia #5', students: '7,000+', image: '/assets/images/edu-3.svg' },
-    { id: 'zhejiang', rank: 'Asia #8', students: '6,500+', image: '/assets/images/edu-4.svg' },
-    { id: 'sjtu', rank: 'Asia #10', students: '8,000+', image: '/assets/images/edu-5.svg' }
+    { id: 'peking', rank: 'Asia #1', students: '10,000+', image: '/assets/images/edu-1.webp' },
+    { id: 'tsinghua', rank: 'Asia #2', students: '9,500+', image: '/assets/images/edu-2.webp' },
+    { id: 'fudan', rank: 'Asia #5', students: '7,000+', image: '/assets/images/edu-3.webp' },
+    { id: 'zhejiang', rank: 'Asia #8', students: '6,500+', image: '/assets/images/edu-4.webp' },
+    { id: 'sjtu', rank: 'Asia #10', students: '8,000+', image: '/assets/images/edu-5.webp' }
   ];
 
   const faqItems: AccordionItem[] = [
@@ -118,7 +118,7 @@ const Education = () => {
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
                   <div key={i} className="w-12 h-12 rounded-full border-2 border-white dark:border-slate-900 overflow-hidden">
-                    <img src={`/assets/images/student_${(i % 6) + 1}.svg`} alt="Student" className="w-12 h-12 rounded-full object-cover" />
+                    <img src={`/assets/images/student_${(i % 6) + 1}.webp`} alt={t('common.accessibility.student_avatar')} className="w-12 h-12 rounded-full object-cover" />
                   </div>
                 ))}
               </div>
@@ -133,7 +133,7 @@ const Education = () => {
             <div className="absolute -inset-4 bg-education-blue/10 rounded-[2rem] blur-2xl group-hover:bg-education-blue/20 transition-colors" />
             <div className="relative rounded-[2rem] overflow-hidden shadow-2xl border-4 md:border-8 border-white dark:border-slate-800">
               <img
-                src="/assets/images/edu-hero.svg"
+                src="/assets/images/edu_hero.webp"
                 alt={t('education.hero.alt_hero')}
                 className="w-full h-[300px] md:h-[450px] lg:h-[600px] object-cover hover:scale-105 transition-transform duration-700"
               />
@@ -252,10 +252,10 @@ const Education = () => {
                       className="w-full p-5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-2xl focus:border-education-blue focus:ring-4 focus:ring-education-blue/5 outline-none transition-all text-lg font-medium dark:text-white"
                     >
                       <option value="">{t('education.calculator.gpa_placeholder')}</option>
-                      <option value="90">90% + (Grade A+)</option>
-                      <option value="80">80% - 89% (Grade A)</option>
-                      <option value="70">70% - 79% (Grade B)</option>
-                      <option value="below">Below 70%</option>
+                      <option value="90">{t('education.calculator.grade_90_plus')}</option>
+                      <option value="80">{t('education.calculator.grade_80_to_89')}</option>
+                      <option value="70">{t('education.calculator.grade_70_to_79')}</option>
+                      <option value="below">{t('education.calculator.grade_below_70')}</option>
                     </select>
                   </div>
 

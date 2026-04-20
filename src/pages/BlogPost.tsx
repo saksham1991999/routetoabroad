@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { cn } from '../utils/cn';
-import { useEffect } from 'react';
+import { useEffect, useMemo } from 'react';
 import Badge from '../components/ui/Badge';
 import Reveal from '../components/animation/Reveal';
 import { BLOGS } from '../data/blogs';
@@ -12,12 +12,6 @@ const categoryColorBar: Record<BlogCategory, string> = {
   education: 'bg-blue-500',
   tourism: 'bg-emerald-500',
   trade: 'bg-violet-500',
-};
-
-const categoryLabels: Record<BlogCategory, string> = {
-  education: 'Education',
-  tourism: 'Tourism',
-  trade: 'Trade',
 };
 
 function renderBlock(block: ContentBlock, idx: number) {
@@ -73,6 +67,14 @@ function parseDate(dateStr: string): string {
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>();
   const { t } = useTranslation();
+  const categoryLabels = useMemo<Record<BlogCategory, string>>(
+    () => ({
+      education: t('blog.categories.education'),
+      tourism: t('blog.categories.tourism'),
+      trade: t('blog.categories.trade'),
+    }),
+    [t],
+  );
 
   const post = BLOGS.find((b) => b.slug === slug);
 
@@ -83,7 +85,7 @@ export default function BlogPost() {
     return () => {
       document.title = 'RouteToAbroad | Education. Tourism. Trade.';
     };
-  }, [post]);
+  }, [categoryLabels, post]);
 
   useEffect(() => {
     if (!post) return;
@@ -103,8 +105,8 @@ export default function BlogPost() {
     });
 
     const breadcrumbData = breadcrumbSchema([
-      { name: 'Home', url: 'https://routetoabroad.com/' },
-      { name: 'Insights', url: 'https://routetoabroad.com/blog' },
+      { name: t('nav.home'), url: 'https://routetoabroad.com/' },
+      { name: t('nav.blog'), url: 'https://routetoabroad.com/blog' },
       { name: categoryLabels[post.category], url: `https://routetoabroad.com/blog?category=${post.category}` },
       { name: post.title, url: `https://routetoabroad.com/blog/${post.slug}` },
     ]);
@@ -122,7 +124,7 @@ export default function BlogPost() {
       const el = document.getElementById('article-schema');
       if (el) el.remove();
     };
-  }, [post]);
+  }, [categoryLabels, post, t]);
 
   if (!post) {
     return (
@@ -141,18 +143,18 @@ export default function BlogPost() {
   return (
     <>
       {/* Breadcrumb */}
-      <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label="Breadcrumb">
+      <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label={t('common.accessibility.breadcrumb')}>
         <div className="max-w-[1440px] mx-auto">
           <ol className="flex items-center gap-2 text-sm font-mono">
             <li>
               <Link to="/" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
-                Home
+                {t('nav.home')}
               </Link>
             </li>
             <li className="flex items-center gap-2">
               <span className="text-slate-400">/</span>
               <Link to="/blog" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
-                Insights
+                {t('nav.blog')}
               </Link>
             </li>
             <li className="flex items-center gap-2">
@@ -190,14 +192,14 @@ export default function BlogPost() {
         )}
         <div className="max-w-[800px] mx-auto px-8 py-20 relative z-10">
           <Badge variant={post.category} size="md" className="mb-6">
-            {post.category.charAt(0).toUpperCase() + post.category.slice(1)}
+            {categoryLabels[post.category]}
           </Badge>
           <h1 className="text-4xl md:text-5xl font-headline font-bold text-white leading-tight mb-8">
             {post.title}
           </h1>
           <div className="flex flex-wrap items-center gap-6 text-sm text-slate-400">
             <div className="flex items-center gap-2">
-              <span className="text-slate-500">By</span>
+              <span className="text-slate-500">{t('blog.by')}</span>
               <span className="text-white font-semibold">{post.author}</span>
               {post.authorRole && <span className="text-slate-500">({post.authorRole})</span>}
             </div>

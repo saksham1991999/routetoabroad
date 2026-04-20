@@ -112,10 +112,10 @@ export default function EducationForm() {
   ];
 
   const cgpaOptions = [
-    { value: '90plus', label: '90% + (Grade A+)' },
-    { value: '80to89', label: '80% – 89% (Grade A)' },
-    { value: '70to79', label: '70% – 79% (Grade B)' },
-    { value: 'below70', label: 'Below 70%' },
+    { value: '90plus', label: t('education.calculator.grade_90_plus') },
+    { value: '80to89', label: t('education.calculator.grade_80_to_89') },
+    { value: '70to79', label: t('education.calculator.grade_70_to_79') },
+    { value: 'below70', label: t('education.calculator.grade_below_70') },
   ];
 
   return (
@@ -172,7 +172,7 @@ export default function EducationForm() {
           name="educationLevel"
           label={t('education.form.label_level')}
           options={educationLevelOptions}
-          placeholder={t('education.calculator.gpa_placeholder')}
+          placeholder={t('common.placeholders.select_level')}
           value={values.educationLevel}
           error={touched.educationLevel ? errors.educationLevel : undefined}
           onChange={(e) => handleChange('educationLevel', e.target.value)}
@@ -186,7 +186,7 @@ export default function EducationForm() {
             name="programInterest"
             label={t('education.form.label_program')}
             options={programOptions}
-            placeholder="Select a program"
+            placeholder={t('common.placeholders.select_program')}
             value={values.programInterest}
             error={touched.programInterest ? errors.programInterest : undefined}
             onChange={(e) => handleChange('programInterest', e.target.value)}
@@ -197,7 +197,7 @@ export default function EducationForm() {
             name="targetIntake"
             label={t('education.form.label_intake')}
             options={intakeOptions}
-            placeholder="Select intake period"
+            placeholder={t('common.placeholders.select_intake')}
             value={values.targetIntake}
             error={touched.targetIntake ? errors.targetIntake : undefined}
             onChange={(e) => handleChange('targetIntake', e.target.value)}

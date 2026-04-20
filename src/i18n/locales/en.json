@@ -229,7 +229,11 @@
       "result_title": "You have a strong chance",
       "result_desc": "Based on preliminary data, you qualify for Category A (Full Tuition + Stipend) scholarships at 15+ partner universities.",
       "result_cta_primary": "Book a Free Consultation",
-      "result_cta_secondary": "Save My Results"
+      "result_cta_secondary": "Save My Results",
+      "grade_90_plus": "90% + (Grade A+)",
+      "grade_80_to_89": "80% - 89% (Grade A)",
+      "grade_70_to_79": "70% - 79% (Grade B)",
+      "grade_below_70": "Below 70%"
     },
     "partners": {
       "badge": "Collaborating with Global Leaders",
@@ -659,6 +663,53 @@
     "phone_numbers": {
       "india": "+91 98765 43210",
       "china": "+86 123 4567 8900"
+    },
+    "language": "Language",
+    "no_image": "No image",
+    "image_load_failed": "Failed to load image",
+    "error_boundary_title": "Something went wrong",
+    "error_boundary_description": "An unexpected error occurred. Please try refreshing the page.",
+    "reload_page": "Reload page",
+    "what_we_offer": "What We Offer",
+    "related_resources": "Related Resources",
+    "learn_more": "Learn more",
+    "frequently_asked_questions": "Frequently Asked Questions",
+    "ready_to_get_started": "Ready to get started?",
+    "connect_with_experts": "Connect with our experts today and take the first step toward your goals.",
+    "still_have_questions": "Still have questions?",
+    "faq_help_text": "Our team is here to help. Get in touch and we will respond within 24 hours.",
+    "placeholders": {
+      "name": "John Doe",
+      "email": "john@example.com",
+      "phone": "+91 XXXX XXX XXX",
+      "select_program": "Select a program",
+      "select_intake": "Select intake period",
+      "select_destination": "Select destination",
+      "select_travel_type": "Select travel type",
+      "traveler_count": "2",
+      "select_level": "Select your current level"
+    },
+    "accessibility": {
+      "main_navigation": "Main navigation",
+      "available_languages": "Available languages",
+      "navigation_menu": "Navigation menu",
+      "breadcrumb": "Breadcrumb",
+      "dismiss_notification": "Dismiss notification",
+      "notifications": "Notifications",
+      "open_navigation": "Open navigation menu",
+      "close_navigation": "Close navigation menu",
+      "switch_to_light": "Switch to light mode",
+      "switch_to_dark": "Switch to dark mode",
+      "student_avatar": "Student avatar"
+    },
+    "validation": {
+      "field_label": "This field",
+      "required": "{{field}} is required",
+      "min_length": "{{field}} must be at least {{count}} characters",
+      "max_length": "{{field}} must be at most {{count}} characters",
+      "invalid_email": "Please enter a valid email address",
+      "invalid_phone": "Please enter a valid phone number",
+      "invalid_field": "{{field}} is invalid"
     }
   }
 }

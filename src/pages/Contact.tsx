@@ -33,9 +33,30 @@ const Contact = () => {
   const [activeTab, setActiveTab] = useState<'education' | 'tourism' | 'trade'>('education');
 
   const contactOptions = [
-    { id: 'education' as const, icon: GraduationCap, color: 'text-blue-600', bg: 'bg-blue-50 dark:bg-blue-900/20' },
-    { id: 'tourism' as const, icon: Palmtree, color: 'text-emerald-600', bg: 'bg-emerald-50 dark:bg-emerald-900/20' },
-    { id: 'trade' as const, icon: TrendingUp, color: 'text-orange-600', bg: 'bg-orange-50 dark:bg-orange-900/20' },
+    {
+      id: 'education' as const,
+      icon: GraduationCap,
+      color: 'text-blue-600',
+      bg: 'bg-blue-50 dark:bg-blue-900/20',
+      titleKey: 'contact.options.edu_title',
+      descKey: 'contact.options.edu_desc',
+    },
+    {
+      id: 'tourism' as const,
+      icon: Palmtree,
+      color: 'text-emerald-600',
+      bg: 'bg-emerald-50 dark:bg-emerald-900/20',
+      titleKey: 'contact.options.tourism_title',
+      descKey: 'contact.options.tourism_desc',
+    },
+    {
+      id: 'trade' as const,
+      icon: TrendingUp,
+      color: 'text-orange-600',
+      bg: 'bg-orange-50 dark:bg-orange-900/20',
+      titleKey: 'contact.options.trade_title',
+      descKey: 'contact.options.trade_desc',
+    },
   ];
 
   return (
@@ -101,10 +122,10 @@ const Contact = () => {
                       </div>
                       <div className="grow">
                         <h4 className="font-bold text-slate-950 dark:text-white mb-1">
-                          {t(`contact.options.${option.id}_title`)}
+                          {t(option.titleKey)}
                         </h4>
                         <p className="text-sm text-slate-500 dark:text-slate-400 leading-tight">
-                          {t(`contact.options.${option.id}_desc`)}
+                          {t(option.descKey)}
                         </p>
                       </div>
                       <ChevronRight className={cn("w-5 h-5 transition-transform", activeTab === option.id ? "text-blue-600 translate-x-1" : "text-slate-300")} />

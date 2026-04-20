@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Seo, faqSchema, type BreadcrumbItem } from '../../components/seo';
 import Reveal from '../../components/animation/Reveal';
 import { COMPANY } from '../../constants';
@@ -21,6 +22,8 @@ export interface ProgrammaticPageProps {
   keywords: string;
   heroTitle: string;
   heroDescription: string;
+  heroImage?: string;
+  heroImageAlt?: string;
   canonical: string;
   breadcrumbItems: BreadcrumbItem[];
   faqs?: Array<{ question: string; answer: string }>;
@@ -63,17 +66,20 @@ export default function ProgrammaticPage({
   keywords,
   heroTitle,
   heroDescription,
+  heroImage,
+  heroImageAlt,
   canonical,
   breadcrumbItems,
   faqs = [],
   features = [],
   stats = [],
-  ctaTitle = 'Ready to get started?',
-  ctaSubtitle = 'Connect with our experts today and take the first step toward your goals.',
+  ctaTitle,
+  ctaSubtitle,
   ctaButtons = [],
   relatedPages = [],
   type,
 }: ProgrammaticPageProps) {
+  const { t } = useTranslation();
   const colors = pillarColors[type];
 
   const jsonLd = faqs.length > 0 ? faqSchema(faqs) : null;
@@ -106,12 +112,12 @@ export default function ProgrammaticPage({
 
       <main className="pt-0">
         {/* Breadcrumb */}
-        <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label="Breadcrumb">
+        <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label={t('common.accessibility.breadcrumb')}>
           <div className="max-w-[1440px] mx-auto">
             <ol className="flex items-center gap-2 text-sm font-mono">
               <li>
                 <Link to="/" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">
-                  Home
+                  {t('nav.home')}
                 </Link>
               </li>
               {breadcrumbItems.map((item, idx) => (
@@ -136,44 +142,62 @@ export default function ProgrammaticPage({
           <div className="absolute top-0 right-0 w-96 h-96 bg-secondary/10 blur-[120px] rounded-full" />
           
           <div className="max-w-[1440px] mx-auto relative z-10">
-            <Reveal variant="fade">
-              <div className="max-w-3xl">
-                <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${colors.light} ${colors.primary} text-sm font-semibold mb-6`}>
-                  {type === 'education' && <GraduationCap className="w-4 h-4" />}
-                  {type === 'tourism' && <Plane className="w-4 h-4" />}
-                  {type === 'trade' && <Briefcase className="w-4 h-4" />}
-                  {type === 'education' && 'Education'}
-                  {type === 'tourism' && 'Tourism'}
-                  {type === 'trade' && 'Trade'}
-                </span>
-                
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                  {heroTitle}
-                </h1>
-                
-                <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-                  {heroDescription}
-                </p>
+            <div className={`grid items-center gap-12 ${heroImage ? 'lg:grid-cols-12' : ''}`}>
+              <Reveal variant="fade" className={heroImage ? 'lg:col-span-7' : undefined}>
+                <div className="max-w-3xl">
+                  <span className={`inline-flex items-center gap-2 px-4 py-2 rounded-full ${colors.light} ${colors.primary} text-sm font-semibold mb-6`}>
+                    {type === 'education' && <GraduationCap className="w-4 h-4" />}
+                    {type === 'tourism' && <Plane className="w-4 h-4" />}
+                    {type === 'trade' && <Briefcase className="w-4 h-4" />}
+                    {type === 'education' && t('nav.education')}
+                    {type === 'tourism' && t('nav.tourism')}
+                    {type === 'trade' && t('nav.trade')}
+                  </span>
+                  
+                  <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                    {heroTitle}
+                  </h1>
+                  
+                  <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                    {heroDescription}
+                  </p>
 
-                {ctaButtons.length > 0 && (
-                  <div className="flex flex-wrap gap-4">
-                    {ctaButtons.map((btn, idx) => (
-                      <Link
-                        key={idx}
-                        to={btn.href}
-                        className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all ${idx === 0
-                          ? 'bg-secondary text-white hover:bg-secondary/90'
-                          : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
-                        }`}
-                      >
-                        <btn.icon className="w-5 h-5" />
-                        {btn.label}
-                      </Link>
-                    ))}
+                  {ctaButtons.length > 0 && (
+                    <div className="flex flex-wrap gap-4">
+                      {ctaButtons.map((btn, idx) => (
+                        <Link
+                          key={idx}
+                          to={btn.href}
+                          className={`inline-flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all ${idx === 0
+                            ? 'bg-secondary text-white hover:bg-secondary/90'
+                            : 'bg-white/10 text-white border border-white/20 hover:bg-white/20'
+                          }`}
+                        >
+                          <btn.icon className="w-5 h-5" />
+                          {btn.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+
+              {heroImage && (
+                <Reveal variant="slide-left" delay={150} className="lg:col-span-5">
+                  <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/5 shadow-2xl shadow-black/30">
+                    <img
+                      src={heroImage}
+                      alt={heroImageAlt || heroTitle}
+                      className="h-[320px] w-full object-cover md:h-[420px]"
+                      loading="eager"
+                      decoding="async"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/10" />
+                    <div className="pointer-events-none absolute inset-0 rounded-[2rem] ring-1 ring-inset ring-white/10" />
                   </div>
-                )}
-              </div>
-            </Reveal>
+                </Reveal>
+              )}
+            </div>
 
             {stats.length > 0 && (
               <Reveal variant="slide-up" delay={200}>
@@ -196,7 +220,7 @@ export default function ProgrammaticPage({
             <div className="max-w-[1440px] mx-auto">
               <Reveal variant="fade">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-                  What We Offer
+                  {t('common.what_we_offer')}
                 </h2>
               </Reveal>
               
@@ -223,7 +247,7 @@ export default function ProgrammaticPage({
             <div className="max-w-[1440px] mx-auto">
               <Reveal variant="fade">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12">
-                  Related Resources
+                  {t('common.related_resources')}
                 </h2>
               </Reveal>
               
@@ -239,7 +263,7 @@ export default function ProgrammaticPage({
                       </h3>
                       <p className="text-slate-600 dark:text-slate-400 mb-4">{page.description}</p>
                       <span className="inline-flex items-center gap-2 text-secondary font-semibold">
-                        Learn more <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        {t('common.learn_more')} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                       </span>
                     </Link>
                   </Reveal>
@@ -255,7 +279,7 @@ export default function ProgrammaticPage({
             <div className="max-w-3xl mx-auto">
               <Reveal variant="fade">
                 <h2 className="text-3xl md:text-4xl font-bold text-slate-900 dark:text-white mb-12 text-center">
-                  Frequently Asked Questions
+                  {t('common.frequently_asked_questions')}
                 </h2>
               </Reveal>
               
@@ -285,10 +309,10 @@ export default function ProgrammaticPage({
           <div className="max-w-[1440px] mx-auto text-center">
             <Reveal variant="fade">
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                {ctaTitle}
+                {ctaTitle ?? t('common.ready_to_get_started')}
               </h2>
               <p className="text-xl text-slate-300 mb-12 max-w-2xl mx-auto">
-                {ctaSubtitle}
+                {ctaSubtitle ?? t('common.connect_with_experts')}
               </p>
             </Reveal>
             
@@ -313,13 +337,13 @@ export default function ProgrammaticPage({
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-secondary text-white hover:bg-secondary/90 transition-all"
                     >
                       <MessageSquare className="w-5 h-5" />
-                      Contact Us
+                      {t('about.contact_cta.contact_us')}
                     </Link>
                     <Link
                       to="/education"
                       className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white/10 text-white border border-white/20 hover:bg-white/20 transition-all"
                     >
-                      Explore Programs
+                      {t('home.hero.explore')}
                     </Link>
                   </>
                 )}

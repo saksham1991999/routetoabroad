@@ -120,7 +120,7 @@ export default function TourismForm() {
         <Input
           name="name"
           label={t('common.full_name')}
-          placeholder="John Doe"
+          placeholder={t('common.placeholders.name')}
           value={values.name}
           error={touched.name ? errors.name : undefined}
           onChange={(e) => handleChange('name', e.target.value)}
@@ -136,7 +136,7 @@ export default function TourismForm() {
           name="email"
           type="email"
           label={t('common.email')}
-          placeholder="john@example.com"
+          placeholder={t('common.placeholders.email')}
           value={values.email}
           error={touched.email ? errors.email : undefined}
           onChange={(e) => handleChange('email', e.target.value)}
@@ -152,7 +152,7 @@ export default function TourismForm() {
           name="phone"
           type="tel"
           label={t('common.phone')}
-          placeholder="+91 XXXX XXX XXX"
+          placeholder={t('common.placeholders.phone')}
           value={values.phone}
           error={touched.phone ? errors.phone : undefined}
           onChange={(e) => handleChange('phone', e.target.value)}
@@ -168,7 +168,7 @@ export default function TourismForm() {
           name="destination"
           label={t('tourism.form.destination_label')}
           options={destinationOptions}
-          placeholder="Select destination"
+          placeholder={t('common.placeholders.select_destination')}
           value={values.destination}
           error={touched.destination ? errors.destination : undefined}
           onChange={(e) => handleChange('destination', e.target.value)}
@@ -183,7 +183,7 @@ export default function TourismForm() {
           name="tripType"
           label={t('tourism.form.type_label')}
           options={tripTypeOptions}
-          placeholder="Select travel type"
+          placeholder={t('common.placeholders.select_travel_type')}
           value={values.tripType}
           error={touched.tripType ? errors.tripType : undefined}
           onChange={(e) => handleChange('tripType', e.target.value)}
@@ -198,7 +198,7 @@ export default function TourismForm() {
           name="travelers"
           type="number"
           label={t('tourism.form.travelers_label')}
-          placeholder="2"
+          placeholder={t('common.placeholders.traveler_count')}
           min="1"
           value={values.travelers}
           error={touched.travelers ? errors.travelers : undefined}

@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { Seo, faqSchema } from '../../components/seo';
 import Reveal from '../../components/animation/Reveal';
 import {
@@ -143,8 +144,10 @@ interface FaqPageProps {
 }
 
 export default function FaqPage({ type }: FaqPageProps) {
+  const { t } = useTranslation();
   const data = faqData[type];
   const Icon = data.icon;
+  const typeLabel = type === 'education' ? t('nav.education') : type === 'tourism' ? t('nav.tourism') : t('nav.trade');
 
   const jsonLd = faqSchema(data.faqs.map(f => ({ question: f.question, answer: f.answer })));
 
@@ -170,25 +173,25 @@ export default function FaqPage({ type }: FaqPageProps) {
         keywords={`${type} faq, ${type} questions, route to abroad faq, study china faq, china tour faq, india china trade faq`}
         canonical={`https://routetoabroad.com/${type}/faq`}
         breadcrumbs={[
-          { name: type.charAt(0).toUpperCase() + type.slice(1), url: `/${type}` },
-          { name: 'FAQ', url: `/${type}/faq` },
+          { name: typeLabel, url: `/${type}` },
+          { name: t('common.faq_title'), url: `/${type}/faq` },
         ]}
       />
 
       <main className="pt-0">
-        <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label="Breadcrumb">
+        <nav className="bg-slate-50 dark:bg-slate-900 py-3 px-4" aria-label={t('common.accessibility.breadcrumb')}>
           <div className="max-w-[1440px] mx-auto">
             <ol className="flex items-center gap-2 text-sm font-mono">
               <li>
-                <Link to="/" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">Home</Link>
+                <Link to="/" className="text-slate-500 hover:text-slate-900 dark:hover:text-white">{t('nav.home')}</Link>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-slate-400">/</span>
-                <Link to={`/${type}`} className="text-slate-500 hover:text-slate-900 dark:hover:text-white capitalize">{type}</Link>
+                <Link to={`/${type}`} className="text-slate-500 hover:text-slate-900 dark:hover:text-white">{typeLabel}</Link>
               </li>
               <li className="flex items-center gap-2">
                 <span className="text-slate-400">/</span>
-                <span className="text-slate-900 dark:text-white">FAQ</span>
+                <span className="text-slate-900 dark:text-white">{t('common.faq_title')}</span>
               </li>
             </ol>
           </div>
@@ -236,10 +239,10 @@ export default function FaqPage({ type }: FaqPageProps) {
           <div className="max-w-[1440px] mx-auto text-center">
             <Reveal variant="fade">
               <h2 className="text-3xl font-bold text-slate-900 dark:text-white mb-6">
-                Still have questions?
+                {t('common.still_have_questions')}
               </h2>
               <p className="text-lg text-slate-600 dark:text-slate-400 mb-12 max-w-2xl mx-auto">
-                Our team is here to help. Get in touch and we will respond within 24 hours.
+                {t('common.faq_help_text')}
               </p>
             </Reveal>
             <Reveal variant="slide-up" delay={200}>
@@ -249,14 +252,14 @@ export default function FaqPage({ type }: FaqPageProps) {
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-secondary text-white hover:bg-secondary/90 transition-all"
                 >
                   <MessageSquare className="w-5 h-5" />
-                  Contact Us
+                  {t('about.contact_cta.contact_us')}
                 </Link>
                 <a
                   href="tel:+919633061109"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-bold bg-white dark:bg-slate-800 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all"
                 >
                   <Phone className="w-5 h-5" />
-                  Call Us
+                  {t('contact.info.call_us')}
                 </a>
               </div>
               <div className="mt-12 flex flex-wrap justify-center gap-8 text-sm text-slate-500">

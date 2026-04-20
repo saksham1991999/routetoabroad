@@ -70,7 +70,7 @@ export const localBusinessIndiaSchema = {
   '@type': 'LocalBusiness',
   '@id': 'https://routetoabroad.com/#india-office',
   name: `${COMPANY.name} - India Office`,
-  image: 'https://routetoabroad.com/assets/images/ceo_minhaj.jpg',
+  image: 'https://routetoabroad.com/assets/images/ceo_minhaj.webp',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Level 4, Rectangle 1, Saket District Centre',
@@ -108,7 +108,7 @@ export const localBusinessChinaSchema = {
   '@type': 'LocalBusiness',
   '@id': 'https://routetoabroad.com/#china-office',
   name: `${COMPANY.name} - China Office`,
-  image: 'https://routetoabroad.com/assets/images/director_vijeesh.jpg',
+  image: 'https://routetoabroad.com/assets/images/director_vijeesh.webp',
   address: {
     '@type': 'PostalAddress',
     streetAddress: 'Tower B, Victory Plaza, Tianhe District',
@@ -150,7 +150,7 @@ export const personCeoSchema = {
     name: COMPANY.name,
     url: 'https://routetoabroad.com',
   },
-  image: 'https://routetoabroad.com/assets/images/ceo_minhaj.jpg',
+  image: 'https://routetoabroad.com/assets/images/ceo_minhaj.webp',
   sameAs: [
     'https://linkedin.com/in/minhajalshukoor',
   ],
@@ -166,7 +166,7 @@ export const personDirectorSchema = {
     name: COMPANY.name,
     url: 'https://routetoabroad.com',
   },
-  image: 'https://routetoabroad.com/assets/images/director_vijeesh.jpg',
+  image: 'https://routetoabroad.com/assets/images/director_vijeesh.webp',
   sameAs: [
     'https://linkedin.com/in/vijeeshvijayan',
   ],
@@ -200,7 +200,7 @@ export function articleSchema({
     '@type': 'Article',
     headline: title,
     description,
-    image: image || 'https://routetoabroad.com/assets/images/hero_edu.jpg',
+    image: image || 'https://routetoabroad.com/assets/images/social_share.jpg',
     url,
     datePublished: publishedTime,
     dateModified: modifiedTime || publishedTime,

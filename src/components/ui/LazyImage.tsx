@@ -1,5 +1,6 @@
 import { useState, type ImgHTMLAttributes } from 'react';
 import { cn } from '../../utils/cn';
+import i18n from '../../i18n/i18n';
 
 interface LazyImageProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'loading'> {
   fallback?: React.ReactNode;
@@ -23,7 +24,7 @@ export default function LazyImage({
       <>{fallback}</>
     ) : (
       <div className={cn('bg-slate-200 dark:bg-slate-800 flex items-center justify-center', className)}>
-        <span className="text-slate-400 text-sm">No image</span>
+        <span className="text-slate-400 text-sm">{i18n.t('common.no_image')}</span>
       </div>
     );
   }
@@ -52,7 +53,7 @@ export default function LazyImage({
       />
       {hasError && (
         <div className="absolute inset-0 bg-slate-200 dark:bg-slate-800 flex items-center justify-center">
-          <span className="text-slate-400 text-sm">Failed to load image</span>
+          <span className="text-slate-400 text-sm">{i18n.t('common.image_load_failed')}</span>
         </div>
       )}
     </div>

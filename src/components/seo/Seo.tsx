@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { BASE_URL, type SeoMetaProps } from './seo.config';
+import { BASE_URL, DEFAULT_IMAGE, type SeoMetaProps } from './seo.config';
 export interface BreadcrumbItem {
   name: string;
   url: string;
@@ -55,7 +55,7 @@ export default function Seo({
 
   const currentPath = location.pathname;
   const fullCanonical = canonical || `${BASE_URL}${currentPath}`;
-  const ogImageUrl = ogImage || `${BASE_URL}/assets/images/hero_edu.jpg`;
+  const ogImageUrl = ogImage || DEFAULT_IMAGE;
   const pageTitle = title || PAGE_TITLES[currentPath] || PAGE_TITLES['/'];
   const pageDescription = description || PAGE_DESCRIPTIONS[currentPath] || PAGE_DESCRIPTIONS['/'];
 

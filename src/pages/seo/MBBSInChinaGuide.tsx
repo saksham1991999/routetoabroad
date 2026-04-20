@@ -15,6 +15,8 @@ const pageData = {
   keywords: 'mbbs in china, study medicine in china, china mbbs guide, mbbs fees china, csc scholarship medicine, mbbs abroad, china medical university',
   heroTitle: 'Your Complete Guide to MBBS in China',
   heroDescription: 'Discover world-class medical education in China. Our comprehensive guide covers everything from university selection and scholarship applications to visa processing and career pathways.',
+  heroImage: '/assets/images/guide_mbbs_hero.webp',
+  heroImageAlt: 'Modern university campus building reflected in water',
   canonical: 'https://routetoabroad.com/education/mbbs-in-china-complete-guide',
   breadcrumbItems: [
     { name: 'Education', url: '/education' },
