@@ -1,0 +1,382 @@
+---
+import { SITE, NAV_LINKS } from '../lib/site';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) =>
+  currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
+---
+
+<header class="site-header" id="site-header">
+  <div class="container-wide header-inner">
+    <a href="/" class="wordmark" aria-label="RouteToAbroad — home">
+      <span>Route</span><span class="wm-to">To</span><span class="wm-abroad">Abroad</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={link.href} class:list={{ active: isActive(link.href) }} aria-current={isActive(link.href) ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.6 14.2A8.8 8.8 0 0 1 9.8 3.4a8.8 8.8 0 1 0 10.8 10.8Z"></path>
+        </svg>
+      </button>
+      <a href="/tools/fit-check" class="btn btn-primary btn-sm header-cta">Fit check</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <ul>
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="/tools/fit-check" class="btn btn-primary">Start the fit check</a>
+        <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">WhatsApp an advisor</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    color: var(--ink);
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 5rem; /* inner pages: 80px */
+    background: color-mix(in srgb, var(--paper) 85%, transparent);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  /* ----- Homepage chrome: fixed, transparent, tone-aware ----- */
+  body[data-chrome='home'] .site-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  body[data-chrome='home'] .header-inner {
+    height: 4.375rem; /* 70px */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .site-header {
+    color: #ffffff;
+  }
+
+  .wordmark {
+    font-weight: 600;
+    font-size: 1.0625rem; /* 17px */
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .wm-to {
+    color: var(--ink-faint);
+    margin-inline: 0.06em;
+  }
+
+  .wm-abroad {
+    color: var(--accent-text);
+  }
+
+  /* Homepage chrome sits over the always-light hero composition — pin to light ink
+     so dark-theme tokens can't flip text invisible over the #f7f7f7 island. */
+  html[data-theme='dark'] body[data-chrome='home'] .wm-to {
+    color: rgba(17, 17, 17, 0.62);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .wm-abroad {
+    color: #4a63d8;
+  }
+
+  /* The homepage hero is an always-light composition — pin the whole chrome to
+     light ink in dark theme so token flips can't render it invisible. */
+  html[data-theme='dark'] body[data-chrome='home'] .site-header {
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a {
+    color: rgba(17, 17, 17, 0.62);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a:hover,
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a.active {
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle {
+    color: rgba(17, 17, 17, 0.62);
+    border-color: rgba(17, 17, 17, 0.2);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle:hover {
+    color: #111111;
+    border-color: rgba(17, 17, 17, 0.45);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .menu-toggle {
+    color: #111111;
+    border-color: rgba(17, 17, 17, 0.2);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .header-cta {
+    background: #0a0a0a;
+    color: #f7f7f7;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .wm-to {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--ink) 62%, transparent);
+    border-radius: 999px;
+    transition: color 0.15s;
+  }
+
+  .main-nav a:hover {
+    color: var(--ink);
+  }
+
+  .main-nav a.active {
+    color: var(--ink);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .main-nav a {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .main-nav a:hover,
+  body[data-chrome='home'][data-tone='dark'] .main-nav a.active {
+    color: #ffffff;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.75rem; /* 44px */
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: color-mix(in srgb, var(--ink) 62%, transparent);
+  }
+
+  .theme-toggle:hover {
+    color: var(--ink);
+    border-color: color-mix(in srgb, var(--ink) 45%, transparent);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .theme-toggle {
+    color: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .theme-toggle:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .theme-toggle svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .icon-moon { display: none; }
+
+  html[data-theme='dark'] .icon-sun { display: none; }
+  html[data-theme='dark'] .icon-moon { display: block; }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding-inline: 0.68rem;
+    color: var(--ink);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .menu-toggle {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .menu-line {
+    display: block;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-line:first-child {
+    transform: translateY(4.25px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-line:last-child {
+    transform: translateY(-4.25px) rotate(-45deg);
+  }
+
+  /* ----- Mobile menu: full-screen paper overlay ----- */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: var(--paper);
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 6.5rem var(--gutter) 1rem;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .mobile-menu ul a {
+    display: block;
+    padding: 0.35rem 0;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--ink) 60%, transparent);
+  }
+
+  .mobile-menu ul a:hover {
+    color: var(--ink);
+  }
+
+  .mobile-menu ul a[aria-current='page'] {
+    color: var(--ink);
+  }
+
+  .mobile-menu-cta {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem var(--gutter) 2.5rem;
+    max-width: 24rem;
+  }
+
+  @media (max-width: 64rem) {
+    .main-nav { display: none; }
+    .menu-toggle { display: flex; }
+    .header-cta { display: none; }
+    .header-inner { height: 4.5rem; }
+    body[data-chrome='home'] .header-inner { height: 4.375rem; }
+  }
+
+  /* Menu open: the overlay owns the palette regardless of page tone.
+     Placed last so it wins ties against the tone rules above. */
+  body:has(.mobile-menu:not([hidden])) .header-inner {
+    background: var(--paper);
+    border-bottom-color: transparent;
+  }
+
+  body:has(.mobile-menu:not([hidden])) .site-header,
+  body:has(.mobile-menu:not([hidden])) .theme-toggle,
+  body:has(.mobile-menu:not([hidden])) .menu-toggle {
+    color: var(--ink);
+  }
+
+  body:has(.mobile-menu:not([hidden])) .theme-toggle,
+  body:has(.mobile-menu:not([hidden])) .menu-toggle {
+    border-color: var(--line-strong);
+  }
+
+  body:has(.mobile-menu:not([hidden])) .wm-to {
+    color: var(--ink-faint);
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    menu.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    if (open) {
+      closeMenu();
+    } else {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      menu.hidden = false;
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+</script>

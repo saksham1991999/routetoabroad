@@ -1,0 +1,522 @@
+---
+import '../styles/tokens.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Seo from '../components/Seo.astro';
+import SiteSchemas from '../components/SiteSchemas.astro';
+import ChatWidget from '../components/ChatWidget.astro';
+import { SITE } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  path: string;
+  image?: string;
+  noindex?: boolean;
+  crumbs?: { name: string; url: string }[];
+  jsonLd?: object[];
+  /** article pages show a reading-progress bar */
+  progress?: boolean;
+}
+
+const { title, description, path, image, noindex, crumbs, jsonLd = [], progress = false } = Astro.props;
+
+/** Homepage gets the loader, HUD and tone-switching chrome. */
+const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+---
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="RouteToAbroad Insights" href="/rss.xml" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
+
+    <Seo {title} {description} {path} {image} {noindex} {crumbs} {jsonLd}>
+      {Astro.slots.has('head-extra') && <slot name="head-extra" />}
+    </Seo>
+
+    <SiteSchemas />
+
+    <script is:inline>
+      // Pre-paint theme to avoid flash-of-wrong-theme.
+      (function () {
+        try {
+          var stored = localStorage.getItem('rta-theme');
+          var theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+        } catch (e) {}
+      })();
+      document.documentElement.classList.remove('no-js');
+    </script>
+
+    {progress && (
+      <div class="scroll-progress" aria-hidden="true"><span></span></div>
+    )}
+  </head>
+  <body data-chrome={isHome ? 'home' : 'inner'} data-tone="light">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+    <ChatWidget />
+
+    {
+      isHome && (
+        <div class="rta-loader" id="rta-loader" aria-hidden="true">
+          <div class="rta-loader-cover rta-loader-cover--top" />
+          <div class="rta-loader-cover rta-loader-cover--bottom" />
+          <p class="rta-loader-line">
+            <span class="rta-loader-word" data-loader-word>
+              Choose
+            </span>
+          </p>
+        </div>
+      )
+    }
+    <script is:inline>
+      // Pre-paint guard: repeat visits and reduced-motion never see the loader.
+      // Runs on every page but exits immediately when the loader is absent.
+      (function () {
+        var el = document.getElementById('rta-loader');
+        if (!el) return;
+        try {
+          if (
+            sessionStorage.getItem('rta-loader') === '1' ||
+            window.matchMedia('(prefers-reduced-motion: reduce)').matches
+          ) {
+            el.remove();
+            window.dispatchEvent(new CustomEvent('rta:loaded'));
+          }
+        } catch (e) {
+          /* storage unavailable — let the loader play */
+        }
+      })();
+    </script>
+
+    {
+      isHome && (
+        <div class="rta-hud">
+          <span class="rta-hud-item" aria-hidden="true">
+            Education · Tourism · Trade — One corridor
+          </span>
+          <div class="rta-hud-right">
+            <a class="rta-hud-link" href={SITE.whatsapp} rel="noopener">
+              WhatsApp {SITE.phoneIndia}
+            </a>
+            <span class="rta-hud-item" aria-hidden="true">Scroll</span>
+            <span class="rta-hud-percent" role="status">
+              <span data-scroll-percent>0%</span>
+            </span>
+          </div>
+        </div>
+      )
+    }
+
+    <a class="rta-tab" id="rta-tab" href="/tools/fit-check">Fit check</a>
+
+    <script>
+      // ---- Theme toggle ----
+      document.getElementById('theme-toggle')?.addEventListener('click', () => {
+        const root = document.documentElement;
+        const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try {
+          localStorage.setItem('rta-theme', next);
+        } catch {}
+      });
+
+      // ---- Homepage loader: masked word timeline, then covers split ----
+      const loader = document.getElementById('rta-loader');
+      if (loader) {
+        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion) {
+          loader.remove();
+          window.dispatchEvent(new CustomEvent('rta:loaded'));
+        } else {
+          const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+          const run = async () => {
+            const word = loader.querySelector<HTMLElement>('[data-loader-word]');
+            const words = ['Choose', 'Apply', 'Enroll'];
+            document.body.classList.add('rta-locked');
+            if (word) {
+              for (const next of words) {
+                word.textContent = next;
+                word.classList.add('is-in');
+                await wait(450 + 280); // in 0.45s + hold 0.28s
+                word.classList.remove('is-in');
+                word.classList.add('is-out');
+                await wait(350); // out 0.35s
+                word.classList.remove('is-out');
+              }
+            }
+            // Covers split — announce first so the hero can start as they move.
+            window.dispatchEvent(new CustomEvent('rta:loaded'));
+            loader.classList.add('is-split');
+            try {
+              sessionStorage.setItem('rta-loader', '1');
+            } catch {}
+            await wait(1050);
+            loader.remove();
+            document.body.classList.remove('rta-locked');
+          };
+          requestAnimationFrame(() => requestAnimationFrame(() => void run()));
+        }
+      }
+
+      // ---- Reveal on scroll (IntersectionObserver, stagger via --reveal-delay) ----
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if (reduced) {
+        revealEls.forEach((el) => el.classList.add('is-visible'));
+      } else {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
+        );
+        revealEls.forEach((el) => io.observe(el));
+      }
+
+      // ---- Animated counters ----
+      const counters = document.querySelectorAll<HTMLElement>('[data-counter]');
+      if (counters.length) {
+        const io2 = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (!entry.isIntersecting) continue;
+              io2.unobserve(entry.target);
+              const el = entry.target as HTMLElement;
+              const target = parseFloat(el.dataset.counter || '0');
+              const decimals = (el.dataset.counter.split('.')[1] || '').length;
+              const suffix = el.dataset.suffix || '';
+              const duration = 1300;
+              const start = performance.now();
+              const step = (now: number) => {
+                const p = Math.min((now - start) / duration, 1);
+                const eased = 1 - Math.pow(1 - p, 3);
+                el.textContent = (target * eased).toFixed(decimals) + suffix;
+                if (p < 1) requestAnimationFrame(step);
+              };
+              if (reduced) el.textContent = target.toFixed(decimals) + suffix;
+              else requestAnimationFrame(step);
+            }
+          },
+          { threshold: 0.5 }
+        );
+        counters.forEach((el) => io2.observe(el));
+      }
+
+      // ---- Scroll chrome: HUD percent, floating CTA tab, tone switching ----
+      const hudPercent = document.querySelector<HTMLElement>('[data-scroll-percent]');
+      const ctaTab = document.getElementById('rta-tab');
+      const toneSections = document.querySelectorAll<HTMLElement>('[data-tone]');
+
+      const writePercent = () => {
+        if (!hudPercent) return;
+        const max = document.documentElement.scrollHeight - window.innerHeight;
+        const p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+        hudPercent.textContent = `${Math.round(p * 100)}%`;
+      };
+
+      let toneQueued = false;
+      const updateTone = () => {
+        toneQueued = false;
+        const probe = window.innerHeight * 0.25;
+        let next = 'light';
+        for (const section of toneSections) {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= probe && rect.bottom >= probe) {
+            next = section.dataset.tone || 'light';
+            break;
+          }
+        }
+        if (document.body.dataset.tone !== next) document.body.dataset.tone = next;
+      };
+
+      const onScrollChrome = () => {
+        writePercent();
+        ctaTab?.classList.toggle('is-in', window.scrollY > 200);
+        if (toneSections.length && !toneQueued) {
+          toneQueued = true;
+          requestAnimationFrame(updateTone);
+        }
+      };
+
+      if (hudPercent || ctaTab || toneSections.length) {
+        window.addEventListener('scroll', onScrollChrome, { passive: true });
+        onScrollChrome();
+      }
+
+      // ---- Scroll progress fallback (browsers without scroll-driven animations) ----
+      if (!CSS.supports('animation-timeline: scroll()')) {
+        const bar = document.querySelector('.scroll-progress span');
+        if (bar) {
+          const onScroll = () => {
+            const max = document.documentElement.scrollHeight - innerHeight;
+            const p = max > 0 ? Math.min(scrollY / max, 1) : 0;
+            (bar as HTMLElement).style.transform = `scaleX(${p})`;
+          };
+          addEventListener('scroll', onScroll, { passive: true });
+          onScroll();
+        }
+      }
+
+      // ---- Forms: validation + Formspree AJAX submit (inline to stay bundler-proof) ----
+      const FORMSPREE = 'https://formspree.io/f/xjgpgllz';
+
+      document.querySelectorAll<HTMLFormElement>('form[data-formspree]').forEach((form) => {
+        const status = form.querySelector<HTMLElement>('.form-status');
+
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          if (!validate(form)) return;
+
+          const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+          const original = btn?.textContent;
+          if (btn) {
+            btn.disabled = true;
+            btn.textContent = 'Sending…';
+          }
+
+          try {
+            const res = await fetch(FORMSPREE, {
+              method: 'POST',
+              body: new FormData(form),
+              headers: { Accept: 'application/json' },
+            });
+
+            if (status && res.ok) {
+              form.reset();
+              status.className = 'form-status ok';
+              status.textContent =
+                form.dataset.successMsg ||
+                'Message received! An advisor will reply within one working day.';
+              const fields = form.querySelector('.form-fields');
+              if (fields instanceof HTMLElement) {
+                fields.setAttribute('hidden', '');
+                status.scrollIntoView({ behavior: 'smooth', block: 'center' });
+              }
+            } else if (status) {
+              status.className = 'form-status fail';
+              status.textContent =
+                'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.';
+            }
+          } catch {
+            if (status) {
+              status.className = 'form-status fail';
+              status.textContent = 'Network error — please check your connection and try again.';
+            }
+          } finally {
+            if (btn) {
+              btn.disabled = false;
+              if (original) btn.textContent = original;
+            }
+          }
+        });
+
+        form.querySelectorAll('input, select, textarea').forEach((el) => {
+          el.addEventListener('input', () => el.closest('.field')?.classList.remove('invalid'));
+        });
+      });
+
+      function validate(form: HTMLFormElement): boolean {
+        let ok = true;
+        let firstInvalid: HTMLElement | null = null;
+
+        form.querySelectorAll<HTMLElement>('input, select, textarea').forEach((el) => {
+          const field = el.closest('.field');
+          const input = el as HTMLInputElement;
+          const value = input.value.trim();
+          let valid = true;
+
+          if (input.hasAttribute('required') && !value) valid = false;
+          if (valid && value && input.type === 'email' && !/^\S+@\S+\.\S+$/.test(value)) valid = false;
+          if (valid && value && input.type === 'tel' && value.replace(/\D/g, '').length < 7) valid = false;
+
+          if (field) field.classList.toggle('invalid', !valid);
+          input.setAttribute('aria-invalid', valid ? 'false' : 'true');
+          if (!valid) {
+            ok = false;
+            firstInvalid = firstInvalid || el;
+          }
+        });
+
+        firstInvalid?.focus();
+        return ok;
+      }
+    </script>
+  </body>
+</html>
+
+<style>
+  /* ---------- Homepage loader ---------- */
+  .rta-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    display: grid;
+    place-items: center;
+  }
+
+  .rta-loader-cover {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 50.5%;
+    background: #f7f7f7;
+    transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  .rta-loader-cover--top {
+    top: 0;
+  }
+
+  .rta-loader-cover--bottom {
+    bottom: 0;
+  }
+
+  .rta-loader.is-split .rta-loader-cover--top {
+    transform: translateY(-101%);
+  }
+
+  .rta-loader.is-split .rta-loader-cover--bottom {
+    transform: translateY(101%);
+  }
+
+  .rta-loader-line {
+    position: relative;
+    z-index: 1;
+    height: 1.1em;
+    overflow: hidden;
+    font-size: clamp(2.25rem, 6vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: var(--ink);
+  }
+
+  .rta-loader-word {
+    display: block;
+    transform: translateY(115%);
+    opacity: 0;
+  }
+
+  .rta-loader-word.is-in {
+    transform: translateY(0);
+    opacity: 1;
+    transition: transform 0.45s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.45s linear;
+  }
+
+  .rta-loader-word.is-out {
+    transform: translateY(-115%);
+    opacity: 0;
+    transition: transform 0.35s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.35s linear;
+  }
+
+  .no-js .rta-loader {
+    display: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rta-loader {
+      display: none;
+    }
+  }
+
+  /* ---------- Homepage HUD ---------- */
+  .rta-hud {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 54px;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-inline: var(--gutter);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+  }
+
+  .rta-hud-right {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .rta-hud-link {
+    pointer-events: auto;
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .rta-hud-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .rta-hud-percent {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ---------- Floating CTA tab (all pages) ---------- */
+  .rta-tab {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    z-index: 80;
+    writing-mode: vertical-rl;
+    background: var(--accent-surface);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    padding: 1.25rem 0.6rem;
+    border-radius: 999px 0 0 999px;
+    box-shadow: 0 1px 18px rgba(94, 120, 238, 0.28);
+    transform: translateX(110%);
+    visibility: hidden;
+    transition: transform 0.5s var(--ease-out), visibility 0.5s, background-color 0.2s;
+  }
+
+  html[data-theme='dark'] .rta-tab {
+    background: var(--accent-strong);
+    color: #0a0a0a; /* light periwinkle needs dark ink for contrast */
+  }
+
+  .rta-tab:hover {
+    background: #4a63d8;
+  }
+
+  html[data-theme='dark'] .rta-tab:hover {
+    background: var(--accent);
+  }
+
+  .rta-tab.is-in {
+    transform: translateX(0);
+    visibility: visible;
+  }
+</style>

@@ -1,26 +1,46 @@
+# Netlify config for the RouteToAbroad Astro site (repo root deployment).
+
 [build]
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  NODE_VERSION = "22"
+
+# Redirect legacy v1/v2 SPA routes that no longer exist as such.
+[[redirects]]
+  from = "/education/mbbs-in-china-complete-guide"
+  to = "/guides/mbbs-in-china"
+  status = 301
+
+[[redirects]]
+  from = "/education/csc-scholarship-guide-2026"
+  to = "/guides/csc-scholarship"
+  status = 301
+
+[[redirects]]
+  from = "/trade/india-china-trade-guide-2026"
+  to = "/guides/india-china-trade-corridor"
+  status = 301
+
+[[redirects]]
+  from = "/blog/india-china-trade-practical-guide-2025"
+  to = "/blog/india-china-trade-practical-guide"
+  status = 301
+
+# AI counselor streaming endpoint (ported from v1).
 [functions]
   directory = "netlify/functions"
 
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
 
 [[headers]]
-  for = "/assets/js/*"
+  for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/css/*"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/images/*"
-  [headers.values]
-    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"

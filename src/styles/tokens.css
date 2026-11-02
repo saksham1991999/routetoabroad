@@ -1,0 +1,126 @@
+/* ------------------------------------------------------------------
+   RouteToAbroad v4 — "RTA Editorial Instrument" design tokens
+   Neutral paper, one Helvetica stack, signal periwinkle accent.
+   The accent is a PEN (eyebrows, numerals, markers, focus rings) —
+   never a paint, with one exception: the floating CTA tab.
+   Hairlines replace shadows. No webfonts, no red, no gold.
+------------------------------------------------------------------- */
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --paper: #f7f7f7;
+  --paper-raised: #ffffff;
+  --paper-sunken: #f0f0f0;
+  --panel: #0a0a0a;
+
+  /* Ink — alpha scale on near-black */
+  --ink: #111111;
+  --ink-soft: #333333;
+  --ink-label: rgba(0, 0, 0, 0.6);
+  --ink-faint: rgba(0, 0, 0, 0.6);
+  --line: rgba(0, 0, 0, 0.08);
+  --line-strong: rgba(0, 0, 0, 0.15);
+
+  /* Accent — "signal" periwinkle (pen, not paint) */
+  --accent: #5e78ee;
+  --accent-text: #4a63d8; /* AA-safe accent for small text (4.8:1 on paper) */
+  --accent-surface: #4a63d8; /* signal surfaces carrying white 13px text (5.2:1) */
+  --accent-strong: #7d93f5;
+  --accent-hover: #7d93f5;
+  --accent-soft: rgba(94, 120, 238, 0.14);
+  --accent-btn: #0a0a0a;
+  --accent-btn-hover: rgba(0, 0, 0, 0.85);
+  --on-accent: #f7f7f7;
+
+  /* Gold — retired; aliased to signal so stragglers render correctly */
+  --gold: #5e78ee;
+  --gold-soft: rgba(94, 120, 238, 0.14);
+
+  /* Pillars — coding only (tiny tags, 2px rules) */
+  --edu: #3b5bdb;
+  --tourism: #0f766e;
+  --trade: #6d28d9;
+
+  /* Status */
+  --ok: #15803d;
+  --warn: #b45309;
+  --err: #dc2626;
+
+  /* Type — ONE stack, no webfonts. Display vars kept for compatibility. */
+  --font-display: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Helvetica Neue', Helvetica, Arial, ui-sans-serif, system-ui, sans-serif;
+
+  /* Fluid type scale (retuned: display hits ~96px+ desktop) */
+  --step--1: clamp(0.72rem, 0.71rem + 0.08vw, 0.78rem);
+  --step-0: clamp(0.9rem, 0.88rem + 0.13vw, 1rem);
+  --step-1: clamp(1.05rem, 1rem + 0.3vw, 1.25rem);
+  --step-2: clamp(1.25rem, 1.14rem + 0.55vw, 1.55rem);
+  --step-3: clamp(1.5rem, 1.3rem + 0.95vw, 2.1rem);
+  --step-4: clamp(1.8rem, 1.44rem + 1.6vw, 2.9rem);
+  --step-5: clamp(2.2rem, 1.6rem + 2.7vw, 3.9rem);
+  --step-6: clamp(2.6rem, 1.7rem + 4.2vw, 4.75rem);
+  --step-hero: clamp(2.75rem, 8vw, 6.75rem);
+
+  /* Layout */
+  --container: 72rem;
+  --container-wide: 82rem;
+  --container-text: 43rem;
+  --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --section: clamp(4rem, 9vw, 8rem);
+
+  /* Shape & depth — flat: hairlines replace shadows */
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-xl: 24px;
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.02), 0 1px 2px rgba(0, 0, 0, 0.03);
+  --shadow-pop: 0 8px 40px rgba(0, 0, 0, 0.12);
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur: 1s;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+
+  --paper: #0a0a0a;
+  --paper-raised: #141414;
+  --paper-sunken: #000000;
+  --panel: #0a0a0a;
+
+  --ink: #f2f2f2;
+  --ink-soft: rgba(255, 255, 255, 0.7);
+  --ink-label: rgba(255, 255, 255, 0.6);
+  --ink-faint: rgba(255, 255, 255, 0.55);
+  --line: rgba(255, 255, 255, 0.12);
+  --line-strong: rgba(255, 255, 255, 0.2);
+
+  --accent: #7d93f5;
+  --accent-text: #9db1f8;
+  --accent-surface: #7d93f5;
+  --accent-strong: #9db1f8;
+  --accent-hover: #9db1f8;
+  --accent-soft: rgba(125, 147, 245, 0.16);
+  --accent-btn: #f7f7f7;
+  --accent-btn-hover: #ffffff;
+  --on-accent: #0a0a0a;
+
+  --gold: #7d93f5;
+  --gold-soft: rgba(125, 147, 245, 0.16);
+
+  /* Pillars — +20% lightness for dark grounds */
+  --edu: #7b91ea;
+  --tourism: #34c0b5;
+  --trade: #a78bfa;
+
+  --ok: #4ade80;
+  --warn: #fbbf24;
+  --err: #f87171;
+
+  --shadow-card: 0 0 0 1px rgba(255, 255, 255, 0.03), 0 1px 2px rgba(0, 0, 0, 0.4);
+  --shadow-pop: 0 8px 40px rgba(0, 0, 0, 0.5);
+}

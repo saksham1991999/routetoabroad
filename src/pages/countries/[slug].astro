@@ -1,0 +1,218 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import SectionHead from '../../components/SectionHead.astro';
+import FaqAccordion from '../../components/FaqAccordion.astro';
+import CtaBand from '../../components/CtaBand.astro';
+import { faqSchema } from '../../lib/schema';
+
+export async function getStaticPaths() {
+  const countries = await getCollection('countries');
+  return countries.map((c) => ({ params: { slug: c.id }, props: { country: c } }));
+}
+
+const { country } = Astro.props;
+const { data } = country;
+const { Content } = await render(country);
+const hasBody = Boolean(country.body && country.body.trim());
+---
+
+<BaseLayout
+  title={`${data.name} — Study, Travel & Trade Gateway`}
+  description={data.intro}
+  path={`/countries/${country.id}`}
+  crumbs={[
+    { name: data.name, url: `https://routetoabroad.com/countries/${country.id}` },
+  ]}
+  jsonLd={[faqSchema(data.faqs ?? [])]}
+>
+  <article>
+    <header class="co-hero">
+      <div class="container">
+        <Breadcrumbs crumbs={[{ name: data.name, url: `/countries/${country.id}` }]} />
+        <h1>{data.name}</h1>
+        <p class="co-intro">{data.intro}</p>
+        <div class="co-stats num">
+          {data.stats.map((s) => (
+            <div class="co-stat">
+              <p class="co-stat-val">{s.value}</p>
+              <p class="co-stat-label">{s.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </header>
+
+    <div class="co-media">
+      <Image
+        src={data.image}
+        alt={data.imageAlt}
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <section class="section">
+      <div class="container">
+        <div class="co-cols">
+          <section aria-labelledby="study-h" data-reveal>
+            <p class="eyebrow" style="color: var(--edu)">Study</p>
+            <h2 id="study-h">{data.study.heading}</h2>
+            <p class="co-col-text">{data.study.text}</p>
+            <div class="co-points">
+              {data.study.points.map((pt) => (
+                <div class="co-point card card-pad">
+                  <h3>{pt.title}</h3>
+                  <p>{pt.text}</p>
+                </div>
+              ))}
+            </div>
+            <a href="/education" class="arrow-link co-col-link">Education services</a>
+          </section>
+
+          <section aria-labelledby="travel-h" data-reveal>
+            <p class="eyebrow" style="color: var(--tourism)">Travel</p>
+            <h2 id="travel-h">{data.travel.heading}</h2>
+            <p class="co-col-text">{data.travel.text}</p>
+            <div class="co-points">
+              {data.travel.points.map((pt) => (
+                <div class="co-point card card-pad">
+                  <h3>{pt.title}</h3>
+                  <p>{pt.text}</p>
+                </div>
+              ))}
+            </div>
+            <a href="/tourism" class="arrow-link co-col-link">Tourism services</a>
+          </section>
+        </div>
+
+        {hasBody && <section class="prose co-prose"><Content /></section>}
+
+        {(data.faqs ?? []).length > 0 && (
+          <div class="container-text co-faq">
+            <SectionHead center eyebrow="Country FAQ" title="Straight answers" />
+            <FaqAccordion faqs={data.faqs ?? []} />
+          </div>
+        )}
+      </div>
+    </section>
+
+    <CtaBand />
+  </article>
+</BaseLayout>
+
+<style>
+  .co-hero {
+    padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem);
+  }
+
+  .co-hero h1 {
+    margin-top: 0.8rem;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .co-intro {
+    margin-top: 1.2rem;
+    max-width: 46rem;
+    font-size: var(--step-1);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .co-stats {
+    margin-top: 2.2rem;
+    display: flex;
+    gap: clamp(1.5rem, 4vw, 4rem);
+    flex-wrap: wrap;
+  }
+
+  .co-stat-val {
+    font-size: clamp(2rem, 1.8rem + 1vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--accent);
+  }
+
+  .co-stat-label {
+    margin-top: 0.2rem;
+    font-size: 0.6875rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .co-media {
+    max-height: 60vh;
+    overflow: hidden;
+  }
+
+  .co-media :global(img) {
+    width: 100%;
+    max-height: 60vh;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .co-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .co-cols h2 {
+    margin-top: 0.8rem;
+    font-size: var(--step-3);
+  }
+
+  .co-col-text {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .co-points {
+    margin-top: 1.4rem;
+    display: grid;
+    gap: 0.9rem;
+  }
+
+  .co-point h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .co-point p {
+    margin-top: 0.3rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .co-col-link {
+    display: inline-block;
+    margin-top: 1.4rem;
+  }
+
+  .co-prose {
+    margin-top: 4rem;
+  }
+
+  .co-faq {
+    margin-top: 4rem;
+  }
+
+  @media (max-width: 64rem) {
+    .co-cols {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,262 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+---
+
+<BaseLayout
+  title="Cost of Studying in China Calculator — Tuition & Living Estimates"
+  description="Estimate the real cost of studying in China: tuition by programme, living costs by city and lifestyle, yearly and total in USD. Transparent ranges, no email required."
+  path="/tools/cost-calculator"
+  crumbs={[
+    { name: 'Tools', url: 'https://routetoabroad.com/tools' },
+    { name: 'Cost calculator', url: 'https://routetoabroad.com/tools/cost-calculator' },
+  ]}
+>
+  <PageHero
+    eyebrow="Free tool · 1 minute"
+    title="What will it actually cost?"
+    lede="Fees are quoted per university because a single number across a country would be a guess. This calculator gives honest ranges — and shows the maths."
+    crumbs={[
+      { name: 'Tools', url: '/tools' },
+      { name: 'Cost calculator', url: '/tools/cost-calculator' },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad">
+        <div class="calc-form" id="cost-form">
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-city">City</label>
+              <select id="cost-city">
+                <option value="">Select…</option>
+                <option value="beijing">Beijing</option>
+                <option value="shanghai">Shanghai</option>
+                <option value="guangzhou">Guangzhou</option>
+                <option value="hangzhou">Hangzhou</option>
+                <option value="tier2">Second-tier city</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-programme">Programme</label>
+              <select id="cost-programme">
+                <option value="">Select…</option>
+                <option value="bachelor_eng">Bachelor's — Engineering / CS</option>
+                <option value="bachelor_bus">Bachelor's — Business / Economics</option>
+                <option value="mbbs">MBBS (MOE-listed)</option>
+                <option value="master">Master's</option>
+                <option value="phd">PhD (unfunded)</option>
+                <option value="language">Chinese language (HSK year)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-lifestyle">Lifestyle</label>
+              <select id="cost-lifestyle">
+                <option value="">Select…</option>
+                <option value="frugal">Frugal (canteens, dorm, bike)</option>
+                <option value="moderate">Moderate (eating out sometimes)</option>
+                <option value="comfortable">Comfortable (own room, travel)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-years">Programme length</label>
+              <select id="cost-years">
+                <option value="">Select…</option>
+                <option value="1">1 year</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5–5.5 years (MBBS)</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn btn-primary" id="cost-go">Calculate</button>
+        </div>
+
+        <div class="calc-result" id="cost-result" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">What's included</p>
+        <p>
+          Tuition ranges come from our current partner-fee tables; living ranges blend dorm rent, food,
+          transport and personal spend at each lifestyle level. <strong>Not included:</strong> flights,
+          visa fees, insurance (~US$300–600/yr) and one-time setup (~US$200–400). CSC scholars: tuition
+          and dorm drop to zero and a stipend arrives monthly.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calc {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .calc-form .btn {
+    margin-top: 0.3rem;
+  }
+
+  .calc-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .cost-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cost-total {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step-4);
+    font-weight: 600;
+  }
+
+  .cost-total-label {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  table.cost-table th,
+  table.cost-table td {
+    text-align: left;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.cost-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table td:last-child {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  table.cost-table tbody tr:last-child td strong {
+    font-weight: 500;
+  }
+
+  .cost-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  .cost-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-note {
+    max-width: 44rem;
+    margin: 2rem auto 0;
+  }
+
+  @media (max-width: 40rem) {
+    .calc-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const go = document.getElementById('cost-go') as HTMLButtonElement;
+  const result = document.getElementById('cost-result') as HTMLElement;
+
+  const living: Record<string, [number, number]> = {
+    beijing: [500, 800],
+    shanghai: [520, 850],
+    guangzhou: [350, 600],
+    hangzhou: [330, 580],
+    tier2: [260, 480],
+  };
+  const lifestyleMult: Record<string, number> = { frugal: 0.8, moderate: 1, comfortable: 1.35 };
+  const tuition: Record<string, [number, number]> = {
+    bachelor_eng: [2500, 5000],
+    bachelor_bus: [3000, 6000],
+    mbbs: [3500, 8000],
+    master: [3000, 8000],
+    phd: [3000, 7000],
+    language: [2500, 4500],
+  };
+
+  const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+
+  go?.addEventListener('click', () => {
+    const city = (document.getElementById('cost-city') as HTMLSelectElement).value;
+    const programme = (document.getElementById('cost-programme') as HTMLSelectElement).value;
+    const lifestyle = (document.getElementById('cost-lifestyle') as HTMLSelectElement).value;
+    const years = parseInt((document.getElementById('cost-years') as HTMLSelectElement).value, 10);
+
+    if (!city || !programme || !lifestyle || !years) {
+      alert('Please choose all four options.');
+      return;
+    }
+
+    const mult = lifestyleMult[lifestyle]!;
+    const liveLo = living[city]![0] * mult * 12;
+    const liveHi = living[city]![1] * mult * 12;
+    const [tLo, tHi] = tuition[programme]!;
+    const perYearLo = tLo + liveLo;
+    const perYearHi = tHi + liveHi;
+    const totalLo = perYearLo * years;
+    const totalHi = perYearHi * years;
+
+    result.hidden = false;
+    result.innerHTML = `
+      <div class="cost-headline">
+        <p class="cost-total">${fmt(totalLo)} – ${fmt(totalHi)}</p>
+        <p class="cost-total-label">estimated total, ${years} year${years > 1 ? 's' : ''}, self-funded</p>
+      </div>
+      <table class="cost-table">
+        <thead><tr><th>Item</th><th>Per year</th><th>Over ${years} year${years > 1 ? 's' : ''}</th></tr></thead>
+        <tbody>
+          <tr><td>Tuition (${programme.replace('_', ' / ')})</td><td>${fmt(tLo)} – ${fmt(tHi)}</td><td>${fmt(tLo * years)} – ${fmt(tHi * years)}</td></tr>
+          <tr><td>Living &amp; accommodation (${city}${lifestyle !== 'moderate' ? `, ${lifestyle}` : ''})</td><td>${fmt(liveLo)} – ${fmt(liveHi)}</td><td>${fmt(liveLo * years)} – ${fmt(liveHi * years)}</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>${fmt(perYearLo)} – ${fmt(perYearHi)}</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
+        </tbody>
+      </table>
+      <p class="cost-note">
+        Plus one-time costs: flights, visa, insurance and setup (~US$500–1,000 in year one).
+        Figures are estimates from current partner-fee tables — your actual offer letter is the real number.
+      </p>
+      <div class="cost-actions">
+        <a class="btn btn-primary" href="/tools/scholarship-eligibility">See if scholarships cut this</a>
+        <a class="btn btn-outline" href="/education#apply">Get exact university fees</a>
+      </div>
+    `;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>

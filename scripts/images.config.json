@@ -1,0 +1,177 @@
+{
+  "$comment": "RouteToAbroad v3 image generation manifest. Every image is regenerable: `npm run images:generate` then `npm run images:process`. Art direction: warm photojournalistic, natural light, slightly desaturated, film grain — consistent across all prompts via STYLE_SUFFIX.",
+  "styleSuffix": "Warm photojournalistic documentary photography, natural directional light, slightly desaturated warm tones, subtle 35mm film grain, high detail, realistic, no text, no watermarks, no logos, no clichéd handshake or globe imagery",
+  "rawDir": "scripts/raw",
+  "outDir": "src/assets/images",
+  "size": "2K",
+  "images": [
+    {
+      "name": "hero-campus-ink",
+      "ratio": "21:9",
+      "priority": 1,
+      "alt": "A university campus drawn as a fine ink line panorama",
+      "prompt": "Wide panoramic architectural elevation drawing of a Chinese university campus skyline, mixing traditional curved tile rooftops with modern campus buildings and a prominent clock-tower, drawn in fine thin black ink lines with light hatching on a pure white background, vintage engraving style, crisp linework, generous white space above and below the skyline"
+    },
+    {
+      "name": "hero-home",
+      "ratio": "16:9",
+      "priority": 1,
+      "alt": "Students crossing a sunlit Chinese university campus plaza on a autumn morning",
+      "prompt": "Wide shot of Chinese and international students with backpacks crossing a sunlit university campus plaza in Beijing, ginkgo trees with golden leaves, modern campus buildings and traditional Chinese rooflines in the background, candid unposed moment"
+    },
+    {
+      "name": "hero-education",
+      "ratio": "16:9",
+      "priority": 1,
+      "alt": "Medical and engineering students collaborating in a bright modern Chinese university laboratory",
+      "prompt": "International students in a bright modern Chinese university engineering laboratory, one writing formulas on a glass board, others around a workbench with robotics equipment, large windows with soft daylight, candid documentary moment"
+    },
+    {
+      "name": "hero-tourism",
+      "ratio": "16:9",
+      "priority": 1,
+      "alt": "A traveller looking out over the Great Wall of China at Mutianyu in golden evening light",
+      "prompt": "Lone traveller with a small daypack standing on a restored tower of the Great Wall of China at Mutianyu, wall snaking over forested ridges into haze, golden late-afternoon light, wide cinematic composition"
+    },
+    {
+      "name": "hero-trade",
+      "ratio": "16:9",
+      "priority": 1,
+      "alt": "Container cranes working at the Guangzhou port at dawn",
+      "prompt": "Container terminal at the Port of Guangzhou at dawn, gantry cranes loading a cargo ship, stacked colourful shipping containers, soft orange sunrise light over the Pearl River, industrial documentary style"
+    },
+    {
+      "name": "university-peking",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Traditional Chinese architecture beside Weiming Lake at Peking University",
+      "prompt": "Peking University campus, traditional Chinese academic architecture with sweeping tile roofs reflected in the calm water of Weiming Lake, willow trees, students cycling past on a path, soft morning light"
+    },
+    {
+      "name": "university-tsinghua",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Historic red-brick buildings on the Tsinghua University campus in Beijing",
+      "prompt": "Tsinghua University Beijing, historic red-brick early-20th-century academic building with ivy and arched windows, wide lawn with seasonally coloured trees, a few students walking with books, warm afternoon light"
+    },
+    {
+      "name": "university-fudan",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Tree-lined avenue on the Fudan University campus in Shanghai",
+      "prompt": "Fudan University Shanghai campus, long tree-lined avenue with plane trees in autumn colour, modern academic buildings glimpsed behind the canopy, students on bicycles, dappled sunlight"
+    },
+    {
+      "name": "university-zhejiang",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Modern lakeside campus buildings of Zhejiang University in Hangzhou",
+      "prompt": "Zhejiang University Zhijiang campus Hangzhou, elegant mix of old stone architecture and modern glass buildings beside water with lotus leaves, misty green hills in the background, tranquil morning atmosphere"
+    },
+    {
+      "name": "university-sjtu",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Contemporary research buildings at Shanghai Jiao Tong University",
+      "prompt": "Shanghai Jiao Tong University campus, grand contemporary university library building with clean geometric lines and glass facade, plaza with students between classes, planes trees, clear spring day"
+    },
+    {
+      "name": "city-beijing",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Rooftops of the Forbidden City in Beijing seen at golden hour",
+      "prompt": "Elevated view over the golden tiled rooftops and red walls of the Forbidden City in Beijing at golden hour, symmetrical imperial architecture receding into the distance, soft haze, warm evening light"
+    },
+    {
+      "name": "city-shanghai",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "The Shanghai skyline and historic Bund buildings at dusk",
+      "prompt": "Shanghai Bund at dusk, historic colonial stone buildings in the foreground and the futuristic Pudong skyline with lit towers across the Huangpu river, blue-hour light, reflections on the water"
+    },
+    {
+      "name": "city-guangzhou",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "The Canton Tower and Pearl River in Guangzhou illuminated at night",
+      "prompt": "Guangzhou at night, the slender twisted silhouette of Canton Tower lit in warm colours above the Pearl River, bridge lights reflecting on the water, city skyline, long-exposure documentary feel"
+    },
+    {
+      "name": "country-china",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "Karst mountains along the Li River near Guilin, China",
+      "prompt": "Li River near Guilin China, towering green karst mountains reflected in the calm river, a bamboo raft with a cormorant fisherman, morning mist between the peaks, serene classic Chinese landscape"
+    },
+    {
+      "name": "country-japan",
+      "ratio": "16:9",
+      "priority": 2,
+      "alt": "A pagoda and cherry blossoms in Kyoto, Japan",
+      "prompt": "Kyoto Japan in spring, five-story pagoda of To-ji temple framed by cherry blossom branches in full bloom, soft pink and warm light, quiet street, gentle haze"
+    },
+    {
+      "name": "blog-mbbs",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "Medical students studying anatomy in a university laboratory",
+      "prompt": "Medical students in white coats around an anatomy model in a Chinese university medical school laboratory, one pointing at a chart, warm lecture-hall light, focused candid study session"
+    },
+    {
+      "name": "blog-csc",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "Graduates in gowns celebrating at a Chinese university graduation ceremony",
+      "prompt": "University graduation ceremony in China, international graduates in black gowns throwing caps in the air on a campus lawn, joyful candid moment, late spring sunlight, shallow depth of field"
+    },
+    {
+      "name": "blog-beijing-sites",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "The Temple of Heaven in Beijing against a clear sky",
+      "prompt": "Temple of Heaven Beijing, the iconic circular hall with deep blue tiled triple-gabled roof and red walls, framed by ancient cypress trees, crisp morning light, few visitors"
+    },
+    {
+      "name": "blog-food",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "A chef hand-pulling noodles in a Lanzhou noodle shop",
+      "prompt": "Lanzhou noodle shop kitchen, chef hand-pulling noodles in a dramatic stretching motion, flour dust in the warm light, steam rising from broth pots, energetic street-food documentary style"
+    },
+    {
+      "name": "blog-trade-corridor",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "Aerial view of a container ship crossing open water",
+      "prompt": "Aerial drone view of a large container ship fully loaded with containers crossing deep blue open water, white wake trailing behind, low warm sun, sense of scale and distance"
+    },
+    {
+      "name": "blog-supply-chain",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "A quality inspector checking goods in a Chinese factory warehouse",
+      "prompt": "Quality control inspector in a Chinese factory warehouse checking products on a shelving rack with a tablet in hand, stacks of boxed goods around, industrial work light, documentary style"
+    },
+    {
+      "name": "guide-visa",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "A passport and visa documents on a desk next to an application form",
+      "prompt": "Still life on a wooden desk: an open passport, a visa application form, a camera-photo document and a pen, soft window light from the side, warm neutral tones, shallow depth of field, no readable text"
+    },
+    {
+      "name": "guide-hsk",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "Students practising Mandarin characters in a language classroom",
+      "prompt": "Chinese language classroom, small group of international students practising writing characters in workbooks, teacher pointing at a whiteboard with strokes of Chinese calligraphy, warm afternoon light through blinds"
+    },
+    {
+      "name": "guide-li-river",
+      "ratio": "16:9",
+      "priority": 3,
+      "alt": "Bamboo rafts drifting on the Li River beneath karst peaks",
+      "prompt": "Bamboo rafts drifting down the Li River in Guangxi China, tourists in straw hats, dramatic karst peaks on both sides in soft mist, green water, peaceful travel documentary scene"
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+---
+import { MARQUEE_ITEMS } from '../data/testimonials';
+---
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item) => (
+      <span class="marquee-item">{item}</span>
+    ))}
+  </div>
+</div>
+
+<style>
+  .marquee {
+    border-block: 1px dotted color-mix(in srgb, var(--ink) 20%, transparent);
+    padding-block: 0.8rem;
+    background: transparent;
+  }
+
+  .marquee-item {
+    font-size: 0.75rem; /* 12px */
+    letter-spacing: 0.02em;
+    color: color-mix(in srgb, var(--ink) 55%, transparent);
+    white-space: nowrap;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .marquee-item::before {
+    content: '·';
+    color: var(--accent);
+    font-weight: 700;
+  }
+</style>

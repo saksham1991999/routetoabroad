@@ -1,4 +1,5 @@
-import type { Context } from '@netlify/functions';
+// RouteToAbroad AI counselor — ported from v1 unchanged (system prompt + streaming proxy).
+// Deployed as a Netlify Function v2; requires ANTHROPIC_API_KEY and ANTHROPIC_API_URL env vars.
 
 const SYSTEM_PROMPT = `You are the RouteToAbroad AI Assistant — a friendly, knowledgeable guide for a company that helps people study, travel, and trade across East Asia.
 
@@ -17,11 +18,14 @@ Contact: info@routetoabroad.com | India: +91 96330 61109 | Offices in New Delhi 
 - **Use bullet points and structure** only when it genuinely helps (lists of options, step-by-step processes). For simple questions, just answer naturally.
 - **Don't over-sell.** Be genuinely helpful, not salesy. If the answer is "you should talk to the team for that," say so plainly.
 - **Answer in the same language the user writes in.**
+- **Never promise guaranteed admission, scholarships, or visas** — universities, committees and embassies decide. Be honest about what the process can and cannot do.
 - **When relevant**, nudge toward booking a free consultation or contacting the team — but only when it flows naturally, never forced.`;
 
 const MODEL = 'claude-opus-4-6-20250610';
 
-export default async (req: Request, _context: Context) => {
+type ChatMessage = { role: string; content: string };
+
+export default async (req: Request): Promise<Response> => {
   if (req.method !== 'POST') {
     return new Response('Method not allowed', { status: 405 });
   }
@@ -36,7 +40,7 @@ export default async (req: Request, _context: Context) => {
     });
   }
 
-  let body: { messages?: { role: string; content: string }[] };
+  let body: { messages?: ChatMessage[] };
   try {
     body = await req.json();
   } catch {
@@ -46,41 +50,51 @@ export default async (req: Request, _context: Context) => {
     });
   }
 
-  if (!body.messages || !Array.isArray(body.messages)) {
+  if (!body.messages || !Array.isArray(body.messages) || body.messages.length === 0) {
     return new Response(JSON.stringify({ error: 'Missing messages array' }), {
       status: 400,
       headers: { 'Content-Type': 'application/json' },
     });
   }
 
+  // Keep context bounded
+  const messages = body.messages.slice(-20);
+
   const baseUrl = apiUrl.replace(/\/+$/, '');
 
-  const anthropicResponse = await fetch(`${baseUrl}/v1/messages`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'x-api-key': apiKey,
-      'anthropic-version': '2023-06-01',
-    },
-    body: JSON.stringify({
-      model: MODEL,
-      max_tokens: 1024,
-      system: SYSTEM_PROMPT,
-      messages: body.messages,
-      stream: true,
-    }),
-  });
+  let upstream: Response;
+  try {
+    upstream = await fetch(`${baseUrl}/v1/messages`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': apiKey,
+        'anthropic-version': '2023-06-01',
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        max_tokens: 1024,
+        system: SYSTEM_PROMPT,
+        messages,
+        stream: true,
+      }),
+    });
+  } catch {
+    return new Response(JSON.stringify({ error: 'Upstream unreachable' }), {
+      status: 502,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 
-  if (!anthropicResponse.ok || !anthropicResponse.body) {
-    const errorText = await anthropicResponse.text().catch(() => '');
+  if (!upstream.ok || !upstream.body) {
+    const errorText = await upstream.text().catch(() => '');
     return new Response(errorText || 'Upstream error', {
-      status: anthropicResponse.status,
+      status: upstream.status,
       headers: { 'Content-Type': 'text/plain' },
     });
   }
 
-  // Pipe the SSE stream through to the client
-  return new Response(anthropicResponse.body, {
+  return new Response(upstream.body, {
     status: 200,
     headers: {
       'Content-Type': 'text/event-stream',
@@ -89,3 +103,5 @@ export default async (req: Request, _context: Context) => {
     },
   });
 };
+
+export const config = { path: '/api/chat' };

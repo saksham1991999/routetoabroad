@@ -1,0 +1,80 @@
+---
+interface StatItem {
+  value: string;
+  counter: string;
+  suffix?: string;
+  decimals?: number;
+  label: string;
+}
+
+interface Props {
+  stats: StatItem[];
+}
+
+const { stats } = Astro.props;
+---
+
+<section class="stats-band" aria-label="Track record">
+  <div class="container stats-grid">
+    {stats.map((s) => (
+      <div class="stat" data-reveal>
+        <p class="num stat-value" data-counter={s.counter} data-suffix={s.suffix ?? ''}>
+          {s.value}
+        </p>
+        <p class="stat-label">{s.label}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .stats-band {
+    background: #0a0a0a;
+    color: #ffffff;
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+    gap: 2rem;
+    text-align: left;
+  }
+
+  @media (min-width: 48rem) {
+    .stats-grid {
+      gap: 0;
+    }
+
+    .stat {
+      padding-inline: clamp(1.25rem, 2.5vw, 2.5rem);
+    }
+
+    .stat + .stat {
+      border-left: 1px solid rgba(255, 255, 255, 0.12);
+    }
+
+    .stat:first-child {
+      padding-left: 0;
+    }
+  }
+
+  .stat-value {
+    font-size: clamp(2.75rem, 5vw, 3.5rem); /* 44–56px */
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    color: #ffffff;
+    margin: 0;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .stat-label {
+    margin-top: 0.6rem;
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+  }
+</style>

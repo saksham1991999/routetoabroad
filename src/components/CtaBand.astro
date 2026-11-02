@@ -1,0 +1,85 @@
+---
+interface Props {
+  title?: string;
+  text?: string;
+}
+const {
+  title = 'Ready to make your move?',
+  text = 'Start with a free consultation today. No commitment — just a clear answer on what your next step looks like.',
+} = Astro.props;
+---
+
+<section class="cta-band" aria-label="Contact call to action">
+  <div class="container cta-inner" data-reveal>
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <div class="cta-actions">
+      <a href="/contact" class="btn btn-light btn-lg">Talk to an advisor</a>
+      <a href="https://wa.me/919633061109" class="btn btn-outline-light btn-lg" rel="noopener">WhatsApp us</a>
+    </div>
+    <p class="cta-phone num">Or call <a href="tel:+919633061109">+91 96330 61109</a> · Mon–Sat, 9:00–18:00 IST</p>
+  </div>
+</section>
+
+<style>
+  .cta-band {
+    background: #0a0a0a;
+    color: #ffffff;
+    border-top: 1px dotted rgba(94, 120, 238, 0.4);
+    padding-block: clamp(4rem, 8vw, 6.5rem);
+    text-align: center;
+  }
+
+  .cta-inner {
+    max-width: 46rem;
+  }
+
+  .cta-band h2 {
+    color: #ffffff;
+    font-size: var(--step-5);
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+
+  .cta-band p {
+    margin-top: 1.1rem;
+    font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .cta-actions {
+    margin-top: 2.4rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-outline-light {
+    border-color: rgba(255, 255, 255, 0.3);
+    color: #ffffff;
+  }
+
+  .btn-outline-light:hover {
+    border-color: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .cta-phone {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .cta-phone a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .cta-phone a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+</style>

@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { howToSchema } from '../../lib/schema';
+
+const steps = [
+  { name: 'Shortlist programmes', text: 'Pick 3–5 MOE-listed universities matched to your marks, budget and city preference — one reach, one target, one high-probability.' },
+  { name: 'Prepare documents', text: 'Passport, transcripts, certificates, study plan, recommendations, physical exam — notarise what needs notarising. Give this two months.' },
+  { name: 'File applications & scholarships', text: 'Submit university applications and CSC/provincial scholarship files inside their windows. Scholarship deadlines cluster February–April for September.' },
+  { name: 'Offers → JW202 → visa', text: 'Accept the offer, track the Admission Notice and JW202, complete the physical exam and file the X1 visa at the embassy.' },
+  { name: 'Arrive & register', text: 'Flight, airport pickup, dorm check-in, residence permit within 30 days, SIM and bank account.' },
+];
+---
+
+<BaseLayout
+  title="Application Timeline Planner — Study in China Deadlines"
+  description="Pick your intake and get the month-by-month application plan for studying in China, worked backwards from the deadline: shortlists, scholarship windows, JW202 and visa milestones."
+  path="/tools/timeline-planner"
+  crumbs={[
+    { name: 'Tools', url: 'https://routetoabroad.com/tools' },
+    { name: 'Timeline planner', url: 'https://routetoabroad.com/tools/timeline-planner' },
+  ]}
+  jsonLd={[
+    howToSchema({
+      name: 'How to plan a Chinese university application timeline',
+      description: 'The five phases of a successful Chinese university application, worked backwards from your intake.',
+      steps,
+    }),
+  ]}
+>
+  <PageHero
+    eyebrow="Free tool · 1 minute"
+    title="Your intake, worked backwards."
+    lede="The most common avoidable mistake is starting in April for September. Pick your intake — this planner maps every phase and shows what's already due."
+    crumbs={[
+      { name: 'Tools', url: '/tools' },
+      { name: 'Timeline planner', url: '/tools/timeline-planner' },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad">
+        <div class="calc-form">
+          <div class="field">
+            <label for="tl-intake">Target intake</label>
+            <select id="tl-intake">
+              <option value="2026-09">September 2026</option>
+              <option value="2027-03">March 2027</option>
+              <option value="2027-09">September 2027</option>
+            </select>
+          </div>
+          <button type="button" class="btn btn-primary" id="tl-go">Build my timeline</button>
+        </div>
+
+        <ol class="tl-list" id="tl-list" hidden></ol>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">Reading the markers</p>
+        <p>
+          <span class="mk mk-red">●</span> hard deadline (missing it costs the intake) ·
+          <span class="mk">●</span> recommended month · dates render in your local timezone. CSC windows
+          vary by university — treat <strong>early April</strong> as the safe wall for scholarship files.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calc {
+    max-width: 46rem;
+    margin-inline: auto;
+  }
+
+  .calc-form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 22rem;
+  }
+
+  .calc-form .btn {
+    justify-self: start;
+  }
+
+  .tl-list {
+    list-style: none;
+    margin: 2rem 0 0;
+    padding: 1.8rem 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1.4rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tl-item:last-child {
+    border-bottom: 0;
+  }
+
+  .tl-when {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding-top: 0.2rem;
+  }
+
+  .tl-when .mk {
+    color: var(--accent);
+    margin-right: 0.4rem;
+  }
+
+  .tl-when .mk.mk-red {
+    color: var(--err);
+  }
+
+  .tl-item.past .tl-when,
+  .tl-item.past .tl-body {
+    opacity: 0.45;
+  }
+
+  .tl-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .tl-body p {
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .calc-note {
+    max-width: 46rem;
+    margin: 2rem auto 0;
+  }
+
+  .mk {
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 40rem) {
+    .tl-item {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+</style>
+
+<script>
+  const go = document.getElementById('tl-go') as HTMLButtonElement;
+  const list = document.getElementById('tl-list') as HTMLElement;
+
+  type Phase = { offsetMonths: number; title: string; text: string; hard?: boolean };
+  // Phases counted backwards from intake month (offset negative)
+  const phases: Phase[] = [
+    { offsetMonths: -15, title: 'Preliminary decisions', text: 'Confirm route (MBBS vs engineering vs business vs language), budget ceiling, and city shortlist. Sit NEET if Indian MBBS.' },
+    { offsetMonths: -12, title: 'Shortlist & supervisor outreach', text: 'Lock 3–5 universities (one reach / one target / one safe). Research applicants: start emailing matched supervisors with a 1-page proposal.' },
+    { offsetMonths: -8, title: 'Document preparation', text: 'Transcripts, certificates, notarisation, study plan, recommendation letters, physical exam booked. The slowest phase — give it two full months.', hard: false },
+    { offsetMonths: -7, title: 'Applications open — file early', text: 'University portals open ~7 months out. File your first applications now; early files get earlier dorm decisions.', hard: false },
+    { offsetMonths: -5, title: 'CSC scholarship deadline wall', text: 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.', hard: true },
+    { offsetMonths: -4, title: 'Self-funded application deadline', text: 'Final calls for September self-funded admission at most partner universities.', hard: true },
+    { offsetMonths: -3, title: 'Offers & acceptance', text: 'Offers land. Accept, pay any deposit to the UNIVERSITY account only, confirm dorm preferences.' },
+    { offsetMonths: -2, title: 'JW202 & physical exam', text: 'Chase the Admission Notice + JW202 the week they are due. Complete the physical examination on the official form.', hard: true },
+    { offsetMonths: -1, title: 'X1 visa filing', text: 'Embassy/CVASC appointment with passport, forms, photos, Admission Notice, JW202 and physical exam record. 4–7 working days typical processing.', hard: true },
+    { offsetMonths: 0, title: 'Intake month — arrival & registration', text: 'Fly in, airport pickup, dorm check-in, university registration, residence permit within 30 days, SIM + bank account.', hard: true },
+  ];
+
+  go?.addEventListener('click', () => {
+    const intakeVal = (document.getElementById('tl-intake') as HTMLSelectElement).value;
+    const [y, m] = intakeVal.split('-').map(Number);
+    const intake = new Date(y!, m! - 1, 1);
+    const now = new Date();
+
+    list.hidden = false;
+    list.innerHTML = phases
+      .map((p) => {
+        const d = new Date(intake);
+        d.setMonth(d.getMonth() + p.offsetMonths);
+        const label = d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+        const past = d < now;
+        return `
+          <li class="tl-item ${past ? 'past' : ''}">
+            <p class="tl-when"><span class="mk ${p.hard ? 'mk-red' : ''}">●</span>${label}${past ? ' · passed' : ''}</p>
+            <div class="tl-body">
+              <h3>${p.title}${p.hard ? ' — deadline' : ''}</h3>
+              <p>${p.text}</p>
+            </div>
+          </li>
+        `;
+      })
+      .join('');
+  });
+</script>

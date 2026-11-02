@@ -1,0 +1,24 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  center?: boolean;
+}
+const { eyebrow, title, lede, center = false } = Astro.props;
+---
+
+<div class:list={['section-head', { 'section-head--center': center }]} data-reveal>
+  <p class="eyebrow">{eyebrow}</p>
+  <h2 set:html={title} />
+  {lede && <p class="lede">{lede}</p>}
+</div>
+
+<style>
+  .section-head h2 {
+    font-size: clamp(1.9rem, 4.4vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.025em;
+    line-height: 1.02;
+  }
+</style>

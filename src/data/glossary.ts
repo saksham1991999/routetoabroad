@@ -1,0 +1,35 @@
+/** Glossary terms — definition blocks + DefinedTerm JSON-LD. */
+
+export interface GlossaryTerm {
+  term: string;
+  zh?: string;
+  category: 'education' | 'visas' | 'exams' | 'travel' | 'trade';
+  definition: string;
+}
+
+export const GLOSSARY: GlossaryTerm[] = [
+  { term: 'CSC Scholarship', category: 'education', definition: 'The Chinese Government Scholarship, administered by the China Scholarship Council. Full-coverage awards include tuition, on-campus accommodation, medical insurance and a monthly stipend; partial awards cover subsets. Applied for via Type A (government channel) or Type B (direct to a CSC-designated university).' },
+  { term: 'JW202 Form', category: 'visas', definition: 'The Visa Application for Study form issued by a Chinese university to admitted international students, paired with the Admission Notice. Both are required to apply for an X1 student visa at a Chinese embassy or consulate.' },
+  { term: 'Admission Notice', category: 'education', definition: 'The formal offer letter from a Chinese university confirming your place, programme and dates. Together with the JW202 form it anchors your student visa application.' },
+  { term: 'X1 Visa', category: 'visas', definition: 'The Chinese student visa for programmes longer than 180 days. Issued for entry only — holders must convert it to a Residence Permit at a local Public Security Bureau within 30 days of arrival.' },
+  { term: 'X2 Visa', category: 'visas', definition: 'The Chinese student visa for programmes of 180 days or less (short courses, exchange semesters). It cannot be converted to a residence permit and covers single or double entry.' },
+  { term: 'HSK (汉语水平考试)', zh: '汉语水平考试', category: 'exams', definition: 'China’s standardised Chinese proficiency test (Hanyu Shuiping Kaoshi), levels 1–6 in the widely used 2.0 system, with the newer 3.0 standard expanding bands. HSK 4 is the common threshold for MBBS clinical rotations; degree programmes taught in Chinese usually require HSK 5.' },
+  { term: 'HSKK', category: 'exams', definition: 'The speaking companion to the HSK, tested at beginner, intermediate and advanced levels. Some Chinese-taught programmes ask for HSKK alongside the written HSK.' },
+  { term: 'MOE-listed University', category: 'education', definition: 'A university approved by China’s Ministry of Education to enrol international students — and for MBBS, to teach the degree in English. If a medical school is not on the annual MOE list, avoid it.' },
+  { term: 'FMGE / NExT', category: 'education', definition: 'India’s Foreign Medical Graduate Examination — the licensing test Indians must pass after an MBBS abroad to practise in India. It is being transitioned into the National Exit Test (NExT). Check current NMC rules before applying.' },
+  { term: 'Residence Permit', category: 'visas', definition: 'The document that replaces your X1 visa after arrival. Issued by the local Exit-Entry Administration; required for legal long-term stay, and needed to open some bank accounts and sign leases.' },
+  { term: 'Physical Examination Form', category: 'education', definition: 'The standard Chinese health check form required for X1 visas and residence permits. Must be completed at an authorised clinic; CSC scholarship applicants must use the official version shipped with the application pack.' },
+  { term: 'Intake (September / March)', category: 'education', definition: 'The two main university intakes in China. September is the major one with the widest programme choice; March is a smaller intake offered by some universities for selected programmes.' },
+  { term: 'Canton Fair', zh: '广交会', category: 'trade', definition: 'The China Import and Export Fair in Guangzhou — the world’s largest trade show, held in three phases each April/May and October/November. Phase 1: electronics and machinery; Phase 2: consumer goods and home décor; Phase 3: textiles, apparel and medical products.' },
+  { term: 'AQL Inspection', category: 'trade', definition: 'Acceptable Quality Level sampling — the industry-standard statistical inspection of production runs, typically executed at ~20% (early build) and ~80% (near-complete) of production. Defines defect tolerances (critical/major/minor) before goods ship.' },
+  { term: 'Bill of Lading (B/L)', category: 'trade', definition: 'The carrier-issued document of title for sea freight. The “70% against B/L copy” payment term means the balance is paid when the shipping line’s document proves goods are on the water.' },
+  { term: 'TT (Telegraphic Transfer)', category: 'trade', definition: 'Wire transfer — the standard payment rail in China trade. Structured as deposit-plus-balance (commonly 30/70) rather than 100% advance, which exposes buyers to supplier default.' },
+  { term: 'LC (Letter of Credit)', category: 'trade', definition: 'A bank-guaranteed payment instrument: the buyer’s bank pays the supplier when the LC’s document conditions are met. Common in established enterprise trade; costs more than TT but protects both sides.' },
+  { term: 'HS Code', category: 'trade', definition: 'Harmonized System code — the international product classification that determines duty rates, restrictions and licensing for customs. Wrong HS codes are a leading cause of clearance delays and reassessed duties.' },
+  { term: 'BIS Certification', category: 'trade', definition: 'Bureau of Indian Standards registration required for many electronics and goods imported into India (schemes like CRS for IT/electronics). WPC approval applies to wireless products. Both must be secured before shipment.' },
+  { term: 'FCL / LCL', category: 'trade', definition: 'Full Container Load (your goods alone in a 20ft/40ft container) versus Less-than-Container-Load (your goods share container space). LCL suits trial orders; FCL wins on per-unit cost at scale.' },
+  { term: 'L Visa', category: 'travel', definition: 'China’s tourist visa for private visits. Typical grant: 30–60 days per entry; some nationalities receive longer validity or multi-entry versions. Requires itinerary, bookings and onward-travel proof.' },
+  { term: 'M Visa', category: 'travel', definition: 'China’s business visa for commercial activities — trade fairs, supplier meetings, contract negotiations. Usually needs an invitation letter from a Chinese company; work is prohibited on an M visa.' },
+  { term: 'Golden Week (黄金周)', zh: '黄金周', category: 'travel', definition: 'China’s two week-long national holidays — Chinese New Year (Jan/Feb) and National Day (1–7 October). Domestic travel surges; expect crowded sites, peak hotel prices and booked-out trains. Book months ahead or avoid.' },
+  { term: '144-hour Visa-free Transit', category: 'travel', definition: 'A transit policy allowing nationals of many countries to enter parts of China without a visa for a limited stay when transiting to a third country. Rules and ports have expanded repeatedly — {{VERIFY}} current policy scope for your nationality before planning a trip around it.' },
+];
