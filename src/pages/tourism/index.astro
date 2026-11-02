@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
@@ -93,7 +93,7 @@ const care = [
 
   <!-- Hero image band -->
   <section class="hero-band">
-    <Image
+    <Picture
       src={heroImg}
       alt="A traveller looking out over the Great Wall of China at Mutianyu in golden light"
       widths={[768, 1280, 1920]}
@@ -117,7 +117,7 @@ const care = [
         {destinations.map((d, i) => (
           <article class="dest-card card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
             <div class="dest-media">
-              <Image src={d.image} alt={d.alt} widths={[640, 1024]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
+              <Picture src={d.image} alt={d.alt} widths={[640, 1024]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="dest-body">
               <h2>{d.name}</h2>

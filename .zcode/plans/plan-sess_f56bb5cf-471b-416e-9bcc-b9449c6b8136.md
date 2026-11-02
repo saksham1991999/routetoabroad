@@ -1,43 +1,30 @@
-# Promote Astro v3 to repo root, delete v1, open PR to main
+# Astro 5.18 → 7.4.5 migration: required updates + verification
 
 ## Context
 
-The Astro redesign (in `astro/`, untracked) is complete and verified — 56 pages, Lighthouse 95–100, full JSON-LD/sitemap/llms.txt stack. The old React SPA still occupies the repo root (~101 tracked files). The user wants the port audited as complete, the old site deleted, the Astro project living at the parent main folder, and delivery as a **PR to main** (not direct push, not CLI deploy).
+The user bumped `astro` to ^7.4.5 (also `@astrojs/sitemap` ^3.7.4, `@astrojs/rss` ^4.0.19 — the correct pairings for Astro 7) in `package.json`/lockfile on branch `astro-v3-root` (uncommitted; PR #1 still open). **Nothing has been built or run since the install** — dist/ is still an Astro 5 artifact. Local node is 22.22.3 (astro 7.4.5 wants ≥22.23.4 — npm installs with an EBADENGINE warning; Netlify's `NODE_VERSION = "22"` resolves latest 22.x so deploys are fine).
 
-**Audit finding:** every old v1 URL resolves on the new site except one — `/blog/india-china-trade-practical-guide-2025` (new slug dropped the `-2025`). It needs a 301 before the move. `stitch/` is untracked (deleting = gone for good — user confirmed); `design.md` is tracked (recoverable in history).
+Research (official v6/v7 upgrade guides) against our code found exactly **one deprecation edit, one invalid config block, one v7-behavior risk, and a pre-existing prop misuse**. No structural migrations needed: we already use Content Layer loaders (legacy collections were removed in v6 — we're clear), `render(entry)`, `astro/zod`-safe schemas, and no remark/rehype plugins (v7's Sätteri markdown swap is a no-op for us).
 
-## Steps
+## Changes
 
-### 1. Port-completeness fix (in `astro/` before moving)
-- Add to `astro/netlify.toml` redirects: `[[redirects]] from = "/blog/india-china-trade-practical-guide-2025" to = "/blog/india-china-trade-practical-guide" status = 301`
-- Rebuild (`npx astro build`) + `node scripts/validate-site.mjs` → green before anything moves.
+1. **`src/content.config.ts`** — v6 deprecation: split the import:
+   `import { defineCollection } from 'astro:content'` + `import { z } from 'astro/zod'`. Schemas are otherwise Zod-4-safe (plain defaults, `z.coerce.date()` still documented).
 
-### 2. Branch + stop dev server
-- `git checkout -b astro-v3-root` from main.
-- Kill the background `npm run dev` (running from `astro/`) — file-watchers must die before the move.
+2. **`astro.config.mjs`** — delete the `image: { formats: ['avif','webp'] }` block (invalid/no-op in v5, 6, and 7 — formats come from per-component props). Add `compressHTML: true` with a comment: v7 defaults it to `'jsx'` (React-style whitespace stripping between adjacent inline elements), which risks visual regressions across the 56 visually-verified pages; `true` preserves Astro 5 rendering. Keep everything else (static output, trailingSlash, inlineStylesheets, sitemap options all valid in v7).
 
-### 3. Move Astro to root
-- Delete conflicting v1 root items first (`git rm -r` tracked ones; plain `rm -rf` for untracked): `src/ public/ index.html vite.config.ts tsconfig.json tsconfig.app.json tsconfig.node.json eslint.config.js netlify.toml netlify/ scripts/ package.json package-lock.json node_modules/ design.md stitch/ README.md`
-- Keep: `.agents/`, `.zcode/`, `.git/`, `.gitignore` (merge), `AGENTS.md`+`CLAUDE.md` (rewrite), `.env.example` (rewrite), `skills-lock.json`
-- `mv` from `astro/` → root: `astro.config.mjs package.json package-lock.json tsconfig.json netlify.toml netlify/ public/ scripts/ src/ README.md node_modules/` (delete `astro/dist` + `astro/.astro` first — regenerable)
-- Merge `.gitignore`: add `.astro/`, `scripts/raw/`, `agnes-out/` (root already covers node_modules/dist/.env)
-- `rmdir astro`
+3. **`<Image formats={...}>` misuse** (pre-existing, harmless in v5, worth fixing now): `formats` (plural) is `<Picture>`-only — on `<Image>` it rendered as a junk attribute, so those images never actually emitted AVIF. Grep all `<Image` usages with `formats=` (expected ~8 files: index.astro, about.astro, blog/[slug].astro, universities/[slug].astro, cities/index.astro, tourism/index.astro, education/index.astro + any others) and drop the prop (Image defaults to webp srcset via `widths`; `<Picture>` usages in SmartImage/ArticleCard are correct and stay).
 
-### 4. Update repo docs
-- Rewrite `AGENTS.md` (and mirror `CLAUDE.md`) for Astro: commands (`npm run dev/build/preview`, `node scripts/validate-site.mjs`), architecture (static Astro 5, content collections, vanilla-JS tools, netlify function chatbot, design tokens), pointers to `scripts/images.config.json` workflow.
-- Rewrite `.env.example`: `ANTHROPIC_API_KEY`, `ANTHROPIC_API_URL` (chatbot), note `AGNES_AI_API_KEY` optional/local-only.
+4. **`src/pages/rss.xml.ts`** — v7 docs: with `trailingSlash: 'never'`, pass `trailingSlash: false` to `rss()` and change item links from `/blog/${post.id}/` to `/blog/${post.id}`.
 
-### 5. Verify at root
-- `npm run build` → 56 pages; `node scripts/validate-site.mjs` → all green
-- `npm run preview` + curl: `/`, `/education`, a blog slug, and confirm `dist/` has no stale v1 artifacts
-- Confirm redirect entries present in root `netlify.toml` (Netlify applies them at deploy; note in PR)
+5. **`npm i -D @astrojs/check`** (0.9.12) so `npm run check` actually works.
 
-### 6. Commit + PR
-- `git add -A` → single commit: "restructure: replace React SPA with Astro v3 at repo root" (body: port audit summary, verification scores, deploy notes)
-- `git push -u origin astro-v3-root`
-- `gh pr create --base main` — body includes: what changed, port-coverage table (20/21 same-path + 4 redirects), Lighthouse/verification results, **Netlify deploy notes** (build `npm run build`, publish `dist`, functions `netlify/functions`, env `ANTHROPIC_API_KEY`/`ANTHROPIC_API_URL`, no base directory), open items (i18n zh/fr/ar deferred; `{{VERIFY}}` facts: founding year, 98% visa rate, 4.9 rating)
+6. **First v7 build + iterate** — run `npm run build`; fix any Rust-compiler template errors it surfaces (unclosed tags / invalid nesting the old compiler auto-corrected). Node 22.22.3 < engines floor is a warning, not a blocker; if the build fails on engines, flag to the user to `brew upgrade node` (Netlify is unaffected).
 
 ## Verification
-1. Root build + validator green; `git status` clean after commit; `astro/` no longer exists
-2. `git ls-files | grep -v .agents | head` shows only Astro-project files; old files recoverable at commit c120988
-3. PR open with checklist body; reviewer can deploy a Netlify branch preview from the PR to see redirects live
+
+- `npm run build` → 56 pages, 0 errors; `node scripts/validate-site.mjs` → all green
+- Whitespace audit on dist HTML: wordmark renders "RouteToAbroad" intact, `.post-meta` separators, hero-trust row (grep dist/index.html)
+- `npm run preview` + curl 5 key routes → 200; confirm `/rss.xml` and `/sitemap-index.xml` valid
+- Lighthouse spot-check home + education → confirm 100s hold (perf should improve slightly: Rust compiler, Vite 8)
+- Commit to `astro-v3-root` (updates open PR #1): "upgrade astro 5.18 → 7.4.5 + required migrations" with the change list above

@@ -11,11 +11,12 @@ export async function GET(context) {
     title: `${SITE.name} Insights`,
     description: 'Field notes on studying, travelling and trading across the India–East Asia corridor.',
     site: context.site,
+    trailingSlash: false,
     items: posts.map((post) => ({
       title: post.data.title,
       description: post.data.description,
       pubDate: post.data.pubDate,
-      link: `/blog/${post.id}/`,
+      link: `/blog/${post.id}`,
       categories: [post.data.category, ...post.data.tags],
     })),
     customData: '<language>en</language>',

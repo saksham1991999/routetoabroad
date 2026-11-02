@@ -1,5 +1,5 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
@@ -131,7 +131,7 @@ const values = [
         {founders.map((f, i) => (
           <article class="member card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
             <div class="member-photo">
-              <Image src={f.image} alt={`Portrait of ${f.name}`} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
+              <Picture src={f.image} alt={`Portrait of ${f.name}`} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="member-body">
               <h3>{f.name}</h3>
