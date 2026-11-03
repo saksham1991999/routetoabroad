@@ -1,0 +1,372 @@
+#!/usr/bin/env node
+/**
+ * Site QA: validates every built HTML page for
+ *  - unique title + meta description + canonical (global across ALL pages)
+ *  - parseable JSON-LD with required fields per type
+ *  - single H1
+ *  - images with alt
+ *  - sitemap coverage (every sitemap URL has a built page, and vice versa)
+ *  - internal links + fragment anchors resolve against the built file set
+ *  - no trailing slashes on internal href/canonical/sitemap URLs (trailingSlash: 'never')
+ *  - OG/Twitter meta completeness; og:image absolute on host and its file present in dist/
+ *  - {{VERIFY}} markers survive in src/ (owner-confirmation contract)
+ * Usage: node scripts/validate-site.mjs
+ *   VALIDATE_SITE_ROOT=<dir>  validate <dir>/dist + <dir>/src instead of ./{dist,src}
+ *                             (fault-injection seam; mirrors cwd layout)
+ */
+import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { join, relative, dirname } from 'node:path';
+
+const ROOT = process.env.VALIDATE_SITE_ROOT || process.cwd();
+const DIST = join(ROOT, 'dist');
+const SRC = join(ROOT, 'src');
+const SITE = 'https://routetoabroad.com'; // keep in sync with astro.config.mjs `site`
+
+const errors = [];
+const warnings = [];
+
+function walk(dir, out = []) {
+  for (const f of readdirSync(dir)) {
+    const p = join(dir, f);
+    if (statSync(p).isDirectory()) walk(p, out);
+    else out.push(p);
+  }
+  return out;
+}
+
+// ---- inventory: one walk of dist/ feeds the link resolver + og:image existence ----
+const allFiles = walk(DIST).map((f) => relative(DIST, f).split('\\').join('/'));
+const fileSet = new Set(allFiles);
+const htmlRels = allFiles.filter((f) => f.endsWith('.html'));
+
+const jsonLdTypes = new Map();
+
+// global uniqueness (any duplicate anywhere is an error)
+const seenTitles = new Map(); // value -> [rel, ...]
+const seenDescs = new Map();
+const seenCans = new Map();
+
+// link/anchor resolution state
+const pages = []; // { rel, dir, refs: [{ attr, raw, path, hash, hashOnly }] }
+const pageIds = new Map(); // rel -> Set<id|name>
+const linkStats = { checked: 0, broken: 0 };
+const fragStats = { checked: 0, dangling: 0 };
+const slashOffenders = [];
+const ogStats = { pages: 0, files: 0 };
+
+for (const rel of htmlRels) {
+  const file = join(DIST, rel);
+  const html = readFileSync(file, 'utf8');
+
+  // title
+  const title = html.match(/<title[^>]*>([^<]*)<\/title>/)?.[1];
+  if (!title) errors.push(`${rel}: missing <title>`);
+  if (title) {
+    if (!seenTitles.has(title)) seenTitles.set(title, []);
+    seenTitles.get(title).push(rel);
+  }
+
+  // meta description
+  const desc = html.match(/<meta name="description" content="([^"]*)"/)?.[1];
+  if (!desc) errors.push(`${rel}: missing meta description`);
+  else {
+    if (desc.length < 50) warnings.push(`${rel}: short meta description (${desc.length})`);
+    else if (desc.length > 165) warnings.push(`${rel}: long meta description (${desc.length})`);
+    if (!seenDescs.has(desc)) seenDescs.set(desc, []);
+    seenDescs.get(desc).push(rel);
+  }
+
+  // canonical
+  const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
+  if (!canonical) errors.push(`${rel}: missing canonical`);
+  else {
+    if (canonical.endsWith('/') && canonical !== SITE + '/') {
+      errors.push(`${rel}: canonical ends with "/": ${canonical} (trailingSlash: 'never')`);
+    }
+    if (!seenCans.has(canonical)) seenCans.set(canonical, []);
+    seenCans.get(canonical).push(rel);
+  }
+
+  // OG/Twitter meta completeness + og:image is absolute on host + file exists in dist
+  for (const prop of ['og:title', 'og:description', 'og:image']) {
+    if (!html.match(new RegExp(`<meta property="${prop}" content="`))) {
+      errors.push(`${rel}: missing ${prop}`);
+    }
+  }
+  if (!html.match(/<meta name="twitter:card" content="[^"]+"/)) errors.push(`${rel}: missing twitter:card`);
+  const ogImage = html.match(/<meta property="og:image" content="([^"]+)"/)?.[1];
+  if (ogImage) {
+    ogStats.pages++;
+    if (!ogImage.startsWith(SITE + '/')) {
+      errors.push(`${rel}: og:image is not an absolute URL on ${SITE}: "${ogImage}"`);
+    } else {
+      const ogFile = ogImage.slice(SITE.length + 1).split('#')[0].split('?')[0];
+      if (fileSet.has(ogFile)) ogStats.files++;
+      else errors.push(`${rel}: og:image file missing from dist/: ${ogFile}`);
+    }
+  }
+
+  // single h1
+  const h1s = html.match(/<h1[\s>]/g)?.length ?? 0;
+  if (h1s === 0) errors.push(`${rel}: no H1`);
+  if (h1s > 1) errors.push(`${rel}: ${h1s} H1 tags`);
+
+  // images alt
+  const imgs = html.matchAll(/<img[^>]*>/g);
+  for (const img of imgs) {
+    const tag = img[0];
+    if (!/alt="[^"]*"/.test(tag) && !/alt=/.test(tag)) {
+      warnings.push(`${rel}: <img> without alt: ${tag.slice(0, 80)}`);
+    }
+  }
+
+  // fragment targets: id on any element + legacy <a name>
+  const ids = new Set();
+  for (const m of html.matchAll(/\sid="([^"]*)"/g)) if (m[1]) ids.add(m[1]);
+  for (const m of html.matchAll(/<a\s[^>]*\sname="([^"]*)"/g)) if (m[1]) ids.add(m[1]);
+  pageIds.set(rel, ids);
+
+  // collect internal href/src references (resolved after all pages are parsed)
+  const dir = rel.includes('/') ? rel.slice(0, rel.lastIndexOf('/')) : '';
+  const refs = [];
+  for (const m of html.matchAll(/\s(href|src)=(?:"([^"]*)"|'([^']*)')/g)) {
+    const attr = m[1];
+    let raw = (m[2] ?? m[3] ?? '').trim();
+    if (!raw || raw === '#') continue;
+    if (/^(?:mailto:|tel:|javascript:|data:|sms:|ftp:|ws:)/i.test(raw)) continue;
+    // protocol-relative: same-site is internal, anything else is external
+    if (raw.startsWith('//')) {
+      const host = SITE.replace(/^https?:\/\//i, '');
+      const rest = raw.slice(2);
+      if (rest === host || rest.startsWith(host + '/')) raw = SITE + rest.slice(host.length);
+      else continue;
+    }
+    let path = null;
+    let hash = null;
+    let hashOnly = false;
+    if (raw === SITE || raw.startsWith(SITE + '/') || raw.startsWith(SITE + '?') || raw.startsWith(SITE + '#'))
+      path = raw.slice(SITE.length) || '/';
+    else if (raw.startsWith('/')) path = raw;
+    else if (/^https?:\/\//i.test(raw)) continue; // external
+    else if (raw.startsWith('?')) {
+      // query-only link: same page — but it can still carry a fragment
+      const qHash = raw.indexOf('#');
+      if (qHash === -1) continue;
+      path = '';
+      hash = raw.slice(qHash + 1) || null;
+    } else path = raw; // page-relative
+
+    // split off #fragment then ?query
+    const hashIdx = path.indexOf('#');
+    if (hashIdx !== -1) {
+      hash = path.slice(hashIdx + 1) || null;
+      path = path.slice(0, hashIdx);
+    }
+    const qIdx = path.indexOf('?');
+    if (qIdx !== -1) path = path.slice(0, qIdx);
+    if (hash && !path) hashOnly = true; // "#foo" → same page
+
+    refs.push({ attr, raw, path, hash, hashOnly });
+
+    // trailing-slash check on href URLs (root "/" is the one legitimate slash)
+    if (attr === 'href' && !hashOnly && path.endsWith('/') && path !== '/') {
+      slashOffenders.push(`${rel}: URL ends with "/": ${raw}`);
+    }
+  }
+  pages.push({ rel, dir, refs });
+
+  // JSON-LD parse + per-type requirements
+  const blocks = [...html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)];
+  for (const block of blocks) {
+    let schema;
+    try {
+      schema = JSON.parse(block[1]);
+    } catch (e) {
+      errors.push(`${rel}: unparseable JSON-LD — ${e.message}`);
+      continue;
+    }
+    const schemas = Array.isArray(schema) ? schema : [schema];
+    for (const s of schemas) {
+      if (!s['@type']) {
+        errors.push(`${rel}: JSON-LD without @type`);
+        continue;
+      }
+      const type = Array.isArray(s['@type']) ? s['@type'][0] : s['@type'];
+      jsonLdTypes.set(type, (jsonLdTypes.get(type) ?? 0) + 1);
+
+      if (type === 'FAQPage') {
+        const qs = s.mainEntity ?? [];
+        if (!qs.length) errors.push(`${rel}: FAQPage with no questions`);
+        // every FAQ question text must appear in visible content — strip
+        // <script> (JSON-LD) first, otherwise the check confirms itself;
+        // decode entities + drop tags so typographic output still matches
+        const decode = (s) =>
+          s
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#0?39;|&apos;|’/g, "'")
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>');
+        const plain = decode(html.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<[^>]+>/g, ' '))
+          .replace(/\s+/g, ' ')
+          .toLowerCase();
+        for (const q of qs) {
+          const needle = decode(q.name || '').replace(/\s+/g, ' ').toLowerCase();
+          if (!needle || !plain.includes(needle)) {
+            errors.push(`${rel}: FAQPage question not visible in page: "${(q.name || '').slice(0, 60)}"`);
+          }
+        }
+      }
+      if (type === 'BreadcrumbList' && !s.itemListElement?.length) {
+        errors.push(`${rel}: empty BreadcrumbList`);
+      }
+      if (type === 'Article' && (!s.headline || !s.datePublished || !s.author)) {
+        errors.push(`${rel}: Article schema missing headline/datePublished/author`);
+      }
+      if (type === 'HowTo' && !s.step?.length) errors.push(`${rel}: HowTo without steps`);
+      if (type === 'Course' && !s.name) errors.push(`${rel}: Course without name`);
+      if (type === 'Organization') {
+        for (const field of ['name', 'url', 'logo']) {
+          if (field === 'logo' && !s.logo) warnings.push(`${rel}: Organization missing logo`);
+          if (field !== 'logo' && !s[field]) errors.push(`${rel}: Organization missing ${field}`);
+        }
+      }
+    }
+  }
+}
+
+// ---- global uniqueness: any duplicate anywhere is an error ----
+function flagDuplicates(map, label) {
+  for (const [value, rels] of map) {
+    if (rels.length > 1) {
+      errors.push(`duplicate ${label} on ${rels.length} pages: "${value}" — ${rels.join(', ')}`);
+    }
+  }
+}
+flagDuplicates(seenTitles, 'title');
+flagDuplicates(seenDescs, 'meta description');
+flagDuplicates(seenCans, 'canonical');
+
+// ---- internal link + fragment anchor resolution (single pass, in-memory) ----
+function resolveInternal(path, fromDir) {
+  if (path === '' || path === '/') return 'index.html';
+  let p = path;
+  if (!p.startsWith('/')) {
+    // page-relative: resolve against the current page's directory
+    const parts = fromDir ? fromDir.split('/') : [];
+    for (const seg of p.split('/')) {
+      if (seg === '' || seg === '.') continue;
+      if (seg === '..') parts.pop();
+      else parts.push(seg);
+    }
+    p = '/' + parts.join('/');
+  }
+  p = p.replace(/\/+$/, ''); // trailingSlash: 'never' — a trailing slash never changes the target
+  if (p === '' || p === '/') return 'index.html';
+  const clean = p.replace(/^\//, '');
+  if (clean === '404') return '404.html'; // links to /404 are ignored (never an error)
+  if (fileSet.has(clean + '/index.html')) return clean + '/index.html';
+  if (fileSet.has(clean + '.html')) return clean + '.html';
+  if (fileSet.has(clean)) return clean; // static asset (css/js/jpg/svg/xml/...)
+  return null;
+}
+
+for (const page of pages) {
+  for (const ref of page.refs) {
+    linkStats.checked++;
+    const target = ref.hashOnly ? page.rel : resolveInternal(ref.path, page.dir);
+    if (!ref.hashOnly && ref.path.replace(/\/+$/, '') === '/404') continue; // links TO /404 ignored
+    if (!target) {
+      linkStats.broken++;
+      errors.push(`${page.rel}: broken internal link "${ref.raw}"`);
+      continue;
+    }
+    if (ref.hash) {
+      fragStats.checked++;
+      if (target.endsWith('.html')) {
+        const ids = pageIds.get(target);
+        if (!ids?.has(ref.hash)) {
+          fragStats.dangling++;
+          errors.push(
+            `${page.rel}: dangling fragment "#${ref.hash}" — no matching id/name in ${target === page.rel ? 'the same page' : target}`
+          );
+        }
+      }
+      // fragments into non-HTML assets (e.g. svg sprites) are not verified
+    }
+  }
+}
+
+// ---- trailing-slash href violations become errors ----
+for (const offender of slashOffenders) errors.push(`${offender} (trailingSlash: 'never')`);
+
+// ---- {{VERIFY}} survival: the marker contract is that owners confirm facts ----
+const TEXT_EXT = /\.(?:astro|ts|tsx|js|jsx|mjs|cjs|md|mdx|json|css|scss|txt|yaml|yml|html)$/;
+let verifyCount = 0;
+try {
+  for (const f of walk(SRC)) {
+    if (!TEXT_EXT.test(f)) continue;
+    if (readFileSync(f, 'utf8').includes('{{VERIFY}}')) verifyCount++;
+  }
+} catch {
+  warnings.push(`could not walk src/ for {{VERIFY}} markers at: ${SRC}`);
+}
+if (verifyCount === 0) {
+  errors.push(
+    '{{VERIFY}} markers: 0 files found in src/ — owner-confirmation contract broken (content awaiting review was likely deleted silently)'
+  );
+}
+
+// ---- sitemap coverage ----
+const sitemapUrls = [...readFileSync(join(DIST, 'sitemap-0.xml'), 'utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(
+  (m) => m[1]
+);
+for (const url of sitemapUrls) {
+  if (url.endsWith('/') && url !== SITE + '/') errors.push(`sitemap URL ends with "/": ${url}`);
+}
+const builtUrls = new Set(
+  htmlRels.map((rel) => {
+    const u = rel.replace(/index\.html$/, '').replace(/\.html$/, '');
+    return new URL('/' + u, SITE).href.replace(/\/$/, '');
+  })
+);
+
+for (const url of sitemapUrls) {
+  const normalized = url.replace(/\/$/, '');
+  const normalizedBuilt = normalized.replace(SITE, '');
+  const found = [...builtUrls].some((b) => b.endsWith(normalizedBuilt) || b === normalized);
+  if (!found) errors.push(`sitemap URL has no built page: ${url}`);
+}
+for (const b of builtUrls) {
+  if (b.includes('404')) continue;
+  const path = b.replace(SITE, '') || '/';
+  if (path === '/404') continue;
+  const inSitemap = sitemapUrls.some((u) => {
+    const up = u.replace(SITE, '').replace(/\/$/, '') || '/';
+    return up === path;
+  });
+  if (!inSitemap && !['/privacy', '/terms'].includes(path)) {
+    errors.push(`built page missing from sitemap: ${path}`);
+  }
+}
+
+// ---- report ----
+console.log(`Pages checked: ${htmlRels.length}`);
+console.log(`Sitemap URLs: ${sitemapUrls.length}`);
+console.log('JSON-LD types:', Object.fromEntries([...jsonLdTypes.entries()].sort()));
+console.log(`Internal links: ${linkStats.checked} checked, ${linkStats.broken} broken`);
+console.log(`Anchors: ${fragStats.checked} checked, ${fragStats.dangling} dangling`);
+console.log(`Trailing slashes: ${slashOffenders.length} offending URLs`);
+console.log(`OG meta: ${ogStats.pages}/${htmlRels.length} pages complete, ${ogStats.files} og:image files verified`);
+console.log(`{{VERIFY}} files: ${verifyCount}`);
+console.log('');
+if (warnings.length) {
+  console.log(`⚠ ${warnings.length} warnings:`);
+  warnings.forEach((w) => console.log('  ' + w));
+}
+if (errors.length) {
+  console.log(`✗ ${errors.length} errors:`);
+  errors.forEach((e) => console.log('  ' + e));
+  process.exit(1);
+}
+console.log('✓ All checks passed');

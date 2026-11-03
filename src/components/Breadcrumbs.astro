@@ -1,0 +1,24 @@
+---
+import { SITE } from '../lib/site';
+
+interface Props {
+  crumbs: { name: string; url: string }[];
+}
+
+const { crumbs } = Astro.props;
+const withHome = [{ name: 'Home', url: SITE.url }, ...crumbs];
+---
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol>
+    {withHome.map((c, i) => (
+      <li>
+        {i === withHome.length - 1 ? (
+          <span aria-current="page">{c.name}</span>
+        ) : (
+          <a href={c.url.replace(SITE.url, '') || '/'}>{c.name}</a>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>

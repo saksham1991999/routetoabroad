@@ -1,0 +1,83 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageHero from '../components/PageHero.astro';
+import FaqAccordion from '../components/FaqAccordion.astro';
+import CtaBand from '../components/CtaBand.astro';
+import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/faqs';
+import { faqSchema } from '../lib/schema';
+
+const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS];
+---
+
+<BaseLayout
+  title="FAQ — Study, Travel & Trade Across East Asia"
+  description="Every question we hear, answered straight: recognition, scholarships, visas, costs, tours, sourcing and payments — the RouteToAbroad FAQ hub."
+  path="/faq"
+  crumbs={[{ name: 'FAQ', url: 'https://routetoabroad.com/faq' }]}
+  jsonLd={[faqSchema(all)]}
+>
+  <PageHero
+    eyebrow="FAQ hub"
+    title="The answers, with the awkward ones kept in."
+    lede="Organised by service, written the way we answer on calls. If a question is missing, it goes on this page — ask us."
+    crumbs={[{ name: 'FAQ', url: '/faq' }]}
+  />
+
+  <section class="section">
+    <div class="container-faq">
+      <section aria-labelledby="general-h">
+        <h2 id="general-h" class="faq-h">General</h2>
+        <FaqAccordion faqs={GENERAL_FAQS} />
+      </section>
+
+      <section aria-labelledby="edu-h" class="faq-group">
+        <p class="eyebrow">Education</p>
+        <h2 id="edu-h" class="faq-h">Studying in China</h2>
+        <FaqAccordion faqs={EDUCATION_FAQS} />
+        <a href="/education/faq" class="arrow-link faq-link">Education FAQ page</a>
+      </section>
+
+      <section aria-labelledby="tour-h" class="faq-group">
+        <p class="eyebrow">Tourism</p>
+        <h2 id="tour-h" class="faq-h">Travel to China & Japan</h2>
+        <FaqAccordion faqs={TOURISM_FAQS} />
+        <a href="/tourism/faq" class="arrow-link faq-link">Tourism FAQ page</a>
+      </section>
+
+      <section aria-labelledby="trade-h" class="faq-group">
+        <p class="eyebrow">Trade</p>
+        <h2 id="trade-h" class="faq-h">India–China trade</h2>
+        <FaqAccordion faqs={TRADE_FAQS} />
+        <a href="/trade/faq" class="arrow-link faq-link">Trade FAQ page</a>
+      </section>
+    </div>
+  </section>
+
+  <CtaBand title="Question not on the list?" text="Ask it directly — WhatsApp, email, or the contact form. A human replies within one working day." />
+</BaseLayout>
+
+<style>
+  .container-faq {
+    width: min(var(--container-text), 100% - var(--gutter) * 2);
+    margin-inline: auto;
+  }
+
+  .faq-h {
+    font-size: var(--step-3);
+    margin-bottom: 1rem;
+  }
+
+  .faq-group {
+    margin-top: 3.5rem;
+  }
+
+  .faq-group .faq-h {
+    margin-top: 0.5rem;
+  }
+
+  .faq-link {
+    display: inline-block;
+    margin-top: 1.2rem;
+    font-size: 0.9rem;
+  }
+</style>

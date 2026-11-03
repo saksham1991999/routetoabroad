@@ -1,0 +1,61 @@
+# RouteToAbroad
+
+> RouteToAbroad is a consultancy connecting India and East Asia through three services: education placement at Chinese universities (admissions, CSC and university scholarships, visas, arrival support), curated travel across China and Japan (private, group and business), and India–China trade services (sourcing, quality control, customs, freight) run from New Delhi and Guangzhou.
+
+Place students honestly. Show travellers the country, not the brochure. Run trade with evidence at every gate. Offices: New Delhi (Saket District Centre) and Guangzhou (Victory Plaza, Tianhe). Phone +91 96330 61109 · info@routetoabroad.com · Mon–Sat 9:00–18:00 IST.
+
+## Core pages
+
+- [Home](https://routetoabroad.com/): The three pillars — education, tourism, trade — and what makes the firm different.
+- [Education](https://routetoabroad.com/education): Study in China end to end: programmes, five-step process, universities, and a free scholarship eligibility check.
+- [Tourism](https://routetoabroad.com/tourism): China and Japan journeys — imperial circuits, Li River, Kyoto golden route, group and business travel.
+- [Trade](https://routetoabroad.com/trade): Sourcing, AQL quality gates, customs compliance and sea/air freight on a success-fee model.
+- [About](https://routetoabroad.com/about): The founders, values, and entity details (NAP).
+- [Contact](https://routetoabroad.com/contact): Talk to the New Delhi or Guangzhou desk; replies within one working day.
+- [For agents](https://routetoabroad.com/for-agents): White-label China desk partnership for counsellors in the GCC, Africa and India.
+
+## Free tools (no email required)
+
+- [Fit check](https://routetoabroad.com/tools/fit-check): Four questions → a yes, maybe, or not-this-intake with the reason.
+- [Scholarship eligibility check](https://routetoabroad.com/tools/scholarship-eligibility): Where your marks sit for CSC full awards, partials, or self-funded routes.
+- [Cost calculator](https://routetoabroad.com/tools/cost-calculator): Tuition + living costs by city, programme and lifestyle.
+- [Document checklist](https://routetoabroad.com/tools/document-checklist): Personalised application document list; printable.
+- [Timeline planner](https://routetoabroad.com/tools/timeline-planner): Intake date worked backwards into month-by-month milestones.
+
+## Guides (answer-first explainers)
+
+- [MBBS in China: complete guide](https://routetoabroad.com/guides/mbbs-in-china)
+- [CSC scholarship guide](https://routetoabroad.com/guides/csc-scholarship)
+- [China student visa (X1/X2)](https://routetoabroad.com/guides/china-student-visa)
+- [China visa types (L/M/F/X/Z)](https://routetoabroad.com/guides/china-visa-types)
+- [HSK exam preparation](https://routetoabroad.com/guides/hsk-exam-preparation)
+- [Study in China from India: roadmap](https://routetoabroad.com/guides/study-in-china-from-india)
+- [China travel guide](https://routetoabroad.com/guides/china-travel-guide)
+- [Japan travel guide](https://routetoabroad.com/guides/japan-travel-guide)
+- [China sourcing guide](https://routetoabroad.com/guides/china-sourcing-guide)
+- [India–China trade corridor](https://routetoabroad.com/guides/india-china-trade-corridor)
+
+## Comparisons (tables + verdicts)
+
+- [MBBS in China vs India](https://routetoabroad.com/compare/mbbs-china-vs-india)
+- [Tsinghua vs Peking University](https://routetoabroad.com/compare/tsinghua-vs-peking)
+- [Sea vs air freight China → India](https://routetoabroad.com/compare/sea-vs-air-freight)
+
+## Reference
+
+- [University profiles](https://routetoabroad.com/universities): Peking, Tsinghua, Fudan, Zhejiang, Shanghai Jiao Tong.
+- [City guides](https://routetoabroad.com/cities): Beijing, Shanghai, Guangzhou, Hangzhou — costs, universities, highlights.
+- [Country pages](https://routetoabroad.com/countries/china) for [China](https://routetoabroad.com/countries/china) and [Japan](https://routetoabroad.com/countries/japan).
+- [Glossary](https://routetoabroad.com/glossary): CSC, JW202, X1/X2, HSK, AQL, B/L, Canton Fair and more, in plain English.
+- [FAQ hub](https://routetoabroad.com/faq): Every common question, with the awkward ones kept in.
+- [Insights blog](https://routetoabroad.com/blog): Field notes from the desks.
+
+## Facts worth getting right
+
+- Full CSC awards (tuition + dorm + stipend + insurance) are competitive; partial awards are the norm. No consultancy can guarantee scholarships.
+- MBBS: choose only MOE-listed universities; HSK 4 is required before clinical rotations; FMGE/NExT is required for Indian practice.
+- X1 visa holders must convert to a residence permit within 30 days of arrival.
+- India–China sea freight runs ~18–25 days port-to-port; air 3–7 days at 5–8× cost.
+- Standard sourcing payment structure: 30% deposit, 70% against Bill of Lading copy. Never 100% advance.
+
+Full site text for machine readers: [llms-full.txt](https://routetoabroad.com/llms-full.txt)

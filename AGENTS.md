@@ -5,54 +5,58 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 ## Commands
 
 ```bash
-npm run dev        # Start dev server (Vite HMR)
-npm run build      # Type-check then build (tsc -b && vite build)
-npm run lint       # ESLint with flat config
-npm run preview    # Preview production build
+npm run dev        # Astro dev server → http://localhost:4321
+npm run build      # Production build → dist/ (56 static pages)
+npm run preview    # Serve dist/ locally
+node scripts/validate-site.mjs   # QA: titles, canonicals, JSON-LD, sitemap coverage (exit 1 on error)
+npm run images:generate   # Regenerate site imagery via Agnes AI (scripts/images.config.json)
+npm run images:process    # Optimize raw PNGs → src/assets/images + public/og
 ```
 
-No test runner is configured.
+No test runner is configured; `scripts/validate-site.mjs` is the build gate.
 
 ## Architecture
 
-RouteToAbroad is a multilingual marketing/service website with three pillars: **Education**, **Tourism**, and **Trade**. It's a React 19 SPA using Vite, TypeScript strict mode, Tailwind CSS v4, and React Router v7.
+RouteToAbroad v3 is a fully static **Astro 5** site (zero UI-framework islands) for a consultancy
+with three pillars: **Education, Tourism, Trade** (India ↔ East Asia). All interactivity is
+vanilla TypeScript in `<script>` blocks; there are no webfonts (Helvetica system stack).
 
-### Routing & Pages
+### Routing & pages
+- File-based routing in `src/pages/` → 56 static pages: core pages, 5 interactive tools
+  (`/tools/*`), 10 guides, 6 blog posts, 5 university + 4 city + 2 country programmatic pages,
+  3 comparison pages, FAQ hub, glossary, legal pages.
+- Site URL and sitemap config live in `astro.config.mjs`.
 
-Routes are defined in `src/App.tsx` using React Router's `BrowserRouter`. Route paths are centralized in `src/constants/` as a `ROUTES` object — use this for navigation links rather than hardcoding strings.
+### Content
+- Content collections (schemas in `src/content.config.ts`): `blog`, `guides`, `universities`,
+  `cities`, `countries` under `src/content/`.
+- Structured data (non-collection): `src/data/` — `faqs.ts` (single source for FAQ pages AND
+  FAQPage JSON-LD), `glossary.ts`, `testimonials.ts`, `authors.ts`, `comparisons.ts`.
+- Company facts (NAP, phones, socials, claims) live in `src/lib/site.ts` — edit there, never
+  inline. JSON-LD builders live in `src/lib/schema.ts`.
 
-Six pages: Home, Education, Tourism, Trade, About, Contact.
+### Design system
+- Tokens in `src/styles/tokens.css`, primitives in `src/styles/global.css` (no Tailwind).
+- "Editorial instrument" language: paper `#f7f7f7` / ink `#111` / signal periwinkle `#5e78ee`
+  used as a pen (eyebrows, numerals), hairline rules over cards, weight-500 headings with tight
+  tracking. Dark mode via `[data-theme]` (inner pages invert; homepage hero is a fixed-light
+  composition with tone-switching chrome).
+- Homepage loader/globe/journey animations live in `src/pages/index.astro` +
+  `src/layouts/BaseLayout.astro` and are all `prefers-reduced-motion`-gated.
 
-### Internationalization
+### Forms & chatbot
+- Forms POST via `fetch` to Formspree (endpoint constant `FORMSPREE_ENDPOINT` in
+  `src/lib/site.ts` + inline engine in BaseLayout).
+- AI counselor: `netlify/functions/chat.mts` streams from Claude; requires `ANTHROPIC_API_KEY`
+  and `ANTHROPIC_API_URL` env vars in Netlify.
 
-All UI strings go through `react-i18next`. Translation keys live in `src/i18n/locales/{en,zh,fr,ar}.json`. The i18n setup (`src/i18n/i18n.ts`) uses browser language detection with localStorage persistence. **Arabic triggers RTL** by setting `document.dir = 'rtl'` — any layout work must account for this.
+### Images
+- All imagery is generated from versioned prompts in `scripts/images.config.json`
+  (see README for the regeneration workflow). Founder portraits are real files — never
+  AI-generate faces for real people.
 
-### Styling
-
-Tailwind CSS v4 via Vite plugin (no `tailwind.config.js` needed). Uses a custom color palette: `primary`, `secondary`, `tourism-emerald`, `trade-violet`. Dark mode is class-based (`dark:` prefix) — theme state is managed by `ThemeContext` and persisted to localStorage. An inline script in `index.html` prevents theme flash on load.
-
-Use the `cn()` utility (`src/utils/`) which wraps `clsx` + `tailwind-merge` for safe class merging.
-
-Icons come from two sources: `lucide-react` (JS) and Material Symbols Outlined (Google Font, used via CSS class `material-symbols-outlined`).
-
-### State & Context
-
-- **ThemeContext** — light/dark theme, syncs to `document.documentElement.classList` and localStorage
-- **ToastContext** — notification system; `addToast(message, type, duration?)` with types `success | error | info`
-
-Access via `useTheme()` and `useToast()` hooks.
-
-### Forms & Validation
-
-The `useFormValidation<T>` hook (`src/hooks/`) handles all form state. Rules: `required`, `minLength`, `maxLength`, `email`, `phone`, `pattern`. Each service has its own form component in `src/components/forms/`.
-
-### Animation
-
-`Reveal` component (`src/components/animation/`) wraps content with Intersection Observer-based entrance animations (variants: `fade`, `slide-up`, `slide-left`, `slide-right`). It respects `prefers-reduced-motion`.
-
-### Key Conventions
-
-- `useMobileMenu` hook manages mobile nav state — it locks body scroll and handles Escape key
-- Static data (e.g. testimonials) lives in `src/data/`
-- Company info, social links, nav links are all in `src/constants/` — edit there, not inline
-- TypeScript strict mode is on with `noUnusedLocals` and `noUnusedParameters` enforced at build time
+## Key conventions
+- `{{VERIFY}}` markers in content = facts needing owner confirmation; do not remove silently.
+- SEO layer (`Seo.astro`, `JsonLd.astro`, `SiteSchemas.astro`) is contract-stable: every page
+  passes unique title/description/crumbs/jsonLd.
+- After content/page changes run `npm run build && node scripts/validate-site.mjs`.

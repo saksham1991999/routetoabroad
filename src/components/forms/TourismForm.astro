@@ -1,0 +1,93 @@
+<form class="enquiry-form" data-formspree data-success-msg="Enquiry received! Our travel desk will reply within one working day." novalidate>
+  <div class="form-fields">
+    <div class="form-row">
+      <div class="field">
+        <label for="tour-name">Full name</label>
+        <input id="tour-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
+        <p class="error">Please enter your name.</p>
+      </div>
+      <div class="field">
+        <label for="tour-email">Email</label>
+        <input id="tour-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+        <p class="error">Please enter a valid email.</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="tour-phone">Phone / WhatsApp</label>
+        <input id="tour-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" />
+        <p class="error">Please enter a valid phone number.</p>
+      </div>
+      <div class="field">
+        <label for="tour-dest">Destination</label>
+        <select id="tour-dest" name="destination" required>
+          <option value="">Select…</option>
+          <option value="china">China</option>
+          <option value="japan">Japan</option>
+          <option value="multi">China + Japan</option>
+          <option value="custom">Somewhere else / custom</option>
+        </select>
+        <p class="error">Please choose a destination.</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="tour-type">Trip type</label>
+        <select id="tour-type" name="tripType" required>
+          <option value="">Select…</option>
+          <option value="cultural">Cultural / private</option>
+          <option value="group">Group / educational</option>
+          <option value="business">Business delegation</option>
+        </select>
+        <p class="error">Please choose a trip type.</p>
+      </div>
+      <div class="field">
+        <label for="tour-dates">Travel dates <span class="hint">(approximate is fine)</span></label>
+        <input id="tour-dates" name="preferredDates" type="text" placeholder="e.g. mid-October, 9 days" />
+      </div>
+    </div>
+
+    <div class="form-row form-row--single">
+      <div class="field">
+        <label for="tour-notes">Anything else? <span class="hint">(optional)</span></label>
+        <textarea id="tour-notes" name="message" rows="3" placeholder="Travellers, dietary needs, must-sees…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <p class="form-status" role="status"></p>
+
+  <button type="submit" class="btn btn-primary btn-lg">Plan my journey</button>
+  <p class="form-fineprint">We draft a free day-wise itinerary before you pay anything.</p>
+</form>
+
+
+<style>
+  .enquiry-form {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .form-row--single {
+    grid-template-columns: 1fr;
+  }
+
+  .form-fineprint {
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 40rem) {
+    .form-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

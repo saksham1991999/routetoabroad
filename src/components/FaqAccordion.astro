@@ -1,0 +1,35 @@
+---
+import type { Faq } from '../data/faqs';
+
+interface Props {
+  faqs: Faq[];
+}
+const { faqs } = Astro.props;
+---
+
+<div class="faq-list">
+  {faqs.map((faq, i) => (
+    <details class="faq" data-reveal style={`--reveal-delay: ${Math.min(i * 40, 240)}ms`}>
+      <summary>
+        <h3>{faq.question}</h3>
+        <span class="faq-icon" aria-hidden="true"></span>
+      </summary>
+      <div class="faq-body">
+        <p>{faq.answer}</p>
+      </div>
+    </details>
+  ))}
+</div>
+
+<style>
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+
+  details.faq h3 {
+    font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem); /* 15–16px */
+    font-weight: 500;
+    letter-spacing: 0;
+    line-height: 1.45;
+  }
+</style>

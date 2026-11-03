@@ -1,47 +1,64 @@
-# https://routetoabroad.com/robots.txt
-# RouteToAbroad SEO Configuration
+# RouteToAbroad — robots.txt
+# We welcome search engines AND AI/answer engines. Our content is meant to be quoted.
+
+# /api/ is disallowed in every group below: a Disallow line only applies to
+# the group it appears in, and explicitly named bots don't inherit from *.
 
 User-agent: *
 Allow: /
-
-# Disallow admin/internal paths (if any)
 Disallow: /api/
-Disallow: /_next/
-Disallow: /assets/internal/
 
-# Sitemap location
-Sitemap: https://routetoabroad.com/sitemap.xml
-
-# Crawl-delay for polite crawling
-Crawl-delay: 1
-
-# Specific bot instructions
-User-agent: Googlebot
+# Reputable AI crawlers — explicitly allowed
+User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Disallow: /api/
 
-User-agent: Bingbot
+User-agent: OAI-SearchBot
 Allow: /
-Crawl-delay: 1
+Disallow: /api/
 
-User-agent: Slurp
+User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
 
-User-agent: DuckDuckBot
+User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
 
-User-agent: Baiduspider
+User-agent: Claude-Web
 Allow: /
+Disallow: /api/
 
-User-agent: YandexBot
+User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
 
-# Block bad bots
-User-agent: AhrefsBot
-Disallow: /
+User-agent: PerplexityBot
+Allow: /
+Disallow: /api/
 
-User-agent: SemrushBot
-Disallow: /
+User-agent: Google-Extended
+Allow: /
+Disallow: /api/
 
-User-agent: MJ12bot
-Disallow: /
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /api/
+
+User-agent: CCBot
+Allow: /
+Disallow: /api/
+
+User-agent: Bytespider
+Allow: /
+Disallow: /api/
+
+User-agent: Amazonbot
+Allow: /
+Disallow: /api/
+
+User-agent: meta-externalagent
+Allow: /
+Disallow: /api/
+
+Sitemap: https://routetoabroad.com/sitemap-index.xml

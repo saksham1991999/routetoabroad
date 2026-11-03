@@ -1,0 +1,154 @@
+<form class="enquiry-form" data-formspree data-success-msg="Message received! An advisor will reply within one working day — 9:00–18:00 IST, Mon–Sat." novalidate>
+  <div class="form-fields">
+    <fieldset class="pathway-fieldset">
+      <legend>I'm enquiring about</legend>
+      <div class="pathway-cards" role="radiogroup" aria-label="Service">
+        <label class="pathway-card">
+          <input type="radio" name="serviceContext" value="education" checked />
+          <span class="pw-name">Education</span>
+          <span class="pw-desc">Study in China</span>
+        </label>
+        <label class="pathway-card">
+          <input type="radio" name="serviceContext" value="tourism" />
+          <span class="pw-name">Tourism</span>
+          <span class="pw-desc">Tours & travel</span>
+        </label>
+        <label class="pathway-card">
+          <input type="radio" name="serviceContext" value="trade" />
+          <span class="pw-name">Trade</span>
+          <span class="pw-desc">Sourcing & logistics</span>
+        </label>
+      </div>
+    </fieldset>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="c-name">Full name</label>
+        <input id="c-name" name="fullName" type="text" required autocomplete="name" placeholder="Your name" />
+        <p class="error">Please enter your name.</p>
+      </div>
+      <div class="field">
+        <label for="c-email">Email</label>
+        <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
+        <p class="error">Please enter a valid email.</p>
+      </div>
+    </div>
+
+    <div class="form-row form-row--single">
+      <div class="field">
+        <label for="c-phone">Phone / WhatsApp <span class="hint">(optional)</span></label>
+        <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" />
+        <p class="error">Please enter a valid phone number.</p>
+      </div>
+    </div>
+
+    <div class="form-row form-row--single">
+      <div class="field">
+        <label for="c-message">Your message</label>
+        <textarea id="c-message" name="message" rows="4" required placeholder="What are you planning? Be as specific as you like."></textarea>
+        <p class="error">Please write a short message.</p>
+      </div>
+    </div>
+  </div>
+
+  <p class="form-status" role="status"></p>
+
+  <button type="submit" class="btn btn-primary btn-lg">Send message</button>
+  <p class="form-fineprint">A journey of a thousand miles begins with a single conversation.</p>
+</form>
+
+
+<style>
+  .enquiry-form {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .pathway-fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  .pathway-fieldset legend {
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0;
+    margin-bottom: 0.8rem;
+  }
+
+  .pathway-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.7rem;
+  }
+
+  .pathway-card {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.85rem 1rem;
+    border: 1px solid color-mix(in srgb, var(--ink) 15%, transparent);
+    border-radius: var(--radius-m);
+    background: var(--paper-raised);
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  .pathway-card:hover {
+    border-color: color-mix(in srgb, var(--ink) 45%, transparent);
+  }
+
+  .pathway-card input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pathway-card:has(input:checked) {
+    box-shadow: 0 0 0 2px var(--ink);
+    border-color: transparent;
+    background: var(--paper-raised);
+  }
+
+  .pathway-card:has(input:checked) .pw-name {
+    color: var(--ink);
+  }
+
+  .pathway-card:has(input:focus-visible) {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .pw-name {
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .pw-desc {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .form-row--single {
+    grid-template-columns: 1fr;
+  }
+
+  .form-fineprint {
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 40rem) {
+    .form-row,
+    .pathway-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

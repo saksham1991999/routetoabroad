@@ -1,0 +1,75 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import CtaBand from '../../components/CtaBand.astro';
+
+const universities = (await getCollection('universities')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  title="Chinese University Profiles for International Students"
+  description="Honest profiles of the universities we place into: Peking, Tsinghua, Fudan, Zhejiang and Shanghai Jiao Tong — programmes, real costs, admission realities and FAQs."
+  path="/universities"
+  crumbs={[{ name: 'Universities', url: 'https://routetoabroad.com/universities' }]}
+>
+  <PageHero
+    eyebrow="Universities"
+    index="UNI / 08"
+    title="The five we place into most."
+    lede="Not a rankings mirror — working profiles with real fee ranges, admission realities and what each campus is actually like."
+    crumbs={[{ name: 'Universities', url: '/universities' }]}
+    facts={[
+      { label: 'Profiles', value: '05 universities' },
+      { label: 'Cities', value: 'Beijing · Shanghai · Hangzhou' },
+      { label: 'Status', value: 'MOE-listed' },
+      { label: 'Fees', value: 'Real ranges' },
+    ]}
+    actions={[{ href: '/contact', label: 'Get a shortlist' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="uni-grid">
+        {universities.map((u, i) => (
+          <ArticleCard
+            title={u.data.name}
+            href={`/universities/${u.id}`}
+            description={u.data.intro}
+            image={u.data.image}
+            imageAlt={u.data.imageAlt}
+            tag={u.data.city}
+            meta={`est. ${u.data.founded}`}
+            pillar="education"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand title="Not sure which university fits?" text="Send one enquiry. We'll shortlist against your marks, budget and city preferences — honestly, including when the answer is a cheaper university than you expected." />
+</BaseLayout>
+
+<style>
+  .uni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  @media (max-width: 64rem) {
+    .uni-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .uni-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

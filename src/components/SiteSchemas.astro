@@ -1,0 +1,9 @@
+---
+import JsonLd from './JsonLd.astro';
+import { organizationSchema, websiteSchema, localBusinessSchema } from '../lib/schema';
+---
+
+<JsonLd schema={organizationSchema()} />
+<JsonLd schema={websiteSchema()} />
+<JsonLd schema={localBusinessSchema(0)} />
+<JsonLd schema={localBusinessSchema(1)} />

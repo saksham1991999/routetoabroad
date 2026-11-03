@@ -1,0 +1,801 @@
+---
+// Floating AI counselor. The heavy logic only loads on first open.
+---
+
+<div class="chat-root" id="chat-root">
+  <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Open AI counselor chat">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M8 10.5h8M8 13.5h5M21 12c0 4.14-4.03 7.5-9 7.5-1.06 0-2.08-.15-3.02-.44L3.6 20.4l1.06-3.63C3.6 15.4 3 13.76 3 12c0-4.14 4.03-7.5 9-7.5s9 3.36 9 7.5Z" />
+    </svg>
+    <span class="chat-fab-label">Ask us</span>
+  </button>
+
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="AI counselor" hidden>
+    <header class="chat-head">
+      <div class="chat-id">
+        <span class="chat-presence" aria-hidden="true"></span>
+        <div>
+          <strong>RouteToAbroad Assistant</strong>
+          <span>Powered by Claude · replies in seconds</span>
+        </div>
+      </div>
+      <div class="chat-head-actions">
+        <button type="button" id="chat-reset" class="chat-reset" aria-label="Start a new conversation" hidden>
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M20 9A8 8 0 0 0 6.3 6.3L4 10M4 15a8 8 0 0 0 13.7 2.7L20 14" />
+          </svg>
+        </button>
+        <button type="button" id="chat-close" class="chat-close" aria-label="Close chat">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <div class="chat-log" id="chat-log" aria-live="polite"></div>
+    <div class="chat-suggestions" id="chat-suggestions">
+      <p class="chat-sug-label">Try asking</p>
+      <div class="chat-sug-row">
+        <button type="button" data-prompt="Can I study MBBS in China as an Indian student?">MBBS in China</button>
+        <button type="button" data-prompt="What does a two-week China tour usually cost?">China tour costs</button>
+        <button type="button" data-prompt="How do you verify a Chinese supplier before I pay a deposit?">Verify a supplier</button>
+      </div>
+    </div>
+    <form class="chat-form" id="chat-form">
+      <label class="visually-hidden" for="chat-input">Message</label>
+      <input id="chat-input" type="text" placeholder="Ask about programmes, visas, trips…" autocomplete="off" />
+      <button type="submit" class="chat-send" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h13M13 6.5 18.5 12 13 17.5" />
+        </svg>
+      </button>
+    </form>
+  </div>
+</div>
+
+<style>
+  .chat-root {
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    z-index: 150;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.75rem;
+  }
+
+  /* The mobile menu owns the screen — never float over it */
+  body:has(.mobile-menu:not([hidden])) .chat-root {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+  }
+
+  /* The accent surface exception: signal FAB */
+  .chat-fab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-surface);
+    color: #ffffff;
+    border-radius: 999px;
+    padding: 0.8rem 1.3rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    box-shadow: var(--shadow-fab);
+    transition: transform 0.25s var(--ease-out), background 0.2s, box-shadow 0.25s var(--ease-out);
+  }
+
+  .chat-fab:hover {
+    background: #4a63d8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 24px rgba(94, 120, 238, 0.4);
+  }
+
+  html[data-theme='dark'] .chat-fab {
+    color: #0a0a0a; /* light periwinkle needs dark ink for contrast */
+  }
+
+  /* The homepage is a forced-light composition (tokens.css re-declares the
+     surface set light), so the FAB keeps its light-theme face there even
+     when the stored theme is dark. */
+  html[data-theme='dark'] body[data-chrome='home'] .chat-fab {
+    background: var(--accent-surface);
+    color: #ffffff;
+  }
+
+  html[data-theme='dark'] .chat-fab:hover {
+    background: var(--accent-strong);
+  }
+
+  .chat-fab svg {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+
+  /* Gentle attention pull until the first conversation starts */
+  .chat-fab:not(.has-messaged)::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    animation: fab-pulse 2.6s ease-out infinite;
+    pointer-events: none;
+  }
+
+  .chat-fab {
+    position: relative;
+  }
+
+  @keyframes fab-pulse {
+    0% {
+      opacity: 0.9;
+      transform: scale(1);
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: scale(1.18);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-fab:not(.has-messaged)::before {
+      animation: none;
+      opacity: 0;
+    }
+  }
+
+  .chat-panel {
+    width: min(24rem, calc(100vw - 2rem));
+    height: min(30rem, calc(100dvh - 7rem));
+    background: var(--paper-raised);
+    border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+    border-radius: var(--radius-l);
+    box-shadow: var(--shadow-pop);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition: opacity 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    transform-origin: bottom right;
+  }
+
+  /* The [hidden] attribute must always win over the flex layout above */
+  .chat-panel[hidden] {
+    display: none;
+  }
+
+  /* Closing animation plays before hidden is applied */
+  .chat-panel.is-closing {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+    pointer-events: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-panel,
+    .chat-panel.is-closing {
+      transition: none;
+      transform: none;
+    }
+  }
+
+  .chat-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.85rem 1.1rem;
+    border-bottom: 1px solid var(--line);
+    background: var(--paper);
+  }
+
+  .chat-id {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+  }
+
+  .chat-presence {
+    flex: none;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 999px;
+    background: var(--ok);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 18%, transparent);
+  }
+
+  .chat-head strong {
+    display: block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .chat-head span {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
+  .chat-head-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.15rem;
+  }
+
+  .chat-close,
+  .chat-reset {
+    display: grid;
+    place-items: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 999px;
+    color: var(--ink-faint);
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  .chat-close:hover,
+  .chat-reset:hover {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+  }
+
+  .chat-reset[hidden] {
+    display: none;
+  }
+
+  /* Suggested prompts — shown until the first turn */
+  .chat-suggestions {
+    padding: 0.25rem 0.9rem 0.75rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .chat-suggestions[hidden] {
+    display: none;
+  }
+
+  .chat-sug-label {
+    margin-bottom: 0.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .chat-sug-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .chat-sug-row button {
+    padding: 0.55rem 0.85rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    font-size: 0.76rem;
+    line-height: 1.2;
+    color: var(--ink-soft);
+    background: var(--paper-raised);
+    text-align: left;
+    transition: border-color 0.15s, color 0.15s, background 0.15s;
+  }
+
+  .chat-sug-row button:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  .chat-log {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1rem;
+    display: grid;
+    gap: 0.7rem;
+    align-content: start;
+  }
+
+  .chat-form {
+    display: flex;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .chat-form input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+    border-radius: 999px;
+    padding: 0.55rem 1rem;
+    font-size: 0.92rem;
+    background: var(--paper-raised);
+    color: var(--ink);
+    transition: border-color 0.2s;
+  }
+
+  .chat-form input:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: var(--glow-accent);
+  }
+
+  .chat-send {
+    flex: none;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 999px;
+    background: var(--accent-surface);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s, transform 0.2s var(--ease-out), opacity 0.2s;
+  }
+
+  .chat-send:hover {
+    background: #4a63d8;
+  }
+
+  .chat-send:active {
+    transform: scale(0.94);
+  }
+
+  html[data-theme='dark'] .chat-send {
+    color: #0a0a0a;
+  }
+
+  html[data-theme='dark'] .chat-send:hover {
+    background: var(--accent-strong);
+  }
+
+  .chat-send:disabled {
+    opacity: 0.5;
+    cursor: wait;
+    transform: none;
+  }
+
+  @media (max-width: 40rem) {
+    .chat-root {
+      bottom: max(1rem, env(safe-area-inset-bottom));
+      right: 1rem;
+    }
+
+    .chat-fab-label {
+      display: none;
+    }
+
+    .chat-fab {
+      padding: 0.9rem;
+    }
+
+    /* Bottom sheet: fills the viewport width, taller on phones */
+    .chat-panel {
+      position: fixed;
+      left: 0.75rem;
+      right: 0.75rem;
+      bottom: max(0.75rem, env(safe-area-inset-bottom));
+      width: auto;
+      height: min(32rem, calc(100dvh - 6rem));
+    }
+  }
+</style>
+
+<style is:global>
+  /* Messages are created via createElement in the script below, so they never
+     receive the Astro scope class — these rules must stay global. */
+  .chat-msg {
+    max-width: 85%;
+    padding: 0.65rem 0.95rem;
+    border-radius: var(--radius-m);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    animation: chat-in 0.3s var(--ease-out);
+  }
+
+  @keyframes chat-in {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .chat-msg {
+      animation: none;
+    }
+  }
+
+  .chat-msg.user {
+    justify-self: end;
+    background: #111111;
+    color: #ffffff;
+    border-bottom-right-radius: 4px;
+  }
+
+  .chat-msg.bot {
+    justify-self: start;
+    background: var(--paper-sunken);
+    color: var(--ink);
+    border-bottom-left-radius: 4px;
+  }
+
+  .chat-msg.error {
+    background: color-mix(in srgb, var(--err) 8%, var(--paper-sunken));
+    color: var(--err);
+  }
+
+  /* Inline retry affordance on failed replies — the retry button is created
+     via createElement in the script below, so this rule must stay global. */
+  .chat-retry {
+    margin-top: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-text);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .typing-dots {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    height: 1.2em;
+  }
+
+  .typing-dots i {
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: currentColor;
+    opacity: 0.3;
+    animation: typing-dot 1.2s ease-in-out infinite;
+  }
+
+  .typing-dots i:nth-child(2) {
+    animation-delay: 0.15s;
+  }
+
+  .typing-dots i:nth-child(3) {
+    animation-delay: 0.3s;
+  }
+
+  @keyframes typing-dot {
+    0%,
+    60%,
+    100% {
+      opacity: 0.25;
+      transform: translateY(0);
+    }
+    30% {
+      opacity: 0.9;
+      transform: translateY(-2px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .typing-dots i {
+      animation: none;
+      opacity: 0.55;
+    }
+  }
+</style>
+
+<script>
+  const fab = document.getElementById('chat-fab');
+  const panel = document.getElementById('chat-panel');
+  const closeBtn = document.getElementById('chat-close');
+  const form = document.getElementById('chat-form') as HTMLFormElement | null;
+  const input = document.getElementById('chat-input') as HTMLInputElement | null;
+  const log = document.getElementById('chat-log');
+  const resetBtn = document.getElementById('chat-reset');
+  const suggestions = document.getElementById('chat-suggestions');
+  const sendBtn = form?.querySelector<HTMLButtonElement>('.chat-send') || null;
+  const STORE_KEY = 'rta-chat-v1';
+
+  // -- Widget state (single source of truth for the panel lifecycle) --
+  const chat = {
+    open: false,
+    started: false,
+    busy: false,
+    history: [] as { role: string; content: string }[],
+  };
+
+  // A send goes stale the moment a newer send starts or Reset wipes the log.
+  // Every async continuation below checks this before touching DOM, history
+  // or storage, so an orphaned stream can never corrupt a fresh conversation
+  // (non-alternating roles are what the API rejects).
+  let generation = 0;
+  let activeSend: AbortController | null = null;
+
+  /** Cap the API payload the same way storage does, but drop whole turns from
+      the front so the payload always opens with a user turn — a blind
+      slice(-24) can start on an assistant turn, which the API rejects. */
+  function apiMessages() {
+    const n = chat.history.length;
+    if (n <= 24) return chat.history;
+    const overflow = n - 24;
+    return chat.history.slice(overflow % 2 ? overflow + 1 : overflow);
+  }
+
+  function saveChat() {
+    try {
+      sessionStorage.setItem(
+        STORE_KEY,
+        JSON.stringify({ history: chat.history.slice(-24), started: chat.started })
+      );
+    } catch {
+      /* private mode — chat still works for this page */
+    }
+  }
+
+  function setBusy(busy: boolean) {
+    chat.busy = busy;
+    if (sendBtn) sendBtn.disabled = busy;
+    panel?.setAttribute('aria-busy', String(busy));
+  }
+
+  function scrollLog() {
+    log?.scrollTo({ top: log.scrollHeight, behavior: 'smooth' });
+  }
+
+  function addMsg(role: 'user' | 'bot', text: string, isError = false): HTMLElement {
+    const div = document.createElement('div');
+    div.className = `chat-msg ${role}${isError ? ' error' : ''}`;
+    div.textContent = text;
+    log?.appendChild(div);
+    scrollLog();
+    return div;
+  }
+
+  function showTyping(): HTMLElement {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg bot';
+    const dots = document.createElement('span');
+    dots.className = 'typing-dots';
+    dots.setAttribute('aria-label', 'Assistant is typing');
+    for (let i = 0; i < 3; i++) dots.appendChild(document.createElement('i'));
+    wrap.appendChild(dots);
+    log?.appendChild(wrap);
+    scrollLog();
+    return wrap;
+  }
+
+  async function send(text: string) {
+    if (!text || chat.busy || !log || !input) return;
+    setBusy(true);
+    fab?.classList.add('has-messaged');
+    suggestions?.setAttribute('hidden', '');
+    resetBtn?.removeAttribute('hidden');
+    addMsg('user', text);
+    const userEntry = { role: 'user', content: text };
+    chat.history.push(userEntry);
+    saveChat();
+    input.value = '';
+
+    const myGen = ++generation;
+    const stale = () => myGen !== generation;
+    const controller = new AbortController();
+    activeSend = controller;
+
+    const placeholder = showTyping();
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ messages: apiMessages() }),
+        signal: controller.signal,
+      });
+
+      if (stale()) return;
+      if (!res.ok || !res.body) throw new Error('bad response');
+
+      placeholder.textContent = '';
+      placeholder.classList.remove('error');
+
+      // Parse Anthropic SSE stream
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let buffer = '';
+      let full = '';
+
+      for (;;) {
+        const { done, value } = await reader.read();
+        if (stale()) {
+          void reader.cancel().catch(() => {});
+          return;
+        }
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        const lines = buffer.split('\n');
+        buffer = lines.pop() || '';
+        for (const line of lines) {
+          if (!line.startsWith('data:')) continue;
+          const payload = line.slice(5).trim();
+          if (!payload || payload === '[DONE]') continue;
+          try {
+            const evt = JSON.parse(payload);
+            if (evt.type === 'content_block_delta' && evt.delta?.text) {
+              full += evt.delta.text;
+              placeholder.textContent = full;
+              log?.scrollTo({ top: log.scrollHeight });
+            }
+          } catch {
+            /* partial JSON — wait for more */
+          }
+        }
+      }
+
+      if (!full) {
+        fail(placeholder, '(no reply — try again or WhatsApp us)', text, userEntry);
+      } else {
+        chat.history.push({ role: 'assistant', content: full });
+        saveChat();
+      }
+    } catch {
+      // A reset aborted this fetch — never paint a failure into the fresh log.
+      if (stale()) return;
+      fail(placeholder, 'Sorry — the assistant is unavailable right now.', text, userEntry);
+    } finally {
+      // Only the current send may release the busy lock: a stale send's
+      // finally would re-enable the button under a newer in-flight one.
+      if (!stale()) {
+        activeSend = null;
+        setBusy(false);
+        input.focus();
+      }
+    }
+  }
+
+  /** Swap the placeholder for an error bubble with a retry action. */
+  function fail(
+    placeholder: HTMLElement,
+    message: string,
+    resendText: string,
+    userEntry: { role: string; content: string }
+  ) {
+    placeholder.classList.add('error');
+    placeholder.textContent = message;
+    const retry = document.createElement('button');
+    retry.type = 'button';
+    retry.className = 'chat-retry';
+    retry.textContent = 'Try again';
+    retry.addEventListener('click', () => {
+      // Remove THIS turn, identified by object identity — a content-equality
+      // check could pop a newer identical message instead. If the entry is
+      // gone (reset/newer history), just resend the text as a new turn.
+      const idx = chat.history.indexOf(userEntry);
+      if (idx !== -1) chat.history.splice(idx, 1);
+      placeholder.remove();
+      saveChat();
+      send(resendText);
+    });
+    placeholder.appendChild(document.createElement('br'));
+    placeholder.appendChild(retry);
+    scrollLog();
+  }
+
+  function openPanel() {
+    if (!panel || !fab) return;
+    chat.open = true;
+    panel.classList.remove('is-closing');
+    panel.hidden = false;
+    fab.setAttribute('aria-expanded', 'true');
+    // Deliberately no has-messaged here: the FAB pulse should keep pulling
+    // attention until the first real message is sent (see send()).
+    if (!chat.started) {
+      chat.started = true;
+      addMsg('bot', 'Hi! I can answer questions about studying in China, trips to East Asia, or sourcing from Chinese factories. What are you working on?');
+      saveChat();
+    }
+    scrollLog();
+    input?.focus();
+  }
+
+  function closePanel() {
+    if (!panel || !fab || !chat.open) return;
+    chat.open = false;
+    fab.setAttribute('aria-expanded', 'false');
+    // If focus was inside the panel, move it back to the FAB — otherwise it
+    // lands on <body> (reduced-motion path hides the panel immediately).
+    if (panel.contains(document.activeElement)) fab.focus();
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) {
+      panel.hidden = true;
+      return;
+    }
+    panel.classList.add('is-closing');
+    panel.addEventListener(
+      'transitionend',
+      () => {
+        if (!chat.open) panel.hidden = true;
+        panel.classList.remove('is-closing');
+      },
+      { once: true }
+    );
+    // Safety: if transitionend never fires, force-hide.
+    setTimeout(() => {
+      if (!chat.open) panel.hidden = true;
+    }, 400);
+    fab.focus();
+  }
+
+  fab?.addEventListener('click', () => {
+    chat.open ? closePanel() : openPanel();
+  });
+  closeBtn?.addEventListener('click', closePanel);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && chat.open) closePanel();
+  });
+
+  form?.addEventListener('submit', (e) => {
+    e.preventDefault();
+    send(input?.value.trim() || '');
+  });
+
+  document.querySelectorAll<HTMLButtonElement>('[data-prompt]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const prompt = btn.dataset.prompt || '';
+      if (prompt) send(prompt);
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    // Invalidate + abort any in-flight send BEFORE wiping: the orphaned
+    // stream's continuations all see stale and bail without painting.
+    generation++;
+    activeSend?.abort();
+    activeSend = null;
+    chat.history = [];
+    chat.started = false;
+    setBusy(false);
+    if (log) log.innerHTML = '';
+    suggestions?.removeAttribute('hidden');
+    resetBtn.setAttribute('hidden', '');
+    try {
+      sessionStorage.removeItem(STORE_KEY);
+    } catch {}
+    openPanel();
+  });
+
+  // Restore the conversation after navigation or a reload (session only).
+  (() => {
+    try {
+      const raw = sessionStorage.getItem(STORE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      if (Array.isArray(data.history)) {
+        chat.history = data.history.filter(
+          (m: { role?: string; content?: string }) =>
+            m && (m.role === 'user' || m.role === 'assistant') && typeof m.content === 'string'
+        );
+      }
+      chat.started = !!data.started || chat.history.length > 0;
+    } catch {
+      return;
+    }
+
+    if (!chat.history.length) {
+      // "Opened but never messaged" persisted started=true with no turns —
+      // treat it as fresh so the greeting re-appears on next open.
+      chat.started = false;
+      return;
+    }
+    for (const m of chat.history) addMsg(m.role === 'user' ? 'user' : 'bot', m.content);
+    suggestions?.setAttribute('hidden', '');
+    resetBtn?.removeAttribute('hidden');
+    fab?.classList.add('has-messaged');
+    chat.started = true;
+  })();
+</script>

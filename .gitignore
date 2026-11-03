@@ -12,6 +12,14 @@ dist
 dist-ssr
 *.local
 .env
+.env.*
+
+# Astro
+.astro/
+
+# generated raw images (processed ones are committed)
+scripts/raw/
+agnes-out/
 
 # Editor directories and files
 .vscode/*

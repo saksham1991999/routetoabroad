@@ -1,0 +1,592 @@
+---
+import { SITE, NAV_LINKS } from '../lib/site';
+
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+const isActive = (href: string) =>
+  currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
+---
+
+<header class="site-header" id="site-header">
+  <div class="container-wide header-inner">
+    <a href="/" class="wordmark" aria-label="RouteToAbroad — home">
+      <span>Route</span><span class="wm-to">To</span><span class="wm-abroad">Abroad</span>
+    </a>
+
+    <nav class="main-nav" aria-label="Primary">
+      <ul>
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={link.href} class:list={{ active: isActive(link.href) }} aria-current={isActive(link.href) ? 'page' : undefined}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+
+    <div class="header-actions">
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <circle cx="12" cy="12" r="4.2"></circle>
+          <path stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"></path>
+        </svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M20.6 14.2A8.8 8.8 0 0 1 9.8 3.4a8.8 8.8 0 1 0 10.8 10.8Z"></path>
+        </svg>
+      </button>
+      <a href="/tools/fit-check" class="btn btn-primary btn-sm header-cta">Fit check</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobile-menu" hidden>
+    <nav aria-label="Mobile">
+      <ul>
+        {NAV_LINKS.map((link) => (
+          <li>
+            <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+          </li>
+        ))}
+      </ul>
+      <div class="mobile-menu-cta">
+        <a href="/tools/fit-check" class="btn btn-primary">Start the fit check</a>
+        <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">WhatsApp an advisor</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    color: var(--ink);
+  }
+
+  .header-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 5rem; /* inner pages: 80px */
+    background: color-mix(in srgb, var(--paper) 85%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom: 1px solid var(--line);
+    transition: height 0.35s var(--ease-out), background-color 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  /* Condensed sticky bar after scrolling */
+  .header-inner.is-condensed {
+    height: 3.75rem;
+    background: color-mix(in srgb, var(--paper) 92%, transparent);
+    border-bottom-color: color-mix(in srgb, var(--ink) 12%, transparent);
+  }
+
+  /* ----- Homepage chrome: fixed, transparent, tone-aware ----- */
+  body[data-chrome='home'] .site-header {
+    position: fixed;
+    left: 0;
+    right: 0;
+  }
+
+  body[data-chrome='home'] .header-inner {
+    height: 4.375rem; /* 70px */
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border-bottom-color: transparent;
+  }
+
+  /* Once the page moves, give the transparent chrome a tone-matched scrim
+     so section text cannot run through the nav. */
+  body[data-chrome='home'] .header-inner.is-condensed {
+    background: color-mix(in srgb, #f7f7f7 86%, transparent);
+    backdrop-filter: blur(14px) saturate(1.4);
+    -webkit-backdrop-filter: blur(14px) saturate(1.4);
+    border-bottom-color: rgba(0, 0, 0, 0.08);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .header-inner.is-condensed {
+    background: color-mix(in srgb, #0a0a0a 84%, transparent);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+
+  /* The homepage is a fixed-light composition — no theme to toggle there. */
+  body[data-chrome='home'] .theme-toggle {
+    display: none;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .site-header {
+    color: #ffffff;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .site-header {
+    color: #ffffff;
+  }
+
+  .wordmark {
+    font-weight: 600;
+    font-size: 1.0625rem; /* 17px */
+    letter-spacing: -0.04em;
+    text-decoration: none;
+    white-space: nowrap;
+    /* ~44px tap target; the negative margin cancels the padding so the header
+       keeps its exact height and the wordmark its exact position. */
+    padding: 0.55rem 0.55rem 0.55rem 0;
+    margin-block: -0.55rem;
+  }
+
+  .wm-to {
+    color: var(--ink-faint);
+    margin-inline: 0.06em;
+  }
+
+  .wm-abroad {
+    color: var(--accent-text);
+  }
+
+  /* Homepage chrome sits over the always-light hero composition — pin to light ink
+     so dark-theme tokens can't flip text invisible over the #f7f7f7 island. */
+  html[data-theme='dark'] body[data-chrome='home'] .wm-to {
+    color: rgba(17, 17, 17, 0.62);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .wm-abroad {
+    color: #4a63d8;
+  }
+
+  /* The homepage hero is an always-light composition — pin the whole chrome to
+     light ink in dark theme so token flips can't render it invisible. */
+  html[data-theme='dark'] body[data-chrome='home'] .site-header {
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a {
+    color: rgba(17, 17, 17, 0.62);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a:hover,
+  html[data-theme='dark'] body[data-chrome='home'] .main-nav a.active {
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle {
+    color: rgba(17, 17, 17, 0.62);
+    border-color: rgba(17, 17, 17, 0.2);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle:hover {
+    color: #111111;
+    border-color: rgba(17, 17, 17, 0.45);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .menu-toggle {
+    color: #111111;
+    border-color: rgba(17, 17, 17, 0.2);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'] .header-cta {
+    background: #0a0a0a;
+    color: #f7f7f7;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .wm-to {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .wm-to {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .wm-abroad {
+    color: #9db1f8;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .wm-abroad {
+    color: #9db1f8;
+  }
+
+  /* Over a dark band the primary pill must invert, not disappear. */
+  body[data-chrome='home'][data-tone='dark'] .header-cta,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-cta {
+    background: #f7f7f7;
+    color: #0a0a0a;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .header-cta:hover,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-cta:hover {
+    background: #ffffff;
+  }
+
+  .main-nav ul {
+    display: flex;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-nav a {
+    display: block;
+    padding: 0.5rem 0.8rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--ink) 62%, transparent);
+    border-radius: 999px;
+    position: relative;
+    transition: color 0.15s;
+  }
+
+  /* Animated underline — grows from the left on hover, persists when active */
+  .main-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0.8rem;
+    right: 0.8rem;
+    bottom: 0.28rem;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .main-nav a:hover {
+    color: var(--ink);
+  }
+
+  .main-nav a:hover::after {
+    transform: scaleX(1);
+  }
+
+  .main-nav a.active {
+    color: var(--ink);
+  }
+
+  .main-nav a.active::after {
+    transform: scaleX(1);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .main-nav a {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .main-nav a {
+    color: rgba(255, 255, 255, 0.65);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .main-nav a:hover,
+  body[data-chrome='home'][data-tone='dark'] .main-nav a.active {
+    color: #ffffff;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .main-nav a:hover,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .main-nav a.active {
+    color: #ffffff;
+  }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .theme-toggle {
+    display: grid;
+    place-items: center;
+    width: 2.75rem; /* 44px */
+    height: 2.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: color-mix(in srgb, var(--ink) 62%, transparent);
+  }
+
+  .theme-toggle:hover {
+    color: var(--ink);
+    border-color: color-mix(in srgb, var(--ink) 45%, transparent);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .theme-toggle {
+    color: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .theme-toggle {
+    color: rgba(255, 255, 255, 0.65);
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .theme-toggle:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .theme-toggle:hover {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.55);
+  }
+
+  .theme-toggle svg {
+    width: 1.15rem;
+    height: 1.15rem;
+  }
+
+  .icon-moon { display: none; }
+
+  html[data-theme='dark'] .icon-sun { display: none; }
+  html[data-theme='dark'] .icon-moon { display: block; }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 2.75rem;
+    height: 2.75rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    padding-inline: 0.68rem;
+    color: var(--ink);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .menu-toggle {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .menu-toggle {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.25);
+  }
+
+  .menu-line {
+    display: block;
+    height: 1.5px;
+    background: currentColor;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-line:first-child {
+    transform: translateY(4.25px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded='true'] .menu-line:last-child {
+    transform: translateY(-4.25px) rotate(-45deg);
+  }
+
+  /* ----- Mobile menu: full-screen paper overlay ----- */
+  .mobile-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    background: var(--paper);
+    overflow-y: auto;
+  }
+
+  .mobile-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 6.5rem var(--gutter) 1rem;
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .mobile-menu ul a {
+    display: block;
+    padding: 0.35rem 0;
+    font-size: clamp(2rem, 6vw, 4rem);
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.02;
+    text-decoration: none;
+    color: color-mix(in srgb, var(--ink) 60%, transparent);
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+
+  .mobile-menu ul a:hover {
+    color: var(--ink);
+  }
+
+  .mobile-menu ul a:active {
+    transform: translateX(4px);
+  }
+
+  .mobile-menu ul a[aria-current='page'] {
+    color: var(--ink);
+  }
+
+  /* Staggered entrance when the menu opens */
+  .mobile-menu ul li,
+  .mobile-menu-cta {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  .mobile-menu.is-open ul li,
+  .mobile-menu.is-open .mobile-menu-cta {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.5s var(--ease-out), transform 0.5s var(--ease-out);
+  }
+
+  .mobile-menu.is-open ul li:nth-child(1) { transition-delay: 0.04s; }
+  .mobile-menu.is-open ul li:nth-child(2) { transition-delay: 0.09s; }
+  .mobile-menu.is-open ul li:nth-child(3) { transition-delay: 0.14s; }
+  .mobile-menu.is-open ul li:nth-child(4) { transition-delay: 0.19s; }
+  .mobile-menu.is-open ul li:nth-child(5) { transition-delay: 0.24s; }
+  .mobile-menu.is-open ul li:nth-child(6) { transition-delay: 0.29s; }
+  .mobile-menu.is-open ul li:nth-child(7) { transition-delay: 0.34s; }
+  .mobile-menu.is-open ul li:nth-child(8) { transition-delay: 0.39s; }
+  .mobile-menu.is-open .mobile-menu-cta { transition-delay: 0.42s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu ul li,
+    .mobile-menu-cta {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  .mobile-menu-cta {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1.5rem var(--gutter) 2.5rem;
+    max-width: 24rem;
+  }
+
+  @media (max-width: 64rem) {
+    .main-nav { display: none; }
+    .menu-toggle { display: flex; }
+    .header-cta { display: none; }
+    .header-inner { height: 4.5rem; }
+    body[data-chrome='home'] .header-inner { height: 4.375rem; }
+  }
+
+  /* Menu open: the overlay owns the palette regardless of page tone.
+     Placed last so it wins ties against the tone rules above. */
+  body:has(.mobile-menu:not([hidden])) .header-inner {
+    background: var(--paper);
+    border-bottom-color: transparent;
+  }
+
+  body:has(.mobile-menu:not([hidden])) .site-header,
+  body:has(.mobile-menu:not([hidden])) .theme-toggle,
+  body:has(.mobile-menu:not([hidden])) .menu-toggle {
+    color: var(--ink);
+  }
+
+  body:has(.mobile-menu:not([hidden])) .theme-toggle,
+  body:has(.mobile-menu:not([hidden])) .menu-toggle {
+    border-color: var(--line-strong);
+  }
+
+  body:has(.mobile-menu:not([hidden])) .wm-to {
+    color: var(--ink-faint);
+  }
+
+  /* Menu open: the opaque menu panel owns the header area, so the condensed
+     scrim must not show a dark bar against the light menu (or vice versa). */
+  .header-inner.is-menu-open {
+    background: var(--paper);
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  body[data-chrome='home'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+    color: #111111;
+  }
+
+  /* Reduced motion: chrome state changes happen instantly, no resize or
+     underline animation. */
+  @media (prefers-reduced-motion: reduce) {
+    .header-inner,
+    .main-nav a,
+    .main-nav a::after,
+    .menu-line {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  function closeMenu() {
+    if (!toggle || !menu) return;
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Open menu');
+    menu.hidden = true;
+    menu.classList.remove('is-open');
+    document.body.style.overflow = '';
+    // Release the header scrim + chat suppression that opening added.
+    document.body.classList.remove('rta-menu-open');
+    headerInner?.classList.remove('is-menu-open');
+  }
+
+  toggle?.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    if (open) {
+      closeMenu();
+    } else {
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Close menu');
+      menu.hidden = false;
+      // The opaque menu owns the header area: drop the condensed scrim and
+      // hide the chat widget from the accessibility tree while open.
+      document.body.classList.add('rta-menu-open');
+      headerInner?.classList.add('is-menu-open');
+      // Next frame so the staggered entrance transitions from the hidden state.
+      // A queued frame must not reopen a menu that was closed in between.
+      requestAnimationFrame(() => {
+        if (!menu.hidden) menu.classList.add('is-open');
+      });
+      document.body.style.overflow = 'hidden';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenu();
+  });
+
+  menu?.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+
+  // Condense the sticky bar once the page scrolls. Runs on the homepage too:
+  // it engages the tone-matched scrim for the fixed transparent chrome there
+  // (see body[data-chrome='home'] .header-inner.is-condensed above).
+  const headerInner = document.querySelector('.header-inner');
+  if (headerInner) {
+    let condenseQueued = false;
+    const onScroll = () => {
+      if (condenseQueued) return;
+      condenseQueued = true;
+      requestAnimationFrame(() => {
+        condenseQueued = false;
+        headerInner.classList.toggle('is-condensed', window.scrollY > 24);
+      });
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+</script>

@@ -1,0 +1,75 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  lede?: string;
+  center?: boolean;
+  /** Instrument index shown at the right of the hairline rail. */
+  index?: string;
+  /** Optional action link shown in the rail. */
+  action?: { href: string; label: string };
+}
+const { eyebrow, title, lede, center = false, index, action } = Astro.props;
+---
+
+<div class:list={['section-head', { 'section-head--center': center }]} data-reveal>
+  {center ? (
+    <>
+      {index && <p class="sh-center-index num">{index}</p>}
+      <p class="eyebrow">{eyebrow}</p>
+    </>
+  ) : (
+    <div class="sh-rail">
+      <p class="eyebrow">{eyebrow}</p>
+      <span class="sh-rail-right">
+        {action && (
+          <a class="sh-action" href={action.href}>{action.label} <span aria-hidden="true">→</span></a>
+        )}
+        {index && <span class="sh-index num">{index}</span>}
+      </span>
+    </div>
+  )}
+  <h2 set:html={title} />
+  {lede && <p class="lede">{lede}</p>}
+</div>
+
+<style>
+  .section-head h2 {
+    font-size: clamp(1.9rem, 4.4vw, 3.25rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .section-head:not(.section-head--center) h2 {
+    margin-top: 1.15rem;
+  }
+
+  .sh-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+    text-decoration: none;
+    /* ~44px tap target; negative margin cancels the padding so the hairline
+       rail keeps its exact height and the action label its exact position. */
+    padding: 0.85rem 0 0.85rem 0.85rem;
+    margin-block: -0.85rem;
+  }
+
+  .sh-action span {
+    transition: transform 0.25s var(--ease-out);
+  }
+
+  .sh-action:hover span {
+    transform: translateX(3px);
+  }
+
+  .section-head--center .eyebrow {
+    justify-content: center;
+  }
+</style>

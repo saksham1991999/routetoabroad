@@ -1,0 +1,9 @@
+---
+const { schema } = Astro.props;
+
+// Escape "<" so no schema-backed string can close the script early —
+// JSON.stringify leaves "<" untouched, and set:html does no escaping.
+const json = JSON.stringify(schema).replace(/</g, '\\u003c');
+---
+
+<script type="application/ld+json" set:html={json} />
