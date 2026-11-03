@@ -62,7 +62,9 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
 
     <div class="footer-bottom">
       <p>© {CURRENT_YEAR} {SITE.name}. All rights reserved.</p>
-      <p class="footer-coords" aria-hidden="true">28.61°N DEL · 23.13°N CAN</p>
+      <p class="footer-coords num" aria-hidden="true">
+        {SITE.offices.map((o) => `${o.lat.toFixed(2)}°N ${o.code}`).join(' · ')}
+      </p>
       <p class="footer-note">Open {SITE.hours} · Replies within one working day</p>
     </div>
   </div>

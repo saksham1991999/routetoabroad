@@ -131,20 +131,32 @@ for (const rel of htmlRels) {
   const refs = [];
   for (const m of html.matchAll(/\s(href|src)=(?:"([^"]*)"|'([^']*)')/g)) {
     const attr = m[1];
-    const raw = (m[2] ?? m[3] ?? '').trim();
+    let raw = (m[2] ?? m[3] ?? '').trim();
     if (!raw || raw === '#') continue;
     if (/^(?:mailto:|tel:|javascript:|data:|sms:|ftp:|ws:)/i.test(raw)) continue;
-    if (raw.startsWith('?')) continue; // query-only (utm) anchors — same page, nothing to resolve
-    if (raw.startsWith('//')) continue; // protocol-relative external
+    // protocol-relative: same-site is internal, anything else is external
+    if (raw.startsWith('//')) {
+      const host = SITE.replace(/^https?:\/\//i, '');
+      const rest = raw.slice(2);
+      if (rest === host || rest.startsWith(host + '/')) raw = SITE + rest.slice(host.length);
+      else continue;
+    }
     let path = null;
+    let hash = null;
     let hashOnly = false;
-    if (raw === SITE || raw.startsWith(SITE + '/')) path = raw.slice(SITE.length) || '/';
+    if (raw === SITE || raw.startsWith(SITE + '/') || raw.startsWith(SITE + '?') || raw.startsWith(SITE + '#'))
+      path = raw.slice(SITE.length) || '/';
     else if (raw.startsWith('/')) path = raw;
     else if (/^https?:\/\//i.test(raw)) continue; // external
-    else path = raw; // page-relative
+    else if (raw.startsWith('?')) {
+      // query-only link: same page — but it can still carry a fragment
+      const qHash = raw.indexOf('#');
+      if (qHash === -1) continue;
+      path = '';
+      hash = raw.slice(qHash + 1) || null;
+    } else path = raw; // page-relative
 
     // split off #fragment then ?query
-    let hash = null;
     const hashIdx = path.indexOf('#');
     if (hashIdx !== -1) {
       hash = path.slice(hashIdx + 1) || null;

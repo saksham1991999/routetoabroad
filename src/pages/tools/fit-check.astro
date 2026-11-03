@@ -252,15 +252,17 @@ interface Props {}
   const answers: Record<string, string> = {};
   let current = 0;
 
-  // progress bar
+  // progress bar (built once here; rebuilt after Start over — see paintProgress)
   if (progress) {
     progress.innerHTML = steps.map(() => '<span></span>').join('');
   }
-  const bars = progress ? Array.from(progress.children) as HTMLElement[] : [];
 
   const answeredCount = () => steps.filter((s) => answers[s.dataset.step!]).length;
 
   function paintProgress() {
+    // Query live: renderResult() empties the container and Start over
+    // rebuilds it, so a captured child list would go stale.
+    const bars = progress ? (Array.from(progress.children) as HTMLElement[]) : [];
     const done = answeredCount();
     bars.forEach((b, bi) => b.classList.toggle('done', bi < done));
   }
@@ -293,6 +295,10 @@ interface Props {}
     });
   }
 
+  // Token invalidating pending "advance to next step" timers: Start over
+  // must win over a queued final-answer timeout from a double-click.
+  let stepToken = 0;
+
   steps.forEach((step) => {
     step.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((input) => {
       input.addEventListener('change', () => {
@@ -300,7 +306,9 @@ interface Props {}
         answers[step.dataset.step!] = input.value;
         save();
         paintProgress();
+        const myToken = ++stepToken;
         setTimeout(() => {
+          if (myToken !== stepToken) return;
           if (current < steps.length - 1) show(current + 1);
           else renderResult();
         }, 220);
@@ -407,6 +415,7 @@ interface Props {}
   // "Start over" lives inside the injected result, so delegate from the panel.
   result.addEventListener('click', (e) => {
     if (!(e.target as HTMLElement).closest('[data-restart]')) return;
+    stepToken++; // kill any pending advance timer from a double-click
     for (const key of Object.keys(answers)) delete answers[key];
     try {
       localStorage.removeItem(STORE_KEY);
@@ -418,6 +427,8 @@ interface Props {}
       s.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((r) => (r.checked = false));
       markSelected(s);
     });
+    // renderResult cleared the bar spans — rebuild them before showing step 1.
+    if (progress) progress.innerHTML = steps.map(() => '<span></span>').join('');
     show(0);
   });
 

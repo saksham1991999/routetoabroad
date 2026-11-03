@@ -326,6 +326,7 @@ import PageHero from '../../components/PageHero.astro';
 
   const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let renderTimer: number | undefined;
 
   /** Count the total up from zero, then settle on the honest range. */
   function countUp(el: HTMLElement, lo: number, hi: number) {
@@ -362,6 +363,12 @@ import PageHero from '../../components/PageHero.astro';
     );
   }
 
+  function hideResult() {
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+  }
+
   go?.addEventListener('click', () => {
     const city = (document.getElementById('cost-city') as HTMLSelectElement).value;
     const programme = (document.getElementById('cost-programme') as HTMLSelectElement).value;
@@ -377,6 +384,8 @@ import PageHero from '../../components/PageHero.astro';
     if (missing.length) {
       document.querySelectorAll('.field-missing').forEach((f) => f.classList.remove('field-missing'));
       flagMissing(missing);
+      // A failed validation must not leave the previous answer on screen.
+      hideResult();
       return;
     }
 
@@ -394,6 +403,8 @@ import PageHero from '../../components/PageHero.astro';
     const totalHi = perYearHi * years;
 
     // Skeleton frame first, then the real numbers — the pause sells the maths.
+    // A quick re-click supersedes the previous pending render.
+    if (renderTimer) clearTimeout(renderTimer);
     result.hidden = false;
     result.innerHTML = `
       <div class="cost-headline">
@@ -411,7 +422,10 @@ import PageHero from '../../components/PageHero.astro';
     const render = () => {
       result.innerHTML = `
         <div class="cost-headline">
-          <p class="cost-total num" data-count>${fmt(0)}</p>
+          <p class="cost-total num">
+            <span class="visually-hidden">${fmt(totalLo)} – ${fmt(totalHi)}</span>
+            <span aria-hidden="true" data-count>${fmt(0)}</span>
+          </p>
           <p class="cost-total-label">estimated total, ${years} year${years > 1 ? 's' : ''}, self-funded</p>
         </div>
         <table class="cost-table">
@@ -451,8 +465,14 @@ import PageHero from '../../components/PageHero.astro';
       });
     };
 
-    if (reduced) render();
-    else setTimeout(render, 650);
+    if (reduced) {
+      render();
+    } else {
+      renderTimer = window.setTimeout(() => {
+        renderTimer = undefined;
+        render();
+      }, 650);
+    }
   });
 
   FIELD_IDS.forEach((id) => {
@@ -464,6 +484,8 @@ import PageHero from '../../components/PageHero.astro';
   });
 
   resetBtn?.addEventListener('click', () => {
+    if (renderTimer) clearTimeout(renderTimer);
+    renderTimer = undefined;
     FIELD_IDS.forEach((id) => {
       const sel = document.getElementById(id) as HTMLSelectElement;
       sel.value = '';

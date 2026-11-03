@@ -146,7 +146,9 @@ import { TESTIMONIALS } from '../data/testimonials';
 
   .c-dots {
     display: flex;
-    gap: 0.5rem;
+    /* ≥ the 18px combined hit-expansion of neighbouring dots, so tap zones
+       never overlap (adjacent taps must not activate the wrong testimonial) */
+    gap: 1.25rem;
   }
 </style>
 

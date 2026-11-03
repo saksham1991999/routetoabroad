@@ -164,6 +164,10 @@ import PageHero from '../../components/PageHero.astro';
 
     if (!level || !marks || !english) {
       errorEl.hidden = false;
+      // Clear the previous band — a validation error shouldn't sit beside a
+      // result computed from answers that are no longer on the form.
+      result.hidden = true;
+      result.innerHTML = '';
       selects.forEach((sel) => {
         if (sel.value) return;
         sel.setAttribute('aria-invalid', 'true');

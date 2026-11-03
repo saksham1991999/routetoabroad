@@ -97,6 +97,14 @@
     color: #0a0a0a; /* light periwinkle needs dark ink for contrast */
   }
 
+  /* The homepage is a forced-light composition (tokens.css re-declares the
+     surface set light), so the FAB keeps its light-theme face there even
+     when the stored theme is dark. */
+  html[data-theme='dark'] body[data-chrome='home'] .chat-fab {
+    background: var(--accent-surface);
+    color: #ffffff;
+  }
+
   html[data-theme='dark'] .chat-fab:hover {
     background: var(--accent-strong);
   }
@@ -570,7 +578,8 @@
     suggestions?.setAttribute('hidden', '');
     resetBtn?.removeAttribute('hidden');
     addMsg('user', text);
-    chat.history.push({ role: 'user', content: text });
+    const userEntry = { role: 'user', content: text };
+    chat.history.push(userEntry);
     saveChat();
     input.value = '';
 
@@ -629,7 +638,7 @@
       }
 
       if (!full) {
-        fail(placeholder, '(no reply — try again or WhatsApp us)', text);
+        fail(placeholder, '(no reply — try again or WhatsApp us)', text, userEntry);
       } else {
         chat.history.push({ role: 'assistant', content: full });
         saveChat();
@@ -637,7 +646,7 @@
     } catch {
       // A reset aborted this fetch — never paint a failure into the fresh log.
       if (stale()) return;
-      fail(placeholder, 'Sorry — the assistant is unavailable right now.', text);
+      fail(placeholder, 'Sorry — the assistant is unavailable right now.', text, userEntry);
     } finally {
       // Only the current send may release the busy lock: a stale send's
       // finally would re-enable the button under a newer in-flight one.
@@ -650,7 +659,12 @@
   }
 
   /** Swap the placeholder for an error bubble with a retry action. */
-  function fail(placeholder: HTMLElement, message: string, resendText: string) {
+  function fail(
+    placeholder: HTMLElement,
+    message: string,
+    resendText: string,
+    userEntry: { role: string; content: string }
+  ) {
     placeholder.classList.add('error');
     placeholder.textContent = message;
     const retry = document.createElement('button');
@@ -658,12 +672,11 @@
     retry.className = 'chat-retry';
     retry.textContent = 'Try again';
     retry.addEventListener('click', () => {
-      // resendText is captured per send. If this bubble is still the newest
-      // turn, its unanswered user entry is exactly the last history item and
-      // can be dropped for a clean retry; if newer turns exist we keep them
-      // and just resend this bubble's own text as a new turn.
-      const last = chat.history[chat.history.length - 1];
-      if (last && last.role === 'user' && last.content === resendText) chat.history.pop();
+      // Remove THIS turn, identified by object identity — a content-equality
+      // check could pop a newer identical message instead. If the entry is
+      // gone (reset/newer history), just resend the text as a new turn.
+      const idx = chat.history.indexOf(userEntry);
+      if (idx !== -1) chat.history.splice(idx, 1);
       placeholder.remove();
       saveChat();
       send(resendText);
@@ -694,6 +707,9 @@
     if (!panel || !fab || !chat.open) return;
     chat.open = false;
     fab.setAttribute('aria-expanded', 'false');
+    // If focus was inside the panel, move it back to the FAB — otherwise it
+    // lands on <body> (reduced-motion path hides the panel immediately).
+    if (panel.contains(document.activeElement)) fab.focus();
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) {
       panel.hidden = true;
@@ -770,10 +786,16 @@
       return;
     }
 
-    if (!chat.history.length) return;
+    if (!chat.history.length) {
+      // "Opened but never messaged" persisted started=true with no turns —
+      // treat it as fresh so the greeting re-appears on next open.
+      chat.started = false;
+      return;
+    }
     for (const m of chat.history) addMsg(m.role === 'user' ? 'user' : 'bot', m.content);
     suggestions?.setAttribute('hidden', '');
     resetBtn?.removeAttribute('hidden');
     fab?.classList.add('has-messaged');
+    chat.started = true;
   })();
 </script>

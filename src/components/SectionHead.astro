@@ -14,15 +14,19 @@ const { eyebrow, title, lede, center = false, index, action } = Astro.props;
 
 <div class:list={['section-head', { 'section-head--center': center }]} data-reveal>
   {center ? (
-    <p class="eyebrow">{eyebrow}</p>
+    <>
+      {index && <p class="sh-center-index num">{index}</p>}
+      <p class="eyebrow">{eyebrow}</p>
+    </>
   ) : (
     <div class="sh-rail">
       <p class="eyebrow">{eyebrow}</p>
-      {action ? (
-        <a class="sh-action" href={action.href}>{action.label} <span aria-hidden="true">→</span></a>
-      ) : index ? (
-        <span class="sh-index num">{index}</span>
-      ) : null}
+      <span class="sh-rail-right">
+        {action && (
+          <a class="sh-action" href={action.href}>{action.label} <span aria-hidden="true">→</span></a>
+        )}
+        {index && <span class="sh-index num">{index}</span>}
+      </span>
     </div>
   )}
   <h2 set:html={title} />

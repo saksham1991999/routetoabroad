@@ -51,10 +51,12 @@ const {
   index = 'RTA',
 } = Astro.props;
 
-const corridor = [
-  { code: 'DEL', city: SITE.offices[0].city, lat: SITE.offices[0].lat, lng: SITE.offices[0].lng },
-  { code: 'CAN', city: SITE.offices[1].city, lat: SITE.offices[1].lat, lng: SITE.offices[1].lng },
-];
+const corridor = SITE.offices.map((o) => ({
+  code: o.code,
+  city: o.city,
+  lat: o.lat,
+  lng: o.lng,
+}));
 ---
 
 <header class="page-hero">

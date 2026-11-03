@@ -493,6 +493,40 @@ const isActive = (href: string) =>
   body:has(.mobile-menu:not([hidden])) .wm-to {
     color: var(--ink-faint);
   }
+
+  /* Menu open: the opaque menu panel owns the header area, so the condensed
+     scrim must not show a dark bar against the light menu (or vice versa). */
+  .header-inner.is-menu-open {
+    background: var(--paper);
+    border-bottom-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  body[data-chrome='home'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+    color: #111111;
+  }
+
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
+    background: #f7f7f7;
+    color: #111111;
+  }
+
+  /* Reduced motion: chrome state changes happen instantly, no resize or
+     underline animation. */
+  @media (prefers-reduced-motion: reduce) {
+    .header-inner,
+    .main-nav a,
+    .main-nav a::after,
+    .menu-line {
+      transition: none;
+    }
+  }
 </style>
 
 <script>
@@ -506,6 +540,9 @@ const isActive = (href: string) =>
     menu.hidden = true;
     menu.classList.remove('is-open');
     document.body.style.overflow = '';
+    // Release the header scrim + chat suppression that opening added.
+    document.body.classList.remove('rta-menu-open');
+    headerInner?.classList.remove('is-menu-open');
   }
 
   toggle?.addEventListener('click', () => {
@@ -516,8 +553,15 @@ const isActive = (href: string) =>
       toggle.setAttribute('aria-expanded', 'true');
       toggle.setAttribute('aria-label', 'Close menu');
       menu.hidden = false;
+      // The opaque menu owns the header area: drop the condensed scrim and
+      // hide the chat widget from the accessibility tree while open.
+      document.body.classList.add('rta-menu-open');
+      headerInner?.classList.add('is-menu-open');
       // Next frame so the staggered entrance transitions from the hidden state.
-      requestAnimationFrame(() => menu.classList.add('is-open'));
+      // A queued frame must not reopen a menu that was closed in between.
+      requestAnimationFrame(() => {
+        if (!menu.hidden) menu.classList.add('is-open');
+      });
       document.body.style.overflow = 'hidden';
     }
   });

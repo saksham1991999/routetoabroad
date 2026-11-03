@@ -272,7 +272,10 @@ import PageHero from '../../components/PageHero.astro';
     return items;
   }
 
-  const storageKey = 'rta-checklist-v1';
+  // v2: storage layout changed (answers + label-keyed ticks). The v1 key
+  // (index/label ticks from earlier builds) is deliberately not migrated —
+  // old progress resets rather than silently mis-mapping onto documents.
+  const storageKey = 'rta-checklist-v2';
 
   /** Storage shape: { answers, ticks } keyed by select id / document label.
       A flat object written by the previous version is treated as ticks. */

@@ -125,9 +125,12 @@ a {
   scrollbar-color: color-mix(in srgb, var(--ink) 25%, transparent) transparent;
 }
 
-/* Smooth theme flips on the base surfaces only */
-body {
-  transition: background-color 0.35s ease, color 0.35s ease;
+/* Smooth theme flips on the base surfaces only — skipped entirely for
+   users who request reduced motion */
+@media (prefers-reduced-motion: no-preference) {
+  body {
+    transition: background-color 0.35s ease, color 0.35s ease;
+  }
 }
 
 /* ---------- Headings — one stack, 500, tight ---------- */
@@ -230,6 +233,23 @@ h4 {
   border-top: 1px solid var(--line);
 }
 
+/* Right side of the rail — action link and/or instrument index together */
+.section-head .sh-rail-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+/* Centered sections surface the index as a small instrument line */
+.section-head .sh-center-index {
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  margin-bottom: 0.55rem;
+}
+
 .section-head .sh-index {
   font-family: var(--font-mono);
   font-size: 0.68rem;
@@ -310,6 +330,13 @@ h4 {
 @media (prefers-reduced-motion: reduce) {
   .btn-primary::after {
     display: none;
+  }
+
+  /* The spinner is a motion signal — under reduced motion the disabled +
+     dimmed button state carries the "working" meaning instead. */
+  .btn.is-loading::before {
+    animation: none;
+    opacity: 0.45;
   }
 }
 
@@ -600,7 +627,8 @@ table.compare {
   background: var(--paper-raised);
   border: 1px solid var(--line);
   border-radius: var(--radius-m);
-  overflow: hidden;
+  /* no overflow:hidden here — it would turn the table into its own scroll
+     container and break the mobile sticky first column */
   font-size: 0.95rem;
 }
 
@@ -1106,6 +1134,13 @@ details.faq .faq-body {
     transform: none;
     opacity: 0.5;
   }
+}
+
+/* Fullscreen mobile menu: suppress the chat widget from the accessibility
+   tree while the menu owns the screen (visibility, not display, so layout
+   doesn't shift when the menu closes). */
+body.rta-menu-open .chat-root {
+  visibility: hidden;
 }
 
 /* Typing indicator — three breathing dots */

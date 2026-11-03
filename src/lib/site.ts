@@ -21,6 +21,7 @@ export const SITE = {
   offices: [
     {
       id: 'delhi',
+      code: 'DEL',
       country: 'IN',
       city: 'New Delhi',
       street: 'Level 4, Rectangle 1, Saket District Centre',
@@ -31,6 +32,7 @@ export const SITE = {
     },
     {
       id: 'guangzhou',
+      code: 'CAN',
       country: 'CN',
       city: 'Guangzhou',
       street: 'Tower B, Victory Plaza, Tianhe District',

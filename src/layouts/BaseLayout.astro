@@ -81,11 +81,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       // loader dispatches 'rta:loaded' (see index.astro handoff). Repeat
       // visits (sessionStorage) and reduced-motion never see the loader.
       (function () {
-        var willPlay = true;
+        // Reduced motion first — it must hold even if storage access throws.
+        var willPlay = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         try {
-          willPlay =
-            !(sessionStorage.getItem('rta-loader') === '1') &&
-            !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          if (sessionStorage.getItem('rta-loader') === '1') willPlay = false;
         } catch (e) {}
         if (willPlay) document.documentElement.setAttribute('data-loader', '');
       })();
@@ -523,6 +522,9 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
   .rta-hud.is-hidden {
     opacity: 0;
     transform: translateY(8px);
+    /* remove from the a11y tree + pointer routing only after the fade */
+    visibility: hidden;
+    transition: opacity 0.4s ease, transform 0.4s var(--ease-out), visibility 0s 0.4s;
   }
 
   .rta-hud-right {
@@ -595,9 +597,11 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     visibility: visible;
   }
 
-  /* The mobile menu owns the screen — never float over it */
+  /* The mobile menu owns the screen — never float over it, and never leave
+     a focusable control invisible (opacity alone keeps it in tab order). */
   body:has(.mobile-menu:not([hidden])) .rta-tab {
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
   }
 </style>
