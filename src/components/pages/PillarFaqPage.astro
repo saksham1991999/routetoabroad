@@ -1,0 +1,84 @@
+---
+/**
+ * Pillar FAQ page (education / tourism / trade) — shared by all five
+ * locales. Replaces the en dynamic [pillar]/faq route and the 12 static
+ * locale replicas; the pillar map below is the single source of per-pillar
+ * copy (identical across locales by design).
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import FaqAccordion from '../FaqAccordion.astro';
+import CtaBand from '../CtaBand.astro';
+import { uiFor } from '../../i18n/ui';
+import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS } from '../../data/faqs';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { faqSchema } from '../../lib/schema';
+
+interface Props {
+  locale?: Locale;
+  pillar: 'education' | 'tourism' | 'trade';
+}
+const { locale = DEFAULT_LOCALE, pillar } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+
+const PILLARS = {
+  education: {
+    faqs: EDUCATION_FAQS,
+    title: 'Education FAQs — Studying in China',
+    description:
+      'Common questions about studying in China: MBBS recognition, CSC scholarships, HSK requirements, visa timelines, costs and student life.',
+    eyebrow: 'Education',
+    color: 'var(--edu)',
+  },
+  tourism: {
+    faqs: TOURISM_FAQS,
+    title: 'Tourism FAQs — China & Japan Travel',
+    description:
+      'Questions about travelling to China and Japan: visa types, best seasons, business delegations, dietary handling, insurance and cancellations.',
+    eyebrow: 'Tourism',
+    color: 'var(--tourism)',
+  },
+  trade: {
+    faqs: TRADE_FAQS,
+    title: 'Trade FAQs — Sourcing, QC & Logistics',
+    description:
+      'Insights into India–China trade: MOQs, AQL quality inspections, shipping times, customs and BIS, payment terms, disputes and fees.',
+    eyebrow: 'Trade',
+    color: 'var(--trade)',
+  },
+} as const;
+
+const { faqs, title, description, eyebrow, color } = PILLARS[pillar];
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  path={`/${pillar}/faq`}
+  locale={locale}
+  crumbs={[{ name: eyebrow, url: link(`/${pillar}`) }, { name: 'FAQ', url: link(`/${pillar}/faq`) }]}
+  jsonLd={[faqSchema(faqs)]}
+>
+  <PageHero
+    eyebrow={eyebrow}
+    title="Frequently asked questions"
+    lede={description}
+    crumbs={[{ name: eyebrow, url: link(`/${pillar}`) }, { name: 'FAQ', url: link(`/${pillar}/faq`) }]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="faq-topline" style={`border-color: ${color}`}></div>
+      <FaqAccordion faqs={faqs} />
+    </div>
+  </section>
+
+  <CtaBand locale={locale} ctaKey="pillarFaq" />
+</BaseLayout>
+
+<style>
+  .faq-topline {
+    border-top: 3px solid;
+    margin-bottom: 2.2rem;
+  }
+</style>

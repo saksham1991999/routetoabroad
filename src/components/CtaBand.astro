@@ -1,7 +1,7 @@
 ---
 import { SITE } from '../lib/site';
 import { DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
-import { uiFor } from '../i18n/ui';
+import { uiFor, type CtaPerPageKey } from '../i18n/ui';
 
 const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
 const ui = uiFor(locale);
@@ -10,11 +10,21 @@ interface Props {
   locale?: Locale;
   title?: string;
   text?: string;
+  /**
+   * Key into ui.cta.perPage — the page-specific CTA copy shared by all
+   * locales (English included). Takes precedence over the default title/text;
+   * explicit `title`/`text` props still win for one-off overrides.
+   */
+  ctaKey?: CtaPerPageKey;
 }
 const {
-  title = ui.cta.title,
-  text = ui.cta.text,
+  title: titleProp,
+  text: textProp,
+  ctaKey,
 } = Astro.props;
+const perPage = ctaKey ? ui.cta.perPage[ctaKey] : undefined;
+const title = titleProp ?? perPage?.title ?? ui.cta.title;
+const text = textProp ?? perPage?.text ?? ui.cta.text;
 ---
 
 <section class="cta-band" aria-label={ui.cta.aria}>
