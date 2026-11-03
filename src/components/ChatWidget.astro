@@ -518,6 +518,7 @@ const ui = uiFor(locale);
   //    Astro serializes them per-locale from the frontmatter ui object. --
   const root = document.getElementById('chat-root');
   const i18nStrings = {
+    typing: root?.dataset.typing ?? 'Assistant is typing',
     greeting: root?.dataset.greeting ?? 'Hi! I can answer questions about studying in China, trips to East Asia, or sourcing from Chinese factories. What are you working on?',
     retry: root?.dataset.retry ?? 'Try again',
     noReply: root?.dataset.noReply ?? '(no reply — try again or WhatsApp us)',
@@ -585,7 +586,7 @@ const ui = uiFor(locale);
     wrap.className = 'chat-msg bot';
     const dots = document.createElement('span');
     dots.className = 'typing-dots';
-    dots.setAttribute('aria-label', root.dataset.typing || 'Assistant is typing');
+    dots.setAttribute('aria-label', i18nStrings.typing);
     for (let i = 0; i < 3; i++) dots.appendChild(document.createElement('i'));
     wrap.appendChild(dots);
     log?.appendChild(wrap);

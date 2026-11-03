@@ -1,3 +1,4 @@
+import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../lib/site';
 import { COMPARISONS } from '../data/comparisons';
@@ -8,7 +9,7 @@ import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/
  * llms-full.txt — the whole site as clean markdown for AI/answer engines.
  * Generated at build from the content collections so it never drifts from the site.
  */
-export async function GET({ site }) {
+export async function GET({ site }: APIContext) {
   const base = site ?? new URL(SITE.url);
   const lines: string[] = [];
 

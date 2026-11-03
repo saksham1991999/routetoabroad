@@ -4,8 +4,8 @@ The third-generation RouteToAbroad site: a fully static [Astro 7](https://astro.
 routetoabroad.com that beats both the original React SPA (v1) and the v2 redesign on design,
 interactivity, and search visibility (SEO + AEO + GEO).
 
-**280 static pages · 2.6 KB JS on content pages · Lighthouse 95–100 across all categories ·
-zero-JS interactivity via vanilla islands**
+**276 static pages in 5 languages · vanilla-TypeScript interactivity (no UI framework) ·
+Lighthouse 95–100 across all categories**
 
 ---
 
@@ -16,6 +16,9 @@ npm install
 npm run dev       # http://localhost:4321
 npm run build     # production build → dist/
 npm run preview   # serve dist/ locally
+npm run check     # astro check — must stay at 0 errors (also a deploy gate)
+npm run globe:build     # regenerate src/data/globe.generated.json (hero globe)
+npm run icons:generate  # regenerate favicons / PWA icons from public/favicon.svg
 ```
 
 ## Project structure
@@ -42,7 +45,9 @@ npm run preview   # serve dist/ locally
     ├── styles/               # tokens.css (design tokens) + global.css (primitives)
     ├── components/           # Header, Footer, Seo, JsonLd, forms/, tools UI…
     ├── layouts/BaseLayout.astro
-    └── pages/                # 56 EN + 4×56 locale pages → 280 static pages
+    ├── i18n/                 # ui.ts (chrome strings) + tools/*.ts (per-tool strings), all 5 locales
+    ├── components/pages/     # one shared component per route; route files are ~6-line shells
+    └── pages/                # 55 EN + 4×55 locale route shells → 276 static pages (incl. 404)
 ```
 
 ## Design system
@@ -142,12 +147,16 @@ dir (`dist`), Node 22, caching headers, legacy-URL 301 redirects, and the chatbo
 ## QA
 
 ```bash
-npm run build && node scripts/validate-site.mjs
+npm run check && npm run build && node scripts/validate-site.mjs
 ```
 
-Validates all 280 pages (titles, descriptions, canonicals, H1 uniqueness, alt text) and every
-JSON-LD block (parse + per-type required fields + FAQ questions visible in page), and checks
-sitemap ↔ built-page coverage both ways. Exit 1 on any error.
+`npm run check` (`astro check`) must report 0 errors — it also guarantees every locale provides
+every translation key (the dictionaries are `Record<Locale, …>`). The validator checks all 276
+pages: titles/descriptions/canonicals unique per locale, self-canonical on every localized
+page, complete + reciprocal hreflang clusters (en/zh/fr/ar/es + x-default), `<html lang>`/`dir`
+vs URL locale, JSON-LD (parse + per-type fields + FAQ questions visible in page), internal
+links and fragments, OG completeness, sitemap ↔ built-page coverage both ways, and that the
+locale lists in `astro.config.mjs`, `src/lib/i18n.ts` and the validator agree. Exit 1 on any error.
 
 Lighthouse (LH 13, simulated mobile): home 100/97/100/100 · education 100/100/100/100 ·
 fit-check 100/100/100/100 · blog post 100/100/100/100 · university page 100/100/100/100.
@@ -157,14 +166,36 @@ CLS 0.000 on all tested pages.
 
 - Add a guide: new `src/content/guides/<slug>.md` (schema in `content.config.ts`; include 2–3
   `faqs` for FAQPage schema). Route appears automatically.
-
-## How to add a locale
-
-1. `astro.config.mjs` — add the locale code to `i18n.locales` (and `fallbackLocale` if needed).
-2. `src/lib/i18n.ts` — add the code to `LOCALES` and its entry to `LOCALE_META`.
-3. `src/i18n/ui.ts` — add a `UiStrings` entry keyed by the new locale code in the `UI` record.
-4. `scripts/validate-site.mjs` — add the code to the `LOCALES` array (line 33).
 - Company facts (NAP, phones, socials, claims) live in `src/lib/site.ts` — edit there, never
   inline. Items marked `{{VERIFY}}` in content need owner confirmation before launch.
 - FAQ data lives in `src/data/faqs.ts` and powers both page accordions and FAQPage schema —
   single source, never drifts.
+- Markdown bodies are shared by all locales: write internal links unprefixed
+  (`[guide](/guides/china-visa-types)`); they are localized at render time.
+
+## Internationalization
+
+Five locales: `en` (default, unprefixed), `zh`, `fr`, `ar` (RTL), `es`. There is **no fallback
+rewrite**: a route without a localized page 404s rather than serving English under a localized
+URL, and the validator fails the build on any gap.
+
+Architecture — a page is written once:
+
+- `src/components/pages/<Route>Page.astro` holds the markup/script for a route and takes a
+  `locale` prop. `src/pages/<route>.astro` and `src/pages/<loc>/<route>.astro` are ~6-line shells
+  (`<AboutPage locale="zh" />`); `[slug]` shells delegate `getStaticPaths` to `src/lib/static-paths.ts`.
+- Internal links go through `translatePath(path, locale)` (`src/lib/i18n.ts`); never hardcode a
+  `/zh/…` href. Chrome copy comes from `uiFor(locale)` (`src/i18n/ui.ts`); the five tools read
+  `src/i18n/tools/*.ts`, whose strings reach their client scripts via a `data-i18n` attribute and
+  `src/lib/i18n-client.ts` (locale from `<html lang>`, `Intl` per page locale).
+- Long-form body copy (page prose, article/guide/FAQ text) is still English in every locale —
+  translate it by moving page copy into per-page dictionaries following the tools pattern.
+- All zh/fr/ar/es strings were machine-assisted: have a native speaker review before launch.
+
+### How to add a locale
+
+1. `astro.config.mjs` — add the code to `i18n.locales`.
+2. `src/lib/i18n.ts` — add it to `LOCALES`, `LOCALE_META`, `INTL_TAG` (and `DATE_TAG` if needed).
+3. `src/i18n/ui.ts` — add a `UiStrings` entry in `UI`; `src/i18n/tools/*.ts` — add a record per file.
+4. Add a `src/pages/<code>/…` shell tree (copy an existing locale's) and the `LOCALES` array in
+   `scripts/validate-site.mjs`. `npm run check` and the validator flag anything missed.

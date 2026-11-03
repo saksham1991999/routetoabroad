@@ -126,7 +126,6 @@ const tools = [
   description="We place students in Chinese universities, design journeys through East Asia, and run India–China trade operations. Offices in New Delhi and Guangzhou. Start with a free fit check."
   path="/"
   jsonLd={[faqSchema(homeFaqs), reviewSchema(
-    // @ts-expect-error rating optional mismatch is fine here
     [{ author: 'Ananya Krishnan', reviewBody: 'RouteToAbroad didn\'t just find me a university; they found me a future.', rating: 5 }]
   )]}
 >

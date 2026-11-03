@@ -275,7 +275,7 @@ const isHome = ['', '/'].includes(
               io2.unobserve(entry.target);
               const el = entry.target as HTMLElement;
               const target = parseFloat(el.dataset.counter || '0');
-              const decimals = (el.dataset.counter.split('.')[1] || '').length;
+              const decimals = ((el.dataset.counter ?? '').split('.')[1] || '').length;
               const suffix = el.dataset.suffix || '';
               const duration = 1300;
               const start = performance.now();
@@ -461,7 +461,7 @@ const isHome = ['', '/'].includes(
           }
         });
 
-        firstInvalid?.focus();
+        (firstInvalid as HTMLElement | null)?.focus();
         return ok;
       }
     </script>

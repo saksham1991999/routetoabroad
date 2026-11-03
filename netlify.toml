@@ -2,7 +2,7 @@
 
 [build]
   # The validator is part of the gate — a broken build must not deploy.
-  command = "npm run build && node scripts/validate-site.mjs"
+  command = "npm run check && npm run build && node scripts/validate-site.mjs"
   publish = "dist"
 
 [build.environment]

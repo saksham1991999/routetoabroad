@@ -68,7 +68,7 @@ const ogLocaleTag = `${pageLocale.replace('-', '_')}_${OG_TERRITORY[pageLocale] 
  * self-canonical exactly (including the slash-less locale roots) — a mismatch
  * here breaks Google's hreflang reciprocity requirement.
  */
-function localeUrl(code: string): string {
+function localeUrl(code: Locale): string {
   return new URL(translatePath(englishPath, code), SITE.url).href;
 }
 const alternateLinks = LOCALES.map((code) => ({

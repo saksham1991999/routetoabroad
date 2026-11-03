@@ -561,6 +561,7 @@ const isActive = (href: string) =>
   }
 
   toggle?.addEventListener('click', () => {
+    if (!menu) return;
     const open = toggle.getAttribute('aria-expanded') === 'true';
     if (open) {
       closeMenu();
