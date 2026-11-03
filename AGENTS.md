@@ -6,25 +6,32 @@ This file provides guidance to Codex (Codex.ai/code) when working with code in t
 
 ```bash
 npm run dev        # Astro dev server → http://localhost:4321
-npm run build      # Production build → dist/ (56 static pages)
+npm run build      # Production build → dist/ (276 static pages)
+npm run check      # astro check — must report 0 errors (deploy gate; also enforces i18n key parity)
 npm run preview    # Serve dist/ locally
 node scripts/validate-site.mjs   # QA: titles, canonicals, JSON-LD, sitemap coverage (exit 1 on error)
 npm run images:generate   # Regenerate site imagery via Agnes AI (scripts/images.config.json)
 npm run images:process    # Optimize raw PNGs → src/assets/images + public/og
+npm run globe:build       # Rebuild src/data/globe.generated.json (node scripts/build-globe-data.mjs)
 ```
 
 No test runner is configured; `scripts/validate-site.mjs` is the build gate.
 
 ## Architecture
 
-RouteToAbroad v3 is a fully static **Astro 5** site (zero UI-framework islands) for a consultancy
+RouteToAbroad v3 is a fully static **Astro 7** site (zero UI-framework islands) for a consultancy
 with three pillars: **Education, Tourism, Trade** (India ↔ East Asia). All interactivity is
 vanilla TypeScript in `<script>` blocks; there are no webfonts (Helvetica system stack).
 
 ### Routing & pages
-- File-based routing in `src/pages/` → 56 static pages: core pages, 5 interactive tools
-  (`/tools/*`), 10 guides, 6 blog posts, 5 university + 4 city + 2 country programmatic pages,
+- File-based routing in `src/pages/` → 276 static pages (56 en + 4×55 localized; i18n via
+  astro.config.mjs, en unprefixed root, no fallback rewrite): core pages, 5 interactive tools (`/tools/*`),
+  10 guides, 6 blog posts, 5 university + 4 city + 2 country programmatic pages,
   3 comparison pages, FAQ hub, glossary, legal pages.
+- Every route's markup lives in ONE shared component, `src/components/pages/<Route>Page.astro`
+  (takes a `locale` prop); `src/pages/**` files are ~6-line shells (`<AboutPage locale="zh" />`).
+  Change a page by editing the component, never a shell. `[slug]` shells delegate `getStaticPaths`
+  to `src/lib/static-paths.ts`.
 - Site URL and sitemap config live in `astro.config.mjs`.
 
 ### Content
@@ -47,8 +54,20 @@ vanilla TypeScript in `<script>` blocks; there are no webfonts (Helvetica system
 ### Forms & chatbot
 - Forms POST via `fetch` to Formspree (endpoint constant `FORMSPREE_ENDPOINT` in
   `src/lib/site.ts` + inline engine in BaseLayout).
-- AI counselor: `netlify/functions/chat.mts` streams from Claude; requires `ANTHROPIC_API_KEY`
-  and `ANTHROPIC_API_URL` env vars in Netlify.
+- AI counselor: `netlify/functions/chat.mts` streams from `claude-opus-4-6-20250610` via
+  `ANTHROPIC_API_KEY`/`ANTHROPIC_API_URL`.
+
+### Internationalization
+- 5 locales (en default, zh, fr, ar RTL, es) via Astro i18n routing, no fallback (a missing
+  localized route 404s and fails the validator). Chrome strings: `src/i18n/ui.ts`; tool strings:
+  `src/i18n/tools/*.ts` (typed `Record<Locale, …>` — `npm run check` enforces key parity).
+- Never hardcode `/zh/…` hrefs: use `translatePath(path, locale)` (`src/lib/i18n.ts`); in tool
+  client scripts use `localizeHref`/`intlTag`/`readI18n` from `src/lib/i18n-client.ts`.
+- RTL: Arabic-only CSS is `src/styles/rtl.css`, injected inline on `/ar/` pages only. Direction-
+  sensitive rules inside scoped component styles use `html:global([dir='rtl']) …` (unscoped
+  rtl.css rules lose to `data-astro-cid` specificity). Wrap phone numbers/hours in `<bdi>`.
+- Body prose (page copy, articles, FAQ answers) is still English in every locale — known gap;
+  zh/fr/ar/es strings are machine-assisted and need native-speaker review.
 
 ### Images
 - All imagery is generated from versioned prompts in `scripts/images.config.json`
@@ -59,4 +78,6 @@ vanilla TypeScript in `<script>` blocks; there are no webfonts (Helvetica system
 - `{{VERIFY}}` markers in content = facts needing owner confirmation; do not remove silently.
 - SEO layer (`Seo.astro`, `JsonLd.astro`, `SiteSchemas.astro`) is contract-stable: every page
   passes unique title/description/crumbs/jsonLd.
-- After content/page changes run `npm run build && node scripts/validate-site.mjs`.
+- After content/page changes run `npm run check && npm run build && node scripts/validate-site.mjs`.
+- Facts (phones, hours) in translated strings must interpolate `SITE` (`src/lib/site.ts`), never
+  be typed inline.

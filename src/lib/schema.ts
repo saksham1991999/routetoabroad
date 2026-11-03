@@ -3,8 +3,19 @@
  * Each returns a plain object; pages pass them to <JsonLd {...} />.
  */
 import { SITE } from './site';
+import { DEFAULT_LOCALE, translatePath, type Locale } from './i18n';
 
 type Crumb = { name: string; url: string };
+
+/**
+ * Absolutize a URL against SITE.url. Pages pass paths (absolute like
+ * '/education' or localized like '/zh/education'); Google requires absolute
+ * URLs in BreadcrumbList/Service/Course item+url fields, so the builders
+ * normalize centrally instead of trusting every caller.
+ */
+function absUrl(u: string): string {
+  return /^https?:\/\//i.test(u) ? u : new URL(u, SITE.url).href;
+}
 
 export function organizationSchema() {
   return {
@@ -14,7 +25,7 @@ export function organizationSchema() {
     name: SITE.name,
     legalName: SITE.legalName,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/icon-512.png`,
     email: SITE.email,
     foundingDate: String(SITE.founded),
     description:
@@ -98,15 +109,24 @@ export function localBusinessSchema(officeIndex: number) {
   };
 }
 
-export function breadcrumbSchema(crumbs: Crumb[]) {
+/**
+ * BreadcrumbList with a locale-aware Home crumb. `locale` defaults to the
+ * unprefixed English tree; localized callers (Seo.astro passes the page
+ * locale through) get a Home that points at their own localized homepage —
+ * the intermediate crumbs are already localized by the callers.
+ */
+export function breadcrumbSchema(crumbs: Crumb[], locale: Locale = DEFAULT_LOCALE) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
-    itemListElement: [{ name: 'Home', url: SITE.url }, ...crumbs].map((c, i) => ({
+    itemListElement: [
+      { name: 'Home', url: translatePath('/', locale) },
+      ...crumbs,
+    ].map((c, i) => ({
       '@type': 'ListItem',
       position: i + 1,
       name: c.name,
-      item: c.url,
+      item: absUrl(c.url),
     })),
   };
 }
@@ -157,12 +177,12 @@ export function courseSchema(opts: {
     '@type': 'Course',
     name: opts.name,
     description: opts.description,
-    url: opts.url,
+    url: absUrl(opts.url),
     provider: {
       '@type': 'CollegeOrUniversity',
-      '@id': opts.providerUrl ?? `${SITE.url}/#organization`,
+      '@id': opts.providerUrl ? absUrl(opts.providerUrl) : `${SITE.url}/#organization`,
       name: opts.providerName ?? SITE.name,
-      sameAs: opts.providerUrl ?? SITE.url,
+      sameAs: opts.providerUrl ? absUrl(opts.providerUrl) : SITE.url,
     },
   };
 }
@@ -179,7 +199,7 @@ export function serviceSchema(opts: {
     '@type': 'Service',
     name: opts.name,
     description: opts.description,
-    url: opts.url,
+    url: absUrl(opts.url),
     serviceType: opts.serviceType,
     areaServed: opts.areaServed ?? ['IN', 'CN'],
     provider: { '@id': `${SITE.url}/#organization` },
@@ -211,7 +231,7 @@ export function articleSchema(opts: {
       ...(opts.authorUrl ? { url: opts.authorUrl } : {}),
     },
     publisher: { '@id': `${SITE.url}/#organization` },
-    mainEntityOfPage: { '@type': 'WebPage', '@id': opts.url },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': absUrl(opts.url) },
     ...(opts.section ? { articleSection: opts.section } : {}),
   };
 }
@@ -246,7 +266,7 @@ export function reviewSchema(reviews: {
     '@id': `${SITE.url}/#organization`,
     name: SITE.name,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/icon-512.png`,
     review: reviews.map((r) => ({
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },

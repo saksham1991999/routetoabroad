@@ -2,7 +2,7 @@
 title: 'Top 5 Historical Sites to Visit in Beijing'
 description: 'Beijing is a living museum of imperial China. From the Forbidden City to the Temple of Heaven — the five sites every first-time visitor must experience, with practical visiting advice.'
 category: 'tourism'
-author: 'vijeesh'
+author: 'minhaj'
 pubDate: 2025-03-05
 readTime: 5
 tags: ['Beijing', 'History', 'Culture']

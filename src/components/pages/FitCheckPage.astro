@@ -1,0 +1,473 @@
+---
+/**
+ * Fit check — shared by all five locales. Quiz copy comes from
+ * src/i18n/tools/fit-check.ts; the client script reads its verdict strings from
+ * the data-i18n attribute and localizes its CTA links via i18n-client.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { FIT_STRINGS } from '../../i18n/tools/fit-check';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = FIT_STRINGS[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/fit-check"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: link('/tools') },
+    { name: t.crumb, url: link('/tools/fit-check') },
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: link('/tools') },
+      { name: t.crumb, url: link('/tools/fit-check') },
+    ]}
+  />
+
+  <h2 class="visually-hidden">{t.questionsH2}</h2>
+
+  <section class="section">
+    <div class="container-text">
+      <div class="quiz card card-pad" id="quiz" data-i18n={JSON.stringify(t.script)}>
+        <div class="quiz-progress num" id="quiz-progress" aria-hidden="true"></div>
+
+        <!-- Step 1 -->
+        <fieldset class="quiz-step" data-step="1">
+          <legend><span class="q-num num">Q1</span> {t.q1.legend}</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q1" value="india" /><span>{t.q1.opts[0]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="gcc" /><span>{t.q1.opts[1]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="africa" /><span>{t.q1.opts[2]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="other" /><span>{t.q1.opts[3]}</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="quiz-step" data-step="2" hidden>
+          <legend><span class="q-num num">Q2</span> {t.q2.legend}</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q2" value="school" /><span>{t.q2.opts[0]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="bachelor" /><span>{t.q2.opts[1]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="master" /><span>{t.q2.opts[2]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="later" /><span>{t.q2.opts[3]}</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="quiz-step" data-step="3" hidden>
+          <legend><span class="q-num num">Q3</span> {t.q3.legend}</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q3" value="mbbs" /><span>{t.q3.opts[0]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="engineering" /><span>{t.q3.opts[1]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="business" /><span>{t.q3.opts[2]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="language" /><span>{t.q3.opts[3]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="research" /><span>{t.q3.opts[4]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="unsure" /><span>{t.q3.opts[5]}</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="quiz-step" data-step="4" hidden>
+          <legend><span class="q-num num">Q4</span> {t.q4.legend}</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q4" value="sept" /><span>{t.q4.opts[0]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="march" /><span>{t.q4.opts[1]}</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="flexible" /><span>{t.q4.opts[2]}</span></label>
+          </div>
+        </fieldset>
+
+        <div class="quiz-nav">
+          <button type="button" class="btn btn-outline btn-sm" id="quiz-back" hidden>{t.back}</button>
+          <p class="quiz-hint">{t.hint}</p>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+          <!-- filled by script -->
+        </div>
+      </div>
+
+      <p class="quiz-caveat" data-reveal>
+        <strong>{t.caveat.bold}</strong> {t.caveat.text}
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style is:global>
+  .quiz {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .quiz-progress {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .quiz-progress span {
+    height: 4px;
+    flex: 1;
+    background: var(--line);
+    border-radius: 999px;
+    transition: background 0.3s;
+  }
+
+  .quiz-progress span.done {
+    background: var(--accent);
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  legend {
+    font-size: var(--step-2);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    padding: 0;
+    margin-bottom: 1.4rem;
+    line-height: 1.25;
+  }
+
+  .q-num {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-right: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  .quiz-opt {
+    position: relative;
+    display: block;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-m);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  /* The native radio stays in the a11y tree for correct role/state/keyboard,
+     but is visually folded into the card. */
+  .quiz-opt input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .quiz-opt:hover,
+  .quiz-opt:has(input:focus-visible) {
+    border-color: var(--ink);
+  }
+
+  .quiz-opt:has(input:focus-visible) {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+  }
+
+  .quiz-opt.selected {
+    border-color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-weight: 650;
+  }
+
+  .quiz-nav {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .quiz-hint {
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+  }
+
+  .quiz-result {
+    margin-top: 0.5rem;
+  }
+
+  .verdict {
+    font-size: var(--step-3);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .verdict.yes { color: var(--ok); }
+  .verdict.maybe { color: var(--warn); }
+
+  .verdict-text {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .verdict-next {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .quiz-caveat {
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+</style>
+
+<script>
+  import { localizeHref, readI18n } from '../../lib/i18n-client';
+  import type { FitStrings } from '../../i18n/tools/fit-check';
+
+  const T = readI18n<FitStrings['script']>(document.getElementById('quiz'));
+  const steps = Array.from(document.querySelectorAll<HTMLElement>('.quiz-step'));
+  const progress = document.getElementById('quiz-progress');
+  const backBtn = document.getElementById('quiz-back') as HTMLButtonElement;
+  const result = document.getElementById('quiz-result') as HTMLElement;
+  const hint = document.querySelector('.quiz-hint') as HTMLElement;
+
+  const STORE_KEY = 'rta-fit-v1';
+
+  const answers: Record<string, string> = {};
+  let current = 0;
+
+  // progress bar (built once here; rebuilt after Start over — see paintProgress)
+  if (progress) {
+    progress.innerHTML = steps.map(() => '<span></span>').join('');
+  }
+
+  const answeredCount = () => steps.filter((s) => answers[s.dataset.step!]).length;
+
+  function paintProgress() {
+    // Query live: renderResult() empties the container and Start over
+    // rebuilds it, so a captured child list would go stale.
+    const bars = progress ? (Array.from(progress.children) as HTMLElement[]) : [];
+    const done = answeredCount();
+    bars.forEach((b, bi) => b.classList.toggle('done', bi < done));
+  }
+
+  function show(i: number) {
+    steps.forEach((s, si) => (s.hidden = si !== i));
+    paintProgress();
+    backBtn.hidden = i === 0;
+    current = i;
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(answers));
+    } catch {
+      /* private mode — the run still works, it just won't survive a reload */
+    }
+  }
+
+  backBtn?.addEventListener('click', () => show(Math.max(0, current - 1)));
+
+  // Native radios keep role/state/arrow-key behaviour for free; the change
+  // event drives everything the old click handler did.
+  function markSelected(step: HTMLElement) {
+    step.querySelectorAll('.quiz-opt').forEach((label) => {
+      label.classList.toggle(
+        'selected',
+        (label.querySelector('input') as HTMLInputElement | null)?.checked ?? false
+      );
+    });
+  }
+
+  // Token invalidating pending "advance to next step" timers: Start over
+  // must win over a queued final-answer timeout from a double-click.
+  let stepToken = 0;
+
+  steps.forEach((step) => {
+    step.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((input) => {
+      input.addEventListener('change', () => {
+        markSelected(step);
+        answers[step.dataset.step!] = input.value;
+        save();
+        paintProgress();
+        const myToken = ++stepToken;
+        setTimeout(() => {
+          if (myToken !== stepToken) return;
+          if (current < steps.length - 1) show(current + 1);
+          else renderResult();
+        }, 220);
+      });
+    });
+  });
+
+  function renderResult() {
+    steps.forEach((s) => (s.hidden = true));
+    if (progress) progress.innerHTML = '';
+    backBtn.hidden = true;
+    hint.hidden = true;
+
+    const { country, school, bachelor, master, mbbs, engineering, business, language, research, sept, march, flexible } = {
+      country: answers['1'],
+      school: answers['2'] === 'school',
+      bachelor: answers['2'] === 'bachelor',
+      master: answers['2'] === 'master',
+      mbbs: answers['3'] === 'mbbs',
+      engineering: answers['3'] === 'engineering',
+      business: answers['3'] === 'business',
+      language: answers['3'] === 'language',
+      research: answers['3'] === 'research',
+      sept: answers['4'] === 'sept',
+      march: answers['4'] === 'march',
+      flexible: answers['4'] === 'flexible',
+    };
+
+    let verdict = 'maybe';
+    let title = '';
+    let body = '';
+    let primary = { href: localizeHref('/contact'), label: T.ctaTalk };
+    let secondary = { href: localizeHref('/tools/scholarship-eligibility'), label: T.ctaScholarship };
+    const india = country === 'india';
+
+    if (master && research) {
+      verdict = 'yes';
+      title = T.researchYes.title;
+      body = T.researchYes.body;
+    } else if (mbbs && school) {
+      if (sept || flexible) {
+        verdict = 'yes';
+        title = T.mbbsYes.title;
+        body = india ? T.mbbsYes.bodyIndia : T.mbbsYes.bodyOther;
+        secondary = { href: localizeHref('/guides/mbbs-in-china'), label: T.ctaMbbsGuide };
+      } else {
+        verdict = 'maybe';
+        title = T.mbbsMarch.title;
+        body = T.mbbsMarch.body;
+      }
+    } else if (school && (engineering || business)) {
+      if (march) {
+        verdict = 'maybe';
+        title = T.bachMarch.title;
+        body = T.bachMarch.body;
+      } else {
+        verdict = 'yes';
+        title = T.bachYes.title;
+        body = T.bachYes.body;
+      }
+    } else if (bachelor && mbbs) {
+      verdict = 'maybe';
+      title = T.bachelorMbbs.title;
+      body = T.bachelorMbbs.body;
+    } else if (bachelor && (engineering || business)) {
+      verdict = 'yes';
+      title = T.masterYes.title;
+      body = T.masterYes.body;
+    } else if (language) {
+      verdict = 'yes';
+      title = T.languageYes.title;
+      body = T.languageYes.body;
+    } else if (answers['2'] === 'later') {
+      verdict = 'maybe';
+      title = T.later.title;
+      body = T.later.body;
+      secondary = { href: localizeHref('/guides/study-in-china-from-india'), label: T.ctaRoadmap };
+    } else if (flexible) {
+      verdict = 'maybe';
+      title = T.flexible.title;
+      body = T.flexible.body;
+    } else {
+      verdict = 'maybe';
+      title = T.fallback.title;
+      body = india ? T.fallback.bodyIndia : T.fallback.bodyOther;
+    }
+
+    result.hidden = false;
+    result.innerHTML = `
+      <p class="verdict ${verdict}">${verdict === 'yes' ? '✓' : '~'} ${title}</p>
+      <p class="verdict-text">${body}</p>
+      <div class="verdict-next">
+        <a class="btn btn-primary" href="${primary.href}">${primary.label}</a>
+        <a class="btn btn-outline" href="${secondary.href}">${secondary.label}</a>
+        <button type="button" class="btn btn-ghost" data-restart>${T.restart}</button>
+      </div>
+    `;
+  }
+
+  // "Start over" lives inside the injected result, so delegate from the panel.
+  result.addEventListener('click', (e) => {
+    if (!(e.target as HTMLElement).closest('[data-restart]')) return;
+    stepToken++; // kill any pending advance timer from a double-click
+    for (const key of Object.keys(answers)) delete answers[key];
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    result.hidden = true;
+    result.innerHTML = '';
+    hint.hidden = false;
+    steps.forEach((s) => {
+      s.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((r) => (r.checked = false));
+      markSelected(s);
+    });
+    // renderResult cleared the bar spans — rebuild them before showing step 1.
+    if (progress) progress.innerHTML = steps.map(() => '<span></span>').join('');
+    show(0);
+  });
+
+  // Restore a previous run so a refresh (or a return visit) doesn't lose the work.
+  (() => {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as Record<string, string>;
+        for (const step of steps) {
+          const value = saved[step.dataset.step!];
+          if (!value) continue;
+          const radio = step.querySelector<HTMLInputElement>(
+            `.quiz-opt input[value="${value}"]`
+          );
+          if (!radio) continue;
+          answers[step.dataset.step!] = value;
+          radio.checked = true;
+          markSelected(step);
+        }
+      }
+    } catch {
+      /* corrupt payload — start clean */
+    }
+
+    if (answeredCount() === steps.length) renderResult();
+    else show(Math.min(answeredCount(), steps.length - 1));
+  })();
+</script>

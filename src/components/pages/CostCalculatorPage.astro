@@ -1,0 +1,547 @@
+---
+/**
+ * Cost calculator — shared by all five locales. Static copy comes from
+ * src/i18n/tools/cost-calculator.ts; the client script reads its strings from
+ * the data-i18n attribute and formats currency with Intl for the page locale.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { COST_STRINGS, COST_INCLUDED } from '../../i18n/tools/cost-calculator';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = COST_STRINGS[locale];
+const inc = COST_INCLUDED[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/cost-calculator"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: link('/tools') },
+    { name: t.crumb, url: link('/tools/cost-calculator') },
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: link('/tools') },
+      { name: t.crumb, url: link('/tools/cost-calculator') },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad" id="cost-root" data-i18n={JSON.stringify(t.script)}>
+        <div class="calc-form" id="cost-form">
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-city">{t.labels.city}</label>
+              <select id="cost-city">
+                <option value="">{t.select}</option>
+                <option value="beijing">{t.cities.beijing}</option>
+                <option value="shanghai">{t.cities.shanghai}</option>
+                <option value="guangzhou">{t.cities.guangzhou}</option>
+                <option value="hangzhou">{t.cities.hangzhou}</option>
+                <option value="tier2">{t.cities.tier2}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-programme">{t.labels.programme}</label>
+              <select id="cost-programme">
+                <option value="">{t.select}</option>
+                <option value="bachelor_eng">{t.programmes.bachelor_eng}</option>
+                <option value="bachelor_bus">{t.programmes.bachelor_bus}</option>
+                <option value="mbbs">{t.programmes.mbbs}</option>
+                <option value="master">{t.programmes.master}</option>
+                <option value="phd">{t.programmes.phd}</option>
+                <option value="language">{t.programmes.language}</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-lifestyle">{t.labels.lifestyle}</label>
+              <select id="cost-lifestyle">
+                <option value="">{t.select}</option>
+                <option value="frugal">{t.lifestyles.frugal}</option>
+                <option value="moderate">{t.lifestyles.moderate}</option>
+                <option value="comfortable">{t.lifestyles.comfortable}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-years">{t.labels.years}</label>
+              <select id="cost-years">
+                <option value="">{t.select}</option>
+                <option value="1">{t.lengths.y1}</option>
+                <option value="3">{t.lengths.y3}</option>
+                <option value="4">{t.lengths.y4}</option>
+                <option value="5">{t.lengths.y5}</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="cost-go">{t.calculate}</button>
+            <button type="button" class="btn btn-ghost" id="cost-reset">{t.reset}</button>
+          </div>
+        </div>
+
+        <div class="calc-result" id="cost-result" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">{t.included.label}</p>
+        <p>
+          {inc.before} <strong>{inc.bold}</strong> {inc.after}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style is:global>
+  .calc {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Grid gap only spaces the columns; stacked rows need their own rhythm. */
+  .calc-row + .calc-row {
+    margin-top: 1.2rem;
+  }
+
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+  }
+
+  .calc-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .cost-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cost-total {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step-4);
+    font-weight: 600;
+  }
+
+  .cost-total-label {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  table.cost-table th,
+  table.cost-table td {
+    text-align: left;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.cost-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table td:last-child {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  table.cost-table tbody tr:last-child td strong {
+    font-weight: 500;
+  }
+
+  .cost-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  .cost-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-note {
+    max-width: 44rem;
+    margin: 2rem auto 0;
+  }
+
+  /* Missing-select feedback: ring the field and nudge it.
+     Doubled class beats the equal-specificity .field select base rule. */
+  .field.field-missing label {
+    color: var(--err);
+  }
+
+  .field.field-missing select {
+    border-color: var(--err);
+    animation: field-nudge 0.35s var(--ease-out);
+  }
+
+  @keyframes field-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    30% {
+      transform: translateX(-4px);
+    }
+    60% {
+      transform: translateX(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field-missing select {
+      animation: none;
+    }
+  }
+
+  /* Result settles in once the skeleton hands over */
+  .calc-result.is-revealed {
+    animation: result-in 0.5s var(--ease-out);
+  }
+
+  @keyframes result-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .calc-result.is-revealed {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .calc-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Money ranges are Latin-digit LTR runs; isolate them so RTL (Arabic) pages
+     don't reorder "$1,000 – $2,000". */
+  .cost-total,
+  table.cost-table td:not(:first-child) {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+</style>
+
+<script>
+  import { intlTag, localizeHref, readI18n } from '../../lib/i18n-client';
+  import type { CostStrings } from '../../i18n/tools/cost-calculator';
+
+  const root = document.getElementById('cost-root');
+  const T = readI18n<CostStrings['script']>(root);
+  const nf = new Intl.NumberFormat(intlTag(), {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'narrowSymbol',
+    maximumFractionDigits: 0,
+  });
+  const go = document.getElementById('cost-go') as HTMLButtonElement;
+  const resetBtn = document.getElementById('cost-reset') as HTMLButtonElement;
+  const result = document.getElementById('cost-result') as HTMLElement;
+  const formEl = document.getElementById('cost-form') as HTMLElement;
+
+  const FIELD_IDS = ['cost-city', 'cost-programme', 'cost-lifestyle', 'cost-years'] as const;
+  const PARAM_KEYS: Record<(typeof FIELD_IDS)[number], string> = {
+    'cost-city': 'city',
+    'cost-programme': 'programme',
+    'cost-lifestyle': 'lifestyle',
+    'cost-years': 'years',
+  };
+  const STORE_KEY = 'rta-cost-v1';
+
+  const readValues = () =>
+    Object.fromEntries(
+      FIELD_IDS.map((id) => [id, (document.getElementById(id) as HTMLSelectElement).value])
+    ) as Record<(typeof FIELD_IDS)[number], string>;
+
+  function saveInputs() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(readValues()));
+    } catch {}
+  }
+
+  function restoreInputs() {
+    let values: Record<string, string> = {};
+    try {
+      values = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    } catch {}
+
+    const params = new URLSearchParams(location.search);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      const fromUrl = params.get(key);
+      const value = fromUrl || values[id] || '';
+      const sel = document.getElementById(id) as HTMLSelectElement;
+      if (value && [...sel.options].some((o) => o.value === value)) sel.value = value;
+    }
+  }
+
+  function syncUrl(values: Record<string, string>) {
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      if (values[id]) url.searchParams.set(key, values[id]!);
+      else url.searchParams.delete(key);
+    }
+    history.replaceState({}, '', url);
+  }
+
+  const living: Record<string, [number, number]> = {
+    beijing: [500, 800],
+    shanghai: [520, 850],
+    guangzhou: [350, 600],
+    hangzhou: [330, 580],
+    tier2: [260, 480],
+  };
+  const lifestyleMult: Record<string, number> = { frugal: 0.8, moderate: 1, comfortable: 1.35 };
+  const tuition: Record<string, [number, number]> = {
+    bachelor_eng: [2500, 5000],
+    bachelor_bus: [3000, 6000],
+    mbbs: [3500, 8000],
+    master: [3000, 8000],
+    phd: [3000, 7000],
+    language: [2500, 4500],
+  };
+
+  const fmt = (n: number) => nf.format(Math.round(n));
+  const yearsLabel = (n: number) => (n > 1 ? T.yearsMany : T.yearsOne).replace('{n}', String(n));
+  const key = <K extends string>(map: Record<K, string>, k: string) => map[k as K] ?? k;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let renderTimer: number | undefined;
+
+  /** Count the total up from zero, then settle on the honest range. */
+  function countUp(el: HTMLElement, lo: number, hi: number) {
+    if (reduced) {
+      el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      if (p < 1) {
+        el.textContent = fmt(hi * eased);
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  /** Mark missing selects and shake the form instead of an alert(). */
+  function flagMissing(ids: string[]) {
+    ids.forEach((id) => {
+      const sel = document.getElementById(id) as HTMLSelectElement | null;
+      sel?.closest('.field')?.classList.add('field-missing');
+    });
+    const first = document.querySelector('.field-missing select');
+    first?.addEventListener(
+      'change',
+      () => first.closest('.field')?.classList.remove('field-missing'),
+      { once: true }
+    );
+  }
+
+  function hideResult() {
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+  }
+
+  go?.addEventListener('click', () => {
+    const city = (document.getElementById('cost-city') as HTMLSelectElement).value;
+    const programme = (document.getElementById('cost-programme') as HTMLSelectElement).value;
+    const lifestyle = (document.getElementById('cost-lifestyle') as HTMLSelectElement).value;
+    const years = parseInt((document.getElementById('cost-years') as HTMLSelectElement).value, 10);
+
+    const missing = [
+      !city && 'cost-city',
+      !programme && 'cost-programme',
+      !lifestyle && 'cost-lifestyle',
+      !years && 'cost-years',
+    ].filter(Boolean) as string[];
+    if (missing.length) {
+      document.querySelectorAll('.field-missing').forEach((f) => f.classList.remove('field-missing'));
+      flagMissing(missing);
+      // A failed validation must not leave the previous answer on screen.
+      hideResult();
+      return;
+    }
+
+    const values = readValues();
+    saveInputs();
+    syncUrl(values);
+
+    const mult = lifestyleMult[lifestyle]!;
+    const liveLo = living[city]![0] * mult * 12;
+    const liveHi = living[city]![1] * mult * 12;
+    const [tLo, tHi] = tuition[programme]!;
+    const perYearLo = tLo + liveLo;
+    const perYearHi = tHi + liveHi;
+    const totalLo = perYearLo * years;
+    const totalHi = perYearHi * years;
+
+    // Skeleton frame first, then the real numbers — the pause sells the maths.
+    // A quick re-click supersedes the previous pending render.
+    if (renderTimer) clearTimeout(renderTimer);
+    result.hidden = false;
+    result.innerHTML = `
+      <div class="cost-headline">
+        <span class="skeleton skeleton-text" style="width: 14rem; height: 2.6rem;"></span>
+        <span class="skeleton skeleton-text w-40" style="width: 12rem;"></span>
+      </div>
+      <div style="margin-top: 1.5rem; display: grid; gap: 0.75rem;">
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-60"></span>
+      </div>
+    `;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    const render = () => {
+      result.innerHTML = `
+        <div class="cost-headline">
+          <p class="cost-total num">
+            <span class="visually-hidden">${fmt(totalLo)} – ${fmt(totalHi)}</span>
+            <span aria-hidden="true" data-count>${fmt(0)}</span>
+          </p>
+          <p class="cost-total-label">${T.totalLabel.replace('{years}', yearsLabel(years))}</p>
+        </div>
+        <table class="cost-table">
+          <thead><tr><th>${T.thItem}</th><th>${T.thPerYear}</th><th>${T.thOver.replace('{years}', yearsLabel(years))}</th></tr></thead>
+          <tbody>
+            <tr><td>${T.tuition} (${key(T.programmeShort, programme)})</td><td>${fmt(tLo)} – ${fmt(tHi)}</td><td>${fmt(tLo * years)} – ${fmt(tHi * years)}</td></tr>
+            <tr><td>${T.living} (${key(T.cityShort, city)}${lifestyle !== 'moderate' ? `${T.sep}${key(T.lifestyleShort, lifestyle)}` : ''})</td><td>${fmt(liveLo)} – ${fmt(liveHi)}</td><td>${fmt(liveLo * years)} – ${fmt(liveHi * years)}</td></tr>
+            <tr><td><strong>${T.total}</strong></td><td><strong>${fmt(perYearLo)} – ${fmt(perYearHi)}</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="cost-note">
+          ${T.oneTime}
+          ${programme === 'mbbs' ? T.mbbsNote : ''}
+        </p>
+        <div class="cost-actions">
+          <a class="btn btn-primary" href="${localizeHref('/tools/scholarship-eligibility')}">${T.ctaScholarship}</a>
+          <a class="btn btn-outline" href="${localizeHref('/education#apply')}">${T.ctaFees}</a>
+          <button type="button" class="btn btn-ghost" data-share>${T.copyLink}</button>
+        </div>
+      `;
+      result.classList.add('is-revealed');
+      const totalEl = result.querySelector<HTMLElement>('[data-count]');
+      if (totalEl) countUp(totalEl, totalLo, totalHi);
+
+      result.querySelector<HTMLButtonElement>('[data-share]')?.addEventListener('click', async (e) => {
+        const btn = e.currentTarget as HTMLButtonElement;
+        try {
+          await navigator.clipboard.writeText(location.href);
+          btn.textContent = T.linkCopied;
+        } catch {
+          btn.textContent = T.copyFailed;
+        }
+        setTimeout(() => {
+          btn.textContent = T.copyLink;
+        }, 2200);
+      });
+    };
+
+    if (reduced) {
+      render();
+    } else {
+      renderTimer = window.setTimeout(() => {
+        renderTimer = undefined;
+        render();
+      }, 650);
+    }
+  });
+
+  FIELD_IDS.forEach((id) => {
+    document.getElementById(id)?.addEventListener('change', () => {
+      saveInputs();
+      const field = document.getElementById(id)?.closest('.field');
+      field?.classList.remove('field-missing');
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (renderTimer) clearTimeout(renderTimer);
+    renderTimer = undefined;
+    FIELD_IDS.forEach((id) => {
+      const sel = document.getElementById(id) as HTMLSelectElement;
+      sel.value = '';
+      sel.closest('.field')?.classList.remove('field-missing');
+    });
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+    formEl.hidden = false;
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) url.searchParams.delete(PARAM_KEYS[id]);
+    history.replaceState({}, '', url);
+    (document.getElementById(FIELD_IDS[0]) as HTMLSelectElement)?.focus();
+  });
+
+  restoreInputs();
+
+  // A shared link should land on its answer, not on a pre-filled empty form.
+  if (['city', 'programme', 'lifestyle', 'years'].every((k) => new URLSearchParams(location.search).has(k))) {
+    go?.click();
+  }
+</script>

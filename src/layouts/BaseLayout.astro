@@ -1,12 +1,19 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
+// RTL rules are NOT imported as a bundled stylesheet: with
+// build.inlineStylesheets 'always' every byte here would be inlined into all
+// 280 pages while only /ar/ pages use them. The CSS text is imported raw and
+// injected as an inline <style> on Arabic pages only (see <head> below).
+import rtlCss from '../styles/rtl.css?raw';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
 import SiteSchemas from '../components/SiteSchemas.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
+import { localeFromPath, LOCALE_META, translatePath, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -23,6 +30,11 @@ interface Props {
   modifiedTime?: Date;
   /** article pages show a reading-progress bar */
   progress?: boolean;
+  /** Locale of this page. Defaults to detection from Astro.url.pathname. */
+  locale?: Locale;
+  /** Hide the language switcher (e.g. the 404 page, whose locale variants
+   * intentionally do not exist to link to). */
+  hideSwitcher?: boolean;
 }
 
 const {
@@ -37,30 +49,54 @@ const {
   publishedTime,
   modifiedTime,
   progress = false,
+  locale,
+  hideSwitcher = false,
 } = Astro.props;
 
-/** Homepage gets the loader, HUD and tone-switching chrome. */
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+/** Resolve the page locale — explicit prop wins, fall back to URL detection. */
+const pageLocale: Locale = locale ?? localeFromPath(Astro.url.pathname);
+const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
+/** Chrome strings for this page's locale (en pages keep their inline copy). */
+const ui = uiFor(pageLocale);
+
+/** Homepage gets the loader, HUD and tone-switching chrome. Locale homepages
+ * (/, /zh, /fr, /ar, /es) count as home too — the loader/HUD live here. */
+const isHome = ['', '/'].includes(
+  Astro.url.pathname.replace(/^\/+(zh|fr|ar|es)(?=\/|$)/, '') || '/'
+);
 ---
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html
+  lang={pageLocale}
+  dir={isRtl ? 'rtl' : 'ltr'}
+  class="no-js"
+  data-form-success={ui.form.success}
+  data-form-fail={ui.form.fail}
+  data-form-network={ui.form.network}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="RouteToAbroad Insights" href="/rss.xml" />
     <meta name="generator" content={Astro.generator} />
     <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
-    <Seo {title} {description} {path} {image} {type} {noindex} {crumbs} {publishedTime} {modifiedTime} {jsonLd}>
+    <Seo {title} {description} {path} {image} {type} {noindex} {crumbs} {publishedTime} {modifiedTime} {jsonLd} locale={pageLocale}>
       {Astro.slots.has('head-extra') && <slot name="head-extra" />}
     </Seo>
 
     <SiteSchemas />
+
+    {/* RTL overrides ship only to Arabic pages — see the import note above. */}
+    {isRtl && <style is:inline set:html={rtlCss} />}
 
     <script is:inline>
       // Pre-paint theme to avoid flash-of-wrong-theme.
@@ -95,22 +131,22 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     )}
   </head>
   <body data-chrome={isHome ? 'home' : 'inner'} data-tone="light">
-    <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
+    <a class="skip-link" href="#main">{ui.skipLink}</a>
+    <Header locale={pageLocale} hideSwitcher={hideSwitcher} />
     <main id="main">
       <slot />
     </main>
-    <Footer />
-    <ChatWidget />
+    <Footer locale={pageLocale} />
+    <ChatWidget locale={pageLocale} />
 
     {
       isHome && (
-        <div class="rta-loader" id="rta-loader" aria-hidden="true">
+        <div class="rta-loader" id="rta-loader" aria-hidden="true" data-loader-words={ui.hud.loaderWords.join('|')}>
           <div class="rta-loader-cover rta-loader-cover--top" />
           <div class="rta-loader-cover rta-loader-cover--bottom" />
           <p class="rta-loader-line">
             <span class="rta-loader-word" data-loader-word>
-              Choose
+              {ui.hud.loaderWords[0]}
             </span>
           </p>
         </div>
@@ -120,13 +156,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       isHome && (
         <div class="rta-hud">
           <span class="rta-hud-item" aria-hidden="true">
-            Education · Tourism · Trade — One corridor
+            {ui.hud.tagline}
           </span>
           <div class="rta-hud-right">
             <a class="rta-hud-link" href={SITE.whatsapp} rel="noopener">
-              WhatsApp {SITE.phoneIndia}
+              WhatsApp <bdi>{SITE.phoneIndia}</bdi>
             </a>
-            <span class="rta-hud-item" aria-hidden="true">Scroll</span>
+            <span class="rta-hud-item" aria-hidden="true">{ui.hud.scroll}</span>
             <span class="rta-hud-percent" role="status">
               <span data-scroll-percent>0%</span>
             </span>
@@ -135,7 +171,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       )
     }
 
-    <a class="rta-tab" id="rta-tab" href="/tools/fit-check">Fit check</a>
+    <a class="rta-tab" id="rta-tab" href={translatePath('/tools/fit-check', pageLocale)}>{ui.headerCta}</a>
 
     <script>
       // Single source of truth for the Formspree endpoint (src/lib/site.ts).
@@ -177,7 +213,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
           const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
           const run = async () => {
             const word = loader.querySelector<HTMLElement>('[data-loader-word]');
-            const words = ['Choose', 'Apply', 'Enroll'];
+            // Localized loader words (fallback: English), joined with '|' in
+            // the data attribute because FormData/HTML attr values are strings.
+            const words =
+              loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
             if (word) {
               for (const next of words) {
@@ -236,7 +275,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
               io2.unobserve(entry.target);
               const el = entry.target as HTMLElement;
               const target = parseFloat(el.dataset.counter || '0');
-              const decimals = (el.dataset.counter.split('.')[1] || '').length;
+              const decimals = ((el.dataset.counter ?? '').split('.')[1] || '').length;
               const suffix = el.dataset.suffix || '';
               const duration = 1300;
               const start = performance.now();
@@ -345,9 +384,14 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
           }
 
           try {
+            // Tag the submission with the page locale so the business knows which
+            // language the lead came in (the engine is shared across all locales).
+            const fd = new FormData(form);
+            const pageLang = document.documentElement.lang;
+            if (pageLang) fd.append('locale', pageLang);
             const res = await fetch(FORMSPREE, {
               method: 'POST',
-              body: new FormData(form),
+              body: fd,
               headers: { Accept: 'application/json' },
             });
 
@@ -356,6 +400,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
               status.className = 'form-status ok';
               status.textContent =
                 form.dataset.successMsg ||
+                document.documentElement.dataset.formSuccess ||
                 'Message received! An advisor will reply within one working day.';
               // Replace the whole form with the success panel — leaving a live
               // submit button under a "sent" message invites duplicate sends.
@@ -366,13 +411,19 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
               status.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else if (status) {
               status.className = 'form-status fail';
+              // dataset.formFail (rendered on <html> with the localized
+              // WhatsApp number) is always present; this fallback is the
+              // pathological missing-attribute case, so it stays generic.
               status.textContent =
-                'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.';
+                document.documentElement.dataset.formFail ||
+                'Something went wrong sending the form. Please try again.';
             }
           } catch {
             if (status) {
               status.className = 'form-status fail';
-              status.textContent = 'Network error — please check your connection and try again.';
+              status.textContent =
+                document.documentElement.dataset.formNetwork ||
+                'Network error — please check your connection and try again.';
             }
           } finally {
             if (btn) {
@@ -410,7 +461,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
           }
         });
 
-        firstInvalid?.focus();
+        (firstInvalid as HTMLElement | null)?.focus();
         return ok;
       }
     </script>

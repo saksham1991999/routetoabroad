@@ -1,11 +1,19 @@
 ---
-import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
+import { SITE, CURRENT_YEAR } from '../lib/site';
+import { DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+import Logo from './Logo.astro';
+
+const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
+const ui = uiFor(locale);
+const link = (path: string) => translatePath(path, locale);
+const footerGroups = ui.footer.groups;
 ---
 
 <footer class="site-footer" data-tone="dark">
   <div class="container-wide">
     <div class="footer-head">
-      <p class="footer-eyebrow">Two offices · one accountable team</p>
+      <p class="footer-eyebrow">{ui.footer.eyebrow}</p>
       <a class="footer-email" href={`mailto:${SITE.email}`}>
         {SITE.email}
         <span aria-hidden="true">→</span>
@@ -15,14 +23,11 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
     <div class="footer-grid">
       <div class="footer-brand">
         <p class="wordmark">
-          <span>Route</span><span class="wm-to">To</span><span class="wm-abroad">Abroad</span>
+          <Logo />
         </p>
-        <p class="footer-desc">
-          Your strategic gateway between India and East Asia — education, tourism, and trade
-          handled by people who live on both sides.
-        </p>
+        <p class="footer-desc">{ui.footer.desc}</p>
         <ul class="footer-contact">
-          <li><a href={SITE.phoneIndiaHref}>{SITE.phoneIndia}</a><span class="loc">New Delhi</span></li>
+          <li><a href={SITE.phoneIndiaHref}><bdi>{SITE.phoneIndia}</bdi></a><span class="loc">{ui.footer.loc}</span></li>
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li>
             <address>
@@ -31,41 +36,28 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
             </address>
           </li>
         </ul>
-        <ul class="footer-social" aria-label="Social profiles">
-          <li><a href={SITE.socials.linkedin} rel="noopener" aria-label="LinkedIn">LinkedIn</a></li>
-          <li><a href={SITE.socials.instagram} rel="noopener" aria-label="Instagram">Instagram</a></li>
-          <li><a href={SITE.socials.twitter} rel="noopener" aria-label="X / Twitter">X</a></li>
-          <li><a href={SITE.socials.youtube} rel="noopener" aria-label="YouTube">YouTube</a></li>
+        <ul class="footer-social" aria-label={ui.footer.socialAria}>
+          <li><a href={SITE.socials.linkedin} rel="noopener" aria-label={ui.footer.socials.linkedin}>{ui.footer.socials.linkedin}</a></li>
+          <li><a href={SITE.socials.instagram} rel="noopener" aria-label={ui.footer.socials.instagram}>{ui.footer.socials.instagram}</a></li>
+          <li><a href={SITE.socials.twitter} rel="noopener" aria-label={ui.footer.socials.twitter}>{ui.footer.socials.twitter}</a></li>
+          <li><a href={SITE.socials.youtube} rel="noopener" aria-label={ui.footer.socials.youtube}>{ui.footer.socials.youtube}</a></li>
         </ul>
       </div>
 
-      <nav aria-label="Services">
-        <h3>Services</h3>
-        <ul>{FOOTER_LINKS.services.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
-      </nav>
-
-      <nav aria-label="Tools">
-        <h3>Free tools</h3>
-        <ul>{FOOTER_LINKS.tools.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
-      </nav>
-
-      <nav aria-label="Resources">
-        <h3>Resources</h3>
-        <ul>{FOOTER_LINKS.resources.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
-      </nav>
-
-      <nav aria-label="Company">
-        <h3>Company</h3>
-        <ul>{FOOTER_LINKS.company.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
-      </nav>
+      {footerGroups.map((group, i) => (
+        <nav aria-label={group.heading}>
+          <h3>{group.heading}</h3>
+          <ul>{group.links.map((l) => <li><a href={link(l.href)}>{l.label}</a></li>)}</ul>
+        </nav>
+      ))}
     </div>
 
     <div class="footer-bottom">
-      <p>© {CURRENT_YEAR} {SITE.name}. All rights reserved.</p>
+      <p>© {CURRENT_YEAR} {SITE.name}. {ui.footer.allRights}</p>
       <p class="footer-coords num" aria-hidden="true">
         {SITE.offices.map((o) => `${o.lat.toFixed(2)}°N ${o.code}`).join(' · ')}
       </p>
-      <p class="footer-note">Open {SITE.hours} · Replies within one working day</p>
+      <p class="footer-note">{ui.footer.openNote} <bdi>{SITE.hours}</bdi> · {ui.cta.replyValue}</p>
     </div>
   </div>
 </footer>
@@ -120,6 +112,17 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
     transform: translateX(6px);
   }
 
+  /* RTL: the hover nudge mirrors toward the inline-start (left) edge, and the
+     arrow glyph mirrors so it keeps pointing at the screen edge.
+     Authored in this scoped sheet so it outranks the unscoped LTR rule. */
+  html:global([dir='rtl']) .footer-email span {
+    transform: scaleX(-1);
+  }
+
+  html:global([dir='rtl']) .footer-email:hover span {
+    transform: scaleX(-1) translateX(-6px);
+  }
+
   .footer-email:hover {
     color: #9db1f8;
   }
@@ -137,15 +140,6 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
     font-weight: 600;
     letter-spacing: -0.04em;
     color: #ffffff;
-  }
-
-  .wm-to {
-    color: rgba(255, 255, 255, 0.55);
-    margin-inline: 0.06em;
-  }
-
-  .wm-abroad {
-    color: var(--accent);
   }
 
   .footer-desc {
@@ -177,7 +171,7 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
   }
 
   .loc {
-    margin-left: 0.5rem;
+    margin-inline-start: 0.5rem;
     font-family: var(--font-mono);
     font-size: 0.62rem;
     text-transform: uppercase;
@@ -261,6 +255,11 @@ import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
   .footer-grid nav a:hover {
     color: #ffffff;
     transform: translateX(3px);
+  }
+
+  /* RTL: mirror the hover nudge. */
+  html:global([dir='rtl']) .footer-grid nav a:hover {
+    transform: translateX(-3px);
   }
 
   .footer-bottom {

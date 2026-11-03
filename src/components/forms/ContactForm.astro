@@ -1,60 +1,73 @@
-<form class="enquiry-form" data-formspree data-success-msg="Message received! An advisor will reply within one working day — 9:00–18:00 IST, Mon–Sat." novalidate>
+---
+import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { uiFor } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale);
+const f = ui.forms.contact;
+const ff = ui.formFields;
+---
+
+<form class="enquiry-form" data-formspree data-success-msg={f.success} novalidate>
   <div class="form-fields">
     <fieldset class="pathway-fieldset">
-      <legend>I'm enquiring about</legend>
-      <div class="pathway-cards" role="radiogroup" aria-label="Service">
+      <legend>{f.legend}</legend>
+      <div class="pathway-cards" role="radiogroup" aria-label={f.serviceAria}>
         <label class="pathway-card">
           <input type="radio" name="serviceContext" value="education" checked />
-          <span class="pw-name">Education</span>
-          <span class="pw-desc">Study in China</span>
+          <span class="pw-name">{f.cards.education}</span>
+          <span class="pw-desc">{f.cards.educationDesc}</span>
         </label>
         <label class="pathway-card">
           <input type="radio" name="serviceContext" value="tourism" />
-          <span class="pw-name">Tourism</span>
-          <span class="pw-desc">Tours & travel</span>
+          <span class="pw-name">{f.cards.tourism}</span>
+          <span class="pw-desc">{f.cards.tourismDesc}</span>
         </label>
         <label class="pathway-card">
           <input type="radio" name="serviceContext" value="trade" />
-          <span class="pw-name">Trade</span>
-          <span class="pw-desc">Sourcing & logistics</span>
+          <span class="pw-name">{f.cards.trade}</span>
+          <span class="pw-desc">{f.cards.tradeDesc}</span>
         </label>
       </div>
     </fieldset>
 
     <div class="form-row">
       <div class="field">
-        <label for="c-name">Full name</label>
-        <input id="c-name" name="fullName" type="text" required autocomplete="name" placeholder="Your name" />
-        <p class="error">Please enter your name.</p>
+        <label for="c-name">{ff.fullName} <span class="req" aria-hidden="true">*</span></label>
+        <input id="c-name" name="fullName" type="text" required autocomplete="name" placeholder={f.phName} aria-describedby="c-name-error" />
+        <p class="error" id="c-name-error">{f.errors.name}</p>
       </div>
       <div class="field">
-        <label for="c-email">Email</label>
-        <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
-        <p class="error">Please enter a valid email.</p>
-      </div>
-    </div>
-
-    <div class="form-row form-row--single">
-      <div class="field">
-        <label for="c-phone">Phone / WhatsApp <span class="hint">(optional)</span></label>
-        <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" />
-        <p class="error">Please enter a valid phone number.</p>
+        <label for="c-email">{ff.email} <span class="req" aria-hidden="true">*</span></label>
+        <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="c-email-error" />
+        <p class="error" id="c-email-error">{f.errors.email}</p>
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="c-message">Your message</label>
-        <textarea id="c-message" name="message" rows="4" required placeholder="What are you planning? Be as specific as you like."></textarea>
-        <p class="error">Please write a short message.</p>
+        <label for="c-phone">{ff.phone} <span class="hint">({ff.optionalHint})</span></label>
+        <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" aria-describedby="c-phone-error" />
+        <p class="error" id="c-phone-error">{f.errors.phone}</p>
+      </div>
+    </div>
+
+    <div class="form-row form-row--single">
+      <div class="field">
+        <label for="c-message">{ff.message} <span class="req" aria-hidden="true">*</span></label>
+        <textarea id="c-message" name="message" rows="4" required placeholder={f.phMessage} aria-describedby="c-message-error"></textarea>
+        <p class="error" id="c-message-error">{f.errors.message}</p>
       </div>
     </div>
   </div>
 
   <p class="form-status" role="status"></p>
 
-  <button type="submit" class="btn btn-primary btn-lg">Send message</button>
-  <p class="form-fineprint">A journey of a thousand miles begins with a single conversation.</p>
+  <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
+  <p class="form-fineprint">{f.fineprint}</p>
 </form>
 
 

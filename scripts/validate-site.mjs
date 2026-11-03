@@ -1,21 +1,26 @@
 #!/usr/bin/env node
 /**
  * Site QA: validates every built HTML page for
- *  - unique title + meta description + canonical (global across ALL pages)
+ *  - unique title + meta description + canonical per locale
+ *  - self-canonicalization on every localized, indexable page
+ *  - complete + reciprocal hreflang clusters (en/zh/fr/ar/es + x-default),
+ *    each target being a built page whose own canonical equals the target
  *  - parseable JSON-LD with required fields per type
  *  - single H1
  *  - images with alt
- *  - sitemap coverage (every sitemap URL has a built page, and vice versa)
+ *  - <html lang>/dir matching the URL locale (ar → dir="rtl")
+ *  - sitemap coverage in both directions, source-page-aware
  *  - internal links + fragment anchors resolve against the built file set
  *  - no trailing slashes on internal href/canonical/sitemap URLs (trailingSlash: 'never')
  *  - OG/Twitter meta completeness; og:image absolute on host and its file present in dist/
+ *  - locale lists agree across astro.config.mjs, src/lib/i18n.ts and this file
  *  - {{VERIFY}} markers survive in src/ (owner-confirmation contract)
  * Usage: node scripts/validate-site.mjs
  *   VALIDATE_SITE_ROOT=<dir>  validate <dir>/dist + <dir>/src instead of ./{dist,src}
  *                             (fault-injection seam; mirrors cwd layout)
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs';
-import { join, relative, dirname } from 'node:path';
+import { join, relative } from 'node:path';
 
 const ROOT = process.env.VALIDATE_SITE_ROOT || process.cwd();
 const DIST = join(ROOT, 'dist');
@@ -24,6 +29,136 @@ const SITE = 'https://routetoabroad.com'; // keep in sync with astro.config.mjs 
 
 const errors = [];
 const warnings = [];
+
+// i18n: the site supports 5 locales. English lives at the unprefixed root;
+// zh / fr / ar / es pages live under /<locale>/. Localized pages are
+// intentional translations of the English page, so title/description
+// duplication ACROSS LOCALES is expected — we only error on duplicates
+// within the same locale.
+const LOCALES = ['en', 'zh', 'fr', 'ar', 'es'];
+const localeOf = (rel) => {
+  const seg = rel.split('/')[0];
+  return LOCALES.includes(seg) ? seg : 'en';
+};
+
+// ---- locale-list consistency. Adding a locale means touching several
+// lists; they must agree or every i18n check below silently drifts.
+{
+  const readList = (src, re) => {
+    const m = src.match(re);
+    if (!m) return null;
+    return m[1]
+      .split(',')
+      .map((s) => s.trim().replace(/^['"]|['"]$/g, ''))
+      .filter(Boolean);
+  };
+  const lists = [];
+  try {
+    const configSrc = readFileSync(join(ROOT, 'astro.config.mjs'), 'utf8');
+    lists.push(['astro.config.mjs i18n.locales', readList(configSrc, /locales:\s*\[([^\]]*)\]/)]);
+  } catch {
+    /* config not present at the seam — skip */
+  }
+  try {
+    const i18nSrc = readFileSync(join(SRC, 'lib/i18n.ts'), 'utf8');
+    lists.push(['src/lib/i18n.ts LOCALES', readList(i18nSrc, /LOCALES\s*=\s*\[([^\]]*)\]/)]);
+  } catch {
+    /* src not present at the seam — skip */
+  }
+  for (const [name, list] of lists) {
+    if (!list) {
+      errors.push(`locale list unparseable: ${name}`);
+      continue;
+    }
+    const same =
+      list.length === LOCALES.length && LOCALES.every((l) => list.includes(l));
+    if (!same) {
+      errors.push(`locale lists disagree — ${name} = [${list.join(', ')}] vs validator = [${LOCALES.join(', ')}]`);
+    }
+  }
+}
+
+// ---- i18n source-page detection (used by the sitemap check). A built
+// localized page is a "source page" when a hand-written .astro file exists
+// under src/pages/<locale>/ — either a literal page (<loc>/blog/slug.astro)
+// or a dynamic route (<loc>/blog/[slug].astro) whose params produce the
+// built slug. astro.config uses fallbackType: '404', so a route WITHOUT a
+// locale source is not built at all — meaning every built page must be a
+// source page, and this detector failing open would silently re-admit
+// orphan fallback pages to the sitemap.
+//
+// Route shapes are enumerated once (e.g. 'zh/blog/[slug]', 'blog/index' →
+// 'blog', 'index' → ''), with the trailing /index stripped and the locale
+// prefix separated so a built path compares segment-for-segment.
+const sourceRouteShapes = new Set();
+{
+  const found = [];
+  (function collect(dir) {
+    let entries = [];
+    try {
+      entries = readdirSync(dir, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const e of entries) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) collect(p);
+      else if (e.name.endsWith('.astro')) found.push(p);
+    }
+  })(join(SRC, 'pages'));
+  for (const p of found) {
+    const shape = relative(join(SRC, 'pages'), p)
+      .split('\\')
+      .join('/')
+      .replace(/\.astro$/, '')
+      .replace(/(^|\/)index$/, ''); // 'blog/index' → 'blog', 'index' → ''
+    sourceRouteShapes.add(shape);
+  }
+}
+function isSourcePageHtml(htmlRel) {
+  // htmlRel is a built .html relative path, e.g. 'ar/tools/fit-check/index.html'
+  const dir = htmlRel.endsWith('index.html')
+    ? htmlRel.slice(0, -'index.html'.length).replace(/\/+$/, '')
+    : htmlRel.replace(/\.html$/, '');
+  const body = dir === '' ? [] : dir.split('/').filter(Boolean);
+  const loc = LOCALES.includes(body[0]) ? body[0] : 'en';
+  if (loc !== 'en') body.shift(); // compare the route body only
+  for (const shape of sourceRouteShapes) {
+    const segs = shape === '' ? [] : shape.split('/');
+    const shapeLoc = LOCALES.includes(segs[0]) && segs[0] !== 'en' ? segs[0] : 'en';
+    if (shapeLoc !== loc) continue;
+    const routeBody = shapeLoc === 'en' ? segs : segs.slice(1);
+    if (routeBody.length !== body.length) continue;
+    let ok = true;
+    for (let i = 0; i < routeBody.length; i++) {
+      if (routeBody[i].startsWith('[')) continue; // dynamic param
+      if (routeBody[i] !== body[i]) {
+        ok = false;
+        break;
+      }
+    }
+    if (ok) return true; // a concrete source route produces this page
+  }
+  return false;
+}
+// Self-test: the detector must recognize literal pages, dynamic-route pages,
+// and the root. A silent regression here once made the reverse-sitemap check
+// vacuous (it skipped every page), so the gate now verifies its own tools.
+for (const [probe, expected] of [
+  ['index.html', true],
+  ['about/index.html', true],
+  ['blog/x/index.html', true],
+  ['zh/about/index.html', true],
+  ['zh/tools/fit-check/index.html', true],
+  ['zh/blog/any-slug/index.html', true],
+  ['404.html', true],
+  ['zh/route-with-no-source/index.html', false],
+  ['fr/route-with-no-source/index.html', false],
+]) {
+  if (isSourcePageHtml(probe) !== expected) {
+    throw new Error(`validate-site: source-page detector self-test failed for "${probe}"`);
+  }
+}
 
 function walk(dir, out = []) {
   for (const f of readdirSync(dir)) {
@@ -54,6 +189,10 @@ const fragStats = { checked: 0, dangling: 0 };
 const slashOffenders = [];
 const ogStats = { pages: 0, files: 0 };
 
+// per-page SEO state collected during the single read pass below, consumed
+// by the lang/dir, hreflang and self-canonical checks afterwards
+const pageMeta = new Map(); // rel -> { lang, dirRtl, noindex, canonical, hreflang: Map<code, href> }
+
 for (const rel of htmlRels) {
   const file = join(DIST, rel);
   const html = readFileSync(file, 'utf8');
@@ -80,12 +219,28 @@ for (const rel of htmlRels) {
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (!canonical) errors.push(`${rel}: missing canonical`);
   else {
+    // Only the site root legitimately carries a trailing slash
+    // (trailingSlash: 'never'); locale roots are built and canonicalized
+    // slash-less (e.g. https://…com/zh).
     if (canonical.endsWith('/') && canonical !== SITE + '/') {
       errors.push(`${rel}: canonical ends with "/": ${canonical} (trailingSlash: 'never')`);
     }
     if (!seenCans.has(canonical)) seenCans.set(canonical, []);
     seenCans.get(canonical).push(rel);
   }
+
+  // hreflang links + robots state (consumed by the cluster check below)
+  const hreflang = new Map();
+  for (const m of html.matchAll(/<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"/g)) {
+    hreflang.set(m[1], m[2]);
+  }
+  pageMeta.set(rel, {
+    lang: html.match(/<html[^>]*\slang="([^"]+)"/)?.[1] ?? null,
+    dirRtl: /<html[^>]*\sdir="rtl"/.test(html),
+    noindex: /<meta name="robots" content="noindex/.test(html),
+    canonical,
+    hreflang,
+  });
 
   // OG/Twitter meta completeness + og:image is absolute on host + file exists in dist
   for (const prop of ['og:title', 'og:description', 'og:image']) {
@@ -168,7 +323,8 @@ for (const rel of htmlRels) {
 
     refs.push({ attr, raw, path, hash, hashOnly });
 
-    // trailing-slash check on href URLs (root "/" is the one legitimate slash)
+    // trailing-slash check on href URLs — only the site root "/" is a
+    // legitimate slash URL under trailingSlash: 'never'.
     if (attr === 'href' && !hashOnly && path.endsWith('/') && path !== '/') {
       slashOffenders.push(`${rel}: URL ends with "/": ${raw}`);
     }
@@ -235,17 +391,104 @@ for (const rel of htmlRels) {
   }
 }
 
-// ---- global uniqueness: any duplicate anywhere is an error ----
+// ---- global uniqueness: any duplicate within the SAME locale is an error.
+// Cross-locale duplicates are expected (a localized page is a translation of
+// the English page and reuses its title/description for un-translated copy).
 function flagDuplicates(map, label) {
   for (const [value, rels] of map) {
-    if (rels.length > 1) {
-      errors.push(`duplicate ${label} on ${rels.length} pages: "${value}" — ${rels.join(', ')}`);
+    if (rels.length <= 1) continue;
+    // Group the offending rels by locale; only a same-locale pair is an error.
+    const byLocale = {};
+    for (const rel of rels) (byLocale[localeOf(rel)] ??= []).push(rel);
+    for (const [loc, sameLocRels] of Object.entries(byLocale)) {
+      if (sameLocRels.length > 1) {
+        errors.push(
+          `duplicate ${label} (${loc}) on ${sameLocRels.length} pages: "${value}" — ${sameLocRels.join(', ')}`
+        );
+      }
     }
   }
 }
 flagDuplicates(seenTitles, 'title');
 flagDuplicates(seenDescs, 'meta description');
 flagDuplicates(seenCans, 'canonical');
+
+// ---- i18n: <html lang> / dir must match the page's URL locale. Pages under
+// /ar/ additionally render dir="rtl". With fallbackType: '404' every built
+// page has a localized source, so this must hold on every page; the root 404
+// (English-only, noindex) is the one deliberate exception.
+for (const rel of htmlRels) {
+  if (rel === '404.html' || rel.includes('/404/')) continue;
+  const meta = pageMeta.get(rel);
+  const urlLocale = localeOf(rel);
+  if (!meta.lang) {
+    errors.push(`${rel}: <html> missing lang attribute`);
+  } else {
+    const langBase = meta.lang.split('-')[0];
+    if (langBase !== urlLocale) {
+      errors.push(`${rel}: <html lang="${meta.lang}"> does not match URL locale "${urlLocale}"`);
+    }
+  }
+  if (rel.startsWith('ar/')) {
+    if (!meta.dirRtl) {
+      errors.push(`${rel}: Arabic page missing dir="rtl"`);
+    }
+  } else if (meta.dirRtl) {
+    errors.push(`${rel}: non-Arabic page has dir="rtl"`);
+  }
+}
+
+// ---- hreflang cluster check. Every indexable page must emit the full
+// cluster (en/zh/fr/ar/es + x-default); every target must be a built page
+// whose own canonical equals the target URL, and every non-self entry must
+// be reciprocated by the target (it links back to this page's canonical).
+// The homepage clusters once shipped with a trailing-slash mismatch between
+// hreflang targets and canonicals — exactly the class of bug this catches.
+{
+  const canonicalToRel = new Map();
+  for (const [rel, meta] of pageMeta) {
+    if (meta.canonical) canonicalToRel.set(meta.canonical, rel);
+  }
+  const expectedCodes = new Set([...LOCALES, 'x-default']);
+  for (const [rel, meta] of pageMeta) {
+    if (meta.noindex) continue; // 404s and legal noindex candidates emit no cluster
+    if (!meta.canonical) continue; // flagged by the canonical check
+    const got = new Set(meta.hreflang.keys());
+    const missing = [...expectedCodes].filter((c) => !got.has(c));
+    const extra = [...got].filter((c) => !expectedCodes.has(c));
+    if (missing.length || extra.length) {
+      errors.push(
+        `${rel}: hreflang cluster incomplete — missing [${missing.join(', ')}]${extra.length ? `, unexpected [${extra.join(', ')}]` : ''}`
+      );
+      continue;
+    }
+    const loc = localeOf(rel);
+    for (const [code, href] of meta.hreflang) {
+      if (code === loc) {
+        // the self-entry must equal the page's own canonical
+        if (href !== meta.canonical) {
+          errors.push(`${rel}: hreflang "${code}" self-reference ${href} != canonical ${meta.canonical}`);
+        }
+        continue;
+      }
+      const targetRel = canonicalToRel.get(href);
+      if (!targetRel) {
+        errors.push(`${rel}: hreflang "${code}" target ${href} is no built page's canonical`);
+        continue;
+      }
+      if (code === 'x-default' && localeOf(targetRel) !== 'en') {
+        errors.push(`${rel}: hreflang x-default must point at the English tree, got ${href}`);
+        continue;
+      }
+      const back = pageMeta.get(targetRel)?.hreflang.get(loc);
+      if (back !== meta.canonical) {
+        errors.push(
+          `${rel}: hreflang "${code}" → ${href} is not reciprocal (target does not link back to ${meta.canonical})`
+        );
+      }
+    }
+  }
+}
 
 // ---- internal link + fragment anchor resolution (single pass, in-memory) ----
 function resolveInternal(path, fromDir) {
@@ -322,7 +565,9 @@ const sitemapUrls = [...readFileSync(join(DIST, 'sitemap-0.xml'), 'utf8').matchA
   (m) => m[1]
 );
 for (const url of sitemapUrls) {
-  if (url.endsWith('/') && url !== SITE + '/') errors.push(`sitemap URL ends with "/": ${url}`);
+  if (url.endsWith('/') && url !== SITE + '/') {
+    errors.push(`sitemap URL ends with "/": ${url}`);
+  }
 }
 const builtUrls = new Set(
   htmlRels.map((rel) => {
@@ -331,22 +576,67 @@ const builtUrls = new Set(
   })
 );
 
+// privacy / terms are indexable but deliberately kept out of the sitemap in
+// every locale (a sitemap need not be exhaustive); the root 404 is noindex.
+const EXCLUDED_FROM_SITEMAP = new Set(['privacy', 'terms']);
+
 for (const url of sitemapUrls) {
   const normalized = url.replace(/\/$/, '');
   const normalizedBuilt = normalized.replace(SITE, '');
-  const found = [...builtUrls].some((b) => b.endsWith(normalizedBuilt) || b === normalized);
+  const found = [...builtUrls].some((b) => b === normalized || b.endsWith(normalizedBuilt));
   if (!found) errors.push(`sitemap URL has no built page: ${url}`);
 }
+// Reverse direction: the sitemap must not contain error pages (noindex 404s)
+// or the excluded legal pages. A 404 or excluded page in the sitemap is an
+// error — search engines would crawl what we told them to skip.
+for (const url of sitemapUrls) {
+  const p = url.replace(SITE, '').replace(/\/$/, '') || '/';
+  const tail = p.split('/').filter((s) => s && !LOCALES.includes(s));
+  if (tail[tail.length - 1] === '404' || p === '/404') {
+    errors.push(`sitemap includes a 404/error page: ${url}`);
+  }
+  if (EXCLUDED_FROM_SITEMAP.has(tail[tail.length - 1])) {
+    errors.push(`sitemap includes excluded legal page: ${url}`);
+  }
+}
+// Every built, indexable, sitemap-eligible page must actually be in the
+// sitemap. isSourcePageHtml gates this: with fallbackType: '404' every built
+// page has a hand-written source route, so a page failing that check signals
+// a build/orphan problem rather than an intentional exclusion.
 for (const b of builtUrls) {
-  if (b.includes('404')) continue;
   const path = b.replace(SITE, '') || '/';
-  if (path === '/404') continue;
+  if (path === '/404' || path.includes('/404')) continue;
+  const tail = path.split('/').filter((s) => s && !LOCALES.includes(s));
+  if (EXCLUDED_FROM_SITEMAP.has(tail[tail.length - 1])) continue;
+  const pathNoRoot = path.replace(/^\//, '');
+  const htmlRel =
+    pathNoRoot === ''
+      ? 'index.html'
+      : pathNoRoot.includes('/')
+        ? pathNoRoot + '/index.html'
+        : pathNoRoot + '.html';
+  if (!isSourcePageHtml(htmlRel)) continue;
   const inSitemap = sitemapUrls.some((u) => {
     const up = u.replace(SITE, '').replace(/\/$/, '') || '/';
     return up === path;
   });
-  if (!inSitemap && !['/privacy', '/terms'].includes(path)) {
-    errors.push(`built page missing from sitemap: ${path}`);
+  if (!inSitemap) errors.push(`built page missing from sitemap: ${path}`);
+}
+
+// ---- self-canonical check (i18n). Every non-default-locale page must
+// canonicalize to its own localized URL (not the English twin, not a hub
+// page). The canonical is the source of truth for "which page is this"; a
+// /zh/… page that canonicals to /… or to a parent hub is a regression.
+for (const [rel, meta] of pageMeta) {
+  const loc = localeOf(rel);
+  if (loc === 'en') continue;
+  if (meta.noindex) continue; // noindex pages have no canonical requirement
+  if (!meta.canonical) continue; // missing canonical already flagged above
+  // The page's own URL, derived from the built path.
+  const ownUrl =
+    new URL('/' + rel.replace(/index\.html$/, '').replace(/\.html$/, ''), SITE).href.replace(/\/$/, '');
+  if (meta.canonical !== ownUrl) {
+    errors.push(`${rel}: canonical "${meta.canonical}" != own URL "${ownUrl}" (must self-canonicalize)`);
   }
 }
 

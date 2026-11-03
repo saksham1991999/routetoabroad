@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "images:generate": "python3 scripts/generate_images.py",
-    "images:process": "node scripts/process-images.mjs"
+    "images:process": "node scripts/process-images.mjs",
+    "icons:generate": "node scripts/generate-icons.mjs",
+    "globe:build": "node scripts/build-globe-data.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",
@@ -22,7 +24,10 @@
   "devDependencies": {
     "@astrojs/check": "^0.9.12",
     "@types/node": "^24.0.0",
+    "d3-geo": "^3.1.2",
     "sharp": "^0.34.2",
-    "typescript": "^5.8.3"
+    "topojson-client": "^3.1.0",
+    "typescript": "^5.8.3",
+    "world-atlas": "^2.0.2"
   }
 }

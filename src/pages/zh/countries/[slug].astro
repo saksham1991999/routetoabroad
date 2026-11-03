@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared CountryDetailPage component, slugs in src/lib/static-paths.ts.
+import CountryDetailPage from '../../../components/pages/CountryDetailPage.astro';
+import { countryPaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return countryPaths();
+}
+
+const { country } = Astro.props;
+---
+
+<CountryDetailPage locale="zh" country={country} />

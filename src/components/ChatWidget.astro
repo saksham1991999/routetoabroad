@@ -1,31 +1,43 @@
 ---
 // Floating AI counselor. The heavy logic only loads on first open.
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+
+const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
+const ui = uiFor(locale);
 ---
 
-<div class="chat-root" id="chat-root">
-  <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label="Open AI counselor chat">
+<div class="chat-root" id="chat-root"
+  data-greeting={ui.chat.greeting}
+  data-retry={ui.chat.retry}
+  data-no-reply={ui.chat.noReply}
+  data-unavailable={ui.chat.unavailable}
+  data-locale={locale}
+  data-typing={ui.chat.typing}
+>
+  <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label={ui.chat.openAria}>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
       <path stroke-linecap="round" stroke-linejoin="round" d="M8 10.5h8M8 13.5h5M21 12c0 4.14-4.03 7.5-9 7.5-1.06 0-2.08-.15-3.02-.44L3.6 20.4l1.06-3.63C3.6 15.4 3 13.76 3 12c0-4.14 4.03-7.5 9-7.5s9 3.36 9 7.5Z" />
     </svg>
-    <span class="chat-fab-label">Ask us</span>
+    <span class="chat-fab-label">{ui.chat.fabLabel}</span>
   </button>
 
-  <div class="chat-panel" id="chat-panel" role="dialog" aria-label="AI counselor" hidden>
+  <div class="chat-panel" id="chat-panel" role="dialog" aria-label={ui.chat.assistantName} hidden>
     <header class="chat-head">
       <div class="chat-id">
         <span class="chat-presence" aria-hidden="true"></span>
         <div>
-          <strong>RouteToAbroad Assistant</strong>
-          <span>Powered by Claude · replies in seconds</span>
+          <strong>{ui.chat.assistantName}</strong>
+          <span>{ui.chat.assistantTag}</span>
         </div>
       </div>
       <div class="chat-head-actions">
-        <button type="button" id="chat-reset" class="chat-reset" aria-label="Start a new conversation" hidden>
+        <button type="button" id="chat-reset" class="chat-reset" aria-label={ui.chat.resetAria} hidden>
           <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" d="M4 4v6h6M20 20v-6h-6M20 9A8 8 0 0 0 6.3 6.3L4 10M4 15a8 8 0 0 0 13.7 2.7L20 14" />
           </svg>
         </button>
-        <button type="button" id="chat-close" class="chat-close" aria-label="Close chat">
+        <button type="button" id="chat-close" class="chat-close" aria-label={ui.chat.closeAria}>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
             <path stroke-linecap="round" d="M6 6l12 12M18 6L6 18" />
           </svg>
@@ -34,17 +46,17 @@
     </header>
     <div class="chat-log" id="chat-log" aria-live="polite"></div>
     <div class="chat-suggestions" id="chat-suggestions">
-      <p class="chat-sug-label">Try asking</p>
+      <p class="chat-sug-label">{ui.chat.tryAsking}</p>
       <div class="chat-sug-row">
-        <button type="button" data-prompt="Can I study MBBS in China as an Indian student?">MBBS in China</button>
-        <button type="button" data-prompt="What does a two-week China tour usually cost?">China tour costs</button>
-        <button type="button" data-prompt="How do you verify a Chinese supplier before I pay a deposit?">Verify a supplier</button>
+        {ui.chat.suggestions.map((s) => (
+          <button type="button" data-prompt={s.prompt}>{s.label}</button>
+        ))}
       </div>
     </div>
     <form class="chat-form" id="chat-form">
-      <label class="visually-hidden" for="chat-input">Message</label>
-      <input id="chat-input" type="text" placeholder="Ask about programmes, visas, trips…" autocomplete="off" />
-      <button type="submit" class="chat-send" aria-label="Send">
+      <label class="visually-hidden" for="chat-input">{ui.chat.assistantName}</label>
+      <input id="chat-input" type="text" placeholder={ui.chat.placeholder} autocomplete="off" />
+      <button type="submit" class="chat-send" aria-label={ui.chat.sendAria}>
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
           <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h13M13 6.5 18.5 12 13 17.5" />
         </svg>
@@ -281,7 +293,7 @@
     line-height: 1.2;
     color: var(--ink-soft);
     background: var(--paper-raised);
-    text-align: left;
+    text-align: start;
     transition: border-color 0.15s, color 0.15s, background 0.15s;
   }
 
@@ -502,6 +514,17 @@
   const suggestions = document.getElementById('chat-suggestions');
   const sendBtn = form?.querySelector<HTMLButtonElement>('.chat-send') || null;
   const STORE_KEY = 'rta-chat-v1';
+  // -- i18n strings read from data attributes on the .chat-root element.
+  //    Astro serializes them per-locale from the frontmatter ui object. --
+  const root = document.getElementById('chat-root');
+  const i18nStrings = {
+    typing: root?.dataset.typing ?? 'Assistant is typing',
+    greeting: root?.dataset.greeting ?? 'Hi! I can answer questions about studying in China, trips to East Asia, or sourcing from Chinese factories. What are you working on?',
+    retry: root?.dataset.retry ?? 'Try again',
+    noReply: root?.dataset.noReply ?? '(no reply — try again or WhatsApp us)',
+    unavailable: root?.dataset.unavailable ?? 'Sorry — the assistant is unavailable right now.',
+    locale: (root?.dataset.locale as string | undefined) ?? 'en',
+  };
 
   // -- Widget state (single source of truth for the panel lifecycle) --
   const chat = {
@@ -563,7 +586,7 @@
     wrap.className = 'chat-msg bot';
     const dots = document.createElement('span');
     dots.className = 'typing-dots';
-    dots.setAttribute('aria-label', 'Assistant is typing');
+    dots.setAttribute('aria-label', i18nStrings.typing);
     for (let i = 0; i < 3; i++) dots.appendChild(document.createElement('i'));
     wrap.appendChild(dots);
     log?.appendChild(wrap);
@@ -594,7 +617,7 @@
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: apiMessages() }),
+        body: JSON.stringify({ messages: apiMessages(), locale: i18nStrings.locale }),
         signal: controller.signal,
       });
 
@@ -638,7 +661,7 @@
       }
 
       if (!full) {
-        fail(placeholder, '(no reply — try again or WhatsApp us)', text, userEntry);
+        fail(placeholder, i18nStrings.noReply, text, userEntry);
       } else {
         chat.history.push({ role: 'assistant', content: full });
         saveChat();
@@ -646,7 +669,7 @@
     } catch {
       // A reset aborted this fetch — never paint a failure into the fresh log.
       if (stale()) return;
-      fail(placeholder, 'Sorry — the assistant is unavailable right now.', text, userEntry);
+      fail(placeholder, i18nStrings.unavailable, text, userEntry);
     } finally {
       // Only the current send may release the busy lock: a stale send's
       // finally would re-enable the button under a newer in-flight one.
@@ -670,7 +693,7 @@
     const retry = document.createElement('button');
     retry.type = 'button';
     retry.className = 'chat-retry';
-    retry.textContent = 'Try again';
+    retry.textContent = i18nStrings.retry;
     retry.addEventListener('click', () => {
       // Remove THIS turn, identified by object identity — a content-equality
       // check could pop a newer identical message instead. If the entry is
@@ -696,7 +719,7 @@
     // attention until the first real message is sent (see send()).
     if (!chat.started) {
       chat.started = true;
-      addMsg('bot', 'Hi! I can answer questions about studying in China, trips to East Asia, or sourcing from Chinese factories. What are you working on?');
+      addMsg('bot', i18nStrings.greeting);
       saveChat();
     }
     scrollLog();

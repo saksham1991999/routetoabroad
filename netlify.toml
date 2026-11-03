@@ -2,7 +2,7 @@
 
 [build]
   # The validator is part of the gate — a broken build must not deploy.
-  command = "npm run build && node scripts/validate-site.mjs"
+  command = "npm run check && npm run build && node scripts/validate-site.mjs"
   publish = "dist"
 
 [build.environment]
@@ -125,8 +125,31 @@
     X-Frame-Options = "DENY"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
 [[headers]]
   for = "/_astro/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+# Brand icons are content-addressed by hand (regenerate via npm run icons:generate
+# and rename on breaking changes), so they cache like build assets.
+[[headers]]
+  for = "/favicon*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/icon-*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/apple-touch-icon.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"

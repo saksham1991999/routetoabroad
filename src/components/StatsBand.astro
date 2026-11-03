@@ -7,14 +7,19 @@ interface StatItem {
   label: string;
 }
 
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+
 interface Props {
   stats: StatItem[];
+  locale?: Locale;
 }
 
-const { stats } = Astro.props;
+const { stats, locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale);
 ---
 
-<section class="stats-band" aria-label="Track record">
+<section class="stats-band" aria-label={ui.statsAria}>
   <div class="container stats-grid">
     {stats.map((s) => (
       <div class="stat" data-reveal>
@@ -38,7 +43,7 @@ const { stats } = Astro.props;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
     gap: 2rem;
-    text-align: left;
+    text-align: start;
   }
 
   @media (min-width: 48rem) {
@@ -51,11 +56,11 @@ const { stats } = Astro.props;
     }
 
     .stat + .stat {
-      border-left: 1px solid rgba(255, 255, 255, 0.12);
+      border-inline-start: 1px solid rgba(255, 255, 255, 0.12);
     }
 
     .stat:first-child {
-      padding-left: 0;
+      padding-inline-start: 0;
     }
   }
 

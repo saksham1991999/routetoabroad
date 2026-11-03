@@ -60,35 +60,10 @@ export const NAV_LINKS = [
   { href: '/about', label: 'About' },
 ] as const;
 
-export const FOOTER_LINKS = {
-  services: [
-    { href: '/education', label: 'Study in China' },
-    { href: '/tourism', label: 'Tours & Travel' },
-    { href: '/trade', label: 'Trade & Sourcing' },
-    { href: '/for-agents', label: 'For Agents' },
-  ],
-  tools: [
-    { href: '/tools/fit-check', label: 'Fit check' },
-    { href: '/tools/scholarship-eligibility', label: 'Scholarship check' },
-    { href: '/tools/cost-calculator', label: 'Cost calculator' },
-    { href: '/tools/document-checklist', label: 'Document checklist' },
-    { href: '/tools/timeline-planner', label: 'Timeline planner' },
-  ],
-  resources: [
-    { href: '/guides', label: 'Guides' },
-    { href: '/blog', label: 'Insights' },
-    { href: '/faq', label: 'FAQ' },
-    { href: '/glossary', label: 'Glossary' },
-    { href: '/universities', label: 'Universities' },
-    { href: '/cities', label: 'Cities' },
-  ],
-  company: [
-    { href: '/about', label: 'About us' },
-    { href: '/contact', label: 'Contact' },
-    { href: '/privacy', label: 'Privacy' },
-    { href: '/terms', label: 'Terms' },
-  ],
-} as const;
+// Footer navigation lives in src/i18n/ui.ts (ui.footer.groups): canonical
+// hrefs there are the English paths, translated per locale and localized
+// through translatePath() in Footer.astro. A separate English-only list here
+// went stale the moment footers became multilingual.
 
 export const PILLARS = {
   education: { color: 'var(--edu)', label: 'Education' },

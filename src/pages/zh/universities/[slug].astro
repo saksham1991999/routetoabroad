@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared UniversityDetailPage component, slugs in src/lib/static-paths.ts.
+import UniversityDetailPage from '../../../components/pages/UniversityDetailPage.astro';
+import { universityPaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return universityPaths();
+}
+
+const { university } = Astro.props;
+---
+
+<UniversityDetailPage locale="zh" university={university} />
