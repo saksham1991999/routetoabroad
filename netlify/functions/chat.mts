@@ -63,13 +63,17 @@ export default async (req: Request): Promise<Response> => {
   // if the user's first turn is in English. `body.locale` is client-sent, so
   // it is allow-listed against the known languages (never interpolated raw
   // into the system prompt) and English gets no hint (it's the default).
+  // Object.hasOwn keeps inherited keys (e.g. "toString") from passing.
   const LOCALE_NAMES: Record<string, string> = {
     zh: 'Chinese (Simplified)',
     fr: 'French',
     ar: 'Arabic',
     es: 'Spanish',
   };
-  const localeName = LOCALE_NAMES[body.locale ?? ''];
+  const requestedLocale = typeof body.locale === 'string' ? body.locale : '';
+  const localeName = Object.hasOwn(LOCALE_NAMES, requestedLocale)
+    ? LOCALE_NAMES[requestedLocale]
+    : undefined;
   const localeHint = localeName
     ? `The user's interface language is: ${localeName}. If the user writes in English, reply in ${localeName}.\n\n`
     : '';
@@ -78,6 +82,11 @@ export default async (req: Request): Promise<Response> => {
   // order — a raw slice can start on an assistant turn, which the
   // Messages API rejects. Malformed entries are dropped (a null entry would
   // otherwise throw on .role) and leading non-user turns are removed.
+  // Per-message and total character caps bound the billed input size: this
+  // is a paid endpoint reachable by anyone, so a client must not be able to
+  // POST megabytes of context per request.
+  const MAX_MESSAGE_CHARS = 4_000;
+  const MAX_TOTAL_CHARS = 24_000;
   const messages = body.messages
     .filter(
       (m: unknown): m is { role: string; content: string } =>
@@ -86,7 +95,17 @@ export default async (req: Request): Promise<Response> => {
         ((m as { role?: unknown }).role === 'user' || (m as { role?: unknown }).role === 'assistant') &&
         typeof (m as { content?: unknown }).content === 'string'
     )
-    .slice(-20);
+    .slice(-20)
+    .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_MESSAGE_CHARS) }));
+  while (messages.length > 0 && messages[0].role !== 'user') {
+    messages.shift();
+  }
+  while (
+    messages.length > 1 &&
+    messages.reduce((sum, m) => sum + m.content.length, 0) > MAX_TOTAL_CHARS
+  ) {
+    messages.shift();
+  }
   while (messages.length > 0 && messages[0].role !== 'user') {
     messages.shift();
   }
@@ -115,6 +134,8 @@ export default async (req: Request): Promise<Response> => {
         messages,
         stream: true,
       }),
+      // A hung upstream must not hold the function until the platform limit.
+      signal: AbortSignal.timeout(30_000),
     });
   } catch {
     return new Response(JSON.stringify({ error: 'Upstream unreachable' }), {
@@ -124,10 +145,12 @@ export default async (req: Request): Promise<Response> => {
   }
 
   if (!upstream.ok || !upstream.body) {
-    const errorText = await upstream.text().catch(() => '');
-    return new Response(errorText || 'Upstream error', {
-      status: upstream.status,
-      headers: { 'Content-Type': 'text/plain' },
+    // Log server-side, return a generic error: provider error bodies would
+    // disclose account/quota state and fingerprint the provider to visitors.
+    console.error(`chat: upstream ${upstream.status}`);
+    return new Response(JSON.stringify({ error: 'Upstream error' }), {
+      status: 502,
+      headers: { 'Content-Type': 'application/json' },
     });
   }
 
