@@ -28,9 +28,9 @@ import { TESTIMONIALS } from '../data/testimonials';
       ))}
     </div>
     <div class="carousel-controls">
-      <button type="button" class="c-btn" data-dir="-1" aria-label="Previous testimonial">←</button>
+      <button type="button" class="c-btn" data-dir="-1" aria-label="Previous testimonial"><span class="c-arrow" aria-hidden="true">←</span></button>
       <div class="c-dots" role="presentation"></div>
-      <button type="button" class="c-btn" data-dir="1" aria-label="Next testimonial">→</button>
+      <button type="button" class="c-btn" data-dir="1" aria-label="Next testimonial"><span class="c-arrow" aria-hidden="true">→</span></button>
       <button type="button" class="c-btn c-pause" id="t-pause" aria-pressed="false" aria-label="Pause testimonial rotation">❚❚</button>
     </div>
   </div>
@@ -139,6 +139,10 @@ import { TESTIMONIALS } from '../data/testimonials';
     transition: border-color 0.15s, color 0.15s;
   }
 
+  .c-arrow {
+    display: inline-block;
+  }
+
   .c-btn:hover {
     border-color: color-mix(in srgb, var(--ink) 45%, transparent);
     color: var(--ink);
@@ -200,9 +204,15 @@ import { TESTIMONIALS } from '../data/testimonials';
       });
     }
 
-    const index = () => Math.round(carousel.scrollLeft / carousel.clientWidth);
+    // In RTL, modern browsers report a negative scrollLeft range (0 down to
+    // -max). Negate it so the index math and the scroll target stay symmetric.
+    const isRtl = document.documentElement.dir === 'rtl';
+    const index = () =>
+      isRtl
+        ? Math.round(-carousel.scrollLeft / carousel.clientWidth)
+        : Math.round(carousel.scrollLeft / carousel.clientWidth);
     const scrollTo = (i: number) => {
-      carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
+      carousel.scrollTo({ left: isRtl ? -i * carousel.clientWidth : i * carousel.clientWidth, behavior: 'smooth' });
     };
     const sync = () => {
       const i = index();

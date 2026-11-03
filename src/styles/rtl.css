@@ -75,3 +75,69 @@ html[dir='rtl'] .site-footer {
 }
 
 /* --- Home hero: the "01 / 02 / 03" pillar numerals sit on the start side --- */
+
+/* --- Prose: list markers and blockquote accents sit on the start side --- */
+html[dir='rtl'] .prose ul,
+html[dir='rtl'] .prose ol {
+  padding-right: 1.4em;
+  padding-left: 0;
+}
+
+html[dir='rtl'] .prose blockquote {
+  border-left: 0;
+  border-right: 2px solid var(--accent);
+  padding-left: 0;
+  padding-right: 1.4rem;
+}
+
+/* --- Breadcrumbs: the '/' separator must trail the start side --- */
+html[dir='rtl'] .breadcrumbs li + li::before {
+  margin-right: 0;
+  margin-left: 0.5rem;
+}
+
+/* --- Arrow link: mirror the glyph and reverse the hover nudge --- */
+html[dir='rtl'] .arrow-link::after {
+  content: '←';
+}
+
+html[dir='rtl'] .arrow-link:hover::after {
+  transform: translateX(-4px);
+}
+
+/* --- Component hover nudges: physical translateX(+) grows toward the end
+      side in RTL, so reverse each one. Component class names carry Astro
+      scoped suffixes, yet these unscoped descendant selectors still match
+      (the data-astro-cid suffix rides on the ancestor class only); the
+      transition is re-declared so hover still animates under the override.
+      --- */
+html[dir='rtl'] .footer-email:hover span {
+  transition: transform 0.3s var(--ease-out);
+  transform: translateX(-6px);
+}
+
+html[dir='rtl'] .footer-grid nav a:hover {
+  transition: color 0.15s, transform 0.2s var(--ease-out);
+  transform: translateX(-3px);
+}
+
+html[dir='rtl'] .sh-action:hover span {
+  transition: transform 0.25s var(--ease-out);
+  transform: translateX(-3px);
+}
+
+html[dir='rtl'] .c-arrow {
+  transform: scaleX(-1);
+}
+
+/* --- Home page-local nudges: the ar homepage's scoped hovers grow
+      translateX(+3px) toward the end side, so reverse them; the journey-strip
+      dot already uses the logical margin-inline-end set in the page CSS. --- */
+html[dir='rtl'] .pillar-row:hover .arrow-link::after {
+  transform: translateX(-4px);
+}
+
+html[dir='rtl'] .tool-row:hover .tool-go {
+  transition: transform 0.15s ease;
+  transform: translateX(-3px);
+}

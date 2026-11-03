@@ -50,7 +50,7 @@ const pillars = [
   {
     n: '01',
     key: 'Education',
-    href: '/education',
+    href: '/es/education',
     image: eduImg,
     alt: 'Students collaborating in a bright modern Chinese university laboratory',
     lead: 'Subsidised global education',
@@ -60,7 +60,7 @@ const pillars = [
   {
     n: '02',
     key: 'Tourism',
-    href: '/tourism',
+    href: '/es/tourism',
     image: tourismImg,
     alt: 'A traveller looking over the Great Wall of China at golden hour',
     lead: 'Bespoke heritage journeys',
@@ -70,7 +70,7 @@ const pillars = [
   {
     n: '03',
     key: 'Trade',
-    href: '/trade',
+    href: '/es/trade',
     image: tradeImg,
     alt: 'Container cranes working at the Guangzhou port at dawn',
     lead: 'Cross-border trade, handled',
@@ -98,11 +98,11 @@ const illuminated = [
 ];
 
 const tools = [
-  { n: '01', href: '/tools/fit-check', label: 'Fit check', desc: 'Four questions. A straight yes, maybe, or not this intake.' },
-  { n: '02', href: '/tools/scholarship-eligibility', label: 'Scholarship check', desc: 'Where your profile actually sits for CSC and university awards.' },
-  { n: '03', href: '/tools/cost-calculator', label: 'Cost calculator', desc: 'Tuition plus living costs by city, programme and lifestyle.' },
-  { n: '04', href: '/tools/document-checklist', label: 'Document checklist', desc: 'Your personalised list, printable, nothing missing.' },
-  { n: '05', href: '/tools/timeline-planner', label: 'Timeline planner', desc: 'Your intake date, worked backwards into a month-by-month plan.' },
+  { n: '01', href: '/es/tools/fit-check', label: 'Fit check', desc: 'Four questions. A straight yes, maybe, or not this intake.' },
+  { n: '02', href: '/es/tools/scholarship-eligibility', label: 'Scholarship check', desc: 'Where your profile actually sits for CSC and university awards.' },
+  { n: '03', href: '/es/tools/cost-calculator', label: 'Cost calculator', desc: 'Tuition plus living costs by city, programme and lifestyle.' },
+  { n: '04', href: '/es/tools/document-checklist', label: 'Document checklist', desc: 'Your personalised list, printable, nothing missing.' },
+  { n: '05', href: '/es/tools/timeline-planner', label: 'Timeline planner', desc: 'Your intake date, worked backwards into a month-by-month plan.' },
 ];
 ---
 
@@ -305,7 +305,7 @@ const tools = [
         index="02 / 04"
         title="<span id='tools-title'>Start with facts, not brochures.</span>"
         lede="Five quick tools that give you real numbers before you ever talk to us. No email required."
-        action={{ href: '/tools', label: 'All tools' }}
+        action={{ href: '/es/tools', label: 'All tools' }}
       />
       <div class="tool-rows">
         {tools.map((t, i) => (
@@ -332,11 +332,11 @@ const tools = [
         index="03 / 04"
         title="<span id='insights-title'>From the desk.</span>"
         lede="Field notes on studying, travelling and trading across the corridor."
-        action={{ href: '/blog', label: 'All articles' }}
+        action={{ href: '/es/blog', label: 'All articles' }}
       />
       <div class="post-rows">
         {posts.map((post, i) => (
-          <a href={`/blog/${post.id}`} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+          <a href={`/es/blog/${post.id}`} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
             <div class="post-body">
               <h3 class="post-title">{post.data.title}</h3>
               <p class="post-desc">{post.data.description}</p>

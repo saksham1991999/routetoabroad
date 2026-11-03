@@ -17,7 +17,7 @@ const { post } = Astro.props;
 const { data } = post;
 const { Content } = await render(post);
 const author = AUTHORS[data.author];
-const url = `https://routetoabroad.com/blog/${post.id}`;
+const url = `https://routetoabroad.com/es/blog/${post.id}`;
 
 const related = (await getCollection('blog'))
   .filter((p) => p.id !== post.id && p.data.category === data.category)
@@ -36,7 +36,7 @@ const relatedAll = [...related, ...relatedFallback];
 <BaseLayout
   title={data.title}
   description={data.description}
-  path={`/blog/${post.id}`}
+  path={`/es/blog/${post.id}`}
   type="article"
   image="/og/default.jpg"
   crumbs={[
@@ -65,7 +65,7 @@ const relatedAll = [...related, ...relatedFallback];
       <Breadcrumbs
         crumbs={[
           { name: 'Insights', url: '/es/blog' },
-          { name: data.title, url: `/blog/${post.id}` },
+          { name: data.title, url: `/es/blog/${post.id}` },
         ]}
       />
       <p class="eyebrow">{data.category}</p>
@@ -125,7 +125,7 @@ const relatedAll = [...related, ...relatedFallback];
           {relatedAll.map((p) => (
             <ArticleCard
               title={p.data.title}
-              href={`/blog/${p.id}`}
+              href={`/es/blog/${p.id}`}
               description={p.data.description}
               image={p.data.image}
               imageAlt={p.data.imageAlt}

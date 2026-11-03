@@ -26,19 +26,19 @@ const hasBody = Boolean(university.body && university.body.trim());
 <BaseLayout
   title={`${data.name} — Programs, Costs & Admission for International Students`}
   description={data.intro}
-  path={`/universities/${university.id}`}
+  path={`/ar/universities/${university.id}`}
   crumbs={[
     { name: 'Universities', url: '/ar/universities' },
-    { name: data.name, url: `https://routetoabroad.com/universities/${university.id}` },
+    { name: data.name, url: `https://routetoabroad.com/ar/universities/${university.id}` },
   ]}
   jsonLd={[
     courseSchema({
       name: `Study at ${data.name}`,
       description: data.intro,
-      url: `https://routetoabroad.com/universities/${university.id}`,
+      url: `https://routetoabroad.com/ar/universities/${university.id}`,
       // The provider is the university itself, not the consultancy.
       providerName: data.name,
-      providerUrl: `https://routetoabroad.com/universities/${university.id}`,
+      providerUrl: `https://routetoabroad.com/ar/universities/${university.id}`,
     }),
     faqSchema(faqs),
   ]}
@@ -49,7 +49,7 @@ const hasBody = Boolean(university.body && university.body.trim());
         <Breadcrumbs
           crumbs={[
             { name: 'Universities', url: '/ar/universities' },
-            { name: data.name, url: `/universities/${university.id}` },
+            { name: data.name, url: `/ar/universities/${university.id}` },
           ]}
         />
         <p class="eyebrow">{data.chineseName}</p>

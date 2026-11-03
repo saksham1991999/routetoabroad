@@ -17,11 +17,11 @@ const updated = new Date(c.updated).toLocaleDateString('en-IN', { day: 'numeric'
 <BaseLayout
   title={c.title}
   description={c.answer}
-  path={`/compare/${c.slug}`}
+  path={`/es/compare/${c.slug}`}
   type="article"
   crumbs={[
     { name: 'Compare', url: '/es/compare' },
-    { name: c.headline, url: `https://routetoabroad.com/compare/${c.slug}` },
+    { name: c.headline, url: `https://routetoabroad.com/es/compare/${c.slug}` },
   ]}
   jsonLd={[faqSchema(c.faqs)]}
 >
@@ -30,7 +30,7 @@ const updated = new Date(c.updated).toLocaleDateString('en-IN', { day: 'numeric'
       <Breadcrumbs
         crumbs={[
           { name: 'Compare', url: '/es/compare' },
-          { name: c.headline, url: `/compare/${c.slug}` },
+          { name: c.headline, url: `/es/compare/${c.slug}` },
         ]}
       />
       <p class="eyebrow">Comparison · updated {updated}</p>

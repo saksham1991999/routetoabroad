@@ -22,10 +22,10 @@ const hasBody = Boolean(city.body && city.body.trim());
 <BaseLayout
   title={`${data.name} City Guide — Costs, Universities & Travel`}
   description={data.intro}
-  path={`/cities/${city.id}`}
+  path={`/fr/cities/${city.id}`}
   crumbs={[
     { name: 'Cities', url: '/fr/cities' },
-    { name: data.name, url: `https://routetoabroad.com/cities/${city.id}` },
+    { name: data.name, url: `https://routetoabroad.com/fr/cities/${city.id}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
@@ -35,7 +35,7 @@ const hasBody = Boolean(city.body && city.body.trim());
         <Breadcrumbs
           crumbs={[
             { name: 'Cities', url: '/fr/cities' },
-            { name: data.name, url: `/cities/${city.id}` },
+            { name: data.name, url: `/fr/cities/${city.id}` },
           ]}
         />
         <p class="eyebrow">{data.chineseName} · {data.country}</p>

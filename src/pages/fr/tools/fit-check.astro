@@ -341,8 +341,8 @@ interface Props {}
     let verdict = 'maybe';
     let title = '';
     let body = '';
-    let primary = { href: '/contact', label: 'Talk to an advisor' };
-    let secondary = { href: '/tools/scholarship-eligibility', label: 'Check scholarship odds' };
+    let primary = { href: '/fr/contact', label: 'Talk to an advisor' };
+    let secondary = { href: '/fr/tools/scholarship-eligibility', label: 'Check scholarship odds' };
 
     if (master && research) {
       verdict = 'yes';
@@ -356,7 +356,7 @@ interface Props {}
           country === 'india'
             ? 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: qualifying NEET (mandatory for Indian applicants) and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.'
             : 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: meeting your home regulator\'s equivalency requirements before you enrol, and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.';
-        secondary = { href: '/guides/mbbs-in-china', label: 'Read the MBBS guide' };
+        secondary = { href: '/fr/guides/mbbs-in-china', label: 'Read the MBBS guide' };
       } else {
         verdict = 'maybe';
         title = 'Maybe — March is a thin intake for MBBS.';
@@ -388,7 +388,7 @@ interface Props {}
       verdict = 'maybe';
       title = 'Maybe — let\'s define the target first.';
       body = 'Without a completed qualification we cannot place you into a degree yet — but a foundation or language year can start now and keep every door open. One call will map it.';
-      secondary = { href: '/guides/study-in-china-from-india', label: 'Read the roadmap' };
+      secondary = { href: '/fr/guides/study-in-china-from-india', label: 'Read the roadmap' };
     } else if (flexible) {
       verdict = 'maybe';
       title = 'Maybe — timing is the only open question.';

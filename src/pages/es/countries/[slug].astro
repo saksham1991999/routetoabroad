@@ -22,16 +22,16 @@ const hasBody = Boolean(country.body && country.body.trim());
 <BaseLayout
   title={`${data.name} — Study & Travel Guide`}
   description={data.intro}
-  path={`/countries/${country.id}`}
+  path={`/es/countries/${country.id}`}
   crumbs={[
-    { name: data.name, url: `https://routetoabroad.com/countries/${country.id}` },
+    { name: data.name, url: `https://routetoabroad.com/es/countries/${country.id}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
   <article>
     <header class="co-hero">
       <div class="container">
-        <Breadcrumbs crumbs={[{ name: data.name, url: `/countries/${country.id}` }]} />
+        <Breadcrumbs crumbs={[{ name: data.name, url: `/es/countries/${country.id}` }]} />
         <h1>{data.name}</h1>
         <p class="co-intro">{data.intro}</p>
         <div class="co-stats num">

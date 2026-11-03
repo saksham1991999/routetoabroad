@@ -96,7 +96,7 @@ const process = [
       { label: 'Placed', value: '500+ students' },
     ]}
     actions={[
-      { href: '/tools/fit-check', label: 'Check your fit' },
+      { href: '/zh/tools/fit-check', label: 'Check your fit' },
       { href: '#programmes', label: 'See programmes', variant: 'outline' },
     ]}
     jumps={[
@@ -212,7 +212,7 @@ const process = [
       />
       <div class="uni-grid">
         {universities.map((u, i) => (
-          <a href={`/universities/${u.id}`} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
+          <a href={`/zh/universities/${u.id}`} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
             <div class="uni-media">
               <Picture src={u.data.image} alt={u.data.imageAlt} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 33vw" formats={['avif', 'webp']} loading="lazy" />
             </div>

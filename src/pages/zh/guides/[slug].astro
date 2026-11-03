@@ -15,7 +15,7 @@ export async function getStaticPaths() {
 const { guide } = Astro.props;
 const { data } = guide;
 const { Content } = await render(guide);
-const url = `https://routetoabroad.com/guides/${guide.id}`;
+const url = `https://routetoabroad.com/zh/guides/${guide.id}`;
 const faqs = data.faqs ?? [];
 
 const pillarColor: Record<string, string> = {
@@ -28,7 +28,7 @@ const pillarColor: Record<string, string> = {
 <BaseLayout
   title={data.title}
   description={data.description}
-  path={`/guides/${guide.id}`}
+  path={`/zh/guides/${guide.id}`}
   type="article"
   crumbs={[
     { name: 'Guides', url: '/zh/guides' },
@@ -56,7 +56,7 @@ const pillarColor: Record<string, string> = {
       <Breadcrumbs
         crumbs={[
           { name: 'Guides', url: '/zh/guides' },
-          { name: data.title, url: `/guides/${guide.id}` },
+          { name: data.title, url: `/zh/guides/${guide.id}` },
         ]}
       />
       <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{data.pillar} guide</p>
