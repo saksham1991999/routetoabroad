@@ -64,14 +64,14 @@ const process = [
   locale="zh"
   title="Study in China — MBBS, Engineering & Scholarships"
   description="University placement in China end to end: MOE-listed universities, CSC scholarships, MBBS and engineering programmes, visa processing and arrival support. 500+ students placed."
-  path="/zh/education"
+  path="/education"
   image="/og/education.jpg"
-  crumbs={[{ name: 'Education', url: 'https://routetoabroad.com/education' }]}
+  crumbs={[{ name: 'Education', url: '/zh/education' }]}
   jsonLd={[
     serviceSchema({
       name: 'Study in China — university placement',
       description: 'Admissions, scholarship and visa services for international students entering Chinese universities, from consultation to campus registration.',
-      url: 'https://routetoabroad.com/education',
+      url: '/zh/education',
       serviceType: 'Education consultancy',
       areaServed: ['IN', 'CN', 'SA', 'AE', 'NG', 'KE'],
     }),
@@ -88,7 +88,7 @@ const process = [
     index="EDU / 01"
     title="Study in China. Change everything."
     lede="English-taught degrees at MOE-listed universities, scholarships that actually reduce fees, and a team that stays with you from application to campus gate."
-    crumbs={[{ name: 'Education', url: '/education' }]}
+    crumbs={[{ name: 'Education', url: '/zh/education' }]}
     facts={[
       { label: 'Tuition from', value: 'US$2,500 / yr' },
       { label: 'Intakes', value: 'Sep · Feb' },
@@ -212,7 +212,7 @@ const process = [
       />
       <div class="uni-grid">
         {universities.map((u, i) => (
-          <a href={`/zh/universities/${u.id}`} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
+          <a href={`/universities/${u.id}`} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
             <div class="uni-media">
               <Picture src={u.data.image} alt={u.data.imageAlt} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 33vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
@@ -258,7 +258,7 @@ const process = [
     </div>
   </section>
 
-  <CtaBand />
+  <CtaBand locale="zh" />
 </BaseLayout>
 
 <style>

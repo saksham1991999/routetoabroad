@@ -44,8 +44,8 @@ const values = [
   locale="zh"
   title="About Us — The People Behind RouteToAbroad"
   description="RouteToAbroad runs from New Delhi and Guangzhou: founder-led education placement, tourism and India–China trade services. Meet the team and the standard we work to."
-  path="/zh/about"
-  crumbs={[{ name: 'About', url: 'https://routetoabroad.com/about' }]}
+  path="/about"
+  crumbs={[{ name: 'About', url: '/zh/about' }]}
   jsonLd={founders.map((f) =>
     personSchema({
       name: f.name,
@@ -61,7 +61,7 @@ const values = [
     index="ABT / 07"
     title="We don't just connect countries. We connect people."
     lede="A founder-led consultancy working one corridor deeply — India and East Asia — with offices in both and something to lose in both."
-    crumbs={[{ name: 'About', url: '/about' }]}
+    crumbs={[{ name: 'About', url: '/zh/about' }]}
     facts={[
       { label: 'Offices', value: 'Delhi · Guangzhou' },
       { label: 'Practice', value: 'Edu · Travel · Trade' },
@@ -174,7 +174,7 @@ const values = [
     </div>
   </section>
 
-  <CtaBand title="Let's talk." text="One conversation, no commitment — and an honest read on whatever you're planning." />
+  <CtaBand locale="zh" title="Let's talk." text="One conversation, no commitment — and an honest read on whatever you're planning." />
 </BaseLayout>
 
 <style>

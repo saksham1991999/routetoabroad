@@ -11,7 +11,7 @@ import Seo from '../components/Seo.astro';
 import SiteSchemas from '../components/SiteSchemas.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
-import { localeFromPath, LOCALE_META, type Locale } from '../lib/i18n';
+import { localeFromPath, LOCALE_META, translatePath, type Locale } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -147,7 +147,7 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
       )
     }
 
-    <a class="rta-tab" id="rta-tab" href="/tools/fit-check">Fit check</a>
+    <a class="rta-tab" id="rta-tab" href={translatePath('/tools/fit-check', pageLocale)}>Fit check</a>
 
     <script>
       // Single source of truth for the Formspree endpoint (src/lib/site.ts).

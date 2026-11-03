@@ -16,14 +16,14 @@ const universities = (await getCollection('universities')).sort(
   title="Chinese University Profiles for International Students"
   description="Honest profiles of the universities we place into: Peking, Tsinghua, Fudan, Zhejiang and Shanghai Jiao Tong — programmes, real costs, admission realities and FAQs."
   path="/zh/universities"
-  crumbs={[{ name: 'Universities', url: 'https://routetoabroad.com/universities' }]}
+  crumbs={[{ name: 'Universities', url: '/zh/universities'}]}
 >
   <PageHero
     eyebrow="Universities"
     index="UNI / 08"
     title="The five we place into most."
     lede="Not a rankings mirror — working profiles with real fee ranges, admission realities and what each campus is actually like."
-    crumbs={[{ name: 'Universities', url: '/universities' }]}
+    crumbs={[{ name: 'Universities', url: '/zh/universities'}]}
     facts={[
       { label: 'Profiles', value: '05 universities' },
       { label: 'Cities', value: 'Beijing · Shanghai · Hangzhou' },
@@ -52,7 +52,7 @@ const universities = (await getCollection('universities')).sort(
     </div>
   </section>
 
-  <CtaBand title="Not sure which university fits?" text="Send one enquiry. We'll shortlist against your marks, budget and city preferences — honestly, including when the answer is a cheaper university than you expected." />
+  <CtaBand locale="zh" title="Not sure which university fits?" text="Send one enquiry. We'll shortlist against your marks, budget and city preferences — honestly, including when the answer is a cheaper university than you expected." />
 </BaseLayout>
 
 <style>

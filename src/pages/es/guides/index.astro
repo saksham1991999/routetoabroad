@@ -26,13 +26,13 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
   title="Guides — Studying, Visas, Travel & Sourcing Explained"
   description="In-depth guides for the East Asia corridor: MBBS in China, CSC scholarships, student visas, HSK preparation, China and Japan travel, and China sourcing — answer-first and regularly updated."
   path="/es/guides"
-  crumbs={[{ name: 'Guides', url: 'https://routetoabroad.com/guides' }]}
+  crumbs={[{ name: 'Guides', url: '/es/guides'}]}
 >
   <PageHero
     eyebrow="Guides"
     title="The reference shelf."
     lede="Long-form explainers written to be answers, not brochures — each one opens with the short answer, then earns it."
-    crumbs={[{ name: 'Guides', url: '/guides' }]}
+    crumbs={[{ name: 'Guides', url: '/es/guides'}]}
   />
 
   {byPillar.map(({ pillar, guides: group }) =>
@@ -61,7 +61,7 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
     ) : null
   )}
 
-  <CtaBand title="Guides answer general questions." text="Yours are specific. The fit check and the advisor desk answer those." />
+  <CtaBand locale="es" title="Guides answer general questions." text="Yours are specific. The fit check and the advisor desk answer those." />
 </BaseLayout>
 
 <style>

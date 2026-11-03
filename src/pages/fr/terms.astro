@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { SITE, CURRENT_YEAR } from '../../lib/site';
+---
+
+<BaseLayout
+  locale="fr"
+  title="Terms of Service"
+  description="The honest disclaimers behind RouteToAbroad's services: what we guarantee (process, effort, honesty) and what we cannot (admissions, scholarships, visas, recognition)."
+  path="/terms"
+>
+  <PageHero eyebrow="Legal" title="Terms of service" lede="The honest disclaimers that should be on every consultancy's site, on ours they actually are." />
+
+  <section class="section">
+    <div class="container-text legal">
+      <p class="legal-updated num">Last updated: November 2025</p>
+
+      <h2>1. Services</h2>
+      <p>
+        RouteToAbroad provides education placement (admissions, scholarship applications, visa preparation
+        and arrival support), travel design (private, group and business travel across China and Japan), and
+        trade services (sourcing, quality control, compliance and logistics) between India and East Asia.
+      </p>
+
+      <h2>2. What we do not guarantee</h2>
+      <ul>
+        <li><strong>Admission.</strong> Universities decide admissions. We prepare files that give you the best honest chance; we cannot purchase outcomes.</li>
+        <li><strong>Scholarships.</strong> Scholarship committees decide funding. We do not sell guaranteed full scholarships, and no legitimate consultancy can.</li>
+        <li><strong>Visas.</strong> Embassies decide visas. We ensure your file is complete and correct; refusal for misrepresentation or policy change is outside anyone's control.</li>
+        <li><strong>Recognition.</strong> Licensing bodies (NMC/FMGE-NExT, PMDC, ECFMG and others) set their own rules, which change. Verify your country's current requirements before committing.</li>
+      </ul>
+
+      <h2>3. Your obligations</h2>
+      <p>
+        You agree to provide true, complete documents. <strong>A false or altered document ends the
+        application immediately</strong> — and our engagement — without refund of work already performed,
+        because it also endangers every honest file around it.
+      </p>
+
+      <h2>4. Fees and payments</h2>
+      <p>
+        Education engagements: quoted per service before work begins. Trade engagements: success fee tied
+        to shipped value, with audit/inspection costs quoted and payable upfront. Tourism: deposit and
+        balance per your booking confirmation. University tuition and third-party fees (embassies, exam
+        bodies, insurers) are always paid to the institution concerned — never to personal accounts.
+      </p>
+
+      <h2>5. Cancellations</h2>
+      <p>
+        Tourism bookings: full refund up to 30 days before departure; within 30 days, all recoverable
+        supplier amounts are refunded with receipts. Education and trade engagements: cancellable at any
+        point; fees for completed work stages remain due.
+      </p>
+
+      <h2>6. Tool outputs</h2>
+      <p>
+        Calculators, fit checks and checklists on this site are estimation and routing aids built on our
+        placement records. They are not offers, verdicts, or professional advice. Your offer letter and
+        official fee schedules are the real numbers.
+      </p>
+
+      <h2>7. Liability</h2>
+      <p>
+        Our liability for any claim is limited to the fees you paid us for the service giving rise to the
+        claim. We are not liable for indirect losses (lost profits, missed intakes caused by third-party
+        delays, and similar).
+      </p>
+
+      <h2>8. Governing law</h2>
+      <p>
+        These terms are governed by the laws of India, with jurisdiction in New Delhi.
+      </p>
+
+      <h2>9. Contact</h2>
+      <p>
+        {SITE.email} · {SITE.phoneIndia} · {SITE.offices[0].street}, {SITE.offices[0].city} {SITE.offices[0].postal}.
+      </p>
+
+      <p class="legal-foot">© {CURRENT_YEAR} {SITE.name}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal h2 {
+    font-size: var(--step-2);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 2.2rem;
+  }
+
+  .legal p {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .legal ul {
+    margin-top: 1rem;
+    padding-left: 1.4em;
+    display: grid;
+    gap: 0.7rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .legal ul li::marker {
+    color: var(--accent);
+  }
+
+  .legal-updated {
+    font-size: 0.6875rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .legal-foot {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+</style>

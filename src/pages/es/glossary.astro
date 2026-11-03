@@ -23,15 +23,15 @@ const grouped = categories.map((cat) => ({
   locale="es"
   title="Glossary — CSC, JW202, HSK, AQL & East Asia Terms Explained"
   description="Plain-English definitions for the terms of studying, travelling and trading across East Asia: CSC scholarship, JW202, X1 visa, HSK, AQL, Bill of Lading, Canton Fair and more."
-  path="/es/glossary"
-  crumbs={[{ name: 'Glossary', url: 'https://routetoabroad.com/glossary' }]}
+  path="/glossary"
+  crumbs={[{ name: 'Glossary', url: '/es/glossary' }]}
   jsonLd={[...definedTermSchemas(GLOSSARY.map((t) => ({ term: t.term, definition: t.definition })))]}
 >
   <PageHero
     eyebrow="Glossary"
     title="Every acronym, in plain English."
     lede="The vocabulary of the corridor — defined the way we explain them on calls. Anchors below; link straight to any term."
-    crumbs={[{ name: 'Glossary', url: '/glossary' }]}
+    crumbs={[{ name: 'Glossary', url: '/es/glossary' }]}
   />
 
   <section class="section">
@@ -65,7 +65,7 @@ const grouped = categories.map((cat) => ({
     </div>
   </section>
 
-  <CtaBand title="Terms are easy. Decisions are harder." text="When you're ready to turn vocabulary into an application, the fit check is four questions and the advisors are one reply away." />
+  <CtaBand locale="es" title="Terms are easy. Decisions are harder." text="When you're ready to turn vocabulary into an application, the fit check is four questions and the advisors are one reply away." />
 </BaseLayout>
 
 <style>

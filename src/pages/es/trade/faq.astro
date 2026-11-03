@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS } from '../../../data/faqs';
+import { faqSchema } from '../../../lib/schema';
+
+const faqs = TRADE_FAQS;
+const eyebrow = 'Trade';
+const color = 'var(--trade)';
+const title = 'Trade FAQs — Sourcing, QC & Logistics';
+const description = "Insights into India\u2013China trade: MOQs, AQL quality inspections, shipping times, customs and BIS, payment terms, disputes and fees.";
+---
+
+<BaseLayout
+  locale="es"
+  title={title}
+  description={description}
+  path="/es/trade"
+  crumbs={[{ name: eyebrow, url: 'https://routetoabroad.com/es/trade' }, { name: 'FAQ', url: 'https://routetoabroad.com/es/trade/faq' }]}
+  jsonLd={[faqSchema(faqs)]}
+>
+  <PageHero
+    eyebrow={eyebrow}
+    title="Frequently asked questions"
+    lede={description}
+    crumbs={[{ name: eyebrow, url: '/es/trade' }, { name: 'FAQ', url: '/es/trade/faq' }]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="faq-topline" style={`border-color: ${color}`}></div>
+      <FaqAccordion faqs={faqs} />
+    </div>
+  </section>
+
+  <CtaBand locale="es" title="Still have questions?" text="Ask the desk directly — we reply within one working day, 9:00–18:00 IST Monday to Saturday." />
+</BaseLayout>
+
+<style>
+  .faq-topline {
+    border-top: 3px solid;
+    margin-bottom: 2.2rem;
+  }
+</style>

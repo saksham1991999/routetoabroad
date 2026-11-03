@@ -63,14 +63,14 @@ const process = [
   locale="ar"
   title="India–China Trade Services — Sourcing, QC & Logistics"
   description="Product sourcing, factory audits, AQL quality control, customs clearance and sea/air freight between China and India — run from Guangzhou on a success-fee model tied to shipped value."
-  path="/ar/trade"
+  path="/trade"
   image="/og/trade.jpg"
-  crumbs={[{ name: 'Trade', url: 'https://routetoabroad.com/trade' }]}
+  crumbs={[{ name: 'Trade', url: '/ar/trade' }]}
   jsonLd={[
     serviceSchema({
       name: 'India–China trade services',
       description: 'Sourcing, quality control, customs compliance and freight management for India–China trade, on a success-fee model.',
-      url: 'https://routetoabroad.com/trade',
+      url: '/ar/trade',
       serviceType: 'Trade services',
       areaServed: ['IN', 'CN'],
     }),
@@ -82,7 +82,7 @@ const process = [
     index="TRD / 03"
     title="Your supply chain doesn't need more complexity."
     lede="It needs one accountable team on the factory floor. Sourcing, quality gates, customs and freight between China and India — run from our Guangzhou office, on a success fee tied to shipped value."
-    crumbs={[{ name: 'Trade', url: '/trade' }]}
+    crumbs={[{ name: 'Trade', url: '/ar/trade' }]}
     facts={[
       { label: 'Base', value: 'Guangzhou · Delhi' },
       { label: 'Network', value: '200+ vetted' },
@@ -224,7 +224,7 @@ const process = [
     </div>
   </section>
 
-  <CtaBand />
+  <CtaBand locale="ar" />
 </BaseLayout>
 
 <style>

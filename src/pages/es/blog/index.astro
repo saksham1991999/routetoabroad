@@ -15,14 +15,14 @@ const posts = (await getCollection('blog')).sort(
   title="Insights — Field Notes on Studying, Travelling & Trading in Asia"
   description="The RouteToAbroad desk blog: MBBS decisions, CSC scholarship guides, Beijing and Kyoto travel, India–China trade practice — written by the people doing the work."
   path="/es/blog"
-  crumbs={[{ name: 'Insights', url: 'https://routetoabroad.com/blog' }]}
+  crumbs={[{ name: 'Insights', url: '/es/blog'}]}
 >
   <PageHero
     eyebrow="Insights"
     index="INS / 06"
     title="Notes from both sides of the bridge."
     lede="No listicles about '10 reasons to study abroad'. Field notes from admissions desks, tour routes and factory floors."
-    crumbs={[{ name: 'Insights', url: '/blog' }]}
+    crumbs={[{ name: 'Insights', url: '/es/blog'}]}
     facts={[
       { label: 'Field notes', value: `${posts.length} articles` },
       { label: 'Desks', value: 'Edu · Travel · Trade' },
@@ -70,7 +70,7 @@ const posts = (await getCollection('blog')).sort(
     </div>
   </section>
 
-  <CtaBand title="Reading is step one." text="When you want the answer for your specific case, the fit check takes four questions and the advisors reply within a day." />
+  <CtaBand locale="es" title="Reading is step one." text="When you want the answer for your specific case, the fit check takes four questions and the advisors reply within a day." />
 </BaseLayout>
 
 <style>

@@ -13,13 +13,13 @@ const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.d
   title="City Guides — Studying & Travelling in China's Great Cities"
   description="Honest city guides for international students and travellers: Beijing, Shanghai, Guangzhou and Hangzhou — real monthly costs, universities, highlights and best times to visit."
   path="/es/cities"
-  crumbs={[{ name: 'Cities', url: 'https://routetoabroad.com/cities' }]}
+  crumbs={[{ name: 'Cities', url: '/es/cities'}]}
 >
   <PageHero
     eyebrow="Cities"
     title="Four cities we know street by street."
     lede="Costs from our own student cohorts, food we've eaten, campuses we've registered students on. Beijing, Shanghai, Guangzhou, Hangzhou."
-    crumbs={[{ name: 'Cities', url: '/cities' }]}
+    crumbs={[{ name: 'Cities', url: '/es/cities'}]}
   />
 
   <section class="section">
@@ -47,7 +47,7 @@ const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.d
     </div>
   </section>
 
-  <CtaBand title="Seeing them in person beats reading about them" text="Our tours hit every city on this page — and our student placements register into them every September." />
+  <CtaBand locale="es" title="Seeing them in person beats reading about them" text="Our tours hit every city on this page — and our student placements register into them every September." />
 </BaseLayout>
 
 <style>

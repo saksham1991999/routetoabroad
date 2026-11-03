@@ -1,6 +1,6 @@
 ---
 import { SITE } from '../lib/site';
-import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
 import { uiFor } from '../i18n/ui';
 
 const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
@@ -33,7 +33,7 @@ const {
 
       <div class="cta-side">
         <div class="cta-actions">
-          <a href="/contact" class="btn btn-light btn-lg">
+          <a href={translatePath('/contact', locale)} class="btn btn-light btn-lg">
             {ui.cta.talkToAdvisor} <span aria-hidden="true">→</span>
           </a>
           <a href={SITE.whatsapp} class="btn btn-outline-light btn-lg" rel="noopener">

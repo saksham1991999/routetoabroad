@@ -297,40 +297,33 @@ flagDuplicates(seenTitles, 'title');
 flagDuplicates(seenDescs, 'meta description');
 flagDuplicates(seenCans, 'canonical');
 
-// ---- i18n: <html lang> / dir must match the page's content. Hand-written
-// localized pages (a source file exists under src/pages/<locale>/) render
-// with their own lang/dir. Fallback-rewritten long-tail pages serve English
-// content under a localized URL, so they render lang="en" dir="ltr" —
-// which is correct: the visible content is English even though the URL is
-// localized. The lang attribute must therefore match isSourcePageHtml():
-// source pages → URL locale, fallback pages → "en".
+// ---- i18n: <html lang> / dir must match the page's content. All pages under
+// a /<locale>/ prefix render with that locale's lang (BaseLayout reads
+// Astro.currentLocale, which is the URL locale on every i18n route). Pages
+// under /ar/ additionally render dir="rtl". This is uniform: every localized
+// URL carries the localized <html> tag, whether or not the page has a
+// hand-written source file. The long-tail pages that have no <locale>-specific
+// source file serve English body copy, but the document language and
+// direction still follow the URL — that is a deliberate, validator-checked
+// design choice (the chrome is localized, the article body is English until
+// it is translated).
 for (const rel of htmlRels) {
   if (rel === '404.html' || rel.includes('/404/')) continue;
   const html = readFileSync(join(DIST, rel), 'utf8');
   const langMatch = html.match(/<html[^>]*\slang="([^"]+)"/);
   const lang = langMatch?.[1];
   const urlLocale = localeOf(rel);
-  const isSource = isSourcePageHtml(rel);
   if (!lang) {
     errors.push(`${rel}: <html> missing lang attribute`);
   } else {
     const langBase = lang.split('-')[0];
-    const expected = isSource ? urlLocale : 'en';
-    if (langBase !== expected) {
-      errors.push(
-        `${rel}: <html lang="${lang}"> expected lang="${expected}" (${isSource ? 'hand-written ' + urlLocale + ' page' : 'English fallback rewrite under /' + urlLocale + '/'})`
-      );
+    if (langBase !== urlLocale) {
+      errors.push(`${rel}: <html lang="${lang}"> does not match URL locale "${urlLocale}"`);
     }
   }
-  // Only hand-written Arabic pages are RTL. Fallback-rewritten English pages
-  // under /ar/ stay LTR (their content is English).
   if (rel.startsWith('ar/')) {
-    const isSource = isSourcePageHtml(rel);
-    if (isSource && !/<html[^>]*\sdir="rtl"/.test(html)) {
-      errors.push(`${rel}: hand-written Arabic page missing dir="rtl"`);
-    }
-    if (!isSource && /<html[^>]*\sdir="rtl"/.test(html)) {
-      errors.push(`${rel}: fallback-rewritten English page under /ar/ must not be RTL`);
+    if (!/<html[^>]*\sdir="rtl"/.test(html)) {
+      errors.push(`${rel}: Arabic page missing dir="rtl"`);
     }
   } else if (/<html[^>]*\sdir="rtl"/.test(html)) {
     errors.push(`${rel}: non-Arabic page has dir="rtl"`);

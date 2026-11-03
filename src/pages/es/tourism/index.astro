@@ -72,14 +72,14 @@ const care = [
   locale="es"
   title="China & Japan Tours — Private, Group & Business Travel"
   description="Curated journeys through China and Japan: imperial circuits, Li River scenery, Kyoto in spring, Canton Fair trips and educational group tours — with visa concierge and a 24/7 travel desk."
-  path="/es/tourism"
+  path="/tourism"
   image="/og/tourism.jpg"
-  crumbs={[{ name: 'Tourism', url: 'https://routetoabroad.com/tourism' }]}
+  crumbs={[{ name: 'Tourism', url: '/es/tourism' }]}
   jsonLd={[
     serviceSchema({
       name: 'China & Japan tours',
       description: 'Private, group and business travel design across China and Japan with visa concierge, bilingual guides and 24/7 support.',
-      url: 'https://routetoabroad.com/tourism',
+      url: '/es/tourism',
       serviceType: 'Tourism services',
       areaServed: ['IN', 'CN', 'JP'],
     }),
@@ -91,7 +91,7 @@ const care = [
     index="TRV / 02"
     title="Discover East Asia. Your way."
     lede="Private journeys, educational group tours and business delegations through China and Japan — designed by people who live there, briefed on your diet, and supported 24/7 while you travel."
-    crumbs={[{ name: 'Tourism', url: '/tourism' }]}
+    crumbs={[{ name: 'Tourism', url: '/es/tourism' }]}
     facts={[
       { label: 'Countries', value: 'China · Japan' },
       { label: 'Style', value: 'Private · groups' },
@@ -157,7 +157,7 @@ const care = [
         <p class="divider-label">City guides</p>
         <div class="city-chips">
           {cities.map((c) => (
-            <a href={`/es/cities/${c.id}`} class="chip">{c.data.name}</a>
+            <a href={`/cities/${c.id}`} class="chip">{c.data.name}</a>
           ))}
         </div>
       </div>
@@ -242,7 +242,7 @@ const care = [
     </div>
   </section>
 
-  <CtaBand />
+  <CtaBand locale="es" />
 </BaseLayout>
 
 <style>

@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../../components/PageHero.astro';
+import { SITE, CURRENT_YEAR } from '../../lib/site';
+---
+
+<BaseLayout
+  locale="fr"
+  title="Privacy Policy"
+  description="What RouteToAbroad collects (enquiry fields only), what we never do (ads, third-party trackers), and how to reach us about your data."
+  path="/privacy"
+  noindex={false}
+>
+  <PageHero eyebrow="Legal" title="Privacy policy" lede="Short, because the practice is short: we collect what your enquiry needs, and nothing else." />
+
+  <section class="section">
+    <div class="container-text legal">
+      <p class="legal-updated num">Last updated: November 2025</p>
+
+      <h2>1. What we collect</h2>
+      <p>
+        When you submit an enquiry or form on this site, we collect the fields you fill in — typically your
+        name, email, phone number, and the message or programme details you share. We use them only to
+        respond to your enquiry and, if you proceed, to run your file.
+      </p>
+
+      <h2>2. What we never do</h2>
+      <p>
+        This site sets no advertising cookies and runs no third-party tracking scripts. We do not sell,
+        rent, or share your data with marketers. Full stop.
+      </p>
+
+      <h2>3. Functional storage</h2>
+      <p>
+        Two small pieces of state live in your browser's local storage: your light/dark theme preference and
+        your saved progress on the document checklist tool. Neither leaves your device.
+      </p>
+
+      <h2>4. Form processing</h2>
+      <p>
+        Enquiry forms are delivered to our team through Formspree (Formspree, Inc.), which processes the
+        submission on our behalf solely to deliver it to us. Our AI assistant, if you use it, sends the
+        conversation to our language-model provider to generate replies; conversations are not used for
+        advertising.
+      </p>
+
+      <h2>5. Retention</h2>
+      <p>
+        Enquiry correspondence is kept while your file is active and for a reasonable period afterwards for
+        service and legal reasons. Ask us to delete your data and we will, subject to record-keeping
+        obligations.
+      </p>
+
+      <h2>6. Your rights</h2>
+      <p>
+        You can ask what we hold about you, ask for corrections, or ask for deletion — write to
+        <a href={`mailto:${SITE.email}`}>{SITE.email}</a>. We respond within one working week.
+      </p>
+
+      <h2>7. Contact</h2>
+      <p>
+        Questions about this policy: {SITE.email} · {SITE.phoneIndia} · {SITE.offices[0].street}, {SITE.offices[0].city}.
+      </p>
+
+      <p class="legal-foot">© {CURRENT_YEAR} {SITE.name}</p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal h2 {
+    font-size: var(--step-2);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-top: 2.2rem;
+  }
+
+  .legal p {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+
+  .legal a {
+    color: var(--accent);
+  }
+
+  .legal-updated {
+    font-size: 0.6875rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .legal-foot {
+    margin-top: 3rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+</style>

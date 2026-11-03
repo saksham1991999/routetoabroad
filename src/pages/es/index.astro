@@ -110,7 +110,7 @@ const tools = [
   locale="es"
   title="RouteToAbroad — Study in China, Travel East Asia, Trade Across Borders"
   description="We place students in Chinese universities, design journeys through East Asia, and run India–China trade operations. Offices in New Delhi and Guangzhou. Start with a free fit check."
-  path="/es"
+  path="/"
   jsonLd={[faqSchema(homeFaqs), reviewSchema(
     // @ts-expect-error rating optional mismatch is fine here
     [{ author: 'Ananya Krishnan', reviewBody: 'RouteToAbroad didn\'t just find me a university; they found me a future.', rating: 5 }]
@@ -142,9 +142,8 @@ const tools = [
               <canvas
                 id="globe-canvas"
                 class="globe"
-                aria-hidden="true"
                 role="img"
-                aria-label="Dotted globe highlighting Delhi and Guangzhou"
+                aria-label="Dotted globe highlighting RouteToAbroad's offices in Delhi and Guangzhou"
                 data-markers={JSON.stringify(globeMarkers)}
               ></canvas>
             </div>
@@ -337,7 +336,7 @@ const tools = [
       />
       <div class="post-rows">
         {posts.map((post, i) => (
-          <a href={`/es/blog/${post.id}`} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+          <a href={`/blog/${post.id}`} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
             <div class="post-body">
               <h3 class="post-title">{post.data.title}</h3>
               <p class="post-desc">{post.data.description}</p>
@@ -392,7 +391,7 @@ const tools = [
 
   <!-- 10 · CLOSE -->
   <div data-tone="dark">
-    <CtaBand />
+    <CtaBand locale="es" />
   </div>
 </BaseLayout>
 

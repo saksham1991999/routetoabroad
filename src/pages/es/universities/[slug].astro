@@ -1,0 +1,305 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Image, Picture } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import SectionHead from '../../../components/SectionHead.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import { faqSchema, courseSchema } from '../../../lib/schema';
+
+export async function getStaticPaths() {
+  const universities = await getCollection('universities');
+  return universities.map((u) => ({
+    params: { slug: u.id },
+    props: { university: u },
+  }));
+}
+
+const { university } = Astro.props;
+const { data } = university;
+const { Content } = await render(university);
+const faqs = data.faqs ?? [];
+const hasBody = Boolean(university.body && university.body.trim());
+---
+
+<BaseLayout
+  title={`${data.name} — Programs, Costs & Admission for International Students`}
+  description={data.intro}
+  path={`/universities/${university.id}`}
+  crumbs={[
+    { name: 'Universities', url: '/es/universities' },
+    { name: data.name, url: `https://routetoabroad.com/universities/${university.id}` },
+  ]}
+  jsonLd={[
+    courseSchema({
+      name: `Study at ${data.name}`,
+      description: data.intro,
+      url: `https://routetoabroad.com/universities/${university.id}`,
+      // The provider is the university itself, not the consultancy.
+      providerName: data.name,
+      providerUrl: `https://routetoabroad.com/universities/${university.id}`,
+    }),
+    faqSchema(faqs),
+  ]}
+>
+  <article>
+    <header class="u-hero">
+      <div class="container">
+        <Breadcrumbs
+          crumbs={[
+            { name: 'Universities', url: '/es/universities' },
+            { name: data.name, url: `/universities/${university.id}` },
+          ]}
+        />
+        <p class="eyebrow">{data.chineseName}</p>
+        <h1>{data.name}</h1>
+        {data.nickname && <p class="u-nickname">{data.nickname}</p>}
+        <p class="u-intro">{data.intro}</p>
+      </div>
+    </header>
+
+    <div class="u-media">
+      <Picture
+        src={data.image}
+        alt={data.imageAlt}
+        widths={[768, 1280, 1920]}
+        sizes="100vw"
+        formats={['avif', 'webp']}
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+
+    <section class="section">
+      <div class="container u-grid">
+        <div class="u-main">
+          <section aria-labelledby="strengths-h">
+            <h2 id="strengths-h">Why students pick it</h2>
+            <div class="strengths">
+              {data.strengths.map((s) => (
+                <div class="strength" data-reveal>
+                  <h3>{s.title}</h3>
+                  <p>{s.text}</p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section aria-labelledby="prog-h" class="u-section">
+            <h2 id="prog-h">Programmes international students take</h2>
+            <ul class="prog-list">
+              {data.programmes.map((p) => <li>{p}</li>)}
+            </ul>
+          </section>
+
+          {hasBody && (
+            <section class="prose u-section"><Content /></section>
+          )}
+
+          {faqs.length > 0 && (
+            <section class="u-section" aria-labelledby="faq-h">
+              <h2 id="faq-h">Asked about {data.name}</h2>
+              <FaqAccordion faqs={faqs} />
+            </section>
+          )}
+        </div>
+
+        <aside class="u-side">
+          <div class="u-card card card-pad" data-reveal>
+            <h2>Costs at a glance</h2>
+            <dl class="costs">
+              <div><dt>Tuition</dt><dd>{data.costs.tuition}</dd></div>
+              <div><dt>Dormitory</dt><dd>{data.costs.dorm}</dd></div>
+              <div><dt>Living</dt><dd>{data.costs.living}</dd></div>
+            </dl>
+            <a href="/es/tools/cost-calculator" class="btn btn-outline btn-sm">Run full cost estimate</a>
+          </div>
+
+          <div class="u-card card card-pad" data-reveal>
+            <h2>Quick facts</h2>
+            <dl class="facts">
+              {data.facts.map((f) => (
+                <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
+              ))}
+            </dl>
+          </div>
+
+          <div class="u-cta card card-pad" data-reveal>
+            <h2>Want this university?</h2>
+            <p>Get an honest read on your chances — free, within one working day.</p>
+            <a href="/es/education#apply" class="btn btn-primary btn-sm">Start your file</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <CtaBand locale="es" />
+  </article>
+</BaseLayout>
+
+<style>
+  .u-hero {
+    padding-block: clamp(3rem, 7vw, 5.5rem) clamp(2rem, 4vw, 3rem);
+  }
+
+  .u-hero h1 {
+    margin-top: 1rem;
+    font-size: clamp(2.6rem, 6vw, 4.5rem);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1.02;
+  }
+
+  .u-nickname {
+    margin-top: 0.7rem;
+    font-size: var(--step-1);
+    font-weight: 500;
+    letter-spacing: -0.015em;
+    color: var(--accent);
+  }
+
+  .u-intro {
+    margin-top: 1.2rem;
+    max-width: 42rem;
+    font-size: var(--step-1);
+    line-height: 1.6;
+    color: var(--ink-soft);
+    text-wrap: pretty;
+  }
+
+  .u-media {
+    max-height: 56vh;
+    overflow: hidden;
+  }
+
+  .u-media :global(img) {
+    width: 100%;
+    height: 100%;
+    max-height: 56vh;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .u-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .u-main h2 {
+    font-size: var(--step-3);
+    margin-bottom: 1.4rem;
+  }
+
+  .u-section {
+    margin-top: 3rem;
+  }
+
+  .strengths {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.3rem;
+  }
+
+  .strength {
+    padding: 1.3rem 1.4rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+  }
+
+  .strength h3 {
+    font-size: 1.08rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .strength p {
+    margin-top: 0.45rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .prog-list {
+    padding-left: 1.3em;
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .prog-list li::marker {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .u-side {
+    position: sticky;
+    top: 6rem;
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .u-card h2,
+  .u-cta h2 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .costs div,
+  .facts div {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.6rem 0;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+  }
+
+  .costs div:last-child,
+  .facts div:last-child {
+    border-bottom: 0;
+  }
+
+  .costs dd,
+  .facts dd {
+    margin: 0;
+    text-align: right;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+  }
+
+  .u-card .btn {
+    margin-top: 0.9rem;
+    width: 100%;
+  }
+
+  .u-cta {
+    background: #f0f0f0;
+  }
+
+  :global([data-theme='dark']) .u-cta {
+    background: var(--paper-sunken);
+  }
+
+  .u-cta p {
+    margin: 0.5rem 0 1rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  @media (max-width: 64rem) {
+    .u-grid {
+      grid-template-columns: 1fr;
+    }
+    .u-side {
+      position: static;
+    }
+    .strengths {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

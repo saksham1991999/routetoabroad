@@ -24,8 +24,6 @@ type PointSet = {
   co: Float32Array;
   so: Float32Array;
   ranges: Range[];
-  /** Per-ring spherical orientation (+1 = exterior land, -1 = interior water). */
-  winds: Int8Array;
   count: number;
 };
 
@@ -42,24 +40,6 @@ const SIGNAL = '#5e78ee';
 const BASE_SPIN = 0.18; // degrees per frame — v2 cadence
 const RESUME_MS = 1400;
 const ARC_STEP = 0.09; // radians between horizon samples (~5°)
-
-/**
- * Orientation of a ring in lon/lat space — constant for a given ring, which
- * is what the rim-arc direction needs. Natural Earth stores exterior land
- * rings clockwise and inland water rings counter-clockwise in lon/lat
- * coordinates, so the sign cleanly separates the two. (Projected-chain
- * shoelace is not usable: it flips sign when the continent is mostly hidden
- * behind the limb.)
- */
-function ringWinding(ring: [number, number][]): number {
-  let sum = 0;
-  for (let i = 0; i < ring.length; i++) {
-    const a = ring[i]!;
-    const b = ring[(i + 1) % ring.length]!;
-    sum += a[0] * b[1] - b[0] * a[1];
-  }
-  return sum >= 0 ? 1 : -1;
-}
 
 /** Compile [lon, lat] rings into cos/sin tables, dropping closing duplicates. */
 function compile(lines: number[][][]): PointSet {
@@ -78,11 +58,9 @@ function compile(lines: number[][][]): PointSet {
   const co = new Float32Array(count);
   const so = new Float32Array(count);
   const ranges: Range[] = [];
-  const winds = new Int8Array(cleaned.length);
 
   let k = 0;
-  for (let r = 0; r < cleaned.length; r++) {
-    const line = cleaned[r]!;
+  for (const line of cleaned) {
     const start = k;
     for (const point of line as [number, number][]) {
       const lat = point[1] * DEG;
@@ -94,10 +72,9 @@ function compile(lines: number[][][]): PointSet {
       k++;
     }
     ranges.push({ start, len: line.length });
-    winds[r] = ringWinding(line as [number, number][]);
   }
 
-  return { cl, sl, co, so, ranges, winds, count };
+  return { cl, sl, co, so, ranges, count };
 }
 
 const land = compile(data.rings as number[][][]);
@@ -198,12 +175,15 @@ export function initGlobe(
 
   /**
    * Project a closed ring, clipped to the visible hemisphere. On exit the
-   * boundary walks the rim in the ring's own traversal direction until it
-   * re-enters, so the fill hugs the limb instead of cutting a chord across
-   * the disc. The rim direction comes from the ring's spherical orientation,
-   * which is constant for a given ring.
+   * boundary walks the rim until it re-enters, so the fill hugs the limb
+   * instead of cutting a chord across the disc.
+   *
+   * The arc always takes the short way round the rim. With an even-odd fill
+   * any arc direction yields a valid loop, but the long one would invert the
+   * whole disc's parity — so the direction is decided per crossing, never
+   * per ring.
    */
-  function clipRing(start: number, len: number, wind: number) {
+  function clipRing(start: number, len: number) {
     let s0 = -1;
     for (let i = 0; i < len; i++) {
       if (PZ[start + i]! >= 0) {
@@ -212,9 +192,6 @@ export function initGlobe(
       }
     }
     if (s0 < 0) return 0;
-
-    // Screen y runs downward, so the rim sense flips relative to math angles.
-    let dir = wind >= 0 ? 1 : -1;
 
     let m = 0;
     const put = (i: number) => {
@@ -252,15 +229,14 @@ export function initGlobe(
         CY[m] = y;
         m++;
       } else {
-        // Re-entering: sweep the rim from the exit point to this crossing.
-        // Always take the short way round — with an even-odd fill both arcs
-        // give a valid loop, but the long one inverts the whole disc's parity.
-        let sweep = (Math.atan2(y - cy, x - cx) - exitAngle) * dir;
+        // Re-entering: sweep the rim from the exit point to this crossing,
+        // always the short way round.
+        let sweep = Math.atan2(y - cy, x - cx) - exitAngle;
         sweep = ((sweep % TAU) + TAU) % TAU;
-        let arcDir = dir;
+        let arcDir = 1;
         if (sweep > Math.PI) {
           sweep = TAU - sweep;
-          arcDir = -dir;
+          arcDir = -1;
         }
         const steps = Math.max(1, Math.ceil(sweep / ARC_STEP));
         for (let s = 1; s <= steps; s++) {
@@ -324,7 +300,7 @@ export function initGlobe(
     let any = false;
     for (let ri = 0; ri < land.ranges.length; ri++) {
       const r = land.ranges[ri]!;
-      const m = clipRing(r.start, r.len, land.winds[ri]!);
+      const m = clipRing(r.start, r.len);
       if (m < 3) continue;
       ctx!.moveTo(CX[0]!, CY[0]!);
       for (let i = 1; i < m; i++) ctx!.lineTo(CX[i]!, CY[i]!);

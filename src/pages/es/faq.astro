@@ -13,15 +13,15 @@ const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS]
   locale="es"
   title="FAQ — Study, Travel & Trade Across East Asia"
   description="Every question we hear, answered straight: recognition, scholarships, visas, costs, tours, sourcing and payments — the RouteToAbroad FAQ hub."
-  path="/es/faq"
-  crumbs={[{ name: 'FAQ', url: 'https://routetoabroad.com/faq' }]}
+  path="/faq"
+  crumbs={[{ name: 'FAQ', url: '/es/faq' }]}
   jsonLd={[faqSchema(all)]}
 >
   <PageHero
     eyebrow="FAQ hub"
     title="The answers, with the awkward ones kept in."
     lede="Organised by service, written the way we answer on calls. If a question is missing, it goes on this page — ask us."
-    crumbs={[{ name: 'FAQ', url: '/faq' }]}
+    crumbs={[{ name: 'FAQ', url: '/es/faq' }]}
   />
 
   <section class="section">
@@ -54,7 +54,7 @@ const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS]
     </div>
   </section>
 
-  <CtaBand title="Question not on the list?" text="Ask it directly — WhatsApp, email, or the contact form. A human replies within one working day." />
+  <CtaBand locale="es" title="Question not on the list?" text="Ask it directly — WhatsApp, email, or the contact form. A human replies within one working day." />
 </BaseLayout>
 
 <style>
