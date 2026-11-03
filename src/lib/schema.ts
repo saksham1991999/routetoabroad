@@ -62,6 +62,11 @@ export function websiteSchema() {
 
 export function localBusinessSchema(officeIndex: number) {
   const o = SITE.offices[officeIndex];
+  // Publish only verified numbers: the India office uses the national line,
+  // the China office omits telephone until its own number is confirmed
+  // (SITE.phoneChina is {{VERIFY}}-marked).
+  const telephone =
+    o.country === 'IN' ? SITE.phoneIndiaHref.replace('tel:', '') : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -70,7 +75,7 @@ export function localBusinessSchema(officeIndex: number) {
     parentOrganization: { '@id': `${SITE.url}/#organization` },
     url: SITE.url,
     email: SITE.email,
-    telephone: SITE.phoneIndiaHref.replace('tel:', ''),
+    ...(telephone ? { telephone } : {}),
     image: `${SITE.url}/og/default.jpg`,
     priceRange: '$$',
     address: {
@@ -143,7 +148,9 @@ export function courseSchema(opts: {
   name: string;
   description: string;
   url: string;
-  providerId?: string;
+  /** The actual teaching institution — name and page URL. */
+  providerName?: string;
+  providerUrl?: string;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -153,9 +160,9 @@ export function courseSchema(opts: {
     url: opts.url,
     provider: {
       '@type': 'CollegeOrUniversity',
-      '@id': opts.providerId ?? `${SITE.url}/#organization`,
-      name: opts.name,
-      sameAs: opts.url,
+      '@id': opts.providerUrl ?? `${SITE.url}/#organization`,
+      name: opts.providerName ?? SITE.name,
+      sameAs: opts.providerUrl ?? SITE.url,
     },
   };
 }

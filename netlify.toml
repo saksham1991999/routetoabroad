@@ -5,7 +5,7 @@
   publish = "dist"
 
 [build.environment]
-  NODE_VERSION = "22"
+  NODE_VERSION = "24"
 
 # Redirect legacy v1/v2 SPA routes that no longer exist as such.
 [[redirects]]
@@ -19,8 +19,93 @@
   status = 301
 
 [[redirects]]
+  from = "/education/china-student-visa-guide"
+  to = "/guides/china-student-visa"
+  status = 301
+
+[[redirects]]
+  from = "/education/hsk-exam-preparation-guide"
+  to = "/guides/hsk-exam-preparation"
+  status = 301
+
+[[redirects]]
+  from = "/education/study-in-china-from-india"
+  to = "/guides/study-in-china-from-india"
+  status = 301
+
+[[redirects]]
+  from = "/education/mbbs-in-china-vs-india"
+  to = "/compare/mbbs-china-vs-india"
+  status = 301
+
+[[redirects]]
+  from = "/education/china-medical-university-rankings-2026"
+  to = "/universities"
+  status = 301
+
+[[redirects]]
+  from = "/education/peking-university-guide"
+  to = "/universities/peking-university"
+  status = 301
+
+[[redirects]]
+  from = "/education/tsinghua-university-guide"
+  to = "/universities/tsinghua-university"
+  status = 301
+
+[[redirects]]
+  from = "/education/fudan-university-guide"
+  to = "/universities/fudan-university"
+  status = 301
+
+[[redirects]]
+  from = "/education/zhejiang-university-guide"
+  to = "/universities/zhejiang-university"
+  status = 301
+
+[[redirects]]
+  from = "/education/shanghai-jiao-tong-university-guide"
+  to = "/universities/shanghai-jiao-tong-university"
+  status = 301
+
+[[redirects]]
   from = "/trade/india-china-trade-guide-2026"
   to = "/guides/india-china-trade-corridor"
+  status = 301
+
+[[redirects]]
+  from = "/trade/china-sourcing-guide"
+  to = "/guides/china-sourcing-guide"
+  status = 301
+
+[[redirects]]
+  from = "/trade/factory-audit-guide-china"
+  to = "/guides/china-sourcing-guide"
+  status = 301
+
+[[redirects]]
+  from = "/trade/china-supplier-verification-checklist"
+  to = "/guides/china-sourcing-guide"
+  status = 301
+
+[[redirects]]
+  from = "/trade/sea-freight-vs-air-freight-china-india"
+  to = "/compare/sea-vs-air-freight"
+  status = 301
+
+[[redirects]]
+  from = "/trade/india-china-customs-clearance-guide"
+  to = "/guides/india-china-trade-corridor"
+  status = 301
+
+[[redirects]]
+  from = "/trade/electronics-import-from-china-guide"
+  to = "/guides/china-sourcing-guide"
+  status = 301
+
+[[redirects]]
+  from = "/trade/textile-sourcing-china-guide"
+  to = "/trade"
   status = 301
 
 [[redirects]]

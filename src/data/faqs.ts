@@ -9,7 +9,7 @@ export const EDUCATION_FAQS: Faq[] = [
   {
     question: 'Is a Chinese MBBS degree recognized in India?',
     answer:
-      'Yes, provided the university is listed in the WHO World Directory of Medical Schools and you clear India’s FMGE/NExT licensing exam after graduating. We only place students at MOE-listed Chinese medical universities. Always verify your home country’s current rules before applying.',
+      'Yes, provided the university is listed in the WHO World Directory of Medical Schools and on China’s MOE list, and you clear India’s FMGE/NExT licensing exam after graduating. We only place students at MOE-listed Chinese medical universities. These checks are necessary but not sufficient on their own — NMC eligibility rules (including NEET-UG qualification and the regulations in force for your admission year) decide whether a specific seat leads to registration, so verify your exact university and admission year with the current NMC rules before paying anything.',
   },
   {
     question: 'Are scholarships fully funded?',
@@ -44,7 +44,7 @@ export const EDUCATION_FAQS: Faq[] = [
   {
     question: 'Is health insurance mandatory?',
     answer:
-      'Yes — every international student in China must hold health insurance for the duration of their stay. CSC scholars receive it inside the scholarship; self-funded students buy it at registration (typically ¥400–800/year). {{VERIFY}} current premium bands with your intake university.',
+      'Yes — every international student in China must hold health insurance for the duration of their stay. CSC scholars receive it inside the scholarship; self-funded students buy it at registration (typically ¥400–800/year).', // {{VERIFY}} confirm current premium bands per intake university
   },
 ];
 
@@ -52,7 +52,7 @@ export const TOURISM_FAQS: Faq[] = [
   {
     question: 'How do tourist visas for China work?',
     answer:
-      'Most visitors need an L (tourist) visa: application form, photo, itinerary and hotel bookings, plus proof of onward travel. Our concierge desk prepares the file, writes the itinerary letter and books the appointment. Typical processing is 4–7 working days. {{VERIFY}} current fee and 10-year visa availability for your nationality.',
+      'Most visitors need an L (tourist) visa: application form, photo, itinerary and hotel bookings, plus proof of onward travel. Our concierge desk prepares the file, writes the itinerary letter and books the appointment. Typical processing is 4–7 working days.', // {{VERIFY}} confirm current fee and 10-year visa availability per nationality
   },
   {
     question: 'When is the best time to visit China and Japan?',
@@ -168,7 +168,7 @@ export const GENERAL_FAQS: Faq[] = [
   {
     question: 'How long has RouteToAbroad been operating?',
     answer:
-      'Over a decade in cross-border services between India and China. {{VERIFY}} confirm the exact founding year (records conflict: 2012 vs 2018) before publishing.',
+      'Over a decade in cross-border services between India and China.', // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
   },
   {
     question: 'What languages does the team work in?',

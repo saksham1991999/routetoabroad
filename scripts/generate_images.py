@@ -34,6 +34,9 @@ def main() -> int:
         if out.exists():
             print(f"skip  {img['name']} (exists)")
             continue
+        # Per-image style wins over the global suffix — ink-line illustrations
+        # must not inherit the photographic direction.
+        style = img.get("style", cfg["styleSuffix"])
         prompt = f"{img['prompt']} {style}"
         jobs.append((img["name"], prompt, img["ratio"], out))
 

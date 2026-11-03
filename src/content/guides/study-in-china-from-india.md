@@ -15,7 +15,7 @@ faqs:
     answer: 'Yes — CSC government scholarships (full or partial), provincial scholarships, and university merit awards. Competitive profiles with 80%+ marks have realistic chances at partial-to-full funding.'
 ---
 
-**Short answer: China works for Indian students who want accredited degrees in medicine, engineering or business at 3–8× lower tuition than private Indian seats — provided you pick MOE-listed universities and treat language and licensing exams as part of the plan, not an afterthought.**
+**Short answer: China works for Indian students who want accredited degrees in medicine, engineering or business at 3–8× lower tuition than private Indian seats — provided you verify the right approvals for your programme: MOE listing for MBBS in English, and the university's and programme's own accreditation/recognition for engineering and business — and treat language and licensing exams as part of the plan, not an afterthought.**
 
 ## Who this route fits
 

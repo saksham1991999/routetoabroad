@@ -13,6 +13,9 @@ faqs:
     answer: 'Full CSC awards cover tuition, on-campus accommodation, medical insurance and a monthly stipend (roughly ¥2,500–3,500/month depending on degree level). Partial awards covering tuition only are far more common — treat "full funding" as the exception, not the plan.'
   - question: 'What CGPA do I need for CSC?'
     answer: 'There is no official cutoff, but competitive full-award profiles typically sit around 80%+ / CGPA 3.3+, with research applicants helped by publications. Strong study plans matter as much as marks at postgraduate level.'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'CSC stipend: confirm stipend bands for the current intake'
 ---
 
 **Short answer: the CSC scholarship can fund your entire Chinese degree, but full awards are competitive and partial awards are the norm — apply broadly, file perfectly, and never pay anyone who promises a guaranteed CSC.**
@@ -34,7 +37,7 @@ The China Scholarship Council administers the Chinese Government Scholarship. Fo
 | Stipend | ~¥2,500–3,500/month | Usually none |
 | Medical insurance | Covered | Sometimes covered |
 
-Monthly stipend figures are indicative; the schedule is updated periodically — {{VERIFY}} the current stipend table on campuschina.org for your intake year.
+Monthly stipend figures are indicative; the schedule is updated periodically — check the current stipend table on campuschina.org for your intake year.
 
 ## The realistic odds
 
@@ -57,7 +60,7 @@ Full CSC awards at top-tier universities (Tsinghua, Peking, Fudan) are highly co
 - **October–December:** shortlist universities and professors; draft study plan
 - **January:** CSC portal opens; notarise documents
 - **February–mid-April:** submit — deadlines vary per university, never assume April is safe
-- **May–July:** results; pair the award with your Admission Notice + JW202
+- **May–July:** results; pair the award with your Admission Notice and the route-appropriate JW form — most scholarship students receive a **JW201** (government/Type A channel) while self-funded and most Type B university-award students receive a **JW202**. Use whichever form your university issues; either supports the X1 visa application.
 - **July–August:** X1 visa, arrival, residence permit
 
 ## The honesty clause

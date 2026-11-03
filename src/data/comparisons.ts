@@ -30,7 +30,7 @@ export const COMPARISONS: Comparison[] = [
     title: 'MBBS in China vs India: Costs, Recognition & Verdict',
     headline: 'MBBS in China vs India',
     answer:
-      'Choose India if you can win a government seat — it remains the cheapest recognised route. Choose China when the realistic Indian alternative is a ₹60L–1Cr private seat: an MOE-listed Chinese MBBS delivers comparable recognition at roughly a third of the cost, with the non-negotiable condition that you clear FMGE/NExT afterwards either way.',
+      'Choose India if you can win a government seat — it remains the cheapest recognised route. Choose China when the realistic Indian alternative is a ₹60L–1Cr private seat: an MOE-listed Chinese MBBS delivers comparable recognition at roughly a third of the cost, with the non-negotiable condition that, as a foreign medical graduate, you clear the FMGE/NExT screening on return (Indian graduates register through NExT instead — eligibility rules depend on your admission year, so verify the current NMC regulations before you commit).',
     entityA: 'MBBS in China',
     entityB: 'MBBS in India',
     pillar: 'education',
@@ -38,7 +38,7 @@ export const COMPARISONS: Comparison[] = [
     rows: [
       { label: 'Tuition (per year)', a: 'US$3,500–8,000 (MOE-listed)', b: 'Government: ₹10k–1L · Private: ₹8–20L' },
       { label: 'Total programme cost', a: 'US$35–80k all-in (5.5 yrs)', b: 'Govt: ₹5–10L · Private: ₹60L–1Cr+' },
-      { label: 'Licensing exam for India practice', a: 'FMGE/NExT required after return', b: 'FMGE/NExT (NEXT for new batches)' },
+      { label: 'Licensing exam for India practice', a: 'FMGE/NExT screening (foreign graduates only)', b: 'NExT / university registration — FMGE does not apply to Indian graduates' },
       { label: 'Medium of instruction', a: 'English (HSK 4 needed for clinical years)', b: 'English (private) / regional languages' },
       { label: 'Admission gate', a: 'NEET qualification + Class 12 PCB', b: 'NEET rank (govt) / NEET qualification (private)' },
       { label: 'Living costs', a: 'US$300–850/month by city', b: '₹12–30k/month by city' },
@@ -109,7 +109,7 @@ export const COMPARISONS: Comparison[] = [
       {
         question: 'Do both offer CSC scholarships?',
         answer:
-          'Yes — both are CSC-designated for Type A and Type B, plus generous university-level awards. Full awards at either are competitive regardless of marks; apply to both plus one high-probability partner university.',
+          'Yes — both are Type B-designated universities, meaning you apply through the university itself (the direct route). The Type A government channel runs through your home ministry or embassy, not the university. Full awards at either are competitive regardless of marks; apply to both plus one high-probability partner university.',
       },
     ],
   },

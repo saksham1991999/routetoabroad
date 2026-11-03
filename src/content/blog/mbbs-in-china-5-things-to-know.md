@@ -15,7 +15,7 @@ China has emerged as one of the top destinations for Indian students pursuing MB
 
 ## 1. Recognition is non-negotiable
 
-Not every Chinese medical university is recognized by your home country's medical council. Always verify that your target university is listed in the WHO World Directory of Medical Schools and approved by regulators like the NMC (India), PMDC (Pakistan), or ECFMG (USA). RouteToAbroad only works with fully recognized, MOE-listed partner institutions.
+Not every Chinese medical university is recognized by your home country's medical council. Always verify that your target university is listed in the WHO World Directory of Medical Schools and on China's MOE list — then confirm eligibility with your own regulator: the NMC (India) applies its own admission-year rules, Pakistan's PMDC has its own process, and for the US, ECFMG is not a regulator but an certification body — you'll need an ECFMG Sponsor Note based on your school's WDOMS listing, and WDOMS listing alone does not guarantee US licensure. RouteToAbroad only works with fully recognized, MOE-listed partner institutions.
 
 ## 2. Language is a two-phase journey
 

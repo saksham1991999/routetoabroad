@@ -4,6 +4,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import SectionHead from '../components/SectionHead.astro';
 import CtaBand from '../components/CtaBand.astro';
+import { SITE, CLAIMS } from '../lib/site';
 import { AUTHORS } from '../data/authors';
 import { personSchema } from '../lib/schema';
 
@@ -105,13 +106,13 @@ const values = [
       <aside class="nap card card-pad" data-reveal="right" aria-label="Company details">
         <p class="eyebrow">Entity details</p>
         <dl class="nap-list num">
-          <div><dt>Founded</dt><dd>2012 (over 12 years in the corridor)</dd></div>
-          <div><dt>Offices</dt><dd>New Delhi · Guangzhou</dd></div>
-          <div><dt>Email</dt><dd>info@routetoabroad.com</dd></div>
-          <div><dt>Phone</dt><dd>+91 96330 61109</dd></div>
-          <div><dt>Hours</dt><dd>Mon–Sat, 9:00–18:00 IST</dd></div>
-          <div><dt>Students placed</dt><dd>500+</dd></div>
-          <div><dt>Google rating</dt><dd>4.9 ★</dd></div>
+          <div><dt>Founded</dt><dd>{SITE.founded} (in the corridor over a decade)</dd></div>
+          <div><dt>Offices</dt><dd>{SITE.offices[0].city} · {SITE.offices[1].city}</dd></div>
+          <div><dt>Email</dt><dd>{SITE.email}</dd></div>
+          <div><dt>Phone</dt><dd>{SITE.phoneIndia}</dd></div>
+          <div><dt>Hours</dt><dd>{SITE.hours}</dd></div>
+          <div><dt>Students placed</dt><dd>{CLAIMS.studentsPlaced}</dd></div>
+          <div><dt>Google rating</dt><dd>{CLAIMS.googleRating} ★</dd></div>
         </dl>
         <p class="nap-note">Consistent NAP details — also published in our structured data.</p>
       </aside>

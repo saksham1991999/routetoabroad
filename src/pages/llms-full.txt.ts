@@ -12,6 +12,10 @@ export async function GET({ site }) {
   const base = site ?? new URL(SITE.url);
   const lines: string[] = [];
 
+  // Owner-confirmation notes ride in source as HTML comments — never ship
+  // them (or any comment noise) to answer engines.
+  const clean = (md: string | undefined) => (md ?? '').replace(/<!--[\s\S]*?-->/g, '').trim();
+
   lines.push(`# ${SITE.name} — full site text`);
   lines.push('');
   lines.push(
@@ -34,7 +38,7 @@ export async function GET({ site }) {
     lines.push(`## Guide: ${g.data.title}`);
     lines.push(`URL: ${new URL(`/guides/${g.id}`, base)}`);
     lines.push('');
-    lines.push(g.body ?? '');
+    lines.push(clean(g.body));
     lines.push('');
   }
 
@@ -45,7 +49,7 @@ export async function GET({ site }) {
     lines.push(`URL: ${new URL(`/blog/${p.id}`, base)}`);
     lines.push(`Author: ${p.data.author} · Published: ${p.data.pubDate.toISOString().slice(0, 10)}`);
     lines.push('');
-    lines.push(p.body ?? '');
+    lines.push(clean(p.body));
     lines.push('');
   }
 

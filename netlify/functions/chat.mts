@@ -57,8 +57,19 @@ export default async (req: Request): Promise<Response> => {
     });
   }
 
-  // Keep context bounded
+  // Keep context bounded while preserving a user-first, alternating turn
+  // order — a raw slice can start on an assistant turn, which the
+  // Messages API rejects. Drop leading non-user turns after truncating.
   const messages = body.messages.slice(-20);
+  while (messages.length > 0 && messages[0].role !== 'user') {
+    messages.shift();
+  }
+  if (messages.length === 0) {
+    return new Response(JSON.stringify({ error: 'No usable messages' }), {
+      status: 400,
+      headers: { 'Content-Type': 'application/json' },
+    });
+  }
 
   const baseUrl = apiUrl.replace(/\/+$/, '');
 

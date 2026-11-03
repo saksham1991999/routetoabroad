@@ -46,6 +46,6 @@ faqs:
 order: 3
 ---
 
-Fudan's Handan Road campus sits in Yangpu district, a student quarter of Shanghai that also houses Tongji University. The name means "heavenly light spreads over the earth" — confident, like the university. For international students, Fudan balances academic prestige with the practical advantage of Shanghai: everything from part-time internships to airport connections is easier here.
+Fudan's Handan Road campus sits in Yangpu district, a student quarter of Shanghai that also houses Tongji University. The name means "heavenly light spreads over the earth" — confident, like the university. For international students, Fudan balances academic prestige with the practical advantage of Shanghai: everything from part-time work (which requires university permission and, for off-campus roles, additional immigration approval — your student residence permit has conditions) to airport connections is easier here.
 
 **Who we place here:** business and economics applicants, MBBS candidates targeting Shanghai Medical College, and CSC applicants who want a comprehensive university in a global city.

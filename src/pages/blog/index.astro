@@ -40,6 +40,10 @@ const posts = (await getCollection('blog')).sort(
           <button class="filter-pill" data-filter="tourism" aria-pressed="false">Tourism</button>
           <button class="filter-pill" data-filter="trade" aria-pressed="false">Trade</button>
         </div>
+        <form class="blog-search" role="search" id="blog-search-form">
+          <label class="visually-hidden" for="blog-search">Search the notes</label>
+          <input type="search" id="blog-search" name="q" placeholder="Search the notes…" autocomplete="off" />
+        </form>
         <p class="filter-count" aria-live="polite">
           <span id="filter-count">{posts.length}</span> / {posts.length} notes
         </p>
@@ -96,6 +100,21 @@ const posts = (await getCollection('blog')).sort(
 
   .filter-count span {
     color: var(--accent-text);
+  }
+
+  .blog-search input {
+    width: min(16rem, 100%);
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .blog-search input:focus {
+    outline: none;
+    border-color: var(--ink);
   }
 
   .filter-pill {
@@ -175,13 +194,27 @@ const posts = (await getCollection('blog')).sort(
   const items = Array.from(document.querySelectorAll<HTMLElement>('.post-item'));
   const noResults = document.getElementById('no-results') as HTMLElement;
   const countEl = document.getElementById('filter-count') as HTMLElement;
+  const searchForm = document.getElementById('blog-search-form') as HTMLFormElement | null;
+  const searchInput = document.getElementById('blog-search') as HTMLInputElement | null;
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const valid = new Set(pills.map((p) => p.dataset.filter || 'all'));
 
-  const applyFilter = (filter: string, animate = true) => {
+  // State: which desk is selected + an optional text query (backs the
+  // SearchAction endpoint advertised in the WebSite JSON-LD).
+  let desk = 'all';
+  let query = '';
+
+  const matches = (item: HTMLElement) => {
+    const deskOk = desk === 'all' || item.dataset.category === desk;
+    if (!deskOk) return false;
+    if (!query) return true;
+    return item.textContent?.toLowerCase().includes(query) ?? false;
+  };
+
+  const render = (animate = true) => {
     let visible = 0;
     items.forEach((item) => {
-      const show = filter === 'all' || item.dataset.category === filter;
+      const show = matches(item);
       item.classList.toggle('hidden', !show);
       item.classList.remove('is-in');
       if (show) {
@@ -196,24 +229,30 @@ const posts = (await getCollection('blog')).sort(
     noResults.hidden = visible > 0;
     countEl.textContent = String(visible);
     pills.forEach((p) => {
-      const active = p.dataset.filter === filter;
+      const active = p.dataset.filter === desk;
       p.classList.toggle('active', active);
       p.setAttribute('aria-pressed', String(active));
     });
   };
 
-  const syncUrl = (filter: string) => {
+  const applyFilter = (filter: string, animate = true) => {
+    desk = filter;
+    render(animate);
+  };
+
+  const syncUrl = () => {
     const url = new URL(location.href);
-    if (filter === 'all') url.searchParams.delete('desk');
-    else url.searchParams.set('desk', filter);
+    if (desk === 'all') url.searchParams.delete('desk');
+    else url.searchParams.set('desk', desk);
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
     history.replaceState({}, '', url);
   };
 
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
-      const filter = pill.dataset.filter || 'all';
-      applyFilter(filter);
-      syncUrl(filter);
+      applyFilter(pill.dataset.filter || 'all');
+      syncUrl();
     });
 
     pill.addEventListener('keydown', (e) => {
@@ -223,16 +262,25 @@ const posts = (await getCollection('blog')).sort(
       e.preventDefault();
       const next = pills[(i + step + pills.length) % pills.length]!;
       next.focus();
-      const filter = next.dataset.filter || 'all';
-      applyFilter(filter);
-      syncUrl(filter);
+      applyFilter(next.dataset.filter || 'all');
+      syncUrl();
     });
   });
 
-  // Deep link: /blog?desk=education — and scrub a junk param so the cleaned
-  // URL is the one that gets shared or bookmarked.
-  const requested = new URL(location.href).searchParams.get('desk') || 'all';
-  const initial = valid.has(requested) ? requested : 'all';
-  applyFilter(initial, false);
-  if (initial !== requested) syncUrl('all');
+  searchForm?.addEventListener('submit', (e) => e.preventDefault());
+  searchInput?.addEventListener('input', () => {
+    query = searchInput.value.trim().toLowerCase();
+    render(false);
+    syncUrl();
+  });
+
+  // Deep link: /blog?desk=education and /blog?q=… — and scrub junk params so
+  // the cleaned URL is the one that gets shared or bookmarked.
+  const params = new URL(location.href).searchParams;
+  const requested = params.get('desk') || 'all';
+  desk = valid.has(requested) ? requested : 'all';
+  query = (params.get('q') || '').trim().toLowerCase();
+  if (searchInput && query) searchInput.value = query;
+  render(false);
+  syncUrl();
 </script>

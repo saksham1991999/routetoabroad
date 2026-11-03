@@ -1,50 +1,64 @@
 # RouteToAbroad — robots.txt
 # We welcome search engines AND AI/answer engines. Our content is meant to be quoted.
 
+# /api/ is disallowed in every group below: a Disallow line only applies to
+# the group it appears in, and explicitly named bots don't inherit from *.
+
 User-agent: *
 Allow: /
+Disallow: /api/
 
 # Reputable AI crawlers — explicitly allowed
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /api/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
 
 User-agent: Applebot-Extended
 Allow: /
+Disallow: /api/
 
 User-agent: CCBot
 Allow: /
+Disallow: /api/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /api/
 
 User-agent: Amazonbot
 Allow: /
+Disallow: /api/
 
 User-agent: meta-externalagent
 Allow: /
-
-# Keep the function endpoints and build internals out
 Disallow: /api/
 
 Sitemap: https://routetoabroad.com/sitemap-index.xml

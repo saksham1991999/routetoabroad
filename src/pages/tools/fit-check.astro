@@ -34,45 +34,45 @@ interface Props {}
         <!-- Step 1 -->
         <fieldset class="quiz-step" data-step="1">
           <legend><span class="q-num num">Q1</span> Where are you applying from?</legend>
-          <div class="quiz-opts" role="radiogroup" aria-label="Country of application">
-            <button type="button" class="quiz-opt" data-value="india">India</button>
-            <button type="button" class="quiz-opt" data-value="gcc">GCC (UAE, Saudi, Qatar…)</button>
-            <button type="button" class="quiz-opt" data-value="africa">Africa</button>
-            <button type="button" class="quiz-opt" data-value="other">Elsewhere</button>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q1" value="india" /><span>India</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="gcc" /><span>GCC (UAE, Saudi, Qatar…)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="africa" /><span>Africa</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="other" /><span>Elsewhere</span></label>
           </div>
         </fieldset>
 
         <!-- Step 2 -->
         <fieldset class="quiz-step" data-step="2" hidden>
           <legend><span class="q-num num">Q2</span> Your highest completed qualification?</legend>
-          <div class="quiz-opts" role="radiogroup" aria-label="Qualification">
-            <button type="button" class="quiz-opt" data-value="school">School / 12th</button>
-            <button type="button" class="quiz-opt" data-value="bachelor">Bachelor's degree</button>
-            <button type="button" class="quiz-opt" data-value="master">Master's or above</button>
-            <button type="button" class="quiz-opt" data-value="later">Later, or not sure</button>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q2" value="school" /><span>School / 12th</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="bachelor" /><span>Bachelor's degree</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="master" /><span>Master's or above</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="later" /><span>Later, or not sure</span></label>
           </div>
         </fieldset>
 
         <!-- Step 3 -->
         <fieldset class="quiz-step" data-step="3" hidden>
           <legend><span class="q-num num">Q3</span> What do you want to study?</legend>
-          <div class="quiz-opts" role="radiogroup" aria-label="Field of study">
-            <button type="button" class="quiz-opt" data-value="mbbs">MBBS / Medicine</button>
-            <button type="button" class="quiz-opt" data-value="engineering">Engineering / CS</button>
-            <button type="button" class="quiz-opt" data-value="business">Business / Management</button>
-            <button type="button" class="quiz-opt" data-value="language">Chinese language (HSK)</button>
-            <button type="button" class="quiz-opt" data-value="research">Research (Masters / PhD)</button>
-            <button type="button" class="quiz-opt" data-value="unsure">Not sure yet</button>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q3" value="mbbs" /><span>MBBS / Medicine</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="engineering" /><span>Engineering / CS</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="business" /><span>Business / Management</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="language" /><span>Chinese language (HSK)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="research" /><span>Research (Masters / PhD)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="unsure" /><span>Not sure yet</span></label>
           </div>
         </fieldset>
 
         <!-- Step 4 -->
         <fieldset class="quiz-step" data-step="4" hidden>
           <legend><span class="q-num num">Q4</span> When do you want to start?</legend>
-          <div class="quiz-opts" role="radiogroup" aria-label="Intake">
-            <button type="button" class="quiz-opt" data-value="sept">September 2026</button>
-            <button type="button" class="quiz-opt" data-value="march">March 2027</button>
-            <button type="button" class="quiz-opt" data-value="flexible">Later / flexible</button>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q4" value="sept" /><span>September 2026</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="march" /><span>March 2027</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="flexible" /><span>Later / flexible</span></label>
           </div>
         </fieldset>
 
@@ -148,6 +148,8 @@ interface Props {}
   }
 
   .quiz-opt {
+    position: relative;
+    display: block;
     padding: 0.9rem 1.1rem;
     border: 1px solid var(--line-strong);
     border-radius: var(--radius-m);
@@ -156,11 +158,28 @@ interface Props {}
     font-weight: 500;
     font-size: 0.95rem;
     text-align: left;
+    cursor: pointer;
     transition: border-color 0.15s, box-shadow 0.15s;
   }
 
-  .quiz-opt:hover {
+  /* The native radio stays in the a11y tree for correct role/state/keyboard,
+     but is visually folded into the card. */
+  .quiz-opt input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .quiz-opt:hover,
+  .quiz-opt:has(input:focus-visible) {
     border-color: var(--ink);
+  }
+
+  .quiz-opt:has(input:focus-visible) {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
   }
 
   .quiz-opt.selected {
@@ -263,12 +282,22 @@ interface Props {}
 
   backBtn?.addEventListener('click', () => show(Math.max(0, current - 1)));
 
+  // Native radios keep role/state/arrow-key behaviour for free; the change
+  // event drives everything the old click handler did.
+  function markSelected(step: HTMLElement) {
+    step.querySelectorAll('.quiz-opt').forEach((label) => {
+      label.classList.toggle(
+        'selected',
+        (label.querySelector('input') as HTMLInputElement | null)?.checked ?? false
+      );
+    });
+  }
+
   steps.forEach((step) => {
-    step.querySelectorAll<HTMLButtonElement>('.quiz-opt').forEach((opt) => {
-      opt.addEventListener('click', () => {
-        step.querySelectorAll('.quiz-opt').forEach((o) => o.classList.remove('selected'));
-        opt.classList.add('selected');
-        answers[step.dataset.step!] = opt.dataset.value!;
+    step.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((input) => {
+      input.addEventListener('change', () => {
+        markSelected(step);
+        answers[step.dataset.step!] = input.value;
         save();
         paintProgress();
         setTimeout(() => {
@@ -313,7 +342,10 @@ interface Props {}
       if (sept || flexible) {
         verdict = 'yes';
         title = 'Yes — the MBBS route is open to you.';
-        body = 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: qualifying NEET (for Indian students) and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.';
+        body =
+          country === 'india'
+            ? 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: qualifying NEET (mandatory for Indian applicants) and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.'
+            : 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: meeting your home regulator\'s equivalency requirements before you enrol, and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.';
         secondary = { href: '/guides/mbbs-in-china', label: 'Read the MBBS guide' };
       } else {
         verdict = 'maybe';
@@ -321,10 +353,20 @@ interface Props {}
         body = 'A few universities run March MBBS intakes; most run September only. If you can flex to September 2026, your options widen dramatically — and the scholarship windows align.';
       }
     } else if (school && (engineering || business)) {
-      verdict = 'yes';
-      title = 'Yes — bachelor\'s programmes are open.';
-      body = 'English-taught bachelor\'s in engineering and business have real September capacity across our partner universities, from elite (Zhejiang, SJTU) to value-focused provincial options. Marks decide which tier; the fit check cannot see them — the advisor call can.';
-    } else if (bachelor && (engineering || business || mbbs)) {
+      if (march) {
+        verdict = 'maybe';
+        title = 'Maybe — March is thin for bachelor\'s entry too.';
+        body = 'A few universities run March intakes for engineering and business; most admit in September only. If you can flex to September 2026, programme choice and scholarship money both widen significantly.';
+      } else {
+        verdict = 'yes';
+        title = 'Yes — bachelor\'s programmes are open.';
+        body = 'English-taught bachelor\'s in engineering and business have real September capacity across our partner universities, from elite (Zhejiang, SJTU) to value-focused provincial options. Marks decide which tier; the fit check cannot see them — the advisor call can.';
+      }
+    } else if (bachelor && mbbs) {
+      verdict = 'maybe';
+      title = 'Maybe — medicine routes graduates differently.';
+      body = 'MBBS is an entry-level, school-leaver degree in China; bachelor\'s holders usually take a different lane — a master\'s in public health, biomedical science or a research degree — or re-enter medicine via a graduate-entry programme where offered. Tell the advisor your goal and we\'ll map the honest options.';
+    } else if (bachelor && (engineering || business)) {
       verdict = 'yes';
       title = 'Yes — master\'s entry is realistic.';
       body = 'A completed bachelor\'s qualifies you for English-taught master\'s programmes, and CSC partial-to-full funding is in play depending on marks. The gap between "realistic" and "funded" is usually the study plan.';
@@ -344,7 +386,10 @@ interface Props {}
     } else {
       verdict = 'maybe';
       title = 'Probably yes — with details to confirm.';
-      body = 'Nothing in your answers closes a route. The variables we cannot see here — marks, budget, documents — are exactly what the free advisor call is for.';
+      body =
+        country === 'india'
+          ? 'Nothing in your answers closes a route. The variables we cannot see here — marks, budget, documents, NEET status — are exactly what the free advisor call is for.'
+          : 'Nothing in your answers closes a route. The variables we cannot see here — marks, budget, documents, and how your credentials are recognised at home — are exactly what the free advisor call is for.';
     }
 
     result.hidden = false;
@@ -369,9 +414,10 @@ interface Props {}
     result.hidden = true;
     result.innerHTML = '';
     hint.hidden = false;
-    steps.forEach((s) =>
-      s.querySelectorAll('.quiz-opt').forEach((o) => o.classList.remove('selected'))
-    );
+    steps.forEach((s) => {
+      s.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((r) => (r.checked = false));
+      markSelected(s);
+    });
     show(0);
   });
 
@@ -384,12 +430,13 @@ interface Props {}
         for (const step of steps) {
           const value = saved[step.dataset.step!];
           if (!value) continue;
-          const opt = step.querySelector<HTMLButtonElement>(
-            `.quiz-opt[data-value="${value}"]`
+          const radio = step.querySelector<HTMLInputElement>(
+            `.quiz-opt input[value="${value}"]`
           );
-          if (!opt) continue;
+          if (!radio) continue;
           answers[step.dataset.step!] = value;
-          opt.classList.add('selected');
+          radio.checked = true;
+          markSelected(step);
         }
       }
     } catch {

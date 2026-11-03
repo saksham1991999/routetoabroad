@@ -26,7 +26,7 @@ universities:
 bestTime: 'October–December and March–April (outside the summer humidity; align with Canton Fair phases if trading)'
 faqs:
   - question: 'When should business visitors come to Guangzhou?'
-    answer: 'For the Canton Fair: phase 1 (electronics/machinery) mid-April and mid-October; phases 2–3 follow in fortnightly blocks. Hotels triple in price — book months ahead. Off-fair weeks suit factory visits better anyway.'
+    answer: 'For the Canton Fair: phase 1 (electronics/machinery) opens mid-April and mid-October, with phases 2–3 (consumer goods; textiles) following over the subsequent weeks of the same session. Hotels triple in price — book months ahead. Off-fair weeks suit factory visits better anyway.'
   - question: 'Why is our trade office in Guangzhou?'
     answer: 'The Pearl River Delta is the world''s densest manufacturing cluster — Shenzhen electronics, Foshan furniture, Dongguan factories are all within 1–2 hours. Our Guangzhou desk (Victory Plaza, Tianhe) puts audits and QC within same-day reach of almost any supplier.'
 order: 3

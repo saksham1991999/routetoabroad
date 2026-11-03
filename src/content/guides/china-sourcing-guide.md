@@ -13,6 +13,9 @@ faqs:
     answer: 'Check the business license (registered address vs factory address), export licence for your HS code, years in operation, and — decisively — a physical factory audit. Trading companies posing as factories are the most common trap.'
   - question: 'What payment terms should I accept for a first order?'
     answer: 'Never 100% advance. Standard is 30% deposit by TT, 70% against copy of Bill of Lading, with escrow for first engagements. LC at sight becomes practical for larger, repeat orders.'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'Audit service: confirm desk coverage claim (Shenzhen inclusion) and 72-hour turnaround with the trade team before launch'
 ---
 
 **Short answer: treat sourcing as a verification pipeline, not a shopping trip — audit the factory, inspect at 20%/80% of production, structure payments 30/70, and get the India compliance stack (HS code, BIS/WPC) ready before goods ship. Do that and China sourcing is a superpower; skip it and it's a donation.**
@@ -23,7 +26,7 @@ Alibaba and Canton Fair contacts are candidates, not suppliers. Filter by: manuf
 
 ## Step 2: Audit before you negotiate
 
-A one-day factory audit answers questions no certificate can: does the registered address match the plant, what's the real capacity, whose machines are those, how do they handle QC today. Cost is trivial against a bad container. Our Guangzhou/Shenzhen desk runs audits with photo-video reports within 72 hours.
+A one-day factory audit answers questions no certificate can: does the registered address match the plant, what's the real capacity, whose machines are those, how do they handle QC today. Cost is trivial against a bad container. Our Guangzhou desk runs audits with photo-video reports, typically turned around within 72 hours.
 
 ## Step 3: Sample like it's a contract (it is)
 

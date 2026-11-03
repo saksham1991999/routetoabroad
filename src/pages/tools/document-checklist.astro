@@ -242,8 +242,10 @@ import PageHero from '../../components/PageHero.astro';
       { label: 'Completed application form(s) for each university' },
     ];
 
-    if (programme === 'mbbs') {
-      items.push({ label: 'NEET qualification proof (Indian MBBS applicants)', bold: country === 'india' });
+    if (programme === 'mbbs' && country === 'india') {
+      // NEET is an Indian-gate requirement — non-Indian applicants have no
+      // use for it on their checklist.
+      items.push({ label: 'NEET qualification proof (Indian MBBS applicants)', bold: true });
     }
     if (level === 'master') {
       items.push({ label: 'Two recommendation letters (academic)', bold: true });

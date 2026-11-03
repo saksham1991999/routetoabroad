@@ -36,6 +36,9 @@ const hasBody = Boolean(university.body && university.body.trim());
       name: `Study at ${data.name}`,
       description: data.intro,
       url: `https://routetoabroad.com/universities/${university.id}`,
+      // The provider is the university itself, not the consultancy.
+      providerName: data.name,
+      providerUrl: `https://routetoabroad.com/universities/${university.id}`,
     }),
     faqSchema(faqs),
   ]}

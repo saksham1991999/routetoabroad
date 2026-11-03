@@ -11,7 +11,7 @@ image: '../../assets/images/blog-csc.jpg'
 imageAlt: 'Graduates in gowns celebrating at a university graduation ceremony'
 ---
 
-The China Scholarship Council (CSC) scholarship is one of the most generous academic funding opportunities available to international students. Covering full tuition, accommodation, a monthly stipend, and medical insurance, it can make an otherwise expensive degree completely accessible. Here is how to apply — from someone who did.
+The China Scholarship Council (CSC) scholarship is one of the most generous academic funding opportunities available to international students. A full award can cover tuition, accommodation, a monthly stipend, and medical insurance — though exact coverage varies by award and university — and it can make an otherwise expensive degree completely accessible. Here is how to apply — from someone who did.
 
 ## Step 1: Determine your route — Type A vs Type B
 
@@ -38,7 +38,7 @@ CSC deadlines typically fall between late February and mid-April for the Septemb
 
 ## Step 5: Track and follow up
 
-After submission, results roll in over the following 4–8 weeks. University admission decisions come separately. You need **both** the CSC award **and** the university's Admission Notice (with the JW202 form) before you can apply for your visa.
+After submission, results roll in over the following 4–8 weeks. University admission decisions come separately. You need **both** the CSC award **and** the university's Admission Notice with the route-appropriate JW form — **JW201** for government-channel (Type A) awards, **JW202** for most university-direct (Type B) awards — before you can apply for your visa.
 
 ---
 

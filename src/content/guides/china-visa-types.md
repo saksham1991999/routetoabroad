@@ -8,6 +8,10 @@ readTime: 6
 tags: ['Visas', 'Travel', 'Business']
 image: '../../assets/images/guide-visa.jpg'
 imageAlt: 'A passport and visa documents on a desk next to an application form'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'L visa: confirm current fee schedule and e-visa pilot availability, as both change periodically'
+  - 'Transit/visa-free section: re-confirm current rules before booking-dependent trips'
 faqs:
   - question: 'Which China visa do I need for tourism?'
     answer: 'The L visa covers tourism, family visits and other private purposes. Typical grants are 30–60 days per entry; some nationalities qualify for longer validity or multiple entries.'
@@ -31,7 +35,7 @@ China's visa alphabet is dense but logical. These are the categories that matter
 
 ## L — the tourist visa
 
-Apply with passport, form, photo, a simple day-wise itinerary, hotel bookings and confirmed onward travel. Indian applicants apply through CVASC centres; standard processing runs about 4 working days plus queue time. Multi-entry versions exist for frequent travellers. {{VERIFY}} current fee schedule and e-visa pilot availability, as both change periodically.
+Apply with passport, form, photo, a simple day-wise itinerary, hotel bookings and confirmed onward travel. Indian applicants apply through CVASC centres; standard processing runs about 4 working days plus queue time. Multi-entry versions exist for frequent travellers.
 
 ## M — the business visa
 
@@ -47,7 +51,7 @@ Covered in depth in our [student visa guide](/guides/china-student-visa). Rememb
 
 ## Visa-free transit
 
-China has repeatedly expanded visa-free transit and visa-free entry schemes for short stays in specific provinces and for specific nationalities. These rules change frequently — treat any blog (including older ones) as outdated until you verify against the current policy for your passport and entry port. {{VERIFY}} current rules before booking around them.
+China has repeatedly expanded visa-free transit and visa-free entry schemes for short stays in specific provinces and for specific nationalities. These rules change frequently — treat any blog (including older ones) as outdated until you verify against the current policy for your passport and entry port.
 
 ## The two classic mistakes
 

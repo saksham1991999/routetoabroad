@@ -28,7 +28,7 @@ faqs:
   - question: 'Is Beijing expensive for students?'
     answer: 'It is China''s second-costliest city, but student life is subsidised: on-campus dorms run US$80–200/month, the metro is cheap, and university canteens keep food to US$2–4 a meal. US$450–850/month covers a comfortable student life.'
   - question: 'How bad is Beijing''s air pollution?'
-    answer: 'Dramatically improved over the past decade — coal-to-gas conversion and EV mandates cut severe-smog days sharply. Blue-sky days are now the norm, with occasional winter episodes. {{VERIFY}} current AQI trends if this matters to your health planning.'
+    answer: 'Dramatically improved over the past decade — coal-to-gas conversion and EV mandates cut severe-smog days sharply. Blue-sky days are now the norm, with occasional winter episodes.' # {{VERIFY}} re-confirm current AQI trends before launch; add health-planning pointer if stale
 order: 1
 ---
 

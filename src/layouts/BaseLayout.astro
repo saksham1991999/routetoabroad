@@ -13,14 +13,31 @@ interface Props {
   description: string;
   path: string;
   image?: string;
+  /** Forwarded to Seo: 'article' for blog/guide pages. */
+  type?: 'website' | 'article';
   noindex?: boolean;
   crumbs?: { name: string; url: string }[];
   jsonLd?: object[];
+  /** Forwarded to Seo for og:type=article metadata. */
+  publishedTime?: Date;
+  modifiedTime?: Date;
   /** article pages show a reading-progress bar */
   progress?: boolean;
 }
 
-const { title, description, path, image, noindex, crumbs, jsonLd = [], progress = false } = Astro.props;
+const {
+  title,
+  description,
+  path,
+  image,
+  type,
+  noindex,
+  crumbs,
+  jsonLd = [],
+  publishedTime,
+  modifiedTime,
+  progress = false,
+} = Astro.props;
 
 /** Homepage gets the loader, HUD and tone-switching chrome. */
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
@@ -39,7 +56,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
-    <Seo {title} {description} {path} {image} {noindex} {crumbs} {jsonLd}>
+    <Seo {title} {description} {path} {image} {type} {noindex} {crumbs} {publishedTime} {modifiedTime} {jsonLd}>
       {Astro.slots.has('head-extra') && <slot name="head-extra" />}
     </Seo>
 
@@ -122,6 +139,9 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     <a class="rta-tab" id="rta-tab" href="/tools/fit-check">Fit check</a>
 
     <script>
+      // Single source of truth for the Formspree endpoint (src/lib/site.ts).
+      import { FORMSPREE_ENDPOINT as FORMSPREE } from '../lib/site';
+
       // ---- Theme toggle (syncs the browser UI color too) ----
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const root = document.documentElement;
@@ -309,8 +329,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
         }
       }
 
-      // ---- Forms: validation + Formspree AJAX submit (inline to stay bundler-proof) ----
-      const FORMSPREE = 'https://formspree.io/f/xjgpgllz';
+      // ---- Forms: validation + Formspree AJAX submit (endpoint from src/lib/site.ts) ----
 
       document.querySelectorAll<HTMLFormElement>('form[data-formspree]').forEach((form) => {
         const status = form.querySelector<HTMLElement>('.form-status');

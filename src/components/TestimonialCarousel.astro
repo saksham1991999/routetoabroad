@@ -31,6 +31,7 @@ import { TESTIMONIALS } from '../data/testimonials';
       <button type="button" class="c-btn" data-dir="-1" aria-label="Previous testimonial">←</button>
       <div class="c-dots" role="presentation"></div>
       <button type="button" class="c-btn" data-dir="1" aria-label="Next testimonial">→</button>
+      <button type="button" class="c-btn c-pause" id="t-pause" aria-pressed="false" aria-label="Pause testimonial rotation">❚❚</button>
     </div>
   </div>
 </section>
@@ -217,21 +218,39 @@ import { TESTIMONIALS } from '../data/testimonials';
         })
       );
 
-    // Auto-advance, paused on hover/focus/reduced-motion
+    // Auto-advance, paused on hover/focus/reduced-motion, with a persistent
+    // pause control — moving content must be user-stoppable (WCAG 2.2.2).
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const pauseBtn = document.getElementById('t-pause');
+    let playing = !reduced;
+    let timer: number | undefined;
+
+    const stop = () => {
+      if (timer) clearInterval(timer);
+      timer = undefined;
+    };
+    const tick = () => scrollTo((index() + 1) % cards.length);
+    const start = () => {
+      stop();
+      timer = setInterval(tick, 6000) as unknown as number;
+    };
+
     if (!reduced) {
-      let timer = setInterval(tick, 6000);
-      function tick() {
-        scrollTo((index() + 1) % cards.length);
-      }
-      const reset = () => {
-        clearInterval(timer);
-        timer = setInterval(tick, 6000);
-      };
-      carousel.addEventListener('pointerenter', () => clearInterval(timer));
-      carousel.addEventListener('pointerleave', reset);
-      carousel.addEventListener('focusin', () => clearInterval(timer));
-      carousel.addEventListener('focusout', reset);
+      start();
+      carousel.addEventListener('pointerenter', stop);
+      carousel.addEventListener('pointerleave', () => playing && start());
+      carousel.addEventListener('focusin', stop);
+      carousel.addEventListener('focusout', () => playing && start());
+
+      pauseBtn?.addEventListener('click', () => {
+        playing = !playing;
+        pauseBtn.setAttribute('aria-pressed', String(!playing));
+        pauseBtn.setAttribute('aria-label', playing ? 'Pause testimonial rotation' : 'Play testimonial rotation');
+        pauseBtn.textContent = playing ? '❚❚' : '▶';
+        playing ? start() : stop();
+      });
+    } else {
+      pauseBtn?.setAttribute('hidden', '');
     }
   }
 </script>

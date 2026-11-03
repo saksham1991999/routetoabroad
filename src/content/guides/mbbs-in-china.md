@@ -10,7 +10,7 @@ image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical students studying around an anatomy model in a university laboratory'
 faqs:
   - question: 'Is MBBS from China valid in India?'
-    answer: 'Yes, if the university is listed with the WHO World Directory of Medical Schools and approved in China''s MOE list, and you pass India''s FMGE/NExT licensing exam after graduating. Always check the current NMC rules for your admission year.'
+    answer: 'Yes, if the university is listed with the WHO World Directory of Medical Schools and approved in China''s MOE list, and you pass India''s FMGE/NExT licensing exam after graduating. That combination is necessary but not by itself sufficient — NMC eligibility (NEET-UG qualification and the regulations in force for your admission year) decides whether a specific seat leads to registration, so confirm the exact university and year against the current NMC rules before you commit money.'
   - question: 'How much does MBBS in China cost per year?'
     answer: 'Tuition at MOE-listed English-medium medical schools typically runs US$3,500–8,000 per year, with dorms at US$800–1,500 per year. Scholarships can offset much of this.'
   - question: 'Is NEET required for MBBS in China?'
@@ -42,7 +42,7 @@ All three matter. We shortlist only universities that clear all three.
 | Living costs (city-dependent) | 2,400 – 5,000 |
 | Insurance & residence permit | 300 – 600 |
 
-A five-and-a-half-year programme therefore lands roughly between US$35,000 and US$80,000 all-in — versus ₹60 lakh–1 crore+ for a private Indian MBBS seat. CSC and university scholarships can reduce tuition substantially for strong applicants.
+A five-and-a-half-year programme therefore lands roughly between US$35,000 and US$80,000 for the costs listed above — before one-time extras such as flights, visa fees, application charges and initial setup. That is still a fraction of a private Indian MBBS seat at ₹60 lakh–1 crore+. CSC and university scholarships can reduce tuition substantially for strong applicants.
 
 ## Admission timeline (September intake)
 

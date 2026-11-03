@@ -17,7 +17,7 @@ study:
   text: 'China runs the largest international-student system in Asia: MOE-listed English-medium degrees, the CSC government scholarship, and tuition at a fraction of Western destinations. Medicine, engineering and business are the flagship routes.'
   points:
     - title: 'MBBS in English'
-      text: 'MOE-listed medical schools with WHO-recognized degrees; HSK 4 before clinical years; FMGE/NExT planning from day one.'
+      text: 'MOE-listed medical schools with degrees listed in the World Directory of Medical Schools (WDOMS); HSK 4 before clinical years; FMGE/NExT planning from day one — and always verify your home regulator’s eligibility rules for your admission year before you pay anything.'
     - title: 'Engineering & CS'
       text: 'Tsinghua-to-provincial range of options; AI, robotics and manufacturing depth; CSC funding common at postgraduate level.'
     - title: 'Business & MBA'

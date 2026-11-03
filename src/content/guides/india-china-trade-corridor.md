@@ -13,6 +13,9 @@ faqs:
     answer: 'Bilateral trade crossed US$100 billion in 2024 — China remains India''s largest goods trading partner, with India importing electronics, machinery, chemicals and intermediates, and exporting iron ore, marine products, and chemicals.'
   - question: 'Is it difficult to import from China to India now?'
     answer: 'It is more scrutinised, not blocked. Land-border FDI rules affect investment, not product imports. The practical friction is customs scrutiny, BIS/WPC requirements and correct HS classification — all manageable with proper documentation.'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'Payments: confirm current RBI/banking practice guidance per transaction size before publishing as advice'
 ---
 
 **Short answer: the corridor is bigger and more functional than the headlines suggest — $100B+ a year of mostly routine commerce. What changed since 2020 is scrutiny, not prohibition. Importers who run tight documentation and inspection pipelines move goods smoothly; everyone else funds the demurrage economy.**
@@ -41,7 +44,7 @@ Air freight (PVG/CAN → DEL/BOM): 3–7 days door-to-door at 5–8× sea cost. 
 
 ## Payment rails
 
-USD-settled by default. TT 30/70 for standard engagements; LC at sight for enterprise relationships; escrow for first deals. RMB settlement exists for large players but adds banking complexity on the Indian side. {{VERIFY}} current RBI/banking practice for your transaction size.
+USD-settled by default. TT 30/70 for standard engagements; LC at sight for enterprise relationships; escrow for first deals. RMB settlement exists for large players but adds banking complexity on the Indian side.
 
 ## Risk stack that holds up
 

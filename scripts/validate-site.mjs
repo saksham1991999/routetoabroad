@@ -185,11 +185,23 @@ for (const rel of htmlRels) {
       if (type === 'FAQPage') {
         const qs = s.mainEntity ?? [];
         if (!qs.length) errors.push(`${rel}: FAQPage with no questions`);
-        // every FAQ question text must appear in visible content
+        // every FAQ question text must appear in visible content — strip
+        // <script> (JSON-LD) first, otherwise the check confirms itself;
+        // decode entities + drop tags so typographic output still matches
+        const decode = (s) =>
+          s
+            .replace(/&amp;/g, '&')
+            .replace(/&quot;/g, '"')
+            .replace(/&#0?39;|&apos;|’/g, "'")
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>');
+        const plain = decode(html.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<[^>]+>/g, ' '))
+          .replace(/\s+/g, ' ')
+          .toLowerCase();
         for (const q of qs) {
-          const text = q.name || '';
-          if (!html.includes(text.replace(/[<>&]/g, '')) && !html.includes(text)) {
-            errors.push(`${rel}: FAQPage question not visible in page: "${text.slice(0, 60)}"`);
+          const needle = decode(q.name || '').replace(/\s+/g, ' ').toLowerCase();
+          if (!needle || !plain.includes(needle)) {
+            errors.push(`${rel}: FAQPage question not visible in page: "${(q.name || '').slice(0, 60)}"`);
           }
         }
       }
@@ -322,7 +334,7 @@ for (const b of builtUrls) {
     return up === path;
   });
   if (!inSitemap && !['/privacy', '/terms'].includes(path)) {
-    warnings.push(`built page missing from sitemap: ${path}`);
+    errors.push(`built page missing from sitemap: ${path}`);
   }
 }
 

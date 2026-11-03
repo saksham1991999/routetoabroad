@@ -206,7 +206,7 @@ const steps = [
     { offsetMonths: -12, title: 'Shortlist & supervisor outreach', text: 'Lock 3–5 universities (one reach / one target / one safe). Research applicants: start emailing matched supervisors with a 1-page proposal.' },
     { offsetMonths: -8, title: 'Document preparation', text: 'Transcripts, certificates, notarisation, study plan, recommendation letters, physical exam booked. The slowest phase — give it two full months.', hard: false },
     { offsetMonths: -7, title: 'Applications open — file early', text: 'University portals open ~7 months out. File your first applications now; early files get earlier dorm decisions.', hard: false },
-    { offsetMonths: -5, title: 'CSC scholarship deadline wall', text: 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.', hard: true },
+    { offsetMonths: -6, title: 'CSC scholarship deadline wall', text: 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.', hard: true },
     { offsetMonths: -4, title: 'Self-funded application deadline', text: 'Final calls for September self-funded admission at most partner universities.', hard: true },
     { offsetMonths: -3, title: 'Offers & acceptance', text: 'Offers land. Accept, pay any deposit to the UNIVERSITY account only, confirm dorm preferences.' },
     { offsetMonths: -2, title: 'JW202 & physical exam', text: 'Chase the Admission Notice + JW202 the week they are due. Complete the physical examination on the official form.', hard: true },
@@ -216,6 +216,25 @@ const steps = [
 
   const monthLabel = (d: Date) => d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
 
+  /** September- and March-specific guidance where the calendar really differs. */
+  function phaseText(p: Phase, intakeVal: string): string {
+    const march = intakeVal.endsWith('-03');
+    if (p.offsetMonths === -6) {
+      return march
+        ? 'CSC Type B windows for March intakes open in the preceding autumn (roughly June–September) and close months before departure. Verify each university’s current-year window — they are not uniform.'
+        : 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.';
+    }
+    if (p.offsetMonths === -7 && march) {
+      return 'University portals open ~7 months out. For March intakes this lands around the summer — file early; early files get earlier dorm decisions.';
+    }
+    if (p.offsetMonths === -4) {
+      return march
+        ? 'Final calls for March self-funded admission at most partner universities — confirm exact dates with each office.'
+        : 'Final calls for September self-funded admission at most partner universities.';
+    }
+    return p.text;
+  }
+
   function build(intakeVal: string) {
     const [y, m] = intakeVal.split('-').map(Number);
     if (!y || !m) return;
@@ -223,10 +242,13 @@ const steps = [
     if (Number.isNaN(intake.getTime())) return;
 
     const now = new Date();
+    // Month granularity: a milestone stays current until its month is over,
+    // so the intake month itself is never marked passed on day one.
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
     const rows = phases.map((p) => {
       const date = new Date(intake);
       date.setMonth(date.getMonth() + p.offsetMonths);
-      return { ...p, date, past: date < now };
+      return { ...p, text: phaseText(p, intakeVal), date, past: date < monthStart };
     });
     const nextIdx = rows.findIndex((r) => !r.past);
     const done = rows.filter((r) => r.past).length;

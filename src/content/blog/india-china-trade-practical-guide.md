@@ -26,7 +26,7 @@ The most common mistake Indian importers make is relying solely on Alibaba listi
 
 - Business license (营业执照) — verify the registered address matches the actual factory
 - Export licence covering your product category (HS code match)
-- BIS / WPC certifications for electronics and wireless goods destined for India
+- BIS certification for electronics that fall under India's notified product list, and WPC ETA approval for wireless/RF equipment where applicable — check your exact HS code against the current notified list before assuming either applies
 - Pre-shipment inspection protocol on AQL standards
 - Payment structure: never 100% advance — standard is 30% deposit, 70% against the Bill of Lading
 
