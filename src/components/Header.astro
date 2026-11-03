@@ -482,7 +482,7 @@ const isActive = (href: string) =>
     .header-cta { display: none; }
     /* The switcher also lives inside the mobile menu — the header row cannot
        fit five nowrap chips next to the toggles on a phone. */
-    .header-actions .lang-switcher { display: none; }
+    .header-actions :global(.lang-switcher) { display: none; }
     .header-inner { height: 4.5rem; }
     body[data-chrome='home'] .header-inner { height: 4.375rem; }
   }
