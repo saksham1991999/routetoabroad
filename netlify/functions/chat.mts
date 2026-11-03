@@ -59,8 +59,17 @@ export default async (req: Request): Promise<Response> => {
 
   // Keep context bounded while preserving a user-first, alternating turn
   // order — a raw slice can start on an assistant turn, which the
-  // Messages API rejects. Drop leading non-user turns after truncating.
-  const messages = body.messages.slice(-20);
+  // Messages API rejects. Malformed entries are dropped (a null entry would
+  // otherwise throw on .role) and leading non-user turns are removed.
+  const messages = body.messages
+    .filter(
+      (m: unknown): m is { role: string; content: string } =>
+        !!m &&
+        typeof m === 'object' &&
+        ((m as { role?: unknown }).role === 'user' || (m as { role?: unknown }).role === 'assistant') &&
+        typeof (m as { content?: unknown }).content === 'string'
+    )
+    .slice(-20);
   while (messages.length > 0 && messages[0].role !== 'user') {
     messages.shift();
   }

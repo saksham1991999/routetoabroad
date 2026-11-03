@@ -1,7 +1,8 @@
 # Netlify config for the RouteToAbroad Astro site (repo root deployment).
 
 [build]
-  command = "npm run build"
+  # The validator is part of the gate — a broken build must not deploy.
+  command = "npm run build && node scripts/validate-site.mjs"
   publish = "dist"
 
 [build.environment]

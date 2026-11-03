@@ -322,7 +322,8 @@ interface Props {}
     backBtn.hidden = true;
     hint.hidden = true;
 
-    const { school, bachelor, master, mbbs, engineering, business, language, research, sept, march, flexible } = {
+    const { country, school, bachelor, master, mbbs, engineering, business, language, research, sept, march, flexible } = {
+      country: answers['1'],
       school: answers['2'] === 'school',
       bachelor: answers['2'] === 'bachelor',
       master: answers['2'] === 'master',
