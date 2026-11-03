@@ -71,9 +71,6 @@ export interface UiStrings {
   };
   language: {
     aria: string;
-    currentLabel: string;
-    /** e.g. "View this page in " — prefixed to a language label. */
-    viewIn: string;
   };
   /**
    * Field labels & placeholders for the four shared form components
@@ -111,6 +108,8 @@ export interface UiStrings {
   hud: {
     tagline: string;
     scroll: string;
+    /** Words cycled by the homepage loader animation. */
+    loaderWords: string[];
   };
 }
 
@@ -267,7 +266,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       noReply: '（没有回复——请再试一次，或 WhatsApp 联系我们）',
       unavailable: '抱歉——助手当前不可用。',
     },
-    language: { aria: '语言', currentLabel: '当前语言', viewIn: '查看此页面的' },
+    language: { aria: '语言' },
     formFields: {
       fullName: '姓名',
       email: '邮箱',
@@ -296,7 +295,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       fail: '表单提交失败，请重试，或 WhatsApp +91 96330 61109。',
       network: '网络错误——请检查连接后重试。',
     },
-    hud: { tagline: '教育 · 旅游 · 贸易 — 一条走廊', scroll: '向下滚动' },
+    hud: { tagline: '教育 · 旅游 · 贸易 — 一条走廊', scroll: '向下滚动', loaderWords: ['选择', '申请', '入学'] },
   },
   fr: {
     nav: [
@@ -439,7 +438,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       noReply: '(Aucune réponse — réessayez ou écrivez-nous sur WhatsApp)',
       unavailable: 'Désolé — l’assistant n’est pas disponible pour le moment.',
     },
-    language: { aria: 'Langue', currentLabel: 'Langue actuelle', viewIn: 'Voir cette page en ' },
+    language: { aria: 'Langue' },
     formFields: {
       fullName: 'Nom complet',
       email: 'E-mail',
@@ -468,7 +467,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       fail: 'Impossible d’envoyer le formulaire. Réessayez, ou écrivez-nous sur WhatsApp +91 96330 61109.',
       network: 'Erreur réseau — vérifiez votre connexion et réessayez.',
     },
-    hud: { tagline: 'Études · Tourisme · Commerce — Un corridor', scroll: 'Défiler' },
+    hud: { tagline: 'Études · Tourisme · Commerce — Un corridor', scroll: 'Défiler', loaderWords: ['Choisir', 'Candidater', 'S’inscrire'] },
   },
   ar: {
     nav: [
@@ -611,7 +610,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       noReply: '(لا توجد ردود — أعد المحاولة أو راسلنا على واتساب)',
       unavailable: 'نأسف — المساعد غير متاح حاليًا.',
     },
-    language: { aria: 'اللغة', currentLabel: 'اللغة الحالية', viewIn: 'عرض هذه الصفحة بلغة ' },
+    language: { aria: 'اللغة' },
     formFields: {
       fullName: 'الاسم الكامل',
       email: 'البريد الإلكتروني',
@@ -640,7 +639,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       fail: 'حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى، أو راسلنا على واتساب +91 96330 61109.',
       network: 'خطأ في الشبكة — تحقق من اتصالك وحاول مرة أخرى.',
     },
-    hud: { tagline: 'تعليم · سياحة · تجارة — ممر واحد', scroll: 'مرر' },
+    hud: { tagline: 'تعليم · سياحة · تجارة — ممر واحد', scroll: 'مرر', loaderWords: ['اختر', 'قدّم', 'التحق'] },
   },
   es: {
     nav: [
@@ -783,7 +782,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       noReply: '(Sin respuesta — inténtelo de nuevo o escríbanos por WhatsApp)',
       unavailable: 'Lo sentimos: el asistente no está disponible ahora mismo.',
     },
-    language: { aria: 'Idioma', currentLabel: 'Idioma actual', viewIn: 'Ver esta página en ' },
+    language: { aria: 'Idioma' },
     formFields: {
       fullName: 'Nombre completo',
       email: 'Correo',
@@ -812,7 +811,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       fail: 'No se pudo enviar el formulario. Intente de nuevo o escríbanos por WhatsApp +91 96330 61109.',
       network: 'Error de red — verifique su conexión e intente de nuevo.',
     },
-    hud: { tagline: 'Estudios · Turismo · Comercio — Un corredor', scroll: 'Desplazar' },
+    hud: { tagline: 'Estudios · Turismo · Comercio — Un corredor', scroll: 'Desplazar', loaderWords: ['Elige', 'Solicita', 'Inscríbete'] },
   },
 };
 
@@ -989,7 +988,7 @@ export const UI_EN: UiStrings = {
     noReply: '(no reply — try again or WhatsApp us)',
     unavailable: 'Sorry — the assistant is unavailable right now.',
   },
-  language: { aria: 'Language', currentLabel: 'Current language', viewIn: 'View this page in ' },
+  language: { aria: 'Language' },
   formFields: {
     fullName: 'Full name',
     email: 'Email',
@@ -1018,7 +1017,7 @@ export const UI_EN: UiStrings = {
     fail: 'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.',
     network: 'Network error — please check your connection and try again.',
   },
-  hud: { tagline: 'Education · Tourism · Trade — One corridor', scroll: 'Scroll' },
+  hud: { tagline: 'Education · Tourism · Trade — One corridor', scroll: 'Scroll', loaderWords: ['Choose', 'Apply', 'Enroll'] },
 };
 
 /**

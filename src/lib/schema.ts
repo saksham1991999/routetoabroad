@@ -6,6 +6,16 @@ import { SITE } from './site';
 
 type Crumb = { name: string; url: string };
 
+/**
+ * Absolutize a URL against SITE.url. Pages pass paths (absolute like
+ * '/education' or localized like '/zh/education'); Google requires absolute
+ * URLs in BreadcrumbList/Service/Course item+url fields, so the builders
+ * normalize centrally instead of trusting every caller.
+ */
+function absUrl(u: string): string {
+  return /^https?:\/\//i.test(u) ? u : new URL(u, SITE.url).href;
+}
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -106,7 +116,7 @@ export function breadcrumbSchema(crumbs: Crumb[]) {
       '@type': 'ListItem',
       position: i + 1,
       name: c.name,
-      item: c.url,
+      item: absUrl(c.url),
     })),
   };
 }
@@ -157,12 +167,12 @@ export function courseSchema(opts: {
     '@type': 'Course',
     name: opts.name,
     description: opts.description,
-    url: opts.url,
+    url: absUrl(opts.url),
     provider: {
       '@type': 'CollegeOrUniversity',
-      '@id': opts.providerUrl ?? `${SITE.url}/#organization`,
+      '@id': opts.providerUrl ? absUrl(opts.providerUrl) : `${SITE.url}/#organization`,
       name: opts.providerName ?? SITE.name,
-      sameAs: opts.providerUrl ?? SITE.url,
+      sameAs: opts.providerUrl ? absUrl(opts.providerUrl) : SITE.url,
     },
   };
 }
@@ -179,7 +189,7 @@ export function serviceSchema(opts: {
     '@type': 'Service',
     name: opts.name,
     description: opts.description,
-    url: opts.url,
+    url: absUrl(opts.url),
     serviceType: opts.serviceType,
     areaServed: opts.areaServed ?? ['IN', 'CN'],
     provider: { '@id': `${SITE.url}/#organization` },

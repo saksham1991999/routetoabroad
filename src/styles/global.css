@@ -502,7 +502,7 @@ h4 {
 
 /* ---------- Quick answer block (AEO) ---------- */
 .quick-answer {
-  border-left: 2px solid var(--accent);
+  border-inline-start: 2px solid var(--accent);
   background: var(--paper-raised);
   border-radius: 0 var(--radius-m) var(--radius-m) 0;
   padding: 1.2rem 1.5rem;
@@ -635,7 +635,7 @@ table.compare {
 table.compare th,
 table.compare td {
   padding: 0.85rem 1.1rem;
-  text-align: left;
+  text-align: start;
   border-bottom: 1px solid var(--line);
   vertical-align: top;
 }
@@ -758,7 +758,7 @@ table.compare td:first-of-type {
   background: color-mix(in srgb, var(--ok) 10%, transparent);
   color: var(--ok);
   border: 1px solid color-mix(in srgb, var(--ok) 35%, transparent);
-  border-left-width: 3px;
+  border-inline-start-width: 3px;
   padding: 1.25rem 1.4rem;
   line-height: 1.55;
 }

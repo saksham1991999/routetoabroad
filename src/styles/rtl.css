@@ -141,3 +141,9 @@ html[dir='rtl'] .tool-row:hover .tool-go {
   transition: transform 0.15s ease;
   transform: translateX(-3px);
 }
+
+/* --- Quick-answer block: the accent bar uses border-inline-start, so the
+      flat corners must follow it to the start (right) side under RTL. --- */
+html[dir='rtl'] .quick-answer {
+  border-radius: var(--radius-m) 0 0 var(--radius-m);
+}

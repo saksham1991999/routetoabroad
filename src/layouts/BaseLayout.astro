@@ -56,10 +56,9 @@ const ui = uiFor(pageLocale);
 
 /** Homepage gets the loader, HUD and tone-switching chrome. Locale homepages
  * (/, /zh, /fr, /ar, /es) count as home too — the loader/HUD live here. */
-const isHome =
-  Astro.url.pathname === '/' ||
-  Astro.url.pathname === '' ||
-  translatePath(Astro.url.pathname, pageLocale) === '/';
+const isHome = ['', '/'].includes(
+  Astro.url.pathname.replace(/^\/+(zh|fr|ar|es)(?=\/|$)/, '') || '/'
+);
 ---
 
 <!doctype html>
@@ -134,12 +133,12 @@ const isHome =
 
     {
       isHome && (
-        <div class="rta-loader" id="rta-loader" aria-hidden="true">
+        <div class="rta-loader" id="rta-loader" aria-hidden="true" data-loader-words={ui.hud.loaderWords.join('|')}>
           <div class="rta-loader-cover rta-loader-cover--top" />
           <div class="rta-loader-cover rta-loader-cover--bottom" />
           <p class="rta-loader-line">
             <span class="rta-loader-word" data-loader-word>
-              Choose
+              {ui.hud.loaderWords[0]}
             </span>
           </p>
         </div>
@@ -206,7 +205,10 @@ const isHome =
           const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
           const run = async () => {
             const word = loader.querySelector<HTMLElement>('[data-loader-word]');
-            const words = ['Choose', 'Apply', 'Enroll'];
+            // Localized loader words (fallback: English), joined with '|' in
+            // the data attribute because FormData/HTML attr values are strings.
+            const words =
+              loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
             if (word) {
               for (const next of words) {

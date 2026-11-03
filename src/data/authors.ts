@@ -23,6 +23,15 @@ export const AUTHORS: Record<string, Author> = {
     linkedin: 'https://www.linkedin.com/in/minhajalshukoor',
     verified: true,
   },
+  vijeesh: {
+    id: 'vijeesh',
+    name: 'Vijeesh Vijayan',
+    role: 'Co-founder & Director, Education',
+    bio: 'Owns academic matching and student files — which university, which programme, which documents, and what happens after landing. Vijeesh has walked hundreds of students from first enquiry to campus registration.',
+    initials: 'VV',
+    linkedin: 'https://www.linkedin.com/in/vijeeshvijayan',
+    verified: true,
+  },
   ananya: {
     id: 'ananya',
     name: 'Ananya Krishnan',
