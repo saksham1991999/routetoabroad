@@ -1,5 +1,6 @@
 ---
 import { LOCALES, LOCALE_META, DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 
 /**
  * Language switcher — pill cluster in the header and mobile menu.
@@ -11,9 +12,10 @@ import { LOCALES, LOCALE_META, DEFAULT_LOCALE, translatePath, type Locale } from
  */
 const currentPath = Astro.url.pathname;
 const currentLocale = (Astro.props.locale as Locale | undefined) ?? DEFAULT_LOCALE;
+const ui = uiFor(currentLocale);
 ---
 
-<nav class="lang-switcher" aria-label={LOCALE_META[currentLocale] ? undefined : 'Language'}>
+<nav class="lang-switcher" aria-label={ui.language.aria}>
   <ul>
     {LOCALES.map((code) => {
       const active = code === currentLocale;
@@ -28,7 +30,9 @@ const currentLocale = (Astro.props.locale as Locale | undefined) ?? DEFAULT_LOCA
             <a
               class="lang-chip"
               href={href}
-              aria-label={`View this page in ${LOCALE_META[code].label}`}
+              hreflang={code}
+              lang={code}
+              aria-label={`${ui.language.viewIn}${LOCALE_META[code].label}`}
             >
               {LOCALE_META[code].nativeLabel}
             </a>

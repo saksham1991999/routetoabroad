@@ -12,6 +12,7 @@ import SiteSchemas from '../components/SiteSchemas.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
 import { localeFromPath, LOCALE_META, translatePath, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -47,16 +48,29 @@ const {
   locale,
 } = Astro.props;
 
-/** Homepage gets the loader, HUD and tone-switching chrome. */
-const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
-
 /** Resolve the page locale — explicit prop wins, fall back to URL detection. */
 const pageLocale: Locale = locale ?? localeFromPath(Astro.url.pathname);
 const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
+/** Chrome strings for this page's locale (en pages keep their inline copy). */
+const ui = uiFor(pageLocale);
+
+/** Homepage gets the loader, HUD and tone-switching chrome. Locale homepages
+ * (/, /zh, /fr, /ar, /es) count as home too — the loader/HUD live here. */
+const isHome =
+  Astro.url.pathname === '/' ||
+  Astro.url.pathname === '' ||
+  translatePath(Astro.url.pathname, pageLocale) === '/';
 ---
 
 <!doctype html>
-<html lang={pageLocale} dir={isRtl ? 'rtl' : 'ltr'} class="no-js">
+<html
+  lang={pageLocale}
+  dir={isRtl ? 'rtl' : 'ltr'}
+  class="no-js"
+  data-form-success={ui.form.success}
+  data-form-fail={ui.form.fail}
+  data-form-network={ui.form.network}
+>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -107,7 +121,7 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
     )}
   </head>
   <body data-chrome={isHome ? 'home' : 'inner'} data-tone="light">
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">{ui.skipLink}</a>
     <Header locale={pageLocale} />
     <main id="main">
       <slot />
@@ -132,13 +146,13 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
       isHome && (
         <div class="rta-hud">
           <span class="rta-hud-item" aria-hidden="true">
-            Education · Tourism · Trade — One corridor
+            {ui.hud.tagline}
           </span>
           <div class="rta-hud-right">
             <a class="rta-hud-link" href={SITE.whatsapp} rel="noopener">
               WhatsApp {SITE.phoneIndia}
             </a>
-            <span class="rta-hud-item" aria-hidden="true">Scroll</span>
+            <span class="rta-hud-item" aria-hidden="true">{ui.hud.scroll}</span>
             <span class="rta-hud-percent" role="status">
               <span data-scroll-percent>0%</span>
             </span>
@@ -147,7 +161,7 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
       )
     }
 
-    <a class="rta-tab" id="rta-tab" href={translatePath('/tools/fit-check', pageLocale)}>Fit check</a>
+    <a class="rta-tab" id="rta-tab" href={translatePath('/tools/fit-check', pageLocale)}>{ui.headerCta}</a>
 
     <script>
       // Single source of truth for the Formspree endpoint (src/lib/site.ts).
@@ -357,9 +371,14 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
           }
 
           try {
+            // Tag the submission with the page locale so the business knows which
+            // language the lead came in (the engine is shared across all locales).
+            const fd = new FormData(form);
+            const pageLang = document.documentElement.lang;
+            if (pageLang) fd.append('locale', pageLang);
             const res = await fetch(FORMSPREE, {
               method: 'POST',
-              body: new FormData(form),
+              body: fd,
               headers: { Accept: 'application/json' },
             });
 
@@ -368,6 +387,7 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
               status.className = 'form-status ok';
               status.textContent =
                 form.dataset.successMsg ||
+                document.documentElement.dataset.formSuccess ||
                 'Message received! An advisor will reply within one working day.';
               // Replace the whole form with the success panel — leaving a live
               // submit button under a "sent" message invites duplicate sends.
@@ -379,12 +399,15 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
             } else if (status) {
               status.className = 'form-status fail';
               status.textContent =
+                document.documentElement.dataset.formFail ||
                 'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.';
             }
           } catch {
             if (status) {
               status.className = 'form-status fail';
-              status.textContent = 'Network error — please check your connection and try again.';
+              status.textContent =
+                document.documentElement.dataset.formNetwork ||
+                'Network error — please check your connection and try again.';
             }
           } finally {
             if (btn) {

@@ -59,6 +59,8 @@ export interface UiStrings {
     greeting: string;
     suggestions: { label: string; prompt: string }[];
     retry: string;
+    noReply: string;
+    unavailable: string;
   };
   notFound: {
     title: string;
@@ -70,6 +72,8 @@ export interface UiStrings {
   language: {
     aria: string;
     currentLabel: string;
+    /** e.g. "View this page in " — prefixed to a language label. */
+    viewIn: string;
   };
   form: {
     success: string;
@@ -185,6 +189,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         { label: '验证供应商', prompt: '在付定金之前，你们如何验证中国供应商？' },
       ],
       retry: '再试一次',
+      noReply: '（没有回复——请再试一次，或 WhatsApp 联系我们）',
+      unavailable: '抱歉——助手当前不可用。',
     },
     notFound: {
       title: '这一页不在这条路线上。',
@@ -193,7 +199,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       startFitCheck: '开始适配检查',
       orTry: '或者试试：',
     },
-    language: { aria: '语言', currentLabel: '当前语言' },
+    language: { aria: '语言', currentLabel: '当前语言', viewIn: '查看此页面的' },
     form: {
       success: '已收到消息！顾问将在一个工作日内回复。',
       fail: '表单提交失败，请重试，或 WhatsApp +91 96330 61109。',
@@ -294,9 +300,11 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       suggestions: [
         { label: 'MBBS en Chine', prompt: 'Puis-je faire du MBBS en Chine en tant qu’étudiant indien ?' },
         { label: 'Coût d’un tour de Chine', prompt: 'Combien coûte généralement un tour de Chine de deux semaines ?' },
-        { label: 'Vérifier un fournisseur', prompt: 'Comment vérifiez-vous un fournisseur chinois avant d’verser un acompte ?' },
+        { label: 'Vérifier un fournisseur', prompt: 'Comment vérifiez-vous un fournisseur chinois avant de verser un acompte ?' },
       ],
       retry: 'Réessayer',
+      noReply: '(Aucune réponse — réessayez ou écrivez-nous sur WhatsApp)',
+      unavailable: 'Désolé — l’assistant n’est pas disponible pour le moment.',
     },
     notFound: {
       title: 'Cette page n’est pas sur cette route.',
@@ -305,7 +313,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       startFitCheck: 'Commencer le test',
       orTry: 'Ou essayez :',
     },
-    language: { aria: 'Langue', currentLabel: 'Langue actuelle' },
+    language: { aria: 'Langue', currentLabel: 'Langue actuelle', viewIn: 'Voir cette page en ' },
     form: {
       success: 'Message bien reçu ! Un conseiller vous répondra sous un jour ouvré.',
       fail: 'Impossible d’envoyer le formulaire. Réessayez, ou écrivez-nous sur WhatsApp +91 96330 61109.',
@@ -341,7 +349,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
           links: [
             { href: '/ar/education', label: 'الدراسة في الصين' },
             { href: '/ar/tourism', label: 'جولات وسفر' },
-            { href: '/ar/trade', label: 'تجارة وتوفير' },
+            { href: '/ar/trade', label: 'تجارة وتوريد' },
             { href: '/ar/for-agents', label: 'للمندوبين' },
           ],
         },
@@ -405,10 +413,12 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         'مرحباً! يمكنني الإجابة عن الأسئلة المتعلقة بالدراسة في الصين أو السفر إلى شرق آسيا أو التوريد من المصانع الصينية. ما الذي تعمل عليه؟',
       suggestions: [
         { label: 'MBBS في الصين', prompt: 'هل يمكنني دراسة الطب (MBBS) في الصين كطالب هندي؟' },
-        { label: 'تكلفة الجولة', prompt: 'كم يكلف أسبوع من السياحة في الصين عادةً؟' },
+        { label: 'تكلفة جولة في الصين', prompt: 'كم تكلف عادةً جولة في الصين مدتها أسبوعان؟' },
         { label: 'تحقق من المورد', prompt: 'كيف تتحقق من المورد الصيني قبل دفع العربون؟' },
       ],
       retry: 'حاول مرة أخرى',
+      noReply: '(لا توجد ردود — أعد المحاولة أو راسلنا على واتساب)',
+      unavailable: 'نأسف — المساعد غير متاح حاليًا.',
     },
     notFound: {
       title: 'هذه الصفحة ليست على هذا المسار.',
@@ -417,7 +427,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       startFitCheck: 'ابدأ فحص الملاءمة',
       orTry: 'أو جرّب:',
     },
-    language: { aria: 'اللغة', currentLabel: 'اللغة الحالية' },
+    language: { aria: 'اللغة', currentLabel: 'اللغة الحالية', viewIn: 'عرض هذه الصفحة بلغة ' },
     form: {
       success: 'تم استلام رسالتك! سيقوم مستشار بالرد خلال يوم عمل واحد.',
       fail: 'حدث خطأ أثناء إرسال النموذج. حاول مرة أخرى، أو راسلنا على واتساب +91 96330 61109.',
@@ -440,7 +450,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     themeAria: 'Alternar modo oscuro',
     menuOpenAria: 'Abrir menú',
     menuCloseAria: 'Cerrar menú',
-    headerCta: 'Prueba de aptitud',
+    headerCta: 'Prueba de compatibilidad',
     mobileCtaStart: 'Comenzar la prueba',
     mobileCtaWhatsApp: 'WhatsApp a un asesor',
     skipLink: 'Ir al contenido',
@@ -460,7 +470,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         {
           heading: 'Herramientas gratis',
           links: [
-            { href: '/es/tools/fit-check', label: 'Prueba de aptitud' },
+            { href: '/es/tools/fit-check', label: 'Prueba de compatibilidad' },
             { href: '/es/tools/scholarship-eligibility', label: 'Becas' },
             { href: '/es/tools/cost-calculator', label: 'Calculadora de costos' },
             { href: '/es/tools/document-checklist', label: 'Lista de documentos' },
@@ -494,7 +504,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       openNote: 'Horario',
     },
     cta: {
-      title: '¿Listo para hacer su movimiento?',
+      title: '¿Listo para dar el siguiente paso?',
       text: 'Comience con una consulta gratuita hoy. Sin compromiso — solo una respuesta clara sobre su próximo paso.',
       talkToAdvisor: 'Hablar con un asesor',
       whatsapp: 'Escríbanos por WhatsApp',
@@ -521,6 +531,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         { label: 'Verificar un proveedor', prompt: '¿Cómo verifican a un proveedor chino antes de pagar un anticipo?' },
       ],
       retry: 'Reintentar',
+      noReply: '(Sin respuesta — inténtelo de nuevo o escríbanos por WhatsApp)',
+      unavailable: 'Lo sentimos: el asistente no está disponible ahora mismo.',
     },
     notFound: {
       title: 'Esa página no está en esta ruta.',
@@ -529,7 +541,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       startFitCheck: 'Comenzar la prueba',
       orTry: 'O intente:',
     },
-    language: { aria: 'Idioma', currentLabel: 'Idioma actual' },
+    language: { aria: 'Idioma', currentLabel: 'Idioma actual', viewIn: 'Ver esta página en ' },
     form: {
       success: '¡Mensaje recibido! Un asesor le responderá dentro de un día hábil.',
       fail: 'No se pudo enviar el formulario. Intente de nuevo o escríbanos por WhatsApp +91 96330 61109.',
@@ -636,6 +648,8 @@ export const UI_EN: UiStrings = {
       { label: 'Verify a supplier', prompt: 'How do you verify a Chinese supplier before I pay a deposit?' },
     ],
     retry: 'Try again',
+    noReply: '(no reply — try again or WhatsApp us)',
+    unavailable: 'Sorry — the assistant is unavailable right now.',
   },
   notFound: {
     title: 'That page is not on this route.',
@@ -644,7 +658,7 @@ export const UI_EN: UiStrings = {
     startFitCheck: 'Start the fit check',
     orTry: 'Or try:',
   },
-  language: { aria: 'Language', currentLabel: 'Current language' },
+  language: { aria: 'Language', currentLabel: 'Current language', viewIn: 'View this page in ' },
   form: {
     success: 'Message received! An advisor will reply within one working day.',
     fail: 'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.',
@@ -653,7 +667,11 @@ export const UI_EN: UiStrings = {
   hud: { tagline: 'Education · Tourism · Trade — One corridor', scroll: 'Scroll' },
 };
 
-/** Get the active UI strings for a locale. English returns the reference copy. */
+/**
+ * Get the active UI strings for a locale. English returns the reference copy.
+ * Unknown codes fall back to the English strings so a bad locale never
+ * renders `undefined`.
+ */
 export function uiFor(locale: Locale): UiStrings {
   if (locale === DEFAULT_LOCALE) return UI_EN;
   // UI is keyed by Exclude<Locale, 'en'>; every non-default locale has an
@@ -661,5 +679,4 @@ export function uiFor(locale: Locale): UiStrings {
   return (UI as Record<string, UiStrings>)[locale] ?? UI_EN;
 }
 
-/** All locales that have UI dictionaries (i.e. every non-default locale). */
-export const LOCALIZED_UI_LOCALES = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
+

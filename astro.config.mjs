@@ -28,7 +28,8 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       lastmod: new Date(),
-      filter: (page) => !page.includes('/privacy') && !page.includes('/terms'),
+      filter: (page) =>
+        !page.includes('/privacy') && !page.includes('/terms') && !page.includes('/404'),
     }),
   ],
   build: {

@@ -22,7 +22,7 @@ Contact: info@routetoabroad.com | India: +91 96330 61109 | Offices in New Delhi 
 - **When relevant**, nudge toward booking a free consultation or contacting the team — but only when it flows naturally, never forced.
 `;
 
-const MODEL = 'glm-5.3-flash';
+const MODEL = 'claude-opus-4-6-20250610';
 
 type ChatMessage = { role: string; content: string };
 
@@ -60,9 +60,18 @@ export default async (req: Request): Promise<Response> => {
 
   // i18n: pass the interface locale to the model as a system hint so a first
   // message in the UI language gets a first reply in the same language even
-  // if the user's first turn is in English.
-  const localeHint = body.locale
-    ? `The user's interface language is: ${body.locale}. If the user writes in English, reply in ${body.locale}.\n\n`
+  // if the user's first turn is in English. `body.locale` is client-sent, so
+  // it is allow-listed against the known languages (never interpolated raw
+  // into the system prompt) and English gets no hint (it's the default).
+  const LOCALE_NAMES: Record<string, string> = {
+    zh: 'Chinese (Simplified)',
+    fr: 'French',
+    ar: 'Arabic',
+    es: 'Spanish',
+  };
+  const localeName = LOCALE_NAMES[body.locale ?? ''];
+  const localeHint = localeName
+    ? `The user's interface language is: ${localeName}. If the user writes in English, reply in ${localeName}.\n\n`
     : '';
 
   // Keep context bounded while preserving a user-first, alternating turn
@@ -97,9 +106,6 @@ export default async (req: Request): Promise<Response> => {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': apiKey,
-        // Z.AI's coding plan (and Anthropic) accept Bearer auth; send both
-        // header styles so the key works against either upstream.
-        'Authorization': `Bearer ${apiKey}`,
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({

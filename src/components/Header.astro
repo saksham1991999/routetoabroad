@@ -9,11 +9,16 @@ const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
 const ui = uiFor(locale);
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
-const isActive = (href: string) =>
-  currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
-
 /** Translate a hard-coded English path to the current locale's URL. */
 const link = (path: string) => translatePath(path, locale);
+/**
+ * Nav active-state. `linkItem.href` values are hard-coded English paths, so
+ * compare against the *localized* current path (strip the locale prefix) —
+ * otherwise no nav item ever shows active on /zh/education etc.
+ */
+const localPath = translatePath(currentPath, DEFAULT_LOCALE);
+const isActive = (href: string) =>
+  localPath === href || (href !== '/' && localPath.startsWith(href + '/'));
 ---
 
 <header class="site-header" id="site-header">
@@ -46,7 +51,7 @@ const link = (path: string) => translatePath(path, locale);
         </svg>
       </button>
       <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm header-cta">{ui.headerCta}</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={ui.menuOpenAria}>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={ui.menuOpenAria} data-menu-open-aria={ui.menuOpenAria} data-menu-close-aria={ui.menuCloseAria}>
         <span class="menu-line"></span>
         <span class="menu-line"></span>
       </button>
@@ -506,10 +511,14 @@ const link = (path: string) => translatePath(path, locale);
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
 
+  // Localized aria-labels (read from data-* so they flip language with the page).
+  const openAria = toggle?.dataset.menuOpenAria ?? 'Open menu';
+  const closeAria = toggle?.dataset.menuCloseAria ?? 'Close menu';
+
   function closeMenu() {
     if (!toggle || !menu) return;
     toggle.setAttribute('aria-expanded', 'false');
-    toggle.setAttribute('aria-label', 'Open menu');
+    toggle.setAttribute('aria-label', openAria);
     menu.hidden = true;
     menu.classList.remove('is-open');
     document.body.style.overflow = '';
@@ -524,7 +533,7 @@ const link = (path: string) => translatePath(path, locale);
       closeMenu();
     } else {
       toggle.setAttribute('aria-expanded', 'true');
-      toggle.setAttribute('aria-label', 'Close menu');
+      toggle.setAttribute('aria-label', closeAria);
       menu.hidden = false;
       // The opaque menu owns the header area: drop the condensed scrim and
       // hide the chat widget from the accessibility tree while open.

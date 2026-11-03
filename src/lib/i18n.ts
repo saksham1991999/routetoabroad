@@ -60,7 +60,3 @@ export function translatePath(path: string, locale: Locale): string {
   return p === '/' ? `/${locale}` : `/${locale}${p}`;
 }
 
-/** hreflang value for a locale — the BCP-47 tag, with x-default handled separately. */
-export function hreflangCode(locale: Locale): string {
-  return LOCALE_META[locale].code;
-}
