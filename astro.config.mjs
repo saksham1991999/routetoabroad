@@ -7,17 +7,17 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'never',
   // i18n routing: English stays at the unprefixed root (prefixDefaultLocale:
-  // false); every other locale lives under /<locale>/. Missing translations
-  // rewrite to the English version (fallbackType: 'rewrite') instead of 404,
-  // so un-translated long-tail pages still serve useful content at the
-  // localized URL. See src/lib/i18n.ts for the Locale type.
+  // false); every other locale lives under /<locale>/. No `fallback` map is
+  // configured: a route without a localized source page 404s at its localized
+  // URL instead of silently serving English content with mismatched
+  // lang/canonical signals — coverage gaps fail loudly (the validator's
+  // source-page check enforces this too). Every route is covered by a locale
+  // twin today; see src/lib/i18n.ts.
   i18n: {
     locales: ['en', 'zh', 'fr', 'ar', 'es'],
     defaultLocale: 'en',
-    fallback: { zh: 'en', fr: 'en', ar: 'en', es: 'en' },
     routing: {
       prefixDefaultLocale: false,
-      fallbackType: 'rewrite',
     },
   },
   // Astro 7 defaults compressHTML to 'jsx' (React-style whitespace stripping
@@ -28,8 +28,14 @@ export default defineConfig({
     sitemap({
       changefreq: 'monthly',
       lastmod: new Date(),
-      filter: (page) =>
-        !page.includes('/privacy') && !page.includes('/terms') && !page.includes('/404'),
+      // Exclude legal pages (indexable but deliberately kept out of the
+      // sitemap) and any 404 route, in every locale. Match the final path
+      // segment — substring matching would silently drop unrelated future
+      // slugs that merely contain these words.
+      filter: (page) => {
+        const tail = new URL(page).pathname.replace(/\/+$/, '').split('/').pop() ?? '';
+        return !['privacy', 'terms', '404'].includes(tail);
+      },
     }),
   ],
   build: {
