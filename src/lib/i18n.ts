@@ -60,3 +60,15 @@ export function translatePath(path: string, locale: Locale): string {
   return p === '/' ? `/${locale}` : `/${locale}${p}`;
 }
 
+
+/**
+ * BCP-47 tags for Intl number/date formatting. Arabic pins Latin digits
+ * (-u-nu-latn) so prices and dates match the rest of the site's numerals.
+ */
+export const INTL_TAG: Record<Locale, string> = {
+  en: 'en-US',
+  zh: 'zh-CN',
+  fr: 'fr-FR',
+  ar: 'ar-u-nu-latn',
+  es: 'es-ES',
+};

@@ -1,0 +1,341 @@
+---
+/**
+ * Timeline planner — shared by all five locales. Copy comes from
+ * src/i18n/tools/timeline-planner.ts; the client script receives the phase
+ * text via data-i18n and formats month names with Intl for the page locale.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { howToSchema } from '../../lib/schema';
+import { TIMELINE_STRINGS } from '../../i18n/tools/timeline-planner';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = TIMELINE_STRINGS[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/timeline-planner"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: link('/tools') },
+    { name: t.crumb, url: link('/tools/timeline-planner') },
+  ]}
+  jsonLd={[
+    howToSchema({
+      name: t.howTo.name,
+      description: t.howTo.description,
+      steps: t.howTo.steps,
+    }),
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: link('/tools') },
+      { name: t.crumb, url: link('/tools/timeline-planner') },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad" id="tl-root" data-i18n={JSON.stringify(t.script)}>
+        <div class="calc-form">
+          <div class="field">
+            <label for="tl-intake">{t.intakeLabel}</label>
+            <select id="tl-intake">
+              <option value="2027-03" selected>{t.intakes.m2027_03}</option>
+              <option value="2027-09">{t.intakes.m2027_09}</option>
+              <option value="2028-03">{t.intakes.m2028_03}</option>
+            </select>
+          </div>
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="tl-go">{t.build}</button>
+            <button type="button" class="btn btn-ghost" id="tl-reset" hidden>{t.reset}</button>
+          </div>
+        </div>
+
+        <p class="tl-summary" id="tl-summary" hidden aria-live="polite"></p>
+        <ol class="tl-list" id="tl-list" hidden></ol>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">{t.legend.label}</p>
+        <p>
+          <span class="mk mk-red">●</span> {t.legend.hard} ·
+          <span class="mk">●</span> {t.legend.recommended} · {t.legend.tz} {t.legend.cscBefore}
+          <strong>{t.legend.cscBold}</strong> {t.legend.cscAfter}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style is:global>
+  .calc {
+    max-width: 46rem;
+    margin-inline: auto;
+  }
+
+  .calc-form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 22rem;
+  }
+
+  .calc-form .btn {
+    justify-self: start;
+  }
+
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .tl-summary {
+    margin-top: 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  .tl-summary strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .tl-list {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1.4rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tl-item:last-child {
+    border-bottom: 0;
+  }
+
+  .tl-when {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding-top: 0.2rem;
+  }
+
+  .tl-when .mk {
+    color: var(--accent);
+    margin-right: 0.4rem;
+  }
+
+  .tl-when .mk.mk-red {
+    color: var(--err);
+  }
+
+  .tl-item.past .tl-when,
+  .tl-item.past .tl-body {
+    opacity: 0.45;
+  }
+
+  .tl-item.next {
+    background: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+
+  .tl-item.next .tl-when {
+    color: var(--accent-text);
+  }
+
+  .tl-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .tl-body p {
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .calc-note {
+    max-width: 46rem;
+    margin: 2rem auto 0;
+  }
+
+  .mk {
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 40rem) {
+    .tl-item {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+</style>
+
+<script>
+  import { intlTag, readI18n } from '../../lib/i18n-client';
+  import type { TimelineStrings } from '../../i18n/tools/timeline-planner';
+
+  const T = readI18n<TimelineStrings['script']>(document.getElementById('tl-root'));
+  const go = document.getElementById('tl-go') as HTMLButtonElement;
+  const resetBtn = document.getElementById('tl-reset') as HTMLButtonElement;
+  const intakeEl = document.getElementById('tl-intake') as HTMLSelectElement;
+  const list = document.getElementById('tl-list') as HTMLElement;
+  const summary = document.getElementById('tl-summary') as HTMLElement;
+  const STORE_KEY = 'rta-timeline-v1';
+
+  type Phase = { offsetMonths: number; title: string; text: string; hard?: boolean };
+  // Phases counted backwards from intake month (offset negative). Copy lives in
+  // src/i18n/tools/timeline-planner.ts (same order); offsets and hard-deadline
+  // flags are logic, so they stay here.
+  const PHASE_META: { offsetMonths: number; hard: boolean }[] = [
+    { offsetMonths: -15, hard: false },
+    { offsetMonths: -12, hard: false },
+    { offsetMonths: -8, hard: false },
+    { offsetMonths: -7, hard: false },
+    { offsetMonths: -6, hard: true },
+    { offsetMonths: -4, hard: true },
+    { offsetMonths: -3, hard: false },
+    { offsetMonths: -2, hard: true },
+    { offsetMonths: -1, hard: true },
+    { offsetMonths: 0, hard: true },
+  ];
+  const phases: Phase[] = PHASE_META.map((meta, i) => ({ ...meta, ...T.phases[i]! }));
+
+  const dateFmt = new Intl.DateTimeFormat(intlTag(), { month: 'short', year: 'numeric' });
+  const monthLabel = (d: Date) => dateFmt.format(d);
+
+  /** September- and March-specific guidance where the calendar really differs. */
+  function phaseText(p: Phase, intakeVal: string): string {
+    const march = intakeVal.endsWith('-03');
+    if (p.offsetMonths === -6) {
+      return march ? T.cscMarch : p.text;
+    }
+    if (p.offsetMonths === -7 && march) {
+      return T.portalsMarch;
+    }
+    if (p.offsetMonths === -4) {
+      return march ? T.selfFundedMarch : p.text;
+    }
+    return p.text;
+  }
+
+  function build(intakeVal: string) {
+    const [y, m] = intakeVal.split('-').map(Number);
+    if (!y || !m) return;
+    const intake = new Date(y, m - 1, 1);
+    if (Number.isNaN(intake.getTime())) return;
+
+    const now = new Date();
+    // Month granularity: a milestone stays current until its month is over,
+    // so the intake month itself is never marked passed on day one.
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const rows = phases.map((p) => {
+      const date = new Date(intake);
+      date.setMonth(date.getMonth() + p.offsetMonths);
+      return { ...p, text: phaseText(p, intakeVal), date, past: date < monthStart };
+    });
+    const nextIdx = rows.findIndex((r) => !r.past);
+    const done = rows.filter((r) => r.past).length;
+
+    list.hidden = false;
+    list.innerHTML = rows
+      .map((r, i) => {
+        const isNext = i === nextIdx;
+        const flag = r.past ? ` · ${T.passed}` : isNext ? ` · ${T.next}` : '';
+        return `
+          <li class="tl-item${r.past ? ' past' : ''}${isNext ? ' next' : ''}">
+            <p class="tl-when"><span class="mk ${r.hard ? 'mk-red' : ''}">●</span>${monthLabel(r.date)}${flag}</p>
+            <div class="tl-body">
+              <h3>${r.title}${r.hard ? ` — ${T.deadline}` : ''}</h3>
+              <p>${r.text}</p>
+            </div>
+          </li>
+        `;
+      })
+      .join('');
+
+    summary.hidden = false;
+    summary.innerHTML =
+      nextIdx === -1
+        ? T.summaryUnderway.replace('{done}', String(done)).replace('{total}', String(rows.length))
+        : T.summaryNext
+            .replace('{done}', String(done))
+            .replace('{total}', String(rows.length))
+            .replace('{title}', rows[nextIdx]!.title)
+            .replace('{month}', monthLabel(rows[nextIdx]!.date));
+    resetBtn.hidden = false;
+  }
+
+  go?.addEventListener('click', () => {
+    build(intakeEl.value);
+    try {
+      localStorage.setItem(STORE_KEY, intakeEl.value);
+    } catch {
+      /* private mode — the timeline still renders for this visit */
+    }
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    list.hidden = true;
+    list.innerHTML = '';
+    summary.hidden = true;
+    summary.innerHTML = '';
+    resetBtn.hidden = true;
+    intakeEl.value = '2027-03';
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    intakeEl.focus();
+  });
+
+  // Changing the intake after a build should rebuild AND persist, so a
+  // reload restores the timeline that was last on screen — not an older one.
+  intakeEl?.addEventListener('change', () => {
+    if (!list.hidden) {
+      build(intakeEl.value);
+      try {
+        localStorage.setItem(STORE_KEY, intakeEl.value);
+      } catch {}
+    }
+  });
+
+  // Restore the last timeline — it is the same answer every visit.
+  (() => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem(STORE_KEY);
+    } catch {}
+    if (!saved) return;
+    if (![...intakeEl.options].some((o) => o.value === saved)) return;
+    intakeEl.value = saved;
+    build(saved);
+  })();
+</script>

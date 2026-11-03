@@ -1,0 +1,146 @@
+---
+/**
+ * Tools index — shared by all five locales; copy from src/i18n/tools/index.ts.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { TOOLS_INDEX_STRINGS } from '../../i18n/tools/index';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = TOOLS_INDEX_STRINGS[locale];
+
+const HREFS = ['/tools/fit-check', '/tools/scholarship-eligibility', '/tools/cost-calculator', '/tools/document-checklist', '/tools/timeline-planner'] as const;
+const tools = t.tools.map((tool, i) => ({ ...tool, href: link(HREFS[i]!) }));
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools"
+  locale={locale}
+  crumbs={[{ name: t.crumb, url: link('/tools') }]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    index="TLS / 05"
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/tools') }]}
+    facts={t.hero.facts}
+    actions={[{ href: link('/tools/fit-check'), label: t.hero.action }]}
+  />
+
+  <section class="section">
+    <div class="container tools-list">
+      {tools.map((tool, i) => (
+        <a href={tool.href} class="tool" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
+          <span class="tool-index num">{String(i + 1).padStart(2, '0')}</span>
+          <div class="tool-main">
+            <h2>{tool.name}</h2>
+            <p>{tool.desc}</p>
+          </div>
+          <div class="tool-side">
+            <span class="num tool-time">{tool.time}</span>
+            <span class="arrow-link">{t.open}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="container tools-note" data-reveal>
+      <p>
+        <strong>{t.note.bold}</strong> {t.note.before} <a href={link('/contact')}>{t.note.link}</a> {t.note.after}
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tools-list {
+    display: grid;
+    max-width: 52rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .tool {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.6rem;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin-inline: -1rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .tool:hover {
+    background: color-mix(in srgb, var(--ink) 2%, transparent);
+  }
+
+  .tool:hover .arrow-link::after {
+    transform: translateX(0.25rem);
+  }
+
+  .tool-index {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .tool-main h2 {
+    font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .tool-main p {
+    margin-top: 0.4rem;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 52ch;
+  }
+
+  .tool-side {
+    display: grid;
+    justify-items: end;
+    gap: 0.5rem;
+  }
+
+  .tool-time {
+    font-size: 0.6875rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tools-note {
+    margin-top: 2.5rem;
+    max-width: 52rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .tools-note a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 40rem) {
+    .tool {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .tool-side {
+      justify-items: start;
+      grid-auto-flow: column;
+      align-items: center;
+    }
+  }
+</style>

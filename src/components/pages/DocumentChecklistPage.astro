@@ -1,0 +1,439 @@
+---
+/**
+ * Document checklist — shared by all five locales. Copy comes from
+ * src/i18n/tools/document-checklist.ts; checklist items are keyed by stable ids
+ * so a visitor's progress survives switching language.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { CHECKLIST_STRINGS } from '../../i18n/tools/document-checklist';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = CHECKLIST_STRINGS[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/document-checklist"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: link('/tools') },
+    { name: t.crumb, url: link('/tools/document-checklist') },
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: link('/tools') },
+      { name: t.crumb, url: link('/tools/document-checklist') },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad" id="cl-card" data-i18n={JSON.stringify(t.script)}>
+        <div class="calc-form" id="cl-form">
+          <div class="cl-row">
+            <div class="field">
+              <label for="cl-level">{t.labels.level}</label>
+              <select id="cl-level">
+                <option value="">{t.select}</option>
+                <option value="school">{t.levels.school}</option>
+                <option value="bachelor">{t.levels.bachelor}</option>
+                <option value="master">{t.levels.master}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cl-programme">{t.labels.programme}</label>
+              <select id="cl-programme">
+                <option value="">{t.select}</option>
+                <option value="mbbs">{t.programmes.mbbs}</option>
+                <option value="degree">{t.programmes.degree}</option>
+                <option value="language">{t.programmes.language}</option>
+              </select>
+            </div>
+          </div>
+          <div class="cl-row">
+            <div class="field">
+              <label for="cl-scholarship">{t.labels.scholarship}</label>
+              <select id="cl-scholarship">
+                <option value="">{t.select}</option>
+                <option value="csc">{t.scholarships.csc}</option>
+                <option value="uni">{t.scholarships.uni}</option>
+                <option value="self">{t.scholarships.self}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cl-country">{t.labels.country}</label>
+              <select id="cl-country">
+                <option value="">{t.select}</option>
+                <option value="india">{t.countries.india}</option>
+                <option value="other">{t.countries.other}</option>
+              </select>
+            </div>
+          </div>
+          <p class="field-error" id="cl-error" role="alert" hidden>
+            {t.error}
+          </p>
+          <button type="button" class="btn btn-primary" id="cl-go">{t.generate}</button>
+        </div>
+
+        <div class="cl-result" id="cl-result" hidden aria-live="polite">
+          <div class="cl-head">
+            <div class="cl-progress-wrap">
+              <div class="cl-progress" aria-hidden="true"><span id="cl-progress-bar"></span></div>
+              <p class="num" id="cl-progress-text">0 / 0</p>
+            </div>
+            <div class="cl-actions">
+              <button type="button" class="btn btn-ghost btn-sm" id="cl-reset">{t.reset}</button>
+              <button type="button" class="btn btn-outline btn-sm" id="cl-print">{t.print}</button>
+            </div>
+          </div>
+          <ul class="cl-list" id="cl-list"></ul>
+          <p class="cl-note">
+            {t.note.before} <strong>{t.note.bold}</strong> {t.note.after}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style is:global>
+  .calc {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  .cl-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .cl-row + .cl-row {
+    margin-top: 1.2rem;
+  }
+
+  .cl-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.8rem;
+    padding-top: 1.4rem;
+  }
+
+  .cl-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cl-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .cl-progress-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex: 1;
+    min-width: 12rem;
+  }
+
+  .cl-progress {
+    flex: 1;
+    height: 6px;
+    background: var(--line);
+    border-radius: 999px;
+    overflow: hidden;
+  }
+
+  .cl-progress span {
+    display: block;
+    height: 100%;
+    width: 0%;
+    background: var(--accent);
+    border-radius: 999px;
+    transition: width 0.3s var(--ease-out);
+  }
+
+  .cl-list {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .cl-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.8rem;
+    padding: 0.65rem 0.6rem;
+    border-radius: var(--radius-s);
+    transition: background 0.15s;
+  }
+
+  .cl-item:hover {
+    background: var(--paper-sunken);
+  }
+
+  .cl-item input {
+    margin-top: 0.3rem;
+    width: 1.05rem;
+    height: 1.05rem;
+    accent-color: var(--accent);
+    flex: none;
+  }
+
+  .cl-item .label {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .cl-item .label strong {
+    color: var(--accent);
+  }
+
+  .cl-item.done .label {
+    text-decoration: line-through;
+    color: var(--ink-faint);
+  }
+
+  .cl-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 40rem) {
+    .cl-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { readI18n } from '../../lib/i18n-client';
+  import type { ChecklistStrings, ChecklistItemId } from '../../i18n/tools/document-checklist';
+
+  const T = readI18n<ChecklistStrings['script']>(document.getElementById('cl-card'));
+  const go = document.getElementById('cl-go') as HTMLButtonElement;
+  const formEl = document.getElementById('cl-form') as HTMLElement;
+  const resultEl = document.getElementById('cl-result') as HTMLElement;
+  const listEl = document.getElementById('cl-list') as HTMLElement;
+  const bar = document.getElementById('cl-progress-bar') as HTMLElement;
+  const progressText = document.getElementById('cl-progress-text') as HTMLElement;
+  const printBtn = document.getElementById('cl-print') as HTMLButtonElement;
+  const resetBtn = document.getElementById('cl-reset') as HTMLButtonElement;
+  const errorEl = document.getElementById('cl-error') as HTMLElement;
+  const selects = ['cl-level', 'cl-programme', 'cl-scholarship', 'cl-country']
+    .map((id) => document.getElementById(id) as HTMLSelectElement | null)
+    .filter((el): el is HTMLSelectElement => !!el);
+
+  type Item = { id: ChecklistItemId; bold?: boolean };
+
+  function buildItems(level: string, programme: string, scholarship: string, country: string): Item[] {
+    const items: Item[] = [
+      { id: 'passport', bold: true },
+      { id: 'photos' },
+      { id: 'transcripts', bold: true },
+      { id: 'certificates', bold: true },
+      { id: 'studyPlan', bold: true },
+      { id: 'physical', bold: true },
+      { id: 'police' },
+      { id: 'english' },
+      { id: 'funds' },
+      { id: 'forms' },
+    ];
+
+    if (programme === 'mbbs' && country === 'india') {
+      // NEET is an Indian-gate requirement — non-Indian applicants have no
+      // use for it on their checklist.
+      items.push({ id: 'neet', bold: true });
+    }
+    if (level === 'master') {
+      items.push({ id: 'recLetters', bold: true });
+    }
+    if (level === 'master' || programme === 'mbbs') {
+      items.push({ id: 'cv' });
+    }
+    if (scholarship === 'csc') {
+      items.push(
+        { id: 'cscForm', bold: true },
+        { id: 'cscPhysical', bold: true },
+        { id: 'preAdmission', bold: true },
+      );
+    }
+    if (scholarship === 'uni') {
+      items.push({ id: 'uniForm' });
+    }
+    if (country === 'india') {
+      items.push({ id: 'apostille', bold: true });
+    } else {
+      items.push({ id: 'translations', bold: true });
+    }
+    items.push({ id: 'fees' });
+    return items;
+  }
+
+  // v3: ticks are keyed by a stable document id (v2 keyed them by the English
+  // label, which would reset progress whenever the page language changed).
+  // Older keys are deliberately not migrated — old progress resets rather than
+  // silently mis-mapping onto documents.
+  const storageKey = 'rta-checklist-v3';
+
+  /** Storage shape: { answers, ticks } keyed by select id / document id.
+      A flat object written by the previous version is treated as ticks. */
+  function loadAll(): {
+    answers: Record<string, string>;
+    ticks: Record<string, boolean>;
+  } {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      const data = parsed && typeof parsed === 'object' ? parsed : {};
+      if ('answers' in data || 'ticks' in data) {
+        return {
+          answers:
+            data.answers && typeof data.answers === 'object' ? data.answers : {},
+          ticks: data.ticks && typeof data.ticks === 'object' ? data.ticks : {},
+        };
+      }
+      return { answers: {}, ticks: data as Record<string, boolean> };
+    } catch {
+      return { answers: {}, ticks: {} };
+    }
+  }
+
+  function saveAll(answers: Record<string, string>, ticks: Record<string, boolean>) {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ answers, ticks }));
+    } catch {
+      /* private mode — the checklist still works for this visit */
+    }
+  }
+
+  const ANSWER_IDS = ['cl-level', 'cl-programme', 'cl-scholarship', 'cl-country'] as const;
+
+  function readAnswers(): Record<string, string> {
+    return Object.fromEntries(
+      ANSWER_IDS.map((id) => [id, (document.getElementById(id) as HTMLSelectElement).value])
+    );
+  }
+
+  function generate(answers: Record<string, string>) {
+    const items = buildItems(
+      answers['cl-level']!,
+      answers['cl-programme']!,
+      answers['cl-scholarship']!,
+      answers['cl-country']!
+    );
+    const { ticks } = loadAll();
+    formEl.hidden = true;
+    resultEl.hidden = false;
+    listEl.innerHTML = '';
+
+    items.forEach((item, i) => {
+      // Key progress by document id, not index: changing the answers must not
+      // carry a tick over to a different document.
+      const key = item.id;
+      const label = T.items[item.id];
+      const li = document.createElement('li');
+      li.className = 'cl-item' + (ticks[key] ? ' done' : '');
+      li.innerHTML = `
+        <input type="checkbox" id="cl-i-${i}" ${ticks[key] ? 'checked' : ''} />
+        <label class="label" for="cl-i-${i}">${item.bold ? `<strong>${label}</strong>` : label}</label>
+      `;
+      const cb = li.querySelector('input') as HTMLInputElement;
+      cb.addEventListener('change', () => {
+        ticks[key] = cb.checked;
+        li.classList.toggle('done', cb.checked);
+        saveAll(readAnswers(), ticks);
+        updateProgress();
+      });
+      listEl.appendChild(li);
+    });
+
+    function updateProgress() {
+      const boxes = listEl.querySelectorAll<HTMLInputElement>('input');
+      const done = Array.from(boxes).filter((b) => b.checked).length;
+      bar.style.width = `${(done / boxes.length) * 100}%`;
+      progressText.textContent = `${done} / ${boxes.length}`;
+    }
+    updateProgress();
+  }
+
+  go?.addEventListener('click', () => {
+    const answers = readAnswers();
+
+    if (ANSWER_IDS.some((id) => !answers[id])) {
+      errorEl.hidden = false;
+      selects.forEach((sel) => {
+        if (sel.value) return;
+        sel.setAttribute('aria-invalid', 'true');
+        sel.closest('.field')?.classList.add('invalid');
+      });
+      selects.find((sel) => !sel.value)?.focus();
+      return;
+    }
+
+    errorEl.hidden = true;
+    selects.forEach((sel) => {
+      sel.removeAttribute('aria-invalid');
+      sel.closest('.field')?.classList.remove('invalid');
+    });
+
+    saveAll(answers, loadAll().ticks);
+    generate(answers);
+  });
+
+  // A previous run restores completely: the answers refill the form and the
+  // checklist regenerates with its ticks — same contract as the other tools.
+  (() => {
+    const { answers } = loadAll();
+    let complete = true;
+    for (const id of ANSWER_IDS) {
+      const value = answers[id];
+      const sel = document.getElementById(id) as HTMLSelectElement | null;
+      if (!value || !sel || ![...sel.options].some((o) => o.value === value)) {
+        complete = false;
+        continue;
+      }
+      sel.value = value;
+    }
+    if (complete) generate(answers);
+  })();
+
+  resetBtn?.addEventListener('click', () => {
+    resultEl.hidden = true;
+    formEl.hidden = false;
+    errorEl.hidden = true;
+    selects[0]?.focus();
+  });
+
+  selects.forEach((sel) => {
+    sel.addEventListener('change', () => {
+      if (sel.value) {
+        sel.removeAttribute('aria-invalid');
+        sel.closest('.field')?.classList.remove('invalid');
+      }
+      if (selects.every((s) => s.value)) errorEl.hidden = true;
+    });
+  });
+
+  printBtn?.addEventListener('click', () => window.print());
+</script>

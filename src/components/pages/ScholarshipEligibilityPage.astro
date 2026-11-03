@@ -1,0 +1,270 @@
+---
+/**
+ * Scholarship eligibility check — shared by all five locales. Copy comes from
+ * src/i18n/tools/scholarship-eligibility.ts; band verdicts reach the client
+ * script through the data-i18n attribute.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { SCHOLARSHIP_STRINGS } from '../../i18n/tools/scholarship-eligibility';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const link = (path: string) => translatePath(path, locale);
+const t = SCHOLARSHIP_STRINGS[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/scholarship-eligibility"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: link('/tools') },
+    { name: t.crumb, url: link('/tools/scholarship-eligibility') },
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: link('/tools') },
+      { name: t.crumb, url: link('/tools/scholarship-eligibility') },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad" id="sch-root" data-i18n={JSON.stringify(t.script)}>
+        <div class="calc-form" id="sch-form">
+          <div class="field">
+            <label for="sch-level">{t.labels.level}</label>
+            <select id="sch-level">
+              <option value="">{t.select}</option>
+              <option value="bachelor">{t.levels.bachelor}</option>
+              <option value="master">{t.levels.master}</option>
+              <option value="phd">{t.levels.phd}</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sch-marks">{t.labels.marks}</label>
+            <select id="sch-marks">
+              <option value="">{t.select}</option>
+              <option value="90">{t.marks.m90}</option>
+              <option value="80">{t.marks.m80}</option>
+              <option value="70">{t.marks.m70}</option>
+              <option value="60">{t.marks.m60}</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="sch-english">{t.labels.english}</label>
+            <select id="sch-english">
+              <option value="">{t.select}</option>
+              <option value="yes">{t.english.yes}</option>
+              <option value="no">{t.english.no}</option>
+            </select>
+          </div>
+          <p class="field-error" id="sch-error" role="alert" hidden>
+            {t.error}
+          </p>
+          <button type="button" class="btn btn-primary" id="sch-go">{t.go}</button>
+        </div>
+
+        <div class="calc-result" id="sch-result" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="calc-note" data-reveal>
+        <div class="quick-answer">
+          <p class="qa-label">{t.how.label}</p>
+          <p>
+            {t.how.text}
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+
+<style is:global>
+  .calc {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .calc-form {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .calc-form .btn {
+    margin-top: 0.4rem;
+    justify-self: start;
+  }
+
+  .calc-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.6rem;
+    padding-top: 1.6rem;
+  }
+
+  .band-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 0.7rem;
+  }
+
+  .band-title {
+    font-size: var(--step-3);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .band-body {
+    margin-top: 0.8rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .band-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-note {
+    max-width: 40rem;
+    margin: 2rem auto 0;
+  }
+
+  .calc-note .quick-answer:empty {
+    display: none;
+  }
+</style>
+
+<script>
+  import { localizeHref, readI18n } from '../../lib/i18n-client';
+  import type { ScholarshipStrings } from '../../i18n/tools/scholarship-eligibility';
+
+  const T = readI18n<ScholarshipStrings['script']>(document.getElementById('sch-root'));
+  const form = document.getElementById('sch-form') as HTMLElement;
+  const result = document.getElementById('sch-result') as HTMLElement;
+  const go = document.getElementById('sch-go') as HTMLButtonElement;
+  const errorEl = document.getElementById('sch-error') as HTMLElement;
+  const selects = ['sch-level', 'sch-marks', 'sch-english']
+    .map((id) => document.getElementById(id) as HTMLSelectElement | null)
+    .filter((el): el is HTMLSelectElement => !!el);
+
+  selects.forEach((sel) => {
+    sel.addEventListener('change', () => {
+      if (sel.value) {
+        sel.removeAttribute('aria-invalid');
+        sel.closest('.field')?.classList.remove('invalid');
+      }
+      if (selects.every((s) => s.value)) errorEl.hidden = true;
+    });
+  });
+
+  go?.addEventListener('click', () => {
+    const level = (document.getElementById('sch-level') as HTMLSelectElement).value;
+    const marks = (document.getElementById('sch-marks') as HTMLSelectElement).value;
+    const english = (document.getElementById('sch-english') as HTMLSelectElement).value;
+
+    if (!level || !marks || !english) {
+      errorEl.hidden = false;
+      // Clear the previous band — a validation error shouldn't sit beside a
+      // result computed from answers that are no longer on the form.
+      result.hidden = true;
+      result.innerHTML = '';
+      selects.forEach((sel) => {
+        if (sel.value) return;
+        sel.setAttribute('aria-invalid', 'true');
+        sel.closest('.field')?.classList.add('invalid');
+      });
+      selects.find((sel) => !sel.value)?.focus();
+      return;
+    }
+
+    errorEl.hidden = true;
+    selects.forEach((sel) => {
+      sel.removeAttribute('aria-invalid');
+      sel.closest('.field')?.classList.remove('invalid');
+    });
+
+    let color = 'var(--warn)';
+    let band: { label: string; title: string; body: string } = T.bachLow;
+
+    const strong = marks === '90';
+    const good = marks === '80';
+    const mid = marks === '70';
+
+    if (level === 'phd') {
+      if (strong || good) {
+        color = 'var(--ok)';
+        band = T.phdStrong;
+      } else if (mid) {
+        color = 'var(--warn)';
+        band = T.phdMid;
+      } else {
+        color = 'var(--err)';
+        band = T.phdLow;
+      }
+    } else if (level === 'master') {
+      if (strong) {
+        color = 'var(--ok)';
+        band = T.masterStrong;
+      } else if (good) {
+        color = 'var(--ok)';
+        band = T.masterGood;
+      } else if (mid) {
+        color = 'var(--warn)';
+        band = T.masterMid;
+      } else {
+        color = 'var(--err)';
+        band = T.masterLow;
+      }
+    } else {
+      // bachelor
+      if (strong) {
+        color = 'var(--ok)';
+        band = T.bachStrong;
+      } else if (good) {
+        color = 'var(--warn)';
+        band = T.bachGood;
+      } else if (mid) {
+        color = 'var(--warn)';
+        band = T.bachMid;
+      } else {
+        color = 'var(--err)';
+        band = T.bachLow;
+      }
+    }
+
+    const { label, title } = band;
+    let body = band.body;
+    if (!english.match(/yes/)) {
+      body += ` <strong>${T.englishBold}</strong> ${T.englishRest}`;
+    }
+
+    result.hidden = false;
+    result.innerHTML = `
+      <p class="band-label" style="color: ${color}">${label}</p>
+      <p class="band-title">${title}</p>
+      <p class="band-body">${body}</p>
+      <div class="band-actions">
+        <a class="btn btn-primary" href="${localizeHref('/guides/csc-scholarship')}">${T.ctaGuide}</a>
+        <a class="btn btn-outline" href="${localizeHref('/education#apply')}">${T.ctaReview}</a>
+      </div>
+    `;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>
