@@ -3,10 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import FaqAccordion from '../components/FaqAccordion.astro';
 import CtaBand from '../components/CtaBand.astro';
+import { uiFor } from '../i18n/ui';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/faqs';
 import { faqSchema } from '../lib/schema';
 
 const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS];
+const ctaPerPage = uiFor('en').cta.perPage['faqHub'];
 ---
 
 <BaseLayout
@@ -53,7 +55,7 @@ const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS]
     </div>
   </section>
 
-  <CtaBand title="Question not on the list?" text="Ask it directly — WhatsApp, email, or the contact form. A human replies within one working day." />
+  <CtaBand title={ctaPerPage.title} text={ctaPerPage.text} />
 </BaseLayout>
 
 <style>

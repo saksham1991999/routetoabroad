@@ -4,6 +4,7 @@ import { Image, Picture } from 'astro:assets';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageHero from '../../../components/PageHero.astro';
 import CtaBand from '../../../components/CtaBand.astro';
+import { uiFor } from '../../../i18n/ui';
 
 const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.data.order);
 ---
@@ -47,7 +48,7 @@ const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.d
     </div>
   </section>
 
-  <CtaBand locale="ar" title="Seeing them in person beats reading about them" text="Our tours hit every city on this page — and our student placements register into them every September." />
+  {(() => { const pp = uiFor('ar').cta.perPage["cities"]; return <CtaBand locale="ar" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>

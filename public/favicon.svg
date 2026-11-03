@@ -1,6 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!--
+    Canonical RouteToAbroad brand mark: R / paper plane / A on a black rounded tile.
+    Letters are vector paths (no font dependency) so every render target — favicon,
+    apple-touch-icon, PWA icons, favicon.ico (scripts/generate-icons.mjs) — is identical.
+  -->
   <rect width="32" height="32" rx="8" fill="#000000"/>
-  <text x="4" y="22" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">R</text>
-  <path d="M12.2 14.1 21.4 10.4c.26-.11.44.19.29.42l-3.7 8.55c-.13.2-.44.15-.49-.09l-.71-3.92-4.06-.85c-.25-.05-.27-.36-.23-.41Z" fill="#5e78ee"/>
-  <text x="21" y="22" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-size="14" font-weight="600" fill="#ffffff">A</text>
+  <g stroke="#ffffff" stroke-width="2.2" fill="none">
+    <!-- R: stem, bowl, leg -->
+    <path d="M5.1 12 V22"/>
+    <path d="M5.1 13.1 H7.1 A1.9 1.9 0 0 1 7.1 16.9 H5.1"/>
+    <path d="M7.6 17.1 L11.5 22"/>
+    <!-- A: apex (bevel-cut) + crossbar -->
+    <path d="M21.3 22 L24 13.5 L26.7 22" stroke-linejoin="bevel"/>
+    <path d="M22.3 18.5 H25.7"/>
+  </g>
+  <!-- Paper plane, scaled to sit between the letters -->
+  <path d="M12.2 14.1 21.4 10.4c.26-.11.44.19.29.42l-3.7 8.55c-.13.2-.44.15-.49-.09l-.71-3.92-4.06-.85c-.25-.05-.27-.36-.23-.41Z" fill="#5e78ee" transform="translate(1.48 3.58) scale(0.8)"/>
 </svg>

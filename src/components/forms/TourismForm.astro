@@ -1,13 +1,24 @@
+---
+import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { uiFor } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale).formFields;
+---
+
 <form class="enquiry-form" data-formspree data-success-msg="Enquiry received! Our travel desk will reply within one working day." novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="field">
-        <label for="tour-name">Full name</label>
+        <label for="tour-name">{ui.fullName}</label>
         <input id="tour-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
         <p class="error">Please enter your name.</p>
       </div>
       <div class="field">
-        <label for="tour-email">Email</label>
+        <label for="tour-email">{ui.email}</label>
         <input id="tour-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
         <p class="error">Please enter a valid email.</p>
       </div>
@@ -15,14 +26,14 @@
 
     <div class="form-row">
       <div class="field">
-        <label for="tour-phone">Phone / WhatsApp</label>
+        <label for="tour-phone">{ui.phone}</label>
         <input id="tour-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" />
         <p class="error">Please enter a valid phone number.</p>
       </div>
       <div class="field">
-        <label for="tour-dest">Destination</label>
+        <label for="tour-dest">{ui.destination}</label>
         <select id="tour-dest" name="destination" required>
-          <option value="">Select…</option>
+          <option value="">{ui.selectPlaceholder}</option>
           <option value="china">China</option>
           <option value="japan">Japan</option>
           <option value="multi">China + Japan</option>
@@ -34,9 +45,9 @@
 
     <div class="form-row">
       <div class="field">
-        <label for="tour-type">Trip type</label>
+        <label for="tour-type">{ui.tripType}</label>
         <select id="tour-type" name="tripType" required>
-          <option value="">Select…</option>
+          <option value="">{ui.selectPlaceholder}</option>
           <option value="cultural">Cultural / private</option>
           <option value="group">Group / educational</option>
           <option value="business">Business delegation</option>
@@ -44,14 +55,14 @@
         <p class="error">Please choose a trip type.</p>
       </div>
       <div class="field">
-        <label for="tour-dates">Travel dates <span class="hint">(approximate is fine)</span></label>
+        <label for="tour-dates">{ui.travelDates} <span class="hint">({ui.optionalHint})</span></label>
         <input id="tour-dates" name="preferredDates" type="text" placeholder="e.g. mid-October, 9 days" />
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="tour-notes">Anything else? <span class="hint">(optional)</span></label>
+        <label for="tour-notes">{ui.anythingElse} <span class="hint">({ui.optionalHint})</span></label>
         <textarea id="tour-notes" name="message" rows="3" placeholder="Travellers, dietary needs, must-sees…"></textarea>
       </div>
     </div>

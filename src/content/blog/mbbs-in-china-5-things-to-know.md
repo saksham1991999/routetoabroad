@@ -2,7 +2,7 @@
 title: '5 Things to Know Before Starting MBBS in China'
 description: 'Thinking about medicine in China? The five most critical things every aspiring student must understand before applying — recognition, language, scholarships, JW202 timing, and arrival support.'
 category: 'education'
-author: 'vijeesh'
+author: 'minhaj'
 pubDate: 2025-02-18
 readTime: 6
 tags: ['MBBS', 'China', 'Scholarships']

@@ -4,6 +4,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageHero from '../../../components/PageHero.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import CtaBand from '../../../components/CtaBand.astro';
+import { uiFor } from '../../../i18n/ui';
 
 const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -70,7 +71,7 @@ const posts = (await getCollection('blog')).sort(
     </div>
   </section>
 
-  <CtaBand locale="zh" title="Reading is step one." text="When you want the answer for your specific case, the fit check takes four questions and the advisors reply within a day." />
+  {(() => { const pp = uiFor('zh').cta.perPage["blog"]; return <CtaBand locale="zh" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>

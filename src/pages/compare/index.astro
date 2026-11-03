@@ -2,7 +2,9 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import { uiFor } from '../../i18n/ui';
 import { COMPARISONS } from '../../data/comparisons';
+const ctaPerPage = uiFor('en').cta.perPage['compare'];
 ---
 
 <BaseLayout
@@ -35,7 +37,7 @@ import { COMPARISONS } from '../../data/comparisons';
     </div>
   </section>
 
-  <CtaBand title="Still deciding?" text="Send us the specifics — marks, budget, product, timeline. We'll give you the verdict for your case, not the average case." />
+  <CtaBand title={ctaPerPage.title} text={ctaPerPage.text} />
 </BaseLayout>
 
 <style>

@@ -3,6 +3,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageHero from '../../../components/PageHero.astro';
 import FaqAccordion from '../../../components/FaqAccordion.astro';
 import CtaBand from '../../../components/CtaBand.astro';
+import { uiFor } from '../../../i18n/ui';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS } from '../../../data/faqs';
 import { faqSchema } from '../../../lib/schema';
 
@@ -35,7 +36,7 @@ const description = "Insights into India\u2013China trade: MOQs, AQL quality ins
     </div>
   </section>
 
-  <CtaBand locale="es" title="Still have questions?" text="Ask the desk directly — we reply within one working day, 9:00–18:00 IST Monday to Saturday." />
+  {(() => { const pp = uiFor('es').cta.perPage["pillarFaq"]; return <CtaBand locale="es" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>

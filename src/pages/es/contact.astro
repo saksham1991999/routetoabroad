@@ -8,7 +8,7 @@ import { SITE } from '../../lib/site';
 <BaseLayout
   locale="es"
   title="Contact — Talk to the New Delhi or Guangzhou Desk"
-  description="Reach RouteToAbroad: education, tourism or trade enquiries answered within one working day. New Delhi office (Saket) and Guangzhou office (Tianhe), WhatsApp +91 96330 61109."
+  description={`Reach RouteToAbroad: education, tourism or trade enquiries answered within one working day. New Delhi office (Saket) and Guangzhou office (Tianhe), WhatsApp ${SITE.phoneIndia}.`}
   path="/es/contact"
   crumbs={[{ name: 'Contact', url: '/es/contact'}]}
 >
@@ -22,7 +22,7 @@ import { SITE } from '../../lib/site';
   <section class="section">
     <div class="container contact-grid">
       <div class="contact-form card card-pad" data-reveal>
-        <ContactForm />
+        <ContactForm locale="es" />
       </div>
 
       <aside class="contact-side">

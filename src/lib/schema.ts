@@ -14,7 +14,7 @@ export function organizationSchema() {
     name: SITE.name,
     legalName: SITE.legalName,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/icon-512.png`,
     email: SITE.email,
     foundingDate: String(SITE.founded),
     description:
@@ -246,7 +246,7 @@ export function reviewSchema(reviews: {
     '@id': `${SITE.url}/#organization`,
     name: SITE.name,
     url: SITE.url,
-    logo: `${SITE.url}/favicon.svg`,
+    logo: `${SITE.url}/icon-512.png`,
     review: reviews.map((r) => ({
       '@type': 'Review',
       author: { '@type': 'Person', name: r.author },

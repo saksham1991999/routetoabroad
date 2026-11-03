@@ -12,7 +12,9 @@
     "preview": "astro preview",
     "check": "astro check",
     "images:generate": "python3 scripts/generate_images.py",
-    "images:process": "node scripts/process-images.mjs"
+    "images:process": "node scripts/process-images.mjs",
+    "icons:generate": "node scripts/generate-icons.mjs",
+    "globe:build": "node scripts/build-globe-data.mjs"
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.19",

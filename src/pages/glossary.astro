@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PageHero from '../components/PageHero.astro';
 import CtaBand from '../components/CtaBand.astro';
+import { uiFor } from '../i18n/ui';
 import { GLOSSARY } from '../data/glossary';
 import { definedTermSchemas } from '../lib/schema';
 
@@ -17,6 +18,7 @@ const grouped = categories.map((cat) => ({
   ...cat,
   terms: GLOSSARY.filter((t) => t.category === cat.key),
 }));
+const ctaPerPage = uiFor('en').cta.perPage['glossary'];
 ---
 
 <BaseLayout
@@ -64,7 +66,7 @@ const grouped = categories.map((cat) => ({
     </div>
   </section>
 
-  <CtaBand title="Terms are easy. Decisions are harder." text="When you're ready to turn vocabulary into an application, the fit check is four questions and the advisors are one reply away." />
+  <CtaBand title={ctaPerPage.title} text={ctaPerPage.text} />
 </BaseLayout>
 
 <style>

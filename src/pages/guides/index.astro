@@ -4,6 +4,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import ArticleCard from '../../components/ArticleCard.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import { uiFor } from '../../i18n/ui';
 
 const guides = (await getCollection('guides')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -19,6 +20,7 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
   pillar: p,
   guides: guides.filter((g) => g.data.pillar === p),
 }));
+const ctaPerPage = uiFor('en').cta.perPage['guides'];
 ---
 
 <BaseLayout
@@ -60,7 +62,7 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
     ) : null
   )}
 
-  <CtaBand title="Guides answer general questions." text="Yours are specific. The fit check and the advisor desk answer those." />
+  <CtaBand title={ctaPerPage.title} text={ctaPerPage.text} />
 </BaseLayout>
 
 <style>

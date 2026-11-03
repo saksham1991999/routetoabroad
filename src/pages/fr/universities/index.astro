@@ -5,6 +5,7 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PageHero from '../../../components/PageHero.astro';
 import ArticleCard from '../../../components/ArticleCard.astro';
 import CtaBand from '../../../components/CtaBand.astro';
+import { uiFor } from '../../../i18n/ui';
 
 const universities = (await getCollection('universities')).sort(
   (a, b) => a.data.order - b.data.order
@@ -52,7 +53,7 @@ const universities = (await getCollection('universities')).sort(
     </div>
   </section>
 
-  <CtaBand locale="fr" title="Not sure which university fits?" text="Send one enquiry. We'll shortlist against your marks, budget and city preferences — honestly, including when the answer is a cheaper university than you expected." />
+  {(() => { const pp = uiFor('fr').cta.perPage["universities"]; return <CtaBand locale="fr" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>

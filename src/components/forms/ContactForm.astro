@@ -1,3 +1,14 @@
+---
+import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { uiFor } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale).formFields;
+---
+
 <form class="enquiry-form" data-formspree data-success-msg="Message received! An advisor will reply within one working day — 9:00–18:00 IST, Mon–Sat." novalidate>
   <div class="form-fields">
     <fieldset class="pathway-fieldset">
@@ -23,12 +34,12 @@
 
     <div class="form-row">
       <div class="field">
-        <label for="c-name">Full name</label>
+        <label for="c-name">{ui.fullName}</label>
         <input id="c-name" name="fullName" type="text" required autocomplete="name" placeholder="Your name" />
         <p class="error">Please enter your name.</p>
       </div>
       <div class="field">
-        <label for="c-email">Email</label>
+        <label for="c-email">{ui.email}</label>
         <input id="c-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
         <p class="error">Please enter a valid email.</p>
       </div>
@@ -36,7 +47,7 @@
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="c-phone">Phone / WhatsApp <span class="hint">(optional)</span></label>
+        <label for="c-phone">{ui.phone} <span class="hint">({ui.optionalHint})</span></label>
         <input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" />
         <p class="error">Please enter a valid phone number.</p>
       </div>
@@ -44,7 +55,7 @@
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="c-message">Your message</label>
+        <label for="c-message">{ui.message}</label>
         <textarea id="c-message" name="message" rows="4" required placeholder="What are you planning? Be as specific as you like."></textarea>
         <p class="error">Please write a short message.</p>
       </div>

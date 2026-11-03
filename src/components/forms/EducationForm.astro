@@ -1,13 +1,24 @@
+---
+import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { uiFor } from '../../i18n/ui';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale).formFields;
+---
+
 <form class="enquiry-form" data-formspree data-success-msg="Application received! An education advisor will call you within one working day." novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="field">
-        <label for="edu-name">Full name</label>
+        <label for="edu-name">{ui.fullName}</label>
         <input id="edu-name" name="fullName" type="text" required autocomplete="name" placeholder="As on your passport" />
         <p class="error">Please enter your name.</p>
       </div>
       <div class="field">
-        <label for="edu-email">Email</label>
+        <label for="edu-email">{ui.email}</label>
         <input id="edu-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
         <p class="error">Please enter a valid email.</p>
       </div>
@@ -15,14 +26,14 @@
 
     <div class="form-row">
       <div class="field">
-        <label for="edu-phone">Phone / WhatsApp</label>
+        <label for="edu-phone">{ui.phone}</label>
         <input id="edu-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" />
         <p class="error">Please enter a valid phone number.</p>
       </div>
       <div class="field">
-        <label for="edu-level">Current level</label>
+        <label for="edu-level">{ui.educationLevel}</label>
         <select id="edu-level" name="educationLevel" required>
-          <option value="">Select…</option>
+          <option value="">{ui.selectPlaceholder}</option>
           <option value="hs">In school (12th or below)</option>
           <option value="bachelor">Bachelor's (completed or ongoing)</option>
           <option value="master">Master's or above</option>
@@ -33,9 +44,9 @@
 
     <div class="form-row">
       <div class="field">
-        <label for="edu-programme">Programme interest</label>
+        <label for="edu-programme">{ui.programmeInterest}</label>
         <select id="edu-programme" name="programInterest" required>
-          <option value="">Select…</option>
+          <option value="">{ui.selectPlaceholder}</option>
           <option value="mbbs">MBBS / Medicine</option>
           <option value="engineering">Engineering & Technology</option>
           <option value="business">Business & Management</option>
@@ -46,9 +57,9 @@
         <p class="error">Please choose a programme.</p>
       </div>
       <div class="field">
-        <label for="edu-intake">Target intake</label>
+        <label for="edu-intake">{ui.targetIntake}</label>
         <select id="edu-intake" name="targetIntake" required>
-          <option value="">Select…</option>
+          <option value="">{ui.selectPlaceholder}</option>
           <option value="sept_2026">September 2026</option>
           <option value="march_2027">March 2027</option>
           <option value="later">Later / not sure</option>
@@ -59,14 +70,14 @@
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="edu-cgpa">Latest marks / CGPA <span class="hint">(optional)</span></label>
+        <label for="edu-cgpa">{ui.latestMarks} <span class="hint">({ui.optionalHint})</span></label>
         <input id="edu-cgpa" name="cgpa" type="text" inputmode="decimal" placeholder="e.g. 82% or 3.6/4" />
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="edu-notes">Anything else we should know? <span class="hint">(optional)</span></label>
+        <label for="edu-notes">{ui.anythingElse} <span class="hint">({ui.optionalHint})</span></label>
         <textarea id="edu-notes" name="notes" rows="3" placeholder="Scholarship goals, budget, cities you prefer…"></textarea>
       </div>
     </div>

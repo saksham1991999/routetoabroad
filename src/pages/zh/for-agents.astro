@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import { uiFor } from '../../i18n/ui';
 import { SITE } from '../../lib/site';
 ---
 
@@ -97,7 +98,7 @@ import { SITE } from '../../lib/site';
     </div>
   </section>
 
-  <CtaBand locale="zh" title="Your students deserve a real China desk." text="So do you. One message starts it." />
+  {(() => { const pp = uiFor('zh').cta.perPage["forAgents"]; return <CtaBand locale="zh" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>

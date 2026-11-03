@@ -1,10 +1,10 @@
 # RouteToAbroad v3 — Astro
 
-The third-generation RouteToAbroad site: a fully static [Astro 5](https://astro.build) rebuild of
+The third-generation RouteToAbroad site: a fully static [Astro 7](https://astro.build) rebuild of
 routetoabroad.com that beats both the original React SPA (v1) and the v2 redesign on design,
 interactivity, and search visibility (SEO + AEO + GEO).
 
-**56 static pages · 2.6 KB JS on content pages · Lighthouse 95–100 across all categories ·
+**280 static pages · 2.6 KB JS on content pages · Lighthouse 95–100 across all categories ·
 zero-JS interactivity via vanilla islands**
 
 ---
@@ -42,7 +42,7 @@ npm run preview   # serve dist/ locally
     ├── styles/               # tokens.css (design tokens) + global.css (primitives)
     ├── components/           # Header, Footer, Seo, JsonLd, forms/, tools UI…
     ├── layouts/BaseLayout.astro
-    └── pages/                # 30 route files → 56 pages
+    └── pages/                # 56 EN + 4×56 locale pages → 280 static pages
 ```
 
 ## Design system
@@ -145,7 +145,7 @@ dir (`dist`), Node 22, caching headers, legacy-URL 301 redirects, and the chatbo
 npm run build && node scripts/validate-site.mjs
 ```
 
-Validates all 56 pages (titles, descriptions, canonicals, H1 uniqueness, alt text) and every
+Validates all 280 pages (titles, descriptions, canonicals, H1 uniqueness, alt text) and every
 JSON-LD block (parse + per-type required fields + FAQ questions visible in page), and checks
 sitemap ↔ built-page coverage both ways. Exit 1 on any error.
 
@@ -157,6 +157,13 @@ CLS 0.000 on all tested pages.
 
 - Add a guide: new `src/content/guides/<slug>.md` (schema in `content.config.ts`; include 2–3
   `faqs` for FAQPage schema). Route appears automatically.
+
+## How to add a locale
+
+1. `astro.config.mjs` — add the locale code to `i18n.locales` (and `fallbackLocale` if needed).
+2. `src/lib/i18n.ts` — add the code to `LOCALES` and its entry to `LOCALE_META`.
+3. `src/i18n/ui.ts` — add a `UiStrings` entry keyed by the new locale code in the `UI` record.
+4. `scripts/validate-site.mjs` — add the code to the `LOCALES` array (line 33).
 - Company facts (NAP, phones, socials, claims) live in `src/lib/site.ts` — edit there, never
   inline. Items marked `{{VERIFY}}` in content need owner confirmation before launch.
 - FAQ data lives in `src/data/faqs.ts` and powers both page accordions and FAQPage schema —

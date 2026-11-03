@@ -4,23 +4,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../../components/PageHero.astro';
 import SectionHead from '../../components/SectionHead.astro';
 import CtaBand from '../../components/CtaBand.astro';
+import { uiFor } from '../../i18n/ui';
 import { SITE, CLAIMS } from '../../lib/site';
 import { AUTHORS } from '../../data/authors';
 import { personSchema } from '../../lib/schema';
 
 const minhajImg = (await import('../../assets/founders/ceo_minhaj.jpg')).default;
-const vijeeshImg = (await import('../../assets/founders/director_vijeesh.jpg')).default;
 
 const founders = [
   {
     ...AUTHORS.minhaj,
     image: minhajImg,
     points: ['Sets direction and the partnerships we keep', 'Runs the trade desk', 'Fifteen years across the corridor'],
-  },
-  {
-    ...AUTHORS.vijeesh,
-    image: vijeeshImg,
-    points: ['Owns academic matching and student files', 'Runs university relationships', 'Hundreds of placements, first call to campus gate'],
   },
 ];
 
@@ -144,8 +139,8 @@ const values = [
       <SectionHead
         eyebrow="Leadership"
         index="02 / 02"
-        title="The two names on the door"
-        lede="A small senior team on purpose. Every file has a name attached, and it's one of these."
+        title="The name on the door"
+        lede="A small senior team on purpose. Every file has a name attached, and it's on this page."
       />
       <div class="team-grid">
         {founders.map((f, i) => (
@@ -174,7 +169,7 @@ const values = [
     </div>
   </section>
 
-  <CtaBand locale="es" title="Let's talk." text="One conversation, no commitment — and an honest read on whatever you're planning." />
+  {(() => { const pp = uiFor('es').cta.perPage["about"]; return <CtaBand locale="es" title={pp.title} text={pp.text} />; })()}
 </BaseLayout>
 
 <style>
@@ -284,12 +279,14 @@ const values = [
 
   .team-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .member {
     overflow: hidden;
+    max-width: 44rem;
+    margin-inline: auto;
   }
 
   .member-photo {
