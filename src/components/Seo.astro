@@ -51,9 +51,10 @@ const canonical = new URL(translatePath(englishPath, locale), SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
 const fullTitle = englishPath === '/' ? title : `${title} | ${SITE.name}`;
 const pageLocale = LOCALE_META[locale].code;
-// og:locale wants language_TERRITORY (en_US, zh_CN, fr_FR, ar_AE, es_ES).
+// og:locale wants language_TERRITORY (en_IN, zh_CN, fr_FR, ar_AE, es_ES).
+// English is en_IN: the consultancy is India-anchored (IN offices, +91 line).
 const OG_TERRITORY: Record<string, string> = {
-  en: 'US',
+  en: 'IN',
   zh: 'CN',
   fr: 'FR',
   ar: 'AE',
@@ -61,11 +62,14 @@ const OG_TERRITORY: Record<string, string> = {
 };
 const ogLocaleTag = `${pageLocale.replace('-', '_')}_${OG_TERRITORY[pageLocale] ?? 'US'}`;
 
-/** Build an absolute URL for the same page under every configured locale. */
+/**
+ * Build an absolute URL for the same page under every configured locale.
+ * Always derived through translatePath so hreflang targets match each page's
+ * self-canonical exactly (including the slash-less locale roots) — a mismatch
+ * here breaks Google's hreflang reciprocity requirement.
+ */
 function localeUrl(code: string): string {
-  const p = englishPath === '/' ? '/' : englishPath;
-  if (code === DEFAULT_LOCALE) return SITE.url + p;
-  return SITE.url + '/' + code + p;
+  return new URL(translatePath(englishPath, code), SITE.url).href;
 }
 const alternateLinks = LOCALES.map((code) => ({
   hreflang: code,
@@ -115,6 +119,6 @@ const descMeta = trimDesc(description);
 <meta name="twitter:description" content={descMeta} />
 <meta name="twitter:image" content={ogImage} />
 
-{crumbs && crumbs.length > 0 && <JsonLd schema={breadcrumbSchema(crumbs)} />}
+{crumbs && crumbs.length > 0 && <JsonLd schema={breadcrumbSchema(crumbs, locale)} />}
 {jsonLd.map((schema) => <JsonLd schema={schema} />)}
 <slot />
