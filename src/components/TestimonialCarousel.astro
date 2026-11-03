@@ -129,8 +129,8 @@ import { TESTIMONIALS } from '../data/testimonials';
   }
 
   .c-btn {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.75rem;
+    height: 2.75rem;
     border-radius: 999px;
     border: 1px solid var(--line-strong);
     color: var(--ink-label);
@@ -153,12 +153,21 @@ import { TESTIMONIALS } from '../data/testimonials';
   /* Dots are created via createElement in the script below, so they never
      receive the Astro scope class — these rules must stay global. */
   .c-dot {
+    position: relative;
     width: 0.5rem;
     height: 0.5rem;
     border-radius: 999px;
     background: var(--line-strong);
     transition: background 0.2s, transform 0.2s;
     padding: 0;
+  }
+
+  /* Invisible hit-area expander: the visible dot stays 8px, the tap target
+     grows to ~28px so the dots meet the 24px minimum (WCAG 2.5.8). */
+  .c-dot::before {
+    content: '';
+    position: absolute;
+    inset: -9px;
   }
 
   .c-dot[aria-current='true'] {

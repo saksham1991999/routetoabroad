@@ -53,6 +53,9 @@ import PageHero from '../../components/PageHero.astro';
               <option value="no">Not yet</option>
             </select>
           </div>
+          <p class="field-error" id="sch-error" role="alert" hidden>
+            Answer all three questions to see your band.
+          </p>
           <button type="button" class="btn btn-primary" id="sch-go">Show my band</button>
         </div>
 
@@ -74,7 +77,7 @@ import PageHero from '../../components/PageHero.astro';
   </section>
 </BaseLayout>
 
-<style>
+<style is:global>
   .calc {
     max-width: 40rem;
     margin-inline: auto;
@@ -139,6 +142,20 @@ import PageHero from '../../components/PageHero.astro';
   const form = document.getElementById('sch-form') as HTMLElement;
   const result = document.getElementById('sch-result') as HTMLElement;
   const go = document.getElementById('sch-go') as HTMLButtonElement;
+  const errorEl = document.getElementById('sch-error') as HTMLElement;
+  const selects = ['sch-level', 'sch-marks', 'sch-english']
+    .map((id) => document.getElementById(id) as HTMLSelectElement | null)
+    .filter((el): el is HTMLSelectElement => !!el);
+
+  selects.forEach((sel) => {
+    sel.addEventListener('change', () => {
+      if (sel.value) {
+        sel.removeAttribute('aria-invalid');
+        sel.closest('.field')?.classList.remove('invalid');
+      }
+      if (selects.every((s) => s.value)) errorEl.hidden = true;
+    });
+  });
 
   go?.addEventListener('click', () => {
     const level = (document.getElementById('sch-level') as HTMLSelectElement).value;
@@ -146,9 +163,21 @@ import PageHero from '../../components/PageHero.astro';
     const english = (document.getElementById('sch-english') as HTMLSelectElement).value;
 
     if (!level || !marks || !english) {
-      alert('Please answer all three questions first.');
+      errorEl.hidden = false;
+      selects.forEach((sel) => {
+        if (sel.value) return;
+        sel.setAttribute('aria-invalid', 'true');
+        sel.closest('.field')?.classList.add('invalid');
+      });
+      selects.find((sel) => !sel.value)?.focus();
       return;
     }
+
+    errorEl.hidden = true;
+    selects.forEach((sel) => {
+      sel.removeAttribute('aria-invalid');
+      sel.closest('.field')?.classList.remove('invalid');
+    });
 
     let color = 'var(--warn)';
     let label = 'Competitive band';

@@ -57,6 +57,23 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       document.documentElement.classList.remove('no-js');
     </script>
 
+    <script is:inline>
+      // Pre-paint loader decision, made purely from state — the loader element
+      // lives in <body> and is unreachable from <head>, so there is no element
+      // lookup here. html[data-loader] holds the homepage hero until the
+      // loader dispatches 'rta:loaded' (see index.astro handoff). Repeat
+      // visits (sessionStorage) and reduced-motion never see the loader.
+      (function () {
+        var willPlay = true;
+        try {
+          willPlay =
+            !(sessionStorage.getItem('rta-loader') === '1') &&
+            !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        } catch (e) {}
+        if (willPlay) document.documentElement.setAttribute('data-loader', '');
+      })();
+    </script>
+
     {progress && (
       <div class="scroll-progress" aria-hidden="true"><span></span></div>
     )}
@@ -83,26 +100,6 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
         </div>
       )
     }
-    <script is:inline>
-      // Pre-paint guard: repeat visits and reduced-motion never see the loader.
-      // Runs on every page but exits immediately when the loader is absent.
-      (function () {
-        var el = document.getElementById('rta-loader');
-        if (!el) return;
-        try {
-          if (
-            sessionStorage.getItem('rta-loader') === '1' ||
-            window.matchMedia('(prefers-reduced-motion: reduce)').matches
-          ) {
-            el.remove();
-            window.dispatchEvent(new CustomEvent('rta:loaded'));
-          }
-        } catch (e) {
-          /* storage unavailable — let the loader play */
-        }
-      })();
-    </script>
-
     {
       isHome && (
         <div class="rta-hud">
@@ -125,21 +122,36 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     <a class="rta-tab" id="rta-tab" href="/tools/fit-check">Fit check</a>
 
     <script>
-      // ---- Theme toggle ----
+      // ---- Theme toggle (syncs the browser UI color too) ----
       document.getElementById('theme-toggle')?.addEventListener('click', () => {
         const root = document.documentElement;
         const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
         root.setAttribute('data-theme', next);
+        document
+          .querySelectorAll('meta[name="theme-color"]')
+          .forEach((m) => m.remove());
+        const meta = document.createElement('meta');
+        meta.name = 'theme-color';
+        meta.content = next === 'dark' ? '#0a0a0a' : '#f7f7f7';
+        document.head.appendChild(meta);
         try {
           localStorage.setItem('rta-theme', next);
         } catch {}
       });
 
       // ---- Homepage loader: masked word timeline, then covers split ----
+      // Suppression lives here (the old body guard script is gone): repeat
+      // visits and reduced-motion get the loader removed without a replay,
+      // and the hero never holds because html[data-loader] was not set.
       const loader = document.getElementById('rta-loader');
       if (loader) {
-        const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reducedMotion) {
+        let skip = false;
+        try {
+          skip = sessionStorage.getItem('rta-loader') === '1';
+        } catch {
+          /* storage unavailable — let the loader play */
+        }
+        if (skip || matchMedia('(prefers-reduced-motion: reduce)').matches) {
           loader.remove();
           window.dispatchEvent(new CustomEvent('rta:loaded'));
         } else {
@@ -174,6 +186,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       }
 
       // ---- Reveal on scroll (IntersectionObserver, stagger via --reveal-delay) ----
+      // Fires just before elements enter the viewport so content never feels late.
       const revealEls = document.querySelectorAll('[data-reveal]');
       const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -189,7 +202,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
               }
             }
           },
-          { threshold: 0.12, rootMargin: '0px 0px -5% 0px' }
+          { threshold: 0.05, rootMargin: '0px 0px -8% 0px' }
         );
         revealEls.forEach((el) => io.observe(el));
       }
@@ -224,9 +237,14 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       }
 
       // ---- Scroll chrome: HUD percent, floating CTA tab, tone switching ----
+      const hud = document.querySelector<HTMLElement>('.rta-hud');
       const hudPercent = document.querySelector<HTMLElement>('[data-scroll-percent]');
       const ctaTab = document.getElementById('rta-tab');
-      const toneSections = document.querySelectorAll<HTMLElement>('[data-tone]');
+      // Exclude <body>: it carries a default data-tone and always intersects
+      // the probe, which previously pinned the chrome to "light" forever.
+      const toneSections = Array.from(
+        document.querySelectorAll<HTMLElement>('[data-tone]')
+      ).filter((el) => el !== document.body);
 
       const writePercent = () => {
         if (!hudPercent) return;
@@ -238,7 +256,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       let toneQueued = false;
       const updateTone = () => {
         toneQueued = false;
-        const probe = window.innerHeight * 0.25;
+        // Sample behind the fixed header, not a quarter down the viewport:
+        // a dark band starting below the header must not flip the chrome
+        // white while it is still sitting over paper.
+        const probe = 40;
         let next = 'light';
         for (const section of toneSections) {
           const rect = section.getBoundingClientRect();
@@ -246,6 +267,8 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
             next = section.dataset.tone || 'light';
             break;
           }
+          // Below every tone region (e.g. inside the footer): keep the last tone.
+          if (rect.top > probe) break;
         }
         if (document.body.dataset.tone !== next) document.body.dataset.tone = next;
       };
@@ -253,6 +276,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
       const onScrollChrome = () => {
         writePercent();
         ctaTab?.classList.toggle('is-in', window.scrollY > 200);
+        // Fade the HUD before it can collide with the footer's own small print.
+        if (hud) {
+          const nearBottom =
+            window.scrollY + window.innerHeight >=
+            document.documentElement.scrollHeight - 120;
+          hud.classList.toggle('is-hidden', nearBottom);
+        }
         if (toneSections.length && !toneQueued) {
           toneQueued = true;
           requestAnimationFrame(updateTone);
@@ -261,6 +291,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
       if (hudPercent || ctaTab || toneSections.length) {
         window.addEventListener('scroll', onScrollChrome, { passive: true });
+        window.addEventListener('resize', onScrollChrome, { passive: true });
         onScrollChrome();
       }
 
@@ -289,10 +320,10 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
           if (!validate(form)) return;
 
           const btn = form.querySelector<HTMLButtonElement>('button[type="submit"]');
-          const original = btn?.textContent;
           if (btn) {
             btn.disabled = true;
-            btn.textContent = 'Sending…';
+            btn.classList.add('is-loading');
+            btn.setAttribute('aria-busy', 'true');
           }
 
           try {
@@ -308,11 +339,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
               status.textContent =
                 form.dataset.successMsg ||
                 'Message received! An advisor will reply within one working day.';
-              const fields = form.querySelector('.form-fields');
-              if (fields instanceof HTMLElement) {
-                fields.setAttribute('hidden', '');
-                status.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }
+              // Replace the whole form with the success panel — leaving a live
+              // submit button under a "sent" message invites duplicate sends.
+              form.querySelectorAll<HTMLElement>(':scope > :not(.form-status)').forEach((el) => {
+                el.setAttribute('hidden', '');
+              });
+              form.setAttribute('data-state', 'success');
+              status.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else if (status) {
               status.className = 'form-status fail';
               status.textContent =
@@ -326,7 +359,8 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
           } finally {
             if (btn) {
               btn.disabled = false;
-              if (original) btn.textContent = original;
+              btn.classList.remove('is-loading');
+              btn.removeAttribute('aria-busy');
             }
           }
         });
@@ -434,6 +468,12 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     display: none;
   }
 
+  /* Repeat visits and reduced motion never paint the loader: the pre-paint
+     head script only sets html[data-loader] when it will actually play. */
+  :global(html:not([data-loader])) .rta-loader {
+    display: none;
+  }
+
   @media (prefers-reduced-motion: reduce) {
     .rta-loader {
       display: none;
@@ -458,6 +498,12 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     color: #ffffff;
     mix-blend-mode: difference;
     pointer-events: none;
+    transition: opacity 0.4s ease, transform 0.4s var(--ease-out);
+  }
+
+  .rta-hud.is-hidden {
+    opacity: 0;
+    transform: translateY(8px);
   }
 
   .rta-hud-right {
@@ -470,6 +516,9 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     pointer-events: auto;
     color: #ffffff;
     text-decoration: none;
+    /* 44px tap target inside the 54px HUD row; transparent padding keeps the
+       visible label pixel-identical and the row height untouched. */
+    padding-block: 0.85rem;
   }
 
   .rta-hud-link:hover {
@@ -479,6 +528,13 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
 
   .rta-hud-percent {
     font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 40rem) {
+    /* Keep only the WhatsApp link + percent on small screens */
+    .rta-hud-item {
+      display: none;
+    }
   }
 
   /* ---------- Floating CTA tab (all pages) ---------- */
@@ -518,5 +574,11 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
   .rta-tab.is-in {
     transform: translateX(0);
     visibility: visible;
+  }
+
+  /* The mobile menu owns the screen — never float over it */
+  body:has(.mobile-menu:not([hidden])) .rta-tab {
+    opacity: 0;
+    pointer-events: none;
   }
 </style>

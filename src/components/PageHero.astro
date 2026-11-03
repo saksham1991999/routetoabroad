@@ -1,50 +1,455 @@
 ---
+import { Picture, type ImageMetadata } from 'astro:assets';
 import Breadcrumbs from './Breadcrumbs.astro';
+import { SITE } from '../lib/site';
+
+interface Fact {
+  label: string;
+  value: string;
+}
+
+interface Action {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'outline' | 'ghost';
+}
+
+interface Jump {
+  href: string;
+  label: string;
+}
 
 interface Props {
   eyebrow: string;
   title: string;
   lede?: string;
   crumbs?: { name: string; url: string }[];
+  /** At-a-glance facts rendered in the instrument rail. */
+  facts?: Fact[];
+  actions?: Action[];
+  /** Optional portrait/landscape image for the right rail. */
+  image?: ImageMetadata;
+  imageAlt?: string;
+  imageCaption?: string;
+  /** Anchor links for long pages. */
+  jumps?: Jump[];
+  /** Small chapter/index marker, e.g. "01" or "EDU". */
+  index?: string;
 }
 
-const { eyebrow, title, lede, crumbs } = Astro.props;
+const {
+  eyebrow,
+  title,
+  lede,
+  crumbs,
+  facts,
+  actions,
+  image,
+  imageAlt = '',
+  imageCaption,
+  jumps,
+  index = 'RTA',
+} = Astro.props;
+
+const corridor = [
+  { code: 'DEL', city: SITE.offices[0].city, lat: SITE.offices[0].lat, lng: SITE.offices[0].lng },
+  { code: 'CAN', city: SITE.offices[1].city, lat: SITE.offices[1].lat, lng: SITE.offices[1].lng },
+];
 ---
 
 <header class="page-hero">
-  <div class="container">
-    {crumbs && crumbs.length > 0 && <Breadcrumbs crumbs={crumbs} />}
-    <p class="eyebrow">{eyebrow}</p>
-    <h1>{title}</h1>
-    {lede && <p class="lede">{lede}</p>}
+  <svg class="hero-route" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path d="M-30 340 C 250 340, 300 120, 700 130 S 1140 44, 1470 44" />
+  </svg>
+
+  <div class="container-wide">
+    <div class="hero-rail">
+      {crumbs && crumbs.length > 0 && <Breadcrumbs crumbs={crumbs} />}
+      <span class="hero-index num">{index}</span>
+    </div>
+
+    <div class="hero-main-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">{eyebrow}</p>
+        <h1>{title}</h1>
+        {lede && <p class="lede">{lede}</p>}
+        {actions && actions.length > 0 && (
+          <div class="hero-actions">
+            {actions.map((a) => (
+              <a
+                href={a.href}
+                class:list={[
+                  'btn',
+                  a.variant === 'outline' ? 'btn-outline' : a.variant === 'ghost' ? 'btn-ghost' : 'btn-primary',
+                ]}
+              >
+                {a.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <aside class="hero-aside" aria-label="At a glance">
+        {facts && facts.length > 0 ? (
+          <dl class="hero-facts">
+            {facts.map((f) => (
+              <div>
+                <dt>{f.label}</dt>
+                <dd>{f.value}</dd>
+              </div>
+            ))}
+          </dl>
+        ) : image ? (
+          <figure class="hero-figure">
+            <div class="hero-figure-media">
+              <Picture
+                src={image}
+                alt={imageAlt}
+                widths={[480, 800, 1200]}
+                sizes="(max-width: 64rem) 100vw, 32vw"
+                formats={['avif', 'webp']}
+                loading="eager"
+                fetchpriority="high"
+              />
+            </div>
+            {imageCaption && <figcaption>{imageCaption}</figcaption>}
+          </figure>
+        ) : (
+          <div class="hero-coords">
+            <p class="hero-coords-label">The corridor</p>
+            <div class="coord-track" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </div>
+            {corridor.map((c) => (
+              <div class="coord-row">
+                <span class="coord-code">{c.code}</span>
+                <span class="coord-city">{c.city}</span>
+                <span class="coord-lat num">
+                  {c.lat.toFixed(2)}°N / {c.lng.toFixed(2)}°E
+                </span>
+              </div>
+            ))}
+            <p class="coord-note">Two offices. One accountable team.</p>
+          </div>
+        )}
+      </aside>
+    </div>
+
+    {jumps && jumps.length > 0 && (
+      <nav class="hero-jumps" aria-label="On this page">
+        {jumps.map((j) => (
+          <a href={j.href}>
+            <span aria-hidden="true">→</span>
+            {j.label}
+          </a>
+        ))}
+      </nav>
+    )}
   </div>
 </header>
 
 <style>
   .page-hero {
-    padding-block: clamp(4rem, 9vw, 8rem);
+    position: relative;
+    overflow: hidden;
+    padding-block: clamp(1.5rem, 3vw, 2.25rem) clamp(3rem, 6vw, 5rem);
     border-bottom: 1px solid var(--line);
   }
 
+  .hero-route {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  .hero-route path {
+    fill: none;
+    stroke: var(--line-strong);
+    stroke-width: 1;
+    stroke-dasharray: 4 8;
+    vector-effect: non-scaling-stroke;
+  }
+
+  .hero-rail {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 0.85rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-index {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .hero-index {
+    color: var(--accent-text);
+  }
+
+  .hero-main-grid {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(17rem, 0.5fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+    padding-top: clamp(2.25rem, 4.5vw, 4rem);
+  }
+
+  .hero-copy {
+    min-width: 0;
+  }
+
   .page-hero h1 {
-    margin-top: 1.1rem;
-    font-size: clamp(2.6rem, 6vw, 5rem);
+    margin-top: 1.15rem;
+    font-size: clamp(2.8rem, 6.2vw, 6.1rem);
     font-weight: 500;
-    letter-spacing: -0.03em;
-    line-height: 0.95;
-    max-width: 20ch;
+    letter-spacing: -0.04em;
+    line-height: 0.92;
+    max-width: 15ch;
+    text-wrap: balance;
   }
 
   .lede {
-    margin-top: 1.4rem;
-    max-width: 44ch;
-    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem); /* 17–19px */
+    margin-top: 1.5rem;
+    max-width: 46ch;
+    font-size: clamp(1.0625rem, 1rem + 0.4vw, 1.1875rem);
     line-height: 1.6;
     color: var(--ink-label);
     text-wrap: pretty;
   }
 
-  .breadcrumbs {
-    margin-bottom: 2.2rem;
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 1.9rem;
+  }
+
+  .hero-aside {
+    padding-bottom: 0.35rem;
+  }
+
+  /* Facts rail */
+  .hero-facts {
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-facts > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.72rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .hero-facts dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  /* Coordinates stamp */
+  .hero-coords {
+    border-top: 1px solid var(--line);
+    padding-top: 0.85rem;
+  }
+
+  .hero-coords-label {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: var(--accent-text);
+  }
+
+  .coord-track {
+    position: relative;
+    height: 2.6rem;
+    margin: 0.9rem 0 0.4rem;
+    border-left: 1px dashed var(--line-strong);
+    margin-left: 0.28rem;
+  }
+
+  .coord-track span {
+    position: absolute;
+    left: -0.3rem;
+    width: 0.55rem;
+    height: 0.55rem;
+    border-radius: 999px;
+    background: var(--accent);
+    box-shadow: 0 0 0 4px var(--paper);
+  }
+
+  .coord-track span:first-child {
+    top: 0;
+  }
+
+  .coord-track span:last-child {
+    bottom: 0;
+    background: var(--ink);
+  }
+
+  .coord-row {
+    display: grid;
+    grid-template-columns: 2.2rem 1fr auto;
+    gap: 0.5rem;
+    align-items: baseline;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+  }
+
+  .coord-code {
+    color: var(--accent-text);
+  }
+
+  .coord-city {
+    color: var(--ink);
+  }
+
+  .coord-lat {
+    color: var(--ink-faint);
+    text-align: right;
+    font-size: 0.66rem;
+  }
+
+  .coord-note {
+    margin-top: 0.8rem;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+  }
+
+  /* Optional image */
+  .hero-figure {
+    margin: 0;
+  }
+
+  .hero-figure-media {
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--paper-sunken);
+  }
+
+  .hero-figure-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(10%) contrast(1.04);
+  }
+
+  .hero-figure figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+  }
+
+  /* Jump nav */
+  .hero-jumps {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    margin-top: clamp(2rem, 4vw, 3rem);
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .hero-jumps a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 0.7rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-s);
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+    color: var(--ink-label);
+    text-decoration: none;
+    transition: border-color 0.2s var(--ease-out), color 0.2s var(--ease-out);
+  }
+
+  .hero-jumps a span {
+    color: var(--accent);
+  }
+
+  .hero-jumps a:hover {
+    border-color: var(--line-strong);
+    color: var(--ink);
+  }
+
+  @media (max-width: 64rem) {
+    .hero-main-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .hero-aside {
+      max-width: 34rem;
+    }
+
+    .hero-figure-media {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .page-hero h1 {
+      font-size: clamp(2.6rem, 11.5vw, 4rem);
+      max-width: 18ch;
+    }
+
+    .hero-route {
+      display: none;
+    }
+
+    .hero-jumps {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scrollbar-width: none;
+      margin-inline: calc(var(--gutter) * -1);
+      padding-inline: var(--gutter);
+    }
+
+    .hero-jumps::-webkit-scrollbar {
+      display: none;
+    }
+
+    .hero-jumps a {
+      flex: none;
+      border-color: var(--line);
+      /* 44px tap targets on the mobile jump strip — the bordered chips get
+         slightly taller but the scroll-rail layout is unchanged. */
+      padding-block: 0.8rem;
+    }
   }
 </style>

@@ -72,6 +72,7 @@ const care = [
   title="China & Japan Tours — Private, Group & Business Travel"
   description="Curated journeys through China and Japan: imperial circuits, Li River scenery, Kyoto in spring, Canton Fair trips and educational group tours — with visa concierge and a 24/7 travel desk."
   path="/tourism"
+  image="/og/tourism.jpg"
   crumbs={[{ name: 'Tourism', url: 'https://routetoabroad.com/tourism' }]}
   jsonLd={[
     serviceSchema({
@@ -86,9 +87,27 @@ const care = [
 >
   <PageHero
     eyebrow="Tourism"
+    index="TRV / 02"
     title="Discover East Asia. Your way."
     lede="Private journeys, educational group tours and business delegations through China and Japan — designed by people who live there, briefed on your diet, and supported 24/7 while you travel."
     crumbs={[{ name: 'Tourism', url: '/tourism' }]}
+    facts={[
+      { label: 'Countries', value: 'China · Japan' },
+      { label: 'Style', value: 'Private · groups' },
+      { label: 'Support', value: '24/7 desk' },
+      { label: 'Visas', value: 'L · M · F handled' },
+    ]}
+    actions={[
+      { href: '#plan', label: 'Plan a journey' },
+      { href: '#destinations', label: 'See destinations', variant: 'outline' },
+    ]}
+    jumps={[
+      { href: '#destinations', label: 'Destinations' },
+      { href: '#modes', label: 'Ways to travel' },
+      { href: '#care', label: 'Care' },
+      { href: '#plan', label: 'Plan' },
+      { href: '#faq', label: 'FAQ' },
+    ]}
   />
 
   <!-- Hero image band -->
@@ -106,10 +125,11 @@ const care = [
   </section>
 
   <!-- Destinations -->
-  <section class="section">
+  <section class="section" id="destinations">
     <div class="container">
       <SectionHead
         eyebrow="Destinations"
+        index="01 / 04"
         title="Two countries, done properly"
         lede="We run circuits we have walked ourselves — not brochure compilations."
       />
@@ -144,10 +164,11 @@ const care = [
   </section>
 
   <!-- Travel modes -->
-  <section class="section section-sunken">
+  <section class="section section-sunken" id="modes">
     <div class="container">
       <SectionHead
         eyebrow="Ways to travel"
+        index="02 / 04"
         title="Three modes, one standard"
         lede="However you travel with us, the care package underneath is the same."
       />
@@ -166,12 +187,14 @@ const care = [
   </section>
 
   <!-- Care -->
-  <section class="section">
+  <section class="section" id="care">
     <div class="container">
-      <div class="care-head" data-reveal>
-        <p class="eyebrow">Comprehensive care</p>
-        <h2>The 100% peace-of-mind package</h2>
-      </div>
+      <SectionHead
+        eyebrow="Comprehensive care"
+        index="03 / 04"
+        title="The 100% peace-of-mind package"
+        lede="Six things handled before you ask, so the trip is the only thing on your mind."
+      />
       <div class="care-grid">
         {care.map((c, i) => (
           <div class="care-item" data-reveal style={`--reveal-delay: ${(i % 3) * 70}ms`}>
@@ -210,9 +233,9 @@ const care = [
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container-text">
-      <SectionHead center eyebrow="Tourism FAQ" title="Before you pack" />
+      <SectionHead center eyebrow="Tourism FAQ" index="04 / 04" title="Before you pack" />
       <FaqAccordion faqs={pageFaqs} />
       <p class="faq-more"><a href="/tourism/faq" class="arrow-link">All tourism FAQs</a></p>
     </div>
@@ -265,6 +288,12 @@ const care = [
     aspect-ratio: 16 / 8;
     overflow: hidden;
     background: var(--paper-sunken);
+  }
+
+  .dest-media :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
   }
 
   .dest-media :global(img) {
@@ -352,11 +381,6 @@ const care = [
     content: '—';
     color: var(--tourism);
     margin-right: 0.5rem;
-  }
-
-  .care-head h2 {
-    font-size: var(--step-4);
-    margin-top: 0.9rem;
   }
 
   .care-grid {

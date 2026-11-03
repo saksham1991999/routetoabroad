@@ -63,6 +63,7 @@ const process = [
   title="India–China Trade Services — Sourcing, QC & Logistics"
   description="Product sourcing, factory audits, AQL quality control, customs clearance and sea/air freight between China and India — run from Guangzhou on a success-fee model tied to shipped value."
   path="/trade"
+  image="/og/trade.jpg"
   crumbs={[{ name: 'Trade', url: 'https://routetoabroad.com/trade' }]}
   jsonLd={[
     serviceSchema({
@@ -77,9 +78,27 @@ const process = [
 >
   <PageHero
     eyebrow="Trade"
+    index="TRD / 03"
     title="Your supply chain doesn't need more complexity."
     lede="It needs one accountable team on the factory floor. Sourcing, quality gates, customs and freight between China and India — run from our Guangzhou office, on a success fee tied to shipped value."
     crumbs={[{ name: 'Trade', url: '/trade' }]}
+    facts={[
+      { label: 'Base', value: 'Guangzhou · Delhi' },
+      { label: 'Network', value: '200+ vetted' },
+      { label: 'Quality', value: 'AQL inspections' },
+      { label: 'Model', value: 'Success fee' },
+    ]}
+    actions={[
+      { href: '#enquire', label: 'Get a landed cost' },
+      { href: '#disciplines', label: 'See disciplines', variant: 'outline' },
+    ]}
+    jumps={[
+      { href: '#disciplines', label: 'Disciplines' },
+      { href: '#process', label: 'Process' },
+      { href: '#industries', label: 'Industries' },
+      { href: '#enquire', label: 'Enquire' },
+      { href: '#faq', label: 'FAQ' },
+    ]}
   />
 
   <section class="hero-band">
@@ -96,10 +115,11 @@ const process = [
   </section>
 
   <!-- Disciplines -->
-  <section class="section">
+  <section class="section" id="disciplines">
     <div class="container">
       <SectionHead
         eyebrow="Supply chain orchestration"
+        index="01 / 04"
         title="Five core disciplines"
         lede="Each one exists because we got tired of watching importers pay for its absence."
       />
@@ -117,10 +137,11 @@ const process = [
   </section>
 
   <!-- Process -->
-  <section class="section section-sunken">
+  <section class="section section-sunken" id="process">
     <div class="container-text">
       <SectionHead
         eyebrow="How we work"
+        index="02 / 04"
         title="From product idea to Indian warehouse"
         lede="Money moves in steps — and each step ends with evidence, not assurances."
       />
@@ -139,10 +160,11 @@ const process = [
   </section>
 
   <!-- Industries -->
-  <section class="section">
+  <section class="section" id="industries">
     <div class="container">
       <SectionHead
         eyebrow="Categories"
+        index="03 / 04"
         title="Industries we run"
         lede="Deep benches in these categories — and honest referrals where we don't."
       />
@@ -193,9 +215,9 @@ const process = [
   </section>
 
   <!-- FAQ -->
-  <section class="section">
+  <section class="section" id="faq">
     <div class="container-text">
-      <SectionHead center eyebrow="Trade FAQ" title="Trade Intel, answered straight" />
+      <SectionHead center eyebrow="Trade FAQ" index="04 / 04" title="Trade Intel, answered straight" />
       <FaqAccordion faqs={pageFaqs} />
       <p class="faq-more"><a href="/trade/faq" class="arrow-link">All trade FAQs</a></p>
     </div>

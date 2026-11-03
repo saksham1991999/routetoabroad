@@ -10,6 +10,7 @@ import CtaBand from '../components/CtaBand.astro';
 import StatsBand from '../components/StatsBand.astro';
 import { GENERAL_FAQS } from '../data/faqs';
 import { faqSchema, reviewSchema } from '../lib/schema';
+import { SITE } from '../lib/site';
 
 const campusImg = (await import('../assets/images/hero-campus-ink.jpg')).default;
 const eduImg = (await import('../assets/images/hero-education.jpg')).default;
@@ -22,6 +23,21 @@ const posts = (await getCollection('blog'))
   .slice(0, 3);
 
 const homeFaqs = GENERAL_FAQS.slice(0, 5);
+
+// Corridor coordinates — single source of truth, same pattern as PageHero:
+// the instrument labels below and the canvas-globe markers all derive from
+// SITE.offices so the numbers can't drift from the rest of the site.
+const OFFICES = [
+  { code: 'DEL', city: SITE.offices[0].city, lat: SITE.offices[0].lat, lng: SITE.offices[0].lng },
+  { code: 'CAN', city: SITE.offices[1].city, lat: SITE.offices[1].lat, lng: SITE.offices[1].lng },
+];
+const [DELHI, GUANGZHOU] = OFFICES;
+// Passed to the client script via the globe canvas's data-markers attribute
+// (the bundled script can't import SITE directly).
+const globeMarkers = [
+  { name: 'Delhi', lat: DELHI.lat, lon: DELHI.lng },
+  { name: 'Guangzhou', lat: GUANGZHOU.lat, lon: GUANGZHOU.lng },
+];
 
 const stats = [
   { value: '500+', counter: '500', suffix: '+', label: 'Students placed' },
@@ -110,11 +126,16 @@ const tools = [
         <!-- Slide 1 · origin -->
         <div class="journey-slide slide-origin" id="slide-origin">
           <div class="slide-origin-inner" id="slide-origin-inner">
+            <p class="journey-eyebrow">Education · Tourism · Trade</p>
             <h1 class="journey-title">
               <span class="jline"><span class="jline-inner">From</span></span>
               <span class="jline"><span class="jline-inner">anywhere</span></span>
               <span class="visually-hidden"> to campus.</span>
             </h1>
+            <p class="journey-sub">
+              Study, travel and trade between India and East Asia — run by people who live on
+              both sides of the corridor.
+            </p>
 
             <div class="globe-wrap">
               <canvas
@@ -123,6 +144,7 @@ const tools = [
                 aria-hidden="true"
                 role="img"
                 aria-label="Dotted globe highlighting Delhi and Guangzhou"
+                data-markers={JSON.stringify(globeMarkers)}
               ></canvas>
             </div>
 
@@ -137,7 +159,9 @@ const tools = [
                 autocomplete="address-level2"
                 placeholder="Delhi · Kochi · Guwahati"
               />
+              <span class="origin-hint">Press Enter to fly the route →</span>
             </form>
+
           </div>
         </div>
 
@@ -147,7 +171,8 @@ const tools = [
         <!-- Slide 2 · campus -->
         <div class="journey-slide slide-campus" id="slide-campus">
           <div class="slide-campus-inner">
-            <p class="display campus-echo" aria-hidden="true" data-reveal>to campus.</p>
+            <p class="campus-kicker">03 / Arrival</p>
+            <p class="display campus-echo" aria-hidden="true">to campus.</p>
             <div class="campus-frame" id="campus-frame">
               <Picture
                 src={campusImg}
@@ -159,7 +184,8 @@ const tools = [
                 class="campus-img"
               />
             </div>
-            <div class="campus-foot" id="journey-cta" data-reveal style="--reveal-delay: 160ms">
+            <p class="campus-coord num">Guangzhou · {GUANGZHOU.lat.toFixed(2)}°N / {GUANGZHOU.lng.toFixed(2)}°E</p>
+            <div class="campus-foot" id="journey-cta">
               <p class="campus-lede">
                 Admissions, visas, journeys and freight between India and East Asia — run by people
                 who live on both sides.
@@ -168,9 +194,22 @@ const tools = [
                 <a href="/tools/fit-check" class="btn btn-primary">Check if you fit</a>
                 <a href="/education" class="btn btn-ghost">Explore programmes</a>
               </div>
+              <p class="campus-note">No commitment · a human replies within one working day.</p>
             </div>
           </div>
         </div>
+      </div>
+
+      <!-- Instrument coordinates, pinned to the stage -->
+      <span class="stage-coord stage-coord--left" aria-hidden="true">{DELHI.lat.toFixed(2)}°N · {DELHI.code}</span>
+      <span class="stage-coord stage-coord--right" aria-hidden="true">{GUANGZHOU.lng.toFixed(2)}°E · {GUANGZHOU.code}</span>
+
+      <!-- Journey progress strip: fills the narrative gap between slides -->
+      <div class="journey-strip" aria-hidden="true">
+        <span class="js-stop is-active">01 Origin</span>
+        <span class="js-stop">02 In transit</span>
+        <span class="js-stop">03 Campus</span>
+        <span class="journey-strip-progress" id="journey-progress"></span>
       </div>
 
       <!-- Route overlay: dashed Bézier + paper plane -->
@@ -215,6 +254,7 @@ const tools = [
     <div class="container">
       <SectionHead
         eyebrow="What we do"
+        index="01 / 04"
         title="<span id='pillars-title'>Three ways across one corridor.</span>"
         lede="Three capabilities, one corridor, run by people who live on both sides of it. Pick the door — they all open."
       />
@@ -262,8 +302,10 @@ const tools = [
     <div class="container">
       <SectionHead
         eyebrow="Free tools"
+        index="02 / 04"
         title="<span id='tools-title'>Start with facts, not brochures.</span>"
         lede="Five quick tools that give you real numbers before you ever talk to us. No email required."
+        action={{ href: '/tools', label: 'All tools' }}
       />
       <div class="tool-rows">
         {tools.map((t, i) => (
@@ -285,14 +327,13 @@ const tools = [
        ============================================================ -->
   <section class="section insights" data-tone="light" aria-labelledby="insights-title">
     <div class="container">
-      <div class="insights-head">
-        <SectionHead
-          eyebrow="Latest insights"
-          title="<span id='insights-title'>From the desk.</span>"
-          lede="Field notes on studying, travelling and trading across the corridor."
-        />
-        <a href="/blog" class="arrow-link insights-all">All articles</a>
-      </div>
+      <SectionHead
+        eyebrow="Latest insights"
+        index="03 / 04"
+        title="<span id='insights-title'>From the desk.</span>"
+        lede="Field notes on studying, travelling and trading across the corridor."
+        action={{ href: '/blog', label: 'All articles' }}
+      />
       <div class="post-rows">
         {posts.map((post, i) => (
           <a href={`/blog/${post.id}`} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
@@ -329,17 +370,22 @@ const tools = [
        9 · FAQ
        ============================================================ -->
   <section class="section faq" data-tone="light" aria-labelledby="faq-title">
-    <div class="container-text">
-      <SectionHead
-        center
-        eyebrow="Common questions"
-        title="<span id='faq-title'>The honest answers.</span>"
-        lede="The ones we hear most, kept short. The rest live in the FAQ."
-      />
-      <FaqAccordion faqs={homeFaqs} />
-      <p class="faq-more">
-        <a href="/faq" class="arrow-link">All frequently asked questions</a>
-      </p>
+    <div class="container-wide faq-grid">
+      <div class="faq-aside">
+        <SectionHead
+          eyebrow="Common questions"
+          index="04 / 04"
+          title="<span id='faq-title'>The honest answers.</span>"
+          lede="The ones we hear most, kept short. The rest live in the FAQ."
+        />
+        <p class="faq-note">
+          Still unsure? <a href="/faq">Read every question</a> or
+          <a href="/contact">ask a human</a> — a real advisor replies.
+        </p>
+      </div>
+      <div class="faq-panel">
+        <FaqAccordion faqs={homeFaqs} />
+      </div>
     </div>
   </section>
 
@@ -400,6 +446,15 @@ const tools = [
     padding: 6rem 1.5rem 6.5rem;
   }
 
+  .journey-eyebrow {
+    margin-bottom: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.52);
+  }
+
   .journey-title {
     display: block;
     margin: 0;
@@ -408,6 +463,15 @@ const tools = [
     letter-spacing: -0.035em;
     line-height: 0.95;
     color: #111;
+  }
+
+  .journey-sub {
+    margin-top: 1.2rem;
+    max-width: 38ch;
+    font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+    line-height: 1.6;
+    color: rgba(17, 17, 17, 0.62);
+    text-wrap: pretty;
   }
 
   .jline {
@@ -452,10 +516,10 @@ const tools = [
 
   .globe {
     display: block;
-    width: min(34vh, 260px);
-    width: min(34dvh, 260px);
-    height: min(34vh, 260px);
-    height: min(34dvh, 260px);
+    width: min(28vh, 224px);
+    width: min(28dvh, 224px);
+    height: min(28vh, 224px);
+    height: min(28dvh, 224px);
     cursor: grab;
     touch-action: pan-y;
   }
@@ -465,7 +529,7 @@ const tools = [
   }
 
   .origin-form {
-    margin-top: clamp(1.6rem, 4dvh, 2.6rem);
+    margin-top: clamp(1.2rem, 3dvh, 2rem);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -491,15 +555,42 @@ const tools = [
     text-align: center;
     color: #111;
     outline: none;
-    transition: border-color 0.2s ease;
+    transition: border-color 0.25s ease;
   }
 
   .origin-input:focus {
     border-bottom-color: #111;
+    animation: origin-caret 1.6s ease-in-out infinite;
+  }
+
+  /* A soft signal pulse on the rule while the field is focused */
+  @keyframes origin-caret {
+    0%,
+    100% {
+      box-shadow: 0 1px 0 0 rgba(94, 120, 238, 0);
+    }
+    50% {
+      box-shadow: 0 1px 0 0 rgba(94, 120, 238, 0.55);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .origin-input:focus {
+      animation: none;
+    }
   }
 
   .origin-input::placeholder {
     color: rgba(0, 0, 0, 0.3);
+  }
+
+  .origin-hint {
+    margin-top: 0.7rem;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.6);
   }
 
   /* --- Slide 2 · campus --- */
@@ -513,57 +604,173 @@ const tools = [
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: clamp(5rem, 10dvh, 7rem) clamp(1.25rem, 5vw, 4rem) clamp(6rem, 12dvh, 8rem);
+    padding: clamp(4.5rem, 8dvh, 6rem) clamp(1.25rem, 5vw, 4rem) clamp(5rem, 8dvh, 6.5rem);
+  }
+
+  .campus-kicker {
+    margin-bottom: 0.55rem;
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.6);
   }
 
   .campus-echo {
     margin: 0;
-    font-size: clamp(2.5rem, 8vw, 6rem);
+    font-size: clamp(2.4rem, 6.4vw, 5.4rem);
     font-weight: 500;
     letter-spacing: -0.035em;
     line-height: 0.9;
     color: #111;
   }
 
+  .campus-coord {
+    margin-top: 0.5rem;
+    align-self: flex-end;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.6);
+  }
+
   .campus-frame {
-    margin-top: clamp(1.2rem, 3dvh, 2.2rem);
-    width: min(72vw, 62rem);
-    aspect-ratio: 21 / 9;
+    margin-top: clamp(1.1rem, 2.4dvh, 1.8rem);
+    width: min(64vw, 56rem);
+    aspect-ratio: 2000 / 857;
     border: 1px solid rgba(0, 0, 0, 0.12);
-    padding: 0.6rem;
+    padding: 0.55rem;
+    background: #ffffff;
   }
 
   .campus-img {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
     mix-blend-mode: multiply;
   }
 
+  /* Footer reads as an instrument row: statement left, actions right,
+     note underneath — rather than three centred blocks stacked. */
   .campus-foot {
     margin-top: auto;
-    padding-top: clamp(1.4rem, 3dvh, 2.4rem);
-    display: flex;
-    flex-direction: column;
+    padding-top: clamp(1.1rem, 2.4dvh, 1.8rem);
+    width: min(64vw, 56rem);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
     align-items: center;
-    text-align: center;
+    gap: 1.25rem 2rem;
+    text-align: left;
   }
 
   .campus-lede {
     margin: 0;
-    max-width: 44ch;
+    max-width: 48ch;
     font-size: 14px;
     line-height: 1.6;
     color: rgba(17, 17, 17, 0.6);
   }
 
   .campus-actions {
-    margin-top: 1.4rem;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
     gap: 0.8rem;
+  }
+
+  .campus-note {
+    grid-column: 1 / -1;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.6);
+  }
+
+  /* --- Stage instrument marks --- */
+  .stage-coord {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    writing-mode: vertical-rl;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.14em;
+    color: rgba(17, 17, 17, 0.28);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+
+  .stage-coord--left {
+    left: 1.25rem;
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .stage-coord--right {
+    right: 1.25rem;
+  }
+
+  /* --- Journey strip: the three acts, always visible on desktop --- */
+  .journey-strip {
+    position: absolute;
+    left: 50%;
+    bottom: 0.95rem;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: min(42rem, calc(100% - var(--gutter) * 2));
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(17, 17, 17, 0.4);
+  }
+
+  .journey-strip::before {
+    content: '';
+    position: absolute;
+    left: 0.4rem;
+    right: 0.4rem;
+    top: 50%;
+    height: 1px;
+    background: rgba(0, 0, 0, 0.14);
+  }
+
+  .js-stop {
+    position: relative;
+    z-index: 1;
+    padding-inline: 0.5rem;
+    background: #f7f7f7;
+    transition: color 0.3s ease;
+  }
+
+  .js-stop.is-active {
+    color: #111;
+  }
+
+  .js-stop.is-active::before {
+    content: '';
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin-right: 0.4rem;
+    border-radius: 999px;
+    background: #5e78ee;
+    vertical-align: 1px;
+  }
+
+  .journey-strip-progress {
+    position: absolute;
+    left: 0.4rem;
+    right: 0.4rem;
+    top: 50%;
+    height: 1px;
+    background: #5e78ee;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
   }
 
   /* --- Route overlay + plane --- */
@@ -617,6 +824,45 @@ const tools = [
     .campus-frame {
       width: min(86vw, 62rem);
     }
+
+    .stage-coord,
+    .journey-strip {
+      display: none;
+    }
+  }
+
+  @media (max-height: 760px) {
+    .globe {
+      width: min(26dvh, 150px);
+      height: min(26dvh, 150px);
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .slide-campus-inner {
+      justify-content: center;
+      padding: 4.5rem 1.25rem 4rem;
+    }
+
+    .campus-frame {
+      width: 100%;
+    }
+
+    .campus-foot {
+      margin-top: 0;
+      width: 100%;
+      grid-template-columns: 1fr;
+      gap: 0.9rem;
+      text-align: left;
+    }
+
+    .campus-echo {
+      font-size: clamp(2.2rem, 11vw, 3.2rem);
+    }
+
+    .campus-actions {
+      justify-content: flex-start;
+    }
   }
 
   /* --- Reduced motion: static stacked narrative, no pin/plane/route --- */
@@ -644,7 +890,9 @@ const tools = [
 
     .journey-spacer,
     .route-svg,
-    .plane {
+    .plane,
+    .stage-coord,
+    .journey-strip {
       display: none;
     }
 
@@ -699,7 +947,9 @@ const tools = [
 
   :global(html.no-js) .journey-spacer,
   :global(html.no-js) .route-svg,
-  :global(html.no-js) .plane {
+  :global(html.no-js) .plane,
+  :global(html.no-js) .stage-coord,
+  :global(html.no-js) .journey-strip {
     display: none;
   }
 
@@ -851,10 +1101,17 @@ const tools = [
     border-top: 1px solid rgba(0, 0, 0, 0.08);
     text-decoration: none;
     color: inherit;
+    transition: background-color 0.3s ease;
   }
 
   .pillar-row:last-child {
     border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
+  @media (hover: hover) {
+    .pillar-row:hover {
+      background: rgba(0, 0, 0, 0.018);
+    }
   }
 
   .pillar-id {
@@ -866,7 +1123,7 @@ const tools = [
     display: block;
     font-size: 0.8rem;
     letter-spacing: 0.08em;
-    color: #5e78ee;
+    color: var(--accent-text);
   }
 
   .pillar-name {
@@ -922,11 +1179,25 @@ const tools = [
     height: 100%;
     object-fit: cover;
     filter: grayscale(15%) contrast(1.05);
+    transition: transform 0.7s var(--ease-out), filter 0.5s ease;
+  }
+
+  @media (hover: hover) {
+    .pillar-row:hover .pillar-media :global(img) {
+      transform: scale(1.045);
+      filter: grayscale(0%) contrast(1.05);
+    }
   }
 
   .pillar-go {
     grid-area: go;
     align-self: end;
+  }
+
+  @media (hover: hover) {
+    .pillar-row:hover .pillar-go::after {
+      transform: translateX(4px);
+    }
   }
 
   @media (max-width: 64rem) {
@@ -975,7 +1246,7 @@ const tools = [
   .tool-n {
     font-size: 0.8rem;
     letter-spacing: 0.08em;
-    color: #5e78ee;
+    color: var(--accent-text);
   }
 
   .tool-name {
@@ -996,7 +1267,7 @@ const tools = [
 
   .tool-go {
     font-size: 1.1rem;
-    color: #5e78ee;
+    color: var(--accent-text);
     transition: transform 0.15s ease;
   }
 
@@ -1007,23 +1278,6 @@ const tools = [
   /* ============================================================
      7 · INSIGHTS — featured posts as ruled rows
      ============================================================ */
-  .insights-head {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-  }
-
-  .insights-head :global(.section-head) {
-    max-width: 44rem;
-  }
-
-  .insights-all {
-    flex: none;
-    margin-bottom: 0.4rem;
-  }
-
   .post-rows {
     margin-top: clamp(2.5rem, 5vw, 4rem);
   }
@@ -1077,7 +1331,7 @@ const tools = [
     margin: 0.7rem 0 0;
     font-size: 11px;
     letter-spacing: 0.04em;
-    color: rgba(17, 17, 17, 0.45);
+    color: rgba(17, 17, 17, 0.6);
   }
 
   .post-thumb {
@@ -1088,19 +1342,73 @@ const tools = [
     background: rgba(0, 0, 0, 0.03);
   }
 
+  .post-thumb :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
   .post-thumb :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
     filter: grayscale(15%) contrast(1.05);
+    transition: transform 0.7s var(--ease-out), filter 0.5s ease;
+  }
+
+  @media (hover: hover) {
+    .post-row:hover .post-thumb :global(img) {
+      transform: scale(1.045);
+      filter: grayscale(0%) contrast(1.05);
+    }
   }
 
   /* ============================================================
-     9 · FAQ
+     9 · FAQ — sticky editorial head + accordion panel
      ============================================================ */
-  .faq-more {
-    margin-top: 2rem;
-    text-align: center;
+  .faq-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+
+  .faq-aside {
+    position: sticky;
+    top: 7rem;
+  }
+
+  .faq-aside :global(.section-head) {
+    margin-bottom: 1.5rem;
+    max-width: 26rem;
+  }
+
+  .faq-note {
+    max-width: 30ch;
+    font-size: 14px;
+    line-height: 1.65;
+    color: rgba(17, 17, 17, 0.6);
+  }
+
+  .faq-note a {
+    color: #4a63d8;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .faq-panel {
+    min-width: 0;
+  }
+
+  @media (max-width: 64rem) {
+    .faq-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .faq-aside {
+      position: static;
+    }
   }
 </style>
 
@@ -1144,11 +1452,11 @@ const tools = [
     const ctx = canvas?.getContext('2d');
     if (!canvas || !ctx) return;
 
-    const INK = 'rgba(17,17,17,0.55)';
-    const INK_FAINT = 'rgba(17,17,17,0.20)';
+    const INK = 'rgba(17,17,17,0.62)';
+    const INK_FAINT = 'rgba(17,17,17,0.22)';
     const LABEL = 'rgba(17,17,17,0.72)';
     const SIGNAL = '#5e78ee';
-    const STEP = 7.5; // degrees
+    const STEP = 6; // degrees — dense enough to read as a solid dotted sphere
     const TILT = -0.34; // radians, axial tilt for depth
     const BASE_SPIN = (0.2 * Math.PI) / 180; // ~0.2°/frame
 
@@ -1170,10 +1478,13 @@ const tools = [
     }
     const N = cosLat.length;
 
-    const markers = [
-      { name: 'Delhi', lat: 28.61, lon: 77.21 },
-      { name: 'Guangzhou', lat: 23.13, lon: 113.26 },
-    ].map((m) => {
+    // Marker coordinates come from SITE.offices via the canvas's data-markers
+    // attribute (built in the frontmatter) — no hardcoded lat/lng here.
+    const markers = (JSON.parse(canvas.dataset.markers || '[]') as Array<{
+      name: string;
+      lat: number;
+      lon: number;
+    }>).map((m) => {
       const la = (m.lat * Math.PI) / 180;
       const lo = (m.lon * Math.PI) / 180;
       return {
@@ -1232,8 +1543,8 @@ const tools = [
           if ((pass === 0 && z2 > 0.3) || (pass === 1 && z2 <= 0.3)) continue;
           const sx = cx + R * x1;
           const sy = cy - R * y2;
-          ctx!.moveTo(sx + 0.7, sy);
-          ctx!.arc(sx, sy, 0.7, 0, TAU); // ~1.4px dot
+          ctx!.moveTo(sx + 0.85, sy);
+          ctx!.arc(sx, sy, 0.85, 0, TAU); // ~1.7px dot
         }
         ctx!.fillStyle = pass === 0 ? INK_FAINT : INK;
         ctx!.fill();
@@ -1242,7 +1553,8 @@ const tools = [
       // Signal markers + tiny labels
       ctx!.font = '10px Helvetica, Arial, sans-serif';
       ctx!.textBaseline = 'middle';
-      for (const m of markers) {
+      for (let mi = 0; mi < markers.length; mi++) {
+        const m = markers[mi]!;
         const x = m.cl * m.co;
         const y = m.sl;
         const z = m.cl * m.so;
@@ -1253,13 +1565,23 @@ const tools = [
         if (z2 <= 0.08) continue;
         const sx = cx + R * x1;
         const sy = cy - R * y2;
+        // Stagger label baselines so the two markers never sit on one line.
+        const labelY = sy + (mi % 2 === 0 ? -8 : 10);
         ctx!.globalAlpha = Math.min(1, (z2 - 0.08) / 0.35);
         ctx!.fillStyle = SIGNAL;
         ctx!.beginPath();
         ctx!.arc(sx, sy, 2.6, 0, TAU);
         ctx!.fill();
         ctx!.fillStyle = LABEL;
-        ctx!.fillText(m.name, sx + 6, sy + 0.5);
+        // Labels sit outside the dot on whichever side has room, so
+        // neighbouring cities (Delhi / Guangzhou) never collide.
+        if (sx > cx) {
+          ctx!.textAlign = 'right';
+          ctx!.fillText(m.name, sx - 7, labelY);
+        } else {
+          ctx!.textAlign = 'left';
+          ctx!.fillText(m.name, sx + 7, labelY);
+        }
         ctx!.globalAlpha = 1;
       }
     }
@@ -1334,6 +1656,8 @@ const tools = [
     const routeSvg = document.getElementById('route-svg');
     const routePath = document.getElementById('route-path') as SVGPathElement | null;
     const plane = document.getElementById('plane');
+    const journeyProgress = document.getElementById('journey-progress');
+    const stops = Array.from(document.querySelectorAll<HTMLElement>('.js-stop'));
     if (
       !journey || !stage || !track || !slideOrigin || !originInner || !slideCampus ||
       !campusFrame || !spacer || !globeCanvas || !routeSvg || !routePath || !plane
@@ -1376,17 +1700,24 @@ const tools = [
       const span = Math.max(journey!.offsetHeight - vh, 1);
       const p = clamp01(-rect.top / span);
 
-      // Slide-1 fade & route appear
-      const fade = 1 - clamp01((p - 0.15) / 0.15);
+      // Overlap the origin fade with the track translation. The old
+      // 0.15–0.30 gap faded the first slide before the second could enter,
+      // leaving the pinned stage empty for ~45vh of scroll.
+      const fade = 1 - clamp01((p - 0.28) / 0.22);
       originInner!.style.opacity = fade.toFixed(3);
       originInner!.style.visibility = fade <= 0.01 ? 'hidden' : 'visible';
-      routeSvg!.style.opacity = clamp01((p - 0.15) / 0.15).toFixed(3);
+      routeSvg!.style.opacity = clamp01((p - 0.08) / 0.12).toFixed(3);
 
-      // Track translation, eased, across p 0.3 → 0.85
-      const fp = clamp01((p - 0.3) / 0.55);
+      // Track translation, eased, across p 0.12 → 0.82
+      const fp = clamp01((p - 0.12) / 0.7);
       const eased = easeInOutCubic(fp);
       const shift = shiftTotal * eased;
       track!.style.transform = `translate3d(${(-shift).toFixed(1)}px, 0, 0)`;
+
+      // Persistent three-act strip
+      if (journeyProgress) journeyProgress.style.transform = `scaleX(${p.toFixed(3)})`;
+      const activeStop = p < 0.28 ? 0 : p < 0.8 ? 1 : 2;
+      stops.forEach((stop, i) => stop.classList.toggle('is-active', i === activeStop));
 
       // Quadratic Bézier: globe right edge (slide 1) → campus frame (slide 2)
       const p0x = globe.x - shift + globe.r * 0.82;

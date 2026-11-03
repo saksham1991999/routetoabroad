@@ -45,14 +45,18 @@ const steps = [
           <div class="field">
             <label for="tl-intake">Target intake</label>
             <select id="tl-intake">
-              <option value="2026-09">September 2026</option>
-              <option value="2027-03">March 2027</option>
+              <option value="2027-03" selected>March 2027</option>
               <option value="2027-09">September 2027</option>
+              <option value="2028-03">March 2028</option>
             </select>
           </div>
-          <button type="button" class="btn btn-primary" id="tl-go">Build my timeline</button>
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="tl-go">Build my timeline</button>
+            <button type="button" class="btn btn-ghost" id="tl-reset" hidden>Reset</button>
+          </div>
         </div>
 
+        <p class="tl-summary" id="tl-summary" hidden aria-live="polite"></p>
         <ol class="tl-list" id="tl-list" hidden></ol>
       </div>
 
@@ -68,7 +72,7 @@ const steps = [
   </section>
 </BaseLayout>
 
-<style>
+<style is:global>
   .calc {
     max-width: 46rem;
     margin-inline: auto;
@@ -84,10 +88,32 @@ const steps = [
     justify-self: start;
   }
 
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .tl-summary {
+    margin-top: 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  .tl-summary strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
   .tl-list {
     list-style: none;
-    margin: 2rem 0 0;
-    padding: 1.8rem 0 0;
+    margin: 1.4rem 0 0;
+    padding: 1.4rem 0 0;
     border-top: 1px solid var(--line);
     display: grid;
     gap: 0;
@@ -127,6 +153,14 @@ const steps = [
     opacity: 0.45;
   }
 
+  .tl-item.next {
+    background: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+
+  .tl-item.next .tl-when {
+    color: var(--accent-text);
+  }
+
   .tl-body h3 {
     font-size: 1rem;
     font-weight: 500;
@@ -159,7 +193,11 @@ const steps = [
 
 <script>
   const go = document.getElementById('tl-go') as HTMLButtonElement;
+  const resetBtn = document.getElementById('tl-reset') as HTMLButtonElement;
+  const intakeEl = document.getElementById('tl-intake') as HTMLSelectElement;
   const list = document.getElementById('tl-list') as HTMLElement;
+  const summary = document.getElementById('tl-summary') as HTMLElement;
+  const STORE_KEY = 'rta-timeline-v1';
 
   type Phase = { offsetMonths: number; title: string; text: string; hard?: boolean };
   // Phases counted backwards from intake month (offset negative)
@@ -176,29 +214,90 @@ const steps = [
     { offsetMonths: 0, title: 'Intake month — arrival & registration', text: 'Fly in, airport pickup, dorm check-in, university registration, residence permit within 30 days, SIM + bank account.', hard: true },
   ];
 
-  go?.addEventListener('click', () => {
-    const intakeVal = (document.getElementById('tl-intake') as HTMLSelectElement).value;
+  const monthLabel = (d: Date) => d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+
+  function build(intakeVal: string) {
     const [y, m] = intakeVal.split('-').map(Number);
-    const intake = new Date(y!, m! - 1, 1);
+    if (!y || !m) return;
+    const intake = new Date(y, m - 1, 1);
+    if (Number.isNaN(intake.getTime())) return;
+
     const now = new Date();
+    const rows = phases.map((p) => {
+      const date = new Date(intake);
+      date.setMonth(date.getMonth() + p.offsetMonths);
+      return { ...p, date, past: date < now };
+    });
+    const nextIdx = rows.findIndex((r) => !r.past);
+    const done = rows.filter((r) => r.past).length;
 
     list.hidden = false;
-    list.innerHTML = phases
-      .map((p) => {
-        const d = new Date(intake);
-        d.setMonth(d.getMonth() + p.offsetMonths);
-        const label = d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
-        const past = d < now;
+    list.innerHTML = rows
+      .map((r, i) => {
+        const isNext = i === nextIdx;
+        const flag = r.past ? ' · passed' : isNext ? ' · next' : '';
         return `
-          <li class="tl-item ${past ? 'past' : ''}">
-            <p class="tl-when"><span class="mk ${p.hard ? 'mk-red' : ''}">●</span>${label}${past ? ' · passed' : ''}</p>
+          <li class="tl-item${r.past ? ' past' : ''}${isNext ? ' next' : ''}">
+            <p class="tl-when"><span class="mk ${r.hard ? 'mk-red' : ''}">●</span>${monthLabel(r.date)}${flag}</p>
             <div class="tl-body">
-              <h3>${p.title}${p.hard ? ' — deadline' : ''}</h3>
-              <p>${p.text}</p>
+              <h3>${r.title}${r.hard ? ' — deadline' : ''}</h3>
+              <p>${r.text}</p>
             </div>
           </li>
         `;
       })
       .join('');
+
+    summary.hidden = false;
+    summary.innerHTML =
+      nextIdx === -1
+        ? `<strong>${done} of ${rows.length}</strong> phases passed — this intake is already underway. Pick the next one.`
+        : `<strong>${done} of ${rows.length}</strong> phases passed · next: <strong>${rows[nextIdx]!.title}</strong> · ${monthLabel(rows[nextIdx]!.date)}`;
+    resetBtn.hidden = false;
+  }
+
+  go?.addEventListener('click', () => {
+    build(intakeEl.value);
+    try {
+      localStorage.setItem(STORE_KEY, intakeEl.value);
+    } catch {
+      /* private mode — the timeline still renders for this visit */
+    }
   });
+
+  resetBtn?.addEventListener('click', () => {
+    list.hidden = true;
+    list.innerHTML = '';
+    summary.hidden = true;
+    summary.innerHTML = '';
+    resetBtn.hidden = true;
+    intakeEl.value = '2027-03';
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    intakeEl.focus();
+  });
+
+  // Changing the intake after a build should rebuild AND persist, so a
+  // reload restores the timeline that was last on screen — not an older one.
+  intakeEl?.addEventListener('change', () => {
+    if (!list.hidden) {
+      build(intakeEl.value);
+      try {
+        localStorage.setItem(STORE_KEY, intakeEl.value);
+      } catch {}
+    }
+  });
+
+  // Restore the last timeline — it is the same answer every visit.
+  (() => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem(STORE_KEY);
+    } catch {}
+    if (!saved) return;
+    if (![...intakeEl.options].some((o) => o.value === saved)) return;
+    intakeEl.value = saved;
+    build(saved);
+  })();
 </script>

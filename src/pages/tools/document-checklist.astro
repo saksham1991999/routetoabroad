@@ -65,16 +65,22 @@ import PageHero from '../../components/PageHero.astro';
               </select>
             </div>
           </div>
+          <p class="field-error" id="cl-error" role="alert" hidden>
+            Choose all four options to generate your checklist.
+          </p>
           <button type="button" class="btn btn-primary" id="cl-go">Generate checklist</button>
         </div>
 
-        <div class="cl-result" id="cl-result" hidden>
+        <div class="cl-result" id="cl-result" hidden aria-live="polite">
           <div class="cl-head">
             <div class="cl-progress-wrap">
               <div class="cl-progress" aria-hidden="true"><span id="cl-progress-bar"></span></div>
               <p class="num" id="cl-progress-text">0 / 0</p>
             </div>
-            <button type="button" class="btn btn-outline btn-sm" id="cl-print">Print checklist</button>
+            <div class="cl-actions">
+              <button type="button" class="btn btn-ghost btn-sm" id="cl-reset">Change answers</button>
+              <button type="button" class="btn btn-outline btn-sm" id="cl-print">Print checklist</button>
+            </div>
           </div>
           <ul class="cl-list" id="cl-list"></ul>
           <p class="cl-note">
@@ -87,7 +93,7 @@ import PageHero from '../../components/PageHero.astro';
   </section>
 </BaseLayout>
 
-<style>
+<style is:global>
   .calc {
     max-width: 44rem;
     margin-inline: auto;
@@ -97,6 +103,10 @@ import PageHero from '../../components/PageHero.astro';
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1.2rem;
+  }
+
+  .cl-row + .cl-row {
+    margin-top: 1.2rem;
   }
 
   .cl-result {
@@ -110,6 +120,13 @@ import PageHero from '../../components/PageHero.astro';
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cl-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
     flex-wrap: wrap;
   }
 
@@ -203,6 +220,11 @@ import PageHero from '../../components/PageHero.astro';
   const bar = document.getElementById('cl-progress-bar') as HTMLElement;
   const progressText = document.getElementById('cl-progress-text') as HTMLElement;
   const printBtn = document.getElementById('cl-print') as HTMLButtonElement;
+  const resetBtn = document.getElementById('cl-reset') as HTMLButtonElement;
+  const errorEl = document.getElementById('cl-error') as HTMLElement;
+  const selects = ['cl-level', 'cl-programme', 'cl-scholarship', 'cl-country']
+    .map((id) => document.getElementById(id) as HTMLSelectElement | null)
+    .filter((el): el is HTMLSelectElement => !!el);
 
   type Item = { label: string; bold?: boolean };
 
@@ -250,49 +272,71 @@ import PageHero from '../../components/PageHero.astro';
 
   const storageKey = 'rta-checklist-v1';
 
-  function save(state: Record<string, boolean>) {
+  /** Storage shape: { answers, ticks } keyed by select id / document label.
+      A flat object written by the previous version is treated as ticks. */
+  function loadAll(): {
+    answers: Record<string, string>;
+    ticks: Record<string, boolean>;
+  } {
     try {
-      localStorage.setItem(storageKey, JSON.stringify(state));
-    } catch {}
-  }
-
-  function load(): Record<string, boolean> {
-    try {
-      return JSON.parse(localStorage.getItem(storageKey) || '{}');
+      const parsed = JSON.parse(localStorage.getItem(storageKey) || 'null');
+      const data = parsed && typeof parsed === 'object' ? parsed : {};
+      if ('answers' in data || 'ticks' in data) {
+        return {
+          answers:
+            data.answers && typeof data.answers === 'object' ? data.answers : {},
+          ticks: data.ticks && typeof data.ticks === 'object' ? data.ticks : {},
+        };
+      }
+      return { answers: {}, ticks: data as Record<string, boolean> };
     } catch {
-      return {};
+      return { answers: {}, ticks: {} };
     }
   }
 
-  go?.addEventListener('click', () => {
-    const level = (document.getElementById('cl-level') as HTMLSelectElement).value;
-    const programme = (document.getElementById('cl-programme') as HTMLSelectElement).value;
-    const scholarship = (document.getElementById('cl-scholarship') as HTMLSelectElement).value;
-    const country = (document.getElementById('cl-country') as HTMLSelectElement).value;
-
-    if (!level || !programme || !scholarship || !country) {
-      alert('Please choose all four options.');
-      return;
+  function saveAll(answers: Record<string, string>, ticks: Record<string, boolean>) {
+    try {
+      localStorage.setItem(storageKey, JSON.stringify({ answers, ticks }));
+    } catch {
+      /* private mode — the checklist still works for this visit */
     }
+  }
 
-    const items = buildItems(level, programme, scholarship, country);
-    const state = load();
+  const ANSWER_IDS = ['cl-level', 'cl-programme', 'cl-scholarship', 'cl-country'] as const;
+
+  function readAnswers(): Record<string, string> {
+    return Object.fromEntries(
+      ANSWER_IDS.map((id) => [id, (document.getElementById(id) as HTMLSelectElement).value])
+    );
+  }
+
+  function generate(answers: Record<string, string>) {
+    const items = buildItems(
+      answers['cl-level']!,
+      answers['cl-programme']!,
+      answers['cl-scholarship']!,
+      answers['cl-country']!
+    );
+    const { ticks } = loadAll();
     formEl.hidden = true;
     resultEl.hidden = false;
     listEl.innerHTML = '';
 
     items.forEach((item, i) => {
+      // Key progress by label, not index: changing the answers must not
+      // carry a tick over to a different document.
+      const key = item.label;
       const li = document.createElement('li');
-      li.className = 'cl-item' + (state[String(i)] ? ' done' : '');
+      li.className = 'cl-item' + (ticks[key] ? ' done' : '');
       li.innerHTML = `
-        <input type="checkbox" id="cl-i-${i}" ${state[String(i)] ? 'checked' : ''} />
+        <input type="checkbox" id="cl-i-${i}" ${ticks[key] ? 'checked' : ''} />
         <label class="label" for="cl-i-${i}">${item.bold ? `<strong>${item.label}</strong>` : item.label}</label>
       `;
       const cb = li.querySelector('input') as HTMLInputElement;
       cb.addEventListener('change', () => {
-        state[String(i)] = cb.checked;
+        ticks[key] = cb.checked;
         li.classList.toggle('done', cb.checked);
-        save(state);
+        saveAll(readAnswers(), ticks);
         updateProgress();
       });
       listEl.appendChild(li);
@@ -305,6 +349,64 @@ import PageHero from '../../components/PageHero.astro';
       progressText.textContent = `${done} / ${boxes.length}`;
     }
     updateProgress();
+  }
+
+  go?.addEventListener('click', () => {
+    const answers = readAnswers();
+
+    if (ANSWER_IDS.some((id) => !answers[id])) {
+      errorEl.hidden = false;
+      selects.forEach((sel) => {
+        if (sel.value) return;
+        sel.setAttribute('aria-invalid', 'true');
+        sel.closest('.field')?.classList.add('invalid');
+      });
+      selects.find((sel) => !sel.value)?.focus();
+      return;
+    }
+
+    errorEl.hidden = true;
+    selects.forEach((sel) => {
+      sel.removeAttribute('aria-invalid');
+      sel.closest('.field')?.classList.remove('invalid');
+    });
+
+    saveAll(answers, loadAll().ticks);
+    generate(answers);
+  });
+
+  // A previous run restores completely: the answers refill the form and the
+  // checklist regenerates with its ticks — same contract as the other tools.
+  (() => {
+    const { answers } = loadAll();
+    let complete = true;
+    for (const id of ANSWER_IDS) {
+      const value = answers[id];
+      const sel = document.getElementById(id) as HTMLSelectElement | null;
+      if (!value || !sel || ![...sel.options].some((o) => o.value === value)) {
+        complete = false;
+        continue;
+      }
+      sel.value = value;
+    }
+    if (complete) generate(answers);
+  })();
+
+  resetBtn?.addEventListener('click', () => {
+    resultEl.hidden = true;
+    formEl.hidden = false;
+    errorEl.hidden = true;
+    selects[0]?.focus();
+  });
+
+  selects.forEach((sel) => {
+    sel.addEventListener('change', () => {
+      if (sel.value) {
+        sel.removeAttribute('aria-invalid');
+        sel.closest('.field')?.classList.remove('invalid');
+      }
+      if (selects.every((s) => s.value)) errorEl.hidden = true;
+    });
   });
 
   printBtn?.addEventListener('click', () => window.print());

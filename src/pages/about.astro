@@ -56,12 +56,28 @@ const values = [
 >
   <PageHero
     eyebrow="About us"
+    index="ABT / 07"
     title="We don't just connect countries. We connect people."
     lede="A founder-led consultancy working one corridor deeply — India and East Asia — with offices in both and something to lose in both."
     crumbs={[{ name: 'About', url: '/about' }]}
+    facts={[
+      { label: 'Offices', value: 'Delhi · Guangzhou' },
+      { label: 'Practice', value: 'Edu · Travel · Trade' },
+      { label: 'Team', value: 'Founder-led' },
+      { label: 'Standard', value: 'No shortcuts' },
+    ]}
+    actions={[
+      { href: '#team', label: 'Meet the team' },
+      { href: '/contact', label: 'Talk to us', variant: 'outline' },
+    ]}
+    jumps={[
+      { href: '#story', label: 'Story' },
+      { href: '#values', label: 'Values' },
+      { href: '#team', label: 'Team' },
+    ]}
   />
 
-  <section class="section">
+  <section class="section" id="story">
     <div class="container story-grid">
       <div class="story" data-reveal>
         <p class="story-lead">
@@ -102,10 +118,11 @@ const values = [
     </div>
   </section>
 
-  <section class="section section-sunken">
+  <section class="section section-sunken" id="values">
     <div class="container">
       <SectionHead
         eyebrow="Values"
+        index="01 / 02"
         title="Three rules we don't break"
         lede="They cost us deals. They keep clients for decades."
       />
@@ -120,10 +137,11 @@ const values = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="team">
     <div class="container">
       <SectionHead
         eyebrow="Leadership"
+        index="02 / 02"
         title="The two names on the door"
         lede="A small senior team on purpose. Every file has a name attached, and it's one of these."
       />

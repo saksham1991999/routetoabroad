@@ -1,4 +1,6 @@
 ---
+import { SITE } from '../lib/site';
+
 interface Props {
   title?: string;
   text?: string;
@@ -10,54 +12,125 @@ const {
 ---
 
 <section class="cta-band" aria-label="Contact call to action">
-  <div class="container cta-inner" data-reveal>
-    <h2>{title}</h2>
-    <p>{text}</p>
-    <div class="cta-actions">
-      <a href="/contact" class="btn btn-light btn-lg">Talk to an advisor</a>
-      <a href="https://wa.me/919633061109" class="btn btn-outline-light btn-lg" rel="noopener">WhatsApp us</a>
+  <div class="container-wide">
+    <div class="cta-rail" aria-hidden="true">
+      <span>04 / Start here</span>
+      <span class="cta-rail-line"></span>
+      <span>DEL → CAN</span>
     </div>
-    <p class="cta-phone num">Or call <a href="tel:+919633061109">+91 96330 61109</a> · Mon–Sat, 9:00–18:00 IST</p>
+
+    <div class="cta-grid" data-reveal>
+      <div class="cta-copy">
+        <h2>{title}</h2>
+        <p class="cta-text">{text}</p>
+      </div>
+
+      <div class="cta-side">
+        <div class="cta-actions">
+          <a href="/contact" class="btn btn-light btn-lg">
+            Talk to an advisor <span aria-hidden="true">→</span>
+          </a>
+          <a href={SITE.whatsapp} class="btn btn-outline-light btn-lg" rel="noopener">
+            WhatsApp us
+          </a>
+        </div>
+
+        <dl class="cta-facts">
+          <div>
+            <dt>Call</dt>
+            <dd><a href={SITE.phoneIndiaHref}>{SITE.phoneIndia}</a></dd>
+          </div>
+          <div>
+            <dt>Hours</dt>
+            <dd>{SITE.hours}</dd>
+          </div>
+          <div>
+            <dt>Reply</dt>
+            <dd>Within one working day</dd>
+          </div>
+        </dl>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .cta-band {
+    position: relative;
+    overflow: hidden;
     background: #0a0a0a;
     color: #ffffff;
-    border-top: 1px dotted rgba(94, 120, 238, 0.4);
-    padding-block: clamp(4rem, 8vw, 6.5rem);
-    text-align: center;
+    padding-block: clamp(3.5rem, 7vw, 6rem) clamp(3.5rem, 7vw, 5.5rem);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
-  .cta-inner {
-    max-width: 46rem;
+  .cta-rail {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-bottom: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .cta-rail span:first-child {
+    color: #9db1f8;
+  }
+
+  .cta-rail-line {
+    flex: 1;
+    height: 1px;
+    background: repeating-linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.2) 0 4px,
+      transparent 4px 9px
+    );
+  }
+
+  .cta-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(18rem, 0.75fr);
+    gap: clamp(2.5rem, 7vw, 7rem);
+    align-items: start;
+    padding-top: clamp(2.5rem, 5vw, 4.5rem);
   }
 
   .cta-band h2 {
     color: #ffffff;
-    font-size: var(--step-5);
-    letter-spacing: -0.03em;
-    line-height: 1;
+    font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+    line-height: 0.96;
+    max-width: 14ch;
+    text-wrap: balance;
   }
 
-  .cta-band p {
-    margin-top: 1.1rem;
+  .cta-text {
+    margin-top: 1.35rem;
+    max-width: 42ch;
     font-size: clamp(0.9375rem, 0.9rem + 0.2vw, 1.0625rem);
-    line-height: 1.6;
+    line-height: 1.65;
     color: rgba(255, 255, 255, 0.6);
+    text-wrap: pretty;
   }
 
   .cta-actions {
-    margin-top: 2.4rem;
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.65rem;
+  }
+
+  .cta-actions .btn {
+    justify-content: space-between;
   }
 
   .btn-outline-light {
-    border-color: rgba(255, 255, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.28);
     color: #ffffff;
   }
 
@@ -66,20 +139,69 @@ const {
     background: rgba(255, 255, 255, 0.06);
   }
 
-  .cta-phone {
-    margin-top: 2rem;
-    font-size: 0.875rem;
+  .cta-facts {
+    margin: clamp(2rem, 4vw, 3rem) 0 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .cta-facts > div {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.72rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .cta-facts dt {
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
     color: rgba(255, 255, 255, 0.55);
   }
 
-  .cta-phone a {
-    color: #ffffff;
-    text-decoration: none;
-    font-weight: 500;
+  .cta-facts dd {
+    margin: 0;
+    font-family: var(--font-mono);
+    font-size: 0.76rem;
+    color: rgba(255, 255, 255, 0.82);
+    text-align: right;
   }
 
-  .cta-phone a:hover {
+  .cta-facts a {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  .cta-facts a:hover {
     text-decoration: underline;
-    text-underline-offset: 4px;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 64rem) {
+    .cta-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .cta-band h2 {
+      max-width: 18ch;
+    }
+
+    .cta-actions {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .cta-actions .btn {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .cta-actions {
+      flex-direction: column;
+    }
   }
 </style>
