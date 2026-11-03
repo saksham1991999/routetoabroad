@@ -1,0 +1,451 @@
+---
+import { getCollection } from 'astro:content';
+import { Image, Picture } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import SectionHead from '../../../components/SectionHead.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import TourismForm from '../../../components/forms/TourismForm.astro';
+import { TOURISM_FAQS } from '../../../data/faqs';
+import { faqSchema, serviceSchema } from '../../../lib/schema';
+
+const heroImg = (await import('../../../assets/images/hero-tourism.jpg')).default;
+const liRiver = (await import('../../../assets/images/guide-li-river.jpg')).default;
+const kyoto = (await import('../../../assets/images/country-japan.jpg')).default;
+
+const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.data.order);
+const pageFaqs = TOURISM_FAQS.slice(0, 6);
+
+const destinations = [
+  {
+    name: 'China — The Middle Kingdom',
+    image: liRiver,
+    alt: 'Bamboo rafts on the Li River beneath karst peaks',
+    circuits: [
+      { title: 'Imperial Heritage', text: 'Beijing & Xi\'an — Great Wall, Forbidden City, Terracotta Army, 8 days.' },
+      { title: 'Li River & Guilin', text: 'Karst peaks, bamboo rafts, Yangshuo villages, 5 days.' },
+      { title: 'Greater Bay Area', text: 'Guangzhou, Shenzhen, Hong Kong connection, business-add-on friendly.' },
+    ],
+  },
+  {
+    name: 'Japan — Nippon Traditions',
+    image: kyoto,
+    alt: 'A pagoda framed by cherry blossoms in Kyoto',
+    circuits: [
+      { title: 'Golden Route', text: 'Tokyo → Kyoto → Osaka, temples and street food, 8–10 days.' },
+      { title: 'Kyoto Zen', text: 'Temples, tea ceremony, Arashiyama, Nara day trip, 4 days.' },
+      { title: 'Tokyo Tech', text: 'Shibuya, teamLab, Akihabara, day trips to Nikko or Kamakura.' },
+    ],
+  },
+];
+
+const modes = [
+  {
+    name: 'Cultural immersion',
+    text: 'Private journeys with bilingual guides, pre-vetted restaurants (vegetarian and halal handled), and pacing built for the people actually travelling.',
+    points: ['Private guide & driver', 'Curated food experiences', 'Dietary preferences handled'],
+  },
+  {
+    name: 'Business delegations',
+    text: 'Factory tours, supplier meetings, Canton Fair itineraries and chamber introductions — run with our trade desk in Guangzhou.',
+    points: ['Canton Fair packages', 'Factory & supplier visits', 'Interpreters included'],
+  },
+  {
+    name: 'Custom & group travel',
+    text: 'Families, corporate offsites, school and college educational tours. Groups of 8+ get dedicated planning and discounted rates.',
+    points: ['Educational tours (45-student scale)', 'Corporate offsites', 'Family multi-gen trips'],
+  },
+];
+
+const care = [
+  { name: 'Visa concierge', text: 'L, M, F and multi-country files prepared and booked end to end.' },
+  { name: 'Priority flights & rail', text: 'Internal flights and high-speed rail booked the moment sales open.' },
+  { name: 'Premium stays', text: 'Hotels we have slept in, not just seen on booking sites.' },
+  { name: 'Smart itineraries', text: 'Day plans with rest built in — no 14-site death marches.' },
+  { name: 'Local transport', text: 'Drivers, metro cards, rides — sorted before you land.' },
+  { name: '24/7 desk', text: 'WhatsApp support in your timezone for the whole trip.' },
+];
+---
+
+<BaseLayout
+  locale="ar"
+  title="China & Japan Tours — Private, Group & Business Travel"
+  description="Curated journeys through China and Japan: imperial circuits, Li River scenery, Kyoto in spring, Canton Fair trips and educational group tours — with visa concierge and a 24/7 travel desk."
+  path="/ar/tourism"
+  image="/og/tourism.jpg"
+  crumbs={[{ name: 'Tourism', url: 'https://routetoabroad.com/tourism' }]}
+  jsonLd={[
+    serviceSchema({
+      name: 'China & Japan tours',
+      description: 'Private, group and business travel design across China and Japan with visa concierge, bilingual guides and 24/7 support.',
+      url: 'https://routetoabroad.com/tourism',
+      serviceType: 'Tourism services',
+      areaServed: ['IN', 'CN', 'JP'],
+    }),
+    faqSchema(pageFaqs),
+  ]}
+>
+  <PageHero
+    eyebrow="Tourism"
+    index="TRV / 02"
+    title="Discover East Asia. Your way."
+    lede="Private journeys, educational group tours and business delegations through China and Japan — designed by people who live there, briefed on your diet, and supported 24/7 while you travel."
+    crumbs={[{ name: 'Tourism', url: '/tourism' }]}
+    facts={[
+      { label: 'Countries', value: 'China · Japan' },
+      { label: 'Style', value: 'Private · groups' },
+      { label: 'Support', value: '24/7 desk' },
+      { label: 'Visas', value: 'L · M · F handled' },
+    ]}
+    actions={[
+      { href: '#plan', label: 'Plan a journey' },
+      { href: '#destinations', label: 'See destinations', variant: 'outline' },
+    ]}
+    jumps={[
+      { href: '#destinations', label: 'Destinations' },
+      { href: '#modes', label: 'Ways to travel' },
+      { href: '#care', label: 'Care' },
+      { href: '#plan', label: 'Plan' },
+      { href: '#faq', label: 'FAQ' },
+    ]}
+  />
+
+  <!-- Hero image band -->
+  <section class="hero-band">
+    <Picture
+      src={heroImg}
+      alt="A traveller looking out over the Great Wall of China at Mutianyu in golden light"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      formats={['avif', 'webp']}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <p class="hero-band-caption num">Mutianyu Great Wall · 70 km from Beijing</p>
+  </section>
+
+  <!-- Destinations -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <SectionHead
+        eyebrow="Destinations"
+        index="01 / 04"
+        title="Two countries, done properly"
+        lede="We run circuits we have walked ourselves — not brochure compilations."
+      />
+      <div class="dest-grid">
+        {destinations.map((d, i) => (
+          <article class="dest-card card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
+            <div class="dest-media">
+              <Picture src={d.image} alt={d.alt} widths={[640, 1024]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
+            </div>
+            <div class="dest-body">
+              <h2>{d.name}</h2>
+              <ul>
+                {d.circuits.map((c) => (
+                  <li>
+                    <strong>{c.title}.</strong> {c.text}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="city-links" data-reveal>
+        <p class="divider-label">City guides</p>
+        <div class="city-chips">
+          {cities.map((c) => (
+            <a href={`/ar/cities/${c.id}`} class="chip">{c.data.name}</a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Travel modes -->
+  <section class="section section-sunken" id="modes">
+    <div class="container">
+      <SectionHead
+        eyebrow="Ways to travel"
+        index="02 / 04"
+        title="Three modes, one standard"
+        lede="However you travel with us, the care package underneath is the same."
+      />
+      <div class="modes-grid">
+        {modes.map((m, i) => (
+          <article class="mode-card card card-pad" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+            <h3>{m.name}</h3>
+            <p>{m.text}</p>
+            <ul>
+              {m.points.map((pt) => <li key={pt}>{pt}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Care -->
+  <section class="section" id="care">
+    <div class="container">
+      <SectionHead
+        eyebrow="Comprehensive care"
+        index="03 / 04"
+        title="The 100% peace-of-mind package"
+        lede="Six things handled before you ask, so the trip is the only thing on your mind."
+      />
+      <div class="care-grid">
+        {care.map((c, i) => (
+          <div class="care-item" data-reveal style={`--reveal-delay: ${(i % 3) * 70}ms`}>
+            <span class="care-check" aria-hidden="true">✓</span>
+            <div>
+              <h3>{c.name}</h3>
+              <p>{c.text}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section section-sunken" id="plan">
+    <div class="container form-split">
+      <div data-reveal>
+        <SectionHead
+          eyebrow="Start planning"
+          title="Tell us the trip in your head"
+          lede="Dates, people, must-sees, dietary needs. We come back with a day-wise draft itinerary — free, before anything is paid."
+        />
+        <div class="guarantee card card-pad">
+          <p class="eyebrow">Our promise</p>
+          <p>
+            <strong>Full refund up to 30 days before departure.</strong> Within 30 days, we refund everything
+            recoverable from suppliers — and show you the receipts. No hidden cancellation fees on our side.
+          </p>
+        </div>
+      </div>
+      <div class="form-card card card-pad" data-reveal>
+        <TourismForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container-text">
+      <SectionHead center eyebrow="Tourism FAQ" index="04 / 04" title="Before you pack" />
+      <FaqAccordion faqs={pageFaqs} />
+      <p class="faq-more"><a href="/ar/tourism/faq" class="arrow-link">All tourism FAQs</a></p>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .hero-band {
+    position: relative;
+  }
+
+  .hero-band :global(img) {
+    width: 100%;
+    max-height: 68vh;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .hero-band::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 38%);
+    pointer-events: none;
+  }
+
+  .hero-band-caption {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.25rem;
+    z-index: 1;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .dest-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .dest-card {
+    overflow: hidden;
+  }
+
+  .dest-media {
+    aspect-ratio: 16 / 8;
+    overflow: hidden;
+    background: var(--paper-sunken);
+  }
+
+  .dest-media :global(picture) {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+
+  .dest-media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .dest-body {
+    padding: 1.7rem 1.8rem 2rem;
+  }
+
+  .dest-body h2 {
+    font-size: var(--step-3);
+  }
+
+  .dest-body ul {
+    margin: 1.1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .dest-body li {
+    padding-top: 0.8rem;
+    border-top: 1px solid var(--line);
+    color: var(--ink-soft);
+    font-size: 0.94rem;
+    line-height: 1.6;
+  }
+
+  .dest-body strong {
+    color: var(--ink);
+  }
+
+  .city-links {
+    margin-top: 2.5rem;
+  }
+
+  .city-chips {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+  }
+
+  .city-chips .chip {
+    text-decoration: none;
+  }
+
+  .city-chips .chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .modes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+
+  .mode-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .mode-card > p {
+    margin-top: 0.6rem;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .mode-card ul {
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+  }
+
+  .mode-card li::before {
+    content: '—';
+    color: var(--tourism);
+    margin-right: 0.5rem;
+  }
+
+  .care-grid {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem 2rem;
+  }
+
+  .care-item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.9rem;
+  }
+
+  .care-check {
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  .care-item h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .care-item p {
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .form-split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .guarantee {
+    margin-top: 1.8rem;
+  }
+
+  .guarantee p:last-child {
+    margin-top: 0.6rem;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+
+  .faq-more {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 64rem) {
+    .dest-grid,
+    .modes-grid,
+    .care-grid,
+    .form-split {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

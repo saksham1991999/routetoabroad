@@ -137,7 +137,7 @@ const tools = [
               both sides of the corridor.
             </p>
 
-            <div class="globe-wrap">
+            <div class="globe-wrap" id="globe-wrap">
               <canvas
                 id="globe-canvas"
                 class="globe"
@@ -435,6 +435,9 @@ const tools = [
     display: flex;
     align-items: center;
     justify-content: center;
+    /* The globe docks above the incoming campus slide, so the arriving
+       university never paints over it. */
+    z-index: 2;
   }
 
   .slide-origin-inner {
@@ -512,6 +515,10 @@ const tools = [
 
   .globe-wrap {
     margin-top: clamp(1.4rem, 3.5dvh, 2.4rem);
+    /* The scroll driver counter-translates this against the track so the
+       globe can dock at the left edge instead of scrolling away. */
+    transform-origin: center;
+    will-change: transform;
   }
 
   .globe {
@@ -691,7 +698,9 @@ const tools = [
   /* --- Stage instrument marks --- */
   .stage-coord {
     position: absolute;
-    top: 50%;
+    /* Sits above the vertical centre so the floating "Fit check" tab, which
+       starts at 50% and hangs downward, never clips it. */
+    top: 40%;
     z-index: 2;
     writing-mode: vertical-rl;
     font-family: var(--font-mono);
@@ -1426,6 +1435,8 @@ const tools = [
   //   5. Illuminated statement (word-by-word lighting)
   // ==================================================================
 
+  import { initGlobe } from '../scripts/globe';
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp01 = (v: number) => (v < 0 ? 0 : v > 1 ? 1 : v);
   const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
@@ -1451,201 +1462,27 @@ const tools = [
   })();
 
   /* ---------------- 2 · Dotted globe ---------------- */
-  function initGlobe() {
+  function mountGlobe() {
     const canvas = document.getElementById('globe-canvas') as HTMLCanvasElement | null;
-    const ctx = canvas?.getContext('2d');
-    if (!canvas || !ctx) return;
-
-    const INK = 'rgba(17,17,17,0.62)';
-    const INK_FAINT = 'rgba(17,17,17,0.22)';
-    const LABEL = 'rgba(17,17,17,0.72)';
-    const SIGNAL = '#5e78ee';
-    const STEP = 6; // degrees — dense enough to read as a solid dotted sphere
-    const TILT = -0.34; // radians, axial tilt for depth
-    const BASE_SPIN = (0.2 * Math.PI) / 180; // ~0.2°/frame
-
-    // Precompute the graticule grid — every (lat, lon) dot sits on both a
-    // latitude line and a longitude line (step ~7.5°).
-    const cosLat: number[] = [];
-    const sinLat: number[] = [];
-    const cosLon: number[] = [];
-    const sinLon: number[] = [];
-    for (let lat = -90; lat <= 90.001; lat += STEP) {
-      const la = (lat * Math.PI) / 180;
-      for (let lon = 0; lon < 360; lon += STEP) {
-        const lo = (lon * Math.PI) / 180;
-        cosLat.push(Math.cos(la));
-        sinLat.push(Math.sin(la));
-        cosLon.push(Math.cos(lo));
-        sinLon.push(Math.sin(lo));
-      }
-    }
-    const N = cosLat.length;
-
+    if (!canvas) return;
     // Marker coordinates come from SITE.offices via the canvas's data-markers
     // attribute (built in the frontmatter) — no hardcoded lat/lng here.
-    const markers = (JSON.parse(canvas.dataset.markers || '[]') as Array<{
+    const markers = JSON.parse(canvas.dataset.markers || '[]') as Array<{
       name: string;
       lat: number;
       lon: number;
-    }>).map((m) => {
-      const la = (m.lat * Math.PI) / 180;
-      const lo = (m.lon * Math.PI) / 180;
-      return {
-        name: m.name,
-        cl: Math.cos(la),
-        sl: Math.sin(la),
-        co: Math.cos(lo),
-        so: Math.sin(lo),
-      };
-    });
-
-    let rot = (-95 * Math.PI) / 180; // India & East Asia face the viewer on load
-    let spin = BASE_SPIN;
-    let W = 0;
-    let H = 0;
-    let R = 0;
-    let DPR = 1;
-    let dragging = false;
-    let lastX = 0;
-    let dragVel = 0;
-
-    function size() {
-      const rect = canvas!.getBoundingClientRect();
-      if (!rect.width || !rect.height) return;
-      DPR = Math.min(devicePixelRatio || 1, 2);
-      W = rect.width;
-      H = rect.height;
-      canvas!.width = Math.round(W * DPR);
-      canvas!.height = Math.round(H * DPR);
-      R = Math.min(W, H) / 2 - 6;
-    }
-
-    function draw() {
-      ctx!.setTransform(DPR, 0, 0, DPR, 0, 0);
-      ctx!.clearRect(0, 0, W, H);
-      const cR = Math.cos(rot);
-      const sR = Math.sin(rot);
-      const cT = Math.cos(TILT);
-      const sT = Math.sin(TILT);
-      const cx = W / 2;
-      const cy = H / 2;
-      const TAU = Math.PI * 2;
-
-      // Two passes: faint near-limb dots, then full-strength front dots.
-      for (let pass = 0; pass < 2; pass++) {
-        ctx!.beginPath();
-        for (let i = 0; i < N; i++) {
-          const x = cosLat[i] * cosLon[i];
-          const y = sinLat[i];
-          const z = cosLat[i] * sinLon[i];
-          const x1 = x * cR + z * sR; // spin about Y
-          const z1 = z * cR - x * sR;
-          const y2 = y * cT - z1 * sT; // tilt about X
-          const z2 = y * sT + z1 * cT;
-          if (z2 <= 0) continue; // back hemisphere
-          if ((pass === 0 && z2 > 0.3) || (pass === 1 && z2 <= 0.3)) continue;
-          const sx = cx + R * x1;
-          const sy = cy - R * y2;
-          ctx!.moveTo(sx + 0.85, sy);
-          ctx!.arc(sx, sy, 0.85, 0, TAU); // ~1.7px dot
-        }
-        ctx!.fillStyle = pass === 0 ? INK_FAINT : INK;
-        ctx!.fill();
-      }
-
-      // Signal markers + tiny labels
-      ctx!.font = '10px Helvetica, Arial, sans-serif';
-      ctx!.textBaseline = 'middle';
-      for (let mi = 0; mi < markers.length; mi++) {
-        const m = markers[mi]!;
-        const x = m.cl * m.co;
-        const y = m.sl;
-        const z = m.cl * m.so;
-        const x1 = x * cR + z * sR;
-        const z1 = z * cR - x * sR;
-        const y2 = y * cT - z1 * sT;
-        const z2 = y * sT + z1 * cT;
-        if (z2 <= 0.08) continue;
-        const sx = cx + R * x1;
-        const sy = cy - R * y2;
-        // Stagger label baselines so the two markers never sit on one line.
-        const labelY = sy + (mi % 2 === 0 ? -8 : 10);
-        ctx!.globalAlpha = Math.min(1, (z2 - 0.08) / 0.35);
-        ctx!.fillStyle = SIGNAL;
-        ctx!.beginPath();
-        ctx!.arc(sx, sy, 2.6, 0, TAU);
-        ctx!.fill();
-        ctx!.fillStyle = LABEL;
-        // Labels sit outside the dot on whichever side has room, so
-        // neighbouring cities (Delhi / Guangzhou) never collide.
-        if (sx > cx) {
-          ctx!.textAlign = 'right';
-          ctx!.fillText(m.name, sx - 7, labelY);
-        } else {
-          ctx!.textAlign = 'left';
-          ctx!.fillText(m.name, sx + 7, labelY);
-        }
-        ctx!.globalAlpha = 1;
-      }
-    }
-
-    function tick() {
-      requestAnimationFrame(tick);
-      if (document.hidden) return; // pause work when tab hidden
-      if (!dragging) {
-        rot += spin;
-        spin += (BASE_SPIN - spin) * 0.02; // inertia decays back to base spin
-      }
-      draw();
-    }
-
-    size();
-    const ro = new ResizeObserver(() => {
-      size();
-      if (reduced) draw();
-    });
-    ro.observe(canvas);
-
-    if (reduced) {
-      draw(); // static globe, no spin, no drag
-      return;
-    }
-
-    // Drag to spin, with inertia on release.
-    canvas.addEventListener('pointerdown', (e) => {
-      dragging = true;
-      lastX = e.clientX;
-      dragVel = 0;
-      canvas.setPointerCapture(e.pointerId);
-    });
-    canvas.addEventListener('pointermove', (e) => {
-      if (!dragging) return;
-      const dx = e.clientX - lastX;
-      lastX = e.clientX;
-      rot += dx * 0.005;
-      dragVel = dx * 0.005;
-    });
-    const endDrag = () => {
-      if (!dragging) return;
-      dragging = false;
-      spin = Math.max(-0.09, Math.min(0.09, dragVel));
-    };
-    canvas.addEventListener('pointerup', endDrag);
-    canvas.addEventListener('pointercancel', endDrag);
-
-    requestAnimationFrame(tick);
-    document.addEventListener('visibilitychange', () => {
-      if (!document.hidden) draw();
-    });
+    }>;
+    initGlobe(canvas, markers);
   }
 
   /* ---------------- 3 · Journey scroll driver ----------------
      ONE rAF-throttled scroll handler drives everything:
-       p 0→0.15  slide-1 holds
-       p 0.15→0.3 slide-1 fades, route + plane appear
-       p 0.3→0.85 track translates -(slide1+spacer), plane flies the Bézier
-       p 0.85→1  plane fades, slide-2 rises (its own [data-reveal])       */
+       p 0→0.34      slide-1 holds, globe centred under the copy
+       p 0.28→0.5    copy fades out
+       p 0.34→0.6    globe detaches, docks at the left edge
+       p 0.12→0.78   track translates -(slide1+spacer), campus arrives
+       p 0.78→1      HELD FRAME: globe · dotted route · university
+       p 0.84→0.95   plane dissolves onto the frame                       */
   function initJourney() {
     if (reduced) return; // RM: static stacked layout, no driver at all
     const journey = document.getElementById('journey');
@@ -1653,45 +1490,83 @@ const tools = [
     const track = document.getElementById('journey-track');
     const slideOrigin = document.getElementById('slide-origin');
     const originInner = document.getElementById('slide-origin-inner');
+    const globeWrap = document.getElementById('globe-wrap');
     const slideCampus = document.getElementById('slide-campus');
     const campusFrame = document.getElementById('campus-frame');
     const spacer = document.getElementById('journey-spacer');
-    const globeCanvas = document.getElementById('globe-canvas');
+    const globeCanvas = document.getElementById('globe-canvas') as HTMLCanvasElement | null;
     const routeSvg = document.getElementById('route-svg');
     const routePath = document.getElementById('route-path') as SVGPathElement | null;
     const plane = document.getElementById('plane');
     const journeyProgress = document.getElementById('journey-progress');
     const stops = Array.from(document.querySelectorAll<HTMLElement>('.js-stop'));
     if (
-      !journey || !stage || !track || !slideOrigin || !originInner || !slideCampus ||
-      !campusFrame || !spacer || !globeCanvas || !routeSvg || !routePath || !plane
+      !journey || !stage || !track || !slideOrigin || !originInner || !globeWrap ||
+      !slideCampus || !campusFrame || !spacer || !globeCanvas || !routeSvg ||
+      !routePath || !plane
     ) {
       return;
     }
 
+    // The globe only docks on desktop; on narrow screens it simply fades with
+    // the copy so it never sits on top of the campus illustration.
+    const canDock = matchMedia('(min-width: 64rem)').matches;
+    const DOCK_START = 0.34;
+    const DOCK_END = 0.6;
+
+    // Copy that fades on scroll — everything in slide 1 except the globe.
+    const fadeEls = Array.from(
+      originInner.children
+    ).filter((el): el is HTMLElement => el !== globeWrap && el instanceof HTMLElement);
+
     let stageH = 0;
+    let stageW = 0;
     let shiftTotal = 0;
     let globe = { x: 0, y: 0, r: 0 };
+    let dock = { x: 0, y: 0, scale: 1 };
     let target = { x: 0, y: 0 };
+    let copyFaded = false;
     let ticking = false;
+
+    /** Layout offset of `el` inside `ancestor` — ignores transforms, so it
+        stays correct while the track is translated or the globe docked. */
+    function offsetWithin(el: HTMLElement, ancestor: HTMLElement) {
+      let x = 0;
+      let y = 0;
+      let node: HTMLElement | null = el;
+      while (node && node !== ancestor) {
+        x += node.offsetLeft;
+        y += node.offsetTop;
+        node = node.offsetParent as HTMLElement | null;
+      }
+      return { x, y };
+    }
 
     // Cached on resize only — stage-local coordinates, independent of scroll.
     function measure() {
       stageH = stage!.offsetHeight;
+      stageW = stage!.offsetWidth;
       shiftTotal = slideOrigin!.offsetWidth + spacer!.offsetWidth;
-      const sRect = stage!.getBoundingClientRect();
-      const oRect = slideOrigin!.getBoundingClientRect();
-      const cRect = slideCampus!.getBoundingClientRect();
-      const gRect = globeCanvas!.getBoundingClientRect();
-      const fRect = campusFrame!.getBoundingClientRect();
-      globe = {
-        x: gRect.left - oRect.left + gRect.width / 2,
-        y: gRect.top - oRect.top + gRect.height / 2,
-        r: gRect.width / 2,
+      const g = offsetWithin(globeWrap!, slideOrigin!);
+      const gw = globeWrap!.offsetWidth;
+      globe = { x: g.x + gw / 2, y: g.y + globeWrap!.offsetHeight / 2, r: gw / 2 };
+
+      // Docked globe: small instrument at the left edge, clear of the campus
+      // frame (which starts around 19vw on desktop).
+      const dockSize = Math.min(150, stageW * 0.13);
+      dock = {
+        x: Math.max(72, stageW * 0.085),
+        y: stageH * 0.52,
+        scale: gw ? dockSize / gw : 1,
       };
+
+      const f = offsetWithin(campusFrame!, slideCampus!);
+      // Land the route on the frame's top-left corner, not its top centre —
+      // at the held frame the centre sits right under the display headline and
+      // the dashed arc would cut through the type.
       target = {
-        x: slideCampus!.offsetLeft + (fRect.left - cRect.left) + fRect.width * 0.5,
-        y: fRect.top - cRect.top,
+        x: slideCampus!.offsetLeft + f.x + campusFrame!.offsetWidth * 0.08,
+        y: f.y + campusFrame!.offsetHeight * 0.1,
       };
     }
 
@@ -1708,24 +1583,50 @@ const tools = [
       // 0.15–0.30 gap faded the first slide before the second could enter,
       // leaving the pinned stage empty for ~45vh of scroll.
       const fade = 1 - clamp01((p - 0.28) / 0.22);
-      originInner!.style.opacity = fade.toFixed(3);
-      originInner!.style.visibility = fade <= 0.01 ? 'hidden' : 'visible';
+      if (p > 0.002) {
+        // Inline styles only once scrolling starts, so the loader's intro
+        // reveal (CSS, 0.45s delayed) is never overridden at p = 0.
+        copyFaded = true;
+        const vis = fade <= 0.01 ? 'hidden' : 'visible';
+        for (const el of fadeEls) {
+          el.style.opacity = fade.toFixed(3);
+          el.style.visibility = vis;
+        }
+      } else if (copyFaded) {
+        copyFaded = false;
+        for (const el of fadeEls) {
+          el.style.opacity = '';
+          el.style.visibility = '';
+        }
+      }
       routeSvg!.style.opacity = clamp01((p - 0.08) / 0.12).toFixed(3);
 
-      // Track translation, eased, across p 0.12 → 0.82
-      const fp = clamp01((p - 0.12) / 0.7);
+      // Track translation, eased, across p 0.12 → 0.78. It finishes just
+      // before the held frame so the campus coord line is never clipped.
+      const fp = clamp01((p - 0.12) / 0.66);
       const eased = easeInOutCubic(fp);
       const shift = shiftTotal * eased;
       track!.style.transform = `translate3d(${(-shift).toFixed(1)}px, 0, 0)`;
+
+      // Globe dock: counter-translate against the track so it stays put in
+      // the stage while the campus slides in underneath it.
+      const dockT = canDock ? easeInOutCubic(clamp01((p - DOCK_START) / (DOCK_END - DOCK_START))) : 0;
+      const dotScale = 1 + (dock.scale - 1) * dockT;
+      const gx = globe.x + (dock.x - globe.x) * dockT;
+      const gy = globe.y + (dock.y - globe.y) * dockT;
+      globeWrap!.style.transform =
+        `translate3d(${(shift + gx - globe.x).toFixed(1)}px, ${(gy - globe.y).toFixed(1)}px, 0) ` +
+        `scale(${dotScale.toFixed(3)})`;
 
       // Persistent three-act strip
       if (journeyProgress) journeyProgress.style.transform = `scaleX(${p.toFixed(3)})`;
       const activeStop = p < 0.28 ? 0 : p < 0.8 ? 1 : 2;
       stops.forEach((stop, i) => stop.classList.toggle('is-active', i === activeStop));
 
-      // Quadratic Bézier: globe right edge (slide 1) → campus frame (slide 2)
-      const p0x = globe.x - shift + globe.r * 0.82;
-      const p0y = globe.y - globe.r * 0.38;
+      // Quadratic Bézier: docked globe → campus frame
+      const gr = globe.r * dotScale;
+      const p0x = gx + gr * 0.82;
+      const p0y = gy - gr * 0.38;
       const p1x = target.x - shift;
       const p1y = target.y;
       const pcx = (p0x + p1x) / 2;
@@ -1737,7 +1638,7 @@ const tools = [
 
       // Plane: position P(t), rotation = tangent + 45° (glyph nose is pre-rotated -45°),
       // scale 0.85 → 1.45 → 1 on a sin curve.
-      const planeOpacity = Math.min(clamp01((p - 0.15) / 0.15), 1 - clamp01((p - 0.85) / 0.15));
+      const planeOpacity = Math.min(clamp01((p - 0.15) / 0.15), 1 - clamp01((p - 0.84) / 0.11));
       plane!.style.opacity = planeOpacity.toFixed(3);
       if (planeOpacity > 0.001) {
         // t follows the SAME eased value as the track, so the plane lands
@@ -1779,14 +1680,18 @@ const tools = [
   }
 
   /* ---------------- 4 · Origin form → the flight ----------------
-     On submit, scroll the window through the whole 300vh journey over
-     ~2.8s with easeInOutQuart — the plane flies their answer.
-     User wheel/touch input cancels the flight. Reduced motion: jump. */
+     On submit, scroll the window to the held frame (globe · route ·
+     university in one view) over ~2.8s with easeInOutQuart — the plane flies
+     their answer. User wheel/touch input cancels the flight. Reduced motion:
+     jump straight to the campus CTA. */
   function initOriginForm() {
     const form = document.getElementById('origin-form') as HTMLFormElement | null;
     const journey = document.getElementById('journey');
     const cta = document.getElementById('journey-cta');
     if (!form || !journey || !cta) return;
+
+    // Matches the dock's resting point in initJourney.
+    const HELD_FRAME = 0.8;
 
     let rafId = 0;
     let flying = false;
@@ -1799,12 +1704,13 @@ const tools = [
 
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      if (reduced) {
-        cta.scrollIntoView({ block: 'center' }); // instant under RM
+      if (reduced || !matchMedia('(min-width: 64rem)').matches) {
+        cta.scrollIntoView({ block: 'center' }); // instant under RM / mobile
         return;
       }
       const rect = journey!.getBoundingClientRect();
-      const targetY = rect.top + window.scrollY + journey!.offsetHeight - window.innerHeight;
+      const span = Math.max(journey!.offsetHeight - window.innerHeight, 1);
+      const targetY = rect.top + window.scrollY + span * HELD_FRAME;
       const startY = window.scrollY;
       if (targetY - startY < 4) return; // already flown
       cancelFlight();
@@ -1890,7 +1796,7 @@ const tools = [
     render();
   }
 
-  initGlobe();
+  mountGlobe();
   initJourney();
   initOriginForm();
   initIlluminated();

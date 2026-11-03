@@ -1,13 +1,19 @@
 ---
 import { SITE } from '../lib/site';
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+
+const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
+const ui = uiFor(locale);
 
 interface Props {
+  locale?: Locale;
   title?: string;
   text?: string;
 }
 const {
-  title = 'Ready to make your move?',
-  text = 'Start with a free consultation today. No commitment — just a clear answer on what your next step looks like.',
+  title = ui.cta.title,
+  text = ui.cta.text,
 } = Astro.props;
 ---
 
@@ -28,25 +34,25 @@ const {
       <div class="cta-side">
         <div class="cta-actions">
           <a href="/contact" class="btn btn-light btn-lg">
-            Talk to an advisor <span aria-hidden="true">→</span>
+            {ui.cta.talkToAdvisor} <span aria-hidden="true">→</span>
           </a>
           <a href={SITE.whatsapp} class="btn btn-outline-light btn-lg" rel="noopener">
-            WhatsApp us
+            {ui.cta.whatsapp}
           </a>
         </div>
 
         <dl class="cta-facts">
           <div>
-            <dt>Call</dt>
+            <dt>{ui.cta.call}</dt>
             <dd><a href={SITE.phoneIndiaHref}>{SITE.phoneIndia}</a></dd>
           </div>
           <div>
-            <dt>Hours</dt>
+            <dt>{ui.cta.hours}</dt>
             <dd>{SITE.hours}</dd>
           </div>
           <div>
-            <dt>Reply</dt>
-            <dd>Within one working day</dd>
+            <dt>{ui.cta.reply}</dt>
+            <dd>{ui.cta.replyValue}</dd>
           </div>
         </dl>
       </div>

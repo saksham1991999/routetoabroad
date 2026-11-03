@@ -1,0 +1,326 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import { howToSchema } from '../../../lib/schema';
+
+const steps = [
+  { name: 'Shortlist programmes', text: 'Pick 3–5 MOE-listed universities matched to your marks, budget and city preference — one reach, one target, one high-probability.' },
+  { name: 'Prepare documents', text: 'Passport, transcripts, certificates, study plan, recommendations, physical exam — notarise what needs notarising. Give this two months.' },
+  { name: 'File applications & scholarships', text: 'Submit university applications and CSC/provincial scholarship files inside their windows. Scholarship deadlines cluster February–April for September.' },
+  { name: 'Offers → JW202 → visa', text: 'Accept the offer, track the Admission Notice and JW202, complete the physical exam and file the X1 visa at the embassy.' },
+  { name: 'Arrive & register', text: 'Flight, airport pickup, dorm check-in, residence permit within 30 days, SIM and bank account.' },
+];
+---
+
+<BaseLayout
+  locale="zh"
+  title="Application Timeline Planner — Study in China Deadlines"
+  description="Pick your intake and get the month-by-month application plan for studying in China, worked backwards from the deadline: shortlists, scholarship windows, JW202 and visa milestones."
+  path="/zh/tools/timeline-planner"
+  crumbs={[
+    { name: 'Tools', url: 'https://routetoabroad.com/tools' },
+    { name: 'Timeline planner', url: 'https://routetoabroad.com/tools/timeline-planner' },
+  ]}
+  jsonLd={[
+    howToSchema({
+      name: 'How to plan a Chinese university application timeline',
+      description: 'The five phases of a successful Chinese university application, worked backwards from your intake.',
+      steps,
+    }),
+  ]}
+>
+  <PageHero
+    eyebrow="Free tool · 1 minute"
+    title="Your intake, worked backwards."
+    lede="The most common avoidable mistake is starting in April for September. Pick your intake — this planner maps every phase and shows what's already due."
+    crumbs={[
+      { name: 'Tools', url: '/tools' },
+      { name: 'Timeline planner', url: '/tools/timeline-planner' },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad">
+        <div class="calc-form">
+          <div class="field">
+            <label for="tl-intake">Target intake</label>
+            <select id="tl-intake">
+              <option value="2027-03" selected>March 2027</option>
+              <option value="2027-09">September 2027</option>
+              <option value="2028-03">March 2028</option>
+            </select>
+          </div>
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="tl-go">Build my timeline</button>
+            <button type="button" class="btn btn-ghost" id="tl-reset" hidden>Reset</button>
+          </div>
+        </div>
+
+        <p class="tl-summary" id="tl-summary" hidden aria-live="polite"></p>
+        <ol class="tl-list" id="tl-list" hidden></ol>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">Reading the markers</p>
+        <p>
+          <span class="mk mk-red">●</span> hard deadline (missing it costs the intake) ·
+          <span class="mk">●</span> recommended month · dates render in your local timezone. CSC windows
+          vary by university — treat <strong>early April</strong> as the safe wall for scholarship files.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .calc {
+    max-width: 46rem;
+    margin-inline: auto;
+  }
+
+  .calc-form {
+    display: grid;
+    gap: 1.2rem;
+    max-width: 22rem;
+  }
+
+  .calc-form .btn {
+    justify-self: start;
+  }
+
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .tl-summary {
+    margin-top: 1.6rem;
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    line-height: 1.7;
+  }
+
+  .tl-summary strong {
+    font-weight: 500;
+    color: var(--ink);
+  }
+
+  .tl-list {
+    list-style: none;
+    margin: 1.4rem 0 0;
+    padding: 1.4rem 0 0;
+    border-top: 1px solid var(--line);
+    display: grid;
+    gap: 0;
+  }
+
+  .tl-item {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 1.4rem;
+    padding: 1.05rem 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .tl-item:last-child {
+    border-bottom: 0;
+  }
+
+  .tl-when {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    padding-top: 0.2rem;
+  }
+
+  .tl-when .mk {
+    color: var(--accent);
+    margin-right: 0.4rem;
+  }
+
+  .tl-when .mk.mk-red {
+    color: var(--err);
+  }
+
+  .tl-item.past .tl-when,
+  .tl-item.past .tl-body {
+    opacity: 0.45;
+  }
+
+  .tl-item.next {
+    background: color-mix(in srgb, var(--accent) 4%, transparent);
+  }
+
+  .tl-item.next .tl-when {
+    color: var(--accent-text);
+  }
+
+  .tl-body h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .tl-body p {
+    margin-top: 0.25rem;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .calc-note {
+    max-width: 46rem;
+    margin: 2rem auto 0;
+  }
+
+  .mk {
+    color: var(--ink-faint);
+  }
+
+  @media (max-width: 40rem) {
+    .tl-item {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+</style>
+
+<script>
+  const go = document.getElementById('tl-go') as HTMLButtonElement;
+  const resetBtn = document.getElementById('tl-reset') as HTMLButtonElement;
+  const intakeEl = document.getElementById('tl-intake') as HTMLSelectElement;
+  const list = document.getElementById('tl-list') as HTMLElement;
+  const summary = document.getElementById('tl-summary') as HTMLElement;
+  const STORE_KEY = 'rta-timeline-v1';
+
+  type Phase = { offsetMonths: number; title: string; text: string; hard?: boolean };
+  // Phases counted backwards from intake month (offset negative)
+  const phases: Phase[] = [
+    { offsetMonths: -15, title: 'Preliminary decisions', text: 'Confirm route (MBBS vs engineering vs business vs language), budget ceiling, and city shortlist. Sit NEET if Indian MBBS.' },
+    { offsetMonths: -12, title: 'Shortlist & supervisor outreach', text: 'Lock 3–5 universities (one reach / one target / one safe). Research applicants: start emailing matched supervisors with a 1-page proposal.' },
+    { offsetMonths: -8, title: 'Document preparation', text: 'Transcripts, certificates, notarisation, study plan, recommendation letters, physical exam booked. The slowest phase — give it two full months.', hard: false },
+    { offsetMonths: -7, title: 'Applications open — file early', text: 'University portals open ~7 months out. File your first applications now; early files get earlier dorm decisions.', hard: false },
+    { offsetMonths: -6, title: 'CSC scholarship deadline wall', text: 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.', hard: true },
+    { offsetMonths: -4, title: 'Self-funded application deadline', text: 'Final calls for September self-funded admission at most partner universities.', hard: true },
+    { offsetMonths: -3, title: 'Offers & acceptance', text: 'Offers land. Accept, pay any deposit to the UNIVERSITY account only, confirm dorm preferences.' },
+    { offsetMonths: -2, title: 'JW202 & physical exam', text: 'Chase the Admission Notice + JW202 the week they are due. Complete the physical examination on the official form.', hard: true },
+    { offsetMonths: -1, title: 'X1 visa filing', text: 'Embassy/CVASC appointment with passport, forms, photos, Admission Notice, JW202 and physical exam record. 4–7 working days typical processing.', hard: true },
+    { offsetMonths: 0, title: 'Intake month — arrival & registration', text: 'Fly in, airport pickup, dorm check-in, university registration, residence permit within 30 days, SIM + bank account.', hard: true },
+  ];
+
+  const monthLabel = (d: Date) => d.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' });
+
+  /** September- and March-specific guidance where the calendar really differs. */
+  function phaseText(p: Phase, intakeVal: string): string {
+    const march = intakeVal.endsWith('-03');
+    if (p.offsetMonths === -6) {
+      return march
+        ? 'CSC Type B windows for March intakes open in the preceding autumn (roughly June–September) and close months before departure. Verify each university’s current-year window — they are not uniform.'
+        : 'CSC Type B windows cluster February–April for September. File scholarship applications before end of March regardless of stated deadline.';
+    }
+    if (p.offsetMonths === -7 && march) {
+      return 'University portals open ~7 months out. For March intakes this lands around the summer — file early; early files get earlier dorm decisions.';
+    }
+    if (p.offsetMonths === -4) {
+      return march
+        ? 'Final calls for March self-funded admission at most partner universities — confirm exact dates with each office.'
+        : 'Final calls for September self-funded admission at most partner universities.';
+    }
+    return p.text;
+  }
+
+  function build(intakeVal: string) {
+    const [y, m] = intakeVal.split('-').map(Number);
+    if (!y || !m) return;
+    const intake = new Date(y, m - 1, 1);
+    if (Number.isNaN(intake.getTime())) return;
+
+    const now = new Date();
+    // Month granularity: a milestone stays current until its month is over,
+    // so the intake month itself is never marked passed on day one.
+    const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
+    const rows = phases.map((p) => {
+      const date = new Date(intake);
+      date.setMonth(date.getMonth() + p.offsetMonths);
+      return { ...p, text: phaseText(p, intakeVal), date, past: date < monthStart };
+    });
+    const nextIdx = rows.findIndex((r) => !r.past);
+    const done = rows.filter((r) => r.past).length;
+
+    list.hidden = false;
+    list.innerHTML = rows
+      .map((r, i) => {
+        const isNext = i === nextIdx;
+        const flag = r.past ? ' · passed' : isNext ? ' · next' : '';
+        return `
+          <li class="tl-item${r.past ? ' past' : ''}${isNext ? ' next' : ''}">
+            <p class="tl-when"><span class="mk ${r.hard ? 'mk-red' : ''}">●</span>${monthLabel(r.date)}${flag}</p>
+            <div class="tl-body">
+              <h3>${r.title}${r.hard ? ' — deadline' : ''}</h3>
+              <p>${r.text}</p>
+            </div>
+          </li>
+        `;
+      })
+      .join('');
+
+    summary.hidden = false;
+    summary.innerHTML =
+      nextIdx === -1
+        ? `<strong>${done} of ${rows.length}</strong> phases passed — this intake is already underway. Pick the next one.`
+        : `<strong>${done} of ${rows.length}</strong> phases passed · next: <strong>${rows[nextIdx]!.title}</strong> · ${monthLabel(rows[nextIdx]!.date)}`;
+    resetBtn.hidden = false;
+  }
+
+  go?.addEventListener('click', () => {
+    build(intakeEl.value);
+    try {
+      localStorage.setItem(STORE_KEY, intakeEl.value);
+    } catch {
+      /* private mode — the timeline still renders for this visit */
+    }
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    list.hidden = true;
+    list.innerHTML = '';
+    summary.hidden = true;
+    summary.innerHTML = '';
+    resetBtn.hidden = true;
+    intakeEl.value = '2027-03';
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    intakeEl.focus();
+  });
+
+  // Changing the intake after a build should rebuild AND persist, so a
+  // reload restores the timeline that was last on screen — not an older one.
+  intakeEl?.addEventListener('change', () => {
+    if (!list.hidden) {
+      build(intakeEl.value);
+      try {
+        localStorage.setItem(STORE_KEY, intakeEl.value);
+      } catch {}
+    }
+  });
+
+  // Restore the last timeline — it is the same answer every visit.
+  (() => {
+    let saved: string | null = null;
+    try {
+      saved = localStorage.getItem(STORE_KEY);
+    } catch {}
+    if (!saved) return;
+    if (![...intakeEl.options].some((o) => o.value === saved)) return;
+    intakeEl.value = saved;
+    build(saved);
+  })();
+</script>

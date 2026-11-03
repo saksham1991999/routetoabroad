@@ -1,0 +1,514 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+---
+
+<BaseLayout
+  locale="fr"
+  title="Cost of Studying in China Calculator — Tuition & Living Estimates"
+  description="Estimate the real cost of studying in China: tuition by programme, living costs by city and lifestyle, yearly and total in USD. Transparent ranges, no email required."
+  path="/fr/tools/cost-calculator"
+  crumbs={[
+    { name: 'Tools', url: 'https://routetoabroad.com/tools' },
+    { name: 'Cost calculator', url: 'https://routetoabroad.com/tools/cost-calculator' },
+  ]}
+>
+  <PageHero
+    eyebrow="Free tool · 1 minute"
+    title="What will it actually cost?"
+    lede="Fees are quoted per university because a single number across a country would be a guess. This calculator gives honest ranges — and shows the maths."
+    crumbs={[
+      { name: 'Tools', url: '/tools' },
+      { name: 'Cost calculator', url: '/tools/cost-calculator' },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad">
+        <div class="calc-form" id="cost-form">
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-city">City</label>
+              <select id="cost-city">
+                <option value="">Select…</option>
+                <option value="beijing">Beijing</option>
+                <option value="shanghai">Shanghai</option>
+                <option value="guangzhou">Guangzhou</option>
+                <option value="hangzhou">Hangzhou</option>
+                <option value="tier2">Second-tier city</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-programme">Programme</label>
+              <select id="cost-programme">
+                <option value="">Select…</option>
+                <option value="bachelor_eng">Bachelor's — Engineering / CS</option>
+                <option value="bachelor_bus">Bachelor's — Business / Economics</option>
+                <option value="mbbs">MBBS (MOE-listed)</option>
+                <option value="master">Master's</option>
+                <option value="phd">PhD (unfunded)</option>
+                <option value="language">Chinese language (HSK year)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-row">
+            <div class="field">
+              <label for="cost-lifestyle">Lifestyle</label>
+              <select id="cost-lifestyle">
+                <option value="">Select…</option>
+                <option value="frugal">Frugal (canteens, dorm, bike)</option>
+                <option value="moderate">Moderate (eating out sometimes)</option>
+                <option value="comfortable">Comfortable (own room, travel)</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="cost-years">Programme length</label>
+              <select id="cost-years">
+                <option value="">Select…</option>
+                <option value="1">1 year</option>
+                <option value="3">3 years</option>
+                <option value="4">4 years</option>
+                <option value="5">5–5.5 years (MBBS)</option>
+              </select>
+            </div>
+          </div>
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="cost-go">Calculate</button>
+            <button type="button" class="btn btn-ghost" id="cost-reset">Reset</button>
+          </div>
+        </div>
+
+        <div class="calc-result" id="cost-result" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">What's included</p>
+        <p>
+          Tuition ranges come from our current partner-fee tables; living ranges blend dorm rent, food,
+          transport and personal spend at each lifestyle level. <strong>Not included:</strong> flights,
+          visa fees, insurance (~US$300–600/yr) and one-time setup (~US$200–400). CSC scholars: tuition
+          and dorm drop to zero and a stipend arrives monthly.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .calc {
+    max-width: 44rem;
+    margin-inline: auto;
+  }
+
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  /* Grid gap only spaces the columns; stacked rows need their own rhythm. */
+  .calc-row + .calc-row {
+    margin-top: 1.2rem;
+  }
+
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+  }
+
+  .calc-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .cost-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cost-total {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step-4);
+    font-weight: 600;
+  }
+
+  .cost-total-label {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+  }
+
+  table.cost-table th,
+  table.cost-table td {
+    text-align: left;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.cost-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table td:last-child {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  table.cost-table tbody tr:last-child td strong {
+    font-weight: 500;
+  }
+
+  .cost-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  .cost-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-note {
+    max-width: 44rem;
+    margin: 2rem auto 0;
+  }
+
+  /* Missing-select feedback: ring the field and nudge it.
+     Doubled class beats the equal-specificity .field select base rule. */
+  .field.field-missing label {
+    color: var(--err);
+  }
+
+  .field.field-missing select {
+    border-color: var(--err);
+    animation: field-nudge 0.35s var(--ease-out);
+  }
+
+  @keyframes field-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    30% {
+      transform: translateX(-4px);
+    }
+    60% {
+      transform: translateX(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field-missing select {
+      animation: none;
+    }
+  }
+
+  /* Result settles in once the skeleton hands over */
+  .calc-result.is-revealed {
+    animation: result-in 0.5s var(--ease-out);
+  }
+
+  @keyframes result-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .calc-result.is-revealed {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .calc-row {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const go = document.getElementById('cost-go') as HTMLButtonElement;
+  const resetBtn = document.getElementById('cost-reset') as HTMLButtonElement;
+  const result = document.getElementById('cost-result') as HTMLElement;
+  const formEl = document.getElementById('cost-form') as HTMLElement;
+
+  const FIELD_IDS = ['cost-city', 'cost-programme', 'cost-lifestyle', 'cost-years'] as const;
+  const PARAM_KEYS: Record<(typeof FIELD_IDS)[number], string> = {
+    'cost-city': 'city',
+    'cost-programme': 'programme',
+    'cost-lifestyle': 'lifestyle',
+    'cost-years': 'years',
+  };
+  const STORE_KEY = 'rta-cost-v1';
+
+  const readValues = () =>
+    Object.fromEntries(
+      FIELD_IDS.map((id) => [id, (document.getElementById(id) as HTMLSelectElement).value])
+    ) as Record<(typeof FIELD_IDS)[number], string>;
+
+  function saveInputs() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(readValues()));
+    } catch {}
+  }
+
+  function restoreInputs() {
+    let values: Record<string, string> = {};
+    try {
+      values = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    } catch {}
+
+    const params = new URLSearchParams(location.search);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      const fromUrl = params.get(key);
+      const value = fromUrl || values[id] || '';
+      const sel = document.getElementById(id) as HTMLSelectElement;
+      if (value && [...sel.options].some((o) => o.value === value)) sel.value = value;
+    }
+  }
+
+  function syncUrl(values: Record<string, string>) {
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      if (values[id]) url.searchParams.set(key, values[id]!);
+      else url.searchParams.delete(key);
+    }
+    history.replaceState({}, '', url);
+  }
+
+  const living: Record<string, [number, number]> = {
+    beijing: [500, 800],
+    shanghai: [520, 850],
+    guangzhou: [350, 600],
+    hangzhou: [330, 580],
+    tier2: [260, 480],
+  };
+  const lifestyleMult: Record<string, number> = { frugal: 0.8, moderate: 1, comfortable: 1.35 };
+  const tuition: Record<string, [number, number]> = {
+    bachelor_eng: [2500, 5000],
+    bachelor_bus: [3000, 6000],
+    mbbs: [3500, 8000],
+    master: [3000, 8000],
+    phd: [3000, 7000],
+    language: [2500, 4500],
+  };
+
+  const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let renderTimer: number | undefined;
+
+  /** Count the total up from zero, then settle on the honest range. */
+  function countUp(el: HTMLElement, lo: number, hi: number) {
+    if (reduced) {
+      el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      if (p < 1) {
+        el.textContent = fmt(hi * eased);
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  /** Mark missing selects and shake the form instead of an alert(). */
+  function flagMissing(ids: string[]) {
+    ids.forEach((id) => {
+      const sel = document.getElementById(id) as HTMLSelectElement | null;
+      sel?.closest('.field')?.classList.add('field-missing');
+    });
+    const first = document.querySelector('.field-missing select');
+    first?.addEventListener(
+      'change',
+      () => first.closest('.field')?.classList.remove('field-missing'),
+      { once: true }
+    );
+  }
+
+  function hideResult() {
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+  }
+
+  go?.addEventListener('click', () => {
+    const city = (document.getElementById('cost-city') as HTMLSelectElement).value;
+    const programme = (document.getElementById('cost-programme') as HTMLSelectElement).value;
+    const lifestyle = (document.getElementById('cost-lifestyle') as HTMLSelectElement).value;
+    const years = parseInt((document.getElementById('cost-years') as HTMLSelectElement).value, 10);
+
+    const missing = [
+      !city && 'cost-city',
+      !programme && 'cost-programme',
+      !lifestyle && 'cost-lifestyle',
+      !years && 'cost-years',
+    ].filter(Boolean) as string[];
+    if (missing.length) {
+      document.querySelectorAll('.field-missing').forEach((f) => f.classList.remove('field-missing'));
+      flagMissing(missing);
+      // A failed validation must not leave the previous answer on screen.
+      hideResult();
+      return;
+    }
+
+    const values = readValues();
+    saveInputs();
+    syncUrl(values);
+
+    const mult = lifestyleMult[lifestyle]!;
+    const liveLo = living[city]![0] * mult * 12;
+    const liveHi = living[city]![1] * mult * 12;
+    const [tLo, tHi] = tuition[programme]!;
+    const perYearLo = tLo + liveLo;
+    const perYearHi = tHi + liveHi;
+    const totalLo = perYearLo * years;
+    const totalHi = perYearHi * years;
+
+    // Skeleton frame first, then the real numbers — the pause sells the maths.
+    // A quick re-click supersedes the previous pending render.
+    if (renderTimer) clearTimeout(renderTimer);
+    result.hidden = false;
+    result.innerHTML = `
+      <div class="cost-headline">
+        <span class="skeleton skeleton-text" style="width: 14rem; height: 2.6rem;"></span>
+        <span class="skeleton skeleton-text w-40" style="width: 12rem;"></span>
+      </div>
+      <div style="margin-top: 1.5rem; display: grid; gap: 0.75rem;">
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-60"></span>
+      </div>
+    `;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    const render = () => {
+      result.innerHTML = `
+        <div class="cost-headline">
+          <p class="cost-total num">
+            <span class="visually-hidden">${fmt(totalLo)} – ${fmt(totalHi)}</span>
+            <span aria-hidden="true" data-count>${fmt(0)}</span>
+          </p>
+          <p class="cost-total-label">estimated total, ${years} year${years > 1 ? 's' : ''}, self-funded</p>
+        </div>
+        <table class="cost-table">
+          <thead><tr><th>Item</th><th>Per year</th><th>Over ${years} year${years > 1 ? 's' : ''}</th></tr></thead>
+          <tbody>
+            <tr><td>Tuition (${programme.replace('_', ' / ')})</td><td>${fmt(tLo)} – ${fmt(tHi)}</td><td>${fmt(tLo * years)} – ${fmt(tHi * years)}</td></tr>
+            <tr><td>Living &amp; accommodation (${city}${lifestyle !== 'moderate' ? `, ${lifestyle}` : ''})</td><td>${fmt(liveLo)} – ${fmt(liveHi)}</td><td>${fmt(liveLo * years)} – ${fmt(liveHi * years)}</td></tr>
+            <tr><td><strong>Total</strong></td><td><strong>${fmt(perYearLo)} – ${fmt(perYearHi)}</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="cost-note">
+          Plus one-time costs: flights, visa, insurance and setup (~US$500–1,000 in year one).
+          Figures are estimates from current partner-fee tables — your actual offer letter is the real number.
+          ${programme === 'mbbs' ? '<strong>MBBS runs 5.5–6 years including internship</strong> — scale the totals above to the full programme length, not just the years you selected.' : ''}
+        </p>
+        <div class="cost-actions">
+          <a class="btn btn-primary" href="/fr/tools/scholarship-eligibility">See if scholarships cut this</a>
+          <a class="btn btn-outline" href="/fr/education#apply">Get exact university fees</a>
+          <button type="button" class="btn btn-ghost" data-share>Copy link</button>
+        </div>
+      `;
+      result.classList.add('is-revealed');
+      const totalEl = result.querySelector<HTMLElement>('[data-count]');
+      if (totalEl) countUp(totalEl, totalLo, totalHi);
+
+      result.querySelector<HTMLButtonElement>('[data-share]')?.addEventListener('click', async (e) => {
+        const btn = e.currentTarget as HTMLButtonElement;
+        try {
+          await navigator.clipboard.writeText(location.href);
+          btn.textContent = 'Link copied';
+        } catch {
+          btn.textContent = 'Copy failed';
+        }
+        setTimeout(() => {
+          btn.textContent = 'Copy link';
+        }, 2200);
+      });
+    };
+
+    if (reduced) {
+      render();
+    } else {
+      renderTimer = window.setTimeout(() => {
+        renderTimer = undefined;
+        render();
+      }, 650);
+    }
+  });
+
+  FIELD_IDS.forEach((id) => {
+    document.getElementById(id)?.addEventListener('change', () => {
+      saveInputs();
+      const field = document.getElementById(id)?.closest('.field');
+      field?.classList.remove('field-missing');
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (renderTimer) clearTimeout(renderTimer);
+    renderTimer = undefined;
+    FIELD_IDS.forEach((id) => {
+      const sel = document.getElementById(id) as HTMLSelectElement;
+      sel.value = '';
+      sel.closest('.field')?.classList.remove('field-missing');
+    });
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+    formEl.hidden = false;
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) url.searchParams.delete(PARAM_KEYS[id]);
+    history.replaceState({}, '', url);
+    (document.getElementById(FIELD_IDS[0]) as HTMLSelectElement)?.focus();
+  });
+
+  restoreInputs();
+
+  // A shared link should land on its answer, not on a pre-filled empty form.
+  if (['city', 'programme', 'lifestyle', 'years'].every((k) => new URLSearchParams(location.search).has(k))) {
+    go?.click();
+  }
+</script>

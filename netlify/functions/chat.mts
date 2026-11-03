@@ -17,11 +17,12 @@ Contact: info@routetoabroad.com | India: +91 96330 61109 | Offices in New Delhi 
 - **Be concise.** Answer directly — don't pad responses with filler. Short questions get short answers.
 - **Use bullet points and structure** only when it genuinely helps (lists of options, step-by-step processes). For simple questions, just answer naturally.
 - **Don't over-sell.** Be genuinely helpful, not salesy. If the answer is "you should talk to the team for that," say so plainly.
-- **Answer in the same language the user writes in.**
+- **Answer in the language of the user's first message.** If the user writes in Chinese, reply in Chinese. If in Arabic, reply in Arabic. Default to the interface language if the user's message is in English.
 - **Never promise guaranteed admission, scholarships, or visas** — universities, committees and embassies decide. Be honest about what the process can and cannot do.
-- **When relevant**, nudge toward booking a free consultation or contacting the team — but only when it flows naturally, never forced.`;
+- **When relevant**, nudge toward booking a free consultation or contacting the team — but only when it flows naturally, never forced.
+`;
 
-const MODEL = 'claude-opus-4-6-20250610';
+const MODEL = 'glm-5.3-flash';
 
 type ChatMessage = { role: string; content: string };
 
@@ -40,7 +41,7 @@ export default async (req: Request): Promise<Response> => {
     });
   }
 
-  let body: { messages?: ChatMessage[] };
+  let body: { messages?: ChatMessage[]; locale?: string };
   try {
     body = await req.json();
   } catch {
@@ -56,6 +57,13 @@ export default async (req: Request): Promise<Response> => {
       headers: { 'Content-Type': 'application/json' },
     });
   }
+
+  // i18n: pass the interface locale to the model as a system hint so a first
+  // message in the UI language gets a first reply in the same language even
+  // if the user's first turn is in English.
+  const localeHint = body.locale
+    ? `The user's interface language is: ${body.locale}. If the user writes in English, reply in ${body.locale}.\n\n`
+    : '';
 
   // Keep context bounded while preserving a user-first, alternating turn
   // order — a raw slice can start on an assistant turn, which the
@@ -89,12 +97,15 @@ export default async (req: Request): Promise<Response> => {
       headers: {
         'Content-Type': 'application/json',
         'x-api-key': apiKey,
+        // Z.AI's coding plan (and Anthropic) accept Bearer auth; send both
+        // header styles so the key works against either upstream.
+        'Authorization': `Bearer ${apiKey}`,
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
         model: MODEL,
         max_tokens: 1024,
-        system: SYSTEM_PROMPT,
+        system: SYSTEM_PROMPT + localeHint,
         messages,
         stream: true,
       }),

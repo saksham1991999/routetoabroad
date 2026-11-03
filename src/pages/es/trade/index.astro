@@ -1,0 +1,439 @@
+---
+import { Image, Picture } from 'astro:assets';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import SectionHead from '../../../components/SectionHead.astro';
+import FaqAccordion from '../../../components/FaqAccordion.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+import TradeForm from '../../../components/forms/TradeForm.astro';
+import { TRADE_FAQS } from '../../../data/faqs';
+import { faqSchema, serviceSchema } from '../../../lib/schema';
+
+const heroImg = (await import('../../../assets/images/hero-trade.jpg')).default;
+const pageFaqs = TRADE_FAQS.slice(0, 6);
+
+const disciplines = [
+  {
+    n: '01',
+    name: 'Product sourcing',
+    text: '5,000+ audited supplier contacts across the Pearl River Delta. We shortlist, verify and negotiate — with a 24-hour response promise during working weeks.',
+    stat: '200+ factories audited',
+  },
+  {
+    n: '02',
+    name: 'Quality control',
+    text: 'AQL-standard inspections at ~20% and ~80% of production, plus pre-shipment checks and container loading supervision. Photo-video reports at every gate.',
+    stat: 'AQL 20% / 80% gates',
+  },
+  {
+    n: '03',
+    name: 'Customs & compliance',
+    text: 'HS classification, BIS/WPC registrations, COO documents and complete customs files prepared before goods reach port — clearance never waits on paperwork.',
+    stat: 'BIS · WPC · HS codes',
+  },
+  {
+    n: '04',
+    name: 'Smart logistics',
+    text: 'Sea 18–25 days port-to-port, air 3–7 days door-to-door, LCL for trials, FCL at scale. Port congestion monitoring with re-routing when it pays.',
+    stat: '100% insured shipments',
+  },
+  {
+    n: '05',
+    name: 'Global trade consulting',
+    text: 'Market entry, payment structuring (TT/LC/escrow), supplier contracts with penalty clauses, and dispute representation on the ground.',
+    stat: 'On-ground representation',
+  },
+];
+
+const industries = [
+  'Electronics & components', 'Industrial machinery', 'Textiles & apparel', 'Auto parts',
+  'Consumer goods', 'Chemicals', 'Home décor', 'Medical equipment', 'Packaging materials',
+];
+
+const process = [
+  { name: 'Enquiry & landed-cost picture', text: 'Tell us the product and target price. We come back with a realistic landed cost to Indian warehouse — duty, freight and inspection included.' },
+  { name: 'Factory audit', text: 'One-day on-ground audit of the candidate factories: licenses, capacity, QC maturity, photo-video evidence. No audit, no commitment.' },
+  { name: 'Sampling & golden sample', text: 'Specs locked in English + Chinese, golden samples sealed in triplicate. Every later dispute resolves against this.' },
+  { name: 'Production with QC gates', text: '30% deposit releases production; AQL inspections at 20%/80% decide whether the remaining money moves.' },
+  { name: 'Ship, clear, deliver', text: '70% against B/L copy. Customs pre-filed. Goods land at Mundra/JNPT or your door — insured end to end.' },
+];
+---
+
+<BaseLayout
+  locale="es"
+  title="India–China Trade Services — Sourcing, QC & Logistics"
+  description="Product sourcing, factory audits, AQL quality control, customs clearance and sea/air freight between China and India — run from Guangzhou on a success-fee model tied to shipped value."
+  path="/es/trade"
+  image="/og/trade.jpg"
+  crumbs={[{ name: 'Trade', url: 'https://routetoabroad.com/trade' }]}
+  jsonLd={[
+    serviceSchema({
+      name: 'India–China trade services',
+      description: 'Sourcing, quality control, customs compliance and freight management for India–China trade, on a success-fee model.',
+      url: 'https://routetoabroad.com/trade',
+      serviceType: 'Trade services',
+      areaServed: ['IN', 'CN'],
+    }),
+    faqSchema(pageFaqs),
+  ]}
+>
+  <PageHero
+    eyebrow="Trade"
+    index="TRD / 03"
+    title="Your supply chain doesn't need more complexity."
+    lede="It needs one accountable team on the factory floor. Sourcing, quality gates, customs and freight between China and India — run from our Guangzhou office, on a success fee tied to shipped value."
+    crumbs={[{ name: 'Trade', url: '/trade' }]}
+    facts={[
+      { label: 'Base', value: 'Guangzhou · Delhi' },
+      { label: 'Network', value: '200+ vetted' },
+      { label: 'Quality', value: 'AQL inspections' },
+      { label: 'Model', value: 'Success fee' },
+    ]}
+    actions={[
+      { href: '#enquire', label: 'Get a landed cost' },
+      { href: '#disciplines', label: 'See disciplines', variant: 'outline' },
+    ]}
+    jumps={[
+      { href: '#disciplines', label: 'Disciplines' },
+      { href: '#process', label: 'Process' },
+      { href: '#industries', label: 'Industries' },
+      { href: '#enquire', label: 'Enquire' },
+      { href: '#faq', label: 'FAQ' },
+    ]}
+  />
+
+  <section class="hero-band">
+    <Picture
+      src={heroImg}
+      alt="Container cranes working at the Guangzhou port at dawn"
+      widths={[768, 1280, 1920]}
+      sizes="100vw"
+      formats={['avif', 'webp']}
+      loading="eager"
+      fetchpriority="high"
+    />
+    <p class="hero-band-caption num">Port of Guangzhou · our trade desk is 40 minutes away</p>
+  </section>
+
+  <!-- Disciplines -->
+  <section class="section" id="disciplines">
+    <div class="container">
+      <SectionHead
+        eyebrow="Supply chain orchestration"
+        index="01 / 04"
+        title="Five core disciplines"
+        lede="Each one exists because we got tired of watching importers pay for its absence."
+      />
+      <div class="disc-grid">
+        {disciplines.map((d, i) => (
+          <article class="disc-card card" data-reveal style={`--reveal-delay: ${(i % 2) * 80}ms`}>
+            <span class="disc-n num" aria-hidden="true">{d.n}</span>
+            <h3>{d.name}</h3>
+            <p>{d.text}</p>
+            <p class="disc-stat num">{d.stat}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section section-sunken" id="process">
+    <div class="container-text">
+      <SectionHead
+        eyebrow="How we work"
+        index="02 / 04"
+        title="From product idea to Indian warehouse"
+        lede="Money moves in steps — and each step ends with evidence, not assurances."
+      />
+      <ol class="timeline">
+        {process.map((step, i) => (
+          <li class="timeline-step" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+            <span class="t-num num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h3>{step.name}</h3>
+              <p>{step.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- Industries -->
+  <section class="section" id="industries">
+    <div class="container">
+      <SectionHead
+        eyebrow="Categories"
+        index="03 / 04"
+        title="Industries we run"
+        lede="Deep benches in these categories — and honest referrals where we don't."
+      />
+      <div class="industry-chips" data-reveal>
+        {industries.map((ind) => <span class="chip">{ind}</span>)}
+      </div>
+
+      <div class="pay-strip" data-reveal>
+        <div class="pay-item">
+          <p class="num">30 / 70</p>
+          <p>deposit + balance against B/L — the structure we insist on</p>
+        </div>
+        <div class="pay-item">
+          <p class="num">24 hr</p>
+          <p>supplier response target during working weeks</p>
+        </div>
+        <div class="pay-item">
+          <p class="num">18–25 d</p>
+          <p>sea transit to Indian west-coast ports</p>
+        </div>
+        <div class="pay-item">
+          <p class="num">3–7 d</p>
+          <p>air freight door-to-door, 5–8× sea cost</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Form -->
+  <section class="section section-sunken" id="enquire">
+    <div class="container form-split">
+      <div data-reveal>
+        <SectionHead
+          eyebrow="Start here"
+          title="Bring us a product, get a landed cost"
+          lede="Tell us what you're sourcing and your target price. We reply with a realistic landed-cost picture to an Indian warehouse — audit costs quoted upfront, success fee only when goods ship."
+        />
+        <ul class="why-trade">
+          <li><strong>No success, no success fee.</strong> If the deal dies, you owe only the quoted audit/inspection costs.</li>
+          <li><strong>Evidence at every gate.</strong> Reports, photos, videos — before money moves.</li>
+          <li><strong>One team, both countries.</strong> Delhi relationships, Guangzhou floor presence.</li>
+        </ul>
+      </div>
+      <div class="form-card card card-pad" data-reveal>
+        <TradeForm />
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container-text">
+      <SectionHead center eyebrow="Trade FAQ" index="04 / 04" title="Trade Intel, answered straight" />
+      <FaqAccordion faqs={pageFaqs} />
+      <p class="faq-more"><a href="/es/trade/faq" class="arrow-link">All trade FAQs</a></p>
+    </div>
+  </section>
+
+  <CtaBand />
+</BaseLayout>
+
+<style>
+  .hero-band {
+    position: relative;
+  }
+
+  .hero-band :global(img) {
+    width: 100%;
+    max-height: 62vh;
+    object-fit: cover;
+    filter: grayscale(15%) contrast(1.05);
+  }
+
+  .hero-band::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45), transparent 38%);
+    pointer-events: none;
+  }
+
+  .hero-band-caption {
+    position: absolute;
+    bottom: 1rem;
+    right: 1.25rem;
+    z-index: 1;
+    font-size: 0.6875rem;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .disc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.4rem;
+  }
+
+  .disc-card {
+    padding: 1.7rem 1.8rem 1.8rem;
+    position: relative;
+    transition: border-color 0.2s var(--ease-out);
+  }
+
+  .disc-card:hover {
+    border-color: color-mix(in srgb, var(--ink) 30%, transparent);
+  }
+
+  .disc-n {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+  }
+
+  .disc-card h3 {
+    margin-top: 0.6rem;
+    font-size: 1.35rem;
+  }
+
+  .disc-card p {
+    margin-top: 0.55rem;
+    font-size: 0.94rem;
+    color: var(--ink-soft);
+    line-height: 1.62;
+  }
+
+  .disc-stat {
+    margin-top: 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .timeline {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .timeline-step {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 1.4rem;
+    position: relative;
+    padding-bottom: 2.2rem;
+  }
+
+  .timeline-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 1.3rem;
+    top: 2.1rem;
+    bottom: 0.3rem;
+    width: 0;
+    border-left: 1px dotted color-mix(in srgb, var(--ink) 20%, transparent);
+  }
+
+  .t-num {
+    text-align: center;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .timeline h3 {
+    font-size: 1.25rem;
+  }
+
+  .timeline p {
+    margin-top: 0.5rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    max-width: 58ch;
+  }
+
+  .industry-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+  }
+
+  .pay-strip {
+    margin-top: 2.5rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-block: 1px solid var(--line);
+  }
+
+  .pay-item {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+  }
+
+  .pay-item + .pay-item {
+    border-left: 1px solid var(--line);
+    padding-left: 1.5rem;
+  }
+
+  .pay-item .num {
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .pay-item p:last-child {
+    margin-top: 0.3rem;
+    font-size: 0.82rem;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .form-split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+
+  .why-trade {
+    list-style: none;
+    padding: 0;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .why-trade li {
+    padding: 1rem 1.2rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .faq-more {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 64rem) {
+    .disc-grid,
+    .form-split {
+      grid-template-columns: 1fr;
+    }
+    .pay-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .pay-item:nth-child(3) {
+      border-left: 0;
+      padding-left: 0;
+    }
+    .pay-item:nth-child(n + 3) {
+      border-top: 1px solid var(--line);
+    }
+  }
+
+  @media (max-width: 30rem) {
+    .pay-strip {
+      grid-template-columns: 1fr;
+    }
+    .pay-item + .pay-item {
+      border-left: 0;
+      padding-left: 0;
+    }
+    .pay-item:nth-child(n + 2) {
+      border-top: 1px solid var(--line);
+    }
+  }
+</style>

@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+
+const tools = [
+  {
+    href: '/tools/fit-check',
+    name: 'Fit check',
+    desc: 'Four questions — citizenship, qualification, field, intake. We answer yes, maybe, or not this intake, with the reason. The same first pass an advisor makes on a call.',
+    time: '2 min',
+  },
+  {
+    href: '/tools/scholarship-eligibility',
+    name: 'Scholarship eligibility check',
+    desc: 'Where your marks and level actually sit for CSC full awards, provincial partials, or self-funded routes. Honest bands, no flattery.',
+    time: '2 min',
+  },
+  {
+    href: '/tools/cost-calculator',
+    name: 'Cost of studying calculator',
+    desc: 'Tuition plus living costs by city, programme and lifestyle — yearly and total, in USD, with the maths shown.',
+    time: '1 min',
+  },
+  {
+    href: '/tools/document-checklist',
+    name: 'Document checklist generator',
+    desc: 'Your personalised document list by level, programme and scholarship route. Tick items off, save progress, print it.',
+    time: '3 min',
+  },
+  {
+    href: '/tools/timeline-planner',
+    name: 'Application timeline planner',
+    desc: 'Pick your intake and get the month-by-month plan worked backwards — deadlines marked, buffers included.',
+    time: '1 min',
+  },
+];
+---
+
+<BaseLayout
+  locale="es"
+  title="Free Tools — Fit Check, Cost Calculator, Scholarship & Visa Planning"
+  description="Five free tools for studying in China: a four-question fit check, scholarship eligibility bands, a cost calculator, a document checklist generator and an application timeline planner."
+  path="/es/tools"
+  crumbs={[{ name: 'Tools', url: 'https://routetoabroad.com/tools' }]}
+>
+  <PageHero
+    eyebrow="Free tools"
+    index="TLS / 05"
+    title="Answers before advice."
+    lede="Five quick tools that give you real numbers and honest reads before you ever speak to us. No email walls, no fake precision."
+    crumbs={[{ name: 'Tools', url: '/tools' }]}
+    facts={[
+      { label: 'Tools', value: '05 free' },
+      { label: 'Time', value: '1–3 minutes' },
+      { label: 'Email', value: 'Not required' },
+      { label: 'Answers', value: 'Real ranges' },
+    ]}
+    actions={[{ href: '/tools/fit-check', label: 'Start with the fit check' }]}
+  />
+
+  <section class="section">
+    <div class="container tools-list">
+      {tools.map((t, i) => (
+        <a href={t.href} class="tool" data-reveal style={`--reveal-delay: ${i * 60}ms`}>
+          <span class="tool-index num">{String(i + 1).padStart(2, '0')}</span>
+          <div class="tool-main">
+            <h2>{t.name}</h2>
+            <p>{t.desc}</p>
+          </div>
+          <div class="tool-side">
+            <span class="num tool-time">{t.time}</span>
+            <span class="arrow-link">Open</span>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <div class="container tools-note" data-reveal>
+      <p>
+        <strong>Why no email wall?</strong> Because the tools are more useful honest than gated. If the answers
+        make you want a human conversation — <a href="/es/contact">that page</a> is one click away.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .tools-list {
+    display: grid;
+    max-width: 52rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .tool {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 1.6rem;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    margin-inline: -1rem;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s;
+  }
+
+  .tool:hover {
+    background: color-mix(in srgb, var(--ink) 2%, transparent);
+  }
+
+  .tool:hover .arrow-link::after {
+    transform: translateX(0.25rem);
+  }
+
+  .tool-index {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .tool-main h2 {
+    font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.375rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+
+  .tool-main p {
+    margin-top: 0.4rem;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+    max-width: 52ch;
+  }
+
+  .tool-side {
+    display: grid;
+    justify-items: end;
+    gap: 0.5rem;
+  }
+
+  .tool-time {
+    font-size: 0.6875rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .tools-note {
+    margin-top: 2.5rem;
+    max-width: 52rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .tools-note a {
+    color: var(--accent);
+  }
+
+  @media (max-width: 40rem) {
+    .tool {
+      grid-template-columns: 1fr;
+      gap: 0.8rem;
+    }
+    .tool-side {
+      justify-items: start;
+      grid-auto-flow: column;
+      align-items: center;
+    }
+  }
+</style>

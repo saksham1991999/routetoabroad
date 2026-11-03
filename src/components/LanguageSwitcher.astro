@@ -1,0 +1,104 @@
+---
+import { LOCALES, LOCALE_META, DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
+
+/**
+ * Language switcher — pill cluster in the header and mobile menu.
+ * Each locale links to the same page under that locale's prefix; the
+ * current locale is a labelled indicator (aria-current), not a link.
+ *
+ * `Astro.url.pathname` is the source of truth for "which page am I on",
+ * so switching from /zh/education lands on /fr/education, not /fr/.
+ */
+const currentPath = Astro.url.pathname;
+const currentLocale = (Astro.props.locale as Locale | undefined) ?? DEFAULT_LOCALE;
+---
+
+<nav class="lang-switcher" aria-label={LOCALE_META[currentLocale] ? undefined : 'Language'}>
+  <ul>
+    {LOCALES.map((code) => {
+      const active = code === currentLocale;
+      const href = translatePath(currentPath, code);
+      return (
+        <li>
+          {active ? (
+            <span class="lang-chip is-active" aria-current="true">
+              {LOCALE_META[code].nativeLabel}
+            </span>
+          ) : (
+            <a
+              class="lang-chip"
+              href={href}
+              aria-label={`View this page in ${LOCALE_META[code].label}`}
+            >
+              {LOCALE_META[code].nativeLabel}
+            </a>
+          )}
+        </li>
+      );
+    })}
+  </ul>
+</nav>
+
+<style>
+  .lang-switcher ul {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .lang-chip {
+    display: inline-block;
+    padding: 0.3rem 0.55rem;
+    font-size: 0.72rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    letter-spacing: 0.04em;
+    color: color-mix(in srgb, var(--ink) 55%, transparent);
+    text-decoration: none;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+
+  .lang-chip:hover {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: color-mix(in srgb, var(--ink) 4%, transparent);
+  }
+
+  .lang-chip.is-active {
+    color: var(--ink);
+    border-color: var(--line-strong);
+    background: color-mix(in srgb, var(--ink) 6%, transparent);
+  }
+
+  /* Over a dark-tone header the switcher must invert, same as nav links */
+  body[data-chrome='home'][data-tone='dark'] .lang-chip,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip {
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  body[data-chrome='home'][data-tone='dark'] .lang-chip:hover,
+  body[data-chrome='home'][data-tone='dark'] .lang-chip.is-active,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip:hover,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip.is-active {
+    color: #ffffff;
+    border-color: rgba(255, 255, 255, 0.35);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  /* Mobile menu: larger tap targets, stack horizontally with wrap */
+  .mobile-menu .lang-switcher ul {
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .mobile-menu .lang-chip {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.82rem;
+  }
+</style>

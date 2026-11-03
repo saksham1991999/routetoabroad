@@ -1,0 +1,462 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+
+interface Props {}
+---
+
+<BaseLayout
+  locale="es"
+  title="Fit Check — Are You Eligible to Study in China?"
+  description="Four questions, a straight answer. The same first pass a RouteToAbroad advisor makes on a call — citizenship, qualification, field and intake — with no email required."
+  path="/es/tools/fit-check"
+  crumbs={[
+    { name: 'Tools', url: 'https://routetoabroad.com/tools' },
+    { name: 'Fit check', url: 'https://routetoabroad.com/tools/fit-check' },
+  ]}
+>
+  <PageHero
+    eyebrow="Free tool · 2 minutes"
+    title="Fit check. Four questions. A straight answer."
+    lede="This is the same first pass an advisor makes on a call. It is not an application, and it does not ask for documents or an email."
+    crumbs={[
+      { name: 'Tools', url: '/tools' },
+      { name: 'Fit check', url: '/tools/fit-check' },
+    ]}
+  />
+
+  <h2 class="visually-hidden">The four questions</h2>
+
+  <section class="section">
+    <div class="container-text">
+      <div class="quiz card card-pad" id="quiz">
+        <div class="quiz-progress num" id="quiz-progress" aria-hidden="true"></div>
+
+        <!-- Step 1 -->
+        <fieldset class="quiz-step" data-step="1">
+          <legend><span class="q-num num">Q1</span> Where are you applying from?</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q1" value="india" /><span>India</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="gcc" /><span>GCC (UAE, Saudi, Qatar…)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="africa" /><span>Africa</span></label>
+            <label class="quiz-opt"><input type="radio" name="q1" value="other" /><span>Elsewhere</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 2 -->
+        <fieldset class="quiz-step" data-step="2" hidden>
+          <legend><span class="q-num num">Q2</span> Your highest completed qualification?</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q2" value="school" /><span>School / 12th</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="bachelor" /><span>Bachelor's degree</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="master" /><span>Master's or above</span></label>
+            <label class="quiz-opt"><input type="radio" name="q2" value="later" /><span>Later, or not sure</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 3 -->
+        <fieldset class="quiz-step" data-step="3" hidden>
+          <legend><span class="q-num num">Q3</span> What do you want to study?</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q3" value="mbbs" /><span>MBBS / Medicine</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="engineering" /><span>Engineering / CS</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="business" /><span>Business / Management</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="language" /><span>Chinese language (HSK)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="research" /><span>Research (Masters / PhD)</span></label>
+            <label class="quiz-opt"><input type="radio" name="q3" value="unsure" /><span>Not sure yet</span></label>
+          </div>
+        </fieldset>
+
+        <!-- Step 4 -->
+        <fieldset class="quiz-step" data-step="4" hidden>
+          <legend><span class="q-num num">Q4</span> When do you want to start?</legend>
+          <div class="quiz-opts">
+            <label class="quiz-opt"><input type="radio" name="q4" value="sept" /><span>September 2026</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="march" /><span>March 2027</span></label>
+            <label class="quiz-opt"><input type="radio" name="q4" value="flexible" /><span>Later / flexible</span></label>
+          </div>
+        </fieldset>
+
+        <div class="quiz-nav">
+          <button type="button" class="btn btn-outline btn-sm" id="quiz-back" hidden>← Back</button>
+          <p class="quiz-hint">Answer all four and we'll give you a straight yes or an honest maybe.</p>
+        </div>
+
+        <!-- Result -->
+        <div class="quiz-result" id="quiz-result" hidden aria-live="polite">
+          <!-- filled by script -->
+        </div>
+      </div>
+
+      <p class="quiz-caveat" data-reveal>
+        <strong>Honesty clause:</strong> four answers cannot see a transcript. This check is a routing tool,
+        not a verdict — the real assessment happens when an advisor reviews your documents.
+      </p>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .quiz {
+    max-width: 40rem;
+    margin-inline: auto;
+  }
+
+  .quiz-progress {
+    display: flex;
+    gap: 0.4rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .quiz-progress span {
+    height: 4px;
+    flex: 1;
+    background: var(--line);
+    border-radius: 999px;
+    transition: background 0.3s;
+  }
+
+  .quiz-progress span.done {
+    background: var(--accent);
+  }
+
+  fieldset {
+    border: 0;
+    padding: 0;
+    margin: 0;
+  }
+
+  legend {
+    font-size: var(--step-2);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    padding: 0;
+    margin-bottom: 1.4rem;
+    line-height: 1.25;
+  }
+
+  .q-num {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-right: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .quiz-opts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.7rem;
+  }
+
+  .quiz-opt {
+    position: relative;
+    display: block;
+    padding: 0.9rem 1.1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-m);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-weight: 500;
+    font-size: 0.95rem;
+    text-align: left;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+
+  /* The native radio stays in the a11y tree for correct role/state/keyboard,
+     but is visually folded into the card. */
+  .quiz-opt input {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  .quiz-opt:hover,
+  .quiz-opt:has(input:focus-visible) {
+    border-color: var(--ink);
+  }
+
+  .quiz-opt:has(input:focus-visible) {
+    outline: 2px solid var(--accent-text);
+    outline-offset: 2px;
+  }
+
+  .quiz-opt.selected {
+    border-color: var(--ink);
+    box-shadow: inset 0 0 0 1px var(--ink);
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-weight: 650;
+  }
+
+  .quiz-nav {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  .quiz-hint {
+    font-size: 0.84rem;
+    color: var(--ink-faint);
+  }
+
+  .quiz-result {
+    margin-top: 0.5rem;
+  }
+
+  .verdict {
+    font-size: var(--step-3);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .verdict.yes { color: var(--ok); }
+  .verdict.maybe { color: var(--warn); }
+
+  .verdict-text {
+    margin-top: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .verdict-next {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .quiz-caveat {
+    margin-top: 1.6rem;
+    text-align: center;
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    max-width: 36rem;
+    margin-inline: auto;
+  }
+</style>
+
+<script>
+  const steps = Array.from(document.querySelectorAll<HTMLElement>('.quiz-step'));
+  const progress = document.getElementById('quiz-progress');
+  const backBtn = document.getElementById('quiz-back') as HTMLButtonElement;
+  const result = document.getElementById('quiz-result') as HTMLElement;
+  const hint = document.querySelector('.quiz-hint') as HTMLElement;
+
+  const STORE_KEY = 'rta-fit-v1';
+
+  const answers: Record<string, string> = {};
+  let current = 0;
+
+  // progress bar (built once here; rebuilt after Start over — see paintProgress)
+  if (progress) {
+    progress.innerHTML = steps.map(() => '<span></span>').join('');
+  }
+
+  const answeredCount = () => steps.filter((s) => answers[s.dataset.step!]).length;
+
+  function paintProgress() {
+    // Query live: renderResult() empties the container and Start over
+    // rebuilds it, so a captured child list would go stale.
+    const bars = progress ? (Array.from(progress.children) as HTMLElement[]) : [];
+    const done = answeredCount();
+    bars.forEach((b, bi) => b.classList.toggle('done', bi < done));
+  }
+
+  function show(i: number) {
+    steps.forEach((s, si) => (s.hidden = si !== i));
+    paintProgress();
+    backBtn.hidden = i === 0;
+    current = i;
+  }
+
+  function save() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(answers));
+    } catch {
+      /* private mode — the run still works, it just won't survive a reload */
+    }
+  }
+
+  backBtn?.addEventListener('click', () => show(Math.max(0, current - 1)));
+
+  // Native radios keep role/state/arrow-key behaviour for free; the change
+  // event drives everything the old click handler did.
+  function markSelected(step: HTMLElement) {
+    step.querySelectorAll('.quiz-opt').forEach((label) => {
+      label.classList.toggle(
+        'selected',
+        (label.querySelector('input') as HTMLInputElement | null)?.checked ?? false
+      );
+    });
+  }
+
+  // Token invalidating pending "advance to next step" timers: Start over
+  // must win over a queued final-answer timeout from a double-click.
+  let stepToken = 0;
+
+  steps.forEach((step) => {
+    step.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((input) => {
+      input.addEventListener('change', () => {
+        markSelected(step);
+        answers[step.dataset.step!] = input.value;
+        save();
+        paintProgress();
+        const myToken = ++stepToken;
+        setTimeout(() => {
+          if (myToken !== stepToken) return;
+          if (current < steps.length - 1) show(current + 1);
+          else renderResult();
+        }, 220);
+      });
+    });
+  });
+
+  function renderResult() {
+    steps.forEach((s) => (s.hidden = true));
+    if (progress) progress.innerHTML = '';
+    backBtn.hidden = true;
+    hint.hidden = true;
+
+    const { country, school, bachelor, master, mbbs, engineering, business, language, research, sept, march, flexible } = {
+      country: answers['1'],
+      school: answers['2'] === 'school',
+      bachelor: answers['2'] === 'bachelor',
+      master: answers['2'] === 'master',
+      mbbs: answers['3'] === 'mbbs',
+      engineering: answers['3'] === 'engineering',
+      business: answers['3'] === 'business',
+      language: answers['3'] === 'language',
+      research: answers['3'] === 'research',
+      sept: answers['4'] === 'sept',
+      march: answers['4'] === 'march',
+      flexible: answers['4'] === 'flexible',
+    };
+
+    let verdict = 'maybe';
+    let title = '';
+    let body = '';
+    let primary = { href: '/contact', label: 'Talk to an advisor' };
+    let secondary = { href: '/tools/scholarship-eligibility', label: 'Check scholarship odds' };
+
+    if (master && research) {
+      verdict = 'yes';
+      title = 'Yes — research degrees are your route.';
+      body = 'Master\'s and PhD applicants are exactly who Chinese universities compete for, and CSC funding is designed for you. The decisive factor is supervisor contact and a sharp research proposal — we help write both. Start 8–10 months before your target intake.';
+    } else if (mbbs && school) {
+      if (sept || flexible) {
+        verdict = 'yes';
+        title = 'Yes — the MBBS route is open to you.';
+        body =
+          country === 'india'
+            ? 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: qualifying NEET (mandatory for Indian applicants) and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.'
+            : 'School-leaver MBBS applicants are our core cohort. The two conditions that decide everything: meeting your home regulator\'s equivalency requirements before you enrol, and choosing an MOE-listed university — which is exactly what we shortlist for. Scholarship windows for September run January–April.';
+        secondary = { href: '/guides/mbbs-in-china', label: 'Read the MBBS guide' };
+      } else {
+        verdict = 'maybe';
+        title = 'Maybe — March is a thin intake for MBBS.';
+        body = 'A few universities run March MBBS intakes; most run September only. If you can flex to September 2026, your options widen dramatically — and the scholarship windows align.';
+      }
+    } else if (school && (engineering || business)) {
+      if (march) {
+        verdict = 'maybe';
+        title = 'Maybe — March is thin for bachelor\'s entry too.';
+        body = 'A few universities run March intakes for engineering and business; most admit in September only. If you can flex to September 2026, programme choice and scholarship money both widen significantly.';
+      } else {
+        verdict = 'yes';
+        title = 'Yes — bachelor\'s programmes are open.';
+        body = 'English-taught bachelor\'s in engineering and business have real September capacity across our partner universities, from elite (Zhejiang, SJTU) to value-focused provincial options. Marks decide which tier; the fit check cannot see them — the advisor call can.';
+      }
+    } else if (bachelor && mbbs) {
+      verdict = 'maybe';
+      title = 'Maybe — medicine routes graduates differently.';
+      body = 'MBBS is an entry-level, school-leaver degree in China; bachelor\'s holders usually take a different lane — a master\'s in public health, biomedical science or a research degree — or re-enter medicine via a graduate-entry programme where offered. Tell the advisor your goal and we\'ll map the honest options.';
+    } else if (bachelor && (engineering || business)) {
+      verdict = 'yes';
+      title = 'Yes — master\'s entry is realistic.';
+      body = 'A completed bachelor\'s qualifies you for English-taught master\'s programmes, and CSC partial-to-full funding is in play depending on marks. The gap between "realistic" and "funded" is usually the study plan.';
+    } else if (language) {
+      verdict = 'yes';
+      title = 'Yes — language pathways run year-round.';
+      body = 'HSK pathway programmes admit flexibly (September and March intakes, some rolling), cost less, and ladder directly into degree programmes. It is the lowest-risk way to start a China education file.';
+    } else if (answers['2'] === 'later') {
+      verdict = 'maybe';
+      title = 'Maybe — let\'s define the target first.';
+      body = 'Without a completed qualification we cannot place you into a degree yet — but a foundation or language year can start now and keep every door open. One call will map it.';
+      secondary = { href: '/guides/study-in-china-from-india', label: 'Read the roadmap' };
+    } else if (flexible) {
+      verdict = 'maybe';
+      title = 'Maybe — timing is the only open question.';
+      body = 'Your profile looks placeable; the calendar needs work. September intakes offer the most programmes and scholarship money; March is a thinner, faster option. Decide the intake and the rest locks in.';
+    } else {
+      verdict = 'maybe';
+      title = 'Probably yes — with details to confirm.';
+      body =
+        country === 'india'
+          ? 'Nothing in your answers closes a route. The variables we cannot see here — marks, budget, documents, NEET status — are exactly what the free advisor call is for.'
+          : 'Nothing in your answers closes a route. The variables we cannot see here — marks, budget, documents, and how your credentials are recognised at home — are exactly what the free advisor call is for.';
+    }
+
+    result.hidden = false;
+    result.innerHTML = `
+      <p class="verdict ${verdict}">${verdict === 'yes' ? '✓' : '~'} ${title}</p>
+      <p class="verdict-text">${body}</p>
+      <div class="verdict-next">
+        <a class="btn btn-primary" href="${primary.href}">${primary.label}</a>
+        <a class="btn btn-outline" href="${secondary.href}">${secondary.label}</a>
+        <button type="button" class="btn btn-ghost" data-restart>Start over</button>
+      </div>
+    `;
+  }
+
+  // "Start over" lives inside the injected result, so delegate from the panel.
+  result.addEventListener('click', (e) => {
+    if (!(e.target as HTMLElement).closest('[data-restart]')) return;
+    stepToken++; // kill any pending advance timer from a double-click
+    for (const key of Object.keys(answers)) delete answers[key];
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    result.hidden = true;
+    result.innerHTML = '';
+    hint.hidden = false;
+    steps.forEach((s) => {
+      s.querySelectorAll<HTMLInputElement>('.quiz-opt input').forEach((r) => (r.checked = false));
+      markSelected(s);
+    });
+    // renderResult cleared the bar spans — rebuild them before showing step 1.
+    if (progress) progress.innerHTML = steps.map(() => '<span></span>').join('');
+    show(0);
+  });
+
+  // Restore a previous run so a refresh (or a return visit) doesn't lose the work.
+  (() => {
+    try {
+      const raw = localStorage.getItem(STORE_KEY);
+      if (raw) {
+        const saved = JSON.parse(raw) as Record<string, string>;
+        for (const step of steps) {
+          const value = saved[step.dataset.step!];
+          if (!value) continue;
+          const radio = step.querySelector<HTMLInputElement>(
+            `.quiz-opt input[value="${value}"]`
+          );
+          if (!radio) continue;
+          answers[step.dataset.step!] = value;
+          radio.checked = true;
+          markSelected(step);
+        }
+      }
+    } catch {
+      /* corrupt payload — start clean */
+    }
+
+    if (answeredCount() === steps.length) renderResult();
+    else show(Math.min(answeredCount(), steps.length - 1));
+  })();
+</script>

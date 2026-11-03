@@ -1,12 +1,17 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
+// Always loaded; every rule is scoped to html[dir='rtl'] so LTR pages pay
+// zero cost. The CSS flips physical (left/right) properties the LTR layout
+// used physically, and provides an Arabic-capable font stack.
+import '../styles/rtl.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
 import SiteSchemas from '../components/SiteSchemas.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
+import { localeFromPath, LOCALE_META, type Locale } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -23,6 +28,8 @@ interface Props {
   modifiedTime?: Date;
   /** article pages show a reading-progress bar */
   progress?: boolean;
+  /** Locale of this page. Defaults to detection from Astro.url.pathname. */
+  locale?: Locale;
 }
 
 const {
@@ -37,14 +44,19 @@ const {
   publishedTime,
   modifiedTime,
   progress = false,
+  locale,
 } = Astro.props;
 
 /** Homepage gets the loader, HUD and tone-switching chrome. */
 const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
+
+/** Resolve the page locale — explicit prop wins, fall back to URL detection. */
+const pageLocale: Locale = locale ?? localeFromPath(Astro.url.pathname);
+const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
 ---
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang={pageLocale} dir={isRtl ? 'rtl' : 'ltr'} class="no-js">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -56,7 +68,7 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
     <meta name="theme-color" content="#f7f7f7" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)" />
 
-    <Seo {title} {description} {path} {image} {type} {noindex} {crumbs} {publishedTime} {modifiedTime} {jsonLd}>
+    <Seo {title} {description} {path} {image} {type} {noindex} {crumbs} {publishedTime} {modifiedTime} {jsonLd} locale={pageLocale}>
       {Astro.slots.has('head-extra') && <slot name="head-extra" />}
     </Seo>
 
@@ -96,12 +108,12 @@ const isHome = Astro.url.pathname === '/' || Astro.url.pathname === '';
   </head>
   <body data-chrome={isHome ? 'home' : 'inner'} data-tone="light">
     <a class="skip-link" href="#main">Skip to content</a>
-    <Header />
+    <Header locale={pageLocale} />
     <main id="main">
       <slot />
     </main>
-    <Footer />
-    <ChatWidget />
+    <Footer locale={pageLocale} />
+    <ChatWidget locale={pageLocale} />
 
     {
       isHome && (

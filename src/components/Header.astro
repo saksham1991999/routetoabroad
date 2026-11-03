@@ -1,23 +1,33 @@
 ---
 import { SITE, NAV_LINKS } from '../lib/site';
+import { LOCALES, DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+import Logo from './Logo.astro';
+import LanguageSwitcher from './LanguageSwitcher.astro';
+
+const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
+const ui = uiFor(locale);
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 const isActive = (href: string) =>
   currentPath === href || (href !== '/' && currentPath.startsWith(href + '/'));
+
+/** Translate a hard-coded English path to the current locale's URL. */
+const link = (path: string) => translatePath(path, locale);
 ---
 
 <header class="site-header" id="site-header">
   <div class="container-wide header-inner">
     <a href="/" class="wordmark" aria-label="RouteToAbroad — home">
-      <span>Route</span><span class="wm-to">To</span><span class="wm-abroad">Abroad</span>
+      <Logo />
     </a>
 
-    <nav class="main-nav" aria-label="Primary">
+    <nav class="main-nav" aria-label={ui.navAria}>
       <ul>
-        {NAV_LINKS.map((link) => (
+        {NAV_LINKS.map((linkItem) => (
           <li>
-            <a href={link.href} class:list={{ active: isActive(link.href) }} aria-current={isActive(link.href) ? 'page' : undefined}>
-              {link.label}
+            <a href={link(linkItem.href)} class:list={{ active: isActive(linkItem.href) }} aria-current={isActive(linkItem.href) ? 'page' : undefined}>
+              {linkItem.label}
             </a>
           </li>
         ))}
@@ -25,7 +35,8 @@ const isActive = (href: string) =>
     </nav>
 
     <div class="header-actions">
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle dark mode">
+      <LanguageSwitcher locale={locale} />
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label={ui.themeAria}>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <circle cx="12" cy="12" r="4.2"></circle>
           <path stroke-linecap="round" d="M12 2.5v2.4M12 19.1v2.4M2.5 12h2.4M19.1 12h2.4M4.9 4.9l1.7 1.7M17.4 17.4l1.7 1.7M19.1 4.9l-1.7 1.7M6.6 17.4l-1.7 1.7"></path>
@@ -34,8 +45,8 @@ const isActive = (href: string) =>
           <path stroke-linecap="round" stroke-linejoin="round" d="M20.6 14.2A8.8 8.8 0 0 1 9.8 3.4a8.8 8.8 0 1 0 10.8 10.8Z"></path>
         </svg>
       </button>
-      <a href="/tools/fit-check" class="btn btn-primary btn-sm header-cta">Fit check</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm header-cta">{ui.headerCta}</a>
+      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={ui.menuOpenAria}>
         <span class="menu-line"></span>
         <span class="menu-line"></span>
       </button>
@@ -43,18 +54,19 @@ const isActive = (href: string) =>
   </div>
 
   <div class="mobile-menu" id="mobile-menu" hidden>
-    <nav aria-label="Mobile">
+    <nav aria-label={ui.mobileNavAria}>
       <ul>
-        {NAV_LINKS.map((link) => (
+        {NAV_LINKS.map((linkItem) => (
           <li>
-            <a href={link.href} aria-current={isActive(link.href) ? 'page' : undefined}>{link.label}</a>
+            <a href={link(linkItem.href)} aria-current={isActive(linkItem.href) ? 'page' : undefined}>{linkItem.label}</a>
           </li>
         ))}
       </ul>
       <div class="mobile-menu-cta">
-        <a href="/tools/fit-check" class="btn btn-primary">Start the fit check</a>
-        <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">WhatsApp an advisor</a>
+        <a href={link('/tools/fit-check')} class="btn btn-primary">{ui.mobileCtaStart}</a>
+        <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">{ui.mobileCtaWhatsApp}</a>
       </div>
+      <LanguageSwitcher locale={locale} />
     </nav>
   </div>
 </header>
@@ -144,27 +156,8 @@ const isActive = (href: string) =>
     margin-block: -0.55rem;
   }
 
-  .wm-to {
-    color: var(--ink-faint);
-    margin-inline: 0.06em;
-  }
-
-  .wm-abroad {
-    color: var(--accent-text);
-  }
-
-  /* Homepage chrome sits over the always-light hero composition — pin to light ink
-     so dark-theme tokens can't flip text invisible over the #f7f7f7 island. */
-  html[data-theme='dark'] body[data-chrome='home'] .wm-to {
-    color: rgba(17, 17, 17, 0.62);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .wm-abroad {
-    color: #4a63d8;
-  }
-
-  /* The homepage hero is an always-light composition — pin the whole chrome to
-     light ink in dark theme so token flips can't render it invisible. */
+  /* The homepage chrome sits over the always-light hero composition — pin the
+     mark to light ink so dark-theme tokens can't flip it invisible. */
   html[data-theme='dark'] body[data-chrome='home'] .site-header {
     color: #111111;
   }
@@ -196,22 +189,6 @@ const isActive = (href: string) =>
   html[data-theme='dark'] body[data-chrome='home'] .header-cta {
     background: #0a0a0a;
     color: #f7f7f7;
-  }
-
-  body[data-chrome='home'][data-tone='dark'] .wm-to {
-    color: rgba(255, 255, 255, 0.55);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .wm-to {
-    color: rgba(255, 255, 255, 0.55);
-  }
-
-  body[data-chrome='home'][data-tone='dark'] .wm-abroad {
-    color: #9db1f8;
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .wm-abroad {
-    color: #9db1f8;
   }
 
   /* Over a dark band the primary pill must invert, not disappear. */
@@ -488,10 +465,6 @@ const isActive = (href: string) =>
   body:has(.mobile-menu:not([hidden])) .theme-toggle,
   body:has(.mobile-menu:not([hidden])) .menu-toggle {
     border-color: var(--line-strong);
-  }
-
-  body:has(.mobile-menu:not([hidden])) .wm-to {
-    color: var(--ink-faint);
   }
 
   /* Menu open: the opaque menu panel owns the header area, so the condensed

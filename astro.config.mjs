@@ -6,6 +6,20 @@ export default defineConfig({
   site: 'https://routetoabroad.com',
   output: 'static',
   trailingSlash: 'never',
+  // i18n routing: English stays at the unprefixed root (prefixDefaultLocale:
+  // false); every other locale lives under /<locale>/. Missing translations
+  // rewrite to the English version (fallbackType: 'rewrite') instead of 404,
+  // so un-translated long-tail pages still serve useful content at the
+  // localized URL. See src/lib/i18n.ts for the Locale type.
+  i18n: {
+    locales: ['en', 'zh', 'fr', 'ar', 'es'],
+    defaultLocale: 'en',
+    fallback: { zh: 'en', fr: 'en', ar: 'en', es: 'en' },
+    routing: {
+      prefixDefaultLocale: false,
+      fallbackType: 'rewrite',
+    },
+  },
   // Astro 7 defaults compressHTML to 'jsx' (React-style whitespace stripping
   // between adjacent inline elements). `true` keeps the Astro 5 rendering the
   // 56 pages were visually verified against.

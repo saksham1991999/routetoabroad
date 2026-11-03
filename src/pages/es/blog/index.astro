@@ -1,0 +1,287 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PageHero from '../../../components/PageHero.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
+import CtaBand from '../../../components/CtaBand.astro';
+
+const posts = (await getCollection('blog')).sort(
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+---
+
+<BaseLayout
+  locale="es"
+  title="Insights — Field Notes on Studying, Travelling & Trading in Asia"
+  description="The RouteToAbroad desk blog: MBBS decisions, CSC scholarship guides, Beijing and Kyoto travel, India–China trade practice — written by the people doing the work."
+  path="/es/blog"
+  crumbs={[{ name: 'Insights', url: 'https://routetoabroad.com/blog' }]}
+>
+  <PageHero
+    eyebrow="Insights"
+    index="INS / 06"
+    title="Notes from both sides of the bridge."
+    lede="No listicles about '10 reasons to study abroad'. Field notes from admissions desks, tour routes and factory floors."
+    crumbs={[{ name: 'Insights', url: '/blog' }]}
+    facts={[
+      { label: 'Field notes', value: `${posts.length} articles` },
+      { label: 'Desks', value: 'Edu · Travel · Trade' },
+      { label: 'Cadence', value: 'Monthly' },
+      { label: 'Listicles', value: 'None' },
+    ]}
+    actions={[{ href: '#posts', label: 'Read the latest' }]}
+  />
+
+  <section class="section" id="posts">
+    <div class="container">
+      <div class="filter-bar">
+        <div class="filter-row" role="group" aria-label="Filter articles by category">
+          <button class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-pill" data-filter="education" aria-pressed="false">Education</button>
+          <button class="filter-pill" data-filter="tourism" aria-pressed="false">Tourism</button>
+          <button class="filter-pill" data-filter="trade" aria-pressed="false">Trade</button>
+        </div>
+        <form class="blog-search" role="search" id="blog-search-form">
+          <label class="visually-hidden" for="blog-search">Search the notes</label>
+          <input type="search" id="blog-search" name="q" placeholder="Search the notes…" autocomplete="off" />
+        </form>
+        <p class="filter-count" aria-live="polite">
+          <span id="filter-count">{posts.length}</span> / {posts.length} notes
+        </p>
+      </div>
+
+      <div class="posts-grid" id="posts-grid">
+        {posts.map((post) => (
+          <div class="post-item" data-category={post.data.category}>
+            <ArticleCard
+              title={post.data.title}
+              href={`/es/blog/${post.id}`}
+              description={post.data.description}
+              image={post.data.image}
+              imageAlt={post.data.imageAlt}
+              tag={post.data.category}
+              pillar={post.data.category}
+              meta={`${post.data.pubDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })} · ${post.data.readTime} min`}
+            />
+          </div>
+        ))}
+      </div>
+      <p class="no-results" id="no-results" hidden>Nothing in this category yet — the desks are writing.</p>
+    </div>
+  </section>
+
+  <CtaBand title="Reading is step one." text="When you want the answer for your specific case, the fit check takes four questions and the advisors reply within a day." />
+</BaseLayout>
+
+<style>
+  .filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.2rem;
+    padding-bottom: 1.1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .filter-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-count {
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .filter-count span {
+    color: var(--accent-text);
+  }
+
+  .blog-search input {
+    width: min(16rem, 100%);
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 999px;
+    background: var(--paper-raised);
+    color: var(--ink);
+    font-size: 0.9rem;
+  }
+
+  .blog-search input:focus {
+    outline: none;
+    border-color: var(--ink);
+  }
+
+  .filter-pill {
+    padding: 0.6rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: transparent;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+
+  .filter-pill:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+
+  .filter-pill.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  .post-item.hidden {
+    display: none;
+  }
+
+  @keyframes card-in {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  .post-item.is-in {
+    animation: card-in 0.45s var(--ease-out) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .post-item.is-in {
+      animation: none;
+    }
+  }
+
+  .no-results {
+    margin-top: 2rem;
+    color: var(--ink-faint);
+    text-align: center;
+  }
+
+  @media (max-width: 64rem) {
+    .posts-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  const pills = Array.from(document.querySelectorAll<HTMLButtonElement>('.filter-pill'));
+  const items = Array.from(document.querySelectorAll<HTMLElement>('.post-item'));
+  const noResults = document.getElementById('no-results') as HTMLElement;
+  const countEl = document.getElementById('filter-count') as HTMLElement;
+  const searchForm = document.getElementById('blog-search-form') as HTMLFormElement | null;
+  const searchInput = document.getElementById('blog-search') as HTMLInputElement | null;
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const valid = new Set(pills.map((p) => p.dataset.filter || 'all'));
+
+  // State: which desk is selected + an optional text query (backs the
+  // SearchAction endpoint advertised in the WebSite JSON-LD).
+  let desk = 'all';
+  let query = '';
+
+  const matches = (item: HTMLElement) => {
+    const deskOk = desk === 'all' || item.dataset.category === desk;
+    if (!deskOk) return false;
+    if (!query) return true;
+    return item.textContent?.toLowerCase().includes(query) ?? false;
+  };
+
+  const render = (animate = true) => {
+    let visible = 0;
+    items.forEach((item) => {
+      const show = matches(item);
+      item.classList.toggle('hidden', !show);
+      item.classList.remove('is-in');
+      if (show) {
+        visible++;
+        if (animate && !reducedMotion) {
+          // Re-trigger the entrance animation after the display flip.
+          void item.offsetWidth;
+          item.classList.add('is-in');
+        }
+      }
+    });
+    noResults.hidden = visible > 0;
+    countEl.textContent = String(visible);
+    pills.forEach((p) => {
+      const active = p.dataset.filter === desk;
+      p.classList.toggle('active', active);
+      p.setAttribute('aria-pressed', String(active));
+    });
+  };
+
+  const applyFilter = (filter: string, animate = true) => {
+    desk = filter;
+    render(animate);
+  };
+
+  const syncUrl = () => {
+    const url = new URL(location.href);
+    if (desk === 'all') url.searchParams.delete('desk');
+    else url.searchParams.set('desk', desk);
+    if (query) url.searchParams.set('q', query);
+    else url.searchParams.delete('q');
+    history.replaceState({}, '', url);
+  };
+
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      applyFilter(pill.dataset.filter || 'all');
+      syncUrl();
+    });
+
+    pill.addEventListener('keydown', (e) => {
+      const i = pills.indexOf(pill);
+      const step = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+      if (!step) return;
+      e.preventDefault();
+      const next = pills[(i + step + pills.length) % pills.length]!;
+      next.focus();
+      applyFilter(next.dataset.filter || 'all');
+      syncUrl();
+    });
+  });
+
+  searchForm?.addEventListener('submit', (e) => e.preventDefault());
+  searchInput?.addEventListener('input', () => {
+    query = searchInput.value.trim().toLowerCase();
+    render(false);
+    syncUrl();
+  });
+
+  // Deep link: /blog?desk=education and /blog?q=… — and scrub junk params so
+  // the cleaned URL is the one that gets shared or bookmarked.
+  const params = new URL(location.href).searchParams;
+  const requested = params.get('desk') || 'all';
+  desk = valid.has(requested) ? requested : 'all';
+  query = (params.get('q') || '').trim().toLowerCase();
+  if (searchInput && query) searchInput.value = query;
+  render(false);
+  syncUrl();
+</script>
