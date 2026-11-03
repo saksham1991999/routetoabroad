@@ -17,10 +17,10 @@ const {
 } = Astro.props;
 ---
 
-<section class="cta-band" aria-label="Contact call to action">
+<section class="cta-band" aria-label={ui.cta.aria}>
   <div class="container-wide">
     <div class="cta-rail" aria-hidden="true">
-      <span>04 / Start here</span>
+      <span>04 / {ui.cta.startHere}</span>
       <span class="cta-rail-line"></span>
       <span>DEL → CAN</span>
     </div>
@@ -34,7 +34,7 @@ const {
       <div class="cta-side">
         <div class="cta-actions">
           <a href={translatePath('/contact', locale)} class="btn btn-light btn-lg">
-            {ui.cta.talkToAdvisor} <span aria-hidden="true">→</span>
+            {ui.cta.talkToAdvisor} <span class="btn-arrow" aria-hidden="true">→</span>
           </a>
           <a href={SITE.whatsapp} class="btn btn-outline-light btn-lg" rel="noopener">
             {ui.cta.whatsapp}
@@ -44,11 +44,11 @@ const {
         <dl class="cta-facts">
           <div>
             <dt>{ui.cta.call}</dt>
-            <dd><a href={SITE.phoneIndiaHref}>{SITE.phoneIndia}</a></dd>
+            <dd><a href={SITE.phoneIndiaHref}><bdi>{SITE.phoneIndia}</bdi></a></dd>
           </div>
           <div>
             <dt>{ui.cta.hours}</dt>
-            <dd>{SITE.hours}</dd>
+            <dd><bdi>{SITE.hours}</bdi></dd>
           </div>
           <div>
             <dt>{ui.cta.reply}</dt>
@@ -172,7 +172,13 @@ const {
     font-family: var(--font-mono);
     font-size: 0.76rem;
     color: rgba(255, 255, 255, 0.82);
-    text-align: right;
+    text-align: end;
+  }
+
+  /* RTL: mirror the button arrow so it keeps pointing at the screen edge. */
+  html:global([dir='rtl']) .btn-arrow {
+    display: inline-block;
+    transform: scaleX(-1);
   }
 
   .cta-facts a {

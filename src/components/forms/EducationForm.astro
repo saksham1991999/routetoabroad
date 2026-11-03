@@ -6,87 +6,86 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale).formFields;
+const ui = uiFor(locale);
+const f = ui.forms.education;
+const ff = ui.formFields;
 ---
 
-<form class="enquiry-form" data-formspree data-success-msg="Application received! An education advisor will call you within one working day." novalidate>
+<form class="enquiry-form" data-formspree data-success-msg={f.success} novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="field">
-        <label for="edu-name">{ui.fullName}</label>
-        <input id="edu-name" name="fullName" type="text" required autocomplete="name" placeholder="As on your passport" />
-        <p class="error">Please enter your name.</p>
+        <label for="edu-name">{ff.fullName} <span class="req" aria-hidden="true">*</span></label>
+        <input id="edu-name" name="fullName" type="text" required autocomplete="name" placeholder={f.phName} aria-describedby="edu-name-error" />
+        <p class="error" id="edu-name-error">{f.errors.name}</p>
       </div>
       <div class="field">
-        <label for="edu-email">{ui.email}</label>
-        <input id="edu-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
-        <p class="error">Please enter a valid email.</p>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="field">
-        <label for="edu-phone">{ui.phone}</label>
-        <input id="edu-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" />
-        <p class="error">Please enter a valid phone number.</p>
-      </div>
-      <div class="field">
-        <label for="edu-level">{ui.educationLevel}</label>
-        <select id="edu-level" name="educationLevel" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="hs">In school (12th or below)</option>
-          <option value="bachelor">Bachelor's (completed or ongoing)</option>
-          <option value="master">Master's or above</option>
-        </select>
-        <p class="error">Please choose your current level.</p>
+        <label for="edu-email">{ff.email} <span class="req" aria-hidden="true">*</span></label>
+        <input id="edu-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="edu-email-error" />
+        <p class="error" id="edu-email-error">{f.errors.email}</p>
       </div>
     </div>
 
     <div class="form-row">
       <div class="field">
-        <label for="edu-programme">{ui.programmeInterest}</label>
-        <select id="edu-programme" name="programInterest" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="mbbs">MBBS / Medicine</option>
-          <option value="engineering">Engineering & Technology</option>
-          <option value="business">Business & Management</option>
-          <option value="language">Chinese Language (HSK)</option>
-          <option value="undergrad">Bachelor's (other)</option>
-          <option value="research">Masters / PhD (research)</option>
-        </select>
-        <p class="error">Please choose a programme.</p>
+        <label for="edu-phone">{ff.phone} <span class="req" aria-hidden="true">*</span></label>
+        <input id="edu-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" aria-describedby="edu-phone-error" />
+        <p class="error" id="edu-phone-error">{f.errors.phone}</p>
       </div>
       <div class="field">
-        <label for="edu-intake">{ui.targetIntake}</label>
-        <select id="edu-intake" name="targetIntake" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="sept_2026">September 2026</option>
-          <option value="march_2027">March 2027</option>
-          <option value="later">Later / not sure</option>
+        <label for="edu-level">{ff.educationLevel} <span class="req" aria-hidden="true">*</span></label>
+        <select id="edu-level" name="educationLevel" required aria-describedby="edu-level-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.levels.map((label, i) => (
+            <option value={['hs', 'bachelor', 'master'][i]}>{label}</option>
+          ))}
         </select>
-        <p class="error">Please choose an intake.</p>
+        <p class="error" id="edu-level-error">{f.errors.level}</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="edu-programme">{ff.programmeInterest} <span class="req" aria-hidden="true">*</span></label>
+        <select id="edu-programme" name="programInterest" required aria-describedby="edu-programme-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.programmes.map((label, i) => (
+            <option value={['mbbs', 'engineering', 'business', 'language', 'undergrad', 'research'][i]}>{label}</option>
+          ))}
+        </select>
+        <p class="error" id="edu-programme-error">{f.errors.programme}</p>
+      </div>
+      <div class="field">
+        <label for="edu-intake">{ff.targetIntake} <span class="req" aria-hidden="true">*</span></label>
+        <select id="edu-intake" name="targetIntake" required aria-describedby="edu-intake-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.intakes.map((label, i) => (
+            <option value={['sept_2026', 'march_2027', 'later'][i]}>{label}</option>
+          ))}
+        </select>
+        <p class="error" id="edu-intake-error">{f.errors.intake}</p>
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="edu-cgpa">{ui.latestMarks} <span class="hint">({ui.optionalHint})</span></label>
-        <input id="edu-cgpa" name="cgpa" type="text" inputmode="decimal" placeholder="e.g. 82% or 3.6/4" />
+        <label for="edu-cgpa">{ff.latestMarks} <span class="hint">({ff.optionalHint})</span></label>
+        <input id="edu-cgpa" name="cgpa" type="text" inputmode="decimal" placeholder={f.phCgpa} />
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="edu-notes">{ui.anythingElse} <span class="hint">({ui.optionalHint})</span></label>
-        <textarea id="edu-notes" name="notes" rows="3" placeholder="Scholarship goals, budget, cities you prefer…"></textarea>
+        <label for="edu-notes">{ff.anythingElse} <span class="hint">({ff.optionalHint})</span></label>
+        <textarea id="edu-notes" name="notes" rows="3" placeholder={f.phNotes}></textarea>
       </div>
     </div>
   </div>
 
   <p class="form-status" role="status"></p>
 
-  <button type="submit" class="btn btn-primary btn-lg">Apply for a free assessment</button>
-  <p class="form-fineprint">No commitment. We reply with a yes, a maybe, or a no — and what to do next.</p>
+  <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
+  <p class="form-fineprint">{f.fineprint}</p>
 </form>
 
 

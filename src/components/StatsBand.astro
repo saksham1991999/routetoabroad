@@ -7,14 +7,19 @@ interface StatItem {
   label: string;
 }
 
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+
 interface Props {
   stats: StatItem[];
+  locale?: Locale;
 }
 
-const { stats } = Astro.props;
+const { stats, locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale);
 ---
 
-<section class="stats-band" aria-label="Track record">
+<section class="stats-band" aria-label={ui.statsAria}>
   <div class="container stats-grid">
     {stats.map((s) => (
       <div class="stat" data-reveal>

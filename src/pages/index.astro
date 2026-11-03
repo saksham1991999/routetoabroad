@@ -1210,6 +1210,12 @@ const tools = [
     .pillar-row:hover .pillar-go::after {
       transform: translateX(4px);
     }
+
+    /* RTL: nudge the arrow toward the reading direction (left). Scoped here
+       so it outranks the LTR rule; the glyph itself is mirrored by rtl.css. */
+    html:global([dir='rtl']) .pillar-row:hover .pillar-go::after {
+      transform: translateX(-4px);
+    }
   }
 
   @media (max-width: 64rem) {
@@ -1285,6 +1291,17 @@ const tools = [
 
   .tool-row:hover .tool-go {
     transform: translateX(3px);
+  }
+
+  /* RTL: mirror the arrow glyph and nudge it toward the reading direction.
+     scaleX(-1) translateX(3px) renders as a 3px leftward move for a
+     left-pointing arrow. */
+  html:global([dir='rtl']) .tool-go {
+    transform: scaleX(-1);
+  }
+
+  html:global([dir='rtl']) .tool-row:hover .tool-go {
+    transform: scaleX(-1) translateX(3px);
   }
 
   /* ============================================================

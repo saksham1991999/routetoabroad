@@ -6,74 +6,74 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale).formFields;
+const ui = uiFor(locale);
+const f = ui.forms.trade;
+const ff = ui.formFields;
 ---
 
-<form class="enquiry-form" data-formspree data-success-msg="Received! Our trade desk will reply within one working day with next steps." novalidate>
+<form class="enquiry-form" data-formspree data-success-msg={f.success} novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="field">
-        <label for="trade-company">{ui.companyName}</label>
-        <input id="trade-company" name="companyName" type="text" required autocomplete="organization" placeholder="Your company" />
-        <p class="error">Please enter your company name.</p>
+        <label for="trade-company">{ff.companyName} <span class="req" aria-hidden="true">*</span></label>
+        <input id="trade-company" name="companyName" type="text" required autocomplete="organization" placeholder={f.phCompany} aria-describedby="trade-company-error" />
+        <p class="error" id="trade-company-error">{f.errors.company}</p>
       </div>
       <div class="field">
-        <label for="trade-name">{ui.contactPerson}</label>
-        <input id="trade-name" name="fullName" type="text" required autocomplete="name" placeholder="Name" />
-        <p class="error">Please enter your name.</p>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="field">
-        <label for="trade-email">{ui.workEmail}</label>
-        <input id="trade-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" />
-        <p class="error">Please enter a valid email.</p>
-      </div>
-      <div class="field">
-        <label for="trade-phone">{ui.phone}</label>
-        <input id="trade-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" />
-        <p class="error">Please enter a valid phone number.</p>
+        <label for="trade-name">{ff.contactPerson} <span class="req" aria-hidden="true">*</span></label>
+        <input id="trade-name" name="fullName" type="text" required autocomplete="name" placeholder={f.phName} aria-describedby="trade-name-error" />
+        <p class="error" id="trade-name-error">{f.errors.name}</p>
       </div>
     </div>
 
     <div class="form-row">
       <div class="field">
-        <label for="trade-direction">{ui.tradeDirection}</label>
-        <select id="trade-direction" name="tradeDirection" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="import">Import from China to India</option>
-          <option value="export">Export from India to China</option>
-          <option value="bilateral">Both / exploring</option>
-        </select>
-        <p class="error">Please choose a trade direction.</p>
+        <label for="trade-email">{ff.workEmail} <span class="req" aria-hidden="true">*</span></label>
+        <input id="trade-email" name="email" type="email" required autocomplete="email" placeholder="you@company.com" aria-describedby="trade-email-error" />
+        <p class="error" id="trade-email-error">{f.errors.email}</p>
       </div>
       <div class="field">
-        <label for="trade-category">{ui.productCategory}</label>
-        <select id="trade-category" name="productCategory" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="electronics">Electronics & components</option>
-          <option value="machinery">Industrial machinery</option>
-          <option value="textiles">Textiles & apparel</option>
-          <option value="consumer">Consumer goods</option>
-          <option value="other">Other</option>
+        <label for="trade-phone">{ff.phone} <span class="hint">({ff.optionalHint})</span></label>
+        <input id="trade-phone" name="phone" type="tel" autocomplete="tel" placeholder="+91 …" aria-describedby="trade-phone-error" />
+        <p class="error" id="trade-phone-error">{f.errors.phone}</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="trade-direction">{ff.tradeDirection} <span class="req" aria-hidden="true">*</span></label>
+        <select id="trade-direction" name="tradeDirection" required aria-describedby="trade-direction-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.directions.map((label, i) => (
+            <option value={['import', 'export', 'bilateral'][i]}>{label}</option>
+          ))}
         </select>
-        <p class="error">Please choose a category.</p>
+        <p class="error" id="trade-direction-error">{f.errors.direction}</p>
+      </div>
+      <div class="field">
+        <label for="trade-category">{ff.productCategory} <span class="req" aria-hidden="true">*</span></label>
+        <select id="trade-category" name="productCategory" required aria-describedby="trade-category-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.categories.map((label, i) => (
+            <option value={['electronics', 'machinery', 'textiles', 'consumer', 'other'][i]}>{label}</option>
+          ))}
+        </select>
+        <p class="error" id="trade-category-error">{f.errors.category}</p>
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="trade-notes">{ui.sourcingVolumes} <span class="hint">({ui.optionalHint})</span></label>
-        <textarea id="trade-notes" name="additionalNotes" rows="3" placeholder="e.g. LED drivers, ~5,000 units/month, target FOB…"></textarea>
+        <label for="trade-notes">{ff.sourcingVolumes} <span class="hint">({ff.optionalHint})</span></label>
+        <textarea id="trade-notes" name="additionalNotes" rows="3" placeholder={f.phNotes}></textarea>
       </div>
     </div>
   </div>
 
   <p class="form-status" role="status"></p>
 
-  <button type="submit" class="btn btn-primary btn-lg">Talk to the trade desk</button>
-  <p class="form-fineprint">Success fee model: you pay when goods ship. Audit costs quoted upfront.</p>
+  <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
+  <p class="form-fineprint">{f.fineprint}</p>
 </form>
 
 

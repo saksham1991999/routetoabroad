@@ -1,5 +1,5 @@
 ---
-import { SITE, FOOTER_LINKS, CURRENT_YEAR } from '../lib/site';
+import { SITE, CURRENT_YEAR } from '../lib/site';
 import { DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
 import { uiFor } from '../i18n/ui';
 import Logo from './Logo.astro';
@@ -27,7 +27,7 @@ const footerGroups = ui.footer.groups;
         </p>
         <p class="footer-desc">{ui.footer.desc}</p>
         <ul class="footer-contact">
-          <li><a href={SITE.phoneIndiaHref}>{SITE.phoneIndia}</a><span class="loc">New Delhi</span></li>
+          <li><a href={SITE.phoneIndiaHref}><bdi>{SITE.phoneIndia}</bdi></a><span class="loc">{ui.footer.loc}</span></li>
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li>
             <address>
@@ -47,7 +47,7 @@ const footerGroups = ui.footer.groups;
       {footerGroups.map((group, i) => (
         <nav aria-label={group.heading}>
           <h3>{group.heading}</h3>
-          <ul>{group.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+          <ul>{group.links.map((l) => <li><a href={link(l.href)}>{l.label}</a></li>)}</ul>
         </nav>
       ))}
     </div>
@@ -57,7 +57,7 @@ const footerGroups = ui.footer.groups;
       <p class="footer-coords num" aria-hidden="true">
         {SITE.offices.map((o) => `${o.lat.toFixed(2)}°N ${o.code}`).join(' · ')}
       </p>
-      <p class="footer-note">{ui.footer.openNote} {SITE.hours} · {ui.cta.replyValue}</p>
+      <p class="footer-note">{ui.footer.openNote} <bdi>{SITE.hours}</bdi> · {ui.cta.replyValue}</p>
     </div>
   </div>
 </footer>
@@ -112,6 +112,17 @@ const footerGroups = ui.footer.groups;
     transform: translateX(6px);
   }
 
+  /* RTL: the hover nudge mirrors toward the inline-start (left) edge, and the
+     arrow glyph mirrors so it keeps pointing at the screen edge.
+     Authored in this scoped sheet so it outranks the unscoped LTR rule. */
+  html:global([dir='rtl']) .footer-email span {
+    transform: scaleX(-1);
+  }
+
+  html:global([dir='rtl']) .footer-email:hover span {
+    transform: scaleX(-1) translateX(-6px);
+  }
+
   .footer-email:hover {
     color: #9db1f8;
   }
@@ -160,7 +171,7 @@ const footerGroups = ui.footer.groups;
   }
 
   .loc {
-    margin-left: 0.5rem;
+    margin-inline-start: 0.5rem;
     font-family: var(--font-mono);
     font-size: 0.62rem;
     text-transform: uppercase;
@@ -244,6 +255,11 @@ const footerGroups = ui.footer.groups;
   .footer-grid nav a:hover {
     color: #ffffff;
     transform: translateX(3px);
+  }
+
+  /* RTL: mirror the hover nudge. */
+  html:global([dir='rtl']) .footer-grid nav a:hover {
+    transform: translateX(-3px);
   }
 
   .footer-bottom {

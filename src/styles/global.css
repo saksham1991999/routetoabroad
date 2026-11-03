@@ -683,6 +683,12 @@ table.compare td:first-of-type {
   color: var(--ink-faint);
 }
 
+/* Required-field marker (visual only — the input's `required` attribute and
+   aria-describedby on the error node carry the semantics). */
+.field .req {
+  color: var(--accent);
+}
+
 .field input,
 .field select,
 .field textarea {
@@ -1019,7 +1025,7 @@ details.faq .faq-body {
 /* ---------- Skip link ---------- */
 .skip-link {
   position: absolute;
-  left: 1rem;
+  inset-inline-start: 1rem;
   top: -3.5rem;
   z-index: 200;
   background: #0a0a0a;

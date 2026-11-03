@@ -1,12 +1,14 @@
 /**
- * RTL overrides — scoped to html[dir='rtl'] so LTR layouts are untouched.
- * Load conditionally from BaseLayout when the current locale is Arabic.
+ * RTL overrides — injected ONLY on Arabic pages (BaseLayout imports this
+ * file with ?raw and renders it as an inline <style> when dir="rtl"; LTR
+ * pages never download or parse a byte of it).
  *
- * Strategy: flip logical properties the LTR rules happen to use physically
- * (padding/margin/text-align/border with left/right), invert the few
- * asymmetric animations (the mobile-menu active nudge, the nav underline
- * origin, the floating CTA tab side, the chat FAB corner), and provide an
- * Arabic-capable font stack that the Helvetica-only LTR stack can't cover.
+ * Strategy: flip the physical (left/right) properties the LTR rules use,
+ * provide an Arabic-capable font stack, and reset the Latin-tuned
+ * typography (tight tracking, fixed-height masks) that breaks cursive
+ * Arabic. Direction-sensitive hovers that live in *scoped* component
+ * sheets are overridden there with html:global([dir='rtl']) — these
+ * unscoped rules cannot outrank Astro's data-astro-cid specificity.
  *
  * The "editorial instrument" design language (hairlines, periwinkle pen,
  * 500-weight headings) is direction-neutral — no visual identity changes.
@@ -22,14 +24,16 @@ html[dir='rtl'] body {
   direction: rtl;
 }
 
-/* --- Header --- */
-html[dir='rtl'] .main-nav a::after {
-  transform-origin: right;
+html[dir='rtl'] :is(h1, h2, h3, h4, .wordmark) {
+  letter-spacing: 0;
 }
 
-/* --- Mobile menu: active nudge grows toward the start of the line --- */
-html[dir='rtl'] .mobile-menu ul a:active {
-  transform: translateX(-4px);
+/* --- Loader: the word-mask line is tuned for Latin ascender/descender
+      ratios; Arabic descenders (ق, ي) clip at 1.1em. --- */
+html[dir='rtl'] .rta-loader-line {
+  height: 1.6em;
+  line-height: 1.4;
+  letter-spacing: 0;
 }
 
 /* --- Floating CTA tab: sit on the opposite edge so it doesn't collide
@@ -45,11 +49,10 @@ html[dir='rtl'] .rta-tab.is-in {
   transform: translateX(0);
 }
 
-/* --- Chat FAB: bottom-start corner, like the CTA tab --- */
-html[dir='rtl'] .chat-root {
-  align-items: flex-start;
-}
-
+/* --- Chat FAB: mirror to the bottom-start (left) corner. The widget's own
+      align-items: flex-end already resolves to the correct inner edge under
+      RTL, so no cross-axis override here — adding one made the FAB teleport
+      across the panel when it opened. --- */
 html[dir='rtl'] .chat-root {
   left: 1.25rem;
   right: auto;
@@ -66,15 +69,18 @@ html[dir='rtl'] .chat-panel {
   transform-origin: bottom left;
 }
 
-/* --- CTA band facts: dl dt/dd is space-between, direction-neutral --- */
+/* --- Inputs: Latin-script content (phone numbers, emails, marks) must not
+      reflow while typing; keep those fields LTR with an end-aligned caret. --- */
+html[dir='rtl'] input[type='tel'],
+html[dir='rtl'] input[type='email'] {
+  direction: ltr;
+  text-align: end;
+}
 
-/* --- Footer: the footer-note and address blocks are already centered or
-      start-aligned; flip the start alignment. --- */
+/* --- Footer: start-align (right in RTL) the footer text block. --- */
 html[dir='rtl'] .site-footer {
   text-align: right;
 }
-
-/* --- Home hero: the "01 / 02 / 03" pillar numerals sit on the start side --- */
 
 /* --- Prose: list markers and blockquote accents sit on the start side --- */
 html[dir='rtl'] .prose ul,
@@ -96,7 +102,9 @@ html[dir='rtl'] .breadcrumbs li + li::before {
   margin-left: 0.5rem;
 }
 
-/* --- Arrow link: mirror the glyph and reverse the hover nudge --- */
+/* --- Arrow link (global class): mirror the glyph and reverse the hover
+      nudge. These outrank global.css on specificity; page-scoped variants
+      (e.g. .pillar-go) override their hover inside their own sheets. --- */
 html[dir='rtl'] .arrow-link::after {
   content: '←';
 }
@@ -105,41 +113,11 @@ html[dir='rtl'] .arrow-link:hover::after {
   transform: translateX(-4px);
 }
 
-/* --- Component hover nudges: physical translateX(+) grows toward the end
-      side in RTL, so reverse each one. Component class names carry Astro
-      scoped suffixes, yet these unscoped descendant selectors still match
-      (the data-astro-cid suffix rides on the ancestor class only); the
-      transition is re-declared so hover still animates under the override.
-      --- */
-html[dir='rtl'] .footer-email:hover span {
-  transition: transform 0.3s var(--ease-out);
-  transform: translateX(-6px);
-}
-
-html[dir='rtl'] .footer-grid nav a:hover {
-  transition: color 0.15s, transform 0.2s var(--ease-out);
-  transform: translateX(-3px);
-}
-
-html[dir='rtl'] .sh-action:hover span {
-  transition: transform 0.25s var(--ease-out);
-  transform: translateX(-3px);
-}
-
+/* --- Carousel arrows (component-scoped base, but (0,2,1) here outranks the
+      scoped (0,2,0) rule): mirror both glyphs so prev/next point the
+      mirrored way. --- */
 html[dir='rtl'] .c-arrow {
   transform: scaleX(-1);
-}
-
-/* --- Home page-local nudges: the ar homepage's scoped hovers grow
-      translateX(+3px) toward the end side, so reverse them; the journey-strip
-      dot already uses the logical margin-inline-end set in the page CSS. --- */
-html[dir='rtl'] .pillar-row:hover .arrow-link::after {
-  transform: translateX(-4px);
-}
-
-html[dir='rtl'] .tool-row:hover .tool-go {
-  transition: transform 0.15s ease;
-  transform: translateX(-3px);
 }
 
 /* --- Quick-answer block: the accent bar uses border-inline-start, so the

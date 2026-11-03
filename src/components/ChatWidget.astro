@@ -13,6 +13,7 @@ const ui = uiFor(locale);
   data-no-reply={ui.chat.noReply}
   data-unavailable={ui.chat.unavailable}
   data-locale={locale}
+  data-typing={ui.chat.typing}
 >
   <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label={ui.chat.openAria}>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
@@ -584,7 +585,7 @@ const ui = uiFor(locale);
     wrap.className = 'chat-msg bot';
     const dots = document.createElement('span');
     dots.className = 'typing-dots';
-    dots.setAttribute('aria-label', 'Assistant is typing');
+    dots.setAttribute('aria-label', root.dataset.typing || 'Assistant is typing');
     for (let i = 0; i < 3; i++) dots.appendChild(document.createElement('i'));
     wrap.appendChild(dots);
     log?.appendChild(wrap);

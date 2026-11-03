@@ -6,72 +6,73 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale).formFields;
+const ui = uiFor(locale);
+const f = ui.forms.tourism;
+const ff = ui.formFields;
 ---
 
-<form class="enquiry-form" data-formspree data-success-msg="Enquiry received! Our travel desk will reply within one working day." novalidate>
+<form class="enquiry-form" data-formspree data-success-msg={f.success} novalidate>
   <div class="form-fields">
     <div class="form-row">
       <div class="field">
-        <label for="tour-name">{ui.fullName}</label>
-        <input id="tour-name" name="name" type="text" required autocomplete="name" placeholder="Your name" />
-        <p class="error">Please enter your name.</p>
+        <label for="tour-name">{ff.fullName} <span class="req" aria-hidden="true">*</span></label>
+        <input id="tour-name" name="name" type="text" required autocomplete="name" placeholder={f.phName} aria-describedby="tour-name-error" />
+        <p class="error" id="tour-name-error">{f.errors.name}</p>
       </div>
       <div class="field">
-        <label for="tour-email">{ui.email}</label>
-        <input id="tour-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" />
-        <p class="error">Please enter a valid email.</p>
-      </div>
-    </div>
-
-    <div class="form-row">
-      <div class="field">
-        <label for="tour-phone">{ui.phone}</label>
-        <input id="tour-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" />
-        <p class="error">Please enter a valid phone number.</p>
-      </div>
-      <div class="field">
-        <label for="tour-dest">{ui.destination}</label>
-        <select id="tour-dest" name="destination" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="china">China</option>
-          <option value="japan">Japan</option>
-          <option value="multi">China + Japan</option>
-          <option value="custom">Somewhere else / custom</option>
-        </select>
-        <p class="error">Please choose a destination.</p>
+        <label for="tour-email">{ff.email} <span class="req" aria-hidden="true">*</span></label>
+        <input id="tour-email" name="email" type="email" required autocomplete="email" placeholder="you@example.com" aria-describedby="tour-email-error" />
+        <p class="error" id="tour-email-error">{f.errors.email}</p>
       </div>
     </div>
 
     <div class="form-row">
       <div class="field">
-        <label for="tour-type">{ui.tripType}</label>
-        <select id="tour-type" name="tripType" required>
-          <option value="">{ui.selectPlaceholder}</option>
-          <option value="cultural">Cultural / private</option>
-          <option value="group">Group / educational</option>
-          <option value="business">Business delegation</option>
-        </select>
-        <p class="error">Please choose a trip type.</p>
+        <label for="tour-phone">{ff.phone} <span class="req" aria-hidden="true">*</span></label>
+        <input id="tour-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+91 …" aria-describedby="tour-phone-error" />
+        <p class="error" id="tour-phone-error">{f.errors.phone}</p>
       </div>
       <div class="field">
-        <label for="tour-dates">{ui.travelDates} <span class="hint">({ui.optionalHint})</span></label>
-        <input id="tour-dates" name="preferredDates" type="text" placeholder="e.g. mid-October, 9 days" />
+        <label for="tour-dest">{ff.destination} <span class="req" aria-hidden="true">*</span></label>
+        <select id="tour-dest" name="destination" required aria-describedby="tour-dest-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.destinations.map((label, i) => (
+            <option value={['china', 'japan', 'multi', 'custom'][i]}>{label}</option>
+          ))}
+        </select>
+        <p class="error" id="tour-dest-error">{f.errors.destination}</p>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="field">
+        <label for="tour-type">{ff.tripType} <span class="req" aria-hidden="true">*</span></label>
+        <select id="tour-type" name="tripType" required aria-describedby="tour-type-error">
+          <option value="">{ff.selectPlaceholder}</option>
+          {f.tripTypes.map((label, i) => (
+            <option value={['cultural', 'group', 'business'][i]}>{label}</option>
+          ))}
+        </select>
+        <p class="error" id="tour-type-error">{f.errors.tripType}</p>
+      </div>
+      <div class="field">
+        <label for="tour-dates">{ff.travelDates} <span class="hint">({ff.optionalHint})</span></label>
+        <input id="tour-dates" name="preferredDates" type="text" placeholder={f.phDates} />
       </div>
     </div>
 
     <div class="form-row form-row--single">
       <div class="field">
-        <label for="tour-notes">{ui.anythingElse} <span class="hint">({ui.optionalHint})</span></label>
-        <textarea id="tour-notes" name="message" rows="3" placeholder="Travellers, dietary needs, must-sees…"></textarea>
+        <label for="tour-notes">{ff.anythingElse} <span class="hint">({ff.optionalHint})</span></label>
+        <textarea id="tour-notes" name="message" rows="3" placeholder={f.phNotes}></textarea>
       </div>
     </div>
   </div>
 
   <p class="form-status" role="status"></p>
 
-  <button type="submit" class="btn btn-primary btn-lg">Plan my journey</button>
-  <p class="form-fineprint">We draft a free day-wise itinerary before you pay anything.</p>
+  <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
+  <p class="form-fineprint">{f.fineprint}</p>
 </form>
 
 

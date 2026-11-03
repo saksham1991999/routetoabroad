@@ -1,18 +1,26 @@
 ---
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 import { TESTIMONIALS } from '../data/testimonials';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiFor(locale).carousel;
 ---
 
-<section class="testimonials section" aria-label="Client stories">
+<section class="testimonials section" aria-label={ui.sectionAria}>
   <div class="container">
     <div class="section-head section-head--center" data-reveal>
-      <p class="eyebrow">Client stories</p>
-      <h2>Hear from those who made the leap</h2>
-      <p class="lede">Students, travellers and traders who crossed with us — in their own words.</p>
+      <p class="eyebrow">{ui.eyebrow}</p>
+      <h2>{ui.heading}</h2>
+      <p class="lede">{ui.lede}</p>
     </div>
   </div>
 
   <div class="container carousel-shell" data-reveal>
-    <div class="carousel" id="testimonial-carousel" tabindex="0" aria-label="Testimonials carousel">
+    <div class="carousel" id="testimonial-carousel" tabindex="0" aria-label={ui.carouselAria}>
       {TESTIMONIALS.map((t) => (
         <figure class="t-card">
           <span class="t-pill">{t.category}</span>
@@ -28,10 +36,10 @@ import { TESTIMONIALS } from '../data/testimonials';
       ))}
     </div>
     <div class="carousel-controls">
-      <button type="button" class="c-btn" data-dir="-1" aria-label="Previous testimonial"><span class="c-arrow" aria-hidden="true">←</span></button>
+      <button type="button" class="c-btn" data-dir="-1" aria-label={ui.prev}><span class="c-arrow" aria-hidden="true">←</span></button>
       <div class="c-dots" role="presentation"></div>
-      <button type="button" class="c-btn" data-dir="1" aria-label="Next testimonial"><span class="c-arrow" aria-hidden="true">→</span></button>
-      <button type="button" class="c-btn c-pause" id="t-pause" aria-pressed="false" aria-label="Pause testimonial rotation">❚❚</button>
+      <button type="button" class="c-btn" data-dir="1" aria-label={ui.next}><span class="c-arrow" aria-hidden="true">→</span></button>
+      <button type="button" class="c-btn c-pause" id="t-pause" aria-pressed="false" aria-label={ui.pause} data-pause-label={ui.pause} data-play-label={ui.play} data-go-to-template={ui.goTo}>❚❚</button>
     </div>
   </div>
 </section>
@@ -191,12 +199,26 @@ import { TESTIMONIALS } from '../data/testimonials';
     const dotsWrap = carousel.parentElement?.querySelector('.c-dots');
     const dots: HTMLButtonElement[] = [];
 
+    // Localized control labels flow through data attributes (the script is
+    // shared by all five locale homepages).
+    const pauseLabel = pauseBtnData('pauseLabel', 'Pause testimonial rotation');
+    const playLabel = pauseBtnData('playLabel', 'Play testimonial rotation');
+    const goToTemplate = carouselTemplate();
+
+    function pauseBtnData(key: string, fallback: string): string {
+      return document.getElementById('t-pause')?.dataset[key] ?? fallback;
+    }
+    function carouselTemplate(): string {
+      const pauseEl = document.getElementById('t-pause') as HTMLElement | null;
+      return pauseEl?.dataset.goToTemplate ?? 'Go to testimonial {n}';
+    }
+
     if (dotsWrap) {
       cards.forEach((_, i) => {
         const dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'c-dot';
-        dot.setAttribute('aria-label', `Go to testimonial ${i + 1}`);
+        dot.setAttribute('aria-label', goToTemplate.replace('{n}', String(i + 1)));
         dot.setAttribute('aria-current', i === 0 ? 'true' : 'false');
         dot.addEventListener('click', () => scrollTo(i));
         dotsWrap.appendChild(dot);
@@ -257,7 +279,7 @@ import { TESTIMONIALS } from '../data/testimonials';
       pauseBtn?.addEventListener('click', () => {
         playing = !playing;
         pauseBtn.setAttribute('aria-pressed', String(!playing));
-        pauseBtn.setAttribute('aria-label', playing ? 'Pause testimonial rotation' : 'Play testimonial rotation');
+        pauseBtn.setAttribute('aria-label', playing ? pauseLabel : playLabel);
         pauseBtn.textContent = playing ? '❚❚' : '▶';
         playing ? start() : stop();
       });

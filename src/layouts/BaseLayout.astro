@@ -1,10 +1,11 @@
 ---
 import '../styles/tokens.css';
 import '../styles/global.css';
-// Always loaded; every rule is scoped to html[dir='rtl'] so LTR pages pay
-// zero cost. The CSS flips physical (left/right) properties the LTR layout
-// used physically, and provides an Arabic-capable font stack.
-import '../styles/rtl.css';
+// RTL rules are NOT imported as a bundled stylesheet: with
+// build.inlineStylesheets 'always' every byte here would be inlined into all
+// 280 pages while only /ar/ pages use them. The CSS text is imported raw and
+// injected as an inline <style> on Arabic pages only (see <head> below).
+import rtlCss from '../styles/rtl.css?raw';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
@@ -31,6 +32,9 @@ interface Props {
   progress?: boolean;
   /** Locale of this page. Defaults to detection from Astro.url.pathname. */
   locale?: Locale;
+  /** Hide the language switcher (e.g. the 404 page, whose locale variants
+   * intentionally do not exist to link to). */
+  hideSwitcher?: boolean;
 }
 
 const {
@@ -46,6 +50,7 @@ const {
   modifiedTime,
   progress = false,
   locale,
+  hideSwitcher = false,
 } = Astro.props;
 
 /** Resolve the page locale — explicit prop wins, fall back to URL detection. */
@@ -90,6 +95,9 @@ const isHome = ['', '/'].includes(
 
     <SiteSchemas />
 
+    {/* RTL overrides ship only to Arabic pages — see the import note above. */}
+    {isRtl && <style is:inline set:html={rtlCss} />}
+
     <script is:inline>
       // Pre-paint theme to avoid flash-of-wrong-theme.
       (function () {
@@ -124,7 +132,7 @@ const isHome = ['', '/'].includes(
   </head>
   <body data-chrome={isHome ? 'home' : 'inner'} data-tone="light">
     <a class="skip-link" href="#main">{ui.skipLink}</a>
-    <Header locale={pageLocale} />
+    <Header locale={pageLocale} hideSwitcher={hideSwitcher} />
     <main id="main">
       <slot />
     </main>
@@ -152,7 +160,7 @@ const isHome = ['', '/'].includes(
           </span>
           <div class="rta-hud-right">
             <a class="rta-hud-link" href={SITE.whatsapp} rel="noopener">
-              WhatsApp {SITE.phoneIndia}
+              WhatsApp <bdi>{SITE.phoneIndia}</bdi>
             </a>
             <span class="rta-hud-item" aria-hidden="true">{ui.hud.scroll}</span>
             <span class="rta-hud-percent" role="status">
@@ -403,9 +411,12 @@ const isHome = ['', '/'].includes(
               status.scrollIntoView({ behavior: 'smooth', block: 'center' });
             } else if (status) {
               status.className = 'form-status fail';
+              // dataset.formFail (rendered on <html> with the localized
+              // WhatsApp number) is always present; this fallback is the
+              // pathological missing-attribute case, so it stays generic.
               status.textContent =
                 document.documentElement.dataset.formFail ||
-                'Something went wrong sending the form. Please try again, or WhatsApp +91 96330 61109.';
+                'Something went wrong sending the form. Please try again.';
             }
           } catch {
             if (status) {

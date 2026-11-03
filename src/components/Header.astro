@@ -6,13 +6,25 @@ import Logo from './Logo.astro';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 
 const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
+const hideSwitcher = Astro.props.hideSwitcher === true;
 const ui = uiFor(locale);
+
+/**
+ * Nav items: canonical hrefs come from NAV_LINKS in site.ts (single source
+ * of truth for navigation); the visible labels come from the locale
+ * dictionary so localized pages don't render English chrome. The two lists
+ * are positionally paired — ui.nav must stay the same length as NAV_LINKS.
+ */
+const navItems = NAV_LINKS.map((linkItem, i) => ({
+  ...linkItem,
+  label: ui.nav[i]?.label ?? linkItem.label,
+}));
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 /** Translate a hard-coded English path to the current locale's URL. */
 const link = (path: string) => translatePath(path, locale);
 /**
- * Nav active-state. `linkItem.href` values are hard-coded English paths, so
+ * Nav active-state. `href` values are hard-coded English paths, so
  * compare against the *localized* current path (strip the locale prefix) —
  * otherwise no nav item ever shows active on /zh/education etc.
  */
@@ -23,13 +35,13 @@ const isActive = (href: string) =>
 
 <header class="site-header" id="site-header">
   <div class="container-wide header-inner">
-    <a href="/" class="wordmark" aria-label="RouteToAbroad — home">
+    <a href={link('/')} class="wordmark" aria-label={ui.headerWordmarkAria}>
       <Logo />
     </a>
 
     <nav class="main-nav" aria-label={ui.navAria}>
       <ul>
-        {NAV_LINKS.map((linkItem) => (
+        {navItems.map((linkItem) => (
           <li>
             <a href={link(linkItem.href)} class:list={{ active: isActive(linkItem.href) }} aria-current={isActive(linkItem.href) ? 'page' : undefined}>
               {linkItem.label}
@@ -40,7 +52,7 @@ const isActive = (href: string) =>
     </nav>
 
     <div class="header-actions">
-      <LanguageSwitcher locale={locale} />
+      {!hideSwitcher && <LanguageSwitcher locale={locale} />}
       <button class="theme-toggle" id="theme-toggle" type="button" aria-label={ui.themeAria}>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
           <circle cx="12" cy="12" r="4.2"></circle>
@@ -61,7 +73,7 @@ const isActive = (href: string) =>
   <div class="mobile-menu" id="mobile-menu" hidden>
     <nav aria-label={ui.mobileNavAria}>
       <ul>
-        {NAV_LINKS.map((linkItem) => (
+        {navItems.map((linkItem) => (
           <li>
             <a href={link(linkItem.href)} aria-current={isActive(linkItem.href) ? 'page' : undefined}>{linkItem.label}</a>
           </li>
@@ -71,7 +83,7 @@ const isActive = (href: string) =>
         <a href={link('/tools/fit-check')} class="btn btn-primary">{ui.mobileCtaStart}</a>
         <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">{ui.mobileCtaWhatsApp}</a>
       </div>
-      <LanguageSwitcher locale={locale} />
+      {!hideSwitcher && <LanguageSwitcher locale={locale} />}
     </nav>
   </div>
 </header>
@@ -161,6 +173,12 @@ const isActive = (href: string) =>
     margin-block: -0.55rem;
   }
 
+  /* RTL: mirror the wordmark's asymmetric tap padding so the extra space sits
+     on the inner edge instead of the screen edge. */
+  html:global([dir='rtl']) .wordmark {
+    padding: 0.55rem 0 0.55rem 0.55rem;
+  }
+
   /* The homepage chrome sits over the always-light hero composition — pin the
      mark to light ink so dark-theme tokens can't flip it invisible. */
   html[data-theme='dark'] body[data-chrome='home'] .site-header {
@@ -244,6 +262,13 @@ const isActive = (href: string) =>
 
   .main-nav a:hover {
     color: var(--ink);
+  }
+
+  /* RTL: grow the underline from the inline-start edge (the right side), so
+     the hover animation mirrors the LTR direction. Authored here, inside the
+     scoped sheet, so it outranks the unscoped LTR rule on specificity. */
+  html:global([dir='rtl']) .main-nav a::after {
+    transform-origin: right;
   }
 
   .main-nav a:hover::after {
@@ -402,6 +427,11 @@ const isActive = (href: string) =>
     transform: translateX(4px);
   }
 
+  /* RTL: the press nudge mirrors to the inline-start direction. */
+  html:global([dir='rtl']) .mobile-menu ul a:active {
+    transform: translateX(-4px);
+  }
+
   .mobile-menu ul a[aria-current='page'] {
     color: var(--ink);
   }
@@ -450,6 +480,9 @@ const isActive = (href: string) =>
     .main-nav { display: none; }
     .menu-toggle { display: flex; }
     .header-cta { display: none; }
+    /* The switcher also lives inside the mobile menu — the header row cannot
+       fit five nowrap chips next to the toggles on a phone. */
+    .header-actions .lang-switcher { display: none; }
     .header-inner { height: 4.5rem; }
     body[data-chrome='home'] .header-inner { height: 4.375rem; }
   }

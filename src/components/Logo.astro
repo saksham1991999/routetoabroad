@@ -37,6 +37,9 @@ const { markOnly = false } = Astro.props;
   .logo-mark {
     display: inline-flex;
     align-items: center;
+    /* The lockup is a brand mark: pin it LTR so RTL pages render the same
+       R ✈ A order as the favicon and every PWA icon. */
+    direction: ltr;
     gap: 0.235em;
   }
 
