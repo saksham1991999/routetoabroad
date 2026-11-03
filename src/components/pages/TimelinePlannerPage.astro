@@ -200,7 +200,7 @@ const t = TIMELINE_STRINGS[locale];
 </style>
 
 <script>
-  import { intlTag, readI18n } from '../../lib/i18n-client';
+  import { dateTag, readI18n } from '../../lib/i18n-client';
   import type { TimelineStrings } from '../../i18n/tools/timeline-planner';
 
   const T = readI18n<TimelineStrings['script']>(document.getElementById('tl-root'));
@@ -229,7 +229,7 @@ const t = TIMELINE_STRINGS[locale];
   ];
   const phases: Phase[] = PHASE_META.map((meta, i) => ({ ...meta, ...T.phases[i]! }));
 
-  const dateFmt = new Intl.DateTimeFormat(intlTag(), { month: 'short', year: 'numeric' });
+  const dateFmt = new Intl.DateTimeFormat(dateTag(), { month: 'short', year: 'numeric' });
   const monthLabel = (d: Date) => dateFmt.format(d);
 
   /** September- and March-specific guidance where the calendar really differs. */

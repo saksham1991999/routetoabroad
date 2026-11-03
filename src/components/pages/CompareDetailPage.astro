@@ -13,7 +13,7 @@ import { COMPARISONS } from '../../data/comparisons';
 import { faqSchema } from '../../lib/schema';
 
 
-import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
 
 interface Props {
   locale?: Locale;
@@ -22,7 +22,7 @@ interface Props {
 const { locale = DEFAULT_LOCALE, c } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
-const updated = new Date(c.updated).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
 <BaseLayout

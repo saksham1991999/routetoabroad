@@ -17,7 +17,7 @@ import StatsBand from '../StatsBand.astro';
 import { GENERAL_FAQS } from '../../data/faqs';
 import { faqSchema, reviewSchema } from '../../lib/schema';
 import { SITE } from '../../lib/site';
-import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
 
 interface Props {
   locale?: Locale;
@@ -355,7 +355,7 @@ const tools = [
               <h3 class="post-title">{post.data.title}</h3>
               <p class="post-desc">{post.data.description}</p>
               <p class="post-meta">
-                {post.data.pubDate.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}
+                {post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' })}
                 {' '}· {post.data.category} · {post.data.readTime} min read
               </p>
             </div>

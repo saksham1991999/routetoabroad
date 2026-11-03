@@ -15,7 +15,7 @@ import { AUTHORS } from '../../data/authors';
 import { articleSchema } from '../../lib/schema';
 
 
-import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { translatePath, DEFAULT_LOCALE, DATE_TAG, localizeHtmlLinks, type Locale } from '../../lib/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -97,9 +97,9 @@ const relatedAll = [...related, ...relatedFallback];
           </div>
         </div>
         <div class="post-dates num">
-          <span>{data.pubDate.toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          <span>{data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' })}</span>
           {data.updatedDate && (
-            <span>· updated {data.updatedDate.toLocaleDateString('en-IN', { month: 'short', year: 'numeric' })}</span>
+            <span>· updated {data.updatedDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' })}</span>
           )}
           <span>· {data.readTime} min read</span>
         </div>
@@ -111,7 +111,7 @@ const relatedAll = [...related, ...relatedFallback];
     </div>
 
     <div class="prose post-body">
-      <Content />
+      {post.rendered?.html ? <Fragment set:html={localizeHtmlLinks(post.rendered.html, locale)} /> : <Content />}
     </div>
 
     <footer class="post-foot">

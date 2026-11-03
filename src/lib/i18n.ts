@@ -72,3 +72,20 @@ export const INTL_TAG: Record<Locale, string> = {
   ar: 'ar-u-nu-latn',
   es: 'es-ES',
 };
+
+/** Date-formatting tags: English keeps the site's long-standing en-IN style. */
+export const DATE_TAG: Record<Locale, string> = { ...INTL_TAG, en: 'en-IN' };
+
+/**
+ * Localize root-relative internal links inside rendered markdown HTML.
+ * Content-collection bodies are shared by every locale and written with
+ * unprefixed links (e.g. [guide](/guides/china-visa-types)); this rewrites
+ * `<a href="/…">` for the page's locale. External, protocol-relative, hash,
+ * mailto/tel and relative links pass through untouched.
+ */
+export function localizeHtmlLinks(html: string, locale: Locale): string {
+  if (locale === DEFAULT_LOCALE) return html;
+  return html.replace(/(<a\s[^>]*?\bhref=")(\/(?!\/)[^"]*)(")/g, (_m, pre, href, post) => {
+    return pre + translatePath(href, locale) + post;
+  });
+}

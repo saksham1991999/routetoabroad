@@ -4,7 +4,7 @@
  * the document (<html lang>, set by BaseLayout) and their translated strings
  * from the tool root's data-i18n attribute, both written at build time.
  */
-import { INTL_TAG, type Locale } from './i18n';
+import { INTL_TAG, DATE_TAG, type Locale } from './i18n';
 
 const PREFIXED = ['zh', 'fr', 'ar', 'es'];
 
@@ -17,6 +17,11 @@ export function pageLocale(): string {
 /** Intl locale tag for the current page (number/date formatting). */
 export function intlTag(): string {
   return INTL_TAG[pageLocale() as Locale] ?? INTL_TAG.en;
+}
+
+/** Intl locale tag for date formatting (English keeps en-IN). */
+export function dateTag(): string {
+  return DATE_TAG[pageLocale() as Locale] ?? DATE_TAG.en;
 }
 
 /** Localize an internal English path for the current page's locale. */

@@ -15,7 +15,7 @@ import CtaBand from '../CtaBand.astro';
 import { faqSchema } from '../../lib/schema';
 
 
-import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { translatePath, DEFAULT_LOCALE, localizeHtmlLinks, type Locale } from '../../lib/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -103,7 +103,7 @@ const hasBody = Boolean(country.body && country.body.trim());
           </section>
         </div>
 
-        {hasBody && <section class="prose co-prose"><Content /></section>}
+        {hasBody && <section class="prose co-prose">{country.rendered?.html ? <Fragment set:html={localizeHtmlLinks(country.rendered.html, locale)} /> : <Content />}</section>}
 
         {(data.faqs ?? []).length > 0 && (
           <div class="container-text co-faq">

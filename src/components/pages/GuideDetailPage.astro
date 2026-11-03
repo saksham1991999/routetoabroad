@@ -14,7 +14,7 @@ import CtaBand from '../CtaBand.astro';
 import { articleSchema, faqSchema } from '../../lib/schema';
 
 
-import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { translatePath, DEFAULT_LOCALE, DATE_TAG, localizeHtmlLinks, type Locale } from '../../lib/i18n';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -74,7 +74,7 @@ const pillarColor: Record<string, string> = {
       <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{data.pillar} guide</p>
       <h1>{data.title}</h1>
       <p class="guide-meta num">
-        Updated {new Date(data.updatedDate ?? data.pubDate).toLocaleDateString('en-IN', { month: 'long', year: 'numeric' })}
+        Updated {new Date(data.updatedDate ?? data.pubDate).toLocaleDateString(DATE_TAG[locale], { month: 'long', year: 'numeric' })}
         · {data.readTime} min read
         {data.tags.map((t) => <span class="guide-tag">{t}</span>)}
       </p>
@@ -85,7 +85,7 @@ const pillarColor: Record<string, string> = {
     </div>
 
     <div class="prose guide-body">
-      <Content />
+      {guide.rendered?.html ? <Fragment set:html={localizeHtmlLinks(guide.rendered.html, locale)} /> : <Content />}
     </div>
 
     {faqs.length > 0 && (
