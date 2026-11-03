@@ -1,0 +1,90 @@
+---
+/**
+ * University profiles index — shared by all five locales (route shells under
+ * src/pages/universities/ and src/pages/<locale>/universities/ pass `locale`). Structure
+ * and body copy are identical across locales by design; internal links are
+ * localized through translatePath and forms/CTA take the locale prop.
+ */
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import ArticleCard from '../ArticleCard.astro';
+import CtaBand from '../CtaBand.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+/** Localize an internal href for this page's locale. */
+const link = (path: string) => translatePath(path, locale);
+
+const universities = (await getCollection('universities')).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<BaseLayout
+  locale={locale}
+  title="Chinese University Profiles for International Students"
+  description="Honest profiles of the universities we place into: Peking, Tsinghua, Fudan, Zhejiang and Shanghai Jiao Tong — programmes, real costs, admission realities and FAQs."
+  path="/universities"
+  crumbs={[{ name: 'Universities', url: link('/universities') }]}
+>
+  <PageHero
+    eyebrow="Universities"
+    index="UNI / 08"
+    title="The five we place into most."
+    lede="Not a rankings mirror — working profiles with real fee ranges, admission realities and what each campus is actually like."
+    crumbs={[{ name: 'Universities', url: link('/universities') }]}
+    facts={[
+      { label: 'Profiles', value: '05 universities' },
+      { label: 'Cities', value: 'Beijing · Shanghai · Hangzhou' },
+      { label: 'Status', value: 'MOE-listed' },
+      { label: 'Fees', value: 'Real ranges' },
+    ]}
+    actions={[{ href: link('/contact'), label: 'Get a shortlist' }]}
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="uni-grid">
+        {universities.map((u, i) => (
+          <ArticleCard
+            title={u.data.name}
+            href={link(`/universities/${u.id}`)}
+            description={u.data.intro}
+            image={u.data.image}
+            imageAlt={u.data.imageAlt}
+            tag={u.data.city}
+            meta={`est. ${u.data.founded}`}
+            pillar="education"
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <CtaBand locale={locale} ctaKey="universities" />
+</BaseLayout>
+
+<style>
+  .uni-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.4rem;
+  }
+
+  @media (max-width: 64rem) {
+    .uni-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .uni-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
