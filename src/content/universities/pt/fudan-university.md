@@ -2,7 +2,7 @@
 locale: 'pt'
 name: 'Fudan University'
 chineseName: '复旦大学 (Fùdàn)'
-city: 'Shanghai'
+city: 'Xangai'
 citySlug: 'shanghai'
 type: 'comprehensive'
 founded: '1905'

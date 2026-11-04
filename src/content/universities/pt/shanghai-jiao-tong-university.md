@@ -2,7 +2,7 @@
 locale: 'pt'
 name: 'Shanghai Jiao Tong University'
 chineseName: '上海交通大学 (Shàngjiāo)'
-city: 'Shanghai'
+city: 'Xangai'
 citySlug: 'shanghai'
 type: 'technical'
 founded: '1896'

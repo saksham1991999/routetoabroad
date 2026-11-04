@@ -2,7 +2,7 @@
 locale: 'pt'
 name: 'Peking University'
 chineseName: '北京大学 (Běidà)'
-city: 'Beijing'
+city: 'Pequim'
 citySlug: 'beijing'
 type: 'comprehensive'
 founded: '1898'
