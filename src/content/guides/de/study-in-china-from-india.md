@@ -49,7 +49,7 @@ Stipendien verändern die Rechnung: Ein vollständiges CSC-Stipendium nullt Stud
 
 ## Die fünf Entscheidungen, die am meisten zählen
 
-1. **Akkreditierungsstatus der Universität** (MOE-Liste) über Rankings-Ästhetik
+1. **Akkreditierungsstatus der Universität** (MOE-Liste für englischsprachiges MBBS; für Ingenieurwesen und Wirtschaft die Anerkennung durch Universität und Programm) über Rankings-Ästhetik
 2. **Stadtgröße** – Städte der zweiten Reihe kosten 30–40 % weniger zum Leben
 3. **Stipendienstrategie** – drei Bewerbungen schlagen eine
 4. **Sprachplan** – HSK-Zeitplan ab dem ersten Semester

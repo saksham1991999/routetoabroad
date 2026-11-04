@@ -9,6 +9,13 @@ readTime: 7
 tags: ['Visa', 'X1-Visum', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'
 imageAlt: 'Ein Reisepass und Visumsunterlagen auf einem Schreibtisch neben einem Antragsformular'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'Visumgebühren: die aktuelle chinesische Visumgebührenordnung für indische Staatsangehörige vor dem Launch bestätigen'
+  - 'Bearbeitungszeiten: die üblichen 4–7 Werktage und die kostenpflichtigen Expressoptionen erneut bestätigen'
+  - 'Hochsaison-Timing: die im FAQ genannte Verzögerung Juli–August erneut bestätigen'
+  - 'Gültigkeit der ärztlichen Untersuchung: die 6-Monats-Regel für das Untersuchungsformular bestätigen'
+  - 'X1-Einreisetyp: bestätigen, dass das X1 für diese Route weiterhin einreisig ausgestellt wird'
 faqs:
   - question: 'Was ist der Unterschied zwischen einem X1- und einem X2-Visum?'
     answer: 'Das X1 deckt Programme über 180 Tage ab (Studiengänge) und muss innerhalb von 30 Tagen nach Einreise in eine Aufenthaltserlaubnis umgewandelt werden. Das X2 deckt Kurzprogramme von 180 Tagen oder weniger ab und lässt sich nicht in einen Aufenthalt verlängern.'

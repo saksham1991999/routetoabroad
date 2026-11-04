@@ -43,7 +43,7 @@ Das Muster, das funktioniert: 30–45 Minuten täglich schlagen 6 Stunden jeden 
 
 ## Prüfungsmechanik
 
-Die HSK findet papier- und internetbasiert an Prüfungszentren weltweit mehrmals im Jahr statt (Anmeldung schließt etwa 3 Wochen vorher). Hörverstehen, Leseverstehen, Schreiben – ab HSK 4 kommt das Verfassen von Absätzen hinzu; HSK 5–6 ergänzen den Aufsatz. Dazu gibt es die HSKK, die separate Sprechprüfung, die manche chinesischsprachige Programme verlangen.
+Die HSK findet papier- und internetbasiert an Prüfungszentren weltweit mehrmals im Jahr statt (Anmeldung schließt etwa 3 Wochen vorher). Hörverstehen, Leseverstehen, Schreiben – ab HSK 4 kommen Schreibaufgaben hinzu: Sätze nach vorgegebenen Wörtern bilden sowie ein kurzer Absatz von rund 80 Zeichen mit vorgegebenen Wörtern oder Bildimpuls; HSK 5 ergänzt eine kurze freie Verfassung (ca. 80 Zeichen) und HSK 6 einen Aufsatz von rund 400 Zeichen zur zusammenfassenden Wiedergabe eines gelesenen Texts. Dazu gibt es die HSKK, die separate Sprechprüfung, die manche chinesischsprachige Programme verlangen.
 
 ## Wie wir unsere HSK-Begleitung aufziehen
 

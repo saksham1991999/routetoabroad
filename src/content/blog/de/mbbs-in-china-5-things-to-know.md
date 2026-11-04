@@ -26,9 +26,13 @@ Die meisten MBBS-Programme werden in den ersten Jahren auf Englisch unterrichtet
 
 Das China Government Scholarship (CSC) kann vollständige Studiengebühren, Unterkunft und einen monatlichen Zuschuss abdecken. Es ist leistungsbasiert und kompetitiv: Studierende mit einem CGPA über etwa 3,5 und starkem außerschulischem Engagement haben die besten Chancen. Universitätsnahe Stipendien sind ein paralleler — oft weniger umkämpfter — Weg, meist jedoch nur mit teilweiser Deckung.
 
+<!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->
+
 ## 4. Der JW202-Prozess braucht Zeit
 
 Das JW202 ist das offizielle Visum-Antragsformular für das Studium, das die Universität zusammen mit Ihrem Zulassungsbescheid ausstellt. Vom Universitätsangebot bis zum Visum in der Hand können 8–12 Wochen vergehen. Bewerben Sie sich früh. Verpasste Aufnahmefenster sind einer der häufigsten — und am leichtesten vermeidbaren — Fehler, die wir sehen.
+
+<!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->
 
 ## 5. Betreuung vor Ort ist kein Luxus
 
@@ -43,3 +47,5 @@ Flughafenabholung, Wohnheimregistrierung, SIM-Karten, Bankkonten — diese opera
 - Frühzeitig für die HSK-Vorbereitung registrieren
 
 Bereit, Ihre Bewerbung zu starten? Unsere Berater können Ihre Berechtigung prüfen und Sie innerhalb von 48 Stunden mit einem bestpassenden Programm zusammenbringen.
+
+<!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->

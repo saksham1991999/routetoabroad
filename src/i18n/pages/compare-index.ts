@@ -165,7 +165,7 @@ export const COMPARE_INDEX: Record<Locale, CompareIndexStrings> = {
     hero: {
       eyebrow: 'Comparações',
       title: 'Tabelas e vereditos, sem enrolação.',
-      lede: 'As três comparações que nos fazem toda semana, cada uma com a tabela completa, os trade-offs e uma resposta de verdade.',
+      lede: 'As três comparações sobre as quais nos perguntam toda semana, cada uma com a tabela completa, os trade-offs e uma resposta de verdade.',
     },
     item: {
       vsLabel: 'vs',

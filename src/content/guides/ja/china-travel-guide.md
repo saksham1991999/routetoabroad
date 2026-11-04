@@ -9,6 +9,10 @@ readTime: 8
 tags: ['旅行', '中国', '旅程']
 image: '../../../assets/images/guide-li-river.jpg'
 imageAlt: 'カルストの峰の下、漓江を漂う竹筏'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - '240-hour visa-free transit: re-confirm current rules, eligible nationalities and ports of entry before launch'
+  - 'Foreign card acceptance: confirm current Visa/Mastercard support in Alipay/WeChat Pay and direct card acceptance before launch'
 faqs:
   - question: '初めての中国旅行には何日必要ですか？'
     answer: '10〜12日あれば北京、西安、上海をゆとりをもって回れます。桂林/陽朔の景色や、パンダとグルメの成都を加えるなら+3〜4日。'

@@ -43,7 +43,7 @@ faqs:
   - question: 'Wie schwer ist die Zulassung zur Peking University als internationale/r Studierende/r?'
     answer: 'Sehr schwer. Die Zulassung zum Bachelor basiert auf Prüfungen/Interviews mit winzigen Kontingenten; der Einstieg in Master und PhD ist für starke Profile realistisch — besonders mit einem überzeugenden Studienplan und bei forschungsorientierten Abschlüssen mit vorherigem Kontakt zu einer Betreuungsperson.'
   - question: 'Bietet die Peking University CSC-Stipendien an?'
-    answer: 'Ja, die Peking University ist eine für CSC Typ A und Typ B zugelassene Universität, dazu kommen universitätseigene Stipendien (u. a. Yenching für ausgewählte Masterprogramme).'
+    answer: 'Ja. Für CSC Typ B (direkte Bewerbung an der Universität) ist die Peking University als CSC-Hochschule zugelassen; Typ A läuft dagegen über Regierungskanäle — die chinesische Botschaft bzw. die benannte Vermittlungsstelle Ihres Landes — und wird nicht über die Universität beantragt. Dazu kommen universitätseigene Stipendien (u. a. Yenching für ausgewählte Masterprogramme).'
 order: 1
 ---
 

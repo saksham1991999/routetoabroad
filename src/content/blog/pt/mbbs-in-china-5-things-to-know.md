@@ -26,9 +26,13 @@ A maioria dos programas de MBBS é ministrada em inglês nos primeiros anos. As 
 
 A Bolsa do Governo Chinês (CSC) pode cobrir mensalidade integral, acomodação e um estipêndio mensal. Ela é baseada em mérito e concorrida: estudantes com CGPA acima de aproximadamente 3,5 e boas atividades extracurriculares têm as melhores chances. Bolsas no nível das universidades são um caminho paralelo — geralmente menos concorrido — e em sua maioria parciais.
 
+<!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->
+
 ## 4. O processo do JW202 leva tempo
 
 O JW202 é o formulário oficial de solicitação de visto de estudo, emitido pela universidade junto com a Carta de Admissão. Da oferta da universidade ao visto na mão podem levar de 8 a 12 semanas. Candidate-se cedo. Perder as janelas de ingresso é um dos erros mais comuns — e mais evitáveis — que vemos.
+
+<!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->
 
 ## 5. Apoio no local não é luxo
 
@@ -43,3 +47,5 @@ Recepção no aeroporto, registro no dormitório, chips de celular, contas banc�
 - Inscreva-se cedo na preparação para o HSK
 
 Pronto para começar sua candidatura? Nossos consultores podem avaliar sua elegibilidade e indicar o programa ideal em até 48 horas.
+
+<!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->

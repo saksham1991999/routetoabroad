@@ -12,7 +12,7 @@ faqs:
   - question: 'Qual nível de HSK preciso para estudar na China?'
     answer: 'Programas em inglês não exigem HSK para admissão, mas estudantes de MBBS precisam alcançar cerca de HSK 4 antes das rotações clínicas. Cursos ministrados em chinês tipicamente exigem HSK 5, às vezes HSK 6.'
   - question: 'Quanto tempo leva para passar no HSK 4?'
-    answer: 'Do zero, planeje de 12 a 18 meses de estudo consistente (600+ horas). Começar no primeiro semestre com 5–6 horas por semana coloca você no HSK 4 com folga no terceiro ano.'
+    answer: 'Do zero, planeje de 12 a 18 meses de estudo consistente. Começar no primeiro semestre com 5–6 horas por semana coloca você no HSK 4 com folga no terceiro ano.'
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'HSK 3.0: confirm current band-structure adoption with test centres when next updating this guide'
@@ -31,7 +31,7 @@ verify:
 | HSK 5 | ~2.500 | Carga acadêmica em chinês, filmes, jornais |
 | HSK 6 | ~5.000+ | Fluência profissional, leitura em nível de pesquisa |
 
-A China introduziu um padrão revisado ("HSK 3.0") que expande a estrutura de faixas e o vocabulário além dos seis níveis clássicos. A aplicação em papel no mundo ainda roda majoritariamente nas faixas familiares 1–6 — confira qual padrão o seu centro de exame aplica.
+Os totais de palavras da tabela acima seguem a escala clássica (HSK 2.0). A China introduziu um padrão revisado ("HSK 3.0") que expande a estrutura de faixas e o vocabulário além desses seis níveis. A aplicação em papel no mundo ainda roda majoritariamente nas faixas familiares 1–6 — confira qual padrão o seu centro de exame aplica.
 
 ## Cronogramas que realmente funcionam
 
@@ -43,7 +43,7 @@ O padrão que funciona: 30–45 minutos diários superam 6 horas todo domingo. F
 
 ## Mecânica do exame
 
-O HSK acontece em papel e pela internet em centros de exame no mundo todo algumas vezes por ano (as inscrições fecham cerca de 3 semanas antes). Compreensão auditiva, leitura, escrita — o HSK 4 acrescenta escrita de parágrafos; HSK 5–6 acrescentam composição. Há também o HSKK, o exame oral separado, exigido por alguns programas em chinês.
+O HSK acontece em papel e pela internet em centros de exame no mundo todo algumas vezes por ano (as inscrições fecham cerca de 3 semanas antes). Compreensão auditiva, leitura, escrita — a escrita começa no HSK 3 com frases simples; o HSK 4 segue no nível da construção de frases (sem redação de parágrafos); HSK 5–6 acrescentam composição (redação). Há também o HSKK, o exame oral separado, exigido por alguns programas em chinês.
 
 ## Como conduzimos o suporte ao HSK
 

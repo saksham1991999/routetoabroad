@@ -30,7 +30,7 @@ O alfabeto de vistos da China é denso, mas lógico. Estas são as categorias qu
 | **M** | Negócios, feiras | 30–90 dias/entrada | Carta-convite do parceiro chinês |
 | **F** | Intercâmbio, viagens de estudo, visitas curtas | Variável | Convite de organização chinesa |
 | **X1** | Estudo > 180 dias | Duração do programa | Admission Notice + JW202 |
-| **X2** | Estudo ≤ 180 dias | Fixo, ≤ 180 dias | Admission Notice + JW202 |
+| **X2** | Estudo ≤ 180 dias | Fixo, ≤ 180 dias | Admission Notice |
 | **Z** | Emprego | Vinculado a permissão | Permissão de trabalho + notificação |
 | **G** | Trânsito | 1–15 dias | Bilhete de continuação |
 

@@ -14,7 +14,7 @@ touristDaily:
   high: 160
 highlights:
   - title: 'O Bund e o skyline de Pudong'
-    text: 'Orelha colonial de um lado, floresta de torres de neon do outro — caminhe ao entardecer e atravesse de balsa por ¥2.'
+    text: 'Margem colonial de um lado, floresta de torres de neon do outro — caminhe ao entardecer e atravesse de balsa por ¥2.'
   - title: 'Jardim Yu e a cidade velha'
     text: 'Jardins da dinastia Ming, casas de chá e o bairro dos bazares — chegue na abertura, antes das multidões.'
   - title: 'Cidades-d’água'

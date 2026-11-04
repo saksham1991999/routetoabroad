@@ -39,7 +39,7 @@ Sem JW202, sem visto. É por isso que universidades lentas para emitir JW202 atr
 
 ## X2 (cursos curtos)
 
-Menos de 180 dias — escolas de verão, intercâmbios de um semestre. Mais simples: sem permissão de residência, mas o visto é de prazo fixo e geralmente inextensível. Planeje viagens para fora da China depois do curso, não durante.
+Até 180 dias — escolas de verão, intercâmbios de um semestre. Mais simples: sem permissão de residência, mas o visto é de prazo fixo e geralmente inextensível. Planeje viagens para fora da China depois do curso, não durante.
 
 ## Armadilhas que realmente causam problema
 

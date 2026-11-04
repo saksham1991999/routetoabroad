@@ -2,7 +2,7 @@
 locale: 'pt'
 name: 'Tsinghua University'
 chineseName: '清华大学 (Qīnghuá)'
-city: 'Beijing'
+city: 'Pequim'
 citySlug: 'beijing'
 type: 'technical'
 founded: '1911'

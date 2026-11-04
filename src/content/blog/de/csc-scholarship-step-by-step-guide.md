@@ -35,7 +35,7 @@ Es gibt zwei Bewerbungswege. **Typ A** läuft über Regierungskanäle: Das Bildu
 
 ## Schritt 4: Reichen Sie vor der Frist ein
 
-CSC-Fristen liegen für das September-Intake typischerweise zwischen Ende Februar und Mitte April. Wo Papierunterlagen verlangt werden, versenden Sie diese früh per Kurier — verspätete Einreichungen werden ausnahmslos disqualifiziert. Planen Sie in Ihren Zeitplan drei Wochen Puffer ein.
+CSC-Fristen liegen für das September-Intake typischerweise zwischen Ende Februar und Mitte April. Wo Papierunterlagen verlangt werden, versenden Sie diese früh per Kurier — verspätete Einreichungen werden in der Regel disqualifiziert; prüfen Sie daher die aktuellen Einreichungsregeln Ihrer Zieluniversität, da die Vorgaben je nach Universität variieren. Planen Sie in Ihren Zeitplan drei Wochen Puffer ein.
 
 ## Schritt 5: Verfolgen und Nachfassen
 

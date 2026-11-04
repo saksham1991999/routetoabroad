@@ -39,7 +39,7 @@ Bolsas mudam a conta: uma concessão integral da CSC zera mensalidade, dormitór
 
 ## O roteiro mês a mês (ingresso em setembro)
 
-- **Jun–Set:** liste programas; NEET (MBBS); teste de inglês se necessário
+- **Jun–Set (ano anterior):** liste programas; NEET (MBBS — prova realizada no ano anterior ao ingresso); teste de inglês se necessário
 - **Out–Dez:** preparação de documentos, plano de estudos, e-mails a orientadores (pesquisa)
 - **Jan–Mar:** candidaturas + janelas de bolsas CSC/provinciais
 - **Abr–Mai:** ofertas chegam; aceite e pague o depósito apenas em conta da universidade
@@ -49,7 +49,7 @@ Bolsas mudam a conta: uma concessão integral da CSC zera mensalidade, dormitór
 
 ## As cinco decisões que mais importam
 
-1. **Status de acreditação da universidade** (lista do MOE) acima da estética dos rankings
+1. **Status de acreditação da universidade** (lista do MOE para MBBS em inglês; acreditação/reconhecimento próprios do programa para engenharia e negócios) acima da estética dos rankings
 2. **Tamanho da cidade** — cidades de 2ª linha custam 30–40% menos para viver
 3. **Estratégia de bolsas** — três candidaturas vencem uma
 4. **Plano de idioma** — cronograma de HSK desde o primeiro semestre
