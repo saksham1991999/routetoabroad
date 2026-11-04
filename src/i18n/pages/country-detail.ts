@@ -113,4 +113,68 @@ export const COUNTRY_DETAIL: Record<Locale, CountryDetailStrings> = {
       title: 'Respuestas directas',
     },
   },
+
+  de: {
+    metaTitleTemplate: '{name} — Studien- & Reiseführer',
+    eyebrows: {
+      study: 'Studium',
+      travel: 'Reisen',
+    },
+    links: {
+      education: 'Bildungsservices',
+      tourism: 'Tourismusservices',
+    },
+    faq: {
+      eyebrow: 'Land-FAQ',
+      title: 'Geradeheraus Antworten',
+    },
+  },
+
+  ja: {
+    metaTitleTemplate: '{name} — 留学＆旅行ガイド',
+    eyebrows: {
+      study: '留学',
+      travel: '旅行',
+    },
+    links: {
+      education: '教育サービス',
+      tourism: '観光サービス',
+    },
+    faq: {
+      eyebrow: '国の FAQ',
+      title: '率直な回答',
+    },
+  },
+
+  pt: {
+    metaTitleTemplate: '{name} — Guia de estudos e viagem',
+    eyebrows: {
+      study: 'Estudos',
+      travel: 'Viagem',
+    },
+    links: {
+      education: 'Serviços de educação',
+      tourism: 'Serviços de turismo',
+    },
+    faq: {
+      eyebrow: 'FAQ do país',
+      title: 'Respostas diretas',
+    },
+  },
+
+  hi: {
+    metaTitleTemplate: '{name} — पढ़ाई और यात्रा गाइड',
+    eyebrows: {
+      study: 'पढ़ाई',
+      travel: 'यात्रा',
+    },
+    links: {
+      education: 'शिक्षा सेवाएँ',
+      tourism: 'पर्यटन सेवाएँ',
+    },
+    faq: {
+      eyebrow: 'देश FAQ',
+      title: 'सीधे जवाब',
+    },
+  },
 };

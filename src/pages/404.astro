@@ -34,8 +34,10 @@ import { NOT_FOUND } from '../i18n/pages/not-found';
   <script is:inline>
     // Apply the copy for the requested URL's locale prefix (the 404 is one
     // static page for every missing URL, so the locale is runtime knowledge).
+    // Inline JS — cannot import from i18n.ts; the alternation below must
+    // mirror src/lib/i18n.ts LOCALES (minus 'en').
     (function () {
-      var m = location.pathname.match(/^\/(zh|fr|ar|es)(?=\/|$)/);
+      var m = location.pathname.match(/^\/(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/);
       if (!m) return;
       var packEl = document.querySelector('[data-404]');
       if (!packEl) return;
@@ -49,7 +51,7 @@ import { NOT_FOUND } from '../i18n/pages/not-found';
       if (!t) return;
       var p = '/' + m[1];
       document.documentElement.lang = m[1];
-      document.documentElement.dir = m[1] === 'ar' ? 'rtl' : 'ltr';
+      document.documentElement.dir = ['ar'].includes(m[1]) ? 'rtl' : 'ltr';
       document.title = t.title;
       var set = function (sel, key) {
         var el = document.querySelector(sel);

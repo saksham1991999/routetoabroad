@@ -142,4 +142,96 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
     },
     card: { estLabel: 'fundada en' },
   },
+
+  de: {
+    meta: {
+      title: 'Chinesische Universitätsprofile für internationale Studierende',
+      description:
+        'Ehrliche Profile der Universitäten, an die wir vermitteln: Peking, Tsinghua, Fudan, Zhejiang und Shanghai Jiao Tong — Studiengänge, echte Kosten, Zulassungsrealität und FAQs.',
+    },
+    crumb: 'Universitäten',
+    hero: {
+      eyebrow: 'Universitäten',
+      index: 'UNI / 08',
+      title: 'Die fünf, an die wir am häufigsten vermitteln.',
+      lede: 'Kein Rankings-Spiegel — Arbeitsprofile mit echten Gebührensbandbreiten, Zulassungsrealität und dem, was jeder Campus wirklich ist.',
+      facts: [
+        { label: 'Profile', value: '05 Universitäten' },
+        { label: 'Städte', value: 'Peking · Shanghai · Hangzhou' },
+        { label: 'Status', value: 'MOE-gelistet' },
+        { label: 'Gebühren', value: 'Echte Bandbreiten' },
+      ],
+      action: 'Shortlist erhalten',
+    },
+    card: { estLabel: 'gegr.' },
+  },
+
+  ja: {
+    meta: {
+      title: '外国人学生のための中国大学プロフィール',
+      description:
+        '進学先としている大学の率直なプロフィール：北京大学、清華大学、復旦大学、浙江大学、上海交通大学 — プログラム、実際の費用、入学の現実、FAQ。',
+    },
+    crumb: '大学',
+    hero: {
+      eyebrow: '大学',
+      index: 'UNI / 08',
+      title: '最も多く送り出す五校。',
+      lede: 'ランキングのコピーではありません — 実際の学費レンジ、入学の現実、そして各キャンパスの実像を伝える実務的なプロフィールです。',
+      facts: [
+        { label: 'プロフィール', value: '05 大学' },
+        { label: '都市', value: '北京 · 上海 · 杭州' },
+        { label: '認可', value: '教育部リスト掲載' },
+        { label: '学費', value: '実際のレンジ' },
+      ],
+      action: '候補リストを受け取る',
+    },
+    card: { estLabel: '設立' },
+  },
+
+  pt: {
+    meta: {
+      title: 'Perfis de universidades chinesas para estudantes internacionais',
+      description:
+        'Perfis honestos das universidades para onde colocamos: Pequim, Tsinghua, Fudan, Zhejiang e Shanghai Jiao Tong — programas, custos reais, realidade de admissão e FAQs.',
+    },
+    crumb: 'Universidades',
+    hero: {
+      eyebrow: 'Universidades',
+      index: 'UNI / 08',
+      title: 'As cinco para onde mais colocamos.',
+      lede: 'Não um espelho de rankings — perfis de trabalho com faixas reais de mensalidade, realidade de admissão e como cada campus realmente é.',
+      facts: [
+        { label: 'Perfis', value: '05 universidades' },
+        { label: 'Cidades', value: 'Pequim · Xangai · Hangzhou' },
+        { label: 'Status', value: 'Listadas pelo MOE' },
+        { label: 'Mensalidades', value: 'Faixas reais' },
+      ],
+      action: 'Receber uma lista curta',
+    },
+    card: { estLabel: 'fundada em' },
+  },
+
+  hi: {
+    meta: {
+      title: 'अंतरराष्ट्रीय विद्यार्थियों के लिए चीनी विश्वविद्यालय प्रोफ़ाइल',
+      description:
+        'जिन विश्वविद्यालयों में हम प्रवेश दिलाते हैं, उनकी ईमानदार प्रोफ़ाइल: पेकिंग, त्सिंघुआ, फ़ुदान, झेजियांग और शंघाई जियाओ टोंग — प्रोग्राम, वास्तविक लागत, प्रवेश की सच्चाई और FAQ।',
+    },
+    crumb: 'विश्वविद्यालय',
+    hero: {
+      eyebrow: 'विश्वविद्यालय',
+      index: 'UNI / 08',
+      title: 'वे पाँच जहाँ हम सबसे अधिक भेजते हैं।',
+      lede: 'रैंकिंग का प्रतिबिंब नहीं — काम की प्रोफ़ाइलें: वास्तविक फ़ीस रेंज, प्रवेश की सच्चाई और हर परिसर असल में कैसा है।',
+      facts: [
+        { label: 'प्रोफ़ाइल', value: '05 विश्वविद्यालय' },
+        { label: 'शहर', value: 'बीजिंग · शंघाई · हांगझोऊ' },
+        { label: 'स्थिति', value: 'MOE सूचीबद्ध' },
+        { label: 'फ़ीस', value: 'वास्तविक रेंज' },
+      ],
+      action: 'शॉर्टलिस्ट पाएँ',
+    },
+    card: { estLabel: 'स्थापित' },
+  },
 };

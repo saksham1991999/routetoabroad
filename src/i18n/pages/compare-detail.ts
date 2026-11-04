@@ -210,4 +210,132 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
       },
     },
   },
+
+  de: {
+    crumb: 'Vergleichen',
+    eyebrow: {
+      comparison: 'Vergleich',
+      updated: 'aktualisiert',
+    },
+    qaLabel: 'Kurze Antwort',
+    table: {
+      factorHeader: 'Faktor',
+      aria: 'Vergleichstabelle',
+    },
+    verdict: {
+      eyebrow: 'Das Urteil',
+      aria: 'Urteil',
+    },
+    faqs: {
+      heading: 'Vergleich-FAQs',
+      aria: 'FAQs',
+    },
+    related: {
+      label: 'Nächste Schritte',
+      education: {
+        fitCheck: 'Eignungscheck durchführen',
+        roadmap: 'Roadmap lesen',
+      },
+      trade: {
+        sourcingGuide: 'Beschaffungsleitfaden lesen',
+        tradeDesk: 'Mit dem Trade-Desk sprechen',
+      },
+    },
+  },
+
+  ja: {
+    crumb: '比較',
+    eyebrow: {
+      comparison: '比較',
+      updated: '更新',
+    },
+    qaLabel: '簡単に言うと',
+    table: {
+      factorHeader: '項目',
+      aria: '比較表',
+    },
+    verdict: {
+      eyebrow: '結論',
+      aria: '結論',
+    },
+    faqs: {
+      heading: '比較に関する FAQ',
+      aria: 'FAQ',
+    },
+    related: {
+      label: '次のステップ',
+      education: {
+        fitCheck: 'マッチング診断をする',
+        roadmap: 'ロードマップを読む',
+      },
+      trade: {
+        sourcingGuide: '調達ガイドを読む',
+        tradeDesk: '貿易デスクに相談する',
+      },
+    },
+  },
+
+  pt: {
+    crumb: 'Comparar',
+    eyebrow: {
+      comparison: 'Comparação',
+      updated: 'atualizado em',
+    },
+    qaLabel: 'Resposta curta',
+    table: {
+      factorHeader: 'Fator',
+      aria: 'Tabela comparativa',
+    },
+    verdict: {
+      eyebrow: 'O veredito',
+      aria: 'Veredito',
+    },
+    faqs: {
+      heading: 'FAQs da comparação',
+      aria: 'FAQs',
+    },
+    related: {
+      label: 'Próximos passos',
+      education: {
+        fitCheck: 'Fazer a avaliação de perfil',
+        roadmap: 'Ler o roteiro',
+      },
+      trade: {
+        sourcingGuide: 'Ler o guia de suprimentos',
+        tradeDesk: 'Falar com a mesa de comércio',
+      },
+    },
+  },
+
+  hi: {
+    crumb: 'तुलना',
+    eyebrow: {
+      comparison: 'तुलना',
+      updated: 'अपडेट',
+    },
+    qaLabel: 'संक्षिप्त उत्तर',
+    table: {
+      factorHeader: 'पहलू',
+      aria: 'तुलना तालिका',
+    },
+    verdict: {
+      eyebrow: 'अंतिम निर्णय',
+      aria: 'निर्णय',
+    },
+    faqs: {
+      heading: 'तुलना से जुड़े सामान्य प्रश्न',
+      aria: 'सामान्य प्रश्न',
+    },
+    related: {
+      label: 'अगले क़दम',
+      education: {
+        fitCheck: 'फ़िट जाँच करें',
+        roadmap: 'रोडमैप पढ़ें',
+      },
+      trade: {
+        sourcingGuide: 'सोर्सिंग गाइड पढ़ें',
+        tradeDesk: 'व्यापार डेस्क से बात करें',
+      },
+    },
+  },
 };

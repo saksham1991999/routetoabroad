@@ -426,4 +426,296 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
     },
     portal: 'Portal de agentes: próximamente',
   },
+
+  de: {
+    meta: {
+      title: 'Für Agenturen — Ihr China-Desk, weiß gelabelt',
+      description:
+        'Beraten Sie bereits Studierende in den GCC-Ländern, Afrika oder Indien? RouteToAbroad ist der China-Desk hinter Ihnen: Co-Branding-Seiten, transparente Aktenstände, ehrliche Stipendien-Kommunikation.',
+    },
+    crumb: 'Für Agenturen',
+    hero: {
+      eyebrow: 'Für Agenturen',
+      title: 'Behalten Sie Ihre Studierenden. Wir übernehmen China.',
+      lede: 'Wenn Sie bereits in den GCC-Ländern, Afrika, Indien oder einer anderen Region beraten, ist RouteToAbroad der China-Desk hinter Ihrem Schreibtisch — co-gebrandet, transparent und ehrlich darüber, was wir können und was nicht.',
+    },
+    get: {
+      title: 'Was Sie erhalten',
+      items: [
+        {
+          title: 'Co-gebrandete Materialien',
+          text: 'Seiten und Angebotsdokumente mit Ihrem Namen und Ihrer Nummer — Ihr Kunde bleibt Ihr Kunde.',
+        },
+        {
+          title: 'Aktenstände, die Sie weitergeben können',
+          text: 'Bewerbungs-, JW202- und Visa-Meilensteine für Sie sichtbar — ohne uns über Zeitzonen hinweg jagen zu müssen.',
+        },
+        {
+          title: 'Stipendien-Ehrlichkeit',
+          text: 'Wir sagen Ihrem Studierenden, was real ist, bevor Sie es müssen. Keine erfundenen Auszeichnungen, die Sie später verteidigen müssen.',
+        },
+        {
+          title: 'Ankunftssupport vor Ort',
+          text: 'Flughafen, Wohnheim, Aufenthaltserlaubnis, SIM, Bank — von unserem China-Team erledigt und in Ihrem Service sichtbar.',
+        },
+      ],
+    },
+    send: {
+      title: 'Was Sie senden',
+      items: [
+        'Studierendenprofil: Qualifikation, Noten, Fachrichtung, angestrebter Studienbeginn',
+        'Gescannter Reisepass und Zeugnisse, sobald bereit',
+        'Budgetobergrenze und Stipendienerwartungen, klar benannt',
+        'Eine unterschriebene Kooperationsnotiz — keine Exklusivitätsfallen',
+      ],
+    },
+    avoid: {
+      title: 'Was Sie nicht tun müssen',
+      items: [
+        'Jede Provinzregel oder JW202-Zeitleiste lernen',
+        'Universitäten versprechen, die Sie nicht benennen können',
+        'Eine Akte einreichen, die wir nicht vorselektiert haben',
+        'Ein Stipendienergebnis erklären, das Sie nicht erstellt haben',
+      ],
+    },
+    never: {
+      title: 'Was wir nicht tun',
+      items: [
+        'Eine Sprachanforderung verbergen, um eine Akte abzuschließen',
+        'Ein Stipendienergebnis erfinden',
+        'Tourismus oder Handel am Rand Ihres Angebotsbriefs betreiben',
+        'Ihre Studierenden hinter Ihrem Rücken bewerben',
+      ],
+    },
+    note: {
+      eyebrow: 'Für wen das gedacht ist',
+      text: 'Berater und Auslandsstudien-Büros mit Studierenden, die nach China wollen — besonders in den GCC-Ländern und Afrika, wo unser Partnernetzwerk aktiv und im Wachstum ist. Ein India-Desk entsteht gerade.',
+    },
+    cta: {
+      title: 'Partnerschaft beantragen',
+      text: 'Senden Sie den Namen Ihres Büros, Ihre Region und Ihr ungefähres Jahresvolumen an Studierenden. Wir antworten mit einer Partnerschaftsnotiz und einer Arbeitssitzung — in der Regel innerhalb von zwei Werktagen.',
+      email: 'E-Mail an das Partnerschafts-Desk',
+      whatsapp: 'WhatsApp {phone}',
+    },
+    portal: 'Agenturportal: kommt bald',
+  },
+
+  ja: {
+    meta: {
+      title: 'エージェント向け — あなたの中国デスクをホワイトラベルで',
+      description:
+        'GCC 諸国、アフリカ、インドですでに学生カウンセリングをしていますか？RouteToAbroad はあなたの背後にある中国デスクです：共同ブランドページ、透明な案件状況、誠実な奨学金コミュニケーション。',
+    },
+    crumb: 'エージェント向け',
+    hero: {
+      eyebrow: 'エージェント向け',
+      title: '学生はあなたに。中国は私たちが担当します。',
+      lede: 'GCC 諸国、アフリカ、インド、その他の地域ですでにカウンセリングをされているなら、RouteToAbroad はあなたの机の背後にある中国デスクです — 共同ブランド、透明性、そして私たちにできること・できないことの誠実な説明。',
+    },
+    get: {
+      title: '得られるもの',
+      items: [
+        {
+          title: '共同ブランドの資料',
+          text: 'あなたの名前と連絡先が入ったページとオファー書類 — お客様はあなたのままです。',
+        },
+        {
+          title: '報告できる案件状況',
+          text: '出願、JW202、ビザの進捗がいつでも確認でき、時差を越えて私たちを追いかける必要はありません。',
+        },
+        {
+          title: '奨学金への誠実さ',
+          text: 'あなたが説明する前に、私たちが学生に真実を伝えます。後で弁明することになる架空の受賞はありません。',
+        },
+        {
+          title: '現地での到着サポート',
+          text: '空港、寮、居留許可、SIM、銀行口座 — 中国チームが担当し、あなたのサービスとして提供できます。',
+        },
+      ],
+    },
+    send: {
+      title: 'ご提供いただくもの',
+      items: [
+        '学生プロフィール：学歴、成績、専攻、希望入学時期',
+        '準備ができたらパスポートと成績証明書のスキャン',
+        '予算上限と奨学金への期待を明確に',
+        '署名済みの協力覚書 1 通 — 排他条項の罠はありません',
+      ],
+    },
+    avoid: {
+      title: 'やらなくてよいこと',
+      items: [
+        '各省の規則や JW202 のスケジュールをすべて覚える',
+        '名前を挙げられない大学への約束',
+        '私たちが候補に上げていない学生の出願',
+        '自分が作っていない奨学金の結果の説明',
+      ],
+    },
+    never: {
+      title: '私たちがしないこと',
+      items: [
+        '案件成立のために言語要件を隠す',
+        '奨学金の結果を捏造する',
+        'あなたのオファーレターの裏で旅行や貿易を営む',
+        'あなたに内緒であなたの学生にマーケティングする',
+      ],
+    },
+    note: {
+      eyebrow: 'どんな方のためか',
+      text: '中国を志望する学生を持つカウンセラーと海外留学オフィス — 特に GCC 諸国とアフリカ。私たちのパートナーネットワークが活発に拡大している地域です。インドデスクは現在準備中です。',
+    },
+    cta: {
+      title: 'パートナーに応募',
+      text: 'オフィス名、地域、おおよその年間学生数をお送りください。提携のご案内と作業セッションのご連絡 — 通常 2 営業日以内にお返しします。',
+      email: '提携デスクにメールする',
+      whatsapp: 'WhatsApp {phone}',
+    },
+    portal: 'エージェントポータル：近日公開',
+  },
+
+  pt: {
+    meta: {
+      title: 'Para agentes — Sua mesa da China, com marca branca',
+      description:
+        'Já orienta estudantes no GCC, na África ou na Índia? A RouteToAbroad é a mesa da China por trás de você: páginas co-brandadas, status de processos transparente e comunicação honesta sobre bolsas.',
+    },
+    crumb: 'Para agentes',
+    hero: {
+      eyebrow: 'Para agentes',
+      title: 'Fique com seus estudantes. A China é conosco.',
+      lede: 'Se você já orienta no GCC, na África, na Índia ou em outra região, a RouteToAbroad é a mesa da China por trás da sua mesa — co-brandada, transparente e honesta sobre o que podemos e não podemos fazer.',
+    },
+    get: {
+      title: 'O que você recebe',
+      items: [
+        {
+          title: 'Materiais co-brandados',
+          text: 'Páginas e documentos de oferta com o seu nome e o seu número — seu cliente continua sendo seu.',
+        },
+        {
+          title: 'Status de processos que você pode repetir',
+          text: 'Marcos de candidatura, JW202 e visto visíveis para você, sem nos perseguir entre fusos horários.',
+        },
+        {
+          title: 'Honestidade com bolsas',
+          text: 'Dizemos ao seu estudante o que é real antes de você precisar. Nenhum prêmio inventado para defender depois.',
+        },
+        {
+          title: 'Suporte de chegada no local',
+          text: 'Aeroporto, residência, autorização de estadia, SIM, banco — resolvidos pela nossa equipe na China e refletidos no seu serviço.',
+        },
+      ],
+    },
+    send: {
+      title: 'O que você envia',
+      items: [
+        'Perfil do estudante: formação, notas, área, ingresso pretendido',
+        'Passaporte e históricos escaneados, quando prontos',
+        'Teto de orçamento e expectativas de bolsa, declarados com clareza',
+        'Uma nota de cooperação assinada — sem armadilhas de exclusividade',
+      ],
+    },
+    avoid: {
+      title: 'O que você não precisa fazer',
+      items: [
+        'Aprender cada regra provincial ou cada cronograma do JW202',
+        'Prometer universidades que não consegue nomear',
+        'Protocolar o processo de um estudante que não preselecionamos',
+        'Explicar um resultado de bolsa que você não criou',
+      ],
+    },
+    never: {
+      title: 'O que não faremos',
+      items: [
+        'Esconder um requisito de idioma para fechar um processo',
+        'Inventar um resultado de bolsa',
+        'Operar turismo ou comércio à margem da sua carta de oferta',
+        'Fazer marketing para os seus estudantes pelas suas costas',
+      ],
+    },
+    note: {
+      eyebrow: 'Para quem é',
+      text: 'Orientadores e escritórios de intercâmbio com estudantes que querem a China — especialmente no GCC e na África, onde nossa rede de parceiros está ativa e crescendo. Uma mesa da Índia está sendo construída.',
+    },
+    cta: {
+      title: 'Candidate-se à parceria',
+      text: 'Envie o nome do seu escritório, região e volume anual aproximado de estudantes. Respondemos com uma nota de parceria e uma sessão de trabalho — geralmente em até dois dias úteis.',
+      email: 'Escreva à mesa de parcerias',
+      whatsapp: 'WhatsApp {phone}',
+    },
+    portal: 'Portal do agente: em breve',
+  },
+
+  hi: {
+    meta: {
+      title: 'एजेंटों के लिए — आपका चाइना डेस्क, व्हाइट-लेबल',
+      description:
+        'GCC, अफ़्रीका या भारत में पहले से विद्यार्थियों को काउंसलिंग दे रहे हैं? RouteToAbroad आपके पीछे का चाइना डेस्क है: सह-ब्रांडेड पृष्ठ, पारदर्शी फ़ाइल स्थिति, ईमानदार छात्रवृत्ति संवाद।',
+    },
+    crumb: 'एजेंटों के लिए',
+    hero: {
+      eyebrow: 'एजेंटों के लिए',
+      title: 'विद्यार्थी आपके पास रहें। चीन हम सँभालें।',
+      lede: 'अगर आप GCC, अफ़्रीका, भारत या किसी अन्य क्षेत्र में पहले से काउंसलिंग करते हैं, तो RouteToAbroad आपकी मेज़ के पीछे का चाइना डेस्क है — सह-ब्रांडेड, पारदर्शी, और ईमानदारी से बताते हैं कि हम क्या कर सकते हैं और क्या नहीं।',
+    },
+    get: {
+      title: 'आपको क्या मिलता है',
+      items: [
+        {
+          title: 'सह-ब्रांडेड सामग्री',
+          text: 'आपके नाम और नंबर वाले पृष्ठ और ऑफ़र दस्तावेज़ — आपका ग्राहक आपका ही रहेगा।',
+        },
+        {
+          title: 'दोहराने योग्य फ़ाइल स्थिति',
+          text: 'आवेदन, JW202 और वीज़ा के पड़ाव आपको दिखते हैं — समय-क्षेत्रों के पार हमें खोजते नहीं फिरना पड़ता।',
+        },
+        {
+          title: 'छात्रवृत्ति में ईमानदारी',
+          text: 'ज़रूरत पड़ने से पहले हम आपके विद्यार्थी को सच बता देते हैं। बाद में बचाव के लिए कोई गढ़ा हुआ परिणाम नहीं।',
+        },
+        {
+          title: 'मौक़े पर आगमन सहायता',
+          text: 'एयरपोर्ट, हॉस्टल, रेसिडेंस परमिट, SIM, बैंक — हमारी चीन टीम सँभालती है, और यह आपकी सेवा में दिखता है।',
+        },
+      ],
+    },
+    send: {
+      title: 'आप क्या भेजें',
+      items: [
+        'विद्यार्थी प्रोफ़ाइल: योग्यता, अंक, विषय, लक्षित प्रवेश सत्र',
+        'तैयार होने पर पासपोर्ट और मार्कशीट की स्कैन प्रतियाँ',
+        'बजट सीमा और छात्रवृत्ति अपेक्षाएँ, साफ़ शब्दों में',
+        'एक हस्ताक्षरित सहयोग पत्र — कोई विशेषाधिकार-जाल नहीं',
+      ],
+    },
+    avoid: {
+      title: 'आपको करने की ज़रूरत नहीं',
+      items: [
+        'हर प्रांतीय नियम या JW202 समय-रेखा सीखना',
+        'उन विश्वविद्यालयों का वादा करना जिनके नाम आप नहीं बता सकते',
+        'ऐसे विद्यार्थी की फ़ाइल भेजना जिसे हमने शॉर्टलिस्ट नहीं किया',
+        'कोई ऐसी छात्रवृत्ति परिणाम समझाना जो आपने बनाया नहीं',
+      ],
+    },
+    never: {
+      title: 'हम क्या नहीं करेंगे',
+      items: [
+        'फ़ाइल बंद करने के लिए भाषा आवश्यकता छिपाना',
+        'छात्रवृत्ति परिणाम गढ़ना',
+        'आपके ऑफ़र लेटर के साथ-साथ पर्यटन या व्यापार चलाना',
+        'आपकी पीठ पीछे आपके विद्यार्थियों को मार्केटिंग करना',
+      ],
+    },
+    note: {
+      eyebrow: 'यह किसके लिए है',
+      text: 'ऐसे काउंसलर और स्टडी-अब्रॉड कार्यालय जिनके विद्यार्थी चीन जाना चाहते हैं — विशेष रूप से GCC और अफ़्रीका, जहाँ हमारा साझेदार नेटवर्क सक्रिय और बढ़ता हुआ है। इंडिया डेस्क अभी तैयार हो रहा है।',
+    },
+    cta: {
+      title: 'साझेदारी के लिए आवेदन करें',
+      text: 'अपने कार्यालय का नाम, क्षेत्र और अनुमानित वार्षिक विद्यार्थी संख्या भेजें। हम साझेदारी पत्र और एक कार्य सत्र के साथ उत्तर देते हैं — आमतौर पर दो व्यावसायिक दिनों में।',
+      email: 'साझेदारी डेस्क को ईमेल करें',
+      whatsapp: 'WhatsApp {phone}',
+    },
+    portal: 'एजेंट पोर्टल: जल्द आ रहा है',
+  },
 };

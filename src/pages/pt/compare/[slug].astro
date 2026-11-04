@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared CompareDetailPage component, slugs in src/lib/static-paths.ts.
+import CompareDetailPage from '../../../components/pages/CompareDetailPage.astro';
+import { comparePaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return comparePaths();
+}
+
+const { c } = Astro.props;
+---
+
+<CompareDetailPage locale="pt" c={c} />

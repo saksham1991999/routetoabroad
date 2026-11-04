@@ -328,4 +328,235 @@ export const TERMS: Record<Locale, TermsStrings> = {
       },
     },
   },
+
+  de: {
+    meta: {
+      title: 'Nutzungsbedingungen',
+      description:
+        'Die ehrlichen Haftungsausschlüsse hinter den Services von RouteToAbroad: Was wir garantieren (Prozess, Einsatz, Ehrlichkeit) und was wir nicht können (Zulassungen, Stipendien, Visa, Anerkennung).',
+    },
+    hero: {
+      eyebrow: 'Rechtliches',
+      title: 'Nutzungsbedingungen',
+      lede: 'Die ehrlichen Haftungsausschlüsse, die auf der Website jeder Beratung stehen sollten — auf unserer stehen sie wirklich.',
+    },
+    updated: 'Zuletzt aktualisiert: November 2025',
+    sections: {
+      services: {
+        h: '1. Leistungen',
+        p: 'RouteToAbroad bietet zwischen Indien und Ostasien: Studienvermittlung (Zulassungen, Stipendienbewerbungen, Visavorbereitung und Ankunftssupport), Reisedesign (private, Gruppen- und Geschäftsreisen durch China und Japan) und Handelsdienstleistungen (Beschaffung, Qualitätskontrolle, Konformität und Logistik).',
+      },
+      noGuarantee: {
+        h: '2. Was wir nicht garantieren',
+        items: [
+          { strong: 'Zulassung.', text: ' Über Zulassungen entscheiden die Universitäten. Wir bereiten Akten vor, die Ihnen die beste ehrliche Chance geben; Ergebnisse können wir nicht erkaufen.' },
+          { strong: 'Stipendien.', text: ' Über die Förderung entscheiden Stipendienkommissionen. Wir verkaufen keine garantierten Vollstipendien — und keine seriöse Beratung kann es.' },
+          { strong: 'Visa.', text: ' Über Visa entscheiden die Botschaften. Wir stellen sicher, dass Ihre Akte vollständig und korrekt ist; eine Ablehnung wegen Falschangaben oder Politikwechsel liegt außerhalb jeder Kontrolle.' },
+          { strong: 'Anerkennung.', text: ' Zulassungsstellen (NMC/FMGE-NExT, PMDC, ECFMG u. a.) setzen eigene Regeln fest, die sich ändern. Prüfen Sie die aktuellen Anforderungen Ihres Landes, bevor Sie sich festlegen.' },
+        ],
+      },
+      obligations: {
+        h: '3. Ihre Pflichten',
+        pre: 'Sie erklären sich bereit, wahrheitsgemäße und vollständige Unterlagen einzureichen. ',
+        strong: 'Ein gefälschtes oder verändertes Dokument beendet die Bewerbung sofort',
+        post: ' — und unsere Zusammenarbeit — ohne Erstattung bereits erbrachter Leistungen, denn es gefährdet auch jede ehrliche Akte in seiner Umgebung.',
+      },
+      fees: {
+        h: '4. Honorare und Zahlungen',
+        p: 'Bildungsaufträge: Angebot pro Leistung vor Arbeitsbeginn. Handelsaufträge: Erfolgsprovision an den versandten Warenwert gekoppelt, mit vorab zitierten und zahlbaren Audit-/Inspektionskosten. Tourismus: Anzahlung und Restbetrag gemäß Ihrer Buchungsbestätigung. Studiengebühren und Drittanbieter-Gebühren (Botschaften, Prüfungsstellen, Versicherer) zahlen Sie stets an die jeweilige Institution — nie auf private Konten.',
+      },
+      cancellations: {
+        h: '5. Stornierungen',
+        p: 'Tourismusbuchungen: vollständige Erstattung bis 30 Tage vor Abreise; innerhalb der 30 Tage werden alle bei Lieferanten wiedereintreibbaren Beträge mit Belegen erstattet. Bildungs- und Handelsaufträge: jederzeit kündbar; Honorare für abgeschlossene Arbeitsphasen bleiben geschuldet.',
+      },
+      tools: {
+        h: '6. Tool-Ergebnisse',
+        p: 'Rechner, Eignungschecks und Checklisten auf dieser Website sind Schätz- und Orientierungshilfen auf Grundlage unserer Vermittlungsdaten. Sie sind keine Angebote, Urteile oder professionelle Beratung. Ihr Zulassungsbrief und die offiziellen Gebührenverzeichnisse sind die echten Zahlen.',
+      },
+      liability: {
+        h: '7. Haftung',
+        p: 'Unsere Haftung für jegliche Ansprüche ist auf die Honorare begrenzt, die Sie uns für die anspruchsauslösende Leistung gezahlt haben. Wir haften nicht für indirekte Verluste (entgangene Gewinne, durch Verzögerungen Dritter verpasste Studienbeginne und Ähnliches).',
+      },
+      law: {
+        h: '8. Anwendbares Recht',
+        p: 'Diese Bedingungen unterliegen indischem Recht; Gerichtsstand ist Neu-Delhi.',
+      },
+      contact: {
+        h: '9. Kontakt',
+      },
+    },
+  },
+
+  ja: {
+    meta: {
+      title: '利用規約',
+      description: 'RouteToAbroad のサービスの背後にある率直な免責事項：保証できること（プロセス、努力、誠実さ）と保証できないこと（入学、奨学金、ビザ、認可）。',
+    },
+    hero: {
+      eyebrow: '法的事項',
+      title: '利用規約',
+      lede: 'どのコンサルティング会社のサイトにも載っているべき、率直な免責事項 — 当社のサイトには、実際に載っています。',
+    },
+    updated: '最終更新：2025 年 11 月',
+    sections: {
+      services: {
+        h: '1. サービス',
+        p: 'RouteToAbroad は、インドと東アジアの間で次のサービスを提供します：進学サポート（入学手配、奨学金出願、ビザ準備、到着後サポート）、旅行企画（中国・日本への個人・グループ・ビジネス旅行）、貿易サービス（調達、品質管理、コンプライアンス、ロジスティクス）。',
+      },
+      noGuarantee: {
+        h: '2. 保証できないこと',
+        items: [
+          { strong: '入学。', text: ' 入学を決めるのは大学です。誠実な最善の可能性を引き出す書類づくりを行いますが、結果を買うことはできません。' },
+          { strong: '奨学金。', text: ' 支給を決めるのは奨学金委員会です。当社は「全額保証の奨学金」を販売しません。まともなコンサルティング会社はどこもできません。' },
+          { strong: 'ビザ。', text: ' ビザを決めるのは大使館です。書類が完全で正確であることは担保しますが、虚偽申告や政策変更による不許可は誰にも制御できません。' },
+          { strong: '資格認定。', text: ' ライセンス機関（NMC/FMGE-NExT、PMDC、ECFMG など）はそれぞれの規則を定めており、変更されます。進路決定の前に、お住まいの国の最新要件をご確認ください。' },
+        ],
+      },
+      obligations: {
+        h: '3. お客様の義務',
+        pre: '真実かつ完全な書類をご提供いただくことに同意いただきます。',
+        strong: '偽造または改ざんされた書類は、出願を直ちに終わらせます',
+        post: ' — そして当社との契約も — すでに完了した作業の返金はありません。偽の書類は、その周囲のすべての誠実な書類をも危険にさらすためです。',
+      },
+      fees: {
+        h: '4. 費用と支払い',
+        p: '進学サービス：作業開始前にサービスごとに見積もり。貿易サービス：出荷額に連動する成功報酬で、監査・検品費用は事前に見積もり、前払い。旅行：予約確認書に従い手付金と残金を。大学の学費と第三者の手数料（大使館、試験機関、保険会社）は必ず当該機関にお支払いいただき — 個人口座への送金は一切ありません。',
+      },
+      cancellations: {
+        h: '5. キャンセル',
+        p: '旅行予約：出発 30 日前までは全額返金。30 日以内の場合も、サプライヤーから回収可能な額を領収書とともに全額返金します。進学・貿易サービス：いつでもキャンセル可能。完了済み作業段階の費用はお支払いいただきます。',
+      },
+      tools: {
+        h: '6. ツールの出力',
+        p: '本サイトの計算ツール、マッチング診断、チェックリストは、当社の進学実績に基づく見積もり・案内のための補助具です。オファーでも判定でも専門助言でもありません。オファーレターと公式の学費表が、本当の数字です。',
+      },
+      liability: {
+        h: '7. 責任',
+        p: 'いかなる請求に対する当社の責任も、その請求の原因となったサービスについてお支払いいただいた費用の範囲内に限られます。間接損失（逸失利益、第三者の遅延による入学時期の逸失など）については責任を負いません。',
+      },
+      law: {
+        h: '8. 準拠法',
+        p: '本規約はインド法に準拠し、管轄はニューデリーとします。',
+      },
+      contact: {
+        h: '9. お問い合わせ',
+      },
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Termos de Serviço',
+      description:
+        'Os avisos honestos por trás dos serviços da RouteToAbroad: o que garantimos (processo, esforço, honestidade) e o que não podemos (admissões, bolsas, vistos, reconhecimento).',
+    },
+    hero: {
+      eyebrow: 'Jurídico',
+      title: 'Termos de Serviço',
+      lede: 'Os avisos honestos que deveriam estar no site de cada consultoria — no nosso, de fato estão.',
+    },
+    updated: 'Última atualização: novembro de 2025',
+    sections: {
+      services: {
+        h: '1. Serviços',
+        p: 'A RouteToAbroad oferece, entre Índia e Ásia Oriental: colocação educacional (admissões, candidaturas a bolsas, preparação de vistos e apoio na chegada), desenho de viagens (viagens privadas, em grupo e a negócios pela China e pelo Japão) e serviços de comércio (suprimentos, controle de qualidade, conformidade e logística).',
+      },
+      noGuarantee: {
+        h: '2. O que não garantimos',
+        items: [
+          { strong: 'Admissão.', text: ' As universidades decidem as admissões. Preparamos dossiês que dão a você a melhor chance honesta; não podemos comprar resultados.' },
+          { strong: 'Bolsas.', text: ' Os comitês de bolsas decidem o financiamento. Não vendemos bolsas integrais garantidas — e nenhuma consultoria legítima pode.' },
+          { strong: 'Vistos.', text: ' As embaixadas decidem os vistos. Garantimos que o seu dossiê esteja completo e correto; uma recusa por deturpação ou mudança de política está fora do controle de qualquer pessoa.' },
+          { strong: 'Reconhecimento.', text: ' Os órgãos licenciadores (NMC/FMGE-NExT, PMDC, ECFMG e outros) definem as suas próprias regras, que mudam. Verifique os requisitos atuais do seu país antes de se comprometer.' },
+        ],
+      },
+      obligations: {
+        h: '3. As suas obrigações',
+        pre: 'Você concorda em fornecer documentos verdadeiros e completos. ',
+        strong: 'Um documento falso ou alterado encerra a candidatura imediatamente',
+        post: ' — e o nosso contrato — sem reembolso do trabalho já realizado, porque ele também coloca em risco cada dossiê honesto ao redor.',
+      },
+      fees: {
+        h: '4. Honorários e pagamentos',
+        p: 'Contratos educacionais: orçados por serviço antes do início do trabalho. Contratos comerciais: comissão de sucesso vinculada ao valor enviado, com custos de auditoria/inspeção cotados e pagáveis antecipadamente. Turismo: adiantamento e saldo conforme a sua confirmação de reserva. Mensalidades universitárias e tarifas de terceiros (embaixadas, órgãos de exames, seguradoras) são sempre pagas à instituição correspondente — nunca a contas pessoais.',
+      },
+      cancellations: {
+        h: '5. Cancelamentos',
+        p: 'Reservas de turismo: reembolso total até 30 dias antes da partida; dentro dos 30 dias, todos os valores recuperáveis dos fornecedores são reembolsados com recibos. Contratos educacionais e comerciais: canceláveis a qualquer momento; os honorários das etapas de trabalho concluídas permanecem devidos.',
+      },
+      tools: {
+        h: '6. Resultados das ferramentas',
+        p: 'As calculadoras, avaliações de perfil e checklists deste site são auxílios de estimativa e orientação construídos sobre os nossos registros de admissão. Não são ofertas, vereditos nem aconselhamento profissional. A sua carta de oferta e as tabelas oficiais de tarifas são os números reais.',
+      },
+      liability: {
+        h: '7. Responsabilidade',
+        p: 'A nossa responsabilidade por qualquer reclamação é limitada aos honorários que você nos pagou pelo serviço que deu origem à reclamação. Não respondemos por perdas indiretas (lucros perdidos, ingressos perdidos por atrasos de terceiros e similares).',
+      },
+      law: {
+        h: '8. Lei aplicável',
+        p: 'Estes termos são regidos pelas leis da Índia, com jurisdição em Nova Délhi.',
+      },
+      contact: {
+        h: '9. Contato',
+      },
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'सेवा की शर्तें',
+      description:
+        'RouteToAbroad की सेवाओं के पीछे के ईमानदार अस्वीकरण: हम क्या गारंटी करते हैं (प्रक्रिया, प्रयास, ईमानदारी) और क्या नहीं कर सकते (प्रवेश, छात्रवृत्तियाँ, वीज़ा, मान्यता)।',
+    },
+    hero: {
+      eyebrow: 'कानूनी',
+      title: 'सेवा की शर्तें',
+      lede: 'वे ईमानदार अस्वीकरण जो हर कंसल्टेंसी की साइट पर होने चाहिए थे — हमारी साइट पर वे वाक़ई हैं।',
+    },
+    updated: 'अंतिम अपडेट: नवंबर 2025',
+    sections: {
+      services: {
+        h: '1. सेवाएँ',
+        p: 'RouteToAbroad भारत और पूर्वी एशिया के बीच प्रदान करता है: शिक्षा प्लेसमेंट (प्रवेश, छात्रवृत्ति आवेदन, वीज़ा तैयारी और आगमन सहायता), यात्रा डिज़ाइन (चीन और जापान में निजी, समूह और व्यावसायिक यात्राएँ), और व्यापार सेवाएँ (सोर्सिंग, गुणवत्ता नियंत्रण, अनुपालन और लॉजिस्टिक्स)।',
+      },
+      noGuarantee: {
+        h: '2. हम क्या गारंटी नहीं देते',
+        items: [
+          { strong: 'प्रवेश।', text: ' प्रवेश का निर्णय विश्वविद्यालय करते हैं। हम ऐसी फ़ाइलें तैयार करते हैं जो आपको सबसे ईमानदार मौक़ा दें; परिणाम ख़रीद नहीं सकते।' },
+          { strong: 'छात्रवृत्तियाँ।', text: ' वित्तपोषण का निर्णय छात्रवृत्ति समितियाँ करती हैं। हम "गारंटीकृत पूर्ण छात्रवृत्ति" नहीं बेचते — और कोई भी प्रामाणिक कंसल्टेंसी नहीं बेच सकती।' },
+          { strong: 'वीज़ा।', text: ' वीज़ा का निर्णय दूतावास करते हैं। हम यह सुनिश्चित करते हैं कि आपकी फ़ाइल पूर्ण और सही हो; ग़लत बयान या नीति परिवर्तन से हुई अस्वीकृति किसी के वश में नहीं।' },
+          { strong: 'मान्यता।', text: ' लाइसेंसी निकाय (NMC/FMGE-NExT, PMDC, ECFMG आदि) अपने नियम स्वयं बनाते हैं, जो बदलते रहते हैं। प्रतिबद्ध होने से पहले अपने देश की वर्तमान आवश्यकताएँ जाँचें।' },
+        ],
+      },
+      obligations: {
+        h: '3. आपके दायित्व',
+        pre: 'आप सही और पूर्ण दस्तावेज़ देने के लिए सहमत होते हैं।',
+        strong: 'फ़र्ज़ी या बदला हुआ दस्तावेज़ आवेदन को तुरंत समाप्त कर देता है',
+        post: ' — और हमारा अनुबंध भी — पहले हुए काम का रिफ़ंड नहीं मिलता, क्योंकि वह उसके आसपास की हर ईमानदार फ़ाइल को भी ख़तरे में डालता है।',
+      },
+      fees: {
+        h: '4. शुल्क और भुगतान',
+        p: 'शिक्षा अनुबंध: काम शुरू होने से पहले प्रति सेवा बोली। व्यापार अनुबंध: भेजे गए माल के मूल्य से जुड़ी सफलता फ़ीस, ऑडिट/निरीक्षण लागत पहले बताई और अग्रिम देय। पर्यटन: आपकी बुकिंग पुष्टि के अनुसार अग्रिम और शेष। विश्वविद्यालय ट्यूशन और तीसरे पक्ष के शुल्क (दूतावास, परीक्षा निकाय, बीमाकर्ता) हमेशा संबंधित संस्था को — कभी भी व्यक्तिगत खातों को नहीं।',
+      },
+      cancellations: {
+        h: '5. रद्दीकरण',
+        p: 'पर्यटन बुकिंग: प्रस्थान से 30 दिन पहले तक पूरा रिफ़ंड; 30 दिनों के भीतर, आपूर्तिकर्ताओं से वसूल योग्य राशि रसीदों सहित लौटाई जाती है। शिक्षा और व्यापार अनुबंध: कभी भी रद्द किए जा सकते हैं; पूर्ण कार्य-चरणों का शुल्क देय रहेगा।',
+      },
+      tools: {
+        h: '6. टूल आउटपुट',
+        p: 'इस साइट के कैलकुलेटर, फ़िट जाँच और चेकलिस्ट हमारे प्रवेश रिकॉर्ड पर बनी अनुमान और मार्गदर्शन सहायक हैं। ये ऑफ़र, निर्णय या पेशेवर सलाह नहीं हैं। आपका ऑफ़र लेटर और आधिकारिक शुल्क-तालिकाएँ असली आँकड़े हैं।',
+      },
+      liability: {
+        h: '7. दायित्व',
+        p: 'किसी भी दावे के लिए हमारी देयता उस सेवा के शुल्क तक सीमित है जिससे वह दावा उठा। हम अप्रत्यक्ष हानियों के लिए उत्तरदायी नहीं हैं (छूटा मुनाफ़ा, तीसरे पक्ष की देरी से चूका प्रवेश सत्र आदि)।',
+      },
+      law: {
+        h: '8. लागू क़ानून',
+        p: 'ये शर्तें भारत के क़ानूनों के अधीन हैं, क्षेत्राधिकार नई दिल्ली में।',
+      },
+      contact: {
+        h: '9. संपर्क',
+      },
+    },
+  },
 };

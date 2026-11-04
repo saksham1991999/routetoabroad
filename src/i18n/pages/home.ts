@@ -649,4 +649,456 @@ export const HOME: Record<Locale, HomeStrings> = {
       notePost: ' — un asesor real responde.',
     },
   },
+
+  de: {
+    meta: {
+      title: 'RouteToAbroad — In China studieren, Ostasien bereisen, grenzüberschreitend handeln',
+      description:
+        'Wir vermitteln Studierende an chinesische Universitäten, gestalten Reisen durch Ostasien und betreiben Indien–China-Handel. Büros in Neu-Delhi und Guangzhou. Beginnen Sie mit einem kostenlosen Eignungscheck.',
+    },
+    journey: {
+      aria: 'Von überall zum Campus',
+      eyebrow: 'Bildung · Tourismus · Handel',
+      titleLine1: 'Von',
+      titleLine2: 'überall',
+      titleHidden: ' zum Campus.',
+      sub: 'Studium, Reisen und Handel zwischen Indien und Ostasien — geführt von Menschen, die auf beiden Seiten des Korridors leben.',
+      globeAria: 'Punktierte Weltkugel, die die Büros von RouteToAbroad in Delhi und Guangzhou hervorhebt',
+      originLabel: 'Wo wohnen Sie?',
+      originPlaceholder: 'Delhi · Kochi · Guwahati',
+      originHint: 'Drücken Sie Enter, um die Route zu fliegen →',
+      campusKicker: '03 / Ankunft',
+      campusEcho: 'zum Campus.',
+      campusImgAlt: 'Feine Tuschelinien-Zeichnung eines Universitätscampus mit Bäumen und Wegen',
+      campusLede:
+        'Zulassungen, Visa, Reisen und Fracht zwischen Indien und Ostasien — geführt von Menschen, die auf beiden Seiten leben.',
+      campusCtaPrimary: 'Eignung prüfen',
+      campusCtaSecondary: 'Studiengänge entdecken',
+      campusNote: 'Ohne Verpflichtung · eine echte Person antwortet innerhalb eines Werktags.',
+      stops: ['Start', 'Unterwegs', 'Campus'],
+    },
+    illum: {
+      eyebrow: 'Das machen wir',
+      lines: [
+        {
+          text: 'Wir vermitteln Sie in ein Studium.',
+          gloss:
+            'Universitätsvermittlung, CSC-Stipendien, MBBS- und Ingenieurstudiengänge, Visa und Ankunft — von Anfang bis Ende organisiert.',
+        },
+        {
+          text: 'Wir gestalten die Reise.',
+          gloss:
+            'Private und Gruppenreisen durch China und Japan — kuratierte Routen, zweisprachige Reiseleiter, ein 24/7-Desk während der Reise.',
+        },
+        {
+          text: 'Wir bewegen die Ware.',
+          gloss:
+            'Beschaffung, Fabrikaudits, Zoll und Fracht zwischen Indien und China — mit Erfolgsprovision, gekoppelt an den versandten Warenwert.',
+        },
+      ],
+    },
+    pillars: {
+      eyebrow: 'Was wir tun',
+      index: '01 / 04',
+      title: 'Drei Wege über einen Korridor.',
+      lede: 'Drei Kompetenzen, ein Korridor — geführt von Menschen, die auf beiden Seiten leben. Wählen Sie die Tür — sie öffnen sich alle.',
+      explore: 'Entdecken',
+      names: ['Bildung', 'Tourismus', 'Handel'],
+      items: [
+        {
+          lead: 'Subventionierte Bildung weltweit',
+          text: 'Universitätsvermittlung, CSC- und Universitätsstipendien, MBBS- und Ingenieurstudiengänge, Visa und Ankunft — von der Bewerbung bis zur Immatrikulation, alles aus einer Hand.',
+          stat: '500+ vermittelte Studierende',
+          alt: 'Studierende arbeiten in einem hellen modernen chinesischen Universitätslabor zusammen',
+        },
+        {
+          lead: 'Maßgeschneiderte Kulturreisen',
+          text: 'Private und Gruppenreisen durch China und Japan — kuratierte Routen, zweisprachige Reiseleiter, Visa-Service und ein 24/7-Desk während der Reise.',
+          stat: 'China · Japan · individuelle Gruppen',
+          alt: 'Eine Reisende blickt in der goldenen Stunde auf die Chinesische Mauer',
+        },
+        {
+          lead: 'Grenzüberschreitender Handel, erledigt',
+          text: 'Beschaffung, Fabrikaudits, AQL-Qualitätsschleusen, Zoll und Fracht zwischen Indien und China — mit Erfolgsprovision, gekoppelt an den versandten Warenwert.',
+          stat: '200+ geprüfte Lieferanten',
+          alt: 'Containerkrane im Hafen von Guangzhou bei Sonnenaufgang',
+        },
+      ],
+    },
+    stats: {
+      labels: ['Vermittelte Studierende', 'Jahre im Korridor', 'Visa-Erfolgsquote', 'Betreute Länder'],
+    },
+    tools: {
+      eyebrow: 'Kostenlose Tools',
+      index: '02 / 04',
+      title: 'Starten Sie mit Fakten, nicht mit Broschüren.',
+      lede: 'Fünf schnelle Tools, die Ihnen echte Zahlen liefern, bevor Sie mit uns sprechen. Keine E-Mail nötig.',
+      action: 'Alle Tools',
+      items: [
+        { label: 'Eignungscheck', desc: 'Vier Fragen. Ein klares Ja, ein Vielleicht — oder nicht für dieses Semester.' },
+        { label: 'Stipendien-Check', desc: 'Wo Ihr Profil für CSC- und Universitätsstipendien wirklich steht.' },
+        { label: 'Kostenrechner', desc: 'Studiengebühren plus Lebenshaltungskosten nach Stadt, Studiengang und Lebensstil.' },
+        { label: 'Dokumenten-Checkliste', desc: 'Ihre persönliche Liste, druckfertig, ohne Lücken.' },
+        { label: 'Zeitplaner', desc: 'Ihr Studienbeginn, rückwärts gerechnet zu einem Plan Monat für Monat.' },
+      ],
+    },
+    insights: {
+      eyebrow: 'Neueste Einblicke',
+      index: '03 / 04',
+      title: 'Vom Schreibtisch.',
+      lede: 'Feldnotizen über Studieren, Reisen und Handeln entlang des Korridors.',
+      action: 'Alle Artikel',
+      readTime: '{n} Min. Lesezeit',
+    },
+    faq: {
+      eyebrow: 'Häufige Fragen',
+      index: '04 / 04',
+      title: 'Die ehrlichen Antworten.',
+      lede: 'Die meistgestellten, knapp beantwortet. Den Rest finden Sie in der FAQ.',
+      notePre: 'Noch unsicher? ',
+      noteLink1: 'Alle Fragen lesen',
+      noteMid: ' oder ',
+      noteLink2: 'einem Menschen schreiben',
+      notePost: ' — ein echter Berater antwortet.',
+    },
+  },
+
+  ja: {
+    meta: {
+      title: 'RouteToAbroad — 中国で学び、東アジアを旅し、国境を越えて取引する',
+      description:
+        '中国の大学への進学手配、東アジア旅行の企画、インド–中国間の貿易業務を提供しています。事務所はニューデリーと広州。まずは無料のマッチング診断から。',
+    },
+    journey: {
+      aria: 'どこからでも、キャンパスへ',
+      eyebrow: '教育 · 観光 · 貿易',
+      titleLine1: 'どこからでも',
+      titleLine2: 'まっすぐ',
+      titleHidden: ' キャンパスへ。',
+      sub: 'インドと東アジアを結ぶ留学・旅行・貿易 — 回廊の両側に暮らすチームが運営しています。',
+      globeAria: 'RouteToAbroad のデリーと広州の事務所を示すドットの地球儀',
+      originLabel: 'お住まいの街は？',
+      originPlaceholder: 'デリー · コーチ · グワーハーティー',
+      originHint: 'Enter キーでルートを飛行 →',
+      campusKicker: '03 / 到着',
+      campusEcho: 'キャンパスへ。',
+      campusImgAlt: '木々と歩道のある大学キャンパスの繊細な墨線画',
+      campusLede:
+        'インドと東アジアを結ぶ入学手続き、ビザ、旅行、貨物輸送 — 両側に暮らすチームが担当します。',
+      campusCtaPrimary: 'マッチングを診断する',
+      campusCtaSecondary: 'プログラムを見る',
+      campusNote: '拘束はありません · 1 営業日以内に担当者が返信します。',
+      stops: ['出発地', '移動中', 'キャンパス'],
+    },
+    illum: {
+      eyebrow: '私たちの仕事',
+      lines: [
+        {
+          text: 'あなたに合うプログラムを見つけます。',
+          gloss:
+            '大学進学手配、CSC 奨学金、MBBS・工学系コース、ビザ、到着サポート — すべて一貫して担当します。',
+        },
+        {
+          text: '旅を設計します。',
+          gloss:
+            '中国と日本の個人・グループ旅行 — 企画された旅程、バイリンガルガイド、旅行中の 24/7 サポートデスク。',
+        },
+        {
+          text: '商品を動かします。',
+          gloss:
+            'インドと中国間の調達、工場監査、通関、輸送 — 出荷額に連動する成功報酬制。',
+        },
+      ],
+    },
+    pillars: {
+      eyebrow: '私たちのサービス',
+      index: '01 / 04',
+      title: 'ひとつの回廊、三つの道。',
+      lede: '三つの力を、ひとつの回廊で。回廊の両側に暮らすチームが運営します。どの扉を選んでも — すべて開きます。',
+      explore: '詳しく見る',
+      names: ['教育', '観光', '貿易'],
+      items: [
+        {
+          lead: '支援を受けられる世界の教育',
+          text: '大学進学手配、CSC および大学奨学金、MBBS・工学系コース、ビザ、到着サポート — 出願からキャンパス登録まで一貫対応。',
+          stat: '500 名以上を進学させて実績',
+          alt: '明るく近代的な中国の大学の実験室で協働する学生たち',
+        },
+        {
+          lead: 'オーダーメイドの文化の旅',
+          text: '中国と日本の個人・グループ旅行 — 厳選された旅程、バイリンガルガイド、ビザ代行、旅行中の 24/7 サポートデスク。',
+          stat: '中国 · 日本 · カスタムグループ',
+          alt: '黄金の時間に万里の長城を見渡す旅行者',
+        },
+        {
+          lead: '越境貿易、まるごと代行',
+          text: 'インドと中国間の調達、工場監査、AQL 品質検査、通関、輸送 — 出荷額に連動する成功報酬制。',
+          stat: '200 社以上の確認済みサプライヤー',
+          alt: '夜明けの広州港で作業するコンテナクレーン',
+        },
+      ],
+    },
+    stats: {
+      labels: ['進学者数', '回廊での活動年数', 'ビザ成功率', '対応国'],
+    },
+    tools: {
+      eyebrow: '無料ツール',
+      index: '02 / 04',
+      title: 'パンフレットではなく、事実から始める。',
+      lede: 'お話しする前に実際の数字がわかる、5 つのクイックツール。メール不要。',
+      action: 'すべてのツール',
+      items: [
+        { label: 'マッチング診断', desc: '質問は 4 つ。明確な「はい」「検討」、または「この入学期は難しい」の判定。' },
+        { label: '奨学金診断', desc: 'CSC および大学奨学金において、あなたのプロフィールが実際にどの位置にあるか。' },
+        { label: '費用計算ツール', desc: '都市・プログラム・ライフスタイル別の学費と生活費。' },
+        { label: '書類チェックリスト', desc: 'あなた専用のリスト。印刷でき、漏れはありません。' },
+        { label: 'タイムラインプランナー', desc: '入学日から逆算して、月ごとの計画を作成します。' },
+      ],
+    },
+    insights: {
+      eyebrow: '最新の記事',
+      index: '03 / 04',
+      title: 'デスクから。',
+      lede: '回廊を越えて学び、旅し、取引する現場の記録。',
+      action: 'すべての記事',
+      readTime: '読了時間 約 {n} 分',
+    },
+    faq: {
+      eyebrow: 'よくある質問',
+      index: '04 / 04',
+      title: '率直な回答。',
+      lede: '特によくいただく質問に短くお答えします。残りは FAQ ページに。',
+      notePre: 'まだ迷っていますか？ ',
+      noteLink1: 'すべての質問を読む',
+      noteMid: ' または ',
+      noteLink2: '担当者に質問する',
+      notePost: ' — 実際のアドバイザーが返信します。',
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'RouteToAbroad — Estude na China, viaje pela Ásia Oriental, negocie além das fronteiras',
+      description:
+        'Conectamos estudantes a universidades chinesas, planejamos viagens pela Ásia Oriental e operamos comércio entre Índia e China. Escritórios em Nova Délhi e Guangzhou. Comece com uma avaliação de perfil gratuita.',
+    },
+    journey: {
+      aria: 'De qualquer lugar ao campus',
+      eyebrow: 'Educação · Turismo · Comércio',
+      titleLine1: 'De',
+      titleLine2: 'qualquer lugar',
+      titleHidden: ' ao campus.',
+      sub: 'Estudos, viagens e comércio entre Índia e Ásia Oriental — conduzidos por uma equipe que vive dos dois lados do corredor.',
+      globeAria: 'Globo pontilhado destacando os escritórios da RouteToAbroad em Délhi e Guangzhou',
+      originLabel: 'onde você mora?',
+      originPlaceholder: 'Délhi · Kochi · Guwahati',
+      originHint: 'Pressione Enter para traçar a rota →',
+      campusKicker: '03 / Chegada',
+      campusEcho: 'ao campus.',
+      campusImgAlt: 'Desenho a traço fino de um campus universitário com árvores e caminhos',
+      campusLede:
+        'Admissões, vistos, viagens e cargas entre Índia e Ásia Oriental — conduzidos por uma equipe que vive dos dois lados.',
+      campusCtaPrimary: 'Verifique seu perfil',
+      campusCtaSecondary: 'Explorar programas',
+      campusNote: 'Sem compromisso · uma pessoa real responde em um dia útil.',
+      stops: ['Origem', 'Em trânsito', 'Campus'],
+    },
+    illum: {
+      eyebrow: 'É isto que fazemos',
+      lines: [
+        {
+          text: 'Conectamos você a um programa.',
+          gloss:
+            'Admissão universitária, bolsas CSC, carreiras de MBBS e engenharia, vistos e chegada — conduzidos de ponta a ponta.',
+        },
+        {
+          text: 'Desenhamos a viagem.',
+          gloss:
+            'Viagens privadas e em grupo pela China e pelo Japão — roteiros selecionados, guias bilíngues e suporte 24/7 durante a viagem.',
+        },
+        {
+          text: 'Movemos a mercadoria.',
+          gloss:
+            'Suprimentos, auditorias de fábrica, alfândega e frete entre Índia e China — com comissão de sucesso vinculada ao valor enviado.',
+        },
+      ],
+    },
+    pillars: {
+      eyebrow: 'O que fazemos',
+      index: '01 / 04',
+      title: 'Três caminhos por um só corredor.',
+      lede: 'Três capacidades, um corredor, conduzidas por uma equipe que vive dos dois lados. Escolha a porta — todas se abrem.',
+      explore: 'Explorar',
+      names: ['Educação', 'Turismo', 'Comércio'],
+      items: [
+        {
+          lead: 'Educação global subsidiada',
+          text: 'Admissão universitária, bolsas CSC e institucionais, carreiras de MBBS e engenharia, vistos e chegada — da candidatura à matrícula no campus.',
+          stat: '500+ estudantes matriculados',
+          alt: 'Estudantes colaborando em um laboratório universitário chinês moderno e iluminado',
+        },
+        {
+          lead: 'Viagens culturais sob medida',
+          text: 'Viagens privadas e em grupo pela China e pelo Japão — roteiros selecionados, guias bilíngues, assessoria de vistos e suporte 24/7 durante a viagem.',
+          stat: 'China · Japão · grupos personalizados',
+          alt: 'Uma viajante contemplando a Grande Muralha da China na hora dourada',
+        },
+        {
+          lead: 'Comércio transfronteiriço, resolvido',
+          text: 'Suprimentos, auditorias de fábrica, controles de qualidade AQL, alfândega e frete entre Índia e China — com comissão de sucesso vinculada ao valor enviado.',
+          stat: '200+ fornecedores verificados',
+          alt: 'Guindastes de contêineres trabalhando no porto de Guangzhou ao amanhecer',
+        },
+      ],
+    },
+    stats: {
+      labels: ['Estudantes matriculados', 'Anos no corredor', 'Taxa de aprovação de vistos', 'Países atendidos'],
+    },
+    tools: {
+      eyebrow: 'Ferramentas gratuitas',
+      index: '02 / 04',
+      title: 'Comece com fatos, não com folhetos.',
+      lede: 'Cinco ferramentas rápidas que entregam números reais antes de você falar conosco. Sem e-mail.',
+      action: 'Todas as ferramentas',
+      items: [
+        { label: 'Avaliação de perfil', desc: 'Quatro perguntas. Um sim direto, um talvez, ou não para este ciclo de ingresso.' },
+        { label: 'Avaliação de bolsas', desc: 'Onde o seu perfil realmente se situa para bolsas CSC e institucionais.' },
+        { label: 'Calculadora de custos', desc: 'Mensalidades e custo de vida por cidade, programa e estilo de vida.' },
+        { label: 'Checklist de documentos', desc: 'Sua lista personalizada, pronta para imprimir, sem nada faltando.' },
+        { label: 'Planejador de cronograma', desc: 'Sua data de ingresso, calculada de trás para frente em um plano mês a mês.' },
+      ],
+    },
+    insights: {
+      eyebrow: 'Últimas análises',
+      index: '03 / 04',
+      title: 'Da mesa de trabalho.',
+      lede: 'Notas de campo sobre estudar, viajar e negociar pelo corredor.',
+      action: 'Todos os artigos',
+      readTime: 'leitura de {n} min',
+    },
+    faq: {
+      eyebrow: 'Perguntas frequentes',
+      index: '04 / 04',
+      title: 'As respostas honestas.',
+      lede: 'As que mais ouvimos, mantidas curtas. O resto fica na FAQ.',
+      notePre: 'Ainda em dúvida? ',
+      noteLink1: 'leia todas as perguntas',
+      noteMid: ' ou ',
+      noteLink2: 'fale com uma pessoa',
+      notePost: ' — um orientador real responde.',
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'RouteToAbroad — चीन में पढ़ें, पूर्वी एशिया घूमें, सीमाओं के पार व्यापार करें',
+      description:
+        'हम विद्यार्थियों को चीनी विश्वविद्यालयों में प्रवेश दिलाते हैं, पूर्वी एशिया की यात्राएँ डिज़ाइन करते हैं और भारत–चीन व्यापार संचालित करते हैं। नई दिल्ली और ग्वांगज़ू में कार्यालय। मुफ़्त फ़िट जाँच के साथ शुरुआत करें।',
+    },
+    journey: {
+      aria: 'कहीं से भी, सीधे कैंपस तक',
+      eyebrow: 'शिक्षा · पर्यटन · व्यापार',
+      titleLine1: 'कहीं से भी',
+      titleLine2: 'सीधे',
+      titleHidden: ' कैंपस तक।',
+      sub: 'भारत और पूर्वी एशिया के बीच पढ़ाई, यात्रा और व्यापार — ऐसी टीम द्वारा संचालित जो गलियारे के दोनों ओर रहती है।',
+      globeAria: 'बिंदुओं वाला ग्लोब, जिसमें RouteToAbroad के दिल्ली और ग्वांगज़ू कार्यालय दिखाए गए हैं',
+      originLabel: 'आप कहाँ रहते हैं?',
+      originPlaceholder: 'दिल्ली · कोच्चि · गुवाहाटी',
+      originHint: 'रूट उड़ाने के लिए Enter दबाएँ →',
+      campusKicker: '03 / पहुँच',
+      campusEcho: 'कैंपस तक।',
+      campusImgAlt: 'पेड़ों और पगडंडियों वाले विश्वविद्यालय परिसर की बारीक स्याही-रेखा चित्रकारी',
+      campusLede:
+        'भारत और पूर्वी एशिया के बीच प्रवेश, वीज़ा, यात्राएँ और माल ढुलाई — दोनों ओर रहने वाली टीम द्वारा संचालित।',
+      campusCtaPrimary: 'जाँचें कि आप फ़िट हैं या नहीं',
+      campusCtaSecondary: 'प्रोग्राम देखें',
+      campusNote: 'कोई वचनबद्धता नहीं · एक व्यावसायिक दिन में जवाब।',
+      stops: ['प्रस्थान', 'रास्ते में', 'कैंपस'],
+    },
+    illum: {
+      eyebrow: 'हम यही करते हैं',
+      lines: [
+        {
+          text: 'आपके लिए सही प्रोग्राम चुनते हैं।',
+          gloss:
+            'विश्वविद्यालय प्रवेश, CSC छात्रवृत्तियाँ, MBBS और इंजीनियरिंग कोर्स, वीज़ा और आगमन — शुरू से अंत तक हमारी ज़िम्मेदारी।',
+        },
+        {
+          text: 'यात्रा डिज़ाइन करते हैं।',
+          gloss:
+            'चीन और जापान में निजी और समूह यात्राएँ — चुनिंदा यात्रा-योजनाएँ, द्विभाषी गाइड, और यात्रा के दौरान 24/7 डेस्क।',
+        },
+        {
+          text: 'माल पहुँचाते हैं।',
+          gloss:
+            'भारत और चीन के बीच सोर्सिंग, फ़ैक्टरी ऑडिट, कस्टम्स और शिपिंग — भेजे गए माल के मूल्य से जुड़ी सफलता फ़ीस पर।',
+        },
+      ],
+    },
+    pillars: {
+      eyebrow: 'हम क्या करते हैं',
+      index: '01 / 04',
+      title: 'एक गलियारा, तीन रास्ते।',
+      lede: 'तीन क्षमताएँ, एक गलियारा — ऐसी टीम द्वारा संचालित जो उसके दोनों ओर रहती है। दरवाज़ा चुनिए — सब खुलते हैं।',
+      explore: 'देखें',
+      names: ['शिक्षा', 'पर्यटन', 'व्यापार'],
+      items: [
+        {
+          lead: 'सब्सिडी वाली वैश्विक शिक्षा',
+          text: 'विश्वविद्यालय प्रवेश, CSC और विश्वविद्यालय छात्रवृत्तियाँ, MBBS और इंजीनियरिंग कोर्स, वीज़ा और आगमन — आवेदन से कैंपस पंजीकरण तक पूरी ज़िम्मेदारी।',
+          stat: '500+ विद्यार्थी प्रवेश पाए',
+          alt: 'चीनी विश्वविद्यालय की उज्ज्वल आधुनिक प्रयोगशाला में मिलकर काम करते विद्यार्थी',
+        },
+        {
+          lead: 'विरासत की निजी यात्राएँ',
+          text: 'चीन और जापान में निजी और समूह यात्राएँ — चुनिंदा योजनाएँ, द्विभाषी गाइड, वीज़ा सहायता और यात्रा के दौरान 24/7 डेस्क।',
+          stat: 'चीन · जापान · कस्टम समूह',
+          alt: 'सुनहरे समय में चीन की महान दीवार को देखता एक यात्री',
+        },
+        {
+          lead: 'सीमा-पार व्यापार, पूरी देखरेख',
+          text: 'भारत और चीन के बीच सोर्सिंग, फ़ैक्टरी ऑडिट, AQL गुणवत्ता जाँच, कस्टम्स और शिपिंग — भेजे गए माल के मूल्य से जुड़ी सफलता फ़ीस पर।',
+          stat: '200+ जाँचे हुए आपूर्तिकर्ता',
+          alt: 'भोर में ग्वांगज़ू बंदरगाह पर काम करते कंटेनर क्रेन',
+        },
+      ],
+    },
+    stats: {
+      labels: ['प्रवेश पाए विद्यार्थी', 'गलियारे में वर्ष', 'वीज़ा सफलता दर', 'देश जिनकी सेवा'],
+    },
+    tools: {
+      eyebrow: 'मुफ़्त टूल',
+      index: '02 / 04',
+      title: 'ब्रोशर नहीं, तथ्यों से शुरुआत करें।',
+      lede: 'पाँच तेज़ टूल जो बातचीत से पहले ही असली आँकड़े दे देते हैं। ईमेल की ज़रूरत नहीं।',
+      action: 'सभी टूल',
+      items: [
+        { label: 'फ़िट जाँच', desc: 'चार सवाल। सीधा हाँ, शायद, या इस सत्र के लिए नहीं।' },
+        { label: 'छात्रवृत्ति जाँच', desc: 'CSC और विश्वविद्यालय छात्रवृत्तियों में आपकी प्रोफ़ाइल असल में कहाँ खड़ी है।' },
+        { label: 'लागत कैलकुलेटर', desc: 'शहर, प्रोग्राम और जीवनशैली के अनुसार ट्यूशन और रहने की लागत।' },
+        { label: 'दस्तावेज़ चेकलिस्ट', desc: 'आपकी व्यक्तिगत सूची, प्रिंट योग्य, कुछ भी बाकी नहीं।' },
+        { label: 'समय-योजना टूल', desc: 'आपकी प्रवेश तिथि, पीछे की ओर गिनकर महीना-दर-महीना योजना।' },
+      ],
+    },
+    insights: {
+      eyebrow: 'ताज़ा लेख',
+      index: '03 / 04',
+      title: 'मेज़ से।',
+      lede: 'गलियारे के पार पढ़ने, घूमने और व्यापार करने पर मैदानी टिप्पणियाँ।',
+      action: 'सभी लेख',
+      readTime: '{n} मिनट पठन',
+    },
+    faq: {
+      eyebrow: 'सामान्य प्रश्न',
+      index: '04 / 04',
+      title: 'ईमानदार जवाब।',
+      lede: 'सबसे ज़्यादा पूछे जाने वाले, संक्षेप में। बाकी सब FAQ पृष्ठ में।',
+      notePre: 'अभी भी संदेह है? ',
+      noteLink1: 'सभी प्रश्न पढ़ें',
+      noteMid: ' या ',
+      noteLink2: 'किसी व्यक्ति से पूछें',
+      notePost: ' — असली सलाहकार जवाब देता है।',
+    },
+  },
 };

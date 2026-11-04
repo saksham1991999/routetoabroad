@@ -464,4 +464,334 @@ const es: FitStrings = {
   },
 };
 
-export const FIT_STRINGS: Record<Locale, FitStrings> = { en, zh, fr, ar, es };
+const de: FitStrings = {
+  title: 'Eignungscheck — Sind Sie berechtigt, in China zu studieren?',
+  description:
+    'Vier Fragen, eine klare Antwort. Derselbe erste Eindruck wie ein RouteToAbroad-Berater am Telefon — Staatsangehörigkeit, Qualifikation, Fachrichtung und Studienbeginn — ohne E-Mail.',
+  crumb: 'Eignungscheck',
+  toolsCrumb: 'Tools',
+  hero: {
+    eyebrow: 'Kostenloses Tool · 2 Minuten',
+    title: 'Eignungscheck. Vier Fragen. Eine klare Antwort.',
+    lede: 'Derselbe erste Eindruck wie ein Berater am Telefon. Keine Bewerbung, und es werden weder Dokumente noch eine E-Mail verlangt.',
+  },
+  questionsH2: 'Die vier Fragen',
+  q1: { legend: 'Von wo bewerben Sie sich?', opts: ['Indien', 'Golfstaaten (VAE, Saudi-Arabien, Katar…)', 'Afrika', 'Anderswo'] },
+  q2: { legend: 'Ihre höchste abgeschlossene Qualifikation?', opts: ['Schule / 12. Klasse', 'Bachelor-Abschluss', 'Master oder höher', 'Später, oder unsicher'] },
+  q3: {
+    legend: 'Was möchten Sie studieren?',
+    opts: ['MBBS / Medizin', 'Ingenieurwesen / Informatik', 'BWL / Management', 'Chinesische Sprache (HSK)', 'Forschung (Master / Promotion)', 'Noch unsicher'],
+  },
+  q4: { legend: 'Wann möchten Sie beginnen?', opts: ['September 2026', 'März 2027', 'Später / flexibel'] },
+  back: '← Zurück',
+  hint: 'Beantworten Sie alle vier Fragen, und Sie erhalten ein klares Ja oder ein ehrliches Vielleicht.',
+  caveat: {
+    bold: 'Ehrlichkeitsklausel:',
+    text: 'Vier Antworten sehen keine Notenabchrift. Dieser Check ist ein Routing-Instrument, kein Urteil — die echte Prüfung erfolgt, wenn ein Berater Ihre Dokumente sichtet.',
+  },
+  script: {
+    researchYes: {
+      title: 'Ja — Forschungsabschlüsse sind Ihr Weg.',
+      body: 'Master- und Promotionsbewerber sind genau die, um die sich chinesische Universitäten bemühen, und die CSC-Förderung ist für Sie gemacht. Ausschlaggebend sind Betreuerkontakt und ein präziser Forschungsvorschlag — bei beidem helfen wir beim Verfassen. Beginnen Sie 8–10 Monate vor Ihrem Ziel-Studienbeginn.',
+    },
+    mbbsYes: {
+      title: 'Ja — der MBBS-Weg steht Ihnen offen.',
+      bodyIndia:
+        'Direkt von der Schule kommende MBBS-Bewerber sind unsere Kerngruppe. Zwei Bedingungen entscheiden alles: bestandenes NEET (für indische Bewerber Pflicht) und eine MOE-gelistete Universität — genau darauf selektieren wir. Die Stipendienfenster für September laufen Januar–April.',
+      bodyOther:
+        'Direkt von der Schule kommende MBBS-Bewerber sind unsere Kerngruppe. Zwei Bedingungen entscheiden alles: die Gleichwertigkeitsanforderungen Ihrer heimischen Aufsichtsbehörde vor der Immatrikulation zu erfüllen, und eine MOE-gelistete Universität zu wählen — genau darauf selektieren wir. Die Stipendienfenster für September laufen Januar–April.',
+    },
+    mbbsMarch: {
+      title: 'Vielleicht — März ist ein schmales Fenster für MBBS.',
+      body: 'Einige Universitäten bieten MBBS zum März an; die meisten nur zum September. Wenn Sie auf September 2026 ausweichen können, erweitern sich Ihre Optionen erheblich — und die Stipendienfenster passen.',
+    },
+    bachMarch: {
+      title: 'Vielleicht — März ist auch beim Bachelor dünn.',
+      body: 'Einige Universitäten nehmen im März Ingenieur- und BWL-Studierende auf; die meisten nur im September. Wenn Sie auf September 2026 ausweichen können, erweitern sich Programmwahl und Stipendienmittel deutlich.',
+    },
+    bachYes: {
+      title: 'Ja — Bachelorprogramme sind offen.',
+      body: 'Englischsprachige Bachelor in Ingenieurwesen und BWL haben echte September-Kapazität an unseren Partneruniversitäten, von der Elite (Zhejiang, SJTU) bis zu günstigen Provinzoptionen. Die Noten entscheiden über die Stufe; der Eignungscheck kann sie nicht sehen — das Beratungsgespräch schon.',
+    },
+    bachelorMbbs: {
+      title: 'Vielleicht — die Medizin ordnet Absolventen anders ein.',
+      body: 'MBBS ist in China ein Einstiegsabschluss direkt von der Schule; Bachelorabsolventen nehmen meist eine andere Spur — einen Master in Public Health, Biomedizin oder einen Forschungsabschluss — oder kehren über ein Graduate-Entry-Programm zur Medizin zurück, wo angeboten. Nennen Sie dem Berater Ihr Ziel, und wir kartieren die ehrlichen Optionen.',
+    },
+    masterYes: {
+      title: 'Ja — der Master-Einstieg ist realistisch.',
+      body: 'Ein abgeschlossener Bachelor qualifiziert Sie für englischsprachige Masterprogramme, und CSC-Teil- bis Vollförderung ist je nach Noten möglich. Der Unterschied zwischen „realistisch“ und „finanziert“ liegt meist im Studienplan.',
+    },
+    languageYes: {
+      title: 'Ja — Sprachprogramme laufen das ganze Jahr.',
+      body: 'HSK-Vorbereitungsprogramme nehmen flexibel auf (September- und Märzbeginn, teils laufend), kosten weniger und führen direkt in die Studiengänge. So eröffnen Sie Ihre China-Akte mit dem geringsten Risiko.',
+    },
+    later: {
+      title: 'Vielleicht — definieren wir zuerst das Ziel.',
+      body: 'Ohne abgeschlossene Qualifikation können wir Sie noch nicht in einen Studiengang einordnen — aber ein Vorbereitungs- oder Sprachjahr kann jetzt beginnen und alle Türen offen halten. Ein Gespräch ordnet es.',
+    },
+    flexible: {
+      title: 'Vielleicht — der Zeitplan ist die offene Frage.',
+      body: 'Ihr Profil scheint platzierbar; der Kalender braucht Arbeit. September-Beginne bieten die meisten Programme und Stipendienmittel; März ist die dünnere, schnellere Option. Legen Sie den Studienbeginn fest — der Rest fügt sich.',
+    },
+    fallback: {
+      title: 'Wahrscheinlich ja — mit Details zu bestätigen.',
+      bodyIndia:
+        'Nichts in Ihren Antworten schließt einen Weg. Die Variablen, die wir hier nicht sehen — Noten, Budget, Dokumente, NEET-Status — sind genau der Zweck des kostenlosen Beratungsgesprächs.',
+      bodyOther:
+        'Nichts in Ihren Antworten schließt einen Weg. Die Variablen, die wir hier nicht sehen — Noten, Budget, Dokumente und die Anerkennung Ihrer Abschlüsse in der Heimat — sind genau der Zweck des kostenlosen Beratungsgesprächs.',
+    },
+    ctaTalk: 'Mit einem Berater sprechen',
+    ctaScholarship: 'Stipendienchancen prüfen',
+    ctaMbbsGuide: 'Den MBBS-Leitfaden lesen',
+    ctaRoadmap: 'Die Roadmap lesen',
+    restart: 'Neu starten',
+  },
+};
+
+const ja: FitStrings = {
+  title: '適性チェック — 中国留学の条件を満たしていますか？',
+  description: '4つの質問、率直な回答。RouteToAbroadのアドバイザーが電話で行う最初のふるい分けと同じ — 国籍、学歴、専攻、入学時期 — メール登録は不要です。',
+  crumb: '適性チェック',
+  toolsCrumb: 'ツール',
+  hero: {
+    eyebrow: '無料ツール · 2分',
+    title: '適性チェック。4つの質問。率直な回答。',
+    lede: 'アドバイザーが電話で行う最初のふるい分けと同じものです。出願ではなく、書類もメールアドレスも求めません。',
+  },
+  questionsH2: '4つの質問',
+  q1: { legend: 'どちらから出願しますか？', opts: ['インド', '湾岸諸国（UAE、サウジアラビア、カタール…）', 'アフリカ', 'その他の地域'] },
+  q2: { legend: '修了済みの最終学歴は？', opts: ['高校 / 12年生', '学士号', '修士以上', 'まだ、または未定'] },
+  q3: {
+    legend: '何を学びたいですか？',
+    opts: ['MBBS / 医学', '工学 / 情報', '経営 / マネジメント', '中国語（HSK）', '研究（修士 / 博士）', 'まだ決めていない'],
+  },
+  q4: { legend: 'いつから始めたいですか？', opts: ['2026年9月', '2027年3月', '以降 / 柔軟'] },
+  back: '← 戻る',
+  hint: '4つすべてに答えると、明確な「可」か正直な「要検討」をお伝えします。',
+  caveat: {
+    bold: '誠実さの規定：',
+    text: '4つの回答では成績証明書は見えません。このチェックはふるい分けのための道具であり、判定ではありません — 本格的な評価は、アドバイザーが書類を確認するときに行われます。',
+  },
+  script: {
+    researchYes: {
+      title: '可 — 研究系学位があなたのルートです。',
+      body: '修士・博士の出願者はまさに中国の大学が獲得に動く対象で、CSCの奨学金はあなたのための仕組みです。決め手は指導教員との連絡と練れた研究計画書 — どちらも作成をお手伝いします。目標の入学時期の8〜10か月前から始めてください。',
+    },
+    mbbsYes: {
+      title: '可 — MBBSのルートは開かれています。',
+      bodyIndia:
+        '高校卒業直後のMBBS出願者は私たちの中心層です。すべてを左右する2つの条件：NEETの合格（インド人出願者には必須）と、教育部認可大学の選択 — まさに私たちが選定しているものです。9月入学の奨学金窓口は1月〜4月です。',
+      bodyOther:
+        '高校卒業直後のMBBS出願者は私たちの中心層です。すべてを左右する2つの条件：入学前に自国の規制当局の同等性要件を満たすことと、教育部認可大学の選択 — まさに私たちが選定しているものです。9月入学の奨学金窓口は1月〜4月です。',
+    },
+    mbbsMarch: {
+      title: '要検討 — 3月のMBBS入学は限られます。',
+      body: 'MBBSを3月に開講する大学は少数で、ほとんどは9月のみです。2026年9月にずらせるなら選択肢は大幅に広がります — 奨学金の窓口も一致します。',
+    },
+    bachMarch: {
+      title: '要検討 — 3月は学士入学も少なめです。',
+      body: '工学や経営を3月に開講する大学は少数で、ほとんどは9月にのみ受け入れます。2026年9月にずらせるなら、プログラムの選択肢も奨学金も大きく広がります。',
+    },
+    bachYes: {
+      title: '可 — 学士プログラムは開かれています。',
+      body: '英語開講の工学・経営の学士課程は、提携大学の9月入学に十分な定員があります。トップ校（浙江大学、上海交通大学）から費用対効果の高い省属校まで。成績が層を決めますが、適性チェックでは見えません — アドバイザーとの通話では見えます。',
+    },
+    bachelorMbbs: {
+      title: '要検討 — 医学は学位保持者にとって別の道になります。',
+      body: 'MBBSは中国では高校卒業直後向けの学部課程です。学士号を持つ方は通常、別のルート — 公衆衛生学・生物医科学の修士や研究系学位 — を取るか、大学院入学制度がある場合にはそこから医学に戻ります。アドバイザーに目標を伝えれば、現実的な選択肢を整理します。',
+    },
+    masterYes: {
+      title: '可 — 修士入学は現実的です。',
+      body: '学士修了は英語開講の修士プログラムの出願資格になり、成績次第でCSCの部分〜全額奨学金も射程内です。「現実的」と「奨学金獲得」の差は、多くの場合学習計画書にあります。',
+    },
+    languageYes: {
+      title: '可 — 語学コースは年間を通じて開講しています。',
+      body: 'HSKの橋渡しプログラムは柔軟に受け入れ（9月・3月入学、随時募集もあり）、費用が抑えられ、学位プログラムに直接つながります。中国留学のファイルを始めるうえで最もリスクの低い方法です。',
+    },
+    later: {
+      title: '要検討 — まず目標を定めましょう。',
+      body: '学位の修了がない段階では、まだ学位プログラムへの配置ができません — ただし予科や語学の年次は今すぐ始められ、あらゆる選択肢を残せます。1本の通話で整理できます。',
+    },
+    flexible: {
+      title: '要検討 — 未決なのは時期だけです。',
+      body: 'プロフィールは配置可能そうですが、日程に手入れが必要です。9月入学が最も多くのプログラムと奨学金を提供し、3月は規模が小さく速い選択肢です。入学時期を決めれば残りは固まります。',
+    },
+    fallback: {
+      title: 'おそらく可 — 確認すべき詳細があります。',
+      bodyIndia: 'あなたの回答で閉ざされたルートはありません。ここで見えない変数 — 成績、予算、書類、NEETの状況 — こそ、無料のアドバイザー通話の存在意義です。',
+      bodyOther: 'あなたの回答で閉ざされたルートはありません。ここで見えない変数 — 成績、予算、書類、および自国での資格の認定状況 — こそ、無料のアドバイザー通話の存在意義です。',
+    },
+    ctaTalk: 'アドバイザーに相談する',
+    ctaScholarship: '奨学金の可能性を調べる',
+    ctaMbbsGuide: 'MBBSガイドを読む',
+    ctaRoadmap: 'ロードマップを読む',
+    restart: '最初からやり直す',
+  },
+};
+
+const pt: FitStrings = {
+  title: 'Teste de compatibilidade — Você está apto a estudar na China?',
+  description:
+    'Quatro perguntas, uma resposta direta. A mesma primeira análise que um consultor da RouteToAbroad faz por telefone — cidadania, qualificação, área e ingresso — sem e-mail.',
+  crumb: 'Teste de compatibilidade',
+  toolsCrumb: 'Ferramentas',
+  hero: {
+    eyebrow: 'Ferramenta gratuita · 2 minutos',
+    title: 'Teste de compatibilidade. Quatro perguntas. Uma resposta direta.',
+    lede: 'É a mesma primeira análise que um consultor faz por telefone. Não é uma candidatura e não pede documentos nem e-mail.',
+  },
+  questionsH2: 'As quatro perguntas',
+  q1: { legend: 'De onde você está se candidatando?', opts: ['Índia', 'Países do Golfo (EAU, Arábia Saudita, Catar…)', 'África', 'Outro lugar'] },
+  q2: { legend: 'Sua maior qualificação concluída?', opts: ['Ensino médio / 12.º ano', 'Graduação', 'Mestrado ou acima', 'Depois, ou não sei'] },
+  q3: {
+    legend: 'O que você quer estudar?',
+    opts: ['MBBS / Medicina', 'Engenharia / Computação', 'Negócios / Gestão', 'Língua chinesa (HSK)', 'Pesquisa (Mestrado / Doutorado)', 'Ainda não sei'],
+  },
+  q4: { legend: 'Quando você quer começar?', opts: ['Setembro de 2026', 'Março de 2027', 'Mais tarde / flexível'] },
+  back: '← Voltar',
+  hint: 'Responda as quatro e daremos um sim direto ou um talvez honesto.',
+  caveat: {
+    bold: 'Cláusula de honestidade:',
+    text: 'quatro respostas não enxergam um histórico. Este teste é uma ferramenta de triagem, não um veredito — a avaliação real acontece quando um consultor revisa seus documentos.',
+  },
+  script: {
+    researchYes: {
+      title: 'Sim — os cursos de pesquisa são o seu caminho.',
+      body: 'Candidatos a mestrado e doutorado são exatamente quem as universidades chinesas disputam, e o financiamento CSC é feito para você. O fator decisivo é o contato com o orientador e uma proposta de pesquisa afiada — ajudamos a redigir ambos. Comece 8–10 meses antes do ingresso desejado.',
+    },
+    mbbsYes: {
+      title: 'Sim — a rota MBBS está aberta para você.',
+      bodyIndia:
+        'Candidatos ao MBBS recém-saídos do ensino médio são nosso público principal. As duas condições que decidem tudo: passar no NEET (obrigatório para candidatos indianos) e escolher uma universidade listada pelo MOE — exatamente o que pré-selecionamos. As janelas de bolsa para setembro vão de janeiro a abril.',
+      bodyOther:
+        'Candidatos ao MBBS recém-saídos do ensino médio são nosso público principal. As duas condições que decidem tudo: cumprir os requisitos de equivalência do órgão regulador do seu país antes de se matricular, e escolher uma universidade listada pelo MOE — exatamente o que pré-selecionamos. As janelas de bolsa para setembro vão de janeiro a abril.',
+    },
+    mbbsMarch: {
+      title: 'Talvez — março é um ingresso escasso para o MBBS.',
+      body: 'Poucas universidades têm ingresso de MBBS em março; a maioria só em setembro. Se puder migrar para setembro de 2026, suas opções se ampliam muito — e as janelas de bolsa coincidem.',
+    },
+    bachMarch: {
+      title: 'Talvez — março também é escasso para a graduação.',
+      body: 'Poucas universidades têm ingressos em março para engenharia e negócios; a maioria admite só em setembro. Se puder migrar para setembro de 2026, a escolha de programas e o dinheiro de bolsas se ampliam bastante.',
+    },
+    bachYes: {
+      title: 'Sim — os cursos de graduação estão abertos.',
+      body: 'As graduações em inglês de engenharia e negócios têm capacidade real em setembro nas nossas universidades parceiras, das de elite (Zhejiang, SJTU) às opções provinciais de bom custo-benefício. As notas decidem a faixa; o teste não as vê — a ligação com o consultor, sim.',
+    },
+    bachelorMbbs: {
+      title: 'Talvez — a medicina encaminha graduados de outro jeito.',
+      body: 'O MBBS é um curso de entrada, para recém-saídos do ensino médio, na China; quem já tem graduação costuma seguir outra via — um mestrado em saúde pública, ciências biomédicas ou um curso de pesquisa — ou voltar à medicina por um programa de ingresso para graduados, onde houver. Conte seu objetivo ao consultor e traçaremos as opções honestas.',
+    },
+    masterYes: {
+      title: 'Sim — o ingresso no mestrado é realista.',
+      body: 'Uma graduação concluída o qualifica para mestrados em inglês, e o financiamento CSC parcial a integral está em jogo conforme as notas. A diferença entre "realista" e "financiado" costuma ser o plano de estudos.',
+    },
+    languageYes: {
+      title: 'Sim — as rotas de idioma funcionam o ano todo.',
+      body: 'Os programas ponte de HSK admitem com flexibilidade (ingressos em setembro e março, alguns contínuos), custam menos e levam direto aos cursos de grau. É a forma de menor risco de abrir um dossiê de estudos na China.',
+    },
+    later: {
+      title: 'Talvez — definamos primeiro o objetivo.',
+      body: 'Sem uma qualificação concluída ainda não podemos colocá-lo em um curso de grau — mas um ano de fundamentos ou de idioma pode começar agora e manter todas as portas abertas. Uma ligação resolve o mapa.',
+    },
+    flexible: {
+      title: 'Talvez — o timing é a única questão aberta.',
+      body: 'Seu perfil parece colocável; o calendário precisa de trabalho. Os ingressos de setembro oferecem mais programas e dinheiro de bolsas; março é uma opção mais enxuta e rápida. Defina o ingresso e o resto se encaixa.',
+    },
+    fallback: {
+      title: 'Provavelmente sim — com detalhes a confirmar.',
+      bodyIndia:
+        'Nada nas suas respostas fecha um caminho. As variáveis que não vemos aqui — notas, orçamento, documentos, situação do NEET — são exatamente para isso que serve a ligação gratuita com o consultor.',
+      bodyOther:
+        'Nada nas suas respostas fecha um caminho. As variáveis que não vemos aqui — notas, orçamento, documentos e como suas credenciais são reconhecidas no seu país — são exatamente para isso que serve a ligação gratuita com o consultor.',
+    },
+    ctaTalk: 'Falar com um consultor',
+    ctaScholarship: 'Ver minhas chances de bolsa',
+    ctaMbbsGuide: 'Ler o guia do MBBS',
+    ctaRoadmap: 'Ler o roteiro',
+    restart: 'Começar de novo',
+  },
+};
+
+const hi: FitStrings = {
+  title: 'फिट चेक — क्या आप चीन में पढ़ने के योग्य हैं?',
+  description: 'चार सवाल, सीधा जवाब। वही पहला आकलन जो RouteToAbroad सलाहकार फ़ोन पर करता है — नागरिकता, योग्यता, क्षेत्र और प्रवेश सत्र — बिना ईमेल।',
+  crumb: 'फिट चेक',
+  toolsCrumb: 'टूल्स',
+  hero: {
+    eyebrow: 'मुफ़्त टूल · 2 मिनट',
+    title: 'फिट चेक। चार सवाल। सीधा जवाब।',
+    lede: 'यह वही पहला आकलन है जो सलाहकार फ़ोन पर करता है। यह आवेदन नहीं है और न दस्तावेज़ या ईमेल मांगता है।',
+  },
+  questionsH2: 'चार सवाल',
+  q1: { legend: 'आप कहाँ से आवेदन कर रहे हैं?', opts: ['भारत', 'खाड़ी देश (UAE, सउदी अरब, क़तर…)', 'अफ़्रीका', 'अन्य स्थान'] },
+  q2: { legend: 'आपकी पूर्ण की गई सर्वोच्च योग्यता?', opts: ['स्कूल / 12वीं', 'स्नातक डिग्री', 'स्नातकोत्तर या उससे ऊपर', 'बाद में, या निश्चित नहीं'] },
+  q3: {
+    legend: 'आप क्या पढ़ना चाहते हैं?',
+    opts: ['MBBS / चिकित्सा', 'इंजीनियरिंग / कंप्यूटर विज्ञान', 'व्यवसाय / प्रबंधन', 'चीनी भाषा (HSK)', 'शोध (स्नातकोत्तर / पीएचडी)', 'अभी निश्चित नहीं'],
+  },
+  q4: { legend: 'आप कब शुरू करना चाहते हैं?', opts: ['सितंबर 2026', 'मार्च 2027', 'बाद में / लचीला'] },
+  back: '← वापस',
+  hint: 'चारों का उत्तर दें और हम आपको स्पष्ट "हाँ" या ईमानदार "शायद" देंगे।',
+  caveat: {
+    bold: 'ईमानदारी का सिद्धांत:',
+    text: 'चार उत्तर अंकसूची नहीं देख सकते। यह जाँच एक मार्गदर्शी उपकरण है, निर्णय नहीं — असली मूल्यांकन तब होता है जब सलाहकार आपके दस्तावेज़ देखता है।',
+  },
+  script: {
+    researchYes: {
+      title: 'हाँ — शोध डिग्री आपका रास्ता है।',
+      body: 'स्नातकोत्तर और पीएचडी आवेदक ही वे हैं जिनके लिए चीनी विश्वविद्यालय प्रतिस्पर्धा करते हैं, और CSC वित्तपोषण आपके लिए बना है। निर्णायक कारक: पर्यवेक्षक से संपर्क और एक तीखा शोध प्रस्ताव — दोनों लिखने में हम मदद करते हैं। लक्ष्य प्रवेश सत्र से 8–10 महीने पहले शुरू करें।',
+    },
+    mbbsYes: {
+      title: 'हाँ — MBBS रास्ता आपके लिए खुला है।',
+      bodyIndia:
+        'स्कूल से सीधे आने वाले MBBS आवेदक हमारा मुख्य वर्ग हैं। दो शर्तें सब तय करती हैं: NEET पास करना (भारतीय आवेदकों के लिए अनिवार्य) और MOE-सूचीबद्ध विश्वविद्यालय चुनना — हम यही शॉर्टलिस्ट करते हैं। सितंबर की छात्रवृत्ति खिड़कियाँ जनवरी–अप्रैल चलती हैं।',
+      bodyOther:
+        'स्कूल से सीधे आने वाले MBBS आवेदक हमारा मुख्य वर्ग हैं। दो शर्तें सब तय करती हैं: प्रवेश से पहले अपने देश के नियामक की समतुल्यता आवश्यकताएँ पूरी करना और MOE-सूचीबद्ध विश्वविद्यालय चुनना — हम यही शॉर्टलिस्ट करते हैं। सितंबर की छात्रवृत्ति खिड़कियाँ जनवरी–अप्रैल चलती हैं।',
+    },
+    mbbsMarch: {
+      title: 'शायद — मार्च में MBBS प्रवेश बहुत कम है।',
+      body: 'कुछ विश्वविद्यालय मार्च में MBBS प्रवेश देते हैं; अधिकांश केवल सितंबर में। अगर आप सितंबर 2026 पर बढ़ सकते हैं तो विकल्प काफ़ी बढ़ जाएँगे — छात्रवृत्ति खिड़कियाँ भी मेल खाएँगी।',
+    },
+    bachMarch: {
+      title: 'शायद — स्नातक प्रवेश के लिए भी मार्च कम है।',
+      body: 'कुछ विश्वविद्यालय मार्च में इंजीनियरिंग और व्यवसाय का प्रवेश देते हैं; अधिकांश केवल सितंबर में। सितंबर 2026 पर बढ़ने से प्रोग्राम विकल्प और छात्रवृत्ति राशि दोनों काफ़ी बढ़ेंगी।',
+    },
+    bachYes: {
+      title: 'हाँ — स्नातक प्रोग्राम खुले हैं।',
+      body: 'इंजीनियरिंग और व्यवसाय के अंग्रेज़ी-माध्यम स्नातक प्रोग्रामों में हमारे साझेदार विश्वविद्यालयों में सितंबर की वास्तविक सीटें हैं — टॉप (झेजियांग, SJTU) से लेकर लागत-कुशल प्रांतीय विकल्पों तक। अंक स्तर तय करते हैं; फिट चेक उन्हें नहीं देख सकता — सलाहकार कॉल देख सकती है।',
+    },
+    bachelorMbbs: {
+      title: 'शायद — चिकित्सा डिग्रीधारकों को अलग रास्ते पर डालती है।',
+      body: 'चीन में MBBS स्कूल-उत्तीर्ण छात्रों की प्रवेश-स्तर की डिग्री है; स्नातक धारक आमतौर पर दूसरी लेन लेते हैं — सार्वजनिक स्वास्थ्य, बायोमेडिकल विज्ञान या शोध डिग्री में स्नातकोत्तर — या जहाँ उपलब्ध हो, ग्रेजुएट-एंट्री प्रोग्राम से चिकित्सा में लौटते हैं। सलाहकार को अपना लक्ष्य बताएँ, हम ईमानदार विकल्प मानचित्रित करेंगे।',
+    },
+    masterYes: {
+      title: 'हाँ — स्नातकोत्तर प्रवेश यथार्थपरक है।',
+      body: 'पूर्ण स्नातक आपको अंग्रेज़ी-माध्यम स्नातकोत्तर प्रोग्रामों के लिए योग्य बनाता है, और अंकों के अनुसार CSC आंशिक-से-पूर्ण वित्तपोषण भी संभव है। "यथार्थपरक" और "वित्तपोषित" के बीच का अंतर आमतौर पर अध्ययन योजना है।',
+    },
+    languageYes: {
+      title: 'हाँ — भाषा रास्ते पूरे साल चलते हैं।',
+      body: 'HSK पुल कार्यक्रम लचीले ढंग से प्रवेश देते हैं (सितंबर और मार्च सत्र, कुछ रोलिंग), कम लागत में चलते हैं और सीधे डिग्री प्रोग्रामों में जुड़ते हैं। चीन शिक्षा फ़ाइल शुरू करने का सबसे कम-जोखिम तरीका यही है।',
+    },
+    later: {
+      title: 'शायद — पहले लक्ष्य तय करें।',
+      body: 'पूर्ण योग्यता के बिना हम अभी आपको डिग्री में नहीं रख सकते — पर फाउंडेशन या भाषा वर्ष अभी शुरू हो सकता है और सारे दरवाज़े खुले रखता है। एक कॉल में योजना बन जाएगी।',
+    },
+    flexible: {
+      title: 'शायद — समय ही एकमात्र खुला सवाल है।',
+      body: 'आपकी प्रोफ़ाइल रखने योग्य लगती है; कैलेंडर पर काम चाहिए। सितंबर सत्र सबसे अधिक प्रोग्राम और छात्रवृत्ति राशि देते हैं; मार्च पतला पर तेज़ विकल्प है। प्रवेश सत्र तय करें, बाकी अपने आप बैठ जाएगा।',
+    },
+    fallback: {
+      title: 'संभवतः हाँ — कुछ विवरण पुष्टि के लिए।',
+      bodyIndia: 'आपके उत्तरों में कोई रास्ता बंद नहीं हुआ। जो चर हम यहाँ नहीं देखते — अंक, बजट, दस्तावेज़, NEET स्थिति — यही मुफ़्त सलाहकार कॉल का उद्देश्य है।',
+      bodyOther: 'आपके उत्तरों में कोई रास्ता बंद नहीं हुआ। जो चर हम यहाँ नहीं देखते — अंक, बजट, दस्तावेज़, और आपकी योग्यता की अपने देश में मान्यता — यही मुफ़्त सलाहकार कॉल का उद्देश्य है।',
+    },
+    ctaTalk: 'सलाहकार से बात करें',
+    ctaScholarship: 'छात्रवृत्ति संभावनाएँ देखें',
+    ctaMbbsGuide: 'MBBS गाइड पढ़ें',
+    ctaRoadmap: 'रोडमैप पढ़ें',
+    restart: 'फिर से शुरू करें',
+  },
+};
+
+export const FIT_STRINGS: Record<Locale, FitStrings> = { en, zh, fr, ar, es, de, ja, pt, hi };

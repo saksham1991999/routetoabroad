@@ -248,4 +248,183 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
     },
   },
+
+  de: {
+    meta: {
+      title: 'Datenschutzerklärung',
+      description:
+        'Was RouteToAbroad sammelt (nur Anfragefelder), was wir niemals tun (Werbung, Tracker von Drittanbietern) und wie Sie uns zu Ihren Daten erreichen.',
+    },
+    hero: {
+      eyebrow: 'Rechtliches',
+      title: 'Datenschutzerklärung',
+      lede: 'Kurz, weil die Praxis kurz ist: Wir sammeln, was Ihre Anfrage benötigt — und nichts weiter.',
+    },
+    updated: 'Zuletzt aktualisiert: November 2025',
+    sections: {
+      collect: {
+        h: '1. Was wir sammeln',
+        p: 'Wenn Sie auf dieser Website eine Anfrage oder ein Formular absenden, sammeln wir die von Ihnen ausgefüllten Felder — in der Regel Name, E-Mail, Telefonnummer sowie die Nachricht oder Studiengangsdetails, die Sie mitteilen. Wir verwenden sie ausschließlich, um Ihre Anfrage zu beantworten und, wenn Sie fortfahren, Ihre Akte zu betreuen.',
+      },
+      never: {
+        h: '2. Was wir niemals tun',
+        p: 'Diese Website setzt keine Werbe-Cookies und führt keine Tracking-Skripte von Drittanbietern aus. Wir verkaufen, vermieten oder teilen Ihre Daten nicht mit Werbetreibenden. Punkt.',
+      },
+      storage: {
+        h: '3. Funktionale Speicherung',
+        p: 'Einige kleine Zustände liegen im lokalen Speicher Ihres Browsers: Ihre Hell-/Dunkel-Präferenz, Ihr gespeicherter Fortschritt in der Dokumenten-Checkliste, die Werte aus Kostenrechner, Eignungscheck und Zeitplaner, Ihr Gespräch mit dem KI-Assistenten sowie ein Merker, der sich merkt, dass Sie die Startseiten-Intro bereits gesehen haben. Nichts davon verlässt Ihr Gerät.',
+      },
+      forms: {
+        h: '4. Formularverarbeitung',
+        p: 'Anfrageformulare erreichen unser Team über Formspree (Formspree, Inc.), das die Übermittlung in unserem Auftrag ausschließlich zu dem Zweck verarbeitet, sie uns zuzustellen. Unser KI-Assistent sendet — sofern Sie ihn nutzen — das Gespräch an unseren Sprachmodell-Anbieter, um Antworten zu erzeugen; Gespräche werden nicht für Werbung verwendet.',
+      },
+      retention: {
+        h: '5. Aufbewahrung',
+        p: 'Anfragenkorrespondenz wird aufbewahrt, solange Ihre Akte aktiv ist, und aus Service- und Rechtsgründen noch eine angemessene Zeit danach. Bitten Sie uns um Löschung Ihrer Daten, so tun wir es — vorbehaltlich dokumentarischer Pflichten.',
+      },
+      rights: {
+        h: '6. Ihre Rechte',
+        pre: 'Sie können erfragen, was wir über Sie speichern, Korrekturen verlangen oder die Löschung beantragen — schreiben Sie an ',
+        post: '. Wir antworten innerhalb einer Arbeitswoche.',
+      },
+      contact: {
+        h: '7. Kontakt',
+        label: 'Fragen zu dieser Richtlinie:',
+      },
+    },
+  },
+
+  ja: {
+    meta: {
+      title: 'プライバシーポリシー',
+      description: 'RouteToAbroad が収集するもの（お問い合わせの入力項目のみ）、決して行わないこと（広告、第三者トラッカー）、そしてデータに関するお問い合わせ先。',
+    },
+    hero: {
+      eyebrow: '法的事項',
+      title: 'プライバシーポリシー',
+      lede: '短いのは、運用が短いからです。お問い合わせに必要な情報だけを収集し、それ以上は何も取りません。',
+    },
+    updated: '最終更新：2025 年 11 月',
+    sections: {
+      collect: {
+        h: '1. 収集する情報',
+        p: '本サイトでお問い合わせやフォームを送信される際、ご入力いただいた項目 — 通常は氏名、メールアドレス、電話番号、およびご共有いただいたメッセージやプログラムの詳細 — を収集します。これらはお問い合わせへのお答えと、ご依頼進行後の案件処理にのみ使用します。',
+      },
+      never: {
+        h: '2. 決して行わないこと',
+        p: '本サイトは広告用 Cookie を設定せず、第三者のトラッキングスクリプトも実行しません。マーケターへのデータの販売、貸与、共有は一切行いません。以上です。',
+      },
+      storage: {
+        h: '3. 機能的な保存',
+        p: 'ブラウザのローカルストレージにはいくつかの小さな状態が保存されます：ライト/ダークテーマの設定、書類チェックリストの保存された進捗、費用計算ツール・マッチング診断・タイムラインプランナーに入力した値、AI アシスタントとの会話、そしてホームページのイントロをすでにご覧になったことを記憶するフラグ。いずれも端末の外に出ることはありません。',
+      },
+      forms: {
+        h: '4. フォームの処理',
+        p: 'お問い合わせフォームは Formspree（Formspree, Inc.）経由で私たちのチームに届きます。同社は当社に代わって、送信内容を当社に届けるためだけに処理を行います。AI アシスタントをご利用の場合、回答を生成するために会話が当社の言語モデル提供元へ送信されます。会話が広告に使われることはありません。',
+      },
+      retention: {
+        h: '5. 保存期間',
+        p: 'お問い合わせのやり取りは、案件が有効な間、およびサービス・法的な理由によりその後合理的な期間保存されます。データの削除をご請求いただければ、記録保存義務の範囲内で対応いたします。',
+      },
+      rights: {
+        h: '6. お客様の権利',
+        pre: '当社が保有するご自身の情報の開示、訂正、削除をご請求いただけます — 次の宛先までご連絡ください：',
+        post: '。1 週間（営業日ベース）以内にご返信します。',
+      },
+      contact: {
+        h: '7. お問い合わせ',
+        label: '本ポリシーに関するご質問：',
+      },
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Política de Privacidade',
+      description:
+        'O que a RouteToAbroad coleta (apenas os campos da consulta), o que nunca fazemos (anúncios, rastreadores de terceiros) e como nos contatar sobre os seus dados.',
+    },
+    hero: {
+      eyebrow: 'Jurídico',
+      title: 'Política de Privacidade',
+      lede: 'Curta, porque a prática é curta: coletamos o que a sua consulta exige — e nada mais.',
+    },
+    updated: 'Última atualização: novembro de 2025',
+    sections: {
+      collect: {
+        h: '1. O que coletamos',
+        p: 'Quando você envia uma consulta ou formulário neste site, coletamos os campos que você preenche — normalmente nome, e-mail, telefone e a mensagem ou os detalhes do programa que compartilha. Usamos esses dados apenas para responder à sua consulta e, se você seguir adiante, para conduzir o seu processo.',
+      },
+      never: {
+        h: '2. O que nunca fazemos',
+        p: 'Este site não instala cookies de publicidade e não executa scripts de rastreamento de terceiros. Não vendemos, alugamos ou compartilhamos os seus dados com agentes de marketing. Ponto.',
+      },
+      storage: {
+        h: '3. Armazenamento funcional',
+        p: 'Alguns pequenos estados vivem no armazenamento local do seu navegador: a sua preferência de tema claro/escuro, o progresso salvo na checklist de documentos, os valores que você insere na calculadora de custos, na avaliação de perfil e no planejador de cronograma, a sua conversa com o assistente de IA e um marcador que lembra que você já viu a introdução da página inicial. Nada disso sai do seu dispositivo.',
+      },
+      forms: {
+        h: '4. Processamento de formulários',
+        p: 'Os formulários de consulta chegam à nossa equipe por meio do Formspree (Formspree, Inc.), que processa o envio em nosso nome apenas para entregá-lo a nós. Nosso assistente de IA, se você o usar, envia a conversa ao nosso provedor de modelo de linguagem para gerar respostas; as conversas não são usadas para publicidade.',
+      },
+      retention: {
+        h: '5. Conservação',
+        p: 'A correspondência de consultas é mantida enquanto o seu processo está ativo e por um período razoável depois, por razões de serviço e jurídicas. Peça-nos a exclusão dos seus dados e a faremos, sem prejuízo das obrigações de guarda de registros.',
+      },
+      rights: {
+        h: '6. Os seus direitos',
+        pre: 'Você pode perguntar o que temos sobre você, pedir correções ou pedir a exclusão — escreva para ',
+        post: '. Respondemos em uma semana útil.',
+      },
+      contact: {
+        h: '7. Contato',
+        label: 'Perguntas sobre esta política:',
+      },
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'गोपनीयता नीति',
+      description:
+        'RouteToAbroad क्या एकत्र करता है (केवल पूछताछ फ़ील्ड), क्या कभी नहीं करता (विज्ञापन, थर्ड-पार्टी ट्रैकर), और अपने डेटा पर बात करने के लिए हमसे कैसे जुड़ें।',
+    },
+    hero: {
+      eyebrow: 'कानूनी',
+      title: 'गोपनीयता नीति',
+      lede: 'छोटी, क्योंकि प्रथा छोटी है: हम आपकी पूछताछ की आवश्यकता की चीज़ें एकत्र करते हैं — और उससे अधिक कुछ नहीं।',
+    },
+    updated: 'अंतिम अपडेट: नवंबर 2025',
+    sections: {
+      collect: {
+        h: '1. हम क्या एकत्र करते हैं',
+        p: 'जब आप इस साइट पर पूछताछ या फ़ॉर्म भेजते हैं, तो हम आपके भरे हुए फ़ील्ड एकत्र करते हैं — आमतौर पर नाम, ईमेल, फ़ोन नंबर, और आपका संदेश या प्रोग्राम विवरण। हम इनका उपयोग केवल आपकी पूछताछ का उत्तर देने और, आगे बढ़ने पर, आपकी फ़ाइल चलाने के लिए करते हैं।',
+      },
+      never: {
+        h: '2. हम कभी क्या नहीं करते',
+        p: 'यह साइट विज्ञापन कुकीज़ नहीं लगाती और तीसरे पक्ष के ट्रैकिंग स्क्रिप्ट नहीं चलाती। हम मार्केटरों के साथ आपका डेटा नहीं बेचते, न किराए पर देते हैं, न साझा करते हैं। बस।',
+      },
+      storage: {
+        h: '3. कार्यात्मक भंडारण',
+        p: 'आपके ब्राउज़र के लोकल स्टोरेज में कुछ छोटी स्थितियाँ रहती हैं: आपकी लाइट/डार्क थीम पसंद, दस्तावेज़ चेकलिस्ट टूल में आपकी सहेजी गई प्रगति, लागत कैलकुलेटर, फ़िट जाँच और समय-योजना टूल में डाले गए मान, AI सहायक से आपकी बातचीत, और एक चिह्न जो याद रखता है कि आपने होमपेज इंट्रो देख ली है। इनमें से कुछ भी आपके डिवाइस से बाहर नहीं जाता।',
+      },
+      forms: {
+        h: '4. फ़ॉर्म प्रोसेसिंग',
+        p: 'पूछताछ फ़ॉर्म Formspree (Formspree, Inc.) के ज़रिए हमारी टीम तक पहुँचते हैं, जो हमारी ओर से प्रस्तुति केवल हम तक पहुँचाने के लिए संसाधित करता है। हमारा AI सहायक, यदि आप उसका उपयोग करते हैं, उत्तर बनाने के लिए बातचीत हमारे भाषा-मॉडल प्रदाता को भेजता है; बातचीत का उपयोग विज्ञापन के लिए नहीं होता।',
+      },
+      retention: {
+        h: '5. प्रतिधारण',
+        p: 'पूछताछ का पत्राचार तब तक रखा जाता है जब तक आपकी फ़ाइल सक्रिय है, और सेवा व कानूनी कारणों से उसके बाद भी एक उचित अवधि तक। अपना डेटा मिटाने को कहें और हम कर देंगे — अभिलेख-रखर्खाव दायित्वों के अधीन।',
+      },
+      rights: {
+        h: '6. आपके अधिकार',
+        pre: 'आप पूछ सकते हैं कि हमारे पास आपका क्या है, सुधार माँग सकते हैं या मिटाने का अनुरोध कर सकते हैं — लिखें ',
+        post: ' पर। हम एक कार्य सप्ताह में उत्तर देते हैं।',
+      },
+      contact: {
+        h: '7. संपर्क',
+        label: 'इस नीति पर प्रश्न:',
+      },
+    },
+  },
 };

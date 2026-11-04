@@ -69,6 +69,10 @@ export default async (req: Request): Promise<Response> => {
     fr: 'French',
     ar: 'Arabic',
     es: 'Spanish',
+    de: 'German',
+    ja: 'Japanese',
+    pt: 'Portuguese',
+    hi: 'Hindi',
   };
   const requestedLocale = typeof body.locale === 'string' ? body.locale : '';
   const localeName = Object.hasOwn(LOCALE_NAMES, requestedLocale)

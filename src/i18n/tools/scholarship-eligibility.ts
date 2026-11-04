@@ -467,4 +467,342 @@ const es: ScholarshipStrings = {
   },
 };
 
-export const SCHOLARSHIP_STRINGS: Record<Locale, ScholarshipStrings> = { en, zh, fr, ar, es };
+const de: ScholarshipStrings = {
+  title: 'Stipendien-Check — CSC & Universitätsstipendien',
+  description:
+    'Prüfen Sie, wo Ihre Noten und Ihr Studienlevel tatsächlich stehen für chinesische Regierungsstipendien (CSC) und Universitätsstipendien: Vollstipendien-Spanne, Teilstipendien oder selbstfinanziert mit besseren Chancen. Ehrliche Stufen, keine E-Mail nötig.',
+  crumb: 'Stipendien-Check',
+  toolsCrumb: 'Tools',
+  hero: {
+    eyebrow: 'Kostenloses Tool · 2 Minuten',
+    title: 'Stipendien-Check. Ehrliche Stufen, keine Schmeichelei.',
+    lede: 'Stipendienkommissionen veröffentlichen keine Grenzwerte, und niemand kann Ergebnisse versprechen. Was wir können: Ihr Profil an den Stufen messen, die wir tatsächlich gefördert gesehen haben.',
+  },
+  select: 'Auswählen…',
+  labels: { level: 'Angestrebtes Studienlevel', marks: 'Aktuelles akademisches Ergebnis', english: 'Englisch-Nachweis vorhanden?' },
+  levels: { bachelor: 'Bachelor', master: 'Master', phd: 'Promotion' },
+  marks: { m90: '90%+ / GPA 3,7+', m80: '80–89% / GPA 3,3+', m70: '70–79% / GPA 2,8+', m60: 'Unter 70% / GPA 2,8' },
+  english: { yes: 'Ja (Unterrichtssprachen-Zertifikat / IELTS / TOEFL)', no: 'Noch nicht' },
+  error: 'Beantworten Sie alle drei Fragen, um Ihre Stufe zu sehen.',
+  go: 'Meine Stufe anzeigen',
+  how: {
+    label: 'Wie diese Stufen entstehen',
+    text: 'Aus Platzierungsunterlagen: Voll-CSC-Stipendien konzentrieren sich auf die Gruppe mit 80%+ / GPA 3,3+, Promotionsforschungsprofile werden nach Publikationen und Betreuer-Passung beurteilt statt nur nach Noten. Provinz- und Universitäts-Teilstipendien erreichen tiefere Stufen. Niemand — auch wir nicht — kontrolliert Kommissionsentscheide; wir kontrollieren Aktenqualität und Universitätswahl.',
+  },
+  script: {
+    phdStrong: {
+      label: 'Stufe 1 — Starke CSC-Position',
+      title: 'Sie sind im CSC-Promotionsgebiet.',
+      body: 'Bei Promotionsbewerbern wiegen Kommissionen Publikationen, Forschungspassung und Betreuerzusage höher als Noten allein — und Ihre Noten passieren die Hürde. Entscheidend sind: passende Betreuer mit einem präzisen Vorschlag anschreiben und Typ-B-Bewerbungen an 2–3 CSC-designierte Universitäten. Unser Desk schreibt solche Akten wöchentlich.',
+    },
+    phdMid: {
+      label: 'Stufe 2 — Forschungsabhängig',
+      title: 'Noten sind brauchbar; die Forschungsnachweise entscheiden.',
+      body: 'CSC-Promotionsstipendien auf dieser Stufe hängen an dem, was hinter der Notenabchrift steht: Publikationen, Projekte, ein Betreuer, der Sie will. Mit starkem Vorschlag und der richtigen Universität ist die Förderung realistisch; ohne — planen Sie reine Gebührenbefreiung oder Provinzstipendien.',
+    },
+    phdLow: {
+      label: 'Stufe 3 — Erst das Profil aufbauen',
+      title: 'Förderung wird in diesem Zyklus schwierig.',
+      body: 'Ehrliche Lesart: Ein CSC-Promotionsstipendium bei dieser Notenstufe ist unwahrscheinlich, sofern die Forschungsbilanz nicht außergewöhnlich ist. Optionen: Provinz-/Universitätsstipendien anvisieren, zuerst einen finanzierten MPhil-Weg gehen oder Publikationen für den nächsten Zyklus ausbauen.',
+    },
+    masterStrong: {
+      label: 'Stufe 1 — Starke CSC-Position',
+      title: 'Sie sind in der Vollstipendien-Spanne.',
+      body: 'Masterbewerber mit 90%+ und Englischnachweis liegen in der Spanne, die an starken Universitäten volle CSC-Stipendien gewinnt — besonders Typ-B-Bewerbungen an Campusse in Städten zweiter Kategorie, wo die Konkurrenz dünner ist. Bewerben Sie sich auf drei: eine ehrgeizige, eine realistische, eine sehr wahrscheinliche.',
+    },
+    masterGood: {
+      label: 'Stufe 1–2 — CSC-kompetitiv',
+      title: 'Vollstipendien im Spiel; Teilstipendien wahrscheinlich.',
+      body: 'Diese Stufe gewinnt regelmäßig volle CSC-Stipendien an Provinzuniversitäten und Teilstipendien (nur Studiengebühren) an Topnamen. Studienplan und Empfehlungsschreiben heben Sie im Stapel — handwerkliche Arbeit, die wir mit Ihnen machen.',
+    },
+    masterMid: {
+      label: 'Stufe 2 — Teilstipendien-Gebiet',
+      title: 'Denken Sie an Gebührenerlasse, nicht an die volle Förderung.',
+      body: 'Realistisches Ergebnis: Universitäts-Teilstipendien — Studiengebühren gedeckt, Wohnheim und Förderung selbst zu tragen — plus Provinzstipendien. Mehrere Partneruniversitäten stapeln Teilstipendien für diese Stufe aktiv.',
+    },
+    masterLow: {
+      label: 'Stufe 3 — Selbstfinanziert mit klugen Wahlen',
+      title: 'Planen Sie Selbstfinanzierung; geben Sie dort aus, wo es zählt.',
+      body: 'Stipendien sind in diesem Zyklus unwahrscheinlich. Die gute Nachricht: Master in Ingenieurwesen und BWL in Städten zweiter Kategorie kosten 2.500–4.000 USD/Jahr — die Rechnung kann Inlandsoptionen noch schlagen. Senken Sie Kosten über die Stadtwahl, nicht über die Qualität.',
+    },
+    bachStrong: {
+      label: 'Stufe 1 — Spitze des Bachelor-Pools',
+      title: 'Starke Position für Voll- und Teilstipendien.',
+      body: 'Mit 90%+ konkurrieren Sie um CSC-Bachelorplätze (selten, aber real), Universitäts-Presidential Awards und Provinzstipendien. Das CSC-Bachelorquotum ist viel kleiner als beim Master — kombinieren Sie jede CSC-Bewerbung mit 2 Universitätsstipendien-Bewerbungen.',
+    },
+    bachGood: {
+      label: 'Stufe 2 — Teilstipendien-Spanne',
+      title: 'Universitäre Teilstipendien sind Ihre Spur.',
+      body: 'Diese Stufe gewinnt zuverlässig Gebührenerlasse und Provinz-Teilstipendien an guten Universitäten. Volle CSC im Bachelor kommt vor, aber planen Sie die Gebühren mit Teildeckung und rechnen jede Vollförderung als Bonus.',
+    },
+    bachMid: {
+      label: 'Stufe 3 — Einige Universitätsstipendien',
+      title: 'Selektive Teilstipendien; Preis-Leistungs-Universitäten glänzen.',
+      body: 'Rechnen Sie mit Gebührenerlassen an preiswerten Universitäten statt namentlichen Stipendien. Städte zweiter Kategorie halten die Gesamtkosten tragbar — hier ändert die Stadtwahl die Rechnung mehr als die Stipendienjagd.',
+    },
+    bachLow: {
+      label: 'Stufe 4 — Selbstfinanzierter Weg',
+      title: 'Selbstfinanzierung ist der ehrliche Plan.',
+      body: 'Planen Sie volle Gebühren und stützen Sie sich auf gebührenarme Universitäten und kostengünstige Städte. Der Abschluss zählt mehr als der Rabatt; ein platzierter Student schlägt eine unfinanzierte Bewerbung.',
+    },
+    englishBold: 'Nächste Hürde: der Englischnachweis.',
+    englishRest: 'Holen Sie das Unterrichtssprachen-Zertifikat oder buchen Sie einen IELTS/TOEFL-Termin — Akten ohne Sprachnachweis fallen beim Stipendien-Screening durch.',
+    ctaGuide: 'Den CSC-Leitfaden lesen',
+    ctaReview: 'Aktenprüfung anfragen',
+  },
+};
+
+const ja: ScholarshipStrings = {
+  title: '奨学金受給資格チェック — CSC奨学金と大学奨学金',
+  description: 'あなたの成績と学習段階が、中国政府奨学金（CSC）や大学奨学金のどこに実際に当てはまるかを確認します：全額奨学金の幅、部分奨学金、または可能性の高い自費ルート。正直なランクで、メール登録は不要です。',
+  crumb: '奨学金チェック',
+  toolsCrumb: 'ツール',
+  hero: {
+    eyebrow: '無料ツール · 2分',
+    title: '奨学金チェック。正直なランクで、お世辞はありません。',
+    lede: '奨学金の選考委員会は基準ラインを公表しませんし、誰も結果を約束できません。私たちにできるのは、実際に採択されたのを見てきたランクに対してあなたのプロフィールを位置づけることです。',
+  },
+  select: '選択してください…',
+  labels: { level: '出願する学習段階', marks: '直近の学業成績', english: '英語能力の証明はありますか？' },
+  levels: { bachelor: '学士', master: '修士', phd: '博士' },
+  marks: { m90: '90%以上 / GPA 3.7+', m80: '80〜89% / GPA 3.3+', m70: '70〜79% / GPA 2.8+', m60: '70%未満 / GPA 2.8' },
+  english: { yes: 'はい（授業言語証明書 / IELTS / TOEFL）', no: 'まだない' },
+  error: 'ランクを見るには3つの質問すべてにお答えください。',
+  go: '自分のランクを表示',
+  how: {
+    label: 'このランクの作られ方',
+    text: '配属実績から：CSC全額奨学金は80%以上 / GPA 3.3+ の層に集中し、博士の研究系プロフィールは成績だけでなく論文実績と指導教員との適合性で判断されます。省級・大学の部分奨学金はより低いランクにも届きます。誰も — 私たちも含めて — 選考委員会の決定は変えられません；私たちが変えられるのは書類の質と大学の選択です。',
+  },
+  script: {
+    phdStrong: {
+      label: 'ランク1 — CSCで有利な位置',
+      title: 'あなたはCSC博士の射程内です。',
+      body: '博士出願者に対し、選考委員会は成績以上に論文実績・研究適合性・指導教員の受諾を重く見ます — あなたの成績はすでに基準を超えています。決め手は、練れた計画書を持って合う指導教員に連絡し、CSC指定大学2〜3校にタイプBで出願すること。私たちのチームは毎週こうした書類を書いています。',
+    },
+    phdMid: {
+      label: 'ランク2 — 研究次第',
+      title: '成績は及第点；研究実績が決め手です。',
+      body: 'このランクのCSC博士奨学金は、成績証明書の裏にあるもの次第です：論文、プロジェクト、あなたを欲しがる指導教員。強い計画書と適切な大学があれば採択は現実的；なければ学費免除のみか省級奨学金を計画してください。',
+    },
+    phdLow: {
+      label: 'ランク3 — まずプロフィールを築く',
+      title: 'このサイクルでの採択は困難です。',
+      body: '正直に見ると：この成績ランクでのCSC博士は、研究実績が際立っていない限り見込みが薄いです。選択肢：省級・大学奨学金を狙う、まず研究系修士（MPhil）の奨学金ルートを通る、次のサイクルに向け論文実績を強化する。',
+    },
+    masterStrong: {
+      label: 'ランク1 — CSCで有利な位置',
+      title: '全額奨学金の幅に入っています。',
+      body: '90%以上で英語証明のある修士出願者は、強い大学でCSC全額を取れるランクにいます — 特に競争の緩い二線都市キャンパスへのタイプB出願。3校に出願を：ひとつ挑戦、ひとつ本命、ひとつ可能性大。',
+    },
+    masterGood: {
+      label: 'ランク1〜2 — CSCで十分競争力あり',
+      title: '全額も射程に；部分奨学金は見込み大。',
+      body: 'このランクは省属大学でCSC全額を、名門校では部分奨学金（学費のみ）を定期的に取ります。学習計画書と推薦状が書類の山であなたを上げます — 磨ける仕事であり、私たちが一緒に取り組みます。',
+    },
+    masterMid: {
+      label: 'ランク2 — 部分奨学金の領域',
+      title: '全額ではなく学費免除を考えましょう。',
+      body: '現実的な結果：大学の部分奨学金 — 学費は免除、寮と生活奨励金は自費 — に省級奨学金を加える形。複数の提携大学はこのランクに部分奨学金を積極的に重ねます。',
+    },
+    masterLow: {
+      label: 'ランク3 — 賢い選択で自費',
+      title: '自費で計画；お金は効く場所に。',
+      body: 'このサイクルでの奨学金は見込み薄です。朗報：二線都市の工学・経営修士は年2,500〜4,000米ドル — 計算次第では国内の選択肢に勝てます。コストは質ではなく都市選択で下げてください。',
+    },
+    bachStrong: {
+      label: 'ランク1 — 学士層の頂点',
+      title: '全額・部分の両方で有利な位置。',
+      body: '90%以上ならCSCの学士枠（希少だが実在）、大学総長賞、省級奨学金を狙えます。CSCの学士枠は修士よりはるかに小さい — CSC出願1件ごとに大学奨学金出願2件を組み合わせてください。',
+    },
+    bachGood: {
+      label: 'ランク2 — 部分奨学金の幅',
+      title: '大学の部分奨学金があなたのルート。',
+      body: 'このランクは良い大学で学費免除と省級部分奨学金を確実に取ります。学士レベルでCSC全額も起こりますが、費用は部分給付を前提に計画し、全額が取れたら上乗せと考えてください。',
+    },
+    bachMid: {
+      label: 'ランク3 — 一部の大学奨学金',
+      title: '選抜的な部分給付；費用対効果の高い大学が輝きます。',
+      body: '名の知れた奨学金よりも、コスト重視の大学での学費減免を想定してください。二線都市なら総費用が現実的 — ここでは奨学金追いかけより都市選択のほうが計算を変えます。',
+    },
+    bachLow: {
+      label: 'ランク4 — 自費ルート',
+      title: '自費が正直な計画です。',
+      body: '全額学費を前提にし、学費の安い大学と費用の安い都市に頼ってください。大事なのは割引より学位；配置された学生は奨学金のない出願に勝ります。',
+    },
+    englishBold: '次の関門：英語の証明。',
+    englishRest: '授業言語証明書を取得するか、IELTS/TOEFLの試験日を予約してください — 言語証明のない書類は奨学金の選考で落とされます。',
+    ctaGuide: 'CSCガイドを読む',
+    ctaReview: '書類レビューを依頼する',
+  },
+};
+
+const pt: ScholarshipStrings = {
+  title: 'Verificação de elegibilidade para bolsas — CSC e bolsas universitárias',
+  description:
+    'Veja onde suas notas e seu nível de estudo realmente se situam para bolsas do governo chinês (CSC) e de universidades: faixa de bolsa integral, bolsas parciais ou rota autofinanciada com melhores chances. Faixas honestas, sem e-mail.',
+  crumb: 'Verificação de bolsas',
+  toolsCrumb: 'Ferramentas',
+  hero: {
+    eyebrow: 'Ferramenta gratuita · 2 minutos',
+    title: 'Verificação de bolsas. Faixas honestas, não bajulação.',
+    lede: 'Os comitês de bolsas não publicam notas de corte, e ninguém pode prometer resultados. O que podemos fazer é posicionar seu perfil em relação às faixas que realmente vimos serem financiadas.',
+  },
+  select: 'Selecione…',
+  labels: { level: 'Nível de estudo ao qual você se candidata', marks: 'Resultado acadêmico mais recente', english: 'Comprovação de proficiência em inglês?' },
+  levels: { bachelor: 'Graduação', master: 'Mestrado', phd: 'Doutorado' },
+  marks: { m90: '90%+ / GPA 3.7+', m80: '80–89% / GPA 3.3+', m70: '70–79% / GPA 2.8+', m60: 'Abaixo de 70% / GPA 2.8' },
+  english: { yes: 'Sim (certificado de língua de instrução / IELTS / TOEFL)', no: 'Ainda não' },
+  error: 'Responda as três perguntas para ver sua faixa.',
+  go: 'Mostrar minha faixa',
+  how: {
+    label: 'Como estas faixas são construídas',
+    text: 'A partir de registros de colocações: as bolsas CSC integrais se concentram no grupo de 80%+ / GPA 3.3+, e perfis de pesquisa de doutorado são julgados por publicações e afinidade com o orientador, não só pelas notas. Bolsas parciais provinciais e universitárias alcançam faixas mais baixas. Ninguém — nem nós — controla as decisões dos comitês; controlamos a qualidade do dossiê e a escolha da universidade.',
+  },
+  script: {
+    phdStrong: {
+      label: 'Faixa 1 — Posição CSC forte',
+      title: 'Você está no território CSC de doutorado.',
+      body: 'Para candidatos a doutorado, os comitês pesam publicações, afinidade de pesquisa e aceite do orientador acima das notas sozinhas — e suas notas ultrapassam o corte. As jogadas decisivas: escrever a orientadores compatíveis com uma proposta afiada e candidatar-se Tipo B a 2–3 universidades designadas pelo CSC. Nossa equipe escreve esses dossiês toda semana.',
+    },
+    phdMid: {
+      label: 'Faixa 2 — Depende da pesquisa',
+      title: 'As notas servem; a evidência de pesquisa decide.',
+      body: 'As bolsas CSC de doutorado nessa faixa dependem do que há por trás do histórico: artigos, projetos, um orientador que o quer. Com uma proposta forte e a universidade certa, o financiamento é realista; sem, planeje só isenção de mensalidade ou bolsas provinciais.',
+    },
+    phdLow: {
+      label: 'Faixa 3 — Construa o perfil primeiro',
+      title: 'O financiamento será difícil neste ciclo.',
+      body: 'Leitura honesta: bolsa CSC de doutorado nessa faixa de notas é aposta distante, a menos que a produção de pesquisa seja excepcional. Opções: mirar bolsas provinciais/universitárias, passar primeiro por um mestrado de pesquisa financiado ou reforçar as publicações para o próximo ciclo.',
+    },
+    masterStrong: {
+      label: 'Faixa 1 — Posição CSC forte',
+      title: 'Você está na faixa da bolsa integral.',
+      body: 'Candidatos a mestrado com 90%+ e comprovação de inglês estão dentro da faixa que ganha bolsas CSC integrais em universidades fortes — sobretudo candidaturas Tipo B a campi de cidades de segundo nível, onde a competição é menor. Candidate-se a três: uma ambiciosa, uma realista, uma de alta probabilidade.',
+    },
+    masterGood: {
+      label: 'Faixa 1–2 — Competitivo para CSC',
+      title: 'Integrais em jogo; parciais prováveis.',
+      body: 'Esta faixa ganha com regularidade bolsas CSC integrais em universidades provinciais e parciais (só mensalidade) nos grandes nomes. O plano de estudos e as cartas de recomendação o sobem na pilha — é trabalho que se lapida, e fazemos com você.',
+    },
+    masterMid: {
+      label: 'Faixa 2 — Território de bolsas parciais',
+      title: 'Pense em isenção de mensalidade, não em bolsa integral.',
+      body: 'Resultado realista: bolsas parciais universitárias — mensalidade coberta, alojamento e bolsa por sua conta — mais bolsas provinciais. Várias universidades parceiras empilham parciais com força nesta faixa.',
+    },
+    masterLow: {
+      label: 'Faixa 3 — Autofinanciado com escolhas inteligentes',
+      title: 'Planeje o autofinanciamento; gaste onde importa.',
+      body: 'Bolsas serão improváveis neste ciclo. A boa notícia: mestrados de engenharia e negócios em cidades de segundo nível custam US$2.500–4.000/ano — as contas ainda podem vencer as opções nacionais. Corte custos pela escolha da cidade, não da qualidade.',
+    },
+    bachStrong: {
+      label: 'Faixa 1 — Topo do grupo de graduação',
+      title: 'Posição forte para bolsas integrais e parciais.',
+      body: 'Com 90%+ você disputa vagas CSC de graduação (escassas, mas reais), prêmios de reitoria de universidades e bolsas provinciais. A cota CSC de graduação é bem menor que a de mestrado — combine cada candidatura CSC com 2 candidaturas a prêmios universitários.',
+    },
+    bachGood: {
+      label: 'Faixa 2 — Faixa de bolsas parciais',
+      title: 'As parciais universitárias são sua pista.',
+      body: 'Esta faixa ganha de forma confiável isenções de mensalidade e parciais provinciais em boas universidades. CSC integral na graduação acontece, mas planeje as taxas assumindo cobertura parcial e trate qualquer bolsa integral como bônus.',
+    },
+    bachMid: {
+      label: 'Faixa 3 — Algumas bolsas universitárias',
+      title: 'Parciais seletivas; universidades de bom custo-benefício brilham.',
+      body: 'Espere descontos de mensalidade em universidades focadas em custo-benefício, mais do que bolsas com nome. As cidades de segundo nível mantêm o custo total administrável — aqui a escolha da cidade muda a conta mais do que perseguir bolsas.',
+    },
+    bachLow: {
+      label: 'Faixa 4 — Rota autofinanciada',
+      title: 'Autofinanciar é o plano honesto.',
+      body: 'Planeje com as taxas cheias e apoie-se em universidades de mensalidade baixa e cidades baratas. O diploma importa mais que o desconto; um estudante colocado vale mais que uma candidatura sem financiamento.',
+    },
+    englishBold: 'Próxima barreira: comprovação de inglês.',
+    englishRest: 'Obtenha o certificado de língua de instrução ou reserve uma data de IELTS/TOEFL — dossiês sem prova de idioma caem na triagem das bolsas.',
+    ctaGuide: 'Ler o guia do CSC',
+    ctaReview: 'Pedir uma revisão do dossiê',
+  },
+};
+
+const hi: ScholarshipStrings = {
+  title: 'छात्रवृत्ति पात्रता जाँच — CSC और विश्वविद्यालय छात्रवृत्तियाँ',
+  description: 'जानें आपके अंक और अध्ययन स्तर चीन सरकार (CSC) और विश्वविद्यालय छात्रवृत्तियों के लिए असल में कहाँ खड़े हैं: पूर्ण छात्रवृत्ति रेंज, आंशिक छात्रवृत्तियाँ, या बेहतर संभावनाओं वाला स्वयं वित्तपोषित रास्ता। ईमानदार स्तर, ईमेल आवश्यक नहीं।',
+  crumb: 'छात्रवृत्ति जाँच',
+  toolsCrumb: 'टूल्स',
+  hero: {
+    eyebrow: 'मुफ़्त टूल · 2 मिनट',
+    title: 'छात्रवृत्ति जाँच। ईमानदार स्तर, चापलूसी नहीं।',
+    lede: 'छात्रवृत्ति समितियाँ कट-ऑफ प्रकाशित नहीं करतीं और कोई परिणाम का वादा नहीं कर सकता। हम यह कर सकते हैं कि आपकी प्रोफ़ाइल को उन स्तरों पर रखें जिन्हें हमने वास्तव में वित्तपोषित देखा है।',
+  },
+  select: 'चुनें…',
+  labels: { level: 'जिस अध्ययन स्तर के लिए आवेदन कर रहे हैं', marks: 'नवीनतम शैक्षणिक परिणाम', english: 'अंग्रेज़ी प्रवीणता का प्रमाण?' },
+  levels: { bachelor: 'स्नातक', master: 'स्नातकोत्तर', phd: 'पीएचडी' },
+  marks: { m90: '90%+ / GPA 3.7+', m80: '80–89% / GPA 3.3+', m70: '70–79% / GPA 2.8+', m60: '70% से नीचे / GPA 2.8' },
+  english: { yes: 'हाँ (माध्यम प्रमाणपत्र / IELTS / TOEFL)', no: 'अभी नहीं' },
+  error: 'अपना स्तर देखने के लिए तीनों सवालों के उत्तर दें।',
+  go: 'मेरा स्तर दिखाएँ',
+  how: {
+    label: 'ये स्तर कैसे बनते हैं',
+    text: 'प्लेसमेंट रिकॉर्ड से: पूर्ण CSC छात्रवृत्तियाँ 80%+ / GPA 3.3+ समूह में केंद्रित होती हैं, और पीएचडी शोध प्रोफ़ाइल को प्रकाशनों और पर्यवेक्षक-उपयुक्तता पर आँका जाता है, केवल अंकों पर नहीं। प्रांतीय और विश्वविद्यालय आंशिक छात्रवृत्तियाँ निचले स्तरों तक पहुँचती हैं। कोई — हम सहित — समिति के निर्णय नहीं बदल सकता; हम फ़ाइल की गुणवत्ता और विश्वविद्यालय के चयन को बदल सकते हैं।',
+  },
+  script: {
+    phdStrong: {
+      label: 'स्तर 1 — CSC में मज़बूत स्थिति',
+      title: 'आप CSC पीएचडी क्षेत्र में हैं।',
+      body: 'पीएचडी आवेदकों के लिए समितियाँ प्रकाशन, शोध-उपयुक्तता और पर्यवेक्षक की स्वीकृति को अंकों से ऊपर तौलती हैं — और आपके अंक दहलीज़ पार करते हैं। निर्णायक कदम: उपयुक्त पर्यवेक्षकों को तीखे प्रस्ताव के साथ ईमेल करना और 2–3 CSC-नामित विश्वविद्यालयों में टाइप B आवेदन। हमारी टीम हर सप्ताह ऐसी फ़ाइलें लिखती है।',
+    },
+    phdMid: {
+      label: 'स्तर 2 — शोध पर निर्भर',
+      title: 'अंक काम के हैं; शोध साक्ष्य तय करेगा।',
+      body: 'इस स्तर की CSC पीएचडी छात्रवृत्ति अंकसूची के पीछे की चीज़ों पर टिकी है: पेपर, प्रोजेक्ट, आपको चाहने वाला पर्यवेक्षक। मज़बूत प्रस्ताव और सही विश्वविद्यालय के साथ वित्तपोषण यथार्थपरक है; बिना उसके केवल ट्यूशन माफी या प्रांतीय छात्रवृत्तियों की योजना बनाएँ।',
+    },
+    phdLow: {
+      label: 'स्तर 3 — पहले प्रोफ़ाइल बनाएँ',
+      title: 'इस चक्र में वित्तपोषण कठिन रहेगा।',
+      body: 'ईमानदार पढ़ाई: इस अंक स्तर पर CSC पीएचडी लंबा शॉट है, जब तक शोध उत्पादन असाधारण न हो। विकल्प: प्रांतीय/विश्वविद्यालय छात्रवृत्तियाँ लक्षित करें, पहले वित्तपोषित MPhil रास्ता अपनाएँ, या अगले चक्र के लिए प्रकाशन मज़बूत करें।',
+    },
+    masterStrong: {
+      label: 'स्तर 1 — CSC में मज़बूत स्थिति',
+      title: 'आप पूर्ण छात्रवृत्ति रेंज में हैं।',
+      body: '90%+ और अंग्रेज़ी प्रमाण वाले स्नातकोत्तर आवेदक उस रेंज में हैं जो मज़बूत विश्वविद्यालयों में CSC पूर्ण छात्रवृत्ति जीतती है — ख़ासकर द्वितीय श्रेणी शहरों के कैंपस में टाइप B आवेदन, जहाँ प्रतिस्पर्धा कम है। तीन पर आवेदन करें: एक महत्वाकांक्षी, एक लक्ष्य, एक उच्च-संभावना।',
+    },
+    masterGood: {
+      label: 'स्तर 1–2 — CSC के लिए प्रतिस्पर्धी',
+      title: 'पूर्ण छात्रवृत्तियाँ दायरे में; आंशिक संभावित।',
+      body: 'यह स्तर प्रांतीय विश्वविद्यालयों में CSC पूर्ण और नामी संस्थानों में आंशिक (केवल ट्यूशन) नियमित रूप से जीतता है। अध्ययन योजना और अनुशंसा पत्र आपको ढेर में ऊपर उठाते हैं — यह गढ़ा जा सकने वाला काम है, और हम आपके साथ करते हैं।',
+    },
+    masterMid: {
+      label: 'स्तर 2 — आंशिक छात्रवृत्ति क्षेत्र',
+      title: 'पूरी छात्रवृत्ति नहीं, ट्यूशन माफी सोचें।',
+      body: 'यथार्थपरक परिणाम: विश्वविद्यालय आंशिक छात्रवृत्तियाँ — ट्यूशन कवर, छात्रावास और वृत्तिराशि अपने खर्च पर — साथ में प्रांतीय छात्रवृत्तियाँ। कई साझेदार विश्वविद्यालय इस स्तर के लिए आंशिक छात्रवृत्तियाँ ज़ोर से जोड़ते हैं।',
+    },
+    masterLow: {
+      label: 'स्तर 3 — समझदार चयन के साथ स्वयं वित्तपोषित',
+      title: 'स्वयं वित्तपोषित की योजना बनाएँ; पैसा जहाँ असर हो वहाँ खर्च करें।',
+      body: 'इस चक्र में छात्रवृत्ति संभावित नहीं। अच्छी ख़बर: द्वितीय श्रेणी शहरों में इंजीनियरिंग और व्यवसाय के स्नातकोत्तर प्रोग्राम 2,500–4,000 डॉलर/वर्ष चलते हैं — हिसाब अब भी घरेलू विकल्पों से बेहतर हो सकता है। लागत गुणवत्ता नहीं, शहर के चयन से घटाएँ।',
+    },
+    bachStrong: {
+      label: 'स्तर 1 — स्नातक समूह की चोटी',
+      title: 'पूर्ण और आंशिक दोनों के लिए मज़बूत स्थिति।',
+      body: '90%+ पर आप CSC स्नातक सीटों (दुर्लभ पर वास्तविक), विश्वविद्यालय प्रेसिडेंशियल पुरस्कारों और प्रांतीय छात्रवृत्तियों के लिए प्रतिस्पर्धा करते हैं। CSC स्नातक कोटा स्नातकोत्तर से बहुत छोटा है — हर CSC आवेदन के साथ 2 विश्वविद्यालय-पुरस्कार आवेदन जोड़ें।',
+    },
+    bachGood: {
+      label: 'स्तर 2 — आंशिक छात्रवृत्ति रेंज',
+      title: 'विश्वविद्यालय आंशिक छात्रवृत्तियाँ आपकी लेन हैं।',
+      body: 'यह स्तर अच्छे विश्वविद्यालयों में ट्यूशन माफी और प्रांतीय आंशिक छात्रवृत्तियाँ विश्वसनीय रूप से जीतता है। स्नातक स्तर पर CSC पूर्ण भी होती है, पर शुल्क की योजना आंशिक कवरेज मानकर बनाएँ और किसी भी पूर्ण छात्रवृत्ति को बोनस मानें।',
+    },
+    bachMid: {
+      label: 'स्तर 3 — कुछ विश्वविद्यालय छात्रवृत्तियाँ',
+      title: 'चयनात्मक आंशिक; किफ़ायती विश्वविद्यालय चमकते हैं।',
+      body: 'नाम की छात्रवृत्तियों के बजाय किफ़ायती विश्वविद्यालयों में ट्यूशन छूट की अपेक्षा करें। द्वितीय श्रेणी शहर कुल लागत को संभालने योग्य रखते हैं — यहाँ छात्रवृत्ति के पीछे भागने से ज़्यादा शहर का चयन हिसाब बदलता है।',
+    },
+    bachLow: {
+      label: 'स्तर 4 — स्वयं वित्तपोषित रास्ता',
+      title: 'स्वयं वित्तपोषित ही ईमानदार योजना है।',
+      body: 'पूर्ण शुल्क की योजना बनाएँ और कम-ट्यूशन विश्वविद्यालयों व कम-लागत शहरों पर टिकें। डिग्री छूट से ज़्यादा मायने रखती है; एक प्लेस हुआ छात्र बिना वित्तपोषण के आवेदन से बेहतर है।',
+    },
+    englishBold: 'अगली बाधा: अंग्रेज़ी का प्रमाण।',
+    englishRest: 'माध्यम प्रमाणपत्र पाएँ या IELTS/TOEFL की तारीख़ बुक करें — भाषा प्रमाण के बिना फ़ाइलें छात्रवृत्ति छँटाई में छूट जाती हैं।',
+    ctaGuide: 'CSC गाइड पढ़ें',
+    ctaReview: 'फ़ाइल समीक्षा पाएँ',
+  },
+};
+
+export const SCHOLARSHIP_STRINGS: Record<Locale, ScholarshipStrings> = { en, zh, fr, ar, es, de, ja, pt, hi };

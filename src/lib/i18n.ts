@@ -4,12 +4,13 @@
  *
  * Astro's i18n routing (see astro.config.mjs) drives the URL structure:
  * English pages live at the unprefixed root, every other locale under
- * /<locale>/. This module adds what Astro doesn't: native labels,
- * direction (Arabic is RTL), and a path-translation helper that mirrors
- * astro:i18n's getRelativeLocaleUrl without needing it in every file.
+ * /<locale>/ (currently zh, fr, ar, es, de, ja, pt, hi). This module adds
+ * what Astro doesn't: native labels, direction (Arabic is the only RTL
+ * locale), and a path-translation helper that mirrors astro:i18n's
+ * getRelativeLocaleUrl without needing it in every file.
  */
 
-export const LOCALES = ['en', 'zh', 'fr', 'ar', 'es'] as const;
+export const LOCALES = ['en', 'zh', 'fr', 'ar', 'es', 'de', 'ja', 'pt', 'hi'] as const;
 export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'en';
 
@@ -32,7 +33,20 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   fr: { code: 'fr', label: 'French', nativeLabel: 'Français', dir: 'ltr', prefixed: true },
   ar: { code: 'ar', label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl', prefixed: true },
   es: { code: 'es', label: 'Spanish', nativeLabel: 'Español', dir: 'ltr', prefixed: true },
+  de: { code: 'de', label: 'German', nativeLabel: 'Deutsch', dir: 'ltr', prefixed: true },
+  ja: { code: 'ja', label: 'Japanese', nativeLabel: '日本語', dir: 'ltr', prefixed: true },
+  pt: { code: 'pt', label: 'Portuguese', nativeLabel: 'Português', dir: 'ltr', prefixed: true },
+  hi: { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी', dir: 'ltr', prefixed: true },
 };
+
+/**
+ * Regex matching a locale URL prefix at the start of a path, derived from
+ * LOCALES so a new locale needs one edit only (this list, plus astro.config).
+ * Matches /zh, /fr/…, /de/… etc. but never a bare non-locale segment.
+ */
+const PREFIX_RE = new RegExp(
+  `^\\/+(?:${LOCALES.filter((l) => l !== DEFAULT_LOCALE).join('|')})(?=\\/|$)`
+);
 
 /**
  * Detect the locale from a pathname like /, /zh, /fr/education, /ar/tools/fit-check.
@@ -52,7 +66,7 @@ export function localeFromPath(pathname: string): Locale {
  * Accepts absolute (starts with /) or relative paths.
  */
 export function translatePath(path: string, locale: Locale): string {
-  const stripped = path.replace(/^\/+(zh|fr|ar|es)(?=\/|$)/, '');
+  const stripped = path.replace(PREFIX_RE, '');
   const p = stripped.startsWith('/') ? stripped : `/${stripped}`;
   if (locale === DEFAULT_LOCALE) {
     return p === '/' ? '/' : p.replace(/\/$/, '');
@@ -71,6 +85,12 @@ export const INTL_TAG: Record<Locale, string> = {
   fr: 'fr-FR',
   ar: 'ar-u-nu-latn',
   es: 'es-ES',
+  de: 'de-DE',
+  ja: 'ja-JP',
+  // Brazil is the dominant Portuguese-speaking market for the site; the URL
+  // prefix stays 'pt'.
+  pt: 'pt-BR',
+  hi: 'hi-IN',
 };
 
 /** Date-formatting tags: English keeps the site's long-standing en-IN style. */

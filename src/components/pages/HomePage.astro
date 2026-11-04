@@ -15,6 +15,8 @@ import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
 import StatsBand from '../StatsBand.astro';
 import { GENERAL_FAQS } from '../../data/faqs';
+import { TESTIMONIALS } from '../../data/testimonials';
+import { cityName } from '../../data/city-names';
 import { faqSchema, reviewSchema } from '../../lib/schema';
 import { SITE } from '../../lib/site';
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
@@ -43,12 +45,17 @@ const posts = localizedEntries(await getCollection('blog'), locale)
 
 const homeFaqs = GENERAL_FAQS[locale].slice(0, 5);
 
+// Hero review JSON-LD reuses the locale's first testimonial so the schema
+// matches the copy visitors actually see. Locales without translated
+// testimonials yet fall back to the English source quote.
+const heroTestimonial = TESTIMONIALS[locale]?.[0] ?? TESTIMONIALS.en[0];
+
 // Corridor coordinates — single source of truth, same pattern as PageHero:
 // the instrument labels below and the canvas-globe markers all derive from
 // SITE.offices so the numbers can't drift from the rest of the site.
 const OFFICES = [
-  { code: 'DEL', city: SITE.offices[0].city, lat: SITE.offices[0].lat, lng: SITE.offices[0].lng },
-  { code: 'CAN', city: SITE.offices[1].city, lat: SITE.offices[1].lat, lng: SITE.offices[1].lng },
+  { code: 'DEL', city: cityName(SITE.offices[0].id, locale), lat: SITE.offices[0].lat, lng: SITE.offices[0].lng },
+  { code: 'CAN', city: cityName(SITE.offices[1].id, locale), lat: SITE.offices[1].lat, lng: SITE.offices[1].lng },
 ];
 const [DELHI, GUANGZHOU] = OFFICES;
 // Passed to the client script via the globe canvas's data-markers attribute
@@ -88,7 +95,7 @@ const tools = [
   description={t.meta.description}
   path="/"
   jsonLd={[faqSchema(homeFaqs), reviewSchema(
-    [{ author: 'Ananya Krishnan', reviewBody: 'RouteToAbroad didn\'t just find me a university; they found me a future.', rating: 5 }]
+    [{ author: heroTestimonial.name, reviewBody: heroTestimonial.quote, rating: 5 }]
   )]}
 >
   <!-- ============================================================
@@ -158,7 +165,7 @@ const tools = [
                 class="campus-img"
               />
             </div>
-            <p class="campus-coord num">Guangzhou · {GUANGZHOU.lat.toFixed(2)}°N / {GUANGZHOU.lng.toFixed(2)}°E</p>
+            <p class="campus-coord num">{GUANGZHOU.city} · {GUANGZHOU.lat.toFixed(2)}°N / {GUANGZHOU.lng.toFixed(2)}°E</p>
             <div class="campus-foot" id="journey-cta">
               <p class="campus-lede">
                 {t.journey.campusLede}

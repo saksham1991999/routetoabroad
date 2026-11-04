@@ -75,7 +75,7 @@ const link = (path: string) => translatePath(path, locale);
             <a href={SITE.whatsapp} class="btn btn-primary" rel="noopener">{t.direct.whatsapp}</a>
             <a href={SITE.phoneIndiaHref} class="btn btn-outline">{t.direct.call.replace('{phone}', SITE.phoneIndia)}</a>
           </div>
-          <p class="c-hours num">{SITE.hours}</p>
+          <p class="c-hours num"><bdi>{ui.footer.hoursValue}</bdi></p>
         </div>
       </aside>
     </div>

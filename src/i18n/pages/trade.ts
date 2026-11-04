@@ -675,4 +675,490 @@ export const TRADE: Record<Locale, TradeStrings> = {
     },
     faq: { eyebrow: 'FAQ de Comercio', index: '04 / 04', title: 'Trade Intel, respuestas directas', more: 'Todas las FAQ de comercio' },
   },
+
+  de: {
+    meta: {
+      title: 'Indien–China-Handelsservices — Beschaffung, QS & Logistik',
+      description:
+        'Produktbeschaffung, Fabrikaudits, AQL-Qualitätskontrolle, Zollabfertigung und See-/Luftfracht zwischen China und Indien — gesteuert von Guangzhou aus, mit Erfolgsprovision an den versandten Warenwert.',
+    },
+    crumb: 'Handel',
+    schema: {
+      serviceName: 'Indien–China-Handelsservices',
+      serviceDescription:
+        'Beschaffung, Qualitätskontrolle, Zollkonformität und Frachtmanagement für den Indien–China-Handel, mit Erfolgsprovisionsmodell.',
+      serviceType: 'Handelsdienstleistungen',
+    },
+    hero: {
+      eyebrow: 'Handel',
+      index: 'TRD / 03',
+      title: 'Ihre Lieferkette braucht keine weitere Komplexität.',
+      lede: 'Sie braucht ein verantwortliches Team auf der Werkshalle. Beschaffung, Qualitätsschleusen, Zoll und Fracht zwischen China und Indien — gesteuert von unserem Büro in Guangzhou, mit Erfolgsprovision an den versandten Warenwert.',
+      facts: [
+        { label: 'Standort', value: 'Guangzhou · Delhi' },
+        { label: 'Netzwerk', value: '200+ geprüft' },
+        { label: 'Qualität', value: 'AQL-Inspektionen' },
+        { label: 'Modell', value: 'Erfolgsprovision' },
+      ],
+      primaryCta: 'Landekosten berechnen lassen',
+      secondaryCta: 'Disziplinen ansehen',
+      jumps: ['Disziplinen', 'Ablauf', 'Branchen', 'Anfragen', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'Containerkrane im Hafen von Guangzhou bei Sonnenaufgang',
+      caption: 'Hafen von Guangzhou · unser Trade-Desk ist 40 Minuten entfernt',
+    },
+    disciplines: {
+      eyebrow: 'Lieferketten-Orchestrierung',
+      index: '01 / 04',
+      title: 'Fünf Kern-Disziplinen',
+      lede: 'Jede existiert, weil wir es leid waren, Importeure für ihr Fehlen zahlen zu sehen.',
+      items: [
+        {
+          name: 'Produktbeschaffung',
+          text: 'Über 5.000 auditierte Lieferantenkontakte im Perlflussdelta. Wir erstellen Shortlists, verifizieren und verhandeln — mit 24-Stunden-Antwortversprechen in Arbeitswochen.',
+          stat: '200+ Fabriken auditiert',
+        },
+        {
+          name: 'Qualitätskontrolle',
+          text: 'AQL-Standard-Inspektionen bei ca. 20 % und ca. 80 % der Produktion, dazu Vorabversand-Checks und Überwachung der Containerbeladung. Foto-Video-Berichte an jeder Schleuse.',
+          stat: 'AQL 20 % / 80 %-Schleusen',
+        },
+        {
+          name: 'Zoll & Konformität',
+          text: 'HS-Klassifizierung, BIS/WPC-Registrierungen, COO-Dokumente und vollständige Zollakten, vorbereitet, bevor die Ware den Hafen erreicht — die Abfertigung wartet nie auf Papierkram.',
+          stat: 'BIS · WPC · HS-Codes',
+        },
+        {
+          name: 'Intelligente Logistik',
+          text: 'See 18–25 Tage Hafen zu Hafen, Luft 3–7 Tage Tür zu Tür, LCL für Testmengen, FCL in Serie. Hafenstau-Monitoring mit Umleitung, wenn es sich lohnt.',
+          stat: '100 % versicherte Sendungen',
+        },
+        {
+          name: 'Globale Handelsberatung',
+          text: 'Markteintritt, Zahlungsstrukturierung (TT/LC/escrow), Lieferantenverträge mit Strafklauseln und Streitvertretung vor Ort.',
+          stat: 'Präsenz vor Ort',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'Wie wir arbeiten',
+      index: '02 / 04',
+      title: 'Von der Produktidee bis zum indischen Lagerhaus',
+      lede: 'Geld bewegt sich in Schritten — und jeder Schritt endet mit Nachweisen, nicht mit Zusicherungen.',
+      steps: [
+        {
+          name: 'Anfrage & Landekosten-Bild',
+          text: 'Sagen Sie uns Produkt und Zielpreis. Wir kommen mit realistischen Landekosten bis zum indischen Lagerhaus zurück — Zoll, Fracht und Inspektion inklusive.',
+        },
+        {
+          name: 'Fabrikaudit',
+          text: 'Eintägiges Audit der Kandidatenfabriken vor Ort: Lizenzen, Kapazität, QS-Reife, Foto-Video-Nachweise. Kein Audit, keine Verpflichtung.',
+        },
+        {
+          name: 'Bemusterung & Goldenes Muster',
+          text: 'Spezifikationen in Englisch + Chinesisch fixiert, goldene Muster dreifach versiegelt. Jeder spätere Streit wird dagegen entschieden.',
+        },
+        {
+          name: 'Produktion mit QS-Schleusen',
+          text: '30 % Anzahlung gibt die Produktion frei; AQL-Inspektionen bei 20 %/80 % entscheiden, ob das restliche Geld wandert.',
+        },
+        {
+          name: 'Verschiffen, abfertigen, liefern',
+          text: '70 % gegen B/L-Kopie. Zoll vorab eingereicht. Ware landet in Mundra/JNPT oder an Ihrer Tür — von Anfang bis Ende versichert.',
+        },
+      ],
+    },
+    industries: {
+      eyebrow: 'Kategorien',
+      index: '03 / 04',
+      title: 'Branchen, die wir betreiben',
+      lede: 'Tiefe Auswahl in diesen Kategorien — und ehrliche Weiterempfehlung, wo nicht.',
+      items: [
+        'Elektronik & Komponenten', 'Industriemaschinen', 'Textilien & Bekleidung', 'Autoteile',
+        'Konsumgüter', 'Chemikalien', 'Wohnaccessoires', 'Medizingeräte', 'Verpackungsmaterial',
+      ],
+    },
+    payStrip: [
+      { num: '30 / 70', text: 'Anzahlung + Restbetrag gegen B/L — die Struktur, auf der wir bestehen' },
+      { num: '24 Std', text: 'Antwortziel der Lieferanten in Arbeitswochen' },
+      { num: '18–25 T', text: 'Seetransit zu den Häfen der indischen Westküste' },
+      { num: '3–7 T', text: 'Luftfracht Tür zu Tür, das 5–8-Fache des Seewegs' },
+    ],
+    enquire: {
+      eyebrow: 'Hier starten',
+      title: 'Bringen Sie uns ein Produkt — Sie erhalten Landekosten',
+      lede: 'Sagen Sie uns, was Sie beschaffen, und Ihren Zielpreis. Wir antworten mit einem realistischen Landekosten-Bild bis zu einem indischen Lagerhaus — Auditkosten vorab zitiert, Erfolgsprovision erst beim Versand.',
+      why: [
+        { lead: 'Kein Erfolg, keine Erfolgsprovision.', text: 'Wenn das Geschäft platzt, schulden Sie nur die zitierten Audit-/Inspektionskosten.' },
+        { lead: 'Nachweise an jeder Schleuse.', text: 'Berichte, Fotos, Videos — bevor Geld wandert.' },
+        { lead: 'Ein Team, zwei Länder.', text: 'Delhi-Beziehungen, Präsenz in der Werkshalle in Guangzhou.' },
+      ],
+    },
+    faq: { eyebrow: 'Handels-FAQ', index: '04 / 04', title: 'Trade Intel, geradeheraus beantwortet', more: 'Alle Handels-FAQs' },
+  },
+
+  ja: {
+    meta: {
+      title: 'インド–中国貿易サービス — 調達・品質管理・ロジスティクス',
+      description:
+        '中国とインド間の製品調達、工場監査、AQL 品質検査、通関、海上/航空輸送 — 広州から、出荷額に連動する成功報酬モデルで運営。',
+    },
+    crumb: '貿易',
+    schema: {
+      serviceName: 'インド–中国貿易サービス',
+      serviceDescription: 'インド–中国貿易向けの調達、品質管理、通関コンプライアンス、貨物管理。成功報酬モデルで提供します。',
+      serviceType: '貿易サービス',
+    },
+    hero: {
+      eyebrow: '貿易',
+      index: 'TRD / 03',
+      title: 'あなたのサプライチェーンに必要なのは、さらなる複雑さではありません。',
+      lede: '必要なのは、工場の現場に立つ説明責任のあるひとつのチーム。中国とインド間の調達、品質ゲート、通関、輸送 — 広州の事務所から、出荷額に連動する成功報酬で運営します。',
+      facts: [
+        { label: '拠点', value: '広州 · デリー' },
+        { label: 'ネットワーク', value: '200 社以上確認済み' },
+        { label: '品質', value: 'AQL 検品' },
+        { label: '方式', value: '成功報酬' },
+      ],
+      primaryCta: '総到着コストを試算する',
+      secondaryCta: 'サービス領域を見る',
+      jumps: ['サービス領域', '流れ', '業種', 'お問い合わせ', 'FAQ'],
+    },
+    heroBand: {
+      alt: '夜明けの広州港で作業するコンテナクレーン',
+      caption: '広州港 · 私たちの貿易デスクまで 40 分',
+    },
+    disciplines: {
+      eyebrow: 'サプライチェーンの統括',
+      index: '01 / 04',
+      title: '五つの基盤サービス',
+      lede: 'どれも、その不在のために輸入者が代金を払い続けるのを見飽きて生まれたものです。',
+      items: [
+        {
+          name: '製品調達',
+          text: '珠江デルタで監査済みのサプライヤー 5,000 社以上。候補の絞り込み、確認、交渉 — 営業週は 24 時間以内の返信をお約束します。',
+          stat: '監査済み工場 200 社以上',
+        },
+        {
+          name: '品質管理',
+          text: '生産量の約 20% と約 80% で AQL 基準の検品、加えて出荷前検査とコンテナ積載の立会い。各ゲートで写真・動画レポート。',
+          stat: 'AQL 20% / 80% ゲート',
+        },
+        {
+          name: '通関・コンプライアンス',
+          text: 'HS 分類、BIS/WPC 登録、COO 書類、完全な通関ファイルを貨物の到着前に整備 — 通関が書類待ちになることはありません。',
+          stat: 'BIS · WPC · HS コード',
+        },
+        {
+          name: 'スマート物流',
+          text: '海上 18〜25 日（港間）、航空 3〜7 日（戸口から戸口へ）、試験発注は LCL、量産は FCL。港の混雑を監視し、得なら経路を変更します。',
+          stat: '出荷の 100% 保険加入',
+        },
+        {
+          name: 'グローバル貿易コンサルティング',
+          text: '市場参入、支払いスキーム（TT/LC/escrow）、違約条項付きのサプライヤー契約、現地での紛争対応。',
+          stat: '現地対応体制',
+        },
+      ],
+    },
+    process: {
+      eyebrow: '進め方',
+      index: '02 / 04',
+      title: '製品のアイデアからインドの倉庫まで',
+      lede: 'お金は段階的に動きます — そして各段階は、口約束ではなく証拠で終わります。',
+      steps: [
+        {
+          name: 'お問い合わせと総到着コストの把握',
+          text: '製品と目標価格をお知らせください。インドの倉庫までの現実的な総到着コスト — 関税、運賃、検品費込み — をお返しします。',
+        },
+        {
+          name: '工場監査',
+          text: '候補工場を 1 日かけて現地監査：許認可、生産能力、品質管理の成熟度、写真・動画の証拠。監査なしに約束はしません。',
+        },
+        {
+          name: 'サンプリングとゴールデンサンプル',
+          text: '仕様を英語+中国語で確定し、ゴールデンサンプルを 3 部封印。以降の争いはすべてこれに照らして決着させます。',
+        },
+        {
+          name: '品質ゲート付き生産',
+          text: '30% の手付金で生産開始。20%/80% の AQL 検品が、残りの支払いを進めるかどうかを決めます。',
+        },
+        {
+          name: '出荷・通関・引き渡し',
+          text: 'B/L コピー受け取りで 70%。通関は事前申告。貨物は Mundra/JNPT またはご指定の戸口へ — 全程保険付き。',
+        },
+      ],
+    },
+    industries: {
+      eyebrow: 'カテゴリー',
+      index: '03 / 04',
+      title: '手がけている業種',
+      lede: 'この分野には厚い選択肢があります — 手がけていない分野は、率直にご紹介します。',
+      items: [
+        'エレクトロニクス・部品', '産業機械', '繊維・アパレル', '自動車部品',
+        '消費財', '化学品', 'インテリア雑貨', '医療機器', '包装資材',
+      ],
+    },
+    payStrip: [
+      { num: '30 / 70', text: '手付金 + B/L コピー受け取りで残額 — 私たちが徹底する構造' },
+      { num: '24 時間', text: '営業週でのサプライヤー返信目標' },
+      { num: '18–25 日', text: 'インド西海岸の港までの海上輸送' },
+      { num: '3–7 日', text: '航空輸送は戸口から戸口へ、海運の 5–8 倍のコスト' },
+    ],
+    enquire: {
+      eyebrow: 'ここから始める',
+      title: '製品をお持ちください。総到着コストをお返しします。',
+      lede: '調達したい製品と目標価格をお知らせください。インドの倉庫までの現実的な総到着コストをお返しします — 監査費用は事前に見積もり、成功報酬は出荷時のみ。',
+      why: [
+        { lead: '成功しなければ、成功報酬もありません。', text: '取引が消えた場合、お支払いは見積もった監査・検品費のみ。' },
+        { lead: '各ゲートに証拠。', text: 'レポート、写真、動画 — お金が動く前に。' },
+        { lead: 'ひとつのチーム、両国に足場。', text: 'デリーの人脈、広州の現場力。' },
+      ],
+    },
+    faq: { eyebrow: '貿易 FAQ', index: '04 / 04', title: 'Trade Intel への率直な回答', more: '貿易に関する FAQ すべて' },
+  },
+
+  pt: {
+    meta: {
+      title: 'Serviços de comércio Índia–China — suprimentos, QC e logística',
+      description:
+        'Suprimentos de produtos, auditorias de fábrica, controle de qualidade AQL, desembaraço aduaneiro e frete marítimo/aéreo entre China e Índia — operados de Guangzhou com modelo de comissão de sucesso vinculado ao valor enviado.',
+    },
+    crumb: 'Comércio',
+    schema: {
+      serviceName: 'Serviços de comércio Índia–China',
+      serviceDescription:
+        'Suprimentos, controle de qualidade, conformidade aduaneira e gestão de frete para o comércio Índia–China, com modelo de comissão de sucesso.',
+      serviceType: 'Serviços de comércio',
+    },
+    hero: {
+      eyebrow: 'Comércio',
+      index: 'TRD / 03',
+      title: 'Sua cadeia de suprimentos não precisa de mais complexidade.',
+      lede: 'Ela precisa de uma equipe responsável no chão de fábrica. Suprimentos, portões de qualidade, alfândega e frete entre China e Índia — operados do nosso escritório em Guangzhou, com comissão de sucesso vinculada ao valor enviado.',
+      facts: [
+        { label: 'Base', value: 'Guangzhou · Délhi' },
+        { label: 'Rede', value: '200+ verificados' },
+        { label: 'Qualidade', value: 'Inspeções AQL' },
+        { label: 'Modelo', value: 'Comissão de sucesso' },
+      ],
+      primaryCta: 'Obter o custo de desembarque',
+      secondaryCta: 'Ver disciplinas',
+      jumps: ['Disciplinas', 'Processo', 'Setores', 'Consultar', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'Guindastes de contêineres trabalhando no porto de Guangzhou ao amanhecer',
+      caption: 'Porto de Guangzhou · nossa mesa de comércio fica a 40 minutos',
+    },
+    disciplines: {
+      eyebrow: 'Orquestração da cadeia de suprimentos',
+      index: '01 / 04',
+      title: 'Cinco disciplinas centrais',
+      lede: 'Cada uma existe porque nos cansamos de ver importadores pagarem pela sua ausência.',
+      items: [
+        {
+          name: 'Suprimento de produtos',
+          text: 'Mais de 5.000 contatos de fornecedores auditados no delta do Rio das Pérolas. Fazemos a pré-seleção, verificamos e negociamos — com promessa de resposta em 24 horas em semanas úteis.',
+          stat: '200+ fábricas auditadas',
+        },
+        {
+          name: 'Controle de qualidade',
+          text: 'Inspeções padrão AQL a ~20% e ~80% da produção, mais checagens pré-embarque e supervisão do carregamento de contêineres. Relatórios com foto e vídeo em cada portão.',
+          stat: 'Portões AQL 20% / 80%',
+        },
+        {
+          name: 'Alfândega e conformidade',
+          text: 'Classificação HS, registros BIS/WPC, documentos COO e dossiês aduaneiros completos preparados antes de a mercadoria chegar ao porto — o desembaraço nunca espera papelada.',
+          stat: 'BIS · WPC · códigos HS',
+        },
+        {
+          name: 'Logística inteligente',
+          text: 'Marítimo 18–25 dias porto a porto, aéreo 3–7 dias porta a porta, LCL para testes, FCL em escala. Monitoramento de congestionamento portuário com redirecionamento quando compensa.',
+          stat: '100% dos envios segurados',
+        },
+        {
+          name: 'Consultoria de comércio global',
+          text: 'Entrada em mercados, estruturação de pagamentos (TT/LC/escrow), contratos com fornecedores com cláusulas de penalidade e representação em disputas no local.',
+          stat: 'Representação no local',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'Como trabalhamos',
+      index: '02 / 04',
+      title: 'Da ideia de produto ao armazém indiano',
+      lede: 'O dinheiro avança em etapas — e cada etapa termina com evidências, não com promessas.',
+      steps: [
+        {
+          name: 'Consulta e panorama de custo de desembarque',
+          text: 'Diga-nos o produto e o preço-alvo. Voltamos com um custo de desembarque realista até um armazém na Índia — impostos, frete e inspeção incluídos.',
+        },
+        {
+          name: 'Auditoria de fábrica',
+          text: 'Auditoria de um dia no local das fábricas candidatas: licenças, capacidade, maturidade de qualidade, evidências em foto e vídeo. Sem auditoria, sem compromisso.',
+        },
+        {
+          name: 'Amostragem e amostra dourada',
+          text: 'Especificações travadas em inglês + chinês, amostras douradas lacradas em triplicata. Toda disputa posterior se resolve com base nisso.',
+        },
+        {
+          name: 'Produção com portões de qualidade',
+          text: '30% de adiantamento libera a produção; as inspeções AQL a 20%/80% decidem se o restante do dinheiro avança.',
+        },
+        {
+          name: 'Embarcar, desembaraçar, entregar',
+          text: '70% contra cópia do B/L. Alfândega protocolada antes. A mercadoria chega a Mundra/JNPT ou à sua porta — segurada de ponta a ponta.',
+        },
+      ],
+    },
+    industries: {
+      eyebrow: 'Categorias',
+      index: '03 / 04',
+      title: 'Setores em que operamos',
+      lede: 'Opções profundas nessas categorias — e indicações honestas onde não temos.',
+      items: [
+        'Eletrônicos e componentes', 'Máquinas industriais', 'Têxteis e vestuário', 'Autopeças',
+        'Bens de consumo', 'Química', 'Decoração', 'Equipamentos médicos', 'Materiais de embalagem',
+      ],
+    },
+    payStrip: [
+      { num: '30 / 70', text: 'adiantamento + saldo contra o B/L — a estrutura que exigimos' },
+      { num: '24 h', text: 'meta de resposta dos fornecedores em semanas úteis' },
+      { num: '18–25 d', text: 'trânsito marítimo até os portos da costa oeste indiana' },
+      { num: '3–7 d', text: 'frete aéreo porta a porta, 5–8× o custo marítimo' },
+    ],
+    enquire: {
+      eyebrow: 'Comece aqui',
+      title: 'Traga um produto, receba um custo de desembarque',
+      lede: 'Diga-nos o que você está comprando e seu preço-alvo. Respondemos com um panorama realista do custo de desembarque até um armazém na Índia — custos de auditoria cotados antecipadamente, comissão de sucesso só quando a mercadoria embarca.',
+      why: [
+        { lead: 'Sem sucesso, sem comissão de sucesso.', text: 'Se o negócio morrer, você deve apenas os custos cotados de auditoria/inspeção.' },
+        { lead: 'Evidência em cada portão.', text: 'Relatórios, fotos, vídeos — antes de o dinheiro se mover.' },
+        { lead: 'Uma equipe, dois países.', text: 'Relações em Délhi, presença no chão de fábrica em Guangzhou.' },
+      ],
+    },
+    faq: { eyebrow: 'FAQ de Comércio', index: '04 / 04', title: 'Trade Intel, respostas diretas', more: 'Todas as FAQs de comércio' },
+  },
+
+  hi: {
+    meta: {
+      title: 'भारत–चीन व्यापार सेवाएँ — सोर्सिंग, गुणवत्ता नियंत्रण और लॉजिस्टिक्स',
+      description:
+        'चीन और भारत के बीच उत्पाद सोर्सिंग, फ़ैक्टरी ऑडिट, AQL गुणवत्ता नियंत्रण, कस्टम्स क्लियरेंस और समुद्री/वायु माल ढुलाई — ग्वांगज़ू से, भेजे गए माल के मूल्य से जुड़ी सफलता फ़ीस मॉडल पर।',
+    },
+    crumb: 'व्यापार',
+    schema: {
+      serviceName: 'भारत–चीन व्यापार सेवाएँ',
+      serviceDescription: 'भारत–चीन व्यापार के लिए सोर्सिंग, गुणवत्ता नियंत्रण, कस्टम्स अनुपालन और माल प्रबंधन, सफलता फ़ीस मॉडल पर।',
+      serviceType: 'व्यापार सेवाएँ',
+    },
+    hero: {
+      eyebrow: 'व्यापार',
+      index: 'TRD / 03',
+      title: 'आपकी सप्लाई चेन को और जटिलता नहीं चाहिए।',
+      lede: 'उसे फ़ैक्टरी फ़्लोर पर एक जवाबदेह टीम चाहिए। चीन और भारत के बीच सोर्सिंग, गुणवत्ता गेट, कस्टम्स और माल ढुलाई — हमारे ग्वांगज़ू कार्यालय से, भेजे गए माल के मूल्य से जुड़ी सफलता फ़ीस पर।',
+      facts: [
+        { label: 'आधार', value: 'ग्वांगज़ू · दिल्ली' },
+        { label: 'नेटवर्क', value: '200+ जाँचे हुए' },
+        { label: 'गुणवत्ता', value: 'AQL निरीक्षण' },
+        { label: 'मॉडल', value: 'सफलता फ़ीस' },
+      ],
+      primaryCta: 'लैंडेड लागत पाएँ',
+      secondaryCta: 'सेवा क्षेत्र देखें',
+      jumps: ['सेवा क्षेत्र', 'प्रक्रिया', 'उद्योग', 'पूछताछ', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'भोर में ग्वांगज़ू बंदरगाह पर काम करते कंटेनर क्रेन',
+      caption: 'ग्वांगज़ू बंदरगाह · हमारा व्यापार डेस्क 40 मिनट दूर',
+    },
+    disciplines: {
+      eyebrow: 'सप्लाई चेन प्रबंधन',
+      index: '01 / 04',
+      title: 'पाँच मूल सेवा क्षेत्र',
+      lede: 'हर एक इसलिए है कि हम आयातकों को इसकी कमी के लिए भुगतान करते देखते-देखते थक गए थे।',
+      items: [
+        {
+          name: 'उत्पाद सोर्सिंग',
+          text: 'पर्ल रिवर डेल्टा में 5,000+ ऑडिट किए गए आपूर्तिकर्ता संपर्क। हम शॉर्टलिस्ट करते हैं, सत्यापित करते हैं और सौदेबाज़ी करते हैं — कार्य सप्ताहों में 24 घंटे की प्रतिक्रिया का वादा।',
+          stat: '200+ फ़ैक्टरियाँ ऑडिट',
+        },
+        {
+          name: 'गुणवत्ता नियंत्रण',
+          text: 'उत्पादन के ~20% और ~80% पर AQL-मानक निरीक्षण, साथ में शिपमेंट-पूर्व जाँचें और कंटेनर लोडिंग पर्यवेक्षण। हर गेट पर फ़ोटो-वीडियो रिपोर्ट।',
+          stat: 'AQL 20% / 80% गेट',
+        },
+        {
+          name: 'कस्टम्स और अनुपालन',
+          text: 'HS वर्गीकरण, BIS/WPC पंजीकरण, COO दस्तावेज़ और पूरी कस्टम्स फ़ाइलें माल के बंदरगाह पहुँचने से पहले तैयार — क्लियरेंस कभी काग़ज़ी काम पर नहीं रुकता।',
+          stat: 'BIS · WPC · HS कोड',
+        },
+        {
+          name: 'स्मार्ट लॉजिस्टिक्स',
+          text: 'समुद्री 18–25 दिन बंदरगाह से बंदरगाह, वायु 3–7 दिन दरवाज़े से दरवाज़े, परीक्षण के लिए LCL, पैमाने पर FCL। बंदरगाह भीड़ पर नज़र, फ़ायदे होने पर रास्ता बदलना।',
+          stat: '100% बीमित शिपमेंट',
+        },
+        {
+          name: 'वैश्विक व्यापार परामर्श',
+          text: 'बाज़ार प्रवेश, भुगतान संरचना (TT/LC/escrow), जुर्माना खंडों वाले आपूर्तिकर्ता अनुबंध, और मौक़े पर विवाद प्रतिनिधित्व।',
+          stat: 'मौक़े पर प्रतिनिधित्व',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'हम कैसे काम करते हैं',
+      index: '02 / 04',
+      title: 'उत्पाद विचार से भारतीय गोदाम तक',
+      lede: 'पैसा चरणों में चलता है — और हर चरण भरोसे पर नहीं, साक्ष्य पर ख़त्म होता है।',
+      steps: [
+        {
+          name: 'पूछताछ और लैंडेड लागत की तस्वीर',
+          text: 'उत्पाद और लक्ष्य मूल्य बताइए। हम भारतीय गोदाम तक यथार्थवादी लैंडेड लागत लौटाते हैं — शुल्क, माल भाड़ा और निरीक्षण सहित।',
+        },
+        {
+          name: 'फ़ैक्टरी ऑडिट',
+          text: 'उम्मीदवार फ़ैक्टरियों का एक दिन का मैदानी ऑडिट: लाइसेंस, क्षमता, गुणवत्ता परिपक्वता, फ़ोटो-वीडियो साक्ष्य। ऑडिट नहीं, प्रतिबद्धता नहीं।',
+        },
+        {
+          name: 'सैंपलिंग और गोल्डन सैंपल',
+          text: 'स्पेसिफ़िकेशन अंग्रेज़ी + चीनी में तय, गोल्डन सैंपल तीन प्रतियों में सील। बाद का हर विवाद इसी पर तय होता है।',
+        },
+        {
+          name: 'गुणवत्ता गेट सहित उत्पादन',
+          text: '30% अग्रिम उत्पादन शुरू करता है; 20%/80% पर AQL निरीक्षण तय करते हैं कि बाक़ी पैसा चलेगा या नहीं।',
+        },
+        {
+          name: 'भेजें, क्लियर करें, पहुँचाएँ',
+          text: 'B/L कॉपी पर 70%। कस्टम्स पहले दाख़िल। माल Mundra/JNPT या आपके दरवाज़े पर — शुरू से अंत तक बीमित।',
+        },
+      ],
+    },
+    industries: {
+      eyebrow: 'श्रेणियाँ',
+      index: '03 / 04',
+      title: 'जिन उद्योगों में हम काम करते हैं',
+      lede: 'इन श्रेणियों में गहरी तैयारी — और जहाँ नहीं, वहाँ ईमानदार रेफ़रल।',
+      items: [
+        'इलेक्ट्रॉनिक्स और कंपोनेंट', 'औद्योगिक मशीनरी', 'कपड़ा और परिधान', 'ऑटो पार्ट्स',
+        'उपभोक्ता वस्तुएँ', 'रसायन', 'घर की सजावट', 'चिकित्सा उपकरण', 'पैकेजिंग सामग्री',
+      ],
+    },
+    payStrip: [
+      { num: '30 / 70', text: 'अग्रिम + B/L कॉपी पर शेष राशि — वह संरचना जिस पर हम ज़ोर देते हैं' },
+      { num: '24 घंटे', text: 'कार्य सप्ताहों में आपूर्तिकर्ता प्रतिक्रिया लक्ष्य' },
+      { num: '18–25 दिन', text: 'भारत के पश्चिमी तट के बंदरगाहों तक समुद्री संचरण' },
+      { num: '3–7 दिन', text: 'वायु माल भाड़ा दरवाज़े से दरवाज़े, समुद्री लागत का 5–8 गुना' },
+    ],
+    enquire: {
+      eyebrow: 'यहाँ से शुरू करें',
+      title: 'हमें एक उत्पाद दें, लैंडेड लागत पाएँ',
+      lede: 'बताइए आप क्या सोर्स कर रहे हैं और लक्ष्य मूल्य क्या है। हम भारतीय गोदाम तक यथार्थवादी लैंडेड लागत लौटाते हैं — ऑडिट लागत पहले से बताई जाती है, सफलता फ़ीस सिर्फ़ माल भेजने पर।',
+      why: [
+        { lead: 'सफलता नहीं, तो सफलता फ़ीस नहीं।', text: 'सौदा टूटने पर आप केवल बताई गई ऑडिट/निरीक्षण लागत देते हैं।' },
+        { lead: 'हर गेट पर साक्ष्य।', text: 'रिपोर्ट, फ़ोटो, वीडियो — पैसा चलने से पहले।' },
+        { lead: 'एक टीम, दोनों देश।', text: 'दिल्ली के संबंध, ग्वांगज़ू की फ़्लोर उपस्थिति।' },
+      ],
+    },
+    faq: { eyebrow: 'व्यापार FAQ', index: '04 / 04', title: 'Trade Intel, सीधे जवाब', more: 'सभी व्यापार FAQ' },
+  },
 };

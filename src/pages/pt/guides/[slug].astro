@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared GuideDetailPage component, slugs in src/lib/static-paths.ts.
+import GuideDetailPage from '../../../components/pages/GuideDetailPage.astro';
+import { guidePaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return guidePaths('pt');
+}
+
+const { guide } = Astro.props;
+---
+
+<GuideDetailPage locale="pt" guide={guide} />

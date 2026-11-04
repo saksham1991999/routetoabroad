@@ -97,4 +97,60 @@ export const GUIDE_DETAIL: Record<Locale, GuideDetailStrings> = {
       secondary: 'Contáctenos',
     },
   },
+
+  de: {
+    crumb: 'Guides',
+    pillarGuide: { education: 'Bildungs-Guide', tourism: 'Reise-Guide', trade: 'Handels-Guide' },
+    updated: 'Aktualisiert {date}',
+    readTime: '{n} Min. Lesezeit',
+    faqHeading: 'Kurze Antworten',
+    cta: {
+      eyebrow: 'Nächster Schritt',
+      text: 'Soll dieser Guide auf Ihren Fall angewandt werden? Der Eignungscheck umfasst vier Fragen — oder sprechen Sie direkt mit dem Desk.',
+      primary: 'Eignungscheck starten',
+      secondary: 'Kontaktieren Sie uns',
+    },
+  },
+
+  ja: {
+    crumb: 'ガイド',
+    pillarGuide: { education: '教育ガイド', tourism: '旅行ガイド', trade: '貿易ガイド' },
+    updated: '{date} 更新',
+    readTime: '読了時間 約 {n} 分',
+    faqHeading: 'クイック回答',
+    cta: {
+      eyebrow: '次のステップ',
+      text: 'このガイドをご自身のケースに当てはめたいですか？マッチング診断は質問 4 つ — または直接デスクにご相談ください。',
+      primary: 'マッチング診断をする',
+      secondary: 'お問い合わせ',
+    },
+  },
+
+  pt: {
+    crumb: 'Guias',
+    pillarGuide: { education: 'Guia de educação', tourism: 'Guia de viagem', trade: 'Guia de comércio' },
+    updated: 'Atualizado {date}',
+    readTime: 'leitura de {n} min',
+    faqHeading: 'Respostas rápidas',
+    cta: {
+      eyebrow: 'Próximo passo',
+      text: 'Quer este guia aplicado ao seu caso? A avaliação de perfil tem quatro perguntas — ou fale diretamente com a mesa.',
+      primary: 'Fazer a avaliação de perfil',
+      secondary: 'Fale conosco',
+    },
+  },
+
+  hi: {
+    crumb: 'गाइड',
+    pillarGuide: { education: 'शिक्षा गाइड', tourism: 'यात्रा गाइड', trade: 'व्यापार गाइड' },
+    updated: 'अपडेट {date}',
+    readTime: '{n} मिनट पठन',
+    faqHeading: 'त्वरित जवाब',
+    cta: {
+      eyebrow: 'अगला क़दम',
+      text: 'चाहते हैं कि यह गाइड आपके मामले पर लागू हो? फ़िट जाँच में चार सवाल हैं — या सीधे डेस्क से बात करें।',
+      primary: 'फ़िट जाँच करें',
+      secondary: 'संपर्क करें',
+    },
+  },
 };

@@ -223,4 +223,140 @@ export const BLOG_INDEX: Record<Locale, BlogIndexStrings> = {
     minShort: '{n} min',
     noResults: 'Aún no hay nada en esta categoría — las mesas están escribiendo.',
   },
+
+  de: {
+    meta: {
+      title: 'Einblicke — Feldnotizen über Studieren, Reisen & Handeln in Asien',
+      description:
+        'Der RouteToAbroad-Desk-Blog: MBBS-Entscheidungen, CSC-Stipendien-Guides, Reisen nach Peking und Kyoto, Indien–China-Handelspraxis — geschrieben von den Menschen, die die Arbeit machen.',
+    },
+    crumb: 'Einblicke',
+    hero: {
+      eyebrow: 'Einblicke',
+      title: 'Notizen von beiden Seiten der Brücke.',
+      lede: 'Keine Listicles über „10 Gründe, im Ausland zu studieren". Feldnotizen von Zulassungsdesks, Reiserouten und Werkshallen.',
+      facts: {
+        notesLabel: 'Feldnotizen',
+        articlesCount: '{n} Artikel',
+        desksLabel: 'Desks',
+        desksValue: 'Bildung · Reisen · Handel',
+        cadenceLabel: 'Takt',
+        cadenceValue: 'Monatlich',
+        listiclesLabel: 'Listicles',
+        listiclesValue: 'Keine',
+      },
+    },
+    action: 'Neueste Artikel lesen',
+    filters: {
+      aria: 'Artikel nach Kategorie filtern',
+      all: 'Alle',
+      categories: { education: 'Bildung', tourism: 'Tourismus', trade: 'Handel' },
+    },
+    search: { label: 'Notizen durchsuchen', placeholder: 'Notizen durchsuchen…' },
+    countTotal: '{total} Notizen',
+    minShort: '{n} Min.',
+    noResults: 'Noch nichts in dieser Kategorie — die Desks schreiben.',
+  },
+
+  ja: {
+    meta: {
+      title: 'インサイト — 東アジアでの学び・旅・貿易の現場記録',
+      description:
+        'RouteToAbroad のデスクブログ：MBBS の意思決定、CSC 奨学金ガイド、北京と京都の旅、インド–中国貿易の実務 — 実際に働く人々が執筆しています。',
+    },
+    crumb: 'インサイト',
+    hero: {
+      eyebrow: 'インサイト',
+      title: '橋の両側からの記録。',
+      lede: '「海外留学の 10 の理由」のようなリスト記事は書きません。入学デスク、旅の現場、工場のフロアからの記録です。',
+      facts: {
+        notesLabel: '現場の記録',
+        articlesCount: '{n} 本の記事',
+        desksLabel: 'デスク',
+        desksValue: '教育 · 旅行 · 貿易',
+        cadenceLabel: '更新',
+        cadenceValue: '月次',
+        listiclesLabel: 'リスト記事',
+        listiclesValue: 'なし',
+      },
+    },
+    action: '最新記事を読む',
+    filters: {
+      aria: 'カテゴリーで記事を絞り込む',
+      all: 'すべて',
+      categories: { education: '教育', tourism: '観光', trade: '貿易' },
+    },
+    search: { label: '記録を検索', placeholder: '記録を検索…' },
+    countTotal: '全 {total} 本',
+    minShort: '{n} 分',
+    noResults: 'このカテゴリーにはまだ何もありません — 各デスクが執筆中です。',
+  },
+
+  pt: {
+    meta: {
+      title: 'Análises — Notas de campo sobre estudar, viajar e negociar na Ásia',
+      description:
+        'O blog da mesa da RouteToAbroad: decisões de MBBS, guias de bolsas CSC, viagens a Pequim e Quioto, prática do comércio Índia–China — escrito por quem faz o trabalho.',
+    },
+    crumb: 'Análises',
+    hero: {
+      eyebrow: 'Análises',
+      title: 'Notas dos dois lados da ponte.',
+      lede: 'Nada de listas tipo "10 razões para estudar no exterior". Notas de campo de mesas de admissões, roteiros de viagem e chão de fábrica.',
+      facts: {
+        notesLabel: 'Notas de campo',
+        articlesCount: '{n} artigos',
+        desksLabel: 'Mesas',
+        desksValue: 'Educação · Viagens · Comércio',
+        cadenceLabel: 'Ritmo',
+        cadenceValue: 'Mensal',
+        listiclesLabel: 'Listas',
+        listiclesValue: 'Nenhuma',
+      },
+    },
+    action: 'Ler as últimas',
+    filters: {
+      aria: 'Filtrar artigos por categoria',
+      all: 'Todos',
+      categories: { education: 'Educação', tourism: 'Turismo', trade: 'Comércio' },
+    },
+    search: { label: 'Buscar nas notas', placeholder: 'Buscar nas notas…' },
+    countTotal: '{total} notas',
+    minShort: '{n} min',
+    noResults: 'Ainda não há nada nesta categoria — as mesas estão escrevendo.',
+  },
+
+  hi: {
+    meta: {
+      title: 'इनसाइट्स — एशिया में पढ़ाई, यात्रा और व्यापार पर मैदानी टिप्पणियाँ',
+      description:
+        'RouteToAbroad का डेस्क ब्लॉग: MBBS निर्णय, CSC छात्रवृत्ति गाइड, बीजिंग और क्योटो यात्रा, भारत–चीन व्यापार व्यवहार — उन लोगों द्वारा लिखा जो काम करते हैं।',
+    },
+    crumb: 'इनसाइट्स',
+    hero: {
+      eyebrow: 'इनसाइट्स',
+      title: 'पुल के दोनों किनारों से टिप्पणियाँ।',
+      lede: '"विदेश में पढ़ने के 10 कारण" जैसी सूची-लेख नहीं। प्रवेश डेस्क, यात्रा रूट और फ़ैक्टरी फ़्लोर से मैदानी टिप्पणियाँ।',
+      facts: {
+        notesLabel: 'मैदानी टिप्पणियाँ',
+        articlesCount: '{n} लेख',
+        desksLabel: 'डेस्क',
+        desksValue: 'शिक्षा · यात्रा · व्यापार',
+        cadenceLabel: 'लय',
+        cadenceValue: 'मासिक',
+        listiclesLabel: 'सूची-लेख',
+        listiclesValue: 'कोई नहीं',
+      },
+    },
+    action: 'ताज़ा लेख पढ़ें',
+    filters: {
+      aria: 'श्रेणी के अनुसार लेख छानें',
+      all: 'सभी',
+      categories: { education: 'शिक्षा', tourism: 'पर्यटन', trade: 'व्यापार' },
+    },
+    search: { label: 'टिप्पणियों में खोजें', placeholder: 'टिप्पणियों में खोजें…' },
+    countTotal: '{total} टिप्पणियाँ',
+    minShort: '{n} मिनट',
+    noResults: 'इस श्रेणी में अभी कुछ नहीं — डेस्क लिख रहे हैं।',
+  },
 };

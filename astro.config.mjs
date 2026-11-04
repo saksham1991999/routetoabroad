@@ -14,7 +14,7 @@ export default defineConfig({
   // source-page check enforces this too). Every route is covered by a locale
   // twin today; see src/lib/i18n.ts.
   i18n: {
-    locales: ['en', 'zh', 'fr', 'ar', 'es'],
+    locales: ['en', 'zh', 'fr', 'ar', 'es', 'de', 'ja', 'pt', 'hi'],
     defaultLocale: 'en',
     routing: {
       prefixDefaultLocale: false,

@@ -452,4 +452,306 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       notePost: '.',
     },
   },
+
+  de: {
+    meta: {
+      title: 'Über uns — Die Menschen hinter RouteToAbroad',
+      description:
+        'RouteToAbroad arbeitet von Neu-Delhi und Guangzhou aus: gründergeführte Studienvermittlung, Tourismus und Indien–China-Handel. Lernen Sie das Team und den Standard kennen, nach dem wir arbeiten.',
+    },
+    crumb: 'Über uns',
+    hero: {
+      eyebrow: 'Über uns',
+      index: 'ABT / 07',
+      title: 'Wir verbinden nicht nur Länder. Wir verbinden Menschen.',
+      lede: 'Eine gründergeführte Beratung, die einen einzigen Korridor tief bearbeitet — Indien und Ostasien — mit Büros auf beiden Seiten und etwas zu verlieren auf beiden Seiten.',
+      facts: [
+        { label: 'Büros', value: 'Delhi · Guangzhou' },
+        { label: 'Tätigkeit', value: 'Bildung · Reisen · Handel' },
+        { label: 'Team', value: 'Gründergeführt' },
+        { label: 'Anspruch', value: 'Keine Abkürzungen' },
+      ],
+      actionTeam: 'Das Team kennenlernen',
+      actionTalk: 'Sprechen Sie mit uns',
+      jumps: ['Geschichte', 'Werte', 'Team'],
+    },
+    story: {
+      lead: 'RouteToAbroad begann mit einer einfachen Beobachtung: Der Korridor zwischen Indien und Ostasien war voller Vermittler und arm an verantwortlichen Betreibern. Studierende wurden an Universitäten vermittelt, die niemand besucht hatte. Importeure überwiesen Anzahlungen an Fabriken, die niemand geprüft hatte. Reisende sahen die Mauer, nicht das Land.',
+      built:
+        'Also bauten wir das Unternehmen, das wir uns gewünscht hätten — ein Team, das <em>beide</em> Seiten des Korridors professionell betreut, mit Büros in Neu-Delhi und Guangzhou und Mitarbeitenden, die auch am Samstag ans Telefon gehen. Die Bildung hat den Weg gewiesen; die Reise- und Handelsdesks wuchsen aus demselben Netzwerk, demselben Anspruch und denselben Familien, die noch eine weitere Art von Hilfe suchten.',
+      quote:
+        '„Ein Studierender heute ist ein Handelspartner morgen. Ein Tourist heute ist ein Investor morgen."',
+      after:
+        'Der Korridor belohnt Betreiber, die Compliance als Produkteigenschaft und Ehrlichkeit als Differenzierungsmerkmal behandeln. Das ist die Aufgabe seit dem ersten Tag — und deshalb kommen unsere Studierenden an, unsere Container werden freigegeben und unsere Reisenden kommen wieder.',
+    },
+    nap: {
+      aria: 'Unternehmensdaten',
+      eyebrow: 'Unternehmensangaben',
+      foundedLabel: 'Gegründet',
+      foundedNote: '(seit über einem Jahrzehnt im Korridor)',
+      officesLabel: 'Büros',
+      emailLabel: 'E-Mail',
+      phoneLabel: 'Telefon',
+      hoursLabel: 'Öffnungszeiten',
+      studentsLabel: 'Vermittelte Studierende',
+      ratingLabel: 'Google-Bewertung',
+      note: 'Konsistente NAP-Angaben — auch in unseren strukturierten Daten veröffentlicht.',
+    },
+    values: {
+      eyebrow: 'Werte',
+      index: '01 / 02',
+      title: 'Drei Regeln, die wir nicht brechen',
+      lede: 'Sie kosten uns Aufträge. Sie halten Kunden über Jahrzehnte.',
+      items: [
+        {
+          title: 'Beziehungen vor Transaktionen',
+          text: 'Wir haben Studierende betreut, mit deren Eltern wir später Handelsbeziehungen aufbauten, und Touristen, die als Investoren zurückkamen. Der Desk optimiert auf das Jahrzehnt, nicht auf die Rechnung.',
+        },
+        {
+          title: 'Beide Seiten der Brücke',
+          text: 'Delhi antwortet gegenüber den indischen Familien; Guangzhou gegenüber den chinesischen Universitäten und Fabriken. Jedes Büro darf dem anderen eine unbequeme Wahrheit sagen — genau dafür gibt es deren zwei.',
+        },
+        {
+          title: 'Keine Abkürzungen',
+          text: 'Keine Garantie-Zulassungsversprechen, keine gefälschten Stipendienbriefe, keine Dokumenten-„Anpassungen". Ein falsches Dokument beendet eine Bewerbung; ein falsches Versprechen beendet ein Unternehmen. Wir wollen in zwanzig Jahren noch hier sein.',
+        },
+      ],
+    },
+    team: {
+      eyebrow: 'Führung',
+      index: '02 / 02',
+      title: 'Die zwei Namen auf dem Türschild',
+      lede: 'Ein kleines Senior-Team — mit Absicht. Jede Akte trägt einen Namen, und es ist einer von diesen.',
+      portraitAlt: 'Porträt von {name}',
+      notePre: 'Auch studierende Mitwirkende schreiben mit uns — ihre Signaturen finden Sie auf der ',
+      noteLink: 'Einblicke-Seite',
+      notePost: '.',
+    },
+  },
+
+  ja: {
+    meta: {
+      title: '私たちについて — RouteToAbroad を支える人々',
+      description:
+        'RouteToAbroad はニューデリーと広州を拠点に、創業者主導の進学サポート、観光、インド–中国貿易サービスを提供しています。チームと私たちの仕事の基準をご紹介します。',
+    },
+    crumb: '私たちについて',
+    hero: {
+      eyebrow: '私たちについて',
+      index: 'ABT / 07',
+      title: '私たちがつなぐのは国だけでなく、人です。',
+      lede: '創業者主導のコンサルティング企業。ひとつの回廊 — インドと東アジア — に深く取り組み、両側に事務所を構え、両側に守るべきものを持っています。',
+      facts: [
+        { label: '事務所', value: 'デリー · 広州' },
+        { label: '事業', value: '教育 · 旅行 · 貿易' },
+        { label: 'チーム', value: '創業者主導' },
+        { label: '基準', value: '近道をしない' },
+      ],
+      actionTeam: 'チームを見る',
+      actionTalk: 'お問い合わせ',
+      jumps: ['私たちの歩み', '価値観', 'チーム'],
+    },
+    story: {
+      lead: 'RouteToAbroad は、ひとつのシンプルな気づきから始まりました。インド–東アジア回廊には仲介業者は多いのに、責任を持って運営する担い手が少なかったのです。誰も足を運んだことのない大学が学生に売られていました。誰も監査したことのない工場に輸入業者が手付金を送金していました。旅行者が見ていたのは壁であって、国ではありませんでした。',
+      built:
+        'そこで私たちは、こういう会社があればいいのに、と願っていた会社をつくりました — 回廊の<em>両側</em>をプロとして担当するひとつのチーム。ニューデリーと広州に事務所を構え、土曜日でも電話に出るスタッフ。教育が先導し、旅行と貿易のデスクは同じネットワーク、同じ基準、そしてもうひとつの助けを求める同じ家族たちから育ちました。',
+      quote: '「今日の学生は、明日の貿易パートナー。今日の旅行者は、明日の投資家。」',
+      after:
+        'この回廊は、コンプライアンスを製品の機能として、誠実さを差別化要因として扱う運営者に報います。それが初日からの仕事であり — だからこそ、学生たちは無事に到着し、コンテナは通関し、旅行者はまた戻ってくるのです。',
+    },
+    nap: {
+      aria: '会社情報',
+      eyebrow: '事業者情報',
+      foundedLabel: '設立',
+      foundedNote: '（回廊での活動は 10 年以上）',
+      officesLabel: '事務所',
+      emailLabel: 'メール',
+      phoneLabel: '電話',
+      hoursLabel: '受付時間',
+      studentsLabel: '進学者数',
+      ratingLabel: 'Google の評価',
+      note: 'NAP 情報は一貫して管理 — 構造化データにも同じ内容を公開しています。',
+    },
+    values: {
+      eyebrow: '価値観',
+      index: '01 / 02',
+      title: '私たちが絶対に破らない三つのルール',
+      lede: 'そのために商談を逃すこともあります。そのために顧客は何十年も残ってくれます。',
+      items: [
+        {
+          title: '取引よりも関係',
+          text: '後にその親御さんと貿易取引を始めた学生たちや、投資家として戻ってきた旅行者たちを担当してきました。このデスクは請求書ではなく、十年先を考えて動きます。',
+        },
+        {
+          title: '橋の両側に立つ',
+          text: 'デリーはインドのご家庭に、広州は中国の大学と工場に応えます。各事務所は相手先に言いにくい真実を伝えられる — だからこそ二つあるのです。',
+        },
+        {
+          title: '近道をしない',
+          text: '「合格保証」の約束も、偽の奨学金証明書も、書類の「調整」も行いません。偽の書類は出願を終わらせ、偽の約束は会社を終わらせます。私たちは二十年後もここにいるつもりです。',
+        },
+      ],
+    },
+    team: {
+      eyebrow: '経営陣',
+      index: '02 / 02',
+      title: '扉に掲げられた二つの名前',
+      lede: 'あえて小さなシニアチームで運営しています。すべての案件に担当者の名前がつき、それはこの二人のうちの一人です。',
+      portraitAlt: '{name} のポートレート',
+      notePre: '学生ライターも私たちと一緒に記事を書いています — 彼らの署名は ',
+      noteLink: 'インサイトページ',
+      notePost: ' にあります。',
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Sobre nós — As pessoas por trás da RouteToAbroad',
+      description:
+        'A RouteToAbroad opera de Nova Délhi e Guangzhou: colocação educacional liderada pelos fundadores, turismo e serviços de comércio entre Índia e China. Conheça a equipe e o padrão com que trabalhamos.',
+    },
+    crumb: 'Sobre nós',
+    hero: {
+      eyebrow: 'Sobre nós',
+      index: 'ABT / 07',
+      title: 'Não conectamos apenas países. Conectamos pessoas.',
+      lede: 'Uma consultoria liderada pelos fundadores, que trabalha a fundo um único corredor — Índia e Ásia Oriental — com escritórios dos dois lados e algo a perder dos dois lados.',
+      facts: [
+        { label: 'Escritórios', value: 'Délhi · Guangzhou' },
+        { label: 'Atuação', value: 'Educação · Viagens · Comércio' },
+        { label: 'Equipe', value: 'Liderada pelos fundadores' },
+        { label: 'Padrão', value: 'Sem atalhos' },
+      ],
+      actionTeam: 'Conheça a equipe',
+      actionTalk: 'Fale conosco',
+      jumps: ['História', 'Valores', 'Equipe'],
+    },
+    story: {
+      lead: 'A RouteToAbroad nasceu de uma observação simples: o corredor Índia–Ásia Oriental estava cheio de intermediários e carente de operadores responsáveis. Venderam a estudantes universidades que ninguém havia visitado. Importadores transferiram adiantamentos para fábricas que ninguém havia auditado. Os viajantes viam a muralha, não o país.',
+      built:
+        'Então construímos a empresa que gostaríamos que existisse — uma única equipe que atende <em>ambos</em> os lados do corredor com profissionalismo, com escritórios em Nova Délhi e Guangzhou e uma equipe que atende o telefone até no sábado. A educação abriu caminho; as mesas de viagens e comércio cresceram da mesma rede, do mesmo padrão e das mesmas famílias que pediam mais um tipo de ajuda.',
+      quote:
+        '"O estudante de hoje é o parceiro comercial de amanhã. O turista de hoje é o investidor de amanhã."',
+      after:
+        'O corredor recompensa os operadores que tratam a conformidade como um atributo do produto e a honestidade como um diferencial. Esse tem sido o trabalho desde o primeiro dia — e é por isso que nossos estudantes chegam, nossos contêineres são liberados e nossos viajantes voltam.',
+    },
+    nap: {
+      aria: 'Dados da empresa',
+      eyebrow: 'Dados da empresa',
+      foundedLabel: 'Fundação',
+      foundedNote: '(presentes no corredor há mais de uma década)',
+      officesLabel: 'Escritórios',
+      emailLabel: 'E-mail',
+      phoneLabel: 'Telefone',
+      hoursLabel: 'Horário',
+      studentsLabel: 'Estudantes matriculados',
+      ratingLabel: 'Avaliação do Google',
+      note: 'Dados de NAP consistentes — também publicados em nossos dados estruturados.',
+    },
+    values: {
+      eyebrow: 'Valores',
+      index: '01 / 02',
+      title: 'Três regras que não quebramos',
+      lede: 'Elas nos custam negócios. Elas mantêm clientes por décadas.',
+      items: [
+        {
+          title: 'Relações acima de transações',
+          text: 'Já acompanhamos estudantes com cujos pais depois construímos relações comerciais, e turistas que voltaram como investidores. A mesa otimiza para a década, não para a fatura.',
+        },
+        {
+          title: 'Os dois lados da ponte',
+          text: 'Délhi responde às famílias indianas; Guangzhou responde às universidades e fábricas chinesas. Cada escritório pode dizer ao outro uma verdade desconfortável — é exatamente para isso que existem dois.',
+        },
+        {
+          title: 'Sem atalhos',
+          text: 'Sem promessas de admissão garantida, sem cartas de bolsa falsas, sem "ajustes" de documentos. Um documento falso encerra uma candidatura; uma promessa falsa encerra uma empresa. Pretendemos estar aqui por vinte anos.',
+        },
+      ],
+    },
+    team: {
+      eyebrow: 'Liderança',
+      index: '02 / 02',
+      title: 'Os dois nomes na porta',
+      lede: 'Uma equipe sênior pequena de propósito. Cada processo tem um nome anexado, e é um destes.',
+      portraitAlt: 'Retrato de {name}',
+      notePre: 'Estudantes colaboradores também escrevem conosco — você encontrará as assinaturas deles na ',
+      noteLink: 'página de análises',
+      notePost: '.',
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'हमारे बारे में — RouteToAbroad के पीछे के लोग',
+      description:
+        'RouteToAbroad नई दिल्ली और ग्वांगज़ू से संचालित होती है: संस्थापक-नेतृत्व वाली शिक्षा प्लेसमेंट, पर्यटन और भारत–चीन व्यापार सेवाएँ। हमारी टीम और हमारे काम के मानक से मिलिए।',
+    },
+    crumb: 'हमारे बारे में',
+    hero: {
+      eyebrow: 'हमारे बारे में',
+      index: 'ABT / 07',
+      title: 'हम सिर्फ़ देश नहीं जोड़ते। हम लोगों को जोड़ते हैं।',
+      lede: 'संस्थापक-नेतृत्व वाली सलाहकार कंपनी, जो एक ही गलियारे — भारत और पूर्वी एशिया — पर गहराई से काम करती है, दोनों ओर कार्यालय और दोनों ओर खोने के लिए कुछ है।',
+      facts: [
+        { label: 'कार्यालय', value: 'दिल्ली · ग्वांगज़ू' },
+        { label: 'कार्यक्षेत्र', value: 'शिक्षा · यात्रा · व्यापार' },
+        { label: 'टीम', value: 'संस्थापक-नेतृत्व' },
+        { label: 'मानक', value: 'कोई शॉर्टकट नहीं' },
+      ],
+      actionTeam: 'टीम से मिलें',
+      actionTalk: 'हमसे बात करें',
+      jumps: ['कहानी', 'मूल्य', 'टीम'],
+    },
+    story: {
+      lead: 'RouteToAbroad की शुरुआत एक सीधे अवलोकन से हुई: भारत–पूर्वी एशिया गलियारे में दलाल बहुत थे, लेकिन ज़िम्मेदार संचालक कम। विद्यार्थियों को ऐसे विश्वविद्यालय बेचे गए जहाँ कभी कोई गया ही नहीं। आयातकों ने ऐसी फ़ैक्टरियों में अग्रिम राशि भेजी जिनका ऑडिट किसी ने नहीं किया। यात्रियों ने दीवार देखी, देश नहीं।',
+      built:
+        'इसलिए हमने वह कंपनी खड़ी की जो हम चाहते थे कि होती — एक ही टीम जो गलियारे के <em>दोनों</em> ओर पेशेवर रूप से काम करती है, नई दिल्ली और ग्वांगज़ू में कार्यालय के साथ, और शनिवार को भी फ़ोन उठाने वाले स्टाफ़ के साथ। शिक्षा ने रास्ता दिखाया; यात्रा और व्यापार डेस्क उसी नेटवर्क, उसी मानक और उन्हीं परिवारों से बढ़े जो एक और तरह की मदद माँग रहे थे।',
+      quote: '"आज का विद्यार्थी कल का व्यापारिक साझेदार है। आज का पर्यटक कल का निवेशक है।"',
+      after:
+        'यह गलियारा उन संचालकों को इनाम देता है जो अनुपालन को उत्पाद की विशेषता और ईमानदारी को अंतर मानते हैं। पहले दिन से यही काम रहा है — और इसीलिए हमारे विद्यार्थी पहुँचते हैं, हमारे कंटेनर कस्टम्स पार करते हैं और हमारे यात्री लौटते हैं।',
+    },
+    nap: {
+      aria: 'कंपनी विवरण',
+      eyebrow: 'संस्था विवरण',
+      foundedLabel: 'स्थापना',
+      foundedNote: '(दशक से अधिक समय से गलियारे में)',
+      officesLabel: 'कार्यालय',
+      emailLabel: 'ईमेल',
+      phoneLabel: 'फ़ोन',
+      hoursLabel: 'समय',
+      studentsLabel: 'प्रवेश पाए विद्यार्थी',
+      ratingLabel: 'Google रेटिंग',
+      note: 'NAP विवरण सुसंगत — हमारे संरचित डेटा में भी प्रकाशित।',
+    },
+    values: {
+      eyebrow: 'मूल्य',
+      index: '01 / 02',
+      title: 'तीन नियम जो हम नहीं तोड़ते',
+      lede: 'इनसे हमें सौदे छूटते हैं। इनसे ग्राहक दशकों टिकते हैं।',
+      items: [
+        {
+          title: 'संबंध, सौदों से ऊपर',
+          text: 'हमने ऐसे विद्यार्थियों को प्रवेश दिलाया जिनके पिताओं से बाद में व्यापारिक संबंध बने, और ऐसे पर्यटकों को मिले जो निवेशक बनकर लौटे। यह डेस्क बिल के लिए नहीं, दशक के लिए सोचता है।',
+        },
+        {
+          title: 'पुल के दोनों किनारे',
+          text: 'दिल्ली भारतीय परिवारों के प्रति उत्तरदायी है; ग्वांगज़ू चीनी विश्वविद्यालयों और फ़ैक्टरियों के प्रति। हर कार्यालय दूसरे को असहज सच कह सकता है — इसीलिए दो हैं।',
+        },
+        {
+          title: 'कोई शॉर्टकट नहीं',
+          text: 'न "प्रवेश की गारंटी" के वादे, न फ़र्ज़ी छात्रवृत्ति पत्र, न दस्तावेज़ों के "सुधार"। फ़र्ज़ी दस्तावेज़ आवेदन ख़त्म करता है; फ़र्ज़ी वादा कंपनी ख़त्म करता है। हम बीस साल बाद भी यहीं रहना चाहते हैं।',
+        },
+      ],
+    },
+    team: {
+      eyebrow: 'नेतृत्व',
+      index: '02 / 02',
+      title: 'दरवाज़े पर लिखे दो नाम',
+      lede: 'जान-बूझकर छोटी वरिष्ठ टीम। हर फ़ाइल के साथ एक नाम जुड़ा है, और वह इन्हीं में से एक है।',
+      portraitAlt: '{name} का पोर्ट्रेट',
+      notePre: 'छात्र योगदानकर्ता भी हमारे साथ लिखते हैं — उनके नाम ',
+      noteLink: 'इनसाइट्स पृष्ठ',
+      notePost: ' पर मिलेंगे।',
+    },
+  },
 };

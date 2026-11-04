@@ -617,4 +617,438 @@ export const TOURISM: Record<Locale, TourismStrings> = {
     },
     faq: { eyebrow: 'FAQ de Turismo', index: '04 / 04', title: 'Antes de hacer la maleta', more: 'Todas las FAQ de turismo' },
   },
+
+  de: {
+    meta: {
+      title: 'China- & Japan-Reisen — privat, in Gruppen & auf Geschäftsreise',
+      description:
+        'Kuratierte Reisen durch China und Japan: kaiserliche Rundreisen, Li-Fluss-Landschaft, Kyoto im Frühling, Canton-Fair-Trips und pädagogische Gruppenreisen — mit Visa-Service und 24/7-Reisedesk.',
+    },
+    crumb: 'Tourismus',
+    schema: {
+      serviceName: 'China- & Japan-Reisen',
+      serviceDescription:
+        'Private, Gruppen- und Geschäftsreisen durch China und Japan mit Visa-Service, zweisprachigen Reiseleitern und 24/7-Support.',
+      serviceType: 'Tourismusdienstleistungen',
+    },
+    hero: {
+      eyebrow: 'Tourismus',
+      index: 'TRV / 02',
+      title: 'Ostasien entdecken. Auf Ihre Art.',
+      lede: 'Private Reisen, pädagogische Gruppenreisen und Geschäftsdelegationen durch China und Japan — gestaltet von Menschen, die dort leben, über Ihre Ernährung informiert und mit 24/7-Support während der Reise.',
+      facts: [
+        { label: 'Länder', value: 'China · Japan' },
+        { label: 'Stil', value: 'Privat · Gruppen' },
+        { label: 'Support', value: '24/7-Desk' },
+        { label: 'Visa', value: 'L · M · F inklusive' },
+      ],
+      primaryCta: 'Reise planen',
+      secondaryCta: 'Ziele ansehen',
+      jumps: ['Ziele', 'Reisearten', 'Betreuung', 'Planung', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'Eine Reisende blickt bei goldenem Licht von der Chinesischen Mauer bei Mutianyu',
+      caption: 'Chinesische Mauer Mutianyu · 70 km von Peking',
+    },
+    destinations: {
+      eyebrow: 'Ziele',
+      index: '01 / 04',
+      title: 'Zwei Länder, richtig gemacht',
+      lede: 'Wir betreiben nur Rundreisen, die wir selbst gegangen sind — keine Broschüren-Zusammenstellungen.',
+      cityGuides: 'Stadtführer',
+      cards: [
+        {
+          name: 'China — Das Reich der Mitte',
+          alt: 'Bambusflöße auf dem Li-Fluss unter Karstgipfeln',
+          circuits: [
+            { title: 'Kaiserliches Erbe', text: 'Peking & Xi’an — Chinesische Mauer, Verbotene Stadt, Terrakotta-Armee, 8 Tage.' },
+            { title: 'Li-Fluss & Guilin', text: 'Karstgipfel, Bambusflöße, Dörfer von Yangshuo, 5 Tage.' },
+            { title: 'Greater Bay Area', text: 'Guangzhou, Shenzhen, Anschluss nach Hongkong — gut mit einem geschäftlichen Baustein kombinierbar.' },
+          ],
+        },
+        {
+          name: 'Japan — Nippon-Traditionen',
+          alt: 'Eine Pagode, gerahmt von Kirschblüten in Kyoto',
+          circuits: [
+            { title: 'Goldene Route', text: 'Tokio → Kyoto → Osaka, Tempel und Streetfood, 8–10 Tage.' },
+            { title: 'Kyoto Zen', text: 'Tempel, Teezeremonie, Arashiyama, Tagesausflug nach Nara, 4 Tage.' },
+            { title: 'Tokio Tech', text: 'Shibuya, teamLab, Akihabara, Tagesausflüge nach Nikko oder Kamakura.' },
+          ],
+        },
+      ],
+    },
+    modes: {
+      eyebrow: 'Reisearten',
+      index: '02 / 04',
+      title: 'Drei Arten, ein Standard',
+      lede: 'Wie auch immer Sie mit uns reisen — das Betreuungspaket darunter ist dasselbe.',
+      items: [
+        {
+          name: 'Kulturelle Immersion',
+          text: 'Private Reisen mit zweisprachigen Reiseleitern, vorgeprüften Restaurants (vegetarisch und halal gelöst) und einem Tempo, das für die tatsächlich Reisenden gebaut ist.',
+          points: ['Privater Reiseleiter & Fahrer', 'Kuratierte kulinarische Erlebnisse', 'Ernährungswünsche berücksichtigt'],
+        },
+        {
+          name: 'Geschäftsdelegationen',
+          text: 'Fabrikbesuche, Lieferantentreffen, Canton-Fair-Programme und Handelskammer-Einführungen — gemeinsam mit unserem Trade-Desk in Guangzhou.',
+          points: ['Canton-Fair-Pakete', 'Fabrik- & Lieferantenbesuche', 'Dolmetscher inklusive'],
+        },
+        {
+          name: 'Individuelle & Gruppenreisen',
+          text: 'Familien, Firmenevents, Schul- und Hochschulreisen. Gruppen ab 8 erhalten eigene Planung und vergünstigte Tarife.',
+          points: ['Pädagogische Reisen (45 Studierende)', 'Firmenevents', 'Mehrgenerationen-Familienreisen'],
+        },
+      ],
+    },
+    care: {
+      eyebrow: 'Rundum-Betreuung',
+      index: '03 / 04',
+      title: 'Das 100%-Sorgenfrei-Paket',
+      lede: 'Sechs Dinge, erledigt, bevor Sie fragen, damit nur die Reise im Kopf bleibt.',
+      items: [
+        { name: 'Visa-Service', text: 'L-, M-, F- und Mehrfachländer-Akten von Anfang bis Ende vorbereitet und gebucht.' },
+        { name: 'Prioritäre Flüge & Bahn', text: 'Inlandsflüge und Hochgeschwindigkeitszüge gebucht, sobald der Verkauf öffnet.' },
+        { name: 'Premium-Unterkünfte', text: 'Hotels, in denen wir geschlafen haben — nicht nur auf Buchungsportalen gesehen.' },
+        { name: 'Klug gebaute Routen', text: 'Tagespläne mit eingebauter Pause — keine Märsche über 14 Stätten.' },
+        { name: 'Lokale Verkehrsmittel', text: 'Fahrer, Metrokarten, Fahrten — geregelt, bevor Sie landen.' },
+        { name: '24/7-Desk', text: 'WhatsApp-Support in Ihrer Zeitzone für die gesamte Reise.' },
+      ],
+    },
+    plan: {
+      eyebrow: 'Planung beginnen',
+      title: 'Beschreiben Sie uns die Reise in Ihrem Kopf',
+      lede: 'Termine, Personen, Pflichtprogramme, Ernährungsbedürfnisse. Wir kommen mit einem Tages-für-Tag-Entwurf zurück — kostenlos, bevor irgendetwas bezahlt wird.',
+      promise: {
+        eyebrow: 'Unser Versprechen',
+        strong: 'Vollständige Erstattung bis 30 Tage vor Abreise.',
+        rest: 'Innerhalb der 30 Tage erstatten wir alles, was bei Lieferanten wiederbeschaffbar ist — und zeigen Ihnen die Belege. Keine versteckten Stornogebühren auf unserer Seite.',
+      },
+    },
+    faq: { eyebrow: 'Tourismus-FAQ', index: '04 / 04', title: 'Bevor Sie packen', more: 'Alle Tourismus-FAQs' },
+  },
+
+  ja: {
+    meta: {
+      title: '中国・日本ツアー — 個人・グループ・ビジネス旅行',
+      description:
+        '中国と日本の厳選された旅：皇帝ゆかりのルート、漓江の風景、春の京都、カントンフェア視察、教育グループツアー — ビザ代行と 24/7 旅行デスク付き。',
+    },
+    crumb: '観光',
+    schema: {
+      serviceName: '中国・日本ツアー',
+      serviceDescription: '中国と日本を対象とした個人・グループ・ビジネス旅行の企画。ビザ代行、バイリンガルガイド、24/7 サポート付き。',
+      serviceType: '観光サービス',
+    },
+    hero: {
+      eyebrow: '観光',
+      index: 'TRV / 02',
+      title: '東アジアを発見。あなたのスタイルで。',
+      lede: '中国と日本をめぐる個人旅行、教育グループツアー、ビジネス視察 — その土地に暮らす人々が企画し、食事の希望も共有済み、旅の間は 24/7 サポート。',
+      facts: [
+        { label: '国', value: '中国 · 日本' },
+        { label: 'スタイル', value: '個人 · グループ' },
+        { label: 'サポート', value: '24/7 デスク' },
+        { label: 'ビザ', value: 'L · M · F 対応' },
+      ],
+      primaryCta: '旅を計画する',
+      secondaryCta: '行き先を見る',
+      jumps: ['行き先', '旅のかたち', 'ケア', '計画', 'FAQ'],
+    },
+    heroBand: {
+      alt: '黄金色の光の中、慕田峪の万里の長城を見渡す旅行者',
+      caption: '慕田峪長城 · 北京から 70 km',
+    },
+    destinations: {
+      eyebrow: '行き先',
+      index: '01 / 04',
+      title: 'ふたつの国、ちゃんとしたやり方で',
+      lede: '私たちが運航するのは、自分自身で歩いたルートだけ — パンフレットの寄せ集めではありません。',
+      cityGuides: '都市ガイド',
+      cards: [
+        {
+          name: '中国 — 中華の国',
+          alt: 'カルスト峰々の下を流れる漓江の竹筏',
+          circuits: [
+            { title: '帝国の遺産', text: '北京と西安 — 万里の長城、故宮、兵馬俑、8 日間。' },
+            { title: '漓江と桂林', text: 'カルスト峰々、竹筏、陽朔の村々、5 日間。' },
+            { title: '大湾区', text: '広州、深圳、香港への接続。ビジネスアドオンにも対応。' },
+          ],
+        },
+        {
+          name: '日本 — 日本の伝統',
+          alt: '京都、桜に囲まれた五重塔',
+          circuits: [
+            { title: 'ゴールデンルート', text: '東京 → 京都 → 大阪、お寺と屋台グルメ、8〜10 日間。' },
+            { title: '京都禅', text: 'お寺、茶道、嵐山、奈良へ日帰り、4 日間。' },
+            { title: '東京テック', text: '渋谷、チームラボ、秋葉原、日光や鎌倉への日帰りも。' },
+          ],
+        },
+      ],
+    },
+    modes: {
+      eyebrow: '旅のかたち',
+      index: '02 / 04',
+      title: '三つのスタイル、ひとつの基準',
+      lede: 'どんな形でご一緒しても、その根底にあるケアは同じです。',
+      items: [
+        {
+          name: '文化の深掘り',
+          text: 'バイリンガルガイドが同行する個人旅行、事前確認済みのレストラン（ベジタリアン・ハラール対応）、実際に旅する方に合わせたペース配分。',
+          points: ['専用ガイドとドライバー', '厳選した食の体験', '食事の制約に対応'],
+        },
+        {
+          name: 'ビジネス視察',
+          text: '工場見学、サプライヤーとの面会、カントンフェアの旅程、商工会議所への紹介 — 広州の貿易デスクと連携して実施。',
+          points: ['カントンフェアパッケージ', '工場・サプライヤー訪問', '通訳付き'],
+        },
+        {
+          name: 'カスタム・グループ旅行',
+          text: 'ご家族、企業研修、学校・大学の教育旅行。8 名以上のグループには専任の企画と割引料金を。',
+          points: ['教育旅行（45 名規模）', '企業研修', '家族での多世代旅行'],
+        },
+      ],
+    },
+    care: {
+      eyebrow: '手厚いサポート',
+      index: '03 / 04',
+      title: '100% 安心パッケージ',
+      lede: '聞かれる前に片付けておく六つのこと。頭の中は旅だけに。',
+      items: [
+        { name: 'ビザコンシェルジュ', text: 'L、M、F および複数国の申請書類を最初から最後まで準備・手配。' },
+        { name: '優先の航空券と鉄道', text: '国内線と高速鉄道は、発売開始と同時に確保。' },
+        { name: '上質な宿', text: '私たち自身が泊まったホテルだけ。予約サイトで見ただけではありません。' },
+        { name: '賢い旅程', text: '休憩を組み込んだ日次プラン — 1 日に 14 か所急行するような無理はしません。' },
+        { name: '現地交通', text: 'ドライバー、地下鉄カード、移動 — 到着前にすべて手配済み。' },
+        { name: '24/7 デスク', text: '旅の間ずっと、あなたの時間帯で WhatsApp サポート。' },
+      ],
+    },
+    plan: {
+      eyebrow: '計画を始める',
+      title: '頭の中にある旅を教えてください',
+      lede: '日程、人数、外せない場所、食事の希望。日ごとの旅程案を無料でお返しします — 支払いの前に。',
+      promise: {
+        eyebrow: '私たちの約束',
+        strong: '出発 30 日前までは全額返金。',
+        rest: '30 日以内の場合も、サプライヤーから回収できる分は全額返金し、領収書をお見せします。当社側に隠れたキャンセル料はありません。',
+      },
+    },
+    faq: { eyebrow: '観光 FAQ', index: '04 / 04', title: '荷造りの前に', more: '観光に関する FAQ すべて' },
+  },
+
+  pt: {
+    meta: {
+      title: 'Viagens pela China e pelo Japão — privadas, em grupo e a negócios',
+      description:
+        'Jornadas selecionadas pela China e pelo Japão: circuitos imperiais, cenário do Rio Li, Quioto na primavera, viagens à Canton Fair e excursões educativas em grupo — com assessoria de vistos e suporte 24/7.',
+    },
+    crumb: 'Turismo',
+    schema: {
+      serviceName: 'Viagens pela China e pelo Japão',
+      serviceDescription:
+        'Planejamento de viagens privadas, em grupo e a negócios pela China e pelo Japão, com assessoria de vistos, guias bilíngues e suporte 24/7.',
+      serviceType: 'Serviços de turismo',
+    },
+    hero: {
+      eyebrow: 'Turismo',
+      index: 'TRV / 02',
+      title: 'Descubra a Ásia Oriental. Do seu jeito.',
+      lede: 'Jornadas privadas, excursões educativas em grupo e delegações de negócios pela China e pelo Japão — desenhadas por quem vive lá, cientes das suas restrições alimentares e com suporte 24/7 durante a viagem.',
+      facts: [
+        { label: 'Países', value: 'China · Japão' },
+        { label: 'Estilo', value: 'Privado · grupos' },
+        { label: 'Suporte', value: 'Mesa 24/7' },
+        { label: 'Vistos', value: 'L · M · F tratados' },
+      ],
+      primaryCta: 'Planeje uma viagem',
+      secondaryCta: 'Ver destinos',
+      jumps: ['Destinos', 'Formas de viajar', 'Cuidados', 'Planejar', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'Uma viajante contemplando a Grande Muralha da China em Mutianyu com luz dourada',
+      caption: 'Grande Muralha de Mutianyu · a 70 km de Pequim',
+    },
+    destinations: {
+      eyebrow: 'Destinos',
+      index: '01 / 04',
+      title: 'Dois países, bem feitos',
+      lede: 'Operamos circuitos que percorremos nós mesmos — não compilações de folheto.',
+      cityGuides: 'Guias de cidade',
+      cards: [
+        {
+          name: 'China — O Reino do Meio',
+          alt: 'Balsas de bambu no Rio Li sob picos cársticos',
+          circuits: [
+            { title: 'Herança imperial', text: 'Pequim e Xi’an — Grande Muralha, Cidade Proibida, Exército de Terracota, 8 dias.' },
+            { title: 'Rio Li e Guilin', text: 'Picos cársticos, balsas de bambu, vilas de Yangshuo, 5 dias.' },
+            { title: 'Grande Baía', text: 'Guangzhou, Shenzhen, conexão com Hong Kong — combina bem com um módulo de negócios.' },
+          ],
+        },
+        {
+          name: 'Japão — Tradições do Japão',
+          alt: 'Uma pagoda emoldurada por cerejeiras em flor em Quioto',
+          circuits: [
+            { title: 'Rota dourada', text: 'Tóquio → Quioto → Osaka, templos e comida de rua, 8–10 dias.' },
+            { title: 'Quioto zen', text: 'Templos, cerimônia do chá, Arashiyama, passeio a Nara, 4 dias.' },
+            { title: 'Tóquio tech', text: 'Shibuya, teamLab, Akihabara, passeios a Nikko ou Kamakura.' },
+          ],
+        },
+      ],
+    },
+    modes: {
+      eyebrow: 'Formas de viajar',
+      index: '02 / 04',
+      title: 'Três modos, um só padrão',
+      lede: 'Como você viajar conosco, o pacote de cuidados por baixo é o mesmo.',
+      items: [
+        {
+          name: 'Imersão cultural',
+          text: 'Jornadas privadas com guias bilíngues, restaurantes pré-verificados (vegetariano e halal resolvidos) e um ritmo pensado para quem realmente viaja.',
+          points: ['Guia e motorista privados', 'Experiências gastronômicas selecionadas', 'Restrições alimentares cuidadas'],
+        },
+        {
+          name: 'Delegações de negócios',
+          text: 'Visitas a fábricas, reuniões com fornecedores, roteiros da Canton Fair e apresentações em associações comerciais — junto à nossa mesa de comércio em Guangzhou.',
+          points: ['Pacotes Canton Fair', 'Visitas a fábricas e fornecedores', 'Intérpretes incluídos'],
+        },
+        {
+          name: 'Sob medida e grupos',
+          text: 'Famílias, eventos corporativos, excursões educativas de escolas e faculdades. Grupos de 8+ recebem planejamento dedicado e tarifas reduzidas.',
+          points: ['Viagens educativas (45 estudantes)', 'Eventos corporativos', 'Viagens familiares multigeracionais'],
+        },
+      ],
+    },
+    care: {
+      eyebrow: 'Cuidado completo',
+      index: '03 / 04',
+      title: 'O pacote 100% de tranquilidade',
+      lede: 'Seis coisas resolvidas antes de você perguntar, para que a viagem seja a única coisa na sua cabeça.',
+      items: [
+        { name: 'Assessoria de vistos', text: 'Processos L, M, F e multi-país preparados e reservados de ponta a ponta.' },
+        { name: 'Voos e trens prioritários', text: 'Voos domésticos e trem de alta velocidade reservados assim que a venda abre.' },
+        { name: 'Hospedagens premium', text: 'Hotéis onde dormimos, não apenas vistos em sites de reserva.' },
+        { name: 'Roteiros inteligentes', text: 'Planos diários com descanso embutido — nada de marchas forçadas de 14 pontos.' },
+        { name: 'Transporte local', text: 'Motoristas, cartões de metrô, corridas — resolvidos antes de você pousar.' },
+        { name: 'Mesa 24/7', text: 'Suporte por WhatsApp no seu fuso horário durante toda a viagem.' },
+      ],
+    },
+    plan: {
+      eyebrow: 'Comece a planejar',
+      title: 'Conte-nos a viagem que está na sua cabeça',
+      lede: 'Datas, pessoas, pontos obrigatórios, necessidades alimentares. Voltamos com um esboço de roteiro dia a dia — grátis, antes de qualquer pagamento.',
+      promise: {
+        eyebrow: 'Nossa promessa',
+        strong: 'Reembolso total até 30 dias antes da partida.',
+        rest: 'Dentro dos 30 dias, reembolsamos tudo que for recuperável dos fornecedores — e mostramos os recibos. Sem taxas de cancelamento ocultas do nosso lado.',
+      },
+    },
+    faq: { eyebrow: 'FAQ de Turismo', index: '04 / 04', title: 'Antes de fazer as malas', more: 'Todas as FAQs de turismo' },
+  },
+
+  hi: {
+    meta: {
+      title: 'चीन और जापान यात्राएँ — निजी, समूह और व्यावसायिक',
+      description:
+        'चीन और जापान की चुनिंदा यात्राएँ: शाही धरोहर रूट, ली नदी के दृश्य, बसंत में क्योटो, कैंटन फेयर यात्राएँ और शैक्षिक समूह टूर — वीज़ा सहायता और 24/7 यात्रा डेस्क के साथ।',
+    },
+    crumb: 'पर्यटन',
+    schema: {
+      serviceName: 'चीन और जापान यात्राएँ',
+      serviceDescription: 'चीन और जापान में निजी, समूह और व्यावसायिक यात्रा-डिज़ाइन — वीज़ा सहायता, द्विभाषी गाइड और 24/7 समर्थन के साथ।',
+      serviceType: 'पर्यटन सेवाएँ',
+    },
+    hero: {
+      eyebrow: 'पर्यटन',
+      index: 'TRV / 02',
+      title: 'पूर्वी एशिया खोजें। अपने तरीके से।',
+      lede: 'चीन और जापान में निजी यात्राएँ, शैक्षिक समूह टूर और व्यावसायिक शिष्ट मंडल — वहीं रहने वाले लोगों द्वारा डिज़ाइन, आपके भोजन की जानकारी सहित, और यात्रा के दौरान 24/7 समर्थन।',
+      facts: [
+        { label: 'देश', value: 'चीन · जापान' },
+        { label: 'शैली', value: 'निजी · समूह' },
+        { label: 'समर्थन', value: '24/7 डेस्क' },
+        { label: 'वीज़ा', value: 'L · M · F पूरे किए' },
+      ],
+      primaryCta: 'यात्रा की योजना बनाएँ',
+      secondaryCta: 'गंतव्य देखें',
+      jumps: ['गंतव्य', 'यात्रा के तरीके', 'देखभाल', 'योजना', 'FAQ'],
+    },
+    heroBand: {
+      alt: 'सुनहरे प्रकाश में मुतिआन्यु की महान दीवार को देखता यात्री',
+      caption: 'मुतिआन्यु महान दीवार · बीजिंग से 70 किमी',
+    },
+    destinations: {
+      eyebrow: 'गंतव्य',
+      index: '01 / 04',
+      title: 'दो देश, ठीक तरीके से',
+      lede: 'हम वही रूट चलाते हैं जिन पर हम ख़ुद चले हैं — ब्रोशर से चुना गया मिश्रण नहीं।',
+      cityGuides: 'शहर गाइड',
+      cards: [
+        {
+          name: 'चीन — मध्य राज्य',
+          alt: 'कार्स्ट चोटियों के नीचे ली नदी पर बाँस की बेड़ियाँ',
+          circuits: [
+            { title: 'शाही धरोहर', text: 'बीजिंग और शीआन — महान दीवार, वर्जिन शहर, टेराकोटा सेना, 8 दिन।' },
+            { title: 'ली नदी और गुइलिन', text: 'कार्स्ट चोटियाँ, बाँस की बेड़ियाँ, यांगशुओ के गाँव, 5 दिन।' },
+            { title: 'ग्रेटर बे एरिया', text: 'ग्वांगज़ू, शेनज़ें, हांगकांग कनेक्शन — व्यावसायिक जोड़ के साथ उपयुक्त।' },
+          ],
+        },
+        {
+          name: 'जापान — निप्पॉन परंपराएँ',
+          alt: 'क्योटो में चेरी ब्लॉसम से घिरा पैगोडा',
+          circuits: [
+            { title: 'गोल्डन रूट', text: 'टोक्यो → क्योटो → ओसाका, मंदिर और स्ट्रीट फ़ूड, 8–10 दिन।' },
+            { title: 'क्योटो ज़ेन', text: 'मंदिर, चाय समारोह, अराशियामा, नारा दिन-यात्रा, 4 दिन।' },
+            { title: 'टोक्यो टेक', text: 'शिबुया, टीमलैब, अकिहाबारा, निक्को या कामाकुरा दिन-यात्राएँ।' },
+          ],
+        },
+      ],
+    },
+    modes: {
+      eyebrow: 'यात्रा के तरीके',
+      index: '02 / 04',
+      title: 'तीन तरीके, एक मानक',
+      lede: 'आप हमारे साथ कैसे भी यात्रा करें, नीचे की देखभाल वही है।',
+      items: [
+        {
+          name: 'सांस्कृतिक गोता',
+          text: 'द्विभाषी गाइडों के साथ निजी यात्राएँ, पहले से जाँचे गए रेस्तराँ (शाकाहारी और हलाल संभाले) और सचमुच यात्रा करने वालों के हिसाब से गति।',
+          points: ['निजी गाइड और ड्राइवर', 'चुनिंदा भोजन अनुभव', 'भोजन प्राथमिकताएँ संभाली गईं'],
+        },
+        {
+          name: 'व्यावसायिक शिष्ट मंडल',
+          text: 'फ़ैक्टरी दौरे, आपूर्तिकर्ता मुलाक़ातें, कैंटन फेयर योजनाएँ और चैंबर परिचय — हमारे ग्वांगज़ू व्यापार डेस्क के साथ।',
+          points: ['कैंटन फेयर पैकेज', 'फ़ैक्टरी और आपूर्तिकर्ता दौरे', 'दुभाषिए शामिल'],
+        },
+        {
+          name: 'कस्टम और समूह यात्रा',
+          text: 'परिवार, कॉर्पोरेट आउटिंग, स्कूल और कॉलेज शैक्षिक टूर। 8+ के समूहों को समर्पित योजना और छूट दरें।',
+          points: ['शैक्षिक टूर (45 विद्यार्थी स्तर)', 'कॉर्पोरेट आउटिंग', 'बहु-पीढ़ी पारिवारिक यात्राएँ'],
+        },
+      ],
+    },
+    care: {
+      eyebrow: 'पूरी देखभाल',
+      index: '03 / 04',
+      title: '100% बेफ़िक्री पैकेज',
+      lede: 'छह चीज़ें आपके पूछने से पहले संभल जाती हैं, ताकि दिमाग़ में सिर्फ़ यात्रा रहे।',
+      items: [
+        { name: 'वीज़ा सहायता', text: 'L, M, F और बहु-देश फ़ाइलें शुरू से अंत तक तैयार और बुक।' },
+        { name: 'प्राथमिक उड़ानें और रेल', text: 'आंतरिक उड़ानें और हाई-स्पीड रेल बिक्री खुलते ही बुक।' },
+        { name: 'प्रीमियम ठहराव', text: 'होटल जहाँ हम ख़ुद सोए हैं — सिर्फ़ बुकिंग साइट पर देखे नहीं।' },
+        { name: 'होशियार योजनाएँ', text: 'आराम शामिल दैनिक योजनाएँ — 14 स्थलों की थकाऊ मार्च नहीं।' },
+        { name: 'स्थानीय परिवहन', text: 'ड्राइवर, मेट्रो कार्ड, सवारियाँ — आपके उतरने से पहले तय।' },
+        { name: '24/7 डेस्क', text: 'पूरी यात्रा में आपके समय-क्षेत्र में WhatsApp समर्थन।' },
+      ],
+    },
+    plan: {
+      eyebrow: 'योजना शुरू करें',
+      title: 'अपने दिमाग़ में बनी यात्रा हमें बताएँ',
+      lede: 'तारीख़ें, लोग, ज़रूरी स्थल, भोजन ज़रूरतें। हम दिन-प्रतिदिन मसौदा योजना लौटाते हैं — मुफ़्त, कुछ भी भुगतान से पहले।',
+      promise: {
+        eyebrow: 'हमारा वादा',
+        strong: 'प्रस्थान से 30 दिन पहले तक पूरा रिफ़ंड।',
+        rest: '30 दिनों के भीतर, हम आपूर्तिकर्ताओं से वसूल योग्य सब कुछ लौटाते हैं — और रसीदें दिखाते हैं। हमारी ओर से कोई छिपा रद्दीकरण शुल्क नहीं।',
+      },
+    },
+    faq: { eyebrow: 'पर्यटन FAQ', index: '04 / 04', title: 'सामान बाँधने से पहले', more: 'सभी पर्यटन FAQ' },
+  },
 };

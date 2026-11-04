@@ -156,4 +156,92 @@ export const CONTACT: Record<Locale, ContactStrings> = {
       call: 'Llame al {phone}',
     },
   },
+
+  de: {
+    meta: {
+      title: 'Kontakt — Sprechen Sie mit dem Neu-Delhi- oder Guangzhou-Desk',
+      description:
+        'Erreichen Sie RouteToAbroad: Bildungs-, Tourismus- oder Handelsanfragen werden innerhalb eines Werktags beantwortet. Büro Neu-Delhi (Saket) und Büro Guangzhou (Tianhe), WhatsApp {phone}.',
+    },
+    crumb: 'Kontakt',
+    hero: {
+      eyebrow: 'Kontakt',
+      title: 'Bauen wir Ihre Zukunft gemeinsam auf.',
+      lede: 'Wählen Sie einen Desk, senden Sie eine Nachricht oder rufen Sie einfach an. Eine verantwortliche Person antwortet innerhalb eines Werktags.',
+    },
+    delhiDesk: 'Neu-Delhi · India-Desk',
+    chinaDesk: 'Guangzhou · China-Desk',
+    chinaLabel: 'China',
+    direct: {
+      title: 'Schneller als Formulare',
+      whatsapp: 'Einen Berater per WhatsApp schreiben',
+      call: '{phone} anrufen',
+    },
+  },
+
+  ja: {
+    meta: {
+      title: 'お問い合わせ — ニューデリーまたは広州のデスクへ',
+      description:
+        'RouteToAbroad へのご連絡：教育・観光・貿易のお問い合わせは 1 営業日以内に回答します。ニューデリー事務所（サケート）と広州事務所（天河）、WhatsApp {phone}。',
+    },
+    crumb: 'お問い合わせ',
+    hero: {
+      eyebrow: 'お問い合わせ',
+      title: '一緒に、あなたの未来をつくりましょう。',
+      lede: 'デスクを選んでメッセージを送る、またはお電話を。責任を持つ担当者が 1 営業日以内に返信します。',
+    },
+    delhiDesk: 'ニューデリー · インドデスク',
+    chinaDesk: '広州 · 中国デスク',
+    chinaLabel: '中国',
+    direct: {
+      title: 'フォームより早く',
+      whatsapp: 'アドバイザーに WhatsApp する',
+      call: '{phone} に電話する',
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Contato — Fale com a mesa de Nova Délhi ou de Guangzhou',
+      description:
+        'Fale com a RouteToAbroad: consultas de educação, turismo ou comércio respondidas em um dia útil. Escritório de Nova Délhi (Saket) e escritório de Guangzhou (Tianhe), WhatsApp {phone}.',
+    },
+    crumb: 'Contato',
+    hero: {
+      eyebrow: 'Contato',
+      title: 'Vamos construir o seu futuro, juntos.',
+      lede: 'Escolha uma mesa, envie uma mensagem ou simplesmente ligue. Alguém responsável responde em um dia útil.',
+    },
+    delhiDesk: 'Nova Délhi · Mesa Índia',
+    chinaDesk: 'Guangzhou · Mesa China',
+    chinaLabel: 'China',
+    direct: {
+      title: 'Mais rápido que formulários',
+      whatsapp: 'WhatsApp com um orientador',
+      call: 'Ligue para {phone}',
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'संपर्क — नई दिल्ली या ग्वांगज़ू डेस्क से बात करें',
+      description:
+        'RouteToAbroad से जुड़ें: शिक्षा, पर्यटन या व्यापार की पूछताछ का उत्तर एक व्यावसायिक दिन में। नई दिल्ली कार्यालय (साकेत) और ग्वांगज़ू कार्यालय (तिआनहे), WhatsApp {phone}।',
+    },
+    crumb: 'संपर्क',
+    hero: {
+      eyebrow: 'संपर्क',
+      title: 'आइए, मिलकर आपका भविष्य बनाएँ।',
+      lede: 'कोई डेस्क चुनें, संदेश भेजें, या सीधे कॉल करें। ज़िम्मेदार कोई व्यक्ति एक व्यावसायिक दिन में जवाब देता है।',
+    },
+    delhiDesk: 'नई दिल्ली · इंडिया डेस्क',
+    chinaDesk: 'ग्वांगज़ू · चाइना डेस्क',
+    chinaLabel: 'चीन',
+    direct: {
+      title: 'फ़ॉर्म से तेज़',
+      whatsapp: 'सलाहकार को WhatsApp करें',
+      call: '{phone} पर कॉल करें',
+    },
+  },
 };

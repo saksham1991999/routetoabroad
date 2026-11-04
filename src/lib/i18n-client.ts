@@ -4,9 +4,11 @@
  * the document (<html lang>, set by BaseLayout) and their translated strings
  * from the tool root's data-i18n attribute, both written at build time.
  */
-import { INTL_TAG, DATE_TAG, type Locale } from './i18n';
+import { INTL_TAG, DATE_TAG, LOCALES, DEFAULT_LOCALE, type Locale } from './i18n';
 
-const PREFIXED = ['zh', 'fr', 'ar', 'es'];
+// Derived from LOCALES so a new locale needs one edit only (in i18n.ts).
+// Widened to string[] so includes() accepts the runtime lang segment.
+const PREFIXED: string[] = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
 
 /** The page locale as set on <html lang> ('en' when unprefixed/unknown). */
 export function pageLocale(): string {

@@ -9,10 +9,11 @@ interface Props {
 
 const { crumbs } = Astro.props;
 const locale = localeFromPath(Astro.url.pathname);
-const withHome = [{ name: uiFor(locale).breadcrumbsHome, url: translatePath('/', locale) }, ...crumbs];
+const ui = uiFor(locale);
+const withHome = [{ name: ui.breadcrumbsHome, url: translatePath('/', locale) }, ...crumbs];
 ---
 
-<nav class="breadcrumbs" aria-label="Breadcrumb">
+<nav class="breadcrumbs" aria-label={ui.breadcrumbsAria}>
   <ol>
     {withHome.map((c, i) => (
       <li>

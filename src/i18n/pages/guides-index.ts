@@ -119,4 +119,76 @@ export const GUIDES_INDEX: Record<Locale, GuidesIndexStrings> = {
     minShort: '{n} min',
     updatedSuffix: '· actualizada',
   },
+
+  de: {
+    meta: {
+      title: 'Guides — Studieren, Visa, Reisen & Beschaffung erklärt',
+      description:
+        'Ausführliche Guides für den Ostasien-Korridor: MBBS in China, CSC-Stipendien, Studentenvisa, HSK-Vorbereitung, Reisen durch China und Japan, Beschaffung in China — Antwort zuerst, regelmäßig aktualisiert.',
+    },
+    crumb: 'Guides',
+    hero: {
+      eyebrow: 'Guides',
+      title: 'Das Referenzregal.',
+      lede: 'Lange Erklärtexte, geschrieben, um Antworten zu sein, nicht Broschüren — jeder beginnt mit der kurzen Antwort und liefert sie dann ein.',
+    },
+    sections: { education: 'Bildungs-Guides', tourism: 'Reise-Guides', trade: 'Handels-Guides' },
+    categories: { education: 'Bildung', tourism: 'Tourismus', trade: 'Handel' },
+    minShort: '{n} Min.',
+    updatedSuffix: '· aktualisiert',
+  },
+
+  ja: {
+    meta: {
+      title: 'ガイド — 留学・ビザ・旅行・調達を解説',
+      description:
+        '東アジア回廊のための詳解ガイド：中国での MBBS、CSC 奨学金、学生ビザ、HSK 対策、中国・日本旅行、中国調達 — 答えから始め、随時更新。',
+    },
+    crumb: 'ガイド',
+    hero: {
+      eyebrow: 'ガイド',
+      title: '常備したい参考文献棚。',
+      lede: 'パンフレットではなく「答え」であることを目指した長文解説 — どれも短い答えから始めて、それを裏付けていきます。',
+    },
+    sections: { education: '教育ガイド', tourism: '旅行ガイド', trade: '貿易ガイド' },
+    categories: { education: '教育', tourism: '観光', trade: '貿易' },
+    minShort: '{n} 分',
+    updatedSuffix: '· 更新済み',
+  },
+
+  pt: {
+    meta: {
+      title: 'Guias — Estudos, vistos, viagens e suprimentos explicados',
+      description:
+        'Guias aprofundados para o corredor da Ásia Oriental: MBBS na China, bolsas CSC, vistos de estudante, preparação HSK, viagens pela China e Japão, suprimentos na China — resposta primeiro, atualizados com regularidade.',
+    },
+    crumb: 'Guias',
+    hero: {
+      eyebrow: 'Guias',
+      title: 'A estante de referência.',
+      lede: 'Explicações longas escritas para serem respostas, não folhetos — cada uma abre com a resposta curta e depois a sustenta.',
+    },
+    sections: { education: 'Guias de educação', tourism: 'Guias de viagem', trade: 'Guias de comércio' },
+    categories: { education: 'Educação', tourism: 'Turismo', trade: 'Comércio' },
+    minShort: '{n} min',
+    updatedSuffix: '· atualizado',
+  },
+
+  hi: {
+    meta: {
+      title: 'गाइड — पढ़ाई, वीज़ा, यात्रा और सोर्सिंग समझाए गए',
+      description:
+        'पूर्वी एशिया गलियारे के लिए गहन गाइड: चीन में MBBS, CSC छात्रवृत्तियाँ, छात्र वीज़ा, HSK तैयारी, चीन और जापान यात्रा, चीन सोर्सिंग — जवाब पहले, नियमित अपडेट।',
+    },
+    crumb: 'गाइड',
+    hero: {
+      eyebrow: 'गाइड',
+      title: 'संदर्भ-अलमारी।',
+      lede: 'लंबे विवरण, ब्रोशर नहीं — जवाब बनने के लिए लिखे गए; हर एक छोटे जवाब से शुरू होकर उसे सिद्ध करता है।',
+    },
+    sections: { education: 'शिक्षा गाइड', tourism: 'यात्रा गाइड', trade: 'व्यापार गाइड' },
+    categories: { education: 'शिक्षा', tourism: 'पर्यटन', trade: 'व्यापार' },
+    minShort: '{n} मिनट',
+    updatedSuffix: '· अपडेट',
+  },
 };

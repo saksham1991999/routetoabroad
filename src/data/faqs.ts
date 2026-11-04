@@ -887,10 +887,723 @@ const GENERAL_FAQS_ES: Faq[] = [
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/* de — machine-assisted translation, pending native-speaker review.   */
+/* Sie-form throughout. Same question count and order as the en set.   */
+/* ------------------------------------------------------------------ */
+
+const EDUCATION_FAQS_DE: Faq[] = [
+  {
+    question: 'Wird ein chinesischer MBBS-Abschluss in Indien anerkannt?',
+    answer:
+      'Ja, sofern die Hochschule im WHO World Directory of Medical Schools und auf der MOE-Liste Chinas geführt wird und Sie nach dem Abschluss die indische Lizenzprüfung FMGE/NExT bestehen. Wir vermitteln Studierende ausschließlich an MOE-gelistete chinesische Medizinuniversitäten. Diese Prüfungen sind notwendig, aber für sich allein nicht ausreichend — die Eignungsregeln des NMC (einschließlich der NEET-UG-Qualifikation und der für Ihr Zulassungsjahr geltenden Vorschriften) entscheiden, ob ein konkreter Studienplatz zur Registrierung führt; prüfen Sie daher Ihre exakte Hochschule und Ihr Zulassungsjahr anhand der aktuellen NMC-Bestimmungen, bevor Sie irgendetwas bezahlen.',
+  },
+  {
+    question: 'Sind Stipendien voll finanziert?',
+    answer:
+      'Manche sind es. Das CSC (Chinese Government Scholarship) kann die vollen Studiengebühren, das Wohnheim, die Krankenversicherung und eine monatliche Zuwendung abdecken — es ist jedoch leistungsbasiert und umkämpft. Die meisten Angebote sind teilweise: nur Studiengebühren oder Gebühren plus Unterkunft. Wir verkaufen keine garantierten Vollstipendien, und keine ehrliche Beratungsagentur kann das.',
+  },
+  {
+    question: 'Muss ich Chinesisch sprechen, um in China zu studieren?',
+    answer:
+      'Für die Einschreibung nicht. Englischsprachige Studiengänge (MBBS, Ingenieurwesen, Wirtschaft) verlangen bei der Zulassung kein Chinesisch. Für den Alltag und die klinischen MBBS-Rotationen benötigen Sie etwa HSK 4. Das HSK-Training ist Teil unseres Betreuungspakets.',
+  },
+  {
+    question: 'Wie lange dauert der Prozess für das Studentenvisum?',
+    answer:
+      'In der Regel 4–8 Wochen vom Erhalt Ihrer Zulassungsunterlagen (JW202/Admission Notice) bis zum Visum in der Hand, je nach Auslastung der Botschaft. Wir bereiten die Unterlagen vor, buchen den Termin und üben mit Ihnen mögliche Interviewfragen.',
+  },
+  {
+    question: 'Was kostet das Studium in China?',
+    answer:
+      'Die Studiengebühren an akkreditierten Universitäten liegen typischerweise bei 3.000–8.000 US$ pro Jahr, je nach Studiengang und Stadt; Wohnheime bei 500–1.500 US$ pro Jahr. Nutzen Sie unseren Kostenrechner für eine individuelle Schätzung, und beachten Sie, dass CSC-Stipendien die Studiengebühren auf null senken können.',
+  },
+  {
+    question: 'Kann ich während des Studiums in China arbeiten?',
+    answer:
+      'Teilzeitarbeit ist mit schriftlicher Genehmigung Ihrer Universität möglich, meist auf dem Campus. Praktika außerhalb des Campus brauchen eine zusätzliche Genehmigung Ihrer Hochschule und der Einwanderungsbehörden. Die meisten Stipendienzuwendungen sind darauf ausgelegt, die Lebenshaltungskosten ohne Arbeit zu decken.',
+  },
+  {
+    question: 'Wann sollte ich mich für das September-Intake bewerben?',
+    answer:
+      'Beginnen Sie 6–9 Monate im Voraus. Stipendienfristen ballen sich zwischen Februar und April; selbstfinanzierte Bewerbungen laufen später, aber die besten Studiengänge und Wohnheime füllen sich zuerst. Im Zeitlinienplaner finden Sie einen Plan Termin für Termin.',
+  },
+  {
+    question: 'Ist eine Krankenversicherung verpflichtend?',
+    answer:
+      'Ja — jeder internationale Studierende in China muss für die gesamte Aufenthaltsdauer eine Krankenversicherung haben. CSC-Stipendiaten erhalten sie innerhalb des Stipendiums; selbstfinanzierte Studierende kaufen sie bei der Registrierung (typischerweise ¥400–800/Jahr).',
+  },
+];
+
+const TOURISM_FAQS_DE: Faq[] = [
+  {
+    question: 'Wie funktioniert das Touristenvisum für China?',
+    answer:
+      'Die meisten Besucher benötigen ein L-Visum (Touristenvisum): Antragsformular, Foto, Reiseroute und Hotelbuchungen sowie ein Nachweis der Weiterreise. Unser Concierge-Desk bereitet die Unterlagen vor, verfasst den Reiseroutenbrief und bucht den Termin. Die Bearbeitung dauert typischerweise 4–7 Arbeitstage.',
+  },
+  {
+    question: 'Wann ist die beste Reisezeit für China und Japan?',
+    answer:
+      'Frühling (März–Mai) und Herbst (September–November) bieten das beste Wetter — Blütezeit bzw. Herbstlaub. Der Sommer ist die Hochsaison des Inlandsreisens in China; der Winter ist kalt, aber am günstigsten und bringt das Eisfestival von Harbin.',
+  },
+  {
+    question: 'Können Sie Geschäftstreffen und Werksbesuche organisieren?',
+    answer:
+      'Ja. Über unseren Trade-Desk organisieren wir für Geschäftsdelegationen Werksführungen, Lieferantentreffen, Canton-Fair-Programme und Einführungen bei Handelskammern — mit zweisprachigen Dolmetschern.',
+  },
+  {
+    question: 'Wie werden Ernährungseinschränkungen auf der Reise gehandhabt?',
+    answer:
+      'Die Guides werden vor der Ankunft über Allergien und Präferenzen (vegetarisch, halal, jainistisch, glutenfrei) informiert. Wir prüfen Restaurants vorab, und Sie erhalten Präferenzkarten auf Chinesisch, die Sie in jedem Restaurant vorzeigen können.',
+  },
+  {
+    question: 'Ist eine Reiseversicherung enthalten?',
+    answer:
+      'Basispakete enthalten einen Standardschutz. Als Zusatz bieten wir eine aufgewertete Police mit medizinischer Evakuierung und Schutz für hochwertige Ausrüstung — dringend empfohlen für Abenteuer- und Seidenstraßenrouten.',
+  },
+  {
+    question: 'Wie ist Ihre Stornierungsrichtlinie?',
+    answer:
+      'Vollständige Rückerstattung bis 30 Tage vor Abreise. Innerhalb von 30 Tagen erstatten wir alles, was von Hotels und Lieferanten zurückgewinnbar ist — wir zeigen Ihnen die Belege. Keine versteckten Stornogebühren auf unserer Seite.',
+  },
+  {
+    question: 'Organisieren Sie Gruppen- und Studienreisen?',
+    answer:
+      'Ja — Familien, Firmen-Offsites und Bildungsreisen für Schulen/Hochschulen sind unsere Spezialität. Gruppen ab 8 Personen erhalten eigene Planungsunterstützung und vergünstigte Tarife. 2024 haben wir ein Shanghai-Programm für 45 Studierende betreut.',
+  },
+  {
+    question: 'Können Sie Mehrfachländer-Reiserouten abwickeln?',
+    answer:
+      'Ja. Wir betreiben regelmäßig China-+-Japan-Kombinationen, einschließlich getrennter Visumanträge, grenzüberschreitender Flüge und Bahnverbindungen sowie abgestimmter Guides in jedem Land.',
+  },
+];
+
+const TRADE_FAQS_DE: Faq[] = [
+  {
+    question: 'Was ist die Mindestbestellmenge (MOQ)?',
+    answer:
+      'Das hängt vom Produkt ab. Kundenspezifische Elektronik beginnt typischerweise bei 500–1.000 Einheiten; viele Maschinenkategorien werden einzeln verkauft; Textilien oft in 100-Dutzend-Losen. Teil unserer Sourcing-Arbeit ist es, MOQs für wachsende Unternehmen nach unten zu verhandeln.',
+  },
+  {
+    question: 'Wie stellen Sie die Produktqualität sicher?',
+    answer:
+      'AQL-Standard-Inspektionen direkt in der Fabrik bei etwa 20 % und 80 % der Produktion, plus eine Vorversandkontrolle, bevor der Container versiegelt wird. Sie erhalten an jedem Gate Foto- und Videoberichte — bevor weiteres Geld fließt.',
+  },
+  {
+    question: 'Wie lang sind die typischen Versandzeiten von China nach Indien?',
+    answer:
+      'Seefracht von Guangzhou/Shanghai/Ningbo nach Mundra oder JNPT: typischerweise 18–25 Tage Hafen zu Hafen, plus Zoll auf beiden Seiten. Luftfracht: 3–7 Tage Tür zu Tür bei etwa dem 5–8-fachen der Kosten. Wir überwachen die Hafenüberlastung und routen um, wenn es sich lohnt.',
+  },
+  {
+    question: 'Können Sie Zollabwicklung und BIS-Zertifizierung übernehmen?',
+    answer:
+      'Ja — HS-Klassifizierung, BIS-/WPC-/CDSCO-Registrierungen, wo Ihre Produktkategorie sie verlangt, und vollständige Dokumentensätze, die vorgelegt werden, bevor die Ware den Hafen erreicht, damit die Abfertigung nie auf Papierkram wartet.',
+  },
+  {
+    question: 'Mit welchen Zahlungsbedingungen arbeiten Sie?',
+    answer:
+      'Standard sind 30 % Anzahlung per TT, 70 % gegen Kopie des Bill of Lading. Etablierte Beziehungen können auf LC bei Sicht umstellen. Für erste Lieferantenengagements empfehlen wir dringend Escrow — niemals 100 % Vorauszahlung.',
+  },
+  {
+    question: 'Unterstützen Sie OEM- und Private-Label-Fertigung?',
+    answer:
+      'Ja. Wir wählen Fabriken vor, die in Ihrer Kategorie bereits White-Label produzieren, verwalten die Anpassung von Artwork/Verpackung und integrieren die Markenprüfungen in die Standard-Inspektionsgates.',
+  },
+  {
+    question: 'Wie werden Lieferantenstreitigkeiten gehandhabt?',
+    answer:
+      'Wir agieren als Ihr Vertreter vor Ort mit dokumentierten Nachweisen — Fotos, AQL-Berichte, zweisprachige Spezifikationsblätter. Von uns eingerichtete Verträge enthalten Qualitätsspezifikationen und Vertragsstrafenklauseln; ungelöste Fälle gehen mit unserer Akte als Unterstützung in die Schiedsgerichtsbarkeit.',
+  },
+  {
+    question: 'Wie ist Ihre Gebührenstruktur?',
+    answer:
+      'Trade-Engagements laufen über eine Erfolgsgebühr, die am Wert der tatsächlich versandten Ware hängt — scheitert das Geschäft, schulden Sie uns nur die vorab kalkulierten Audit-/Inspektionskosten. Kein Erfolg, keine Erfolgsgebühr.',
+  },
+];
+
+const GENERAL_FAQS_DE: Faq[] = [
+  {
+    question: 'Was macht RouteToAbroad eigentlich?',
+    answer:
+      'Drei verbundene Dienstleistungen zwischen Indien und Ostasien: Wir vermitteln Studierende an chinesische Universitäten (Zulassung, Stipendien, Visa, Ankunft), planen private und Gruppenreisen durch China und Japan und übernehmen Sourcing, Qualitätskontrolle und Logistik für Indien–China-Handelskunden.',
+  },
+  {
+    question: 'Arbeiten Sie nur mit indischen Studierenden?',
+    answer:
+      'Unser Desk ist am stärksten für in Indien ansässige Studierende und Familien, aber wir vermitteln über Partneragenturen auch Studierende aus den GCC-Ländern und Afrika und bauen einen India-Desk für internationale Bewerber auf. Wo auch immer Sie sind — der Fit-Check ist derselbe erste Schritt.',
+  },
+  {
+    question: 'Wo befinden sich Ihre Büros?',
+    answer:
+      'New Delhi (Saket District Centre) und Guangzhou (Victory Plaza, Tianhe District) — das bedeutet, dass jemand in beiden Zeitzonen wach und vor Ort ist, Montag bis Samstag.',
+  },
+  {
+    question: 'Können Sie eine Zulassung, ein Stipendium oder ein Visum garantieren?',
+    answer:
+      'Nein — und seien Sie misstrauisch gegenüber jedem, der Ja sagt. Universitäten entscheiden über Zulassungen, Stipendienkommissionen über Förderungen, Botschaften über Visa. Was wir garantieren, ist eine ehrliche Einschätzung im Vorfeld, eine vollständige und korrekte Akte und jemanden, der für jeden Schritt verantwortlich ist.',
+  },
+  {
+    question: 'Wie fange ich an?',
+    answer:
+      'Machen Sie den Fit-Check mit vier Fragen für das Studium oder senden Sie über eine beliebige Seite eine Anfrage. Ein Berater antwortet innerhalb eines Werktags — 9:00–18:00 IST, Montag bis Samstag.',
+  },
+  {
+    question: 'Verkaufen Sie meine Daten oder schalten Sie Werbung auf dieser Website?',
+    answer:
+      'Nein. Wir erheben nur, was Ihre Anfrage benötigt, diese Website setzt keine Werbe-Cookies, und es gibt keine Tracking-Skripte von Drittanbietern.',
+  },
+  {
+    question: 'Wie lange ist RouteToAbroad schon tätig?',
+    answer:
+      'Über ein Jahrzehnt in grenzüberschreitenden Dienstleistungen zwischen Indien und China.',
+    // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
+  },
+  {
+    question: 'In welchen Sprachen arbeitet das Team?',
+    answer:
+      'Englisch, Hindi, Malayalam und Mandarin über das Guangzhouer Büro — dazu Sprachunterstützung vor Ort über Partner für arabischsprachige Familien.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* ja — machine-assisted translation, pending native-speaker review.   */
+/* です/ます register throughout. Same question count and order as en.  */
+/* ------------------------------------------------------------------ */
+
+const EDUCATION_FAQS_JA: Faq[] = [
+  {
+    question: '中国のMBBS学位はインドで認められていますか？',
+    answer:
+      'はい。ただし、大学がWHO世界医学校名簿と中国教育部（MOE）リストの両方に掲載されており、卒業後にインドのライセンス試験FMGE/NExTに合格することが条件です。私たちはMOE掲載の中国の医科大学にのみ学生を送り出しています。これらの確認は必要条件ですが、それだけで十分ではありません——NMCの適格規則（NEET-UGの資格や入学年度に適用される規則を含む）が、特定の枠が登録につながるかどうかを決めます。したがって、支払いの前に、現行のNMC規則に基づいてご自身の大学と入学年度を必ず確認してください。',
+  },
+  {
+    question: '奨学金は全額支給ですか？',
+    answer:
+      '全額のものもあります。CSC（中国政府奨学金）は学費全額、寮、医療保険、毎月の手当をカバーできますが、成績基準で競争が激しいです。ほとんどのオファーは部分支給です：学費のみ、または学費＋宿舎。当社は「全額奨学金保証」を販売しません。誠実なコンサルティング会社であればどこも販売できません。',
+  },
+  {
+    question: '中国で勉強するのに中国語は必要ですか？',
+    answer:
+      '入学には必要ありません。英語授業のプログラム（MBBS、工学、ビジネス）は入学時に中国語を要求しません。ただし日常生活やMBBSの臨床実習にはHSK 4程度が必要です。HSK対策は当社のサポートパッケージに含まれています。',
+  },
+  {
+    question: '学生ビザの手続きにはどれくらいかかりますか？',
+    answer:
+      '通常、入学書類（JW202/Admission Notice）を受け取ってからビザが手元に届くまで4～8週間ほどで、大使館の業務量によります。当社が書類を準備し、予約を取り、面接で聞かれうる質問の練習まで行います。',
+  },
+  {
+    question: '中国での勉強にはいくらかかりますか？',
+    answer:
+      '認可された大学の学費は通常、プログラムと都市により年間3,000～8,000米ドル、寮は年間500～1,500米ドルです。費用計算ツールで個別の見積もりを取得でき、CSC奨学金を利用すれば学費がゼロになる場合もあります。',
+  },
+  {
+    question: '中国での勉強中にアルバイトはできますか？',
+    answer:
+      '大学の書面による許可があれば、通常はキャンパス内でアルバイトが可能です。キャンパス外のインターンシップには、所属大学と出入国管理当局の追加承認が必要です。ほとんどの奨学金の手当は、アルバイトなしで生活費を賄えるよう設計されています。',
+  },
+  {
+    question: '9月入学の出願はいつ始めるべきですか？',
+    answer:
+      '6～9か月前に始めてください。奨学金の締め切りは2月から4月に集中します。自己資金の出願はそれ以降も可能ですが、良いプログラムや寮から埋まっていきます。日々の計画はタイムラインプランナーをご覧ください。',
+  },
+  {
+    question: '健康保険は必須ですか？',
+    answer:
+      'はい——中国ではすべての留学生が在学期間中、健康保険に加入しなければなりません。CSC奨学生は奨学金に含まれています。自己資金の学生は登録時に購入します（通常、年間400～800元）。',
+  },
+];
+
+const TOURISM_FAQS_JA: Faq[] = [
+  {
+    question: '中国の観光ビザはどのように機能しますか？',
+    answer:
+      'ほとんどの訪問者にはL（観光）ビザが必要です：申請書、写真、旅程表、ホテル予約、それに帰路の証明。当社のコンシェルジュデスクが書類を準備し、旅程説明書を作成し、予約を取ります。処理には通常4～7営業日かかります。',
+  },
+  {
+    question: '中国と日本を訪れるのに最適な時期は？',
+    answer:
+      '春（3～5月）と秋（9～11月）が最も良い気候です——それぞれ花の季節と紅葉の季節です。夏は中国の国内旅行のピークシーズン。冬は寒いですが最も安く、ハルビンの氷祭りがあります。',
+  },
+  {
+    question: '商談や工場見学を手配できますか？',
+    answer:
+      'はい。貿易デスクを通じて、ビジネス視察団のために工場見学、サプライヤーとの商談、広州貿易会（Canton Fair）の日程、商工会議所の紹介を手配します——バイリンガル通訳付き。',
+  },
+  {
+    question: 'ツアー中の食事制限にはどのように対応しますか？',
+    answer:
+      '到着前にガイドがアレルギーや食の好み（ベジタリアン、ハラール、ジャイナ教、グルテンフリー）について説明を受けます。レストランを事前に審査し、どの店でも提示できる中国語の好みカードをお渡しします。',
+  },
+  {
+    question: '旅行保険は含まれていますか？',
+    answer:
+      '基本パッケージには標準補償が含まれます。医学的搬送や高価な機材の保護を含む上位プランをオプションでご用意しています——アドベンチャーやシルクロードの旅程には強くお勧めします。',
+  },
+  {
+    question: 'キャンセルポリシーはどうなっていますか？',
+    answer:
+      '出発30日前までは全額返金です。30日以内の場合は、ホテルやサプライヤーから回収できる分をすべて返金します——領収書をお見せします。当社側に隠れたキャンセル料はありません。',
+  },
+  {
+    question: '団体ツアーや学生ツアーも企画していますか？',
+    answer:
+      'はい——家族旅行、企業の社内研修、学校・大学の教育旅行が得意分野です。8名以上のグループには専任の企画サポートと団体割引を提供します。2024年には上海で45名の学生プログラムを担当しました。',
+  },
+  {
+    question: '複数国をめぐる旅程にも対応できますか？',
+    answer:
+      'はい。中国＋日本の組み合わせを定期的に手がけています。別々のビザ申請、国境を越えるフライトや鉄道、各国での現地ガイドの手配も含まれます。',
+  },
+];
+
+const TRADE_FAQS_JA: Faq[] = [
+  {
+    question: '最小発注数量（MOQ）はどのくらいですか？',
+    answer:
+      '製品によります。カスタム電子機器は通常500～1,000個から。多くの機械カテゴリーは単体で販売され、繊維はしばしば100ダース単位です。成長中の企業のためにMOQを引き下げ交渉することも、ソーシング業務の一部です。',
+  },
+  {
+    question: '製品の品質はどのように保証しますか？',
+    answer:
+      '生産の約20％と80％の時点で工場現場にてAQL基準の検品を行い、コンテナの封印前にも出荷前検査を実施します。各ゲートで写真と動画の報告書をお渡しします——資金がさらに動く前に。',
+  },
+  {
+    question: '中国からインドへの輸送期間は通常どのくらいですか？',
+    answer:
+      '広州/上海/寧波からムンドラまたはJNPTまでの海上輸送：通常、港から港まで18～25日、両端の通関は別です。航空便は戸口から戸口まで3～7日で、費用は約5～8倍です。港の混雑を監視し、得であれば経路を変更します。',
+  },
+  {
+    question: '通関やBIS認証にも対応できますか？',
+    answer:
+      'はい——HS分類、製品カテゴリーに必要なBIS/WPC/CDSCO登録、そして貨物が港に到着する前に書類一式を事前提出するため、通関が書類待ちになることはありません。',
+  },
+  {
+    question: 'どのような支払い条件に対応していますか？',
+    answer:
+      '標準はTT送金で30％の手付金、船荷証券（B/L）のコピーと引き換えに70％です。取引実績があれば一覧払い信用状（LC at sight）への移行も可能です。初取引のサプライヤーにはエスクローを強く推奨します——100％前払いは絶対に避けてください。',
+  },
+  {
+    question: 'OEMやプライベートブランド製造にも対応していますか？',
+    answer:
+      'はい。すでにお客様のカテゴリーでホワイトラベル製造を行っている工場をリストアップし、アートワーク・パッケージのカスタマイズを管理し、ブランド確認を標準の検査ゲートに組み込みます。',
+  },
+  {
+    question: 'サプライヤーとの紛争にはどのように対応しますか？',
+    answer:
+      '写真、AQL報告書、バイリンガル仕様書など、文書化された証拠とともに、現地の代理人として行動します。当社が整える契約には品質仕様と違約条項が含まれ、解決しない案件は当社の記録を裏付けとして仲裁に付されます。',
+  },
+  {
+    question: '料金体系はどうなっていますか？',
+    answer:
+      '貿易案件は、実際に出荷された貨物の価値に連動する成功報酬で運営されます——取引が不成立の場合、事前に見積もられた監査・検品費用のみをお支払いいただきます。成功しなければ成功報酬はありません。',
+  },
+];
+
+const GENERAL_FAQS_JA: Faq[] = [
+  {
+    question: 'RouteToAbroadは具体的に何をしているのですか？',
+    answer:
+      'インドと東アジアをつなぐ3つの連携サービスです：中国の大学への留学（入学、奨学金、ビザ、到着後の支援）、中国・日本をめぐる個人・団体旅行の企画、そしてインド－中国貿易のお客様向けのソーシング、品質管理、ロジスティクスです。',
+  },
+  {
+    question: 'インド人学生だけを対象にしていますか？',
+    answer:
+      'インド在住の学生とご家族が最も得意な分野ですが、パートナー代理店を通じてGCC諸国やアフリカからの学生も受け入れており、国際的な出願者のためのインドデスクを整備中です。どの場所にお住まいでも、まずは適合チェックから始まります。',
+  },
+  {
+    question: 'オフィスはどこにありますか？',
+    answer:
+      'ニューデリー（Saket District Centre）と広州（天河区・Victory Plaza）です。つまり月曜から土曜まで、両方のタイムゾーンで誰かが起きて現場にいるということです。',
+  },
+  {
+    question: '入学、奨学金、ビザを保証してもらえますか？',
+    answer:
+      'いいえ——そう言う人を疑うべきです。入学は大学が、奨学金は委員会が、ビザは大使館が決定します。当社が保証するのは、事前の誠実な評価、完全かつ正確な書類、そして各段階で責任を持つ担当者がいることです。',
+  },
+  {
+    question: 'どう始めればよいですか？',
+    answer:
+      '教育向けの4問の適合チェックを受けるか、どのページからでもお問い合わせを送ってください。アドバイザーが1営業日以内に返信します——月曜から土曜、9:00～18:00（IST）。',
+  },
+  {
+    question: '私のデータを販売したり、サイトに広告を掲載したりしますか？',
+    answer:
+      'いいえ。お問い合わせに必要な情報のみを収集し、当サイトは広告用Cookieを設定せず、第三者のトラッキングスクリプトもありません。',
+  },
+  {
+    question: 'RouteToAbroadはどれくらいの期間運営されていますか？',
+    answer:
+      'インドと中国の間の越境サービスに10年以上携わっています。',
+    // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
+  },
+  {
+    question: 'チームはどの言語で対応していますか？',
+    answer:
+      '英語、ヒンディー語、マラヤーラム語、そして広州オフィスによる中国語——さらにパートナーを通じて、アラビア語圏のご家族に現地言語のサポートを提供しています。',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* pt — machine-assisted translation, pending native-speaker review.   */
+/* Neutral Portuguese with a Brazilian lean. Same count/order as en.   */
+/* ------------------------------------------------------------------ */
+
+const EDUCATION_FAQS_PT: Faq[] = [
+  {
+    question: 'Um diploma de MBBS chinês é reconhecido na Índia?',
+    answer:
+      'Sim, desde que a universidade conste do WHO World Directory of Medical Schools e da lista do MOE da China, e que você passe no exame de licenciamento indiano FMGE/NExT depois de se formar. Colocamos alunos apenas em faculdades de medicina chinesas listadas pelo MOE. Essas verificações são necessárias, mas não suficientes por si só — as regras de elegibilidade do NMC (incluindo a qualificação NEET-UG e a regulamentação vigente para o seu ano de admissão) decidem se uma vaga específica leva ao registro, por isso confirme sua universidade e seu ano de admissão contra as regras atuais do NMC antes de pagar qualquer valor.',
+  },
+  {
+    question: 'As bolsas são totalmente financiadas?',
+    answer:
+      'Algumas são. A CSC (Chinese Government Scholarship) pode cobrir a mensalidade integral, o alojamento, o seguro de saúde e uma bolsa mensal — mas é baseada em mérito e concorrida. A maioria das ofertas é parcial: só mensalidade, ou mensalidade mais alojamento. Não vendemos bolsas integrais garantidas, e nenhuma consultoria honesta pode.',
+  },
+  {
+    question: 'Preciso falar chinês para estudar na China?',
+    answer:
+      'Para a matrícula, não. Os programas ministrados em inglês (MBBS, engenharia, negócios) não exigem chinês na admissão. Para o dia a dia e os estágios clínicos do MBBS, você vai precisar de cerca de HSK 4. O treinamento de HSK faz parte do nosso pacote de suporte.',
+  },
+  {
+    question: 'Quanto tempo leva o processo do visto de estudante?',
+    answer:
+      'Normalmente de 4 a 8 semanas entre receber seus documentos de admissão (JW202/Admission Notice) e ter o visto em mãos, dependendo da carga da embaixada. Preparamos o dossiê, agendamos o atendimento e ensaiamos com você as possíveis perguntas da entrevista.',
+  },
+  {
+    question: 'Quanto custa estudar na China?',
+    answer:
+      'A mensalidade em universidades credenciadas costuma ficar entre US$ 3.000 e 8.000 por ano, dependendo do programa e da cidade; os alojamentos, entre US$ 500 e 1.500 por ano. Use nossa calculadora de custos para uma estimativa personalizada, e saiba que bolsas CSC podem zerar a mensalidade.',
+  },
+  {
+    question: 'Posso trabalhar enquanto estudo na China?',
+    answer:
+      'O trabalho em meio período é possível com autorização por escrito da universidade, geralmente no campus. Estágios fora do campus exigem aprovação adicional da instituição e das autoridades de imigração. A maioria dos estipêndios de bolsa é calculada para cobrir os custos de vida sem trabalho.',
+  },
+  {
+    question: 'Quando devo me candidatar para o ingresso de setembro?',
+    answer:
+      'Comece com 6 a 9 meses de antecedência. Os prazos das bolsas se concentram entre fevereiro e abril; as candidaturas autofinanciadas vão mais tarde, mas os melhores programas e alojamentos esgotam primeiro. Veja o planejador de cronograma para um plano data por data.',
+  },
+  {
+    question: 'O seguro de saúde é obrigatório?',
+    answer:
+      'Sim — todo estudante internacional na China deve ter seguro de saúde durante toda a estadia. Bolsistas da CSC o recebem dentro da bolsa; estudantes autofinanciados o compram no registro (normalmente ¥400–800/ano).',
+  },
+];
+
+const TOURISM_FAQS_PT: Faq[] = [
+  {
+    question: 'Como funciona o visto de turista para a China?',
+    answer:
+      'A maioria dos visitantes precisa de um visto L (turista): formulário, foto, roteiro e reservas de hotel, além de comprovação de continuação da viagem. Nossa concierge prepara o dossiê, redige a carta de roteiro e agenda o atendimento. O processamento típico leva de 4 a 7 dias úteis.',
+  },
+  {
+    question: 'Qual é a melhor época para visitar a China e o Japão?',
+    answer:
+      'A primavera (março–maio) e o outono (setembro–novembro) trazem o melhor clima — florada e folhagem de outono, respectivamente. O verão é a alta estação do turismo interno na China; o inverno é frio, mas é o mais barato e traz o festival de gelo de Harbin.',
+  },
+  {
+    question: 'Vocês podem organizar reuniões de negócios e visitas a fábricas?',
+    answer:
+      'Sim. Por meio da nossa mesa de comércio, organizamos para delegações empresariais visitas a fábricas, reuniões com fornecedores, roteiros da Canton Fair e apresentações a câmaras de comércio — com intérpretes bilíngues.',
+  },
+  {
+    question: 'Como as restrições alimentares são tratadas na viagem?',
+    answer:
+      'Os guias são orientados sobre alergias e preferências (vegetariano, halal, jainista, sem glúten) antes da chegada. Pré-selecionamos restaurantes, e você recebe cartões de preferência em chinês para mostrar em qualquer estabelecimento.',
+  },
+  {
+    question: 'O seguro-viagem está incluído?',
+    answer:
+      'Os pacotes base incluem cobertura padrão. Oferecemos como adicional uma apólice aprimorada com evacuação médica e proteção para equipamentos de alto valor — recomendamos fortemente para roteiros de aventura e da Rota da Seda.',
+  },
+  {
+    question: 'Qual é a política de cancelamento?',
+    answer:
+      'Reembolso total até 30 dias antes da partida. Dentro dos 30 dias, devolvemos tudo o que for recuperável de hotéis e fornecedores — mostramos os recibos. Sem taxas de cancelamento ocultas por nossa parte.',
+  },
+  {
+    question: 'Vocês organizam viagens em grupo e para estudantes?',
+    answer:
+      'Sim — famílias, eventos corporativos e viagens educativas de escolas e faculdades são especialidade da casa. Grupos de 8+ recebem apoio dedicado de planejamento e tarifas reduzidas. Conduzimos um programa de 45 estudantes em Xangai em 2024.',
+  },
+  {
+    question: 'Vocês cuidam de roteiros com vários países?',
+    answer:
+      'Sim. Operamos combinações China + Japão com regularidade, incluindo pedidos de visto separados, voos e trens transfronteiriços e guias coordenados em cada país.',
+  },
+];
+
+const TRADE_FAQS_PT: Faq[] = [
+  {
+    question: 'Qual é a quantidade mínima de pedido (MOQ)?',
+    answer:
+      'Depende do produto. Eletrônica sob medida costuma começar em 500–1.000 unidades; muitas categorias de máquinas são vendidas por unidade; têxteis frequentemente em lotes de 100 dúzias. Parte do nosso trabalho de sourcing é negociar MOQs para baixo em favor de negócios em crescimento.',
+  },
+  {
+    question: 'Como vocês garantem a qualidade do produto?',
+    answer:
+      'Inspeções padrão AQL no chão de fábrica em cerca de 20% e 80% da produção, além de uma checagem pré-embarque antes de o contêiner ser lacrado. Você recebe relatórios com fotos e vídeos em cada etapa — antes que mais dinheiro se mova.',
+  },
+  {
+    question: 'Quais são os prazos típicos de envio da China para a Índia?',
+    answer:
+      'Frete marítimo de Guangzhou/Shanghai/Ningbo para Mundra ou JNPT: normalmente 18–25 dias porta a porta, além da alfândega nas duas pontas. Frete aéreo: 3–7 dias porta a porta a um custo cerca de 5–8× maior. Monitoramos a congestionação portuária e redirecionamos quando compensa.',
+  },
+  {
+    question: 'Vocês cuidam do desembaraço aduaneiro e da certificação BIS?',
+    answer:
+      'Sim — classificação HS, registros BIS/WPC/CDSCO quando sua categoria de produto os exige, e conjuntos completos de documentos protocolados antes de a mercadoria chegar ao porto, para que o desembaraço nunca espere papelada.',
+  },
+  {
+    question: 'Com quais condições de pagamento vocês trabalham?',
+    answer:
+      'O padrão é 30% de entrada por TT e 70% contra cópia do Bill of Lading. Relacionamentos consolidados podem migrar para LC à vista. Para primeiros fornecedores, recomendamos fortemente escrow — nunca 100% adiantado.',
+  },
+  {
+    question: 'Vocês apoiam fabricação OEM e marca própria?',
+    answer:
+      'Sim. Pré-selecionamos fábricas que já produzem white-label na sua categoria, gerenciamos a personalização de arte/embalagem e incorporamos as checagens de marca nos pontos de inspeção padrão.',
+  },
+  {
+    question: 'Como as disputas com fornecedores são tratadas?',
+    answer:
+      'Atuamos como seu representante local com evidências documentadas — fotos, relatórios AQL, especificações bilíngues. Os contratos que estruturamos incluem especificações de qualidade e cláusulas de penalidade; casos não resolvidos vão à arbitragem com nosso dossiê como apoio.',
+  },
+  {
+    question: 'Qual é a sua estrutura de honorários?',
+    answer:
+      'Engajamentos de comércio funcionam com uma taxa de sucesso vinculada ao valor da mercadoria efetivamente embarcada — se o negócio morrer, você deve apenas os custos de auditoria/inspeção, orçados antecipadamente. Sem sucesso, sem taxa de sucesso.',
+  },
+];
+
+const GENERAL_FAQS_PT: Faq[] = [
+  {
+    question: 'O que a RouteToAbroad realmente faz?',
+    answer:
+      'Três serviços conectados entre a Índia e o Leste Asiático: colocamos estudantes em universidades chinesas (admissões, bolsas, vistos, chegada), desenhamos viagens privadas e em grupo pela China e pelo Japão e cuidamos de sourcing, controle de qualidade e logística para clientes de comércio Índia–China.',
+  },
+  {
+    question: 'Vocês trabalham só com estudantes indianos?',
+    answer:
+      'Nossa mesa é mais forte para estudantes e famílias baseados na Índia, mas também colocamos estudantes do Golfo e da África por meio de agentes parceiros, e estamos montando um India desk para candidatos internacionais. Onde quer que você esteja, o fit check é o mesmo primeiro passo.',
+  },
+  {
+    question: 'Onde ficam os seus escritórios?',
+    answer:
+      'Nova Délhi (Saket District Centre) e Guangzhou (Victory Plaza, distrito de Tianhe) — o que significa que alguém está acordado e em campo nos dois fusos, de segunda a sábado.',
+  },
+  {
+    question: 'Vocês podem garantir admissão, bolsa ou visto?',
+    answer:
+      'Não — e desconfie de quem disser que sim. Universidades decidem admissões, comitês de bolsa decidem financiamento, embaixadas decidem vistos. O que garantimos é uma avaliação honesta de antemão, um dossiê completo e correto, e alguém responsável a cada passo.',
+  },
+  {
+    question: 'Como começo?',
+    answer:
+      'Faça o fit check de quatro perguntas para educação, ou envie uma consulta por qualquer página. Um consultor responde em até um dia útil — 9h–18h IST, de segunda a sábado.',
+  },
+  {
+    question: 'Vocês vendem meus dados ou exibem anúncios neste site?',
+    answer:
+      'Não. Coletamos apenas o que a sua consulta precisa, este site não instala cookies de publicidade e não há scripts de rastreamento de terceiros.',
+  },
+  {
+    question: 'Há quanto tempo a RouteToAbroad está em operação?',
+    answer:
+      'Mais de uma década em serviços transfronteiriços entre a Índia e a China.',
+    // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
+  },
+  {
+    question: 'Em quais idiomas a equipe trabalha?',
+    answer:
+      'Inglês, hindi, malaiala e mandarim por meio do escritório de Guangzhou — além de suporte em idiomas locais via parceiros para famílias arabófonas.',
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/* hi — machine-assisted translation, pending native-speaker review.   */
+/* Standard professional register. Same question count/order as en.    */
+/* ------------------------------------------------------------------ */
+
+const EDUCATION_FAQS_HI: Faq[] = [
+  {
+    question: 'क्या चीनी MBBS डिग्री भारत में मान्यता प्राप्त है?',
+    answer:
+      'हाँ, बशर्ते विश्वविद्यालय WHO World Directory of Medical Schools और चीन की MOE सूची दोनों में शामिल हो, और आप स्नातक के बाद भारत की FMGE/NExT लाइसेंसिंग परीक्षा उत्तीर्ण करें। हम छात्रों को केवल MOE सूची में शामिल चीनी मेडिकल विश्वविद्यालयों में ही प्रवेश दिलाते हैं। ये जाँचें आवश्यक हैं, पर अपने आप में पर्याप्त नहीं — NMC की पात्रता नियम (NEET-UG योग्यता और आपके प्रवेश वर्ष के लागू नियमों सहित) तय करते हैं कि कोई सीट पंजीकरण तक जाती है या नहीं; इसलिए कुछ भी भुगतान करने से पहले वर्तमान NMC नियमों के अनुसार अपने विश्वविद्यालय और प्रवेश वर्ष की पुष्टि करें।',
+  },
+  {
+    question: 'क्या छात्रवृत्तियाँ पूर्ण वित्तपोषित होती हैं?',
+    answer:
+      'कुछ होती हैं। CSC (चीनी सरकारी छात्रवृत्ति) पूरी ट्यूशन, छात्रावास, स्वास्थ्य बीमा और मासिक वृत्ति कवर कर सकती है — लेकिन यह मेरिट-आधारित और प्रतिस्पर्धी है। ज़्यादातर प्रस्ताव आंशिक होते हैं: केवल ट्यूशन, या ट्यूशन और रहने की व्यवस्था। हम गारंटीशुदा पूर्ण छात्रवृत्तियाँ नहीं बेचते, और कोई भी ईमानदार कंसल्टेंसी नहीं बेच सकती।',
+  },
+  {
+    question: 'चीन में पढ़ने के लिए क्या मुझे चीनी भाषा बोलनी चाहिए?',
+    answer:
+      'प्रवेश के लिए नहीं। अंग्रेज़ी माध्यम के कार्यक्रमों (MBBS, इंजीनियरिंग, बिज़नेस) में प्रवेश पर चीनी आवश्यक नहीं है। दैनिक जीवन और MBBS की क्लिनिकल रोटेशन के लिए लगभग HSK 4 चाहिए। HSK प्रशिक्षण हमारे सपोर्ट पैकेज का हिस्सा है।',
+  },
+  {
+    question: 'छात्र वीज़ा प्रक्रिया में कितना समय लगता है?',
+    answer:
+      'आमतौर पर प्रवेश दस्तावेज़ (JW202/Admission Notice) मिलने से वीज़ा हाथ में आने तक 4–8 सप्ताह, दूतावास के कार्यभार पर निर्भर। हम फ़ाइल तैयार करते हैं, अपॉइंटमेंट बुक करते हैं और संभावित इंटरव्यू प्रश्नों का अभ्यास आपके साथ करते हैं।',
+  },
+  {
+    question: 'चीन में पढ़ाई की लागत कितनी होती है?',
+    answer:
+      'मान्यता प्राप्त विश्वविद्यालयों में ट्यूशन आमतौर पर कार्यक्रम और शहर के अनुसार US$3,000–8,000 प्रति वर्ष; छात्रावास US$500–1,500 प्रति वर्ष। व्यक्तिगत अनुमान के लिए हमारे कॉस्ट कैलकुलेटर का उपयोग करें, और ध्यान रखें कि CSC छात्रवृत्ति ट्यूशन शून्य तक घटा सकती है।',
+  },
+  {
+    question: 'क्या चीन में पढ़ते हुए काम कर सकते हैं?',
+    answer:
+      'विश्वविद्यालय की लिखित अनुमति से पार्ट-टाइम काम संभव है, आमतौर पर कैंपस में। कैंपस के बाहर इंटर्नशिप के लिए संस्था और आप्रवासन अधिकारियों की अतिरिक्त स्वीकृति चाहिए। ज़्यादातर छात्रवृत्ति वृत्तियाँ बिना काम के जीवन-यापन की लागत कवर करने योग्य बनाई जाती हैं।',
+  },
+  {
+    question: 'सितंबर इंटेक के लिए आवेदन कब करना चाहिए?',
+    answer:
+      '6–9 महीने पहले शुरू करें। छात्रवृत्ति की समय-सीमाएँ फरवरी और अप्रैल के बीच समाप्त होती हैं; स्वयं-वित्तपोषित आवेदन बाद तक चलते हैं, पर बेहतरीन कार्यक्रम और छात्रावास पहले भर जाते हैं। तारीख़-दर-तारीख़ योजना के लिए टाइमलाइन प्लानर देखें।',
+  },
+  {
+    question: 'क्या स्वास्थ्य बीमा अनिवार्य है?',
+    answer:
+      'हाँ — चीन में प्रत्येक अंतरराष्ट्रीय छात्र को पूरे प्रवासकाल के लिए स्वास्थ्य बीमा रखना अनिवार्य है। CSC छात्रों को यह छात्रवृत्ति में मिलता है; स्वयं-वित्तपोषित छात्र रजिस्ट्रेशन पर खरीदते हैं (आमतौर पर ¥400–800/वर्ष)।',
+  },
+];
+
+const TOURISM_FAQS_HI: Faq[] = [
+  {
+    question: 'चीन के लिए टूरिस्ट वीज़ा कैसे काम करता है?',
+    answer:
+      'अधिकांश आगंतुकों को L (टूरिस्ट) वीज़ा चाहिए: आवेदन पत्र, फ़ोटो, यात्रा कार्यक्रम और होटल बुकिंग, साथ में आगे की यात्रा का प्रमाण। हमारी कंसीयज़ डेस्क फ़ाइल तैयार करती है, कार्यक्रम पत्र लिखती है और अपॉइंटमेंट बुक करती है। सामान्य प्रक्रिया 4–7 कार्यदिवस।',
+  },
+  {
+    question: 'चीन और जापान घूमने का सबसे अच्छा समय कब है?',
+    answer:
+      'वसंत (मार्च–मई) और शरद (सितंबर–नवंबर) में मौसम सबसे अच्छा — क्रमशः बहार के फूल और शरद ऋतु की पत्तियाँ। गर्मियों में चीन में घरेलू यात्रा की चरम सीज़न है; सर्दी ठंडी पर सबसे सस्ती है और हार्बिन का बर्फ़ महोत्सव देती है।',
+  },
+  {
+    question: 'क्या आप बिज़नेस मीटिंग और फ़ैक्टरी विज़िट आयोजित कर सकते हैं?',
+    answer:
+      'हाँ। हमारे ट्रेड डेस्क के माध्यम से व्यावसायिक प्रतिनिधिमंडलों के लिए फ़ैक्टरी टूर, सप्लायर मीटिंग, कैंटन फ़ेयर यात्रा-कार्यक्रम और चैंबर ऑफ़ कॉमर्स परिचय आयोजित करते हैं — द्विभाषी दुभाषियों के साथ।',
+  },
+  {
+    question: 'यात्रा में आहार संबंधी पाबंदियाँ कैसे संभाली जाती हैं?',
+    answer:
+      'आने से पहले गाइडों को एलर्जी और पसंद (शाकाहारी, हलाल, जैन, ग्लूटेन-मुक्त) की जानकारी दी जाती है। हम रेस्तराँ पहले से जाँचते हैं, और आपको चीनी भाषा के प्राथमिकता कार्ड मिलते हैं जो किसी भी खाने की जगह दिखाए जा सकते हैं।',
+  },
+  {
+    question: 'क्या ट्रैवल इंश्योरेंस शामिल है?',
+    answer:
+      'बेस पैकेज में मानक कवरेज शामिल है। हम मेडिकल इवैक्यूएशन और महँगे उपकरण की सुरक्षा वाली उन्नत पॉलिसी अतिरिक्त रूप से देते हैं — एडवेंचर और सिल्क रोड यात्रा-कार्यक्रमों के लिए इसकी पुरज़ोर सिफ़ारिश है।',
+  },
+  {
+    question: 'आपकी रद्दीकरण नीति क्या है?',
+    answer:
+      'प्रस्थान से 30 दिन पहले तक पूर्ण धनवापसी। 30 दिन के भीतर हम होटलों और सप्लायरों से वसूल योग्य सब कुछ लौटाते हैं — रसीदें आपको दिखाते हैं। हमारी ओर से कोई छिपा शुल्क नहीं।',
+  },
+  {
+    question: 'क्या आप ग्रुप और स्टूडेंट टूर आयोजित करते हैं?',
+    answer:
+      'हाँ — परिवार, कॉर्पोरेट आउटसाइट, और स्कूल/कॉलेज की शैक्षिक यात्राएँ हमारी विशेषता हैं। 8+ के समूहों को समर्पित प्लानिंग सहायता और छूट दरें मिलती हैं। 2024 में हमने 45 छात्रों का शंघाई कार्यक्रम संभाला।',
+  },
+  {
+    question: 'क्या आप मल्टी-कंट्री यात्रा-कार्यक्रम संभाल सकते हैं?',
+    answer:
+      'हाँ। हम चीन + जापान की कंबिनेशन नियमित रूप से संचालित करते हैं, जिसमें अलग-अलग वीज़ा आवेदन, सीमा-पार फ़्लाइट और रेल, और हर देश में तालमेल वाले गाइड शामिल हैं।',
+  },
+];
+
+const TRADE_FAQS_HI: Faq[] = [
+  {
+    question: 'न्यूनतम ऑर्डर मात्रा (MOQ) क्या है?',
+    answer:
+      'उत्पाद पर निर्भर करता है। कस्टम इलेक्ट्रॉनिक्स आमतौर पर 500–1,000 यूनिट से शुरू; कई मशीन श्रेणियाँ एक यूनिट में बिकती हैं; टेक्सटाइल अक्सर 100 दर्जन के लॉट में। बढ़ते व्यापारों के लिए MOQ घटाने की बातचीत करना हमारे सोर्सिंग काम का हिस्सा है।',
+  },
+  {
+    question: 'आप उत्पाद की गुणवत्ता कैसे सुनिश्चित करते हैं?',
+    answer:
+      'उत्पादन के लगभग 20% और 80% पर फ़ैक्टरी में AQL-मानक निरीक्षण, और कंटेनर सील होने से पहले प्री-शिपमेंट जाँच। हर गेट पर आपको फ़ोटो और वीडियो रिपोर्ट मिलती है — पैसा आगे बढ़ने से पहले।',
+  },
+  {
+    question: 'चीन से भारत शिपिंग में सामान्य समय कितना लगता है?',
+    answer:
+      'गुआंगझू/शंघाई/निंगबो से मुंद्रा या JNPT तक समुद्री मालभाड़ा: आमतौर पर 18–25 दिन पोर्ट-टू-पोर्ट, दोनों सिरों पर कस्टम अलग। एयर फ़्रेट: 3–7 दिन डोर-टू-डोर, लागत लगभग 5–8×। हम पोर्ट जाम की निगरानी करते हैं और जब फ़ायदेमंद हो तो रास्ता बदलते हैं।',
+  },
+  {
+    question: 'क्या आप कस्टम क्लियरेंस और BIS सर्टिफिकेशन संभाल सकते हैं?',
+    answer:
+      'हाँ — HS वर्गीकरण, जहाँ आपकी उत्पाद श्रेणी के लिए ज़रूरी हो वहाँ BIS/WPC/CDSCO पंजीकरण, और माल के पोर्ट पहुँचने से पहले पूरे दस्तावेज़ सेट प्री-फ़ाइल, ताकि क्लियरेंस कभी कागज़ी कार्य पर न रुके।',
+  },
+  {
+    question: 'आप किन भुगतान शर्तों के साथ काम करते हैं?',
+    answer:
+      'मानक: TT द्वारा 30% अग्रिम, बिल ऑफ़ लेडिंग की कॉपी पर 70%। स्थापित संबंध LC at sight में बदल सकते हैं। पहली बार के सप्लायर के लिए हम एस्क्रो की पुरज़ोर सलाह देते हैं — कभी भी 100% अग्रिम नहीं।',
+  },
+  {
+    question: 'क्या आप OEM और प्राइवेट-लेबल निर्माण का समर्थन करते हैं?',
+    answer:
+      'हाँ। हम वे फ़ैक्टरियाँ चुनते हैं जो आपकी श्रेणी में पहले से व्हाइट-लेबल करती हैं, आर्टवर्क/पैकेजिंग अनुकूलन संभालते हैं, और ब्रांड जाँचों को मानक निरीक्षण गेट में शामिल करते हैं।',
+  },
+  {
+    question: 'सप्लायर विवाद कैसे सुलझाए जाते हैं?',
+    answer:
+      'हम दस्तावेज़ी सबूतों के साथ आपके स्थानीय प्रतिनिधि के रूप में काम करते हैं — फ़ोटो, AQL रिपोर्ट, द्विभाषी स्पेक शीट। हमारे बनाए अनुबंधों में गुणवत्ता विनिर्देश और दंड खंड होते हैं; अनसुलझे मामले हमारी फ़ाइल के समर्थन से अर्बिट्रेशन जाते हैं।',
+  },
+  {
+    question: 'आपका शुल्क ढाँचा क्या है?',
+    answer:
+      'ट्रेड अनुबंध वास्तव में भेजी गई माल के मूल्य से जुड़ी सक्सेस फ़ीस पर चलते हैं — अगर सौदा टूट जाए, तो आप केवल पहले से कोट किए गए ऑडिट/निरीक्षण खर्च देते हैं। न सफलता, न सक्सेस फ़ीस।',
+  },
+];
+
+const GENERAL_FAQS_HI: Faq[] = [
+  {
+    question: 'RouteToAbroad वास्तव में क्या करता है?',
+    answer:
+      'भारत और पूर्वी एशिया के बीच तीन जुड़ी सेवाएँ: हम छात्रों को चीनी विश्वविद्यालयों में प्रवेश दिलाते हैं (एडमिशन, छात्रवृत्ति, वीज़ा, आगमन), चीन और जापान की निजी और ग्रुप यात्राएँ डिज़ाइन करते हैं, और भारत–चीन ट्रेड ग्राहकों के लिए सोर्सिंग, QC और लॉजिस्टिक्स संभालते हैं।',
+  },
+  {
+    question: 'क्या आप केवल भारतीय छात्रों के साथ काम करते हैं?',
+    answer:
+      'हमारा डेस्क भारत स्थित छात्रों और परिवारों के लिए सबसे मज़बूत है, पर हम पार्टनर एजेंटों के ज़रिए GCC और अफ़्रीका के छात्रों को भी प्रवेश दिलाते हैं, और अंतरराष्ट्रीय आवेदकों के लिए भारत डेस्क बना रहे हैं। आप कहीं भी हों, फ़िट चेक ही पहला कदम है।',
+  },
+  {
+    question: 'आपके दफ़्तर कहाँ हैं?',
+    answer:
+      'नई दिल्ली (Saket District Centre) और गुआंगझू (Victory Plaza, तियानहे ज़िला) — यानी सोमवार से शनिवार तक दोनों टाइम ज़ोन में कोई न कोई जागता और मौके पर मौजूद रहता है।',
+  },
+  {
+    question: 'क्या आप एडमिशन, छात्रवृत्ति या वीज़ा की गारंटी दे सकते हैं?',
+    answer:
+      'नहीं — और जो हाँ कहे उससे सावधान रहें। एडमिशन विश्वविद्यालय तय करते हैं, छात्रवृत्ति समितियाँ, वीज़ा दूतावास। हम जो गारंटी देते हैं वह है: पहले से ईमानदार मूल्यांकन, पूरी और सही फ़ाइल, और हर कदम पर ज़िम्मेदार व्यक्ति।',
+  },
+  {
+    question: 'मैं शुरुआत कैसे करूँ?',
+    answer:
+      'एजुकेशन के लिए चार-प्रश्न फ़िट चेक करें, या किसी भी पेज से पूछताछ भेजें। एक सलाहकार एक कार्यदिवस में जवाब देता है — सोमवार से शनिवार, 9:00–18:00 IST।',
+  },
+  {
+    question: 'क्या आप मेरा डेटा बेचते हैं या इस साइट पर विज्ञापन चलाते हैं?',
+    answer:
+      'नहीं। हम केवल वही जानकारी लेते हैं जो आपकी पूछताछ को चाहिए, यह साइट कोई विज्ञापन कुकी नहीं लगाती, और कोई थर्ड-पार्टी ट्रैकिंग स्क्रिप्ट नहीं है।',
+  },
+  {
+    question: 'RouteToAbroad कितने समय से काम कर रहा है?',
+    answer:
+      'भारत और चीन के बीच पार-सीमा सेवाओं में एक दशक से अधिक।',
+    // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
+  },
+  {
+    question: 'टीम किन भाषाओं में काम करती है?',
+    answer:
+      'अंग्रेज़ी, हिंदी, मलयालम, और गुआंगझू दफ़्तर के ज़रिए मंदारिन — साथ ही पार्टनरों के ज़रिए अरबी-भाषी परिवारों के लिए स्थानीय भाषा सहायता।',
+  },
+];
+
 /**
  * A localized page reads SET[locale]; en stays the source of truth.
- * zh/fr/ar/es are machine-assisted translations pending native-speaker
- * review — same question count and order as the en set for every set.
+ * zh/fr/ar/es/de/ja/pt/hi are machine-assisted translations pending
+ * native-speaker review — same question count and order as the en set
+ * for every set.
  */
 export const EDUCATION_FAQS: Record<Locale, Faq[]> = {
   en: EDUCATION_FAQS_EN,
@@ -898,6 +1611,10 @@ export const EDUCATION_FAQS: Record<Locale, Faq[]> = {
   fr: EDUCATION_FAQS_FR,
   ar: EDUCATION_FAQS_AR,
   es: EDUCATION_FAQS_ES,
+  de: EDUCATION_FAQS_DE,
+  ja: EDUCATION_FAQS_JA,
+  pt: EDUCATION_FAQS_PT,
+  hi: EDUCATION_FAQS_HI,
 };
 
 export const TOURISM_FAQS: Record<Locale, Faq[]> = {
@@ -906,6 +1623,10 @@ export const TOURISM_FAQS: Record<Locale, Faq[]> = {
   fr: TOURISM_FAQS_FR,
   ar: TOURISM_FAQS_AR,
   es: TOURISM_FAQS_ES,
+  de: TOURISM_FAQS_DE,
+  ja: TOURISM_FAQS_JA,
+  pt: TOURISM_FAQS_PT,
+  hi: TOURISM_FAQS_HI,
 };
 
 export const TRADE_FAQS: Record<Locale, Faq[]> = {
@@ -914,6 +1635,10 @@ export const TRADE_FAQS: Record<Locale, Faq[]> = {
   fr: TRADE_FAQS_FR,
   ar: TRADE_FAQS_AR,
   es: TRADE_FAQS_ES,
+  de: TRADE_FAQS_DE,
+  ja: TRADE_FAQS_JA,
+  pt: TRADE_FAQS_PT,
+  hi: TRADE_FAQS_HI,
 };
 
 export const GENERAL_FAQS: Record<Locale, Faq[]> = {
@@ -922,4 +1647,8 @@ export const GENERAL_FAQS: Record<Locale, Faq[]> = {
   fr: GENERAL_FAQS_FR,
   ar: GENERAL_FAQS_AR,
   es: GENERAL_FAQS_ES,
+  de: GENERAL_FAQS_DE,
+  ja: GENERAL_FAQS_JA,
+  pt: GENERAL_FAQS_PT,
+  hi: GENERAL_FAQS_HI,
 };

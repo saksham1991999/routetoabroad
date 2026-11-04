@@ -162,4 +162,100 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       button: 'Inicia tu expediente',
     },
   },
+
+  de: {
+    metaTitleTemplate: '{name} — Studiengänge, Kosten & Zulassung für internationale Studierende',
+    crumb: 'Universitäten',
+    schemaStudyAtTemplate: 'Studieren an {name}',
+    headings: {
+      why: 'Warum Studierende sie wählen',
+      programmes: 'Studiengänge für internationale Studierende',
+      faqTemplate: 'Gefragt zu {name}',
+    },
+    costs: {
+      title: 'Kosten auf einen Blick',
+      tuition: 'Studiengebühren',
+      dormitory: 'Wohnheim',
+      living: 'Lebenshaltung',
+      estimateCta: 'Vollständige Kostenschätzung starten',
+    },
+    facts: { title: 'Kurzinfos' },
+    cta: {
+      title: 'Diese Universität im Blick?',
+      text: 'Erhalten Sie eine ehrliche Einschätzung Ihrer Chancen — kostenlos, innerhalb eines Werktags.',
+      button: 'Akte eröffnen',
+    },
+  },
+
+  ja: {
+    metaTitleTemplate: '{name} — 外国人学生のためのプログラム・費用・入学ガイド',
+    crumb: '大学',
+    schemaStudyAtTemplate: '{name} で学ぶ',
+    headings: {
+      why: '学生たちが選ぶ理由',
+      programmes: '外国人学生が履修するプログラム',
+      faqTemplate: '{name} についてよくある質問',
+    },
+    costs: {
+      title: '費用の概要',
+      tuition: '学費',
+      dormitory: '寮',
+      living: '生活費',
+      estimateCta: '費用を詳しく試算する',
+    },
+    facts: { title: '要点' },
+    cta: {
+      title: 'この大学を考えていますか？',
+      text: 'あなたの合格可能性を率直に評価します — 無料、1 営業日以内。',
+      button: '書類づくりを始める',
+    },
+  },
+
+  pt: {
+    metaTitleTemplate: '{name} — Programas, custos e admissão para estudantes internacionais',
+    crumb: 'Universidades',
+    schemaStudyAtTemplate: 'Estudar na {name}',
+    headings: {
+      why: 'Por que os estudantes a escolhem',
+      programmes: 'Programas que os estudantes internacionais cursam',
+      faqTemplate: 'Perguntas sobre {name}',
+    },
+    costs: {
+      title: 'Custos de relance',
+      tuition: 'Mensalidade',
+      dormitory: 'Residência',
+      living: 'Custo de vida',
+      estimateCta: 'Calcular o custo completo',
+    },
+    facts: { title: 'Resumo rápido' },
+    cta: {
+      title: 'Quer esta universidade?',
+      text: 'Receba uma leitura honesta das suas chances — grátis, em um dia útil.',
+      button: 'Iniciar seu dossiê',
+    },
+  },
+
+  hi: {
+    metaTitleTemplate: '{name} — अंतरराष्ट्रीय विद्यार्थियों के लिए प्रोग्राम, लागत और प्रवेश',
+    crumb: 'विश्वविद्यालय',
+    schemaStudyAtTemplate: '{name} में पढ़ाई',
+    headings: {
+      why: 'विद्यार्थी इसे क्यों चुनते हैं',
+      programmes: 'अंतरराष्ट्रीय विद्यार्थी जो प्रोग्राम करते हैं',
+      faqTemplate: '{name} से जुड़े प्रश्न',
+    },
+    costs: {
+      title: 'लागत एक नज़र में',
+      tuition: 'ट्यूशन',
+      dormitory: 'छात्रावास',
+      living: 'रहन-सहन',
+      estimateCta: 'पूरी लागत का अनुमान लगाएँ',
+    },
+    facts: { title: 'त्वरित जानकारी' },
+    cta: {
+      title: 'यह विश्वविद्यालय चाहिए?',
+      text: 'अपनी संभावनाओं का ईमानदार आकलन पाएँ — मुफ़्त, एक व्यावसायिक दिन में।',
+      button: 'अपनी फ़ाइल शुरू करें',
+    },
+  },
 };
