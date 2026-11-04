@@ -1,71 +1,72 @@
 ---
 /**
  * FAQ hub page — shared by all five locales (route shells under src/pages/
- * and src/pages/<locale>/ pass `locale`). Page structure and body copy are
- * identical across locales by design; internal links are localized through
- * translatePath.
+ * and src/pages/<locale>/ pass `locale`). All copy comes from the per-locale
+ * dictionary in src/i18n/pages/faq.ts; the Q&A sets come from
+ * src/data/faqs.ts (Record<Locale, Faq[]>) and feed both the accordions and
+ * the FAQPage JSON-LD. Internal links localize through translatePath.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
-import { uiFor } from '../../i18n/ui';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../../data/faqs';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
 import { faqSchema } from '../../lib/schema';
+import { FAQ } from '../../i18n/pages/faq';
 
 interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
+const t = FAQ[locale];
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
 
-const all = [...GENERAL_FAQS, ...EDUCATION_FAQS, ...TOURISM_FAQS, ...TRADE_FAQS];
+const all = [...GENERAL_FAQS[locale], ...EDUCATION_FAQS[locale], ...TOURISM_FAQS[locale], ...TRADE_FAQS[locale]];
 ---
 
 <BaseLayout
-  title="FAQ — Study, Travel & Trade Across East Asia"
-  description="Every question we hear, answered straight: recognition, scholarships, visas, costs, tours, sourcing and payments — the RouteToAbroad FAQ hub."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/faq"
   locale={locale}
-  crumbs={[{ name: 'FAQ', url: link('/faq') }]}
+  crumbs={[{ name: t.crumb, url: link('/faq') }]}
   jsonLd={[faqSchema(all)]}
 >
   <PageHero
-    eyebrow="FAQ hub"
-    title="The answers, with the awkward ones kept in."
-    lede="Organised by service, written the way we answer on calls. If a question is missing, it goes on this page — ask us."
-    crumbs={[{ name: 'FAQ', url: link('/faq') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/faq') }]}
   />
 
   <section class="section">
     <div class="container-faq">
       <section aria-labelledby="general-h">
-        <h2 id="general-h" class="faq-h">General</h2>
-        <FaqAccordion faqs={GENERAL_FAQS} />
+        <h2 id="general-h" class="faq-h">{t.groups.general.heading}</h2>
+        <FaqAccordion faqs={GENERAL_FAQS[locale]} />
       </section>
 
       <section aria-labelledby="edu-h" class="faq-group">
-        <p class="eyebrow">Education</p>
-        <h2 id="edu-h" class="faq-h">Studying in China</h2>
-        <FaqAccordion faqs={EDUCATION_FAQS} />
-        <a href={link('/education/faq')} class="arrow-link faq-link">Education FAQ page</a>
+        <p class="eyebrow">{t.groups.education.eyebrow}</p>
+        <h2 id="edu-h" class="faq-h">{t.groups.education.heading}</h2>
+        <FaqAccordion faqs={EDUCATION_FAQS[locale]} />
+        <a href={link('/education/faq')} class="arrow-link faq-link">{t.groups.education.link}</a>
       </section>
 
       <section aria-labelledby="tour-h" class="faq-group">
-        <p class="eyebrow">Tourism</p>
-        <h2 id="tour-h" class="faq-h">Travel to China & Japan</h2>
-        <FaqAccordion faqs={TOURISM_FAQS} />
-        <a href={link('/tourism/faq')} class="arrow-link faq-link">Tourism FAQ page</a>
+        <p class="eyebrow">{t.groups.tourism.eyebrow}</p>
+        <h2 id="tour-h" class="faq-h">{t.groups.tourism.heading}</h2>
+        <FaqAccordion faqs={TOURISM_FAQS[locale]} />
+        <a href={link('/tourism/faq')} class="arrow-link faq-link">{t.groups.tourism.link}</a>
       </section>
 
       <section aria-labelledby="trade-h" class="faq-group">
-        <p class="eyebrow">Trade</p>
-        <h2 id="trade-h" class="faq-h">India–China trade</h2>
-        <FaqAccordion faqs={TRADE_FAQS} />
-        <a href={link('/trade/faq')} class="arrow-link faq-link">Trade FAQ page</a>
+        <p class="eyebrow">{t.groups.trade.eyebrow}</p>
+        <h2 id="trade-h" class="faq-h">{t.groups.trade.heading}</h2>
+        <FaqAccordion faqs={TRADE_FAQS[locale]} />
+        <a href={link('/trade/faq')} class="arrow-link faq-link">{t.groups.trade.link}</a>
       </section>
     </div>
   </section>

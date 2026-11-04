@@ -4,7 +4,7 @@ import GuideDetailPage from '../../../components/pages/GuideDetailPage.astro';
 import { guidePaths } from '../../../lib/static-paths';
 
 export async function getStaticPaths() {
-  return guidePaths();
+  return guidePaths('zh');
 }
 
 const { guide } = Astro.props;

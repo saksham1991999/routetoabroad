@@ -137,20 +137,17 @@ const isActive = (href: string) =>
   /* Once the page moves, give the transparent chrome a tone-matched scrim
      so section text cannot run through the nav. */
   body[data-chrome='home'] .header-inner.is-condensed {
-    background: color-mix(in srgb, #f7f7f7 86%, transparent);
+    background: color-mix(in srgb, var(--paper) 86%, transparent);
     backdrop-filter: blur(14px) saturate(1.4);
     -webkit-backdrop-filter: blur(14px) saturate(1.4);
-    border-bottom-color: rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--line);
   }
 
+  /* The black instrument bands stay #0a0a0a in both themes, so their
+     scrim stays dark ink too. */
   body[data-chrome='home'][data-tone='dark'] .header-inner.is-condensed {
     background: color-mix(in srgb, #0a0a0a 84%, transparent);
     border-bottom-color: rgba(255, 255, 255, 0.12);
-  }
-
-  /* The homepage is a fixed-light composition — no theme to toggle there. */
-  body[data-chrome='home'] .theme-toggle {
-    display: none;
   }
 
   body[data-chrome='home'][data-tone='dark'] .site-header {
@@ -179,40 +176,8 @@ const isActive = (href: string) =>
     padding: 0.55rem 0 0.55rem 0.55rem;
   }
 
-  /* The homepage chrome sits over the always-light hero composition — pin the
-     mark to light ink so dark-theme tokens can't flip it invisible. */
-  html[data-theme='dark'] body[data-chrome='home'] .site-header {
-    color: #111111;
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .main-nav a {
-    color: rgba(17, 17, 17, 0.62);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .main-nav a:hover,
-  html[data-theme='dark'] body[data-chrome='home'] .main-nav a.active {
-    color: #111111;
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle {
-    color: rgba(17, 17, 17, 0.62);
-    border-color: rgba(17, 17, 17, 0.2);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .theme-toggle:hover {
-    color: #111111;
-    border-color: rgba(17, 17, 17, 0.45);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .menu-toggle {
-    color: #111111;
-    border-color: rgba(17, 17, 17, 0.2);
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'] .header-cta {
-    background: #0a0a0a;
-    color: #f7f7f7;
-  }
+  /* The homepage chrome sits over the hero composition, which follows the
+     theme tokens — tone rules below still invert the chrome over dark bands. */
 
   /* Over a dark band the primary pill must invert, not disappear. */
   body[data-chrome='home'][data-tone='dark'] .header-cta,
@@ -506,7 +471,8 @@ const isActive = (href: string) =>
   }
 
   /* Menu open: the opaque menu panel owns the header area, so the condensed
-     scrim must not show a dark bar against the light menu (or vice versa). */
+     scrim must not show through — the header matches the menu's paper on
+     every theme and tone. */
   .header-inner.is-menu-open {
     background: var(--paper);
     border-bottom-color: transparent;
@@ -515,17 +481,7 @@ const isActive = (href: string) =>
   }
 
   body[data-chrome='home'] .header-inner.is-menu-open {
-    background: #f7f7f7;
-  }
-
-  body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
-    background: #f7f7f7;
-    color: #111111;
-  }
-
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-inner.is-menu-open {
-    background: #f7f7f7;
-    color: #111111;
+    background: var(--paper);
   }
 
   /* Reduced motion: chrome state changes happen instantly, no resize or

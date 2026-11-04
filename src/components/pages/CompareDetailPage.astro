@@ -2,26 +2,39 @@
 /**
  * compare detail page — shared by all five locales. Route shells under
  * src/pages/compare/[slug].astro and src/pages/<locale>/compare/[slug].astro
- * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * pass `locale` and the EN entry as `c` (slugs are identical across locales);
+ * the locale's own copy is resolved from COMPARISONS[locale] below, falling
+ * back to the English set if the slug is somehow missing. Template chrome
+ * comes from the per-locale dictionary in src/i18n/pages/compare-detail.ts;
+ * links localize through translatePath.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import CtaBand from '../CtaBand.astro';
 import FaqAccordion from '../FaqAccordion.astro';
-import { COMPARISONS } from '../../data/comparisons';
+import { COMPARISONS, type Comparison } from '../../data/comparisons';
 import { faqSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
+import { COMPARE_DETAIL } from '../../i18n/pages/compare-detail';
 
 interface Props {
   locale?: Locale;
-  c: (typeof COMPARISONS)[number];
+  /** EN entry passed by the route shell — ignored; we resolve the locale copy. */
+  c?: Comparison;
 }
-const { locale = DEFAULT_LOCALE, c } = Astro.props;
+const { locale = DEFAULT_LOCALE } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = COMPARE_DETAIL[locale];
+/** This locale's comparison entry (same slugs across locales). */
+const slug = Astro.params.slug;
+const c =
+  COMPARISONS[locale].find((x) => x.slug === slug) ??
+  COMPARISONS.en.find((x) => x.slug === slug) ??
+  COMPARISONS.en[0];
 const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' });
 ---
 
@@ -32,7 +45,7 @@ const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 
   path={`/compare/${c.slug}`}
   type="article"
   crumbs={[
-    { name: 'Compare', url: link('/compare') },
+    { name: t.crumb, url: link('/compare') },
     { name: c.headline, url: `https://routetoabroad.com${link(`/compare/${c.slug}`)}` },
   ]}
   jsonLd={[faqSchema(c.faqs)]}
@@ -41,24 +54,24 @@ const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 
     <header>
       <Breadcrumbs
         crumbs={[
-          { name: 'Compare', url: link('/compare') },
+          { name: t.crumb, url: link('/compare') },
           { name: c.headline, url: link(`/compare/${c.slug}`) },
         ]}
       />
-      <p class="eyebrow">Comparison · updated {updated}</p>
+      <p class="eyebrow">{t.eyebrow.comparison} · {t.eyebrow.updated} {updated}</p>
       <h1>{c.headline}</h1>
       <div class="quick-answer">
-        <p class="qa-label">Short answer</p>
+        <p class="qa-label">{t.qaLabel}</p>
         <p>{c.answer}</p>
       </div>
     </header>
 
-    <section aria-label="Comparison table">
+    <section aria-label={t.table.aria}>
       <div class="table-wrap">
         <table class="compare">
           <thead>
             <tr>
-              <th scope="col">Factor</th>
+              <th scope="col">{t.table.factorHeader}</th>
               <th scope="col">{c.entityA}</th>
               <th scope="col">{c.entityB}</th>
             </tr>
@@ -76,8 +89,8 @@ const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 
       </div>
     </section>
 
-    <section class="verdict" aria-label="Verdict">
-      <p class="eyebrow">The verdict</p>
+    <section class="verdict" aria-label={t.verdict.aria}>
+      <p class="eyebrow">{t.verdict.eyebrow}</p>
       <h2>{c.verdict.winner}</h2>
       <p>{c.verdict.text}</p>
     </section>
@@ -86,23 +99,23 @@ const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 
       {c.body.map((p) => <p set:html={p} />)}
     </section>
 
-    <section class="c-faqs" aria-label="FAQs">
-      <h2>Comparison FAQs</h2>
+    <section class="c-faqs" aria-label={t.faqs.aria}>
+      <h2>{t.faqs.heading}</h2>
       <FaqAccordion faqs={c.faqs} />
     </section>
 
     <aside class="related">
-      <p class="divider-label">Next steps</p>
+      <p class="divider-label">{t.related.label}</p>
       <div class="related-links">
         {c.pillar === 'education' ? (
           <>
-            <a href={link('/tools/fit-check')} class="btn btn-primary">Run the fit check</a>
-            <a href={link('/guides/study-in-china-from-india')} class="btn btn-outline">Read the roadmap</a>
+            <a href={link('/tools/fit-check')} class="btn btn-primary">{t.related.education.fitCheck}</a>
+            <a href={link('/guides/study-in-china-from-india')} class="btn btn-outline">{t.related.education.roadmap}</a>
           </>
         ) : (
           <>
-            <a href={link('/guides/china-sourcing-guide')} class="btn btn-primary">Read the sourcing guide</a>
-            <a href={link('/trade#enquire')} class="btn btn-outline">Talk to the trade desk</a>
+            <a href={link('/guides/china-sourcing-guide')} class="btn btn-primary">{t.related.trade.sourcingGuide}</a>
+            <a href={link('/trade#enquire')} class="btn btn-outline">{t.related.trade.tradeDesk}</a>
           </>
         )}
       </div>

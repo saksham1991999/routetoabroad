@@ -1,10 +1,17 @@
 ---
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
 import { MARQUEE_ITEMS } from '../data/testimonials';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const items = MARQUEE_ITEMS[locale];
 ---
 
 <div class="marquee" aria-hidden="true">
   <div class="marquee-track">
-    {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item) => (
+    {[...items, ...items].map((item) => (
       <span class="marquee-item">{item}</span>
     ))}
   </div>

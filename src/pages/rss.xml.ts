@@ -1,10 +1,14 @@
 import type { APIContext } from 'astro';
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
+import { localizedEntries } from '../lib/content';
+import { DEFAULT_LOCALE } from '../lib/i18n';
 import { SITE } from '../lib/site';
 
 export async function GET(context: APIContext) {
-  const posts = (await getCollection('blog')).sort(
+  // The feed is English-only: localizedEntries with the default locale drops
+  // the localized copies now living under src/content/blog/<locale>/.
+  const posts = localizedEntries(await getCollection('blog'), DEFAULT_LOCALE).sort(
     (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
   );
 

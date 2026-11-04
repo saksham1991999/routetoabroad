@@ -1,6 +1,8 @@
 import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../lib/site';
+import { localizedEntries } from '../lib/content';
+import { DEFAULT_LOCALE } from '../lib/i18n';
 import { COMPARISONS } from '../data/comparisons';
 import { GLOSSARY } from '../data/glossary';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/faqs';
@@ -27,11 +29,13 @@ export async function GET({ site }: APIContext) {
   );
   lines.push('');
 
-  const guides = await getCollection('guides');
-  const posts = await getCollection('blog');
-  const universities = (await getCollection('universities')).sort((a, b) => a.data.order - b.data.order);
-  const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.data.order);
-  const countries = await getCollection('countries');
+  // English-only output: localized copies live under <locale>/ subdirs and
+  // localizedEntries(en) drops them (data Records fall back to the en set).
+  const guides = localizedEntries(await getCollection('guides'), DEFAULT_LOCALE);
+  const posts = localizedEntries(await getCollection('blog'), DEFAULT_LOCALE);
+  const universities = localizedEntries(await getCollection('universities'), DEFAULT_LOCALE).sort((a, b) => a.data.order - b.data.order);
+  const cities = localizedEntries(await getCollection('cities'), DEFAULT_LOCALE).sort((a, b) => a.data.order - b.data.order);
+  const countries = localizedEntries(await getCollection('countries'), DEFAULT_LOCALE);
 
   for (const g of guides.sort((a, b) => a.id.localeCompare(b.id))) {
     lines.push('---');
@@ -103,7 +107,7 @@ export async function GET({ site }: APIContext) {
   lines.push('');
   lines.push('## Comparisons');
   lines.push('');
-  for (const c of COMPARISONS) {
+  for (const c of COMPARISONS.en) {
     lines.push(`### ${c.title}`);
     lines.push(`URL: ${new URL(`/compare/${c.slug}`, base)}`);
     lines.push('');
@@ -121,7 +125,7 @@ export async function GET({ site }: APIContext) {
   lines.push('');
   lines.push('## Glossary');
   lines.push('');
-  for (const t of GLOSSARY) {
+  for (const t of GLOSSARY.en) {
     lines.push(`**${t.term}**${t.zh ? ` (${t.zh})` : ''}: ${t.definition}`);
     lines.push('');
   }
@@ -131,10 +135,10 @@ export async function GET({ site }: APIContext) {
   lines.push('## FAQ');
   lines.push('');
   for (const [label, set] of [
-    ['General', GENERAL_FAQS],
-    ['Education', EDUCATION_FAQS],
-    ['Tourism', TOURISM_FAQS],
-    ['Trade', TRADE_FAQS],
+    ['General', GENERAL_FAQS.en],
+    ['Education', EDUCATION_FAQS.en],
+    ['Tourism', TOURISM_FAQS.en],
+    ['Trade', TRADE_FAQS.en],
   ] as const) {
     lines.push(`### ${label}`);
     lines.push('');

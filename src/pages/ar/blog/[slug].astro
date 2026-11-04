@@ -4,7 +4,7 @@ import BlogPostPage from '../../../components/pages/BlogPostPage.astro';
 import { blogPaths } from '../../../lib/static-paths';
 
 export async function getStaticPaths() {
-  return blogPaths();
+  return blogPaths('ar');
 }
 
 const { post } = Astro.props;

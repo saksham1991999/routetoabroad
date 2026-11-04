@@ -3,19 +3,23 @@
  * universities detail page — shared by all five locales. Route shells under
  * src/pages/universities/[slug].astro and src/pages/<locale>/universities/[slug].astro
  * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * the locale-resolved collection entry (rendered as-is — entry frontmatter may
+ * be English fallback or localized). Template chrome comes from the per-locale
+ * dictionary in src/i18n/pages/university-detail.ts; links localize through
+ * translatePath and slugs always come from entrySlug, never raw entry.id.
  */
-import { getCollection, render } from 'astro:content';
-import { Image, Picture } from 'astro:assets';
+import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
-import SectionHead from '../SectionHead.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
 import { faqSchema, courseSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, localizeHtmlLinks, type Locale } from '../../lib/i18n';
+import { entrySlug } from '../../lib/content';
+import { UNIVERSITY_DETAIL } from '../../i18n/pages/university-detail';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -25,6 +29,9 @@ interface Props {
 const { locale = DEFAULT_LOCALE, university } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = UNIVERSITY_DETAIL[locale];
+const slug = entrySlug(university);
 const { data } = university;
 const { Content } = await render(university);
 const faqs = data.faqs ?? [];
@@ -33,21 +40,21 @@ const hasBody = Boolean(university.body && university.body.trim());
 
 <BaseLayout
   locale={locale}
-  title={`${data.name} — Programs, Costs & Admission for International Students`}
+  title={t.metaTitleTemplate.replace('{name}', data.name)}
   description={data.intro}
-  path={`/universities/${university.id}`}
+  path={`/universities/${slug}`}
   crumbs={[
-    { name: 'Universities', url: link('/universities') },
-    { name: data.name, url: `https://routetoabroad.com${link(`/universities/${university.id}`)}` },
+    { name: t.crumb, url: link('/universities') },
+    { name: data.name, url: `https://routetoabroad.com${link(`/universities/${slug}`)}` },
   ]}
   jsonLd={[
     courseSchema({
-      name: `Study at ${data.name}`,
+      name: t.schemaStudyAtTemplate.replace('{name}', data.name),
       description: data.intro,
-      url: `https://routetoabroad.com${link(`/universities/${university.id}`)}`,
+      url: `https://routetoabroad.com${link(`/universities/${slug}`)}`,
       // The provider is the university itself, not the consultancy.
       providerName: data.name,
-      providerUrl: `https://routetoabroad.com${link(`/universities/${university.id}`)}`,
+      providerUrl: `https://routetoabroad.com${link(`/universities/${slug}`)}`,
     }),
     faqSchema(faqs),
   ]}
@@ -57,8 +64,8 @@ const hasBody = Boolean(university.body && university.body.trim());
       <div class="container">
         <Breadcrumbs
           crumbs={[
-            { name: 'Universities', url: link('/universities') },
-            { name: data.name, url: link(`/universities/${university.id}`) },
+            { name: t.crumb, url: link('/universities') },
+            { name: data.name, url: link(`/universities/${slug}`) },
           ]}
         />
         <p class="eyebrow">{data.chineseName}</p>
@@ -84,7 +91,7 @@ const hasBody = Boolean(university.body && university.body.trim());
       <div class="container u-grid">
         <div class="u-main">
           <section aria-labelledby="strengths-h">
-            <h2 id="strengths-h">Why students pick it</h2>
+            <h2 id="strengths-h">{t.headings.why}</h2>
             <div class="strengths">
               {data.strengths.map((s) => (
                 <div class="strength" data-reveal>
@@ -96,7 +103,7 @@ const hasBody = Boolean(university.body && university.body.trim());
           </section>
 
           <section aria-labelledby="prog-h" class="u-section">
-            <h2 id="prog-h">Programmes international students take</h2>
+            <h2 id="prog-h">{t.headings.programmes}</h2>
             <ul class="prog-list">
               {data.programmes.map((p) => <li>{p}</li>)}
             </ul>
@@ -108,7 +115,7 @@ const hasBody = Boolean(university.body && university.body.trim());
 
           {faqs.length > 0 && (
             <section class="u-section" aria-labelledby="faq-h">
-              <h2 id="faq-h">Asked about {data.name}</h2>
+              <h2 id="faq-h">{t.headings.faqTemplate.replace('{name}', data.name)}</h2>
               <FaqAccordion faqs={faqs} />
             </section>
           )}
@@ -116,17 +123,17 @@ const hasBody = Boolean(university.body && university.body.trim());
 
         <aside class="u-side">
           <div class="u-card card card-pad" data-reveal>
-            <h2>Costs at a glance</h2>
+            <h2>{t.costs.title}</h2>
             <dl class="costs">
-              <div><dt>Tuition</dt><dd>{data.costs.tuition}</dd></div>
-              <div><dt>Dormitory</dt><dd>{data.costs.dorm}</dd></div>
-              <div><dt>Living</dt><dd>{data.costs.living}</dd></div>
+              <div><dt>{t.costs.tuition}</dt><dd>{data.costs.tuition}</dd></div>
+              <div><dt>{t.costs.dormitory}</dt><dd>{data.costs.dorm}</dd></div>
+              <div><dt>{t.costs.living}</dt><dd>{data.costs.living}</dd></div>
             </dl>
-            <a href={link('/tools/cost-calculator')} class="btn btn-outline btn-sm">Run full cost estimate</a>
+            <a href={link('/tools/cost-calculator')} class="btn btn-outline btn-sm">{t.costs.estimateCta}</a>
           </div>
 
           <div class="u-card card card-pad" data-reveal>
-            <h2>Quick facts</h2>
+            <h2>{t.facts.title}</h2>
             <dl class="facts">
               {data.facts.map((f) => (
                 <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
@@ -135,9 +142,9 @@ const hasBody = Boolean(university.body && university.body.trim());
           </div>
 
           <div class="u-cta card card-pad" data-reveal>
-            <h2>Want this university?</h2>
-            <p>Get an honest read on your chances — free, within one working day.</p>
-            <a href={link('/education#apply')} class="btn btn-primary btn-sm">Start your file</a>
+            <h2>{t.cta.title}</h2>
+            <p>{t.cta.text}</p>
+            <a href={link('/education#apply')} class="btn btn-primary btn-sm">{t.cta.button}</a>
           </div>
         </aside>
       </div>

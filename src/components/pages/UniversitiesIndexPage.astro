@@ -1,17 +1,20 @@
 ---
 /**
  * University profiles index — shared by all five locales (route shells under
- * src/pages/universities/ and src/pages/<locale>/universities/ pass `locale`). Structure
- * and body copy are identical across locales by design; internal links are
- * localized through translatePath and forms/CTA take the locale prop.
+ * src/pages/universities/ and src/pages/<locale>/universities/ pass `locale`).
+ * All copy comes from the per-locale dictionary in
+ * src/i18n/pages/universities-index.ts; entry cards render whatever the
+ * localized collection carries (localizedEntries falls back to English),
+ * hrefs use entrySlug and internal links localize through translatePath.
  */
 import { getCollection } from 'astro:content';
-import { Image } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import ArticleCard from '../ArticleCard.astro';
 import CtaBand from '../CtaBand.astro';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { localizedEntries, entrySlug } from '../../lib/content';
+import { UNIVERSITIES_INDEX } from '../../i18n/pages/universities-index';
 
 interface Props {
   locale?: Locale;
@@ -19,46 +22,44 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = UNIVERSITIES_INDEX[locale];
 
-const universities = (await getCollection('universities')).sort(
+const universities = localizedEntries(await getCollection('universities'), locale).sort(
   (a, b) => a.data.order - b.data.order
 );
 ---
 
 <BaseLayout
   locale={locale}
-  title="Chinese University Profiles for International Students"
-  description="Honest profiles of the universities we place into: Peking, Tsinghua, Fudan, Zhejiang and Shanghai Jiao Tong — programmes, real costs, admission realities and FAQs."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/universities"
-  crumbs={[{ name: 'Universities', url: link('/universities') }]}
+  crumbs={[{ name: t.crumb, url: link('/universities') }]}
 >
   <PageHero
-    eyebrow="Universities"
-    index="UNI / 08"
-    title="The five we place into most."
-    lede="Not a rankings mirror — working profiles with real fee ranges, admission realities and what each campus is actually like."
-    crumbs={[{ name: 'Universities', url: link('/universities') }]}
-    facts={[
-      { label: 'Profiles', value: '05 universities' },
-      { label: 'Cities', value: 'Beijing · Shanghai · Hangzhou' },
-      { label: 'Status', value: 'MOE-listed' },
-      { label: 'Fees', value: 'Real ranges' },
-    ]}
-    actions={[{ href: link('/contact'), label: 'Get a shortlist' }]}
+    eyebrow={t.hero.eyebrow}
+    index={t.hero.index}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/universities') }]}
+    facts={t.hero.facts}
+    actions={[{ href: link('/contact'), label: t.hero.action }]}
   />
 
   <section class="section">
     <div class="container">
       <div class="uni-grid">
-        {universities.map((u, i) => (
+        {universities.map((u) => (
           <ArticleCard
+              locale={locale}
             title={u.data.name}
-            href={link(`/universities/${u.id}`)}
+            href={link(`/universities/${entrySlug(u)}`)}
             description={u.data.intro}
             image={u.data.image}
             imageAlt={u.data.imageAlt}
             tag={u.data.city}
-            meta={`est. ${u.data.founded}`}
+            meta={`${t.card.estLabel} ${u.data.founded}`}
             pillar="education"
           />
         ))}

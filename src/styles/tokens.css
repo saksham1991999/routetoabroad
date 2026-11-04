@@ -121,43 +121,8 @@
 }
 
 /* ------------------------------------------------------------------
-   Homepage: fixed-light composition. The whole home page is art-directed
-   in the light palette (hardcoded #111 ink, #f7f7f7 paper) — re-declare
-   the light tokens on its subtree so dark mode can't invert it into
-   unreadable half-light/half-dark patchwork.
+   Homepage: fully theme-aware. Sections read the same paper/ink
+   tokens as the inner pages; the black "instrument" bands (stats,
+   CTA, footer) stay #0a0a0a in both themes by design, and the
+   header/HUD chrome follows each section's data-tone.
 ------------------------------------------------------------------- */
-body[data-chrome='home'] {
-  color-scheme: light;
-
-  --paper: #f7f7f7;
-  --paper-raised: #ffffff;
-  --paper-sunken: #f0f0f0;
-
-  --ink: #111111;
-  --ink-soft: #333333;
-  --ink-label: rgba(0, 0, 0, 0.6);
-  --ink-faint: rgba(0, 0, 0, 0.6);
-  --line: rgba(0, 0, 0, 0.08);
-  --line-strong: rgba(0, 0, 0, 0.15);
-
-  --accent: #5e78ee;
-  --accent-text: #4a63d8;
-  --accent-surface: #4a63d8;
-  --accent-strong: #7d93f5;
-  --accent-btn: #0a0a0a;
-  --accent-btn-hover: rgba(0, 0, 0, 0.85);
-  --on-accent: #f7f7f7;
-
-  --edu: #3b5bdb;
-  --tourism: #0f766e;
-  --trade: #6d28d9;
-
-  --ok: #166534;
-  --warn: #b45309;
-  --err: #b91c1c;
-
-  /* Shadows must match the forced-light surfaces: without this the chat
-     panel (white here via --paper-raised) gets the dark-tuned heavy pop
-     shadow from [data-theme='dark']. */
-  --shadow-pop: 0 8px 40px rgba(0, 0, 0, 0.12);
-}

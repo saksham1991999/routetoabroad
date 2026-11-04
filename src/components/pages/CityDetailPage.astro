@@ -3,10 +3,13 @@
  * cities detail page — shared by all five locales. Route shells under
  * src/pages/cities/[slug].astro and src/pages/<locale>/cities/[slug].astro
  * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * the locale-resolved collection entry (rendered as-is — entry frontmatter may
+ * be English fallback or localized). Template chrome comes from the per-locale
+ * dictionary in src/i18n/pages/city-detail.ts; links localize through
+ * translatePath and slugs always come from entrySlug, never raw entry.id.
  */
-import { getCollection, render } from 'astro:content';
-import { Image, Picture } from 'astro:assets';
+import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import SectionHead from '../SectionHead.astro';
@@ -16,6 +19,8 @@ import { faqSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, localizeHtmlLinks, type Locale } from '../../lib/i18n';
+import { entrySlug } from '../../lib/content';
+import { CITY_DETAIL } from '../../i18n/pages/city-detail';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -25,6 +30,9 @@ interface Props {
 const { locale = DEFAULT_LOCALE, city } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = CITY_DETAIL[locale];
+const slug = entrySlug(city);
 const { data } = city;
 const { Content } = await render(city);
 const hasBody = Boolean(city.body && city.body.trim());
@@ -32,12 +40,12 @@ const hasBody = Boolean(city.body && city.body.trim());
 
 <BaseLayout
   locale={locale}
-  title={`${data.name} City Guide — Costs, Universities & Travel`}
+  title={t.metaTitleTemplate.replace('{name}', data.name)}
   description={data.intro}
-  path={`/cities/${city.id}`}
+  path={`/cities/${slug}`}
   crumbs={[
-    { name: 'Cities', url: link('/cities') },
-    { name: data.name, url: `https://routetoabroad.com${link(`/cities/${city.id}`)}` },
+    { name: t.crumb, url: link('/cities') },
+    { name: data.name, url: `https://routetoabroad.com${link(`/cities/${slug}`)}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
@@ -46,8 +54,8 @@ const hasBody = Boolean(city.body && city.body.trim());
       <div class="container">
         <Breadcrumbs
           crumbs={[
-            { name: 'Cities', url: link('/cities') },
-            { name: data.name, url: link(`/cities/${city.id}`) },
+            { name: t.crumb, url: link('/cities') },
+            { name: data.name, url: link(`/cities/${slug}`) },
           ]}
         />
         <p class="eyebrow">{data.chineseName} · {data.country}</p>
@@ -56,15 +64,15 @@ const hasBody = Boolean(city.body && city.body.trim());
         <div class="c-costs num">
           <div>
             <p class="c-cost-val">${data.studentMonthly.low}–{data.studentMonthly.high}</p>
-            <p class="c-cost-label">student / month</p>
+            <p class="c-cost-label">{t.costs.studentPerMonth}</p>
           </div>
           <div>
             <p class="c-cost-val">${data.touristDaily.low}–{data.touristDaily.high}</p>
-            <p class="c-cost-label">traveller / day</p>
+            <p class="c-cost-label">{t.costs.travellerPerDay}</p>
           </div>
           <div>
             <p class="c-cost-val c-cost-best">{data.bestTime}</p>
-            <p class="c-cost-label">best time to visit</p>
+            <p class="c-cost-label">{t.costs.bestTime}</p>
           </div>
         </div>
       </div>
@@ -86,7 +94,7 @@ const hasBody = Boolean(city.body && city.body.trim());
       <div class="container c-grid">
         <div>
           <section aria-labelledby="hl-h">
-            <SectionHead eyebrow="Highlights" title="<span id='hl-h'>What the city is for</span>" />
+            <SectionHead eyebrow={t.highlights.eyebrow} title={`<span id='hl-h'>${t.highlights.title}</span>`} />
             <div class="hl-grid">
               {data.highlights.map((h) => (
                 <div class="hl card card-pad" data-reveal>
@@ -103,7 +111,7 @@ const hasBody = Boolean(city.body && city.body.trim());
 
           {(data.faqs ?? []).length > 0 && (
             <section class="c-faq" aria-labelledby="cfaq-h">
-              <SectionHead eyebrow="City FAQ" title="<span id='cfaq-h'>Common questions</span>" />
+              <SectionHead eyebrow={t.faq.eyebrow} title={`<span id='cfaq-h'>${t.faq.title}</span>`} />
               <FaqAccordion faqs={data.faqs ?? []} />
             </section>
           )}
@@ -112,19 +120,19 @@ const hasBody = Boolean(city.body && city.body.trim());
         <aside class="c-side">
           {data.universities.length > 0 && (
             <div class="card card-pad" data-reveal>
-              <h2 class="c-side-title">Universities here</h2>
+              <h2 class="c-side-title">{t.side.uniTitle}</h2>
               <ul class="c-uni-list">
                 {data.universities.map((u) => <li>{u}</li>)}
               </ul>
-              <a href={link('/universities')} class="arrow-link c-side-link">All university profiles</a>
+              <a href={link('/universities')} class="arrow-link c-side-link">{t.side.uniLink}</a>
             </div>
           )}
           <div class="card card-pad c-cta" data-reveal>
-            <h2 class="c-side-title">See it with us</h2>
-            <p>Private tours, group programmes and student placements run through this city every season.</p>
+            <h2 class="c-side-title">{t.side.ctaTitle}</h2>
+            <p>{t.side.ctaText}</p>
             <div class="c-cta-btns">
-              <a href={link('/tourism#plan')} class="btn btn-primary btn-sm">Plan a trip</a>
-              <a href={link('/education#apply')} class="btn btn-outline btn-sm">Apply to study</a>
+              <a href={link('/tourism#plan')} class="btn btn-primary btn-sm">{t.side.planTrip}</a>
+              <a href={link('/education#apply')} class="btn btn-outline btn-sm">{t.side.applyStudy}</a>
             </div>
           </div>
         </aside>

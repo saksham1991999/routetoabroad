@@ -4,7 +4,7 @@ import UniversityDetailPage from '../../../components/pages/UniversityDetailPage
 import { universityPaths } from '../../../lib/static-paths';
 
 export async function getStaticPaths() {
-  return universityPaths();
+  return universityPaths('ar');
 }
 
 const { university } = Astro.props;

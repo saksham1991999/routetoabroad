@@ -3,15 +3,20 @@
  * guides detail page — shared by all five locales. Route shells under
  * src/pages/guides/[slug].astro and src/pages/<locale>/guides/[slug].astro
  * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * the locale-resolved collection entry; template copy comes from the
+ * per-locale dictionary in src/i18n/pages/guide-detail.ts, entry frontmatter
+ * renders as-is (en fallback or localized copy), and links localize through
+ * translatePath.
  */
-import { getCollection, render } from 'astro:content';
-import { Image, Picture } from 'astro:assets';
+import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
 import { articleSchema, faqSchema } from '../../lib/schema';
+import { entrySlug } from '../../lib/content';
+import { GUIDE_DETAIL } from '../../i18n/pages/guide-detail';
 
 
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, localizeHtmlLinks, type Locale } from '../../lib/i18n';
@@ -24,9 +29,12 @@ interface Props {
 const { locale = DEFAULT_LOCALE, guide } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized template copy. */
+const t = GUIDE_DETAIL[locale];
 const { data } = guide;
 const { Content } = await render(guide);
-const url = `https://routetoabroad.com${link(`/guides/${guide.id}`)}`;
+const slug = entrySlug(guide);
+const url = `https://routetoabroad.com${link(`/guides/${slug}`)}`;
 const faqs = data.faqs ?? [];
 
 const pillarColor: Record<string, string> = {
@@ -40,10 +48,10 @@ const pillarColor: Record<string, string> = {
   locale={locale}
   title={data.title}
   description={data.description}
-  path={`/guides/${guide.id}`}
+  path={`/guides/${slug}`}
   type="article"
   crumbs={[
-    { name: 'Guides', url: link('/guides') },
+    { name: t.crumb, url: link('/guides') },
     { name: data.title, url },
   ]}
   publishedTime={data.pubDate}
@@ -67,16 +75,16 @@ const pillarColor: Record<string, string> = {
     <header>
       <Breadcrumbs
         crumbs={[
-          { name: 'Guides', url: link('/guides') },
-          { name: data.title, url: link(`/guides/${guide.id}`) },
+          { name: t.crumb, url: link('/guides') },
+          { name: data.title, url: link(`/guides/${slug}`) },
         ]}
       />
-      <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{data.pillar} guide</p>
+      <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{t.pillarGuide[data.pillar]}</p>
       <h1>{data.title}</h1>
       <p class="guide-meta num">
-        Updated {new Date(data.updatedDate ?? data.pubDate).toLocaleDateString(DATE_TAG[locale], { month: 'long', year: 'numeric' })}
-        · {data.readTime} min read
-        {data.tags.map((t) => <span class="guide-tag">{t}</span>)}
+        {t.updated.replace('{date}', new Date(data.updatedDate ?? data.pubDate).toLocaleDateString(DATE_TAG[locale], { month: 'long', year: 'numeric' }))}
+        · {t.readTime.replace('{n}', String(data.readTime))}
+        {data.tags.map((tag) => <span class="guide-tag">{tag}</span>)}
       </p>
     </header>
 
@@ -90,17 +98,17 @@ const pillarColor: Record<string, string> = {
 
     {faqs.length > 0 && (
       <section class="guide-faqs" aria-labelledby="gfaq-h">
-        <h2 id="gfaq-h">Quick answers</h2>
+        <h2 id="gfaq-h">{t.faqHeading}</h2>
         <FaqAccordion faqs={faqs} />
       </section>
     )}
 
     <aside class="guide-cta card card-pad">
-      <p class="eyebrow">Next step</p>
-      <p>Want this guide applied to your case? The fit check takes four questions — or talk to the desk directly.</p>
+      <p class="eyebrow">{t.cta.eyebrow}</p>
+      <p>{t.cta.text}</p>
       <div class="guide-cta-btns">
-        <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">Run the fit check</a>
-        <a href={link('/contact')} class="btn btn-outline btn-sm">Contact us</a>
+        <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">{t.cta.primary}</a>
+        <a href={link('/contact')} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
       </div>
     </aside>
   </article>

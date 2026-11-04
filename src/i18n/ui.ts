@@ -152,6 +152,14 @@ export interface UiStrings {
   language: {
     aria: string;
   };
+  /** Card arrow-link label on blog/guide cards (ArticleCard). */
+  articleCard: {
+    more: string;
+  };
+  /** First breadcrumb crumb (the localized word for "Home"). */
+  breadcrumbsHome: string;
+  /** Localized labels for the three content desks (blog categories, testimonial pills). */
+  categories: { education: string; tourism: string; trade: string };
   /**
    * Field labels & placeholders for the four shared form components
    * (ContactForm, EducationForm, TourismForm, TradeForm). Each component
@@ -373,6 +381,9 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       typing: '助手正在输入…',
     },
     language: { aria: '语言' },
+    articleCard: { more: '阅读' },
+    breadcrumbsHome: '首页',
+    categories: { education: '教育', tourism: '旅游', trade: '贸易' },
     formFields: {
       fullName: '姓名',
       email: '邮箱',
@@ -642,6 +653,9 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       typing: 'L’assistant écrit…',
     },
     language: { aria: 'Langue' },
+    articleCard: { more: 'Lire' },
+    breadcrumbsHome: 'Accueil',
+    categories: { education: 'Études', tourism: 'Tourisme', trade: 'Commerce' },
     formFields: {
       fullName: 'Nom complet',
       email: 'E-mail',
@@ -911,6 +925,9 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       typing: 'المساعد يكتب الآن…',
     },
     language: { aria: 'اللغة' },
+    articleCard: { more: 'اقرأ' },
+    breadcrumbsHome: 'الرئيسية',
+    categories: { education: 'التعليم', tourism: 'السياحة', trade: 'التجارة' },
     formFields: {
       fullName: 'الاسم الكامل',
       email: 'البريد الإلكتروني',
@@ -1182,6 +1199,9 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
       typing: 'El asistente está escribiendo…',
     },
     language: { aria: 'Idioma' },
+    articleCard: { more: 'Leer' },
+    breadcrumbsHome: 'Inicio',
+    categories: { education: 'Educación', tourism: 'Turismo', trade: 'Comercio' },
     formFields: {
       fullName: 'Nombre completo',
       email: 'Correo',
@@ -1485,6 +1505,9 @@ export const UI_EN: UiStrings = {
     typing: 'Assistant is typing',
   },
   language: { aria: 'Language' },
+  articleCard: { more: 'Read' },
+  breadcrumbsHome: 'Home',
+  categories: { education: 'Education', tourism: 'Tourism', trade: 'Trade' },
   formFields: {
     fullName: 'Full name',
     email: 'Email',

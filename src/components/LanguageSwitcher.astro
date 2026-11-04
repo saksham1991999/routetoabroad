@@ -3,33 +3,57 @@ import { LOCALES, LOCALE_META, DEFAULT_LOCALE, translatePath, type Locale } from
 import { uiFor } from '../i18n/ui';
 
 /**
- * Language switcher — pill cluster in the header and mobile menu.
- * Each locale links to the same page under that locale's prefix; the
- * current locale is a labelled indicator (aria-current), not a link.
+ * Language switcher — a dropdown in the header and mobile menu.
+ * The button shows the current locale's native label; the panel lists every
+ * locale as a link to the same page under that locale's prefix, with the
+ * current locale marked (aria-current), not linked.
  *
  * `Astro.url.pathname` is the source of truth for "which page am I on",
  * so switching from /zh/education lands on /fr/education, not /fr/.
+ *
+ * Vanilla JS below owns open/close (click, Escape, outside click); no
+ * framework island. Focus stays on the button — the links are plain links,
+ * so Tab order works untouched.
  */
 const currentPath = Astro.url.pathname;
 const currentLocale = (Astro.props.locale as Locale | undefined) ?? DEFAULT_LOCALE;
 const ui = uiFor(currentLocale);
+const current = LOCALE_META[currentLocale];
 ---
 
 <nav class="lang-switcher" aria-label={ui.language.aria}>
-  <ul>
+  <button
+    type="button"
+    class="lang-btn"
+    id="lang-btn"
+    aria-expanded="false"
+    aria-controls="lang-menu"
+    aria-label={`${ui.language.aria}: ${current.nativeLabel}`}
+  >
+    <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <circle cx="12" cy="12" r="8.4"></circle>
+      <path stroke-linecap="round" d="M3.6 12h16.8M12 3.6c2.5 2.3 3.8 5.1 3.8 8.4s-1.3 6.1-3.8 8.4c-2.5-2.3-3.8-5.1-3.8-8.4s1.3-6.1 3.8-8.4Z"></path>
+    </svg>
+    <span class="lang-current" lang={currentLocale}>{current.nativeLabel}</span>
+    <svg class="lang-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path stroke-linecap="round" stroke-linejoin="round" d="m6 9.5 6 6 6-6"></path>
+    </svg>
+  </button>
+
+  <ul class="lang-menu" id="lang-menu" hidden>
     {LOCALES.map((code) => {
       const active = code === currentLocale;
-      const href = translatePath(currentPath, code);
       return (
         <li>
           {active ? (
-            <span class="lang-chip is-active" aria-current="true">
+            <span class="lang-option is-active" aria-current="true" lang={code}>
               {LOCALE_META[code].nativeLabel}
+              <span class="lang-check" aria-hidden="true">✓</span>
             </span>
           ) : (
             <a
-              class="lang-chip"
-              href={href}
+              class="lang-option"
+              href={translatePath(currentPath, code)}
               hreflang={code}
               lang={code}
             >
@@ -43,65 +67,165 @@ const ui = uiFor(currentLocale);
 </nav>
 
 <style>
-  .lang-switcher ul {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .lang-switcher {
+    position: relative;
   }
 
-  .lang-chip {
-    display: inline-block;
-    padding: 0.3rem 0.55rem;
+  .lang-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.42rem 0.6rem;
     font-size: 0.72rem;
     font-weight: 500;
     font-family: var(--font-mono);
     letter-spacing: 0.04em;
     color: color-mix(in srgb, var(--ink) 68%, transparent);
-    text-decoration: none;
+    background: transparent;
+    border: 1px solid var(--line-strong);
     border-radius: 999px;
-    border: 1px solid transparent;
     white-space: nowrap;
+    cursor: pointer;
     transition: color 0.15s, border-color 0.15s, background-color 0.15s;
   }
 
-  .lang-chip:hover {
+  .lang-btn:hover,
+  .lang-btn[aria-expanded='true'] {
     color: var(--ink);
-    border-color: var(--line-strong);
+    border-color: color-mix(in srgb, var(--ink) 45%, transparent);
     background: color-mix(in srgb, var(--ink) 4%, transparent);
   }
 
-  .lang-chip.is-active {
+  .lang-globe {
+    width: 0.85rem;
+    height: 0.85rem;
+    flex: none;
+  }
+
+  .lang-chev {
+    width: 0.7rem;
+    height: 0.7rem;
+    flex: none;
+    transition: transform 0.2s var(--ease-out);
+  }
+
+  .lang-btn[aria-expanded='true'] .lang-chev {
+    transform: rotate(180deg);
+  }
+
+  .lang-menu {
+    position: absolute;
+    top: calc(100% + 0.45rem);
+    inset-inline-end: 0;
+    z-index: 110;
+    min-width: 10.5rem;
+    margin: 0;
+    padding: 0.35rem;
+    list-style: none;
+    background: var(--paper-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-m);
+    box-shadow: var(--shadow-pop);
+  }
+
+  .lang-option {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.65rem;
+    font-size: 0.78rem;
+    font-weight: 500;
+    font-family: var(--font-mono);
+    letter-spacing: 0.03em;
+    color: color-mix(in srgb, var(--ink) 70%, transparent);
+    text-decoration: none;
+    border-radius: var(--radius-s);
+    white-space: nowrap;
+    transition: color 0.15s, background-color 0.15s;
+  }
+
+  a.lang-option:hover,
+  a.lang-option:focus-visible {
     color: var(--ink);
-    border-color: var(--line-strong);
-    background: color-mix(in srgb, var(--ink) 6%, transparent);
+    background: color-mix(in srgb, var(--ink) 5%, transparent);
+  }
+
+  .lang-option.is-active {
+    color: var(--ink);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+  }
+
+  .lang-check {
+    color: var(--accent-text);
+    font-size: 0.72rem;
   }
 
   /* Over a dark-tone header the switcher must invert, same as nav links */
-  body[data-chrome='home'][data-tone='dark'] .lang-chip,
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip {
-    color: rgba(255, 255, 255, 0.55);
+  body[data-chrome='home'][data-tone='dark'] .lang-btn,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-btn {
+    color: rgba(255, 255, 255, 0.6);
+    border-color: rgba(255, 255, 255, 0.25);
   }
 
-  body[data-chrome='home'][data-tone='dark'] .lang-chip:hover,
-  body[data-chrome='home'][data-tone='dark'] .lang-chip.is-active,
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip:hover,
-  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-chip.is-active {
+  body[data-chrome='home'][data-tone='dark'] .lang-btn:hover,
+  body[data-chrome='home'][data-tone='dark'] .lang-btn[aria-expanded='true'],
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-btn:hover,
+  html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .lang-btn[aria-expanded='true'] {
     color: #ffffff;
-    border-color: rgba(255, 255, 255, 0.35);
+    border-color: rgba(255, 255, 255, 0.55);
     background: rgba(255, 255, 255, 0.08);
   }
 
-  /* Mobile menu: larger tap targets, stack horizontally with wrap */
-  .mobile-menu .lang-switcher ul {
-    gap: 0.35rem;
-    flex-wrap: wrap;
-  }
-
-  .mobile-menu .lang-chip {
-    padding: 0.5rem 0.8rem;
+  /* Mobile menu: larger tap targets, anchor the panel to the start edge */
+  .mobile-menu .lang-btn {
+    padding: 0.55rem 0.8rem;
     font-size: 0.82rem;
   }
+
+  .mobile-menu .lang-menu {
+    inset-inline-end: auto;
+    inset-inline-start: 0;
+  }
+
+  .mobile-menu .lang-option {
+    padding: 0.65rem 0.75rem;
+    font-size: 0.88rem;
+  }
 </style>
+
+<script>
+  // Dropdown open/close — click, Escape, outside click. One listener set per
+  // switcher instance (header + mobile menu each mount one).
+  document.querySelectorAll<HTMLElement>('.lang-switcher').forEach((switcher) => {
+    const btn = switcher.querySelector<HTMLButtonElement>('.lang-btn');
+    const menu = switcher.querySelector<HTMLElement>('.lang-menu');
+    if (!btn || !menu) return;
+
+    const setOpen = (open: boolean) => {
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      menu.hidden = !open;
+    };
+
+    btn.addEventListener('click', () => {
+      setOpen(btn.getAttribute('aria-expanded') !== 'true');
+    });
+
+    document.addEventListener('click', (e) => {
+      if (!switcher.contains(e.target as Node)) setOpen(false);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+        setOpen(false);
+        btn.focus();
+      }
+    });
+
+    // Navigating closes the menu anyway (new page), but same-page hash links
+    // or bfcache restores could leave it open — reset on show.
+    document.addEventListener('visibilitychange', () => {
+      if (document.visibilityState === 'hidden') setOpen(false);
+    });
+  });
+</script>

@@ -4,7 +4,7 @@ import CityDetailPage from '../../../components/pages/CityDetailPage.astro';
 import { cityPaths } from '../../../lib/static-paths';
 
 export async function getStaticPaths() {
-  return cityPaths();
+  return cityPaths('es');
 }
 
 const { city } = Astro.props;

@@ -8,6 +8,8 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale).carousel;
+const labels = uiFor(locale).categories;
+const testimonials = TESTIMONIALS[locale];
 ---
 
 <section class="testimonials section" aria-label={ui.sectionAria}>
@@ -21,9 +23,9 @@ const ui = uiFor(locale).carousel;
 
   <div class="container carousel-shell" data-reveal>
     <div class="carousel" id="testimonial-carousel" tabindex="0" aria-label={ui.carouselAria}>
-      {TESTIMONIALS.map((t) => (
+      {testimonials.map((t) => (
         <figure class="t-card">
-          <span class="t-pill">{t.category}</span>
+          <span class="t-pill">{labels[t.category]}</span>
           <blockquote>“{t.quote}”</blockquote>
           <figcaption>
             <span class="t-avatar num" aria-hidden="true">{t.name.split(' ').map((n) => n[0]).join('')}</span>

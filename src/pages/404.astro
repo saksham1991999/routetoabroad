@@ -1,5 +1,75 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+/**
+ * 404 — one static page serves every missing URL, so the locale is unknown
+ * at build time. The copy ships for all five locales in a data attribute and
+ * an inline script (below) applies the language matching the requested URL's
+ * prefix (/zh/… → zh), including <html lang/dir>, document.title and the
+ * localized link hrefs. English is the default and crawler-visible markup.
+ */
+const I18N = {
+  en: {
+    title: 'Page Not Found',
+    heading: 'That page is not on this route.',
+    sub: 'The link is old, mistyped, or the page has moved. Nothing lost.',
+    goHome: 'Go home',
+    fitCheck: 'Start the fit check',
+    hintPre: 'Or try: ',
+    education: 'Education',
+    tourism: 'Tourism',
+    trade: 'Trade',
+    guides: 'Guides',
+  },
+  zh: {
+    title: '页面不存在',
+    heading: '这个页面不在这条路线上。',
+    sub: '链接已过期、输入有误，或页面已迁移。没有丢失任何内容。',
+    goHome: '返回首页',
+    fitCheck: '开始适配检查',
+    hintPre: '或者试试：',
+    education: '留学',
+    tourism: '旅游',
+    trade: '贸易',
+    guides: '指南',
+  },
+  fr: {
+    title: 'Page introuvable',
+    heading: 'Cette page n’est pas sur cet itinéraire.',
+    sub: 'Le lien est ancien, mal saisie, ou la page a été déplacée. Rien n’est perdu.',
+    goHome: 'Retour à l’accueil',
+    fitCheck: 'Commencer le test',
+    hintPre: 'Ou essayez : ',
+    education: 'Études',
+    tourism: 'Tourisme',
+    trade: 'Commerce',
+    guides: 'Guides',
+  },
+  ar: {
+    title: 'الصفحة غير موجودة',
+    heading: 'هذه الصفحة ليست على هذا المسار.',
+    sub: 'الرابط قديم أو مكتوب بشكل خاطئ أو تم نقل الصفحة. لم يُفقد شيء.',
+    goHome: 'العودة للرئيسية',
+    fitCheck: 'ابدأ فحص التوافق',
+    hintPre: 'أو جرّب: ',
+    education: 'التعليم',
+    tourism: 'السياحة',
+    trade: 'التجارة',
+    guides: 'الدلائل',
+  },
+  es: {
+    title: 'Página no encontrada',
+    heading: 'Esa página no está en esta ruta.',
+    sub: 'El enlace es antiguo, está mal escrito o la página se ha mudado. No se ha perdido nada.',
+    goHome: 'Ir al inicio',
+    fitCheck: 'Empezar el fit check',
+    hintPre: 'O prueba: ',
+    education: 'Educación',
+    tourism: 'Turismo',
+    trade: 'Comercio',
+    guides: 'Guías',
+  },
+} as const;
 ---
 
 <BaseLayout
@@ -9,18 +79,71 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   noindex
   hideSwitcher
 >
-  <section class="section nf">
+  <section class="section nf" data-404={JSON.stringify(I18N)}>
     <div class="container-text nf-inner">
       <p class="num nf-code">404</p>
-      <h1>That page is not on this route.</h1>
-      <p class="nf-sub">The link is old, mistyped, or the page has moved. Nothing lost.</p>
+      <h1 data-404-heading>That page is not on this route.</h1>
+      <p class="nf-sub" data-404-sub>The link is old, mistyped, or the page has moved. Nothing lost.</p>
       <div class="nf-actions">
-        <a href="/" class="btn btn-primary">Go home</a>
-        <a href="/tools/fit-check" class="btn btn-outline">Start the fit check</a>
+        <a href="/" class="btn btn-primary" data-404-home>Go home</a>
+        <a href="/tools/fit-check" class="btn btn-outline" data-404-fit>Start the fit check</a>
       </div>
-      <p class="nf-hint">Or try: <a href="/education">Education</a> · <a href="/tourism">Tourism</a> · <a href="/trade">Trade</a> · <a href="/guides">Guides</a></p>
+      <p class="nf-hint"><span data-404-hintpre>Or try: </span><a href="/education" data-404-edu>Education</a> · <a href="/tourism" data-404-tour>Tourism</a> · <a href="/trade" data-404-trade>Trade</a> · <a href="/guides" data-404-guides>Guides</a></p>
     </div>
   </section>
+
+  <script is:inline>
+    // Apply the copy for the requested URL's locale prefix (the 404 is one
+    // static page for every missing URL, so the locale is runtime knowledge).
+    (function () {
+      var m = location.pathname.match(/^\/(zh|fr|ar|es)(?=\/|$)/);
+      if (!m) return;
+      var packEl = document.querySelector('[data-404]');
+      if (!packEl) return;
+      var packs;
+      try {
+        packs = JSON.parse(packEl.getAttribute('data-404'));
+      } catch (e) {
+        return;
+      }
+      var t = packs[m[1]];
+      if (!t) return;
+      var p = '/' + m[1];
+      document.documentElement.lang = m[1];
+      document.documentElement.dir = m[1] === 'ar' ? 'rtl' : 'ltr';
+      document.title = t.title;
+      var set = function (sel, key) {
+        var el = document.querySelector(sel);
+        if (el) el.textContent = t[key];
+      };
+      set('[data-404-heading]', 'heading');
+      set('[data-404-sub]', 'sub');
+      set('[data-404-hintpre]', 'hintPre');
+      var home = document.querySelector('[data-404-home]');
+      if (home) {
+        home.textContent = t.goHome;
+        home.href = p + '/';
+      }
+      var fit = document.querySelector('[data-404-fit]');
+      if (fit) {
+        fit.textContent = t.fitCheck;
+        fit.href = p + '/tools/fit-check';
+      }
+      var links = [
+        ['[data-404-edu]', 'education', '/education'],
+        ['[data-404-tour]', 'tourism', '/tourism'],
+        ['[data-404-trade]', 'trade', '/trade'],
+        ['[data-404-guides]', 'guides', '/guides'],
+      ];
+      links.forEach(function (l) {
+        var el = document.querySelector(l[0]);
+        if (el) {
+          el.textContent = t[l[1]];
+          el.href = p + l[2];
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
 
 <style>

@@ -1,34 +1,37 @@
 ---
 /**
  * Guides index page — shared by all five locales (route shells under
- * src/pages/guides/ and src/pages/<locale>/guides/ pass `locale`). Page
- * structure and body copy are identical across locales by design; guide
- * links are localized through translatePath.
+ * src/pages/guides/ and src/pages/<locale>/guides/ pass `locale`). All copy
+ * comes from the per-locale dictionary in src/i18n/pages/guides-index.ts; the
+ * guide list resolves through localizedEntries (localized copy or English
+ * fallback) and links localize through translatePath.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import ArticleCard from '../ArticleCard.astro';
 import CtaBand from '../CtaBand.astro';
-import { uiFor } from '../../i18n/ui';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { localizedEntries, entrySlug } from '../../lib/content';
+import { GUIDES_INDEX } from '../../i18n/pages/guides-index';
 
 interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = GUIDES_INDEX[locale];
 
-const guides = (await getCollection('guides')).sort(
+const guides = localizedEntries(await getCollection('guides'), locale).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
 const pillarMeta: Record<string, { color: string; label: string }> = {
-  education: { color: 'var(--edu)', label: 'Education guides' },
-  tourism: { color: 'var(--tourism)', label: 'Travel guides' },
-  trade: { color: 'var(--trade)', label: 'Trade guides' },
+  education: { color: 'var(--edu)', label: t.sections.education },
+  tourism: { color: 'var(--tourism)', label: t.sections.tourism },
+  trade: { color: 'var(--trade)', label: t.sections.trade },
 };
 
 const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
@@ -38,17 +41,17 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
 ---
 
 <BaseLayout
-  title="Guides — Studying, Visas, Travel & Sourcing Explained"
-  description="In-depth guides for the East Asia corridor: MBBS in China, CSC scholarships, student visas, HSK preparation, China and Japan travel, and China sourcing — answer-first and regularly updated."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/guides"
   locale={locale}
-  crumbs={[{ name: 'Guides', url: link('/guides') }]}
+  crumbs={[{ name: t.crumb, url: link('/guides') }]}
 >
   <PageHero
-    eyebrow="Guides"
-    title="The reference shelf."
-    lede="Long-form explainers written to be answers, not brochures — each one opens with the short answer, then earns it."
-    crumbs={[{ name: 'Guides', url: link('/guides') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/guides') }]}
   />
 
   {byPillar.map(({ pillar, guides: group }) =>
@@ -59,16 +62,17 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
             <p class="eyebrow" style={`color: ${pillarMeta[pillar]!.color}`}>{pillarMeta[pillar]!.label}</p>
           </div>
           <div class="guide-grid">
-            {group.map((g, i) => (
+            {group.map((g) => (
               <ArticleCard
+              locale={locale}
                 title={g.data.title}
-                href={link(`/guides/${g.id}`)}
+                href={link(`/guides/${entrySlug(g)}`)}
                 description={g.data.description}
                 image={g.data.image}
                 imageAlt={g.data.imageAlt}
-                tag={g.data.pillar}
+                tag={t.categories[g.data.pillar]}
                 pillar={g.data.pillar}
-                meta={`${g.data.readTime} min${g.data.updatedDate ? ' · updated' : ''}`}
+                meta={`${t.minShort.replace('{n}', String(g.data.readTime))}${g.data.updatedDate ? ` ${t.updatedSuffix}` : ''}`}
               />
             ))}
           </div>

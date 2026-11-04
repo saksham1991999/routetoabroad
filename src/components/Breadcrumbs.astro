@@ -1,12 +1,15 @@
 ---
 import { SITE } from '../lib/site';
+import { localeFromPath } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 
 interface Props {
   crumbs: { name: string; url: string }[];
 }
 
 const { crumbs } = Astro.props;
-const withHome = [{ name: 'Home', url: SITE.url }, ...crumbs];
+const locale = localeFromPath(Astro.url.pathname);
+const withHome = [{ name: uiFor(locale).breadcrumbsHome, url: SITE.url }, ...crumbs];
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">
