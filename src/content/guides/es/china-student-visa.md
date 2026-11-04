@@ -4,7 +4,7 @@ title: 'Visado de estudiante para China (X1/X2) explicado: documentos, plazos y 
 description: 'El proceso del visado de estudiante X1 y X2 para China paso a paso: JW202 y Carta de Admisión, cita en la embajada, conversión a permiso de residencia en 30 días, y los errores que provocan rechazos.'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Visados', 'Visa X1', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'

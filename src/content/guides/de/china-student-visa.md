@@ -4,7 +4,7 @@ title: 'Chinesisches Studentenvisum (X1/X2) erklärt: Unterlagen, Zeitplan, Stol
 description: 'Der Prozess für das X1- und X2-Studentenvisum für China Schritt für Schritt: JW202 und Admission Notice, Botschaftstermin, Umwandlung in die Aufenthaltserlaubnis innerhalb von 30 Tagen und die Fehler, die zu Ablehnungen führen.'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Visa', 'X1-Visum', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'

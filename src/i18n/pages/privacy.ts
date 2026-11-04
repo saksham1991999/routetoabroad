@@ -37,7 +37,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'Privacy policy',
       lede: 'Short, because the practice is short: we collect what your enquiry needs, and nothing else.',
     },
-    updated: 'Last updated: November 2025',
+    updated: 'Last updated: November 2026',
     sections: {
       collect: {
         h: '1. What we collect',
@@ -81,7 +81,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: '隐私政策',
       lede: '篇幅很短，因为做法很简单：我们只收集你的咨询所需要的信息，除此之外一概不收。',
     },
-    updated: '最后更新：2025 年 11 月',
+    updated: '最后更新：2026 年 11 月',
     sections: {
       collect: {
         h: '1. 我们收集什么',
@@ -126,7 +126,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'Politique de confidentialité',
       lede: 'Courte, parce que la pratique est courte : nous collectons ce que votre demande exige, et rien d’autre.',
     },
-    updated: 'Dernière mise à jour : novembre 2025',
+    updated: 'Dernière mise à jour : novembre 2026',
     sections: {
       collect: {
         h: '1. Ce que nous collectons',
@@ -170,7 +170,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'سياسة الخصوصية',
       lede: 'قصيرة لأن الممارسة قصيرة: نجمع ما يحتاجه استفسارك، ولا شيء غير ذلك.',
     },
-    updated: 'آخر تحديث: نوفمبر 2025',
+    updated: 'آخر تحديث: نوفمبر 2026',
     sections: {
       collect: {
         h: '1. ما نجمعه',
@@ -215,7 +215,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'Política de privacidad',
       lede: 'Corta, porque la práctica es corta: recopilamos lo que tu consulta necesita, y nada más.',
     },
-    updated: 'Última actualización: noviembre de 2025',
+    updated: 'Última actualización: noviembre de 2026',
     sections: {
       collect: {
         h: '1. Qué recopilamos',
@@ -260,7 +260,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'Datenschutzerklärung',
       lede: 'Kurz, weil die Praxis kurz ist: Wir sammeln, was Ihre Anfrage benötigt — und nichts weiter.',
     },
-    updated: 'Zuletzt aktualisiert: November 2025',
+    updated: 'Zuletzt aktualisiert: November 2026',
     sections: {
       collect: {
         h: '1. Was wir sammeln',
@@ -304,7 +304,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'プライバシーポリシー',
       lede: '短いのは、運用が短いからです。お問い合わせに必要な情報だけを収集し、それ以上は何も取りません。',
     },
-    updated: '最終更新：2025 年 11 月',
+    updated: '最終更新：2026 年 11 月',
     sections: {
       collect: {
         h: '1. 収集する情報',
@@ -349,7 +349,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'Política de Privacidade',
       lede: 'Curta, porque a prática é curta: coletamos o que a sua consulta exige — e nada mais.',
     },
-    updated: 'Última atualização: novembro de 2025',
+    updated: 'Última atualização: novembro de 2026',
     sections: {
       collect: {
         h: '1. O que coletamos',
@@ -394,7 +394,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       title: 'गोपनीयता नीति',
       lede: 'छोटी, क्योंकि प्रथा छोटी है: हम आपकी पूछताछ की आवश्यकता की चीज़ें एकत्र करते हैं — और उससे अधिक कुछ नहीं।',
     },
-    updated: 'अंतिम अपडेट: नवंबर 2025',
+    updated: 'अंतिम अपडेट: नवंबर 2026',
     sections: {
       collect: {
         h: '1. हम क्या एकत्र करते हैं',

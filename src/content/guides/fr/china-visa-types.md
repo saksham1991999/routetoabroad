@@ -4,7 +4,7 @@ title: 'Types de visas chinois expliqués : L, M, F, X, Z et ce qu''ils autorise
 description: 'Toutes les catégories de visa chinois qui comptent pour les visiteurs venant d''Inde — touriste L, affaires M, échange F, étudiant X, travail Z — avec ce que chacune autorise, la validité typique et comment ne pas se tromper de visa.'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['Visas', 'Voyage', 'Affaires']
 image: '../../../assets/images/guide-visa.jpg'

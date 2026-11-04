@@ -4,7 +4,7 @@ title: '中国でのMBBS：2026年出願者のための完全ガイド'
 description: '中国のMBBSは、MOEリスト掲載の大学を選びFMGEに備えれば、インドの私立医学部席の3分の1程度で済むことがあります。費用、認可、言語、入学スケジュール、そして罠の避け方。'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', '入学', '費用']
 image: '../../../assets/images/blog-mbbs.jpg'

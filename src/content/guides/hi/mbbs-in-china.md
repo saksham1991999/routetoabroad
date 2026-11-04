@@ -4,7 +4,7 @@ title: 'चीन में MBBS: 2026 आवेदकों के लिए �
 description: 'चीनी MBBS निजी भारतीय मेडिकल सीट का एक-तिहाई लागत आ सकता है — अगर आप MOE-लिस्टेड विश्वविद्यालय चुनें और FMGE की योजना बनाएँ। लागत, मान्यता, भाषा, एडमिशन टाइमलाइन और जालों से बचने का तरीक़ा।'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', 'एडमिशन', 'लागत']
 image: '../../../assets/images/blog-mbbs.jpg'

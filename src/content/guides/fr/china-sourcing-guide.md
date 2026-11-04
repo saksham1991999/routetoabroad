@@ -4,7 +4,7 @@ title: 'Guide du sourcing en Chine : de l''annonce Alibaba au fournisseur vérif
 description: 'Comment sourcer en Chine sans se faire brûler : présélection de fournisseurs, audits d''usine, échantillonnage, inspections AQL, Incoterms, structures de paiement et socle de conformité propre à l''Inde (BIS/WPC, codes HS).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['Sourcing', 'Contrôle qualité', 'Conformité']
 image: '../../../assets/images/blog-supply-chain.jpg'

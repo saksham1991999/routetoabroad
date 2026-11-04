@@ -3,7 +3,7 @@ title: 'China Student Visa (X1/X2) Explained: Documents, Timeline, Pitfalls'
 description: 'The X1 and X2 student visa process for China step by step: JW202 and Admission Notice, embassy appointment, residence permit conversion within 30 days, and the mistakes that cause rejections.'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Visas', 'X1 Visa', 'JW202']
 image: '../../assets/images/guide-visa.jpg'

@@ -4,7 +4,7 @@ title: 'Guide de la bourse CSC : comment fonctionne réellement le financement c
 description: 'La bourse du gouvernement chinois expliquée : Type A contre Type B, ce que comprend la « couverture complète », les chances réelles selon le profil, la liste des documents et le calendrier qui vous maintient éligible.'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', 'Bourses', 'Financement']
 image: '../../../assets/images/blog-csc.jpg'

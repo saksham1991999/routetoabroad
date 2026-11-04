@@ -3,7 +3,7 @@ title: 'The India–China Trade Corridor: A 2026 Field Guide'
 description: 'How the $100B+ India–China trade corridor actually works in 2026: what flows, the compliance reality since 2020, port pairs and transit times, payment rails, and risk management that holds up.'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Trade', 'India-China', 'Logistics']
 image: '../../assets/images/hero-trade.jpg'

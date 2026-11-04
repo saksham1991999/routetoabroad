@@ -4,7 +4,7 @@ title: 'In China von Indien aus studieren: Der komplette Fahrplan'
 description: 'Von Indien an eine chinesische Universität: geeignete Profile, Kosten in echten Zahlen, Stipendien, der Bewerbungszeitplan Monat für Monat, Visumabwicklung und wie die erste Woche in China aussieht.'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['In China studieren', 'Zulassung', 'Kosten']
 image: '../../../assets/images/hero-education.jpg'

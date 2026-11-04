@@ -4,7 +4,7 @@ title: '日本旅行ガイド2026：京都、東京、初めてに最適なル�
 description: 'インドからの日本旅行の計画——京都＋東京のゴールデンルート、2026年のJRパス計算、1日予算、ビザの基本、そして中国＋日本の2か国旅を組み込む方法。'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['旅行', '日本', '旅程']
 image: '../../../assets/images/country-japan.jpg'

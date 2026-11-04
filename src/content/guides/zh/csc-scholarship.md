@@ -4,7 +4,7 @@ title: 'CSC奖学金指南：全额资助究竟如何运作'
 description: '中国政府奖学金详解：A类与B类、"全额资助"包含什么、不同背景下的真实录取概率、材料清单，以及让你保持资格的时间线。'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', '奖学金', '资金']
 image: '../../../assets/images/blog-csc.jpg'

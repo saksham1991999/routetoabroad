@@ -3,7 +3,7 @@ title: 'MBBS in China: The Complete Guide for 2026 Applicants'
 description: 'A Chinese MBBS can cost a third of a private Indian medical seat — if you pick an MOE-listed university and plan for FMGE. Costs, recognition, language, admissions timeline, and how to avoid the traps.'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', 'Admissions', 'Costs']
 image: '../../assets/images/blog-mbbs.jpg'

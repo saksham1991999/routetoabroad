@@ -4,7 +4,7 @@ title: 'インド–中国貿易回廊：2026年の実務フィールドガイ�
 description: '1000億ドル超のインド–中国貿易回廊が2026年に実際どう機能しているか：何が流れているか、2020年以降のコンプライアンスの現実、港のペアと輸送日数、決済手段、そして耐えられるリスク管理。'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['貿易', 'インド-中国', '物流']
 image: '../../../assets/images/hero-trade.jpg'

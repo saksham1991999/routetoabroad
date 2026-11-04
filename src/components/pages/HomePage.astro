@@ -321,7 +321,7 @@ const tools = [
               <h3 class="post-title">{post.data.title}</h3>
               <p class="post-desc">{post.data.description}</p>
               <p class="post-meta">
-                {post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' })}
+                {post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric', timeZone: 'UTC' })}
                 {' '}· {uiFor(locale).categories[post.data.category]} · {t.insights.readTime.replace('{n}', String(post.data.readTime))}
               </p>
             </div>

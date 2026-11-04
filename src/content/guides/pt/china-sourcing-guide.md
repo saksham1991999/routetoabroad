@@ -4,7 +4,7 @@ title: 'Guia de sourcing na China: do anúncio no Alibaba ao fornecedor verifica
 description: 'Como fazer sourcing na China sem ser enganado: triagem de fornecedores, auditorias de fábrica, amostragem, inspeções AQL, Incoterms, estruturas de pagamento e o pacote de conformidade específico da Índia (BIS/WPC, códigos HS).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['Sourcing', 'Controle de Qualidade', 'Conformidade']
 image: '../../../assets/images/blog-supply-chain.jpg'

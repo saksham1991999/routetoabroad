@@ -4,7 +4,7 @@ title: 'China-Reiseführer 2026: Routen, Kosten und Tipps für Erstbesucher'
 description: 'So planen Sie eine Chinareise aus Indien im Jahr 2026 – die klassische Route für Erstbesucher, realistische Tagesbudgets, Visum-Grundlagen, Zahlungen (Alipay/WeChat), Zug versus Flugzeug und die beste Reisezeit.'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Reisen', 'China', 'Reiserouten']
 image: '../../../assets/images/guide-li-river.jpg'

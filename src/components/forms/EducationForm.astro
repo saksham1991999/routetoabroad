@@ -60,7 +60,7 @@ const ff = ui.formFields;
         <select id="edu-intake" name="targetIntake" required aria-describedby="edu-intake-error">
           <option value="">{ff.selectPlaceholder}</option>
           {f.intakes.map((label, i) => (
-            <option value={['sept_2026', 'march_2027', 'later'][i]}>{label}</option>
+            <option value={['sept_2027', 'march_2027', 'later'][i]}>{label}</option>
           ))}
         </select>
         <p class="error" id="edu-intake-error">{f.errors.intake}</p>

@@ -3,7 +3,7 @@ title: 'Study in China from India: The Complete Roadmap'
 description: 'From India to a Chinese university: eligible profiles, costs in real numbers, scholarships, the application timeline by month, visa handling, and what the first week in China looks like.'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Study in China', 'Admissions', 'Costs']
 image: '../../assets/images/hero-education.jpg'

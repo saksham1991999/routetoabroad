@@ -67,7 +67,7 @@ const en: FitStrings = {
     legend: 'What do you want to study?',
     opts: ['MBBS / Medicine', 'Engineering / CS', 'Business / Management', 'Chinese language (HSK)', 'Research (Masters / PhD)', 'Not sure yet'],
   },
-  q4: { legend: 'When do you want to start?', opts: ['September 2026', 'March 2027', 'Later / flexible'] },
+  q4: { legend: 'When do you want to start?', opts: ['September 2027', 'March 2027', 'Later / flexible'] },
   back: '← Back',
   hint: "Answer all four and we'll give you a straight yes or an honest maybe.",
   caveat: {
@@ -88,11 +88,11 @@ const en: FitStrings = {
     },
     mbbsMarch: {
       title: 'Maybe — March is a thin intake for MBBS.',
-      body: 'A few universities run March MBBS intakes; most run September only. If you can flex to September 2026, your options widen dramatically — and the scholarship windows align.',
+      body: 'A few universities run March MBBS intakes; most run September only. If you can flex to September 2027, your options widen dramatically — and the scholarship windows align.',
     },
     bachMarch: {
       title: "Maybe — March is thin for bachelor's entry too.",
-      body: 'A few universities run March intakes for engineering and business; most admit in September only. If you can flex to September 2026, programme choice and scholarship money both widen significantly.',
+      body: 'A few universities run March intakes for engineering and business; most admit in September only. If you can flex to September 2027, programme choice and scholarship money both widen significantly.',
     },
     bachYes: {
       title: "Yes — bachelor's programmes are open.",
@@ -150,7 +150,7 @@ const zh: FitStrings = {
     legend: '您想学什么？',
     opts: ['MBBS / 临床医学', '工程 / 计算机', '商科 / 管理', '中文（HSK）', '研究（硕士 / 博士）', '暂时不确定'],
   },
-  q4: { legend: '您想什么时候开始？', opts: ['2026 年 9 月', '2027 年 3 月', '以后 / 灵活'] },
+  q4: { legend: '您想什么时候开始？', opts: ['2027 年 9 月', '2027 年 3 月', '以后 / 灵活'] },
   back: '← 返回',
   hint: '回答完四个问题，我们会给您一个明确的“可以”或坦诚的“也许”。',
   caveat: {
@@ -171,11 +171,11 @@ const zh: FitStrings = {
     },
     mbbsMarch: {
       title: '也许——3 月的 MBBS 入学名额很少。',
-      body: '少数大学有 3 月的 MBBS 入学，多数只在 9 月招生。如果您可以调整到 2026 年 9 月，选择会大大增加——奖学金窗口也能对上。',
+      body: '少数大学有 3 月的 MBBS 入学，多数只在 9 月招生。如果您可以调整到 2027 年 9 月，选择会大大增加——奖学金窗口也能对上。',
     },
     bachMarch: {
       title: '也许——本科 3 月入学同样名额很少。',
-      body: '少数大学在 3 月招收工程和商科学生，多数只在 9 月录取。如果您可以调整到 2026 年 9 月，专业选择和奖学金机会都会明显增加。',
+      body: '少数大学在 3 月招收工程和商科学生，多数只在 9 月录取。如果您可以调整到 2027 年 9 月，专业选择和奖学金机会都会明显增加。',
     },
     bachYes: {
       title: '可以——本科项目对您开放。',
@@ -232,7 +232,7 @@ const fr: FitStrings = {
     legend: 'Que souhaitez-vous étudier ?',
     opts: ['MBBS / Médecine', 'Ingénierie / Informatique', 'Gestion / Management', 'Langue chinoise (HSK)', 'Recherche (Master / doctorat)', 'Pas encore sûr'],
   },
-  q4: { legend: 'Quand souhaitez-vous commencer ?', opts: ['Septembre 2026', 'Mars 2027', 'Plus tard / flexible'] },
+  q4: { legend: 'Quand souhaitez-vous commencer ?', opts: ['Septembre 2027', 'Mars 2027', 'Plus tard / flexible'] },
   back: '← Retour',
   hint: 'Répondez aux quatre questions et nous vous donnerons un oui franc ou un peut-être honnête.',
   caveat: {
@@ -253,11 +253,11 @@ const fr: FitStrings = {
     },
     mbbsMarch: {
       title: 'Peut-être — mars est une rentrée étroite pour le MBBS.',
-      body: 'Quelques universités ouvrent des rentrées MBBS en mars ; la plupart n’ont que septembre. Si vous pouvez viser septembre 2026, vos options s’élargissent nettement — et les fenêtres de bourse coïncident.',
+      body: 'Quelques universités ouvrent des rentrées MBBS en mars ; la plupart n’ont que septembre. Si vous pouvez viser septembre 2027, vos options s’élargissent nettement — et les fenêtres de bourse coïncident.',
     },
     bachMarch: {
       title: 'Peut-être — mars est aussi étroit pour la licence.',
-      body: 'Quelques universités ouvrent des rentrées de mars en ingénierie et en gestion ; la plupart n’admettent qu’en septembre. Si vous pouvez viser septembre 2026, le choix de programmes et les bourses s’élargissent sensiblement.',
+      body: 'Quelques universités ouvrent des rentrées de mars en ingénierie et en gestion ; la plupart n’admettent qu’en septembre. Si vous pouvez viser septembre 2027, le choix de programmes et les bourses s’élargissent sensiblement.',
     },
     bachYes: {
       title: 'Oui — les licences vous sont ouvertes.',
@@ -316,7 +316,7 @@ const ar: FitStrings = {
     legend: 'ماذا تريد أن تدرس؟',
     opts: ['MBBS / الطب', 'الهندسة / علوم الحاسوب', 'إدارة الأعمال', 'اللغة الصينية (HSK)', 'البحث (ماجستير / دكتوراه)', 'لست متأكداً بعد'],
   },
-  q4: { legend: 'متى تريد أن تبدأ؟', opts: ['سبتمبر 2026', 'مارس 2027', 'لاحقاً / مرن'] },
+  q4: { legend: 'متى تريد أن تبدأ؟', opts: ['سبتمبر 2027', 'مارس 2027', 'لاحقاً / مرن'] },
   back: '← رجوع',
   hint: 'أجب عن الأسئلة الأربعة وسنعطيك «نعم» صريحة أو «ربما» صادقة.',
   caveat: {
@@ -337,11 +337,11 @@ const ar: FitStrings = {
     },
     mbbsMarch: {
       title: 'ربما — مارس موعد محدود لـ MBBS.',
-      body: 'قلة من الجامعات تفتح قبولاً في مارس لـ MBBS؛ أغلبها لسبتمبر فقط. إذا استطعت التحول إلى سبتمبر 2026 تتسع خياراتك كثيراً — وتتوافق نوافذ المنح.',
+      body: 'قلة من الجامعات تفتح قبولاً في مارس لـ MBBS؛ أغلبها لسبتمبر فقط. إذا استطعت التحول إلى سبتمبر 2027 تتسع خياراتك كثيراً — وتتوافق نوافذ المنح.',
     },
     bachMarch: {
       title: 'ربما — مارس محدود للبكالوريوس أيضاً.',
-      body: 'بعض الجامعات تفتح قبولاً في مارس للهندسة والأعمال؛ أغلبها يقبل في سبتمبر فقط. إذا استطعت التحول إلى سبتمبر 2026 يتسع اختيار البرامج وتمويل المنح بشكل ملحوظ.',
+      body: 'بعض الجامعات تفتح قبولاً في مارس للهندسة والأعمال؛ أغلبها يقبل في سبتمبر فقط. إذا استطعت التحول إلى سبتمبر 2027 يتسع اختيار البرامج وتمويل المنح بشكل ملحوظ.',
     },
     bachYes: {
       title: 'نعم — برامج البكالوريوس مفتوحة.',
@@ -398,7 +398,7 @@ const es: FitStrings = {
     legend: '¿Qué quiere estudiar?',
     opts: ['MBBS / Medicina', 'Ingeniería / Informática', 'Negocios / Gestión', 'Idioma chino (HSK)', 'Investigación (Maestría / Doctorado)', 'Aún no lo sé'],
   },
-  q4: { legend: '¿Cuándo quiere empezar?', opts: ['Septiembre 2026', 'Marzo 2027', 'Más adelante / flexible'] },
+  q4: { legend: '¿Cuándo quiere empezar?', opts: ['Septiembre 2027', 'Marzo 2027', 'Más adelante / flexible'] },
   back: '← Atrás',
   hint: 'Responda las cuatro y le daremos un sí directo o un quizás honesto.',
   caveat: {
@@ -419,11 +419,11 @@ const es: FitStrings = {
     },
     mbbsMarch: {
       title: 'Quizás — marzo es un ingreso reducido para MBBS.',
-      body: 'Unas pocas universidades tienen ingresos de MBBS en marzo; la mayoría solo en septiembre. Si puede flexibilizar a septiembre de 2026, sus opciones se amplían mucho — y las ventanas de beca coinciden.',
+      body: 'Unas pocas universidades tienen ingresos de MBBS en marzo; la mayoría solo en septiembre. Si puede flexibilizar a septiembre de 2027, sus opciones se amplían mucho — y las ventanas de beca coinciden.',
     },
     bachMarch: {
       title: 'Quizás — marzo también es reducido para licenciatura.',
-      body: 'Unas pocas universidades tienen ingresos en marzo para ingeniería y negocios; la mayoría admite solo en septiembre. Si puede flexibilizar a septiembre de 2026, la elección de programa y el dinero de becas se amplían notablemente.',
+      body: 'Unas pocas universidades tienen ingresos en marzo para ingeniería y negocios; la mayoría admite solo en septiembre. Si puede flexibilizar a septiembre de 2027, la elección de programa y el dinero de becas se amplían notablemente.',
     },
     bachYes: {
       title: 'Sí — las licenciaturas están abiertas.',
@@ -482,7 +482,7 @@ const de: FitStrings = {
     legend: 'Was möchten Sie studieren?',
     opts: ['MBBS / Medizin', 'Ingenieurwesen / Informatik', 'BWL / Management', 'Chinesische Sprache (HSK)', 'Forschung (Master / Promotion)', 'Noch unsicher'],
   },
-  q4: { legend: 'Wann möchten Sie beginnen?', opts: ['September 2026', 'März 2027', 'Später / flexibel'] },
+  q4: { legend: 'Wann möchten Sie beginnen?', opts: ['September 2027', 'März 2027', 'Später / flexibel'] },
   back: '← Zurück',
   hint: 'Beantworten Sie alle vier Fragen, und Sie erhalten ein klares Ja oder ein ehrliches Vielleicht.',
   caveat: {
@@ -503,11 +503,11 @@ const de: FitStrings = {
     },
     mbbsMarch: {
       title: 'Vielleicht — März ist ein schmales Fenster für MBBS.',
-      body: 'Einige Universitäten bieten MBBS zum März an; die meisten nur zum September. Wenn Sie auf September 2026 ausweichen können, erweitern sich Ihre Optionen erheblich — und die Stipendienfenster passen.',
+      body: 'Einige Universitäten bieten MBBS zum März an; die meisten nur zum September. Wenn Sie auf September 2027 ausweichen können, erweitern sich Ihre Optionen erheblich — und die Stipendienfenster passen.',
     },
     bachMarch: {
       title: 'Vielleicht — März ist auch beim Bachelor dünn.',
-      body: 'Einige Universitäten nehmen im März Ingenieur- und BWL-Studierende auf; die meisten nur im September. Wenn Sie auf September 2026 ausweichen können, erweitern sich Programmwahl und Stipendienmittel deutlich.',
+      body: 'Einige Universitäten nehmen im März Ingenieur- und BWL-Studierende auf; die meisten nur im September. Wenn Sie auf September 2027 ausweichen können, erweitern sich Programmwahl und Stipendienmittel deutlich.',
     },
     bachYes: {
       title: 'Ja — Bachelorprogramme sind offen.',
@@ -565,7 +565,7 @@ const ja: FitStrings = {
     legend: '何を学びたいですか？',
     opts: ['MBBS / 医学', '工学 / 情報', '経営 / マネジメント', '中国語（HSK）', '研究（修士 / 博士）', 'まだ決めていない'],
   },
-  q4: { legend: 'いつから始めたいですか？', opts: ['2026年9月', '2027年3月', '以降 / 柔軟'] },
+  q4: { legend: 'いつから始めたいですか？', opts: ['2027年9月', '2027年3月', '以降 / 柔軟'] },
   back: '← 戻る',
   hint: '4つすべてに答えると、明確な「可」か正直な「要検討」をお伝えします。',
   caveat: {
@@ -586,11 +586,11 @@ const ja: FitStrings = {
     },
     mbbsMarch: {
       title: '要検討 — 3月のMBBS入学は限られます。',
-      body: 'MBBSを3月に開講する大学は少数で、ほとんどは9月のみです。2026年9月にずらせるなら選択肢は大幅に広がります — 奨学金の窓口も一致します。',
+      body: 'MBBSを3月に開講する大学は少数で、ほとんどは9月のみです。2027年9月にずらせるなら選択肢は大幅に広がります — 奨学金の窓口も一致します。',
     },
     bachMarch: {
       title: '要検討 — 3月は学士入学も少なめです。',
-      body: '工学や経営を3月に開講する大学は少数で、ほとんどは9月にのみ受け入れます。2026年9月にずらせるなら、プログラムの選択肢も奨学金も大きく広がります。',
+      body: '工学や経営を3月に開講する大学は少数で、ほとんどは9月にのみ受け入れます。2027年9月にずらせるなら、プログラムの選択肢も奨学金も大きく広がります。',
     },
     bachYes: {
       title: '可 — 学士プログラムは開かれています。',
@@ -647,7 +647,7 @@ const pt: FitStrings = {
     legend: 'O que você quer estudar?',
     opts: ['MBBS / Medicina', 'Engenharia / Computação', 'Negócios / Gestão', 'Língua chinesa (HSK)', 'Pesquisa (Mestrado / Doutorado)', 'Ainda não sei'],
   },
-  q4: { legend: 'Quando você quer começar?', opts: ['Setembro de 2026', 'Março de 2027', 'Mais tarde / flexível'] },
+  q4: { legend: 'Quando você quer começar?', opts: ['Setembro de 2027', 'Março de 2027', 'Mais tarde / flexível'] },
   back: '← Voltar',
   hint: 'Responda as quatro e daremos um sim direto ou um talvez honesto.',
   caveat: {
@@ -668,11 +668,11 @@ const pt: FitStrings = {
     },
     mbbsMarch: {
       title: 'Talvez — março é um ingresso escasso para o MBBS.',
-      body: 'Poucas universidades têm ingresso de MBBS em março; a maioria só em setembro. Se puder migrar para setembro de 2026, suas opções se ampliam muito — e as janelas de bolsa coincidem.',
+      body: 'Poucas universidades têm ingresso de MBBS em março; a maioria só em setembro. Se puder migrar para setembro de 2027, suas opções se ampliam muito — e as janelas de bolsa coincidem.',
     },
     bachMarch: {
       title: 'Talvez — março também é escasso para a graduação.',
-      body: 'Poucas universidades têm ingressos em março para engenharia e negócios; a maioria admite só em setembro. Se puder migrar para setembro de 2026, a escolha de programas e o dinheiro de bolsas se ampliam bastante.',
+      body: 'Poucas universidades têm ingressos em março para engenharia e negócios; a maioria admite só em setembro. Se puder migrar para setembro de 2027, a escolha de programas e o dinheiro de bolsas se ampliam bastante.',
     },
     bachYes: {
       title: 'Sim — os cursos de graduação estão abertos.',
@@ -730,7 +730,7 @@ const hi: FitStrings = {
     legend: 'आप क्या पढ़ना चाहते हैं?',
     opts: ['MBBS / चिकित्सा', 'इंजीनियरिंग / कंप्यूटर विज्ञान', 'व्यवसाय / प्रबंधन', 'चीनी भाषा (HSK)', 'शोध (स्नातकोत्तर / पीएचडी)', 'अभी निश्चित नहीं'],
   },
-  q4: { legend: 'आप कब शुरू करना चाहते हैं?', opts: ['सितंबर 2026', 'मार्च 2027', 'बाद में / लचीला'] },
+  q4: { legend: 'आप कब शुरू करना चाहते हैं?', opts: ['सितंबर 2027', 'मार्च 2027', 'बाद में / लचीला'] },
   back: '← वापस',
   hint: 'चारों का उत्तर दें और हम आपको स्पष्ट "हाँ" या ईमानदार "शायद" देंगे।',
   caveat: {
@@ -751,11 +751,11 @@ const hi: FitStrings = {
     },
     mbbsMarch: {
       title: 'शायद — मार्च में MBBS प्रवेश बहुत कम है।',
-      body: 'कुछ विश्वविद्यालय मार्च में MBBS प्रवेश देते हैं; अधिकांश केवल सितंबर में। अगर आप सितंबर 2026 पर बढ़ सकते हैं तो विकल्प काफ़ी बढ़ जाएँगे — छात्रवृत्ति खिड़कियाँ भी मेल खाएँगी।',
+      body: 'कुछ विश्वविद्यालय मार्च में MBBS प्रवेश देते हैं; अधिकांश केवल सितंबर में। अगर आप सितंबर 2027 पर बढ़ सकते हैं तो विकल्प काफ़ी बढ़ जाएँगे — छात्रवृत्ति खिड़कियाँ भी मेल खाएँगी।',
     },
     bachMarch: {
       title: 'शायद — स्नातक प्रवेश के लिए भी मार्च कम है।',
-      body: 'कुछ विश्वविद्यालय मार्च में इंजीनियरिंग और व्यवसाय का प्रवेश देते हैं; अधिकांश केवल सितंबर में। सितंबर 2026 पर बढ़ने से प्रोग्राम विकल्प और छात्रवृत्ति राशि दोनों काफ़ी बढ़ेंगी।',
+      body: 'कुछ विश्वविद्यालय मार्च में इंजीनियरिंग और व्यवसाय का प्रवेश देते हैं; अधिकांश केवल सितंबर में। सितंबर 2027 पर बढ़ने से प्रोग्राम विकल्प और छात्रवृत्ति राशि दोनों काफ़ी बढ़ेंगी।',
     },
     bachYes: {
       title: 'हाँ — स्नातक प्रोग्राम खुले हैं।',

@@ -4,7 +4,7 @@ title: 'Estudar na China vindo da Índia: o roteiro completo'
 description: 'Da Índia a uma universidade chinesa: perfis elegíveis, custos em números reais, bolsas, o cronograma de candidaturas mês a mês, a tramitação do visto e como é a primeira semana na China.'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Estudar na China', 'Admissões', 'Custos']
 image: '../../../assets/images/hero-education.jpg'

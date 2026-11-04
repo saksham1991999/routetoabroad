@@ -4,7 +4,7 @@ title: 'Der Indien–China-Handelskorridor: Ein Praxisleitfaden 2026'
 description: 'Wie der Handelskorridor Indien–China mit über 100 Mrd. US$ tatsächlich funktioniert: was fließt, die Compliance-Realität seit 2020, Hafenpaare und Transitzeiten, Zahlungswege und Risikomanagement, das hält, was es verspricht.'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Handel', 'Indien-China', 'Logistik']
 image: '../../../assets/images/hero-trade.jpg'

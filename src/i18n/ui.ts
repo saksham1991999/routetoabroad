@@ -475,7 +475,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: '奖学金目标、预算、偏好城市……',
         levels: ['在读中学（12 年级及以下）', '本科（已完成或在读）', '硕士及以上'],
         programmes: ['临床医学（MBBS）', '工程与技术', '商业与管理', '中文（HSK）', '其他本科', '硕士／博士（研究型）'],
-        intakes: ['2026 年 9 月', '2027 年 3 月', '以后／未定'],
+        intakes: ['2027 年 9 月', '2027 年 3 月', '以后／未定'],
         errors: {
           name: '请输入您的姓名。',
           email: '请输入有效的邮箱地址。',
@@ -756,7 +756,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'Objectifs de bourse, budget, villes préférées…',
         levels: ['En cours de scolarité (terminale ou avant)', 'Licence (terminée ou en cours)', 'Master ou plus'],
         programmes: ['MBBS / Médecine', 'Ingénierie & technologie', 'Business & management', 'Langue chinoise (HSK)', 'Licence (autre)', 'Master / doctorat (recherche)'],
-        intakes: ['Septembre 2026', 'Mars 2027', 'Plus tard / pas sûr'],
+        intakes: ['Septembre 2027', 'Mars 2027', 'Plus tard / pas sûr'],
         errors: {
           name: 'Veuillez saisir votre nom.',
           email: 'Veuillez saisir une adresse e-mail valide.',
@@ -1037,7 +1037,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'أهداف المنح، الميزانية، المدن المفضلة…',
         levels: ['لا أزال في المدرسة (حتى الصف الثاني عشر)', 'بكالوريوس (مكتمل أو جارٍ)', 'ماجستير أو أعلى'],
         programmes: ['الطب البشري (MBBS)', 'الهندسة والتقنية', 'إدارة الأعمال', 'اللغة الصينية (HSK)', 'بكالوريوس (أخرى)', 'ماجستير / دكتوراه (بحث)'],
-        intakes: ['سبتمبر 2026', 'مارس 2027', 'لاحقًا / غير متأكد'],
+        intakes: ['سبتمبر 2027', 'مارس 2027', 'لاحقًا / غير متأكد'],
         errors: {
           name: 'يرجى إدخال اسمك.',
           email: 'يرجى إدخال بريد إلكتروني صالح.',
@@ -1320,7 +1320,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'Objetivos de beca, presupuesto, ciudades que prefiere…',
         levels: ['En la escuela (12.º o menos)', 'Licenciatura (completa o en curso)', 'Maestría o superior'],
         programmes: ['MBBS / Medicina', 'Ingeniería y tecnología', 'Negocios y gestión', 'Chino (HSK)', 'Licenciatura (otra)', 'Máster / doctorado (investigación)'],
-        intakes: ['Septiembre 2026', 'Marzo 2027', 'Más adelante / no estoy seguro'],
+        intakes: ['Septiembre 2027', 'Marzo 2027', 'Más adelante / no estoy seguro'],
         errors: {
           name: 'Ingrese su nombre.',
           email: 'Ingrese un correo válido.',
@@ -1601,7 +1601,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'Stipendienziele, Budget, bevorzugte Städte…',
         levels: ['Noch in der Schule (12. Klasse oder darunter)', 'Bachelor (abgeschlossen oder laufend)', 'Master oder höher'],
         programmes: ['MBBS / Medizin', 'Ingenieurwesen & Technologie', 'Business & Management', 'Chinesisch (HSK)', 'Bachelor (sonstige)', 'Master / Promotion (Forschung)'],
-        intakes: ['September 2026', 'März 2027', 'Später / unsicher'],
+        intakes: ['September 2027', 'März 2027', 'Später / unsicher'],
         errors: {
           name: 'Bitte geben Sie Ihren Namen ein.',
           email: 'Bitte geben Sie eine gültige E-Mail-Adresse ein.',
@@ -1882,7 +1882,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: '奨学金の目標、予算、希望都市…',
         levels: ['在学中（高校以下）', '学士（修了または在学中）', '修士以上'],
         programmes: ['MBBS／医学', '工学・テクノロジー', 'ビジネス・経営', '中国語（HSK）', 'その他の学士', '修士／博士（研究）'],
-        intakes: ['2026年9月', '2027年3月', '未定／後日'],
+        intakes: ['2027年9月', '2027年3月', '未定／後日'],
         errors: {
           name: 'お名前を入力してください。',
           email: '有効なメールアドレスを入力してください。',
@@ -2163,7 +2163,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'Objetivos de bolsa, orçamento, cidades que prefere…',
         levels: ['No ensino (12.º ano ou menos)', 'Graduação (completa ou em andamento)', 'Mestrado ou superior'],
         programmes: ['MBBS / Medicina', 'Engenharia e tecnologia', 'Negócios e gestão', 'Chinês (HSK)', 'Graduação (outra)', 'Mestrado / doutorado (pesquisa)'],
-        intakes: ['Setembro de 2026', 'Março de 2027', 'Mais tarde / não sei'],
+        intakes: ['Setembro de 2027', 'Março de 2027', 'Mais tarde / não sei'],
         errors: {
           name: 'Informe seu nome.',
           email: 'Informe um e-mail válido.',
@@ -2444,7 +2444,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         phNotes: 'छात्रवृत्ति के लक्ष्य, बजट, पसंदीदा शहर…',
         levels: ['स्कूल में (12वीं या उससे नीचे)', 'बैचलर (पूरा हुआ या चल रहा)', 'मास्टर या उससे ऊपर'],
         programmes: ['MBBS / मेडिसिन', 'इंजीनियरिंग और टेक्नोलॉजी', 'बिज़नेस और मैनेजमेंट', 'चीनी भाषा (HSK)', 'बैचलर (अन्य)', 'मास्टर / PhD (शोध)'],
-        intakes: ['सितंबर 2026', 'मार्च 2027', 'बाद में / पक्का नहीं'],
+        intakes: ['सितंबर 2027', 'मार्च 2027', 'बाद में / पक्का नहीं'],
         errors: {
           name: 'कृपया अपना नाम दर्ज करें।',
           email: 'कृपया एक मान्य ईमेल दर्ज करें।',
@@ -2759,7 +2759,7 @@ export const UI_EN: UiStrings = {
       phNotes: 'Scholarship goals, budget, cities you prefer…',
       levels: ['In school (12th or below)', "Bachelor's (completed or ongoing)", "Master's or above"],
       programmes: ['MBBS / Medicine', 'Engineering & Technology', 'Business & Management', 'Chinese Language (HSK)', "Bachelor's (other)", 'Masters / PhD (research)'],
-      intakes: ['September 2026', 'March 2027', 'Later / not sure'],
+      intakes: ['September 2027', 'March 2027', 'Later / not sure'],
       errors: {
         name: 'Please enter your name.',
         email: 'Please enter a valid email.',

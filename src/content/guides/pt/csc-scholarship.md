@@ -4,7 +4,7 @@ title: 'Guia da bolsa CSC: como o financiamento integral funciona de verdade'
 description: 'A bolsa do governo chinês explicada: Tipo A versus Tipo B, o que "cobertura integral" inclui, chances realistas por perfil, a lista de documentos e o cronograma que mantém sua elegibilidade.'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', 'Bolsas', 'Financiamento']
 image: '../../../assets/images/blog-csc.jpg'

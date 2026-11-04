@@ -4,7 +4,7 @@ title: '中国采购指南：从阿里巴巴列表到经核验的供应商'
 description: '如何在中国采购而不被坑：供应商初筛、工厂审计、打样、AQL检验、贸易术语（Incoterms）、付款结构，以及面向印度的合规清单（BIS/WPC、HS编码）。'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['采购', '质量控制', '合规']
 image: '../../../assets/images/blog-supply-chain.jpg'

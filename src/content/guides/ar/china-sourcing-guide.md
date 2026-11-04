@@ -4,7 +4,7 @@ title: 'دليل التوريد من الصين: من إعلان Alibaba إلى 
 description: 'كيف تتورد من الصين دون أن تُحرق: تنقيح الموردين، وتدقيق المصانع، وأخذ العينات، وفحوصات AQL، ومصطلحات التجارة الدولية (Incoterms)، وهياكل الدفع، ومنظومة الامتثال الخاصة بالهند (BIS/WPC، رموز HS).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['تحديد المصادر', 'مراقبة الجودة', 'الامتثال']
 image: '../../../assets/images/blog-supply-chain.jpg'

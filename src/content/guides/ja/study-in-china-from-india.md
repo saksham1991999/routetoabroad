@@ -4,7 +4,7 @@ title: 'インドから中国へ留学：完全ロードマップ'
 description: 'インドから中国の大学へ：適性プロフィール、実数ベースの費用、奨学金、月別の出願スケジュール、ビザ手配、そして中国での最初の1週間の姿。'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['中国留学', '入学', '費用']
 image: '../../../assets/images/hero-education.jpg'

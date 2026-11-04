@@ -4,7 +4,7 @@ title: '中国旅行ガイド2026：ルート、費用、初めての人への�
 description: '2026年、インドから中国旅行を計画する方法——定番の初回ルート、現実的な1日予算、ビザの基本、決済（Alipay/WeChat）、鉄道か飛行機か、そして旅のベストシーズン。'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['旅行', '中国', '旅程']
 image: '../../../assets/images/guide-li-river.jpg'

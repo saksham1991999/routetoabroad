@@ -4,7 +4,7 @@ title: '中国MBBS完整指南：写给2026届申请者'
 description: '中国MBBS的费用可以是印度私立医学学位的三分之一——前提是你选教育部名单内的大学，并为FMGE做好规划。费用、认可度、语言、申请时间线，以及如何避开陷阱。'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', '申请', '费用']
 image: '../../../assets/images/blog-mbbs.jpg'

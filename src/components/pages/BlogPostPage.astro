@@ -105,9 +105,9 @@ const relatedAll = [...related, ...relatedFallback];
           </div>
         </div>
         <div class="post-dates num">
-          <span>{data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' })}</span>
+          <span>{data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' })}</span>
           {data.updatedDate && (
-            <span>{t.updated.replace('{date}', data.updatedDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' }))}</span>
+            <span>{t.updated.replace('{date}', data.updatedDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric', timeZone: 'UTC' }))}</span>
           )}
           <span>{t.readTime.replace('{n}', String(data.readTime))}</span>
         </div>

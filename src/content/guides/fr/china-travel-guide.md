@@ -4,7 +4,7 @@ title: 'Guide voyage Chine 2026 : itinéraires, budgets et conseils pour débuta
 description: 'Comment planifier un voyage en Chine depuis l''Inde en 2026 — l''itinéraire classique pour un premier séjour, les budgets quotidiens réalistes, les bases du visa, les paiements (Alipay/WeChat), train contre avion, et quand partir.'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Voyage', 'Chine', 'Itinéraires']
 image: '../../../assets/images/guide-li-river.jpg'

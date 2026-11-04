@@ -4,7 +4,7 @@ title: '2026中国旅行指南：路线、费用与首次出行建议'
 description: '2026年如何从印度规划一次中国之旅——经典首次路线、贴近实际的每日预算、签证要点、支付方式（支付宝/微信支付）、火车还是飞机，以及最佳出行时间。'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['旅行', '中国', '行程']
 image: '../../../assets/images/guide-li-river.jpg'
