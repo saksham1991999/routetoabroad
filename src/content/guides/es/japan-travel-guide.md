@@ -4,7 +4,7 @@ title: 'Guía de viaje Japón 2026: Kioto, Tokio y la primera ruta perfecta'
 description: 'Planificar Japón desde la India — la ruta dorada Kioto + Tokio, la matemática del JR Pass en 2026, presupuestos diarios, lo básico del visado, y dónde encajan los viajes de doble país China + Japón.'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Viajes', 'Japón', 'Itinerarios']
 image: '../../../assets/images/country-japan.jpg'

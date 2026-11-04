@@ -4,7 +4,7 @@ title: '中印贸易走廊：2026年一线指南'
 description: '2026年这条1000亿美元以上的中印贸易走廊究竟如何运转：什么在流动、2020年以来的合规现实、港口组合与运输时间、支付通道，以及经得起考验的风险管理。'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['贸易', '中印', '物流']
 image: '../../../assets/images/hero-trade.jpg'

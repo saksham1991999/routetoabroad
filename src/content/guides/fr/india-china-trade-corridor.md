@@ -4,7 +4,7 @@ title: 'Le corridor commercial Inde–Chine : guide de terrain 2026'
 description: 'Comment fonctionne réellement en 2026 le corridor commercial Inde–Chine de plus de 100 milliards de dollars : ce qui circule, la réalité conformité depuis 2020, les paires de ports et temps de transit, les canaux de paiement et une gestion des risques qui tient.'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Commerce', 'Inde-Chine', 'Logistique']
 image: '../../../assets/images/hero-trade.jpg'

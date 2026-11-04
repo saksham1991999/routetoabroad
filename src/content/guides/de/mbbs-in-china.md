@@ -4,7 +4,7 @@ title: 'MBBS in China: Der komplette Leitfaden für Bewerber 2026'
 description: 'Ein chinesischer MBBS kann ein Drittel eines privaten indischen Medizinstudienplatzes kosten – wenn Sie eine MOE-gelistete Universität wählen und den FMGE einplanen. Kosten, Anerkennung, Sprache, Zulassungszeitplan und wie Sie die Fallen vermeiden.'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', 'Zulassung', 'Kosten']
 image: '../../../assets/images/blog-mbbs.jpg'

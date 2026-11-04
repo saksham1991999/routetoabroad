@@ -4,7 +4,7 @@ title: '中国ビザの種類を解説：L、M、F、X、Zとそれぞれでで�
 description: 'インドからの渡航者に関係する中国のビザカテゴリーすべて——観光L、ビジネスM、交流F、学生X、就労Z——各ビザで許される活動、典型的な有効期間、そして間違ったビザを選ばないためのポイント。'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['ビザ', '旅行', 'ビジネス']
 image: '../../../assets/images/guide-visa.jpg'

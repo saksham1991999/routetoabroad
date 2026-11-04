@@ -4,7 +4,7 @@ title: 'Visa étudiant Chine (X1/X2) expliqué : documents, calendrier, pièges'
 description: 'Le processus de visa étudiant X1 et X2 pour la Chine pas à pas : JW202 et lettre d''admission, rendez-vous à l''ambassade, conversion en titre de séjour dans les 30 jours, et les erreurs qui provoquent des refus.'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Visas', 'Visa X1', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'

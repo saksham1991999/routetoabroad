@@ -4,7 +4,7 @@ title: 'Guía de abastecimiento desde China: del anuncio de Alibaba al proveedor
 description: 'Cómo abastecerse desde China sin quemarse: preselección de proveedores, auditorías de fábrica, muestreo, inspecciones AQL, Incoterms, estructuras de pago y la base de cumplimiento específica para la India (BIS/WPC, códigos HS).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['Abastecimiento', 'Control de calidad', 'Cumplimiento normativo']
 image: '../../../assets/images/blog-supply-chain.jpg'

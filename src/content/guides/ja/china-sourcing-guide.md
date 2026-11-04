@@ -4,7 +4,7 @@ title: '中国調達ガイド：アリババの出品から検証済みサプラ
 description: '中国調達で損をしないための方法：サプライヤーの絞り込み、工場監査、サンプリング、AQL検品、インコタームズ、支払構造、そしてインド特有のコンプライアンス対応（BIS/WPC、HSコード）。'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['調達', '品質管理', 'コンプライアンス']
 image: '../../../assets/images/blog-supply-chain.jpg'

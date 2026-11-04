@@ -3,7 +3,7 @@ title: 'China Visa Types Explained: L, M, F, X, Z and What They Allow'
 description: 'Every Chinese visa category that matters for visitors from India — tourist L, business M, exchange F, student X, work Z — with what each permits, typical validity, and how not to pick the wrong one.'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['Visas', 'Travel', 'Business']
 image: '../../assets/images/guide-visa.jpg'

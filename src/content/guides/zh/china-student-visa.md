@@ -4,7 +4,7 @@ title: '中国学生签证（X1/X2）详解：材料、时间线与常见坑'
 description: '中国X1和X2学生签证的分步流程：JW202与录取通知书、使馆预约、30天内转换为居留许可，以及导致拒签的常见错误。'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['签证', 'X1签证', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'

@@ -4,7 +4,7 @@ title: 'Japan-Reiseführer 2026: Kyoto, Tokio und die perfekte erste Route'
 description: 'Japan-Reiseplanung aus Indien – die Golden Route über Kyoto und Tokio, JR-Pass-Rechnung 2026, Tagesbudgets, Visum-Grundlagen und wo Dual-Country-Reisen nach China und Japan hineinpassen.'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Reisen', 'Japan', 'Reiserouten']
 image: '../../../assets/images/country-japan.jpg'

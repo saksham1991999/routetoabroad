@@ -40,7 +40,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'Terms of service',
       lede: 'The honest disclaimers that should be on every consultancy’s site, on ours they actually are.',
     },
-    updated: 'Last updated: November 2025',
+    updated: 'Last updated: November 2026',
     sections: {
       services: {
         h: '1. Services',
@@ -109,7 +109,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: '服务条款',
       lede: '每家咨询机构网站上都该有的坦诚免责声明——在我们这里，它们真的在。',
     },
-    updated: '最后更新：2025 年 11 月',
+    updated: '最后更新：2026 年 11 月',
     sections: {
       services: {
         h: '1. 服务内容',
@@ -167,7 +167,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'Conditions de service',
       lede: 'Les avertissements honnêtes qui devraient figurer sur le site de chaque cabinet de conseil — sur le nôtre, ils y sont vraiment.',
     },
-    updated: 'Dernière mise à jour : novembre 2025',
+    updated: 'Dernière mise à jour : novembre 2026',
     sections: {
       services: {
         h: '1. Services',
@@ -224,7 +224,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'شروط الخدمة',
       lede: 'الإخلاءات الصادقة التي ينبغي أن تظهر على موقع كل شركة استشارات — في موقعنا هي موجودة فعلًا.',
     },
-    updated: 'آخر تحديث: نوفمبر 2025',
+    updated: 'آخر تحديث: نوفمبر 2026',
     sections: {
       services: {
         h: '1. الخدمات',
@@ -282,7 +282,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'Términos de servicio',
       lede: 'Las advertencias honestas que deberían estar en la web de cada consultoría; en la nuestra, de verdad lo están.',
     },
-    updated: 'Última actualización: noviembre de 2025',
+    updated: 'Última actualización: noviembre de 2026',
     sections: {
       services: {
         h: '1. Servicios',
@@ -340,7 +340,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'Nutzungsbedingungen',
       lede: 'Die ehrlichen Haftungsausschlüsse, die auf der Website jeder Beratung stehen sollten — auf unserer stehen sie wirklich.',
     },
-    updated: 'Zuletzt aktualisiert: November 2025',
+    updated: 'Zuletzt aktualisiert: November 2026',
     sections: {
       services: {
         h: '1. Leistungen',
@@ -397,7 +397,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: '利用規約',
       lede: 'どのコンサルティング会社のサイトにも載っているべき、率直な免責事項 — 当社のサイトには、実際に載っています。',
     },
-    updated: '最終更新：2025 年 11 月',
+    updated: '最終更新：2026 年 11 月',
     sections: {
       services: {
         h: '1. サービス',
@@ -455,7 +455,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'Termos de Serviço',
       lede: 'Os avisos honestos que deveriam estar no site de cada consultoria — no nosso, de fato estão.',
     },
-    updated: 'Última atualização: novembro de 2025',
+    updated: 'Última atualização: novembro de 2026',
     sections: {
       services: {
         h: '1. Serviços',
@@ -513,7 +513,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
       title: 'सेवा की शर्तें',
       lede: 'वे ईमानदार अस्वीकरण जो हर कंसल्टेंसी की साइट पर होने चाहिए थे — हमारी साइट पर वे वाक़ई हैं।',
     },
-    updated: 'अंतिम अपडेट: नवंबर 2025',
+    updated: 'अंतिम अपडेट: नवंबर 2026',
     sections: {
       services: {
         h: '1. सेवाएँ',

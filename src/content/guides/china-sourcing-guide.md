@@ -3,7 +3,7 @@ title: 'China Sourcing Guide: From Alibaba Listing to Verified Supplier'
 description: 'How to source from China without getting burned: supplier shortlisting, factory audits, sampling, AQL inspections, Incoterms, payment structures, and the India-specific compliance stack (BIS/WPC, HS codes).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['Sourcing', 'Quality Control', 'Compliance']
 image: '../../assets/images/blog-supply-chain.jpg'

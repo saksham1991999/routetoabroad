@@ -4,7 +4,7 @@ title: 'Guia de viagem ao Japão 2026: Kyoto, Tóquio e a rota perfeita de estre
 description: 'Planejando o Japão saindo da Índia — a rota dourada Kyoto + Tóquio, as contas do JR Pass em 2026, orçamentos diários, o básico do visto e onde cabem viagens China + Japão em um só percurso.'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Viagem', 'Japão', 'Roteiros']
 image: '../../../assets/images/country-japan.jpg'

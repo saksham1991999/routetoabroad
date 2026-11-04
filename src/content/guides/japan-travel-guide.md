@@ -3,7 +3,7 @@ title: 'Japan Travel Guide 2026: Kyoto, Tokyo and the Perfect First Route'
 description: 'Planning Japan from India — the Kyoto + Tokyo golden route, JR Pass math in 2026, daily budgets, visa basics, and where China + Japan dual-country trips fit.'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Travel', 'Japan', 'Itineraries']
 image: '../../assets/images/country-japan.jpg'

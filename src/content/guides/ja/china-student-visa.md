@@ -4,7 +4,7 @@ title: '中国学生ビザ（X1/X2）を解説：必要書類、スケジュー�
 description: '中国のX1・X2学生ビザのプロセスを段階的に解説：JW202と入学許可証、大使館の予約、入国後30日以内の居留許可への切替え、そして不許可につながる失敗例。'
 pillar: 'education'
 pubDate: 2025-02-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['ビザ', 'X1ビザ', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'

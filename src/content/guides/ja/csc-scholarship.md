@@ -4,7 +4,7 @@ title: 'CSC奨学金ガイド：全額支援の実態'
 description: '中国政府奨学金（CSC）を解説：タイプAとタイプBの違い、「全額カバー」の内容、プロフィール別の現実的な合格確率、必要書類リスト、そして出願資格を守るスケジュール。'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', '奨学金', '資金調達']
 image: '../../../assets/images/blog-csc.jpg'

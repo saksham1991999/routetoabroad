@@ -4,7 +4,7 @@ title: 'O corredor comercial Índia–China: um guia de campo 2026'
 description: 'Como o corredor comercial Índia–China de mais de US$ 100 bilhões funciona de verdade em 2026: o que flui, a realidade de conformidade desde 2020, pares de portos e tempos de trânsito, meios de pagamento e gestão de riscos que se sustenta.'
 pillar: 'trade'
 pubDate: 2025-05-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Comércio', 'Índia-China', 'Logística']
 image: '../../../assets/images/hero-trade.jpg'

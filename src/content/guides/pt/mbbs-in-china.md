@@ -4,7 +4,7 @@ title: 'MBBS na China: o guia completo para candidatos de 2026'
 description: 'Um MBBS chinês pode custar um terço de uma vaga médica privada indiana — se você escolher uma universidade listada pelo MOE e planejar o FMGE. Custos, reconhecimento, idioma, cronograma de admissões e como evitar as armadilhas.'
 pillar: 'education'
 pubDate: 2025-01-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['MBBS', 'Admissões', 'Custos']
 image: '../../../assets/images/blog-mbbs.jpg'

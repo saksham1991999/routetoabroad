@@ -4,7 +4,7 @@ title: 'Étudier en Chine depuis l''Inde : la feuille de route complète'
 description: 'De l''Inde vers une université chinoise : profils éligibles, coûts en chiffres réels, bourses, calendrier de candidature mois par mois, gestion du visa, et à quoi ressemble la première semaine en Chine.'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Étudier en Chine', 'Admissions', 'Coûts']
 image: '../../../assets/images/hero-education.jpg'

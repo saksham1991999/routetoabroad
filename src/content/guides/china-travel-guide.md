@@ -3,7 +3,7 @@ title: 'China Travel Guide 2026: Routes, Costs and First-Timer Advice'
 description: 'How to plan a China trip from India in 2026 — the classic first-timer route, realistic daily budgets, visa basics, payments (Alipay/WeChat), trains vs flights, and when to go.'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Travel', 'China', 'Itineraries']
 image: '../../assets/images/guide-li-river.jpg'

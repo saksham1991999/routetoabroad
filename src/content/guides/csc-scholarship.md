@@ -3,7 +3,7 @@ title: 'CSC Scholarship Guide: How Full Funding Actually Works'
 description: 'The Chinese Government Scholarship explained: Type A vs Type B, what "full coverage" includes, realistic odds by profile, the document list, and the timeline that keeps you eligible.'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', 'Scholarships', 'Funding']
 image: '../../assets/images/blog-csc.jpg'

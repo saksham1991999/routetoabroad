@@ -4,7 +4,7 @@ title: 'Tipos de visto da China explicados: L, M, F, X, Z e o que cada um permit
 description: 'Todas as categorias de visto chinês relevantes para visitantes da Índia — turístico L, negócios M, intercâmbio F, estudante X, trabalho Z — com o que cada uma permite, validade típica e como não escolher a errada.'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['Vistos', 'Viagem', 'Negócios']
 image: '../../../assets/images/guide-visa.jpg'

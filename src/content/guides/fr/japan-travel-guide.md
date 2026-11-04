@@ -4,7 +4,7 @@ title: 'Guide voyage Japon 2026 : Kyoto, Tokyo et le premier itinéraire parfait
 description: 'Planifier le Japon depuis l''Inde — la route dorée Kyoto + Tokyo, la mathématique du JR Pass en 2026, les budgets quotidiens, les bases du visa, et où s''insèrent les voyages bi-pays Chine + Japon.'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['Voyage', 'Japon', 'Itinéraires']
 image: '../../../assets/images/country-japan.jpg'

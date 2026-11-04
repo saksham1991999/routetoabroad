@@ -4,7 +4,7 @@ title: '中国签证类型详解：L、M、F、X、Z 及各自的用途'
 description: '与印度访客相关的各类中国签证——旅游L、商务M、交流F、学生X、工作Z——各自的许可范围、常见有效期，以及如何避免选错签证。'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['签证', '旅行', '商务']
 image: '../../../assets/images/guide-visa.jpg'

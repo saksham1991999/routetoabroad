@@ -4,7 +4,7 @@ title: 'Guía de viaje China 2026: rutas, costes y consejos para primerizos'
 description: 'Cómo planificar un viaje a China desde la India en 2026 — la ruta clásica para el primer viaje, presupuestos diarios realistas, lo básico del visado, pagos (Alipay/WeChat), tren frente a avión y cuándo ir.'
 pillar: 'tourism'
 pubDate: 2025-04-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Viajes', 'China', 'Itinerarios']
 image: '../../../assets/images/guide-li-river.jpg'

@@ -4,7 +4,7 @@ title: '从印度留学中国：完整路线图'
 description: '从印度到中国的大学：符合条件的学生画像、真实数字的费用、奖学金、按月推进的申请时间线、签证办理，以及在中国的第一周是什么样子。'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['留学中国', '申请', '费用']
 image: '../../../assets/images/hero-education.jpg'

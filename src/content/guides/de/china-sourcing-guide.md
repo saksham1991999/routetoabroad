@@ -4,7 +4,7 @@ title: 'China-Sourcing-Leitfaden: Vom Alibaba-Listing zum geprüften Lieferanten
 description: 'Wie Sie aus China beziehen, ohne darauf hereinzufallen: Lieferanten-Vorauswahl, Werksaudits, Bemusterung, AQL-Inspektionen, Incoterms, Zahlungsstrukturen und der indienspezifische Compliance-Stack (BIS/WPC, HS-Codes).'
 pillar: 'trade'
 pubDate: 2025-03-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 9
 tags: ['Sourcing', 'Qualitätskontrolle', 'Compliance']
 image: '../../../assets/images/blog-supply-chain.jpg'

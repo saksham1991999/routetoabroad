@@ -4,7 +4,7 @@ title: 'Guía de la Beca CSC: cómo funciona realmente la financiación completa
 description: 'La Beca del Gobierno Chino explicada: Tipo A frente a Tipo B, qué incluye la "cobertura completa", probabilidades realistas según el perfil, la lista de documentos y el calendario que te mantiene elegible.'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', 'Becas', 'Financiación']
 image: '../../../assets/images/blog-csc.jpg'

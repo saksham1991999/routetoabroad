@@ -4,7 +4,7 @@ title: 'CSC-Stipendium-Leitfaden: Wie Vollfinanzierung tatsächlich funktioniert
 description: 'Das chinesische Regierungsstipendium erklärt: Typ A versus Typ B, was „volle Förderung" umfasst, realistische Chancen je Profil, die Dokumentenliste und der Zeitplan, der Sie im Rennen hält.'
 pillar: 'education'
 pubDate: 2025-02-01
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['CSC', 'Stipendien', 'Finanzierung']
 image: '../../../assets/images/blog-csc.jpg'

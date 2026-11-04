@@ -4,7 +4,7 @@ title: 'Chinesische Visumstypen erklärt: L, M, F, X, Z und was sie erlauben'
 description: 'Jede chinesische Visumkategorie, die für Besucher aus Indien zählt – Touristenvisum L, Geschäftsvisum M, Austauschvisum F, Studentenvisum X, Arbeitsvisum Z – mit dem jeweiligen Umfang, der typischen Gültigkeit und Hinweisen, wie Sie das falsche Visum vermeiden.'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['Visa', 'Reisen', 'Business']
 image: '../../../assets/images/guide-visa.jpg'

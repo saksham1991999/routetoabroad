@@ -4,7 +4,7 @@ title: '2026日本旅行指南：京都、东京与完美的首次路线'
 description: '从印度规划日本之旅——京都+东京黄金路线、2026年JR Pass的划算分析、每日预算、签证要点，以及中国+日本双国行程怎么安排。'
 pillar: 'tourism'
 pubDate: 2025-04-15
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 7
 tags: ['旅行', '日本', '行程']
 image: '../../../assets/images/country-japan.jpg'

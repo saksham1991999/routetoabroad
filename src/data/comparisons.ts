@@ -35,7 +35,7 @@ const COMPARISONS_EN: Comparison[] = [
     entityA: 'MBBS in China',
     entityB: 'MBBS in India',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'Tuition (per year)', a: 'US$3,500–8,000 (MOE-listed)', b: 'Government: ₹10k–1L · Private: ₹8–20L' },
       { label: 'Total programme cost', a: 'US$38.5–83k all-in (5.5 yrs)', b: 'Govt: ₹5–10L · Private: ₹60L–1Cr+' },
@@ -83,7 +83,7 @@ const COMPARISONS_EN: Comparison[] = [
     entityA: 'Tsinghua University',
     entityB: 'Peking University',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'Identity', a: 'Engineering & technology supremacy', b: 'Humanities, sciences & policy breadth' },
       { label: 'Global standing (QS)', a: 'Top-25, engineering top-10', b: 'Top-15 overall' },
@@ -123,7 +123,7 @@ const COMPARISONS_EN: Comparison[] = [
     entityA: 'Sea freight',
     entityB: 'Air freight',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'Transit (China → India)', a: '18–25 days port-to-port + customs', b: '3–7 days door-to-door' },
       { label: 'Relative cost', a: '1× (baseline)', b: '5–8× per kg' },
@@ -174,7 +174,7 @@ const COMPARISONS_ZH: Comparison[] = [
     entityA: '中国 MBBS',
     entityB: '印度 MBBS',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: '学费（每年）', a: 'US$3,500–8,000（教育部名单院校）', b: '公办：₹10k–1L · 私立：₹8–20L' },
       { label: '项目总花费', a: 'US$38.5–83k 全包（5.5 年）', b: '公办：₹5–10L · 私立：₹60L–1Cr+' },
@@ -218,7 +218,7 @@ const COMPARISONS_ZH: Comparison[] = [
     entityA: '清华大学',
     entityB: '北京大学',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: '身份定位', a: '工程与技术的巅峰', b: '人文、理学与政策的广度' },
       { label: '全球地位（QS）', a: '前 25，工程前 10', b: '总体前 15' },
@@ -255,7 +255,7 @@ const COMPARISONS_ZH: Comparison[] = [
     entityA: '海运',
     entityB: '空运',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: '在途时间（中国 → 印度）', a: '18–25 天港到港 + 清关', b: '3–7 天门到门' },
       { label: '相对成本', a: '1×（基准）', b: '每公斤 5–8×' },
@@ -301,7 +301,7 @@ const COMPARISONS_FR: Comparison[] = [
     entityA: 'MBBS en Chine',
     entityB: 'MBBS en Inde',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'Frais de scolarité (par an)', a: 'US$3,500–8,000 (universités listées MOE)', b: 'Public : ₹10k–1L · Privé : ₹8–20L' },
       { label: 'Coût total du cursus', a: 'US$38.5–83k tout compris (5.5 ans)', b: 'Public : ₹5–10L · Privé : ₹60L–1Cr+' },
@@ -345,7 +345,7 @@ const COMPARISONS_FR: Comparison[] = [
     entityA: 'Université Tsinghua',
     entityB: 'Université de Pékin',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'Identité', a: 'Suprématie de l’ingénierie et de la technologie', b: 'Étendue en humanités, sciences et politique' },
       { label: 'Standing mondial (QS)', a: 'Top-25, ingénierie top-10', b: 'Top-15 général' },
@@ -382,7 +382,7 @@ const COMPARISONS_FR: Comparison[] = [
     entityA: 'Fret maritime',
     entityB: 'Fret aérien',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'Transit (Chine → Inde)', a: '18–25 jours port à port + douanes', b: '3–7 jours porte à porte' },
       { label: 'Coût relatif', a: '1× (base)', b: '5–8× au kg' },
@@ -427,7 +427,7 @@ const COMPARISONS_AR: Comparison[] = [
     entityA: 'MBBS في الصين',
     entityB: 'MBBS في الهند',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'الرسوم الدراسية (سنويًا)', a: 'US$3,500–8,000 (جامعات مدرجة على قائمة MOE)', b: 'حكومي: ₹10k–1L · خاص: ₹8–20L' },
       { label: 'إجمالي تكلفة البرنامج', a: 'US$38.5–83k شاملًا (5.5 سنوات)', b: 'حكومي: ₹5–10L · خاص: ₹60L–1Cr+' },
@@ -471,7 +471,7 @@ const COMPARISONS_AR: Comparison[] = [
     entityA: 'جامعة تسينغهوا',
     entityB: 'جامعة بكين',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'الهوية', a: 'العليا في الهندسة والتقنية', b: 'اتساع في الإنسانيات والعلوم والسياسات' },
       { label: 'المكانة العالمية (QS)', a: 'ضمن أفضل 25، والهندسة ضمن أفضل 10', b: 'ضمن أفضل 15 عمومًا' },
@@ -508,7 +508,7 @@ const COMPARISONS_AR: Comparison[] = [
     entityA: 'الشحن البحري',
     entityB: 'الشحن الجوي',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'العبور (الصين → الهند)', a: '18–25 يومًا ميناء إلى ميناء + جمارك', b: '3–7 أيام باب إلى باب' },
       { label: 'التكلفة النسبية', a: '1× (خط الأساس)', b: '5–8× لكل كغ' },
@@ -553,7 +553,7 @@ const COMPARISONS_ES: Comparison[] = [
     entityA: 'MBBS en China',
     entityB: 'MBBS en India',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'Matrícula (por año)', a: 'US$3,500–8,000 (universidades de la lista MOE)', b: 'Pública: ₹10k–1L · Privada: ₹8–20L' },
       { label: 'Coste total del programa', a: 'US$38.5–83k todo incluido (5.5 años)', b: 'Pública: ₹5–10L · Privada: ₹60L–1Cr+' },
@@ -597,7 +597,7 @@ const COMPARISONS_ES: Comparison[] = [
     entityA: 'Universidad de Tsinghua',
     entityB: 'Universidad de Pekín',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'Identidad', a: 'Supremacía en ingeniería y tecnología', b: 'Amplitud en humanidades, ciencias y políticas' },
       { label: 'Posición global (QS)', a: 'Top-25, ingeniería top-10', b: 'Top-15 general' },
@@ -634,7 +634,7 @@ const COMPARISONS_ES: Comparison[] = [
     entityA: 'Flete marítimo',
     entityB: 'Flete aéreo',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'Tránsito (China → India)', a: '18–25 días puerto a puerto + aduanas', b: '3–7 días puerta a puerta' },
       { label: 'Costo relativo', a: '1× (línea base)', b: '5–8× por kg' },
@@ -680,7 +680,7 @@ const COMPARISONS_DE: Comparison[] = [
     entityA: 'MBBS in China',
     entityB: 'MBBS in Indien',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'Studiengebühren (pro Jahr)', a: 'US$3,500–8,000 (MOE-gelistet)', b: 'Staatlich: ₹10k–1L · Privat: ₹8–20L' },
       { label: 'Gesamtkosten des Studiums', a: 'US$38,5–83k alles in allem (5,5 Jahre)', b: 'Staatlich: ₹5–10L · Privat: ₹60L–1Cr+' },
@@ -725,7 +725,7 @@ const COMPARISONS_DE: Comparison[] = [
     entityA: 'Tsinghua University',
     entityB: 'Peking University',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'Identität', a: 'Vormachtstellung in Ingenieurwesen & Technologie', b: 'Breite in Geisteswissenschaften, Naturwissenschaften & Politik' },
       { label: 'Globaler Rang (QS)', a: 'Top-25, Ingenieurwesen Top-10', b: 'Top-15 insgesamt' },
@@ -763,7 +763,7 @@ const COMPARISONS_DE: Comparison[] = [
     entityA: 'Seefracht',
     entityB: 'Luftfracht',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'Transit (China → Indien)', a: '18–25 Tage Hafen zu Hafen + Zoll', b: '3–7 Tage Tür zu Tür' },
       { label: 'Relative Kosten', a: '1× (Basislinie)', b: '5–8× pro kg' },
@@ -809,7 +809,7 @@ const COMPARISONS_JA: Comparison[] = [
     entityA: '中国のMBBS',
     entityB: 'インドのMBBS',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: '学費（年間）', a: 'US$3,500–8,000（MOE掲載校）', b: '公立：₹10k–1L · 私立：₹8–20L' },
       { label: 'プログラム総費用', a: 'US$38.5–83k 全込み（5.5年）', b: '公立：₹5–10L · 私立：₹60L–1Cr+' },
@@ -854,7 +854,7 @@ const COMPARISONS_JA: Comparison[] = [
     entityA: '清華大学',
     entityB: '北京大学',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'アイデンティティ', a: '工学・技術の頂点', b: '人文・理学・政策の広がり' },
       { label: '世界ランキング（QS）', a: 'トップ25、工学トップ10', b: '総合トップ15' },
@@ -892,7 +892,7 @@ const COMPARISONS_JA: Comparison[] = [
     entityA: '海上輸送',
     entityB: '航空輸送',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: '輸送期間（中国 → インド）', a: '18～25日 港⇔港 ＋ 通関', b: '3～7日 戸口⇔戸口' },
       { label: '相対コスト', a: '1×（基準）', b: 'kgあたり5～8×' },
@@ -938,7 +938,7 @@ const COMPARISONS_PT: Comparison[] = [
     entityA: 'MBBS na China',
     entityB: 'MBBS na Índia',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'Mensalidade (por ano)', a: 'US$3,500–8,000 (universidades listadas MOE)', b: 'Pública: ₹10k–1L · Privada: ₹8–20L' },
       { label: 'Custo total do curso', a: 'US$38,5–83 mil completo (5,5 anos)', b: 'Pública: ₹5–10L · Privada: ₹60L–1Cr+' },
@@ -983,7 +983,7 @@ const COMPARISONS_PT: Comparison[] = [
     entityA: 'Universidade Tsinghua',
     entityB: 'Universidade de Pequim (Peking University)',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'Identidade', a: 'Supremacia em engenharia e tecnologia', b: 'Amplitude em humanidades, ciências e políticas públicas' },
       { label: 'Posição global (QS)', a: 'Top-25, engenharia top-10', b: 'Top-15 geral' },
@@ -1021,7 +1021,7 @@ const COMPARISONS_PT: Comparison[] = [
     entityA: 'Frete marítimo',
     entityB: 'Frete aéreo',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'Trânsito (China → Índia)', a: '18–25 dias porta a porta + alfândega', b: '3–7 dias porta a porta' },
       { label: 'Custo relativo', a: '1× (linha de base)', b: '5–8× por kg' },
@@ -1067,7 +1067,7 @@ const COMPARISONS_HI: Comparison[] = [
     entityA: 'चीन में MBBS',
     entityB: 'भारत में MBBS',
     pillar: 'education',
-    updated: '2025-11-01',
+    updated: '2026-11-05',
     rows: [
       { label: 'ट्यूशन (प्रति वर्ष)', a: 'US$3,500–8,000 (MOE सूचीबद्ध)', b: 'सरकारी: ₹10k–1L · प्राइवेट: ₹8–20L' },
       { label: 'कुल कार्यक्रम लागत', a: 'US$38.5–83k सब मिलाकर (5.5 वर्ष)', b: 'सरकारी: ₹5–10L · प्राइवेट: ₹60L–1Cr+' },
@@ -1112,7 +1112,7 @@ const COMPARISONS_HI: Comparison[] = [
     entityA: 'त्सिंगहुआ विश्वविद्यालय',
     entityB: 'पेकिंग विश्वविद्यालय',
     pillar: 'education',
-    updated: '2025-10-15',
+    updated: '2026-11-05',
     rows: [
       { label: 'पहचान', a: 'इंजीनियरिंग और तकनीक की सर्वोच्चता', b: 'मानविकी, विज्ञान और नीति की व्याप्ति' },
       { label: 'वैश्विक स्थान (QS)', a: 'टॉप-25, इंजीनियरिंग टॉप-10', b: 'कुल में टॉप-15' },
@@ -1150,7 +1150,7 @@ const COMPARISONS_HI: Comparison[] = [
     entityA: 'समुद्री मालभाड़ा',
     entityB: 'हवाई मालभाड़ा',
     pillar: 'trade',
-    updated: '2025-10-20',
+    updated: '2026-11-05',
     rows: [
       { label: 'पारगमन (चीन → भारत)', a: '18–25 दिन पोर्ट-टू-पोर्ट + कस्टम', b: '3–7 दिन डोर-टू-डोर' },
       { label: 'सापेक्ष लागत', a: '1× (आधार)', b: 'प्रति किग्रा 5–8×' },

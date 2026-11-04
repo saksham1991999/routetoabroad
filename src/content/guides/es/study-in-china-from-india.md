@@ -4,7 +4,7 @@ title: 'Estudiar en China desde la India: la hoja de ruta completa'
 description: 'De la India a una universidad china: perfiles elegibles, costes en cifras reales, becas, calendario de solicitud mes a mes, gestión del visado y cómo es la primera semana en China.'
 pillar: 'education'
 pubDate: 2025-01-20
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 8
 tags: ['Estudiar en China', 'Admisiones', 'Costos']
 image: '../../../assets/images/hero-education.jpg'

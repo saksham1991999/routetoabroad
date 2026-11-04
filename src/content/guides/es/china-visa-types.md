@@ -4,7 +4,7 @@ title: 'Tipos de visado para China explicados: L, M, F, X, Z y qué permite cada
 description: 'Todas las categorías de visado chino que importan para los visitantes de la India — turista L, negocios M, intercambio F, estudiante X, trabajo Z — con lo que permite cada una, la validez típica y cómo no equivocarse de visado.'
 pillar: 'tourism'
 pubDate: 2025-03-10
-updatedDate: 2025-11-01
+updatedDate: 2026-11-05
 readTime: 6
 tags: ['Visados', 'Viajes', 'Negocios']
 image: '../../../assets/images/guide-visa.jpg'
