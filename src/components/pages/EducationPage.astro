@@ -1,11 +1,13 @@
 ---
 /**
  * Education pillar page — shared by all five locales (route shells under
- * src/pages/education/ and src/pages/<locale>/education/ pass `locale`). Structure
- * and body copy are identical across locales by design; internal links are
- * localized through translatePath and forms/CTA take the locale prop.
+ * src/pages/education/ and src/pages/<locale>/education/ pass `locale`). All
+ * copy comes from the per-locale dictionary in src/i18n/pages/education.ts;
+ * internal links are localized through translatePath and forms/CTA take the
+ * locale prop.
  */
 import { getCollection } from 'astro:content';
+import { localizedEntries, entrySlug } from '../../lib/content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
@@ -16,6 +18,7 @@ import EducationForm from '../forms/EducationForm.astro';
 import { EDUCATION_FAQS } from '../../data/faqs';
 import { faqSchema, serviceSchema, howToSchema } from '../../lib/schema';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { EDUCATION } from '../../i18n/pages/education';
 
 interface Props {
   locale?: Locale;
@@ -23,126 +26,94 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = EDUCATION[locale];
 
 const heroImg = (await import('../../assets/images/hero-education.jpg')).default;
 
-const universities = (await getCollection('universities')).sort(
+const universities = localizedEntries(await getCollection('universities'), locale).sort(
   (a, b) => a.data.order - b.data.order
 );
 
-const pageFaqs = EDUCATION_FAQS.slice(0, 6);
+const pageFaqs = EDUCATION_FAQS[locale].slice(0, 6);
 
-const programmes = [
-  {
-    name: 'MBBS / Medicine',
-    text: 'MOE-listed English-medium medical degrees with WHO-recognised universities, integrated HSK training and FMGE/NExT planning from day one.',
-    icon: 'M12 3v18M3 12h18',
-  },
-  {
-    name: 'Engineering & Technology',
-    text: 'AI, robotics, civil, mechanical and electrical engineering at universities wired into China\'s manufacturing economy.',
-    icon: 'M14 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM6 10v4a4 4 0 0 0 4 4',
-  },
-  {
-    name: 'Business & Management',
-    text: 'English-taught BBA, MBA and finance programmes in Shanghai and Beijing with internship access to employers.',
-    icon: 'M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2',
-  },
-  {
-    name: 'Chinese Language (HSK)',
-    text: 'HSK 1–6 pathway programmes, from zero to degree-readiness, with exam registration handled for you.',
-    icon: 'M4 5h16M4 12h10M4 19h7',
-  },
-  {
-    name: 'Bachelor\'s Degrees',
-    text: 'Undergraduate programmes across economics, international business, design and computer science.',
-    icon: 'M12 4 2 9l10 5 10-5-10-5ZM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5',
-  },
-  {
-    name: 'Masters & PhD (Research)',
-    text: 'CSC-funded research placements — we match you to supervisors, shape proposals and manage the full file.',
-    icon: 'M4 20V9m5 11V4m5 16v-8m5 8V7',
-  },
+/* Card icons are glyphs, not copy — they stay in the component while the
+   names/descriptions come from the dictionary (same order). */
+const programmeIcons = [
+  'M12 3v18M3 12h18',
+  'M14 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM6 10v4a4 4 0 0 0 4 4',
+  'M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2',
+  'M4 5h16M4 12h10M4 19h7',
+  'M12 4 2 9l10 5 10-5-10-5ZM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5',
+  'M4 20V9m5 11V4m5 16v-8m5 8V7',
 ];
+const programmes = t.programmes.items.map((p, i) => ({ ...p, icon: programmeIcons[i] }));
 
-const process = [
-  { name: 'Initial consultation', time: 'Day 1–2', text: 'A free call: your marks, budget, goals. We tell you honestly where you stand — including when the answer is "not this route".' },
-  { name: 'University matching', time: 'Day 3–5', text: 'A shortlist of MOE-listed universities matched to your profile and scholarship strategy, with real fee tables per programme.' },
-  { name: 'Application filing', time: 'Week 1–2', text: 'We prepare and submit applications and scholarship files — study plan, translations, notarisation, portal forms.' },
-  { name: 'Offer, JW202 & visa', time: 'Week 3–12', text: 'Offer letter and JW202 tracked from the university side; physical exam, embassy appointment and interview prep with our team.' },
-  { name: 'Arrival & enrolment', time: 'September', text: 'Airport pickup, dorm registration, residence permit, SIM and bank account — the boring things that stall a first week, handled.' },
-];
+const process = t.process.steps;
 ---
 
 <BaseLayout
   locale={locale}
-  title="Study in China — MBBS, Engineering & Scholarships"
-  description="University placement in China end to end: MOE-listed universities, CSC scholarships, MBBS and engineering programmes, visa processing and arrival support. 500+ students placed."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/education"
   image="/og/education.jpg"
-  crumbs={[{ name: 'Education', url: link('/education') }]}
+  crumbs={[{ name: t.crumb, url: link('/education') }]}
   jsonLd={[
     serviceSchema({
-      name: 'Study in China — university placement',
-      description: 'Admissions, scholarship and visa services for international students entering Chinese universities, from consultation to campus registration.',
+      name: t.schema.serviceName,
+      description: t.schema.serviceDescription,
       url: link('/education'),
-      serviceType: 'Education consultancy',
+      serviceType: t.schema.serviceType,
       areaServed: ['IN', 'CN', 'SA', 'AE', 'NG', 'KE'],
     }),
     howToSchema({
-      name: 'How to study in China with RouteToAbroad',
-      description: 'The five-step placement process from first consultation to campus enrolment.',
+      name: t.schema.howToName,
+      description: t.schema.howToDescription,
       steps: process.map((s) => ({ name: `${s.name} (${s.time})`, text: s.text })),
     }),
     faqSchema(pageFaqs),
   ]}
 >
   <PageHero
-    eyebrow="Education"
-    index="EDU / 01"
-    title="Study in China. Change everything."
-    lede="English-taught degrees at MOE-listed universities, scholarships that actually reduce fees, and a team that stays with you from application to campus gate."
-    crumbs={[{ name: 'Education', url: link('/education') }]}
-    facts={[
-      { label: 'Tuition from', value: 'US$2,500 / yr' },
-      { label: 'Intakes', value: 'Sep · Feb' },
-      { label: 'Language', value: 'English-taught' },
-      { label: 'Placed', value: '500+ students' },
-    ]}
+    eyebrow={t.hero.eyebrow}
+    index={t.hero.index}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/education') }]}
+    facts={t.hero.facts}
     actions={[
-      { href: link('/tools/fit-check'), label: 'Check your fit' },
-      { href: '#programmes', label: 'See programmes', variant: 'outline' },
+      { href: link('/tools/fit-check'), label: t.hero.primaryCta },
+      { href: '#programmes', label: t.hero.secondaryCta, variant: 'outline' },
     ]}
     jumps={[
-      { href: '#programmes', label: 'Programmes' },
-      { href: '#process', label: 'Process' },
-      { href: '#scholarships', label: 'Scholarships' },
-      { href: '#universities', label: 'Universities' },
-      { href: '#apply', label: 'Apply' },
-      { href: '#faq', label: 'FAQ' },
+      { href: '#programmes', label: t.hero.jumps[0] },
+      { href: '#process', label: t.hero.jumps[1] },
+      { href: '#scholarships', label: t.hero.jumps[2] },
+      { href: '#universities', label: t.hero.jumps[3] },
+      { href: '#apply', label: t.hero.jumps[4] },
+      { href: '#faq', label: t.hero.jumps[5] },
     ]}
   />
 
   <section class="section">
     <div class="container edu-intro">
       <div class="quick-answer" data-reveal>
-        <p class="qa-label">Short answer</p>
+        <p class="qa-label">{t.qa.label}</p>
         <p>
-          <strong>Yes — Chinese universities are a legitimate, affordable route for international students</strong>,
-          provided you choose MOE-listed institutions and plan language and licensing exams from the start.
-          Tuition typically runs US$2,500–8,000/year, and scholarships can cut it to zero.
+          <strong>{t.qa.strong}</strong>{t.qa.rest}
         </p>
       </div>
       <figure class="edu-photo" data-reveal="right">
         <Picture
           src={heroImg}
-          alt="International students collaborating in a modern Chinese university laboratory"
+          alt={t.photo.alt}
           widths={[640, 1024, 1600]}
           sizes="(max-width: 64rem) 100vw, 50vw"
           formats={['avif', 'webp']}
           loading="lazy"
         />
-        <figcaption>Student cohorts we placed across Beijing, Shanghai and Hangzhou.</figcaption>
+        <figcaption>{t.photo.caption}</figcaption>
       </figure>
     </div>
   </section>
@@ -151,10 +122,10 @@ const process = [
   <section class="section section-sunken" id="programmes">
     <div class="container">
       <SectionHead
-        eyebrow="Programmes"
-        index="01 / 05"
-        title="What you can study"
-        lede="Five routes with teaching language and intake stated up front. Fees are quoted per university — a single number across a country would be a guess."
+        eyebrow={t.programmes.eyebrow}
+        index={t.programmes.index}
+        title={t.programmes.title}
+        lede={t.programmes.lede}
       />
       <div class="prog-grid">
         {programmes.map((p, i) => (
@@ -174,10 +145,10 @@ const process = [
   <section class="section" id="process">
     <div class="container-text">
       <SectionHead
-        eyebrow="The process"
-        index="02 / 05"
-        title="Five stops from first message to campus"
-        lede="Step one takes about fifteen minutes. We file, follow up and chase until there is an offer — or a clear no with a reason."
+        eyebrow={t.process.eyebrow}
+        index={t.process.index}
+        title={t.process.title}
+        lede={t.process.lede}
       />
       <ol class="timeline">
         {process.map((step, i) => (
@@ -199,17 +170,16 @@ const process = [
     <div class="container">
       <div class="calc-teaser card" data-reveal>
         <div>
-          <p class="eyebrow">Free tool</p>
-          <h2>Are you eligible for a Chinese scholarship?</h2>
+          <p class="eyebrow">{t.scholarship.eyebrow}</p>
+          <h2>{t.scholarship.title}</h2>
           <p>
-            Three honest questions about your marks and level. We'll tell you where your profile sits —
-            full CSC range, partial awards, or self-funded with better odds. No fake "You qualify!" results.
+            {t.scholarship.text}
           </p>
-          <a href={link('/tools/scholarship-eligibility')} class="btn btn-primary">Check eligibility</a>
+          <a href={link('/tools/scholarship-eligibility')} class="btn btn-primary">{t.scholarship.cta}</a>
         </div>
         <div class="calc-stats">
-          <div><p class="num">$2M+</p><p>scholarships won by our students</p></div>
-          <div><p class="num">150+</p><p>partner universities</p></div>
+          <div><p class="num">{t.scholarship.stats[0].num}</p><p>{t.scholarship.stats[0].label}</p></div>
+          <div><p class="num">{t.scholarship.stats[1].num}</p><p>{t.scholarship.stats[1].label}</p></div>
         </div>
       </div>
     </div>
@@ -219,22 +189,22 @@ const process = [
   <section class="section" id="universities">
     <div class="container">
       <SectionHead
-        eyebrow="University partners"
-        index="03 / 05"
-        title="Where our students go"
-        lede="Profiles, real costs and admission realities for the five universities we place into most."
+        eyebrow={t.unis.eyebrow}
+        index={t.unis.index}
+        title={t.unis.title}
+        lede={t.unis.lede}
       />
       <div class="uni-grid">
         {universities.map((u, i) => (
-          <a href={link(`/universities/${u.id}`)} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
+          <a href={link(`/universities/${entrySlug(u)}`)} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
             <div class="uni-media">
               <Picture src={u.data.image} alt={u.data.imageAlt} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 33vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="uni-body">
               <h3>{u.data.name}</h3>
-              <p class="uni-city num">{u.data.city} · est. {u.data.founded}</p>
+              <p class="uni-city num">{u.data.city} · {t.unis.est} {u.data.founded}</p>
               <p>{u.data.nickname}</p>
-              <span class="arrow-link">University profile</span>
+              <span class="arrow-link">{t.unis.profile}</span>
             </div>
           </a>
         ))}
@@ -247,14 +217,14 @@ const process = [
     <div class="container form-split">
       <div class="form-side" data-reveal>
         <SectionHead
-          eyebrow="Start here"
-          title="<span id='apply-title'>Apply for a free assessment</span>"
-          lede="Tell us where you are. We come back within one working day with an honest read — and a plan if there is one."
+          eyebrow={t.apply.eyebrow}
+          title={`<span id='apply-title'>${t.apply.title}</span>`}
+          lede={t.apply.lede}
         />
         <ul class="what-next">
-          <li><strong>Verification within 24 hours.</strong> An advisor — not a bot — reviews your profile.</li>
-          <li><strong>Callback in your language.</strong> English, Hindi, Malayalam; Mandarin on the China side.</li>
-          <li><strong>A written roadmap.</strong> Universities, fees, scholarship chances, timeline — in writing.</li>
+          {t.apply.next.map((item) => (
+            <li><strong>{item.lead}</strong> {item.text}</li>
+          ))}
         </ul>
       </div>
       <div class="form-card card card-pad" data-reveal>
@@ -266,9 +236,9 @@ const process = [
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container-text">
-      <SectionHead center eyebrow="Education FAQ" index="05 / 05" title="Asked every season" />
+      <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
-      <p class="faq-more"><a href={link('/education/faq')} class="arrow-link">All education FAQs</a></p>
+      <p class="faq-more"><a href={link('/education/faq')} class="arrow-link">{t.faq.more}</a></p>
     </div>
   </section>
 

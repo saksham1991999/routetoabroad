@@ -40,7 +40,7 @@ facts:
     value: 'September (main), some March'
 faqs:
   - question: 'Is Hangzhou good for international students?'
-    answer: 'Yes — it is regularly ranked among China''s most liveable cities: smaller and calmer than Shanghai (25 minutes by train), fully cashless, and home to a large international student community around ZJU.'
+    answer: 'Yes — it is regularly ranked among China''s most liveable cities: smaller and calmer than Shanghai (45–60 minutes by high-speed rail), fully cashless, and home to a large international student community around ZJU.'
   - question: 'How does Zhejiang University compare to Fudan?'
     answer: 'Academically they trade places in the top 5. ZJU wins on engineering/CS depth and living costs; Fudan wins on finance/business placement in Shanghai proper.'
 order: 4

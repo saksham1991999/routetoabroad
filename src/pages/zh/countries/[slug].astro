@@ -4,7 +4,7 @@ import CountryDetailPage from '../../../components/pages/CountryDetailPage.astro
 import { countryPaths } from '../../../lib/static-paths';
 
 export async function getStaticPaths() {
-  return countryPaths();
+  return countryPaths('zh');
 }
 
 const { country } = Astro.props;

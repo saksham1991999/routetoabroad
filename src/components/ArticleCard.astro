@@ -2,6 +2,8 @@
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import type { PillarKey } from '../lib/site';
+import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
 
 interface Props {
   title: string;
@@ -12,15 +14,19 @@ interface Props {
   meta?: string;
   tag?: string;
   pillar?: PillarKey;
+  locale?: Locale;
 }
 
-const { title, href, description, image, imageAlt, meta, tag, pillar } = Astro.props;
+const { title, href, description, image, imageAlt, meta, tag, pillar, locale = DEFAULT_LOCALE } = Astro.props;
 
 const pillarColor: Record<PillarKey, string> = {
   education: 'var(--edu)',
   tourism: 'var(--tourism)',
   trade: 'var(--trade)',
 };
+
+/** Localized "Read" arrow-link label (chrome string). */
+const moreLabel = uiFor(locale).articleCard?.more ?? 'Read';
 ---
 
 <article class="article-card card">
@@ -34,13 +40,13 @@ const pillarColor: Record<PillarKey, string> = {
     </div>
     <div class="card-body">
       <p class="card-meta">
-        {pillar && <span class="card-tag" style={`color: ${pillarColor[pillar]}`}>{tag || pillar}</span>}
+        {pillar && <span class="card-tag" style={`color: ${pillarColor[pillar]}`}>{tag || uiFor(locale).categories[pillar]}</span>}
         {!pillar && tag && <span class="card-tag" style="color: var(--gold)">{tag}</span>}
         {meta && <span class="card-meta-text num">{meta}</span>}
       </p>
       <h3>{title}</h3>
       <p class="card-desc">{description}</p>
-      <span class="card-more arrow-link">Read</span>
+      <span class="card-more arrow-link">{moreLabel}</span>
     </div>
   </a>
 </article>

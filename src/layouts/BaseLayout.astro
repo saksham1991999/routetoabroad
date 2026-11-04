@@ -99,12 +99,22 @@ const isHome = ['', '/'].includes(
     {isRtl && <style is:inline set:html={rtlCss} />}
 
     <script is:inline>
-      // Pre-paint theme to avoid flash-of-wrong-theme.
+      // Pre-paint theme to avoid flash-of-wrong-theme. Resolves stored
+      // choice → system preference, then syncs the browser UI color to the
+      // RESOLVED theme (the media-query metas below only reflect the system,
+      // which disagrees when the user has explicitly picked the other side).
       (function () {
         try {
           var stored = localStorage.getItem('rta-theme');
           var theme = stored || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
           document.documentElement.setAttribute('data-theme', theme);
+          document
+            .querySelectorAll('meta[name="theme-color"]')
+            .forEach(function (m) { m.remove(); });
+          var meta = document.createElement('meta');
+          meta.name = 'theme-color';
+          meta.content = theme === 'dark' ? '#0a0a0a' : '#f7f7f7';
+          document.head.appendChild(meta);
         } catch (e) {}
       })();
       document.documentElement.classList.remove('no-js');
@@ -483,7 +493,7 @@ const isHome = ['', '/'].includes(
     left: 0;
     right: 0;
     height: 50.5%;
-    background: #f7f7f7;
+    background: var(--paper);
     transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
   }
 

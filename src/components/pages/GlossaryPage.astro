@@ -1,58 +1,63 @@
 ---
 /**
  * Glossary page — shared by all five locales (route shells under src/pages/
- * and src/pages/<locale>/ pass `locale`). Page structure and body copy are
- * identical across locales by design; internal links are localized through
- * translatePath. The terms data lives in src/data/glossary.ts.
+ * and src/pages/<locale>/ pass `locale`). All page copy comes from the
+ * per-locale dictionary in src/i18n/pages/glossary.ts; the terms come from
+ * src/data/glossary.ts (Record<Locale, GlossaryTerm[]>) and feed both the
+ * definition list and the DefinedTerm JSON-LD. Term names keep their
+ * canonical form across locales, so anchors (`#slug`) stay stable.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import CtaBand from '../CtaBand.astro';
-import { uiFor } from '../../i18n/ui';
 import { GLOSSARY } from '../../data/glossary';
 import { definedTermSchemas } from '../../lib/schema';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { GLOSSARY_PAGE } from '../../i18n/pages/glossary';
 
 interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
+const t = GLOSSARY_PAGE[locale];
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+const terms = GLOSSARY[locale];
 
-const categories = [
-  { key: 'education', label: 'Education' },
-  { key: 'visas', label: 'Visas' },
-  { key: 'exams', label: 'Exams & Language' },
-  { key: 'travel', label: 'Travel' },
-  { key: 'trade', label: 'Trade' },
-] as const;
+const categories = (
+  [
+    { key: 'education', label: t.categories.education },
+    { key: 'visas', label: t.categories.visas },
+    { key: 'exams', label: t.categories.exams },
+    { key: 'travel', label: t.categories.travel },
+    { key: 'trade', label: t.categories.trade },
+  ] as const
+);
 
 const grouped = categories.map((cat) => ({
   ...cat,
-  terms: GLOSSARY.filter((t) => t.category === cat.key),
+  terms: terms.filter((term) => term.category === cat.key),
 }));
 ---
 
 <BaseLayout
-  title="Glossary — CSC, JW202, HSK, AQL & East Asia Terms Explained"
-  description="Plain-English definitions for the terms of studying, travelling and trading across East Asia: CSC scholarship, JW202, X1 visa, HSK, AQL, Bill of Lading, Canton Fair and more."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/glossary"
   locale={locale}
-  crumbs={[{ name: 'Glossary', url: link('/glossary') }]}
-  jsonLd={[...definedTermSchemas(GLOSSARY.map((t) => ({ term: t.term, definition: t.definition })))]}
+  crumbs={[{ name: t.crumb, url: link('/glossary') }]}
+  jsonLd={[...definedTermSchemas(terms.map((term) => ({ term: term.term, definition: term.definition })))]}
 >
   <PageHero
-    eyebrow="Glossary"
-    title="Every acronym, in plain English."
-    lede="The vocabulary of the corridor — defined the way we explain them on calls. Anchors below; link straight to any term."
-    crumbs={[{ name: 'Glossary', url: link('/glossary') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/glossary') }]}
   />
 
   <section class="section">
     <div class="container-text">
-      <nav class="glossary-toc" aria-label="Glossary categories">
+      <nav class="glossary-toc" aria-label={t.tocAria}>
         {grouped.map((g) => (
           <a href={`#${g.key}`} class="chip">{g.label} ({g.terms.length})</a>
         ))}
@@ -62,13 +67,13 @@ const grouped = categories.map((cat) => ({
         <section class="glossary-group" id={g.key} aria-labelledby={`h-${g.key}`}>
           <h2 id={`h-${g.key}`}>{g.label}</h2>
           <dl class="glossary-list">
-            {g.terms.map((t) => (
-              <div class="term" id={t.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')} data-reveal>
+            {g.terms.map((term) => (
+              <div class="term" id={term.term.toLowerCase().replace(/[^a-z0-9]+/g, '-')} data-reveal>
                 <dt>
-                  {t.term}
-                  {t.zh && <span class="term-zh num">{t.zh}</span>}
+                  {term.term}
+                  {term.zh && <span class="term-zh num">{term.zh}</span>}
                 </dt>
-                <dd>{t.definition}</dd>
+                <dd>{term.definition}</dd>
               </div>
             ))}
           </dl>
@@ -76,7 +81,7 @@ const grouped = categories.map((cat) => ({
       ))}
 
       <p class="glossary-note">
-        Something missing? <a href={link('/contact')}>Tell us</a> and we'll add it — the glossary grows with every intake.
+        {t.notePre}<a href={link('/contact')}>{t.noteLink}</a>{t.notePost}
       </p>
     </div>
   </section>

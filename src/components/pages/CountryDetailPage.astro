@@ -3,10 +3,13 @@
  * countries detail page — shared by all five locales. Route shells under
  * src/pages/countries/[slug].astro and src/pages/<locale>/countries/[slug].astro
  * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * the locale-resolved collection entry (rendered as-is — entry frontmatter may
+ * be English fallback or localized). Template chrome comes from the per-locale
+ * dictionary in src/i18n/pages/country-detail.ts; links localize through
+ * translatePath and slugs always come from entrySlug, never raw entry.id.
  */
-import { getCollection, render } from 'astro:content';
-import { Image, Picture } from 'astro:assets';
+import { render } from 'astro:content';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import SectionHead from '../SectionHead.astro';
@@ -16,6 +19,8 @@ import { faqSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, localizeHtmlLinks, type Locale } from '../../lib/i18n';
+import { entrySlug } from '../../lib/content';
+import { COUNTRY_DETAIL } from '../../i18n/pages/country-detail';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -25,6 +30,9 @@ interface Props {
 const { locale = DEFAULT_LOCALE, country } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = COUNTRY_DETAIL[locale];
+const slug = entrySlug(country);
 const { data } = country;
 const { Content } = await render(country);
 const hasBody = Boolean(country.body && country.body.trim());
@@ -32,18 +40,18 @@ const hasBody = Boolean(country.body && country.body.trim());
 
 <BaseLayout
   locale={locale}
-  title={`${data.name} — Study & Travel Guide`}
+  title={t.metaTitleTemplate.replace('{name}', data.name)}
   description={data.intro}
-  path={`/countries/${country.id}`}
+  path={`/countries/${slug}`}
   crumbs={[
-    { name: data.name, url: `https://routetoabroad.com${link(`/countries/${country.id}`)}` },
+    { name: data.name, url: `https://routetoabroad.com${link(`/countries/${slug}`)}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
   <article>
     <header class="co-hero">
       <div class="container">
-        <Breadcrumbs crumbs={[{ name: data.name, url: link(`/countries/${country.id}`) }]} />
+        <Breadcrumbs crumbs={[{ name: data.name, url: link(`/countries/${slug}`) }]} />
         <h1>{data.name}</h1>
         <p class="co-intro">{data.intro}</p>
         <div class="co-stats num">
@@ -73,7 +81,7 @@ const hasBody = Boolean(country.body && country.body.trim());
       <div class="container">
         <div class="co-cols">
           <section aria-labelledby="study-h" data-reveal>
-            <p class="eyebrow" style="color: var(--edu)">Study</p>
+            <p class="eyebrow" style="color: var(--edu)">{t.eyebrows.study}</p>
             <h2 id="study-h">{data.study.heading}</h2>
             <p class="co-col-text">{data.study.text}</p>
             <div class="co-points">
@@ -84,11 +92,11 @@ const hasBody = Boolean(country.body && country.body.trim());
                 </div>
               ))}
             </div>
-            <a href={link('/education')} class="arrow-link co-col-link">Education services</a>
+            <a href={link('/education')} class="arrow-link co-col-link">{t.links.education}</a>
           </section>
 
           <section aria-labelledby="travel-h" data-reveal>
-            <p class="eyebrow" style="color: var(--tourism)">Travel</p>
+            <p class="eyebrow" style="color: var(--tourism)">{t.eyebrows.travel}</p>
             <h2 id="travel-h">{data.travel.heading}</h2>
             <p class="co-col-text">{data.travel.text}</p>
             <div class="co-points">
@@ -99,7 +107,7 @@ const hasBody = Boolean(country.body && country.body.trim());
                 </div>
               ))}
             </div>
-            <a href={link('/tourism')} class="arrow-link co-col-link">Tourism services</a>
+            <a href={link('/tourism')} class="arrow-link co-col-link">{t.links.tourism}</a>
           </section>
         </div>
 
@@ -107,7 +115,7 @@ const hasBody = Boolean(country.body && country.body.trim());
 
         {(data.faqs ?? []).length > 0 && (
           <div class="container-text co-faq">
-            <SectionHead center eyebrow="Country FAQ" title="Straight answers" />
+            <SectionHead center eyebrow={t.faq.eyebrow} title={t.faq.title} />
             <FaqAccordion faqs={data.faqs ?? []} />
           </div>
         )}

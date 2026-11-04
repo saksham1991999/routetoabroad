@@ -1,15 +1,16 @@
 ---
 /**
  * For Agents page — shared by all five locales (route shells under
- * src/pages/ and src/pages/<locale>/ pass `locale`). Page structure and
- * body copy are identical across locales by design; internal links are
- * localized through translatePath.
+ * src/pages/ and src/pages/<locale>/ pass `locale`). All copy comes from
+ * the FOR_AGENTS dictionary in src/i18n/pages/for-agents.ts; internal
+ * links are localized through translatePath.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import { SITE } from '../../lib/site';
 import CtaBand from '../CtaBand.astro';
 import { uiFor } from '../../i18n/ui';
+import { FOR_AGENTS } from '../../i18n/pages/for-agents';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
 
 interface Props {
@@ -17,79 +18,60 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
+const t = FOR_AGENTS[locale];
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
 ---
 
 <BaseLayout
-  title="For Agents — Your China Desk, White-Labelled"
-  description="Already counselling students in the GCC, Africa or India? RouteToAbroad is the China desk behind you: co-branded pages, transparent file status, honest scholarship communication."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/for-agents"
   locale={locale}
-  crumbs={[{ name: 'For Agents', url: link('/for-agents') }]}
+  crumbs={[{ name: t.crumb, url: link('/for-agents') }]}
 >
   <PageHero
-    eyebrow="For agents"
-    title="Keep your students. We run China."
-    lede="If you already counsel in the GCC, Africa, India or another region, RouteToAbroad is the China desk behind your desk — co-branded, transparent, and honest about what we can and cannot do."
-    crumbs={[{ name: 'For Agents', url: link('/for-agents') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/for-agents') }]}
   />
 
   <section class="section">
     <div class="container agent-grid">
       <section class="agent-col" data-reveal>
-        <h2>What you get</h2>
+        <h2>{t.get.title}</h2>
         <ul class="agent-list">
-          <li>
-            <strong>Co-branded materials</strong>
-            <p>Pages and offer documents that carry your name and number — your client stays your client.</p>
-          </li>
-          <li>
-            <strong>File status you can repeat</strong>
-            <p>Application, JW202 and visa milestones visible to you without chasing us across time zones.</p>
-          </li>
-          <li>
-            <strong>Scholarship honesty</strong>
-            <p>We tell your student what is real before you have to. No invented awards for you to defend later.</p>
-          </li>
-          <li>
-            <strong>On-ground arrival support</strong>
-            <p>Airport, dorm, residence permit, SIM, bank — handled by our China team, reflected in your service.</p>
-          </li>
+          {t.get.items.map((item) => (
+            <li>
+              <strong>{item.title}</strong>
+              <p>{item.text}</p>
+            </li>
+          ))}
         </ul>
       </section>
 
       <section class="agent-col" data-reveal>
-        <h2>What you send</h2>
+        <h2>{t.send.title}</h2>
         <ul class="agent-list agent-list--simple">
-          <li>Student profile: qualification, marks, field, target intake</li>
-          <li>Scanned passport and transcripts when ready</li>
-          <li>Budget ceiling and scholarship expectations, stated plainly</li>
-          <li>One signed co-operation note — no exclusivity traps</li>
+          {t.send.items.map((item) => <li>{item}</li>)}
         </ul>
 
-        <h2 class="agent-h2">What you don't need to do</h2>
+        <h2 class="agent-h2">{t.avoid.title}</h2>
         <ul class="agent-list agent-list--simple agent-list--no">
-          <li>Learn every provincial rule or JW202 timeline</li>
-          <li>Promise universities you cannot name</li>
-          <li>File a student we have not shortlisted</li>
-          <li>Explain a scholarship result you did not create</li>
+          {t.avoid.items.map((item) => <li>{item}</li>)}
         </ul>
       </section>
 
       <section class="agent-col" data-reveal>
-        <h2>What we will not do</h2>
+        <h2>{t.never.title}</h2>
         <ul class="agent-list agent-list--no">
-          <li>Hide a language requirement to close a file</li>
-          <li>Invent a scholarship result</li>
-          <li>Run tourism or trade on the side of your offer letter</li>
-          <li>Market to your students behind your back</li>
+          {t.never.items.map((item) => <li>{item}</li>)}
         </ul>
         <div class="agent-note card card-pad">
-          <p class="eyebrow">Who this is for</p>
+          <p class="eyebrow">{t.note.eyebrow}</p>
           <p>
-            Counsellors and study-abroad offices with students who want China — especially in the GCC and
-            Africa, where our partner network is active and growing. An India desk is being built now.
+            {t.note.text}
           </p>
         </div>
       </section>
@@ -98,18 +80,17 @@ const link = (path: string) => translatePath(path, locale);
     <div class="container agent-cta-wrap">
       <div class="agent-cta card card-pad" data-reveal>
         <div>
-          <h2>Apply to partner</h2>
+          <h2>{t.cta.title}</h2>
           <p>
-            Send your office name, region and rough annual student volume. We reply with a partnership note
-            and a working session — usually within two working days.
+            {t.cta.text}
           </p>
         </div>
         <div class="agent-cta-btns">
-          <a href={`mailto:${SITE.email}?subject=Agent%20partnership`} class="btn btn-primary">Email the partnerships desk</a>
-          <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">WhatsApp {SITE.phoneIndia}</a>
+          <a href={`mailto:${SITE.email}?subject=Agent%20partnership`} class="btn btn-primary">{t.cta.email}</a>
+          <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">{t.cta.whatsapp.replace('{phone}', SITE.phoneIndia)}</a>
         </div>
       </div>
-      <p class="portal-note num">Agent portal: coming soon</p>
+      <p class="portal-note num">{t.portal}</p>
     </div>
   </section>
 

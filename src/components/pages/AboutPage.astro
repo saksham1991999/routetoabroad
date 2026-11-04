@@ -1,11 +1,12 @@
 ---
 /**
  * About page — shared by all five locales (route shells under src/pages/
- * and src/pages/<locale>/ pass `locale`). Page structure and body copy are
- * identical across locales by design; chrome strings come from uiFor(locale)
- * and internal links are localized through translatePath. The founders array
- * lives in src/data/founders.ts (single source — it was once deleted from
- * the per-page copies by a bad edit).
+ * and src/pages/<locale>/ pass `locale`). All copy comes from the
+ * ABOUT dictionary in src/i18n/pages/about.ts; chrome strings come from
+ * uiFor(locale) and internal links are localized through translatePath.
+ * The founders array lives in src/data/founders.ts (single source — it was
+ * once deleted from the per-page copies by a bad edit); names/roles/bios
+ * resolve per locale from src/data/authors.ts.
  */
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
@@ -13,8 +14,10 @@ import PageHero from '../PageHero.astro';
 import SectionHead from '../SectionHead.astro';
 import CtaBand from '../CtaBand.astro';
 import { uiFor } from '../../i18n/ui';
+import { ABOUT } from '../../i18n/pages/about';
 import { SITE, CLAIMS } from '../../lib/site';
 import { FOUNDERS } from '../../data/founders';
+import { AUTHORS } from '../../data/authors';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
 import { personSchema } from '../../lib/schema';
 
@@ -23,33 +26,20 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
+const t = ABOUT[locale];
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
 
-const founders = FOUNDERS;
-
-const values = [
-  {
-    title: 'Relationships over transactions',
-    text: 'We have taken students whose parents we later built trade relationships with, and tourists who came back as investors. The desk optimises for the decade, not the invoice.',
-  },
-  {
-    title: 'Both sides of the bridge',
-    text: 'Delhi answers to Indian families; Guangzhou answers to Chinese universities and factories. Each office can tell the other an uncomfortable truth — that is the point of having two.',
-  },
-  {
-    title: 'No shortcuts',
-    text: 'No guaranteed-admission promises, no fake scholarship letters, no document "adjustments". A false document ends an application; a false promise ends a firm. We intend to be here in twenty years.',
-  },
-];
+const founders = FOUNDERS[locale];
+const founderLead = AUTHORS.minhaj;
 ---
 
 <BaseLayout
-  title="About Us — The People Behind RouteToAbroad"
-  description="RouteToAbroad runs from New Delhi and Guangzhou: founder-led education placement, tourism and India–China trade services. Meet the team and the standard we work to."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/about"
   locale={locale}
-  crumbs={[{ name: 'About', url: link('/about') }]}
+  crumbs={[{ name: t.crumb, url: link('/about') }]}
   jsonLd={founders.map((f) =>
     personSchema({
       name: f.name,
@@ -61,25 +51,20 @@ const values = [
   )}
 >
   <PageHero
-    eyebrow="About us"
-    index="ABT / 07"
-    title="We don't just connect countries. We connect people."
-    lede="A founder-led consultancy working one corridor deeply — India and East Asia — with offices in both and something to lose in both."
-    crumbs={[{ name: 'About', url: link('/about') }]}
-    facts={[
-      { label: 'Offices', value: 'Delhi · Guangzhou' },
-      { label: 'Practice', value: 'Edu · Travel · Trade' },
-      { label: 'Team', value: 'Founder-led' },
-      { label: 'Standard', value: 'No shortcuts' },
-    ]}
+    eyebrow={t.hero.eyebrow}
+    index={t.hero.index}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/about') }]}
+    facts={t.hero.facts}
     actions={[
-      { href: '#team', label: 'Meet the team' },
-      { href: link('/contact'), label: 'Talk to us', variant: 'outline' },
+      { href: '#team', label: t.hero.actionTeam },
+      { href: link('/contact'), label: t.hero.actionTalk, variant: 'outline' },
     ]}
     jumps={[
-      { href: '#story', label: 'Story' },
-      { href: '#values', label: 'Values' },
-      { href: '#team', label: 'Team' },
+      { href: '#story', label: t.hero.jumps[0] },
+      { href: '#values', label: t.hero.jumps[1] },
+      { href: '#team', label: t.hero.jumps[2] },
     ]}
   />
 
@@ -87,39 +72,30 @@ const values = [
     <div class="container story-grid">
       <div class="story" data-reveal>
         <p class="story-lead">
-          RouteToAbroad began with a simple observation: the India–East Asia corridor was full of brokers,
-          and short on accountable operators. Students were sold universities no one had visited. Importers
-          wired deposits to factories no one had audited. Travellers saw the wall but not the country.
+          {t.story.lead}
         </p>
-        <p>
-          So we built the firm we wished existed — one team that works <em>both</em> sides of the corridor
-          professionally, with offices in New Delhi and Guangzhou, and staff who answer their phones on
-          Saturday. Education led the way; the travel and trade desks grew out of the same network, the same
-          standard, and the same families asking for one more kind of help.
-        </p>
+        <p set:html={t.story.built} />
         <blockquote>
-          "A student today is a trade partner tomorrow. A tourist today is an investor tomorrow."
-          <cite>— Minhaj Al Shukoor, Founder & CEO</cite>
+          {t.story.quote}
+          <cite>— {founderLead.name}, {founderLead.role[locale]}</cite>
         </blockquote>
         <p>
-          The corridor rewards operators who treat compliance as a product feature and honesty as a
-          differentiator. That has been the job from day one — and it is why our students arrive,
-          our containers clear, and our travellers come back.
+          {t.story.after}
         </p>
       </div>
 
-      <aside class="nap card card-pad" data-reveal="right" aria-label="Company details">
-        <p class="eyebrow">Entity details</p>
+      <aside class="nap card card-pad" data-reveal="right" aria-label={t.nap.aria}>
+        <p class="eyebrow">{t.nap.eyebrow}</p>
         <dl class="nap-list num">
-          <div><dt>Founded</dt><dd>{SITE.founded} (in the corridor over a decade)</dd></div>
-          <div><dt>Offices</dt><dd>{SITE.offices[0].city} · {SITE.offices[1].city}</dd></div>
-          <div><dt>Email</dt><dd>{SITE.email}</dd></div>
-          <div><dt>Phone</dt><dd><bdi>{SITE.phoneIndia}</bdi></dd></div>
-          <div><dt>Hours</dt><dd><bdi>{SITE.hours}</bdi></dd></div>
-          <div><dt>Students placed</dt><dd>{CLAIMS.studentsPlaced}</dd></div>
-          <div><dt>Google rating</dt><dd>{CLAIMS.googleRating} ★</dd></div>
+          <div><dt>{t.nap.foundedLabel}</dt><dd>{SITE.founded} {t.nap.foundedNote}</dd></div>
+          <div><dt>{t.nap.officesLabel}</dt><dd>{SITE.offices[0].city} · {SITE.offices[1].city}</dd></div>
+          <div><dt>{t.nap.emailLabel}</dt><dd>{SITE.email}</dd></div>
+          <div><dt>{t.nap.phoneLabel}</dt><dd><bdi>{SITE.phoneIndia}</bdi></dd></div>
+          <div><dt>{t.nap.hoursLabel}</dt><dd><bdi>{SITE.hours}</bdi></dd></div>
+          <div><dt>{t.nap.studentsLabel}</dt><dd>{CLAIMS.studentsPlaced}</dd></div>
+          <div><dt>{t.nap.ratingLabel}</dt><dd>{CLAIMS.googleRating} ★</dd></div>
         </dl>
-        <p class="nap-note">Consistent NAP details — also published in our structured data.</p>
+        <p class="nap-note">{t.nap.note}</p>
       </aside>
     </div>
   </section>
@@ -127,13 +103,13 @@ const values = [
   <section class="section section-sunken" id="values">
     <div class="container">
       <SectionHead
-        eyebrow="Values"
-        index="01 / 02"
-        title="Three rules we don't break"
-        lede="They cost us deals. They keep clients for decades."
+        eyebrow={t.values.eyebrow}
+        index={t.values.index}
+        title={t.values.title}
+        lede={t.values.lede}
       />
       <div class="values-grid">
-        {values.map((v, i) => (
+        {t.values.items.map((v, i) => (
           <article class="value card card-pad" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
             <h3>{v.title}</h3>
             <p>{v.text}</p>
@@ -146,16 +122,16 @@ const values = [
   <section class="section" id="team">
     <div class="container">
       <SectionHead
-        eyebrow="Leadership"
-        index="02 / 02"
-        title="The two names on the door"
-        lede="A small senior team on purpose. Every file has a name attached, and it's one of these."
+        eyebrow={t.team.eyebrow}
+        index={t.team.index}
+        title={t.team.title}
+        lede={t.team.lede}
       />
       <div class="team-grid">
         {founders.map((f, i) => (
           <article class="member card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
             <div class="member-photo">
-              <Picture src={f.image} alt={`Portrait of ${f.name}`} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
+              <Picture src={f.image} alt={t.team.portraitAlt.replace('{name}', f.name)} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="member-body">
               <h3>{f.name}</h3>
@@ -164,16 +140,18 @@ const values = [
               <ul class="member-points">
                 {f.points.map((pt) => <li>{pt}</li>)}
               </ul>
+              {/* Social profile links are commented out for now — restore when
+                  the team's LinkedIn pages go live.
               {f.linkedin && (
                 <a href={f.linkedin} class="arrow-link member-link" rel="noopener">LinkedIn profile</a>
               )}
+              */}
             </div>
           </article>
         ))}
       </div>
       <p class="team-note">
-        Student contributors write with us too — you'll find their bylines on the
-        <a href={link('/blog')}>insights page</a>.
+        {t.team.notePre}<a href={link('/blog')}>{t.team.noteLink}</a>{t.team.notePost}
       </p>
     </div>
   </section>

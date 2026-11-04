@@ -1,15 +1,18 @@
 ---
 /**
  * Cities index page — shared by all five locales (route shells under
- * src/pages/cities/ and src/pages/<locale>/cities/ pass `locale`). Page
- * structure and body copy are identical across locales by design; city
- * links are localized through translatePath.
+ * src/pages/cities/ and src/pages/<locale>/cities/ pass `locale`). All copy
+ * comes from the per-locale dictionary in src/i18n/pages/cities-index.ts;
+ * entry cards render whatever the localized collection carries
+ * (localizedEntries falls back to English), hrefs use entrySlug and internal
+ * links localize through translatePath.
  */
 import { getCollection } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { uiFor } from '../../i18n/ui';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { localizedEntries, entrySlug } from '../../lib/content';
+import { CITIES_INDEX } from '../../i18n/pages/cities-index';
 import PageHero from '../PageHero.astro';
 import CtaBand from '../CtaBand.astro';
 
@@ -17,32 +20,35 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = CITIES_INDEX[locale];
 
-const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.data.order);
+const cities = localizedEntries(await getCollection('cities'), locale).sort(
+  (a, b) => a.data.order - b.data.order
+);
 ---
 
 <BaseLayout
-  title="City Guides — Studying & Travelling in China's Great Cities"
-  description="Honest city guides for international students and travellers: Beijing, Shanghai, Guangzhou and Hangzhou — real monthly costs, universities, highlights and best times to visit."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/cities"
   locale={locale}
-  crumbs={[{ name: 'Cities', url: link('/cities') }]}
+  crumbs={[{ name: t.crumb, url: link('/cities') }]}
 >
   <PageHero
-    eyebrow="Cities"
-    title="Four cities we know street by street."
-    lede="Costs from our own student cohorts, food we've eaten, campuses we've registered students on. Beijing, Shanghai, Guangzhou, Hangzhou."
-    crumbs={[{ name: 'Cities', url: link('/cities') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/cities') }]}
   />
 
   <section class="section">
     <div class="container">
       <div class="city-grid">
         {cities.map((c, i) => (
-          <a href={link(`/cities/${c.id}`)} class="city-card" data-reveal style={`--reveal-delay: ${(i % 2) * 90}ms`}>
+          <a href={link(`/cities/${entrySlug(c)}`)} class="city-card" data-reveal style={`--reveal-delay: ${(i % 2) * 90}ms`}>
             <div class="city-media">
               <Picture src={c.data.image} alt={c.data.imageAlt} widths={[640, 1024]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
@@ -53,8 +59,8 @@ const cities = (await getCollection('cities')).sort((a, b) => a.data.order - b.d
               </div>
               <p>{c.data.intro}</p>
               <div class="city-costs num">
-                <span>Students: ${c.data.studentMonthly.low}–{c.data.studentMonthly.high}/mo</span>
-                <span>Travellers: ${c.data.touristDaily.low}–{c.data.touristDaily.high}/day</span>
+                <span>{t.card.studentsLabel} ${c.data.studentMonthly.low}–{c.data.studentMonthly.high}{t.card.perMonth}</span>
+                <span>{t.card.travellersLabel} ${c.data.touristDaily.low}–{c.data.touristDaily.high}{t.card.perDay}</span>
               </div>
             </div>
           </a>

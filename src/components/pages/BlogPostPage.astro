@@ -3,16 +3,21 @@
  * blog detail page — shared by all five locales. Route shells under
  * src/pages/blog/[slug].astro and src/pages/<locale>/blog/[slug].astro
  * delegate slug generation to src/lib/static-paths.ts and pass `locale` and
- * the collection entry; links localize through translatePath.
+ * the locale-resolved collection entry; template copy comes from the
+ * per-locale dictionary in src/i18n/pages/blog-post.ts, entry frontmatter
+ * renders as-is (en fallback or localized copy), and links localize through
+ * translatePath.
  */
 import { getCollection, render } from 'astro:content';
-import { Image, Picture } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import ArticleCard from '../ArticleCard.astro';
 import CtaBand from '../CtaBand.astro';
 import { AUTHORS } from '../../data/authors';
 import { articleSchema } from '../../lib/schema';
+import { localizedEntries, entrySlug } from '../../lib/content';
+import { BLOG_POST } from '../../i18n/pages/blog-post';
 
 
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, localizeHtmlLinks, type Locale } from '../../lib/i18n';
@@ -25,19 +30,22 @@ interface Props {
 const { locale = DEFAULT_LOCALE, post } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized template copy. */
+const t = BLOG_POST[locale];
 const { data } = post;
 const { Content } = await render(post);
 const author = AUTHORS[data.author];
-const url = `https://routetoabroad.com${link(`/blog/${post.id}`)}`;
+const slug = entrySlug(post);
+const url = `https://routetoabroad.com${link(`/blog/${slug}`)}`;
 
-const related = (await getCollection('blog'))
-  .filter((p) => p.id !== post.id && p.data.category === data.category)
+const related = localizedEntries(await getCollection('blog'), locale)
+  .filter((p) => entrySlug(p) !== slug && p.data.category === data.category)
   .slice(0, 3);
 const relatedFallback =
   related.length < 3
     ? [
-        ...(await getCollection('blog')).filter(
-          (p) => p.id !== post.id && !related.find((r) => r.id === p.id)
+        ...localizedEntries(await getCollection('blog'), locale).filter(
+          (p) => entrySlug(p) !== slug && !related.find((r) => entrySlug(r) === entrySlug(p))
         ),
       ].slice(0, 3 - related.length)
     : [];
@@ -48,11 +56,11 @@ const relatedAll = [...related, ...relatedFallback];
   locale={locale}
   title={data.title}
   description={data.description}
-  path={`/blog/${post.id}`}
+  path={`/blog/${slug}`}
   type="article"
   image="/og/default.jpg"
   crumbs={[
-    { name: 'Insights', url: link('/blog') },
+    { name: t.crumb, url: link('/blog') },
     { name: data.title, url },
   ]}
   publishedTime={data.pubDate}
@@ -76,11 +84,11 @@ const relatedAll = [...related, ...relatedFallback];
     <header class="post-head">
       <Breadcrumbs
         crumbs={[
-          { name: 'Insights', url: link('/blog') },
-          { name: data.title, url: link(`/blog/${post.id}`) },
+          { name: t.crumb, url: link('/blog') },
+          { name: data.title, url: link(`/blog/${slug}`) },
         ]}
       />
-      <p class="eyebrow">{data.category}</p>
+      <p class="eyebrow">{t.categories[data.category]}</p>
       <h1>{data.title}</h1>
       <p class="post-desc">{data.description}</p>
 
@@ -93,15 +101,15 @@ const relatedAll = [...related, ...relatedFallback];
           )}
           <div>
             <strong>{author?.name ?? data.author}</strong>
-            <span>{author?.role}</span>
+            <span>{author?.role[locale]}</span>
           </div>
         </div>
         <div class="post-dates num">
           <span>{data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' })}</span>
           {data.updatedDate && (
-            <span>· updated {data.updatedDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' })}</span>
+            <span>{t.updated.replace('{date}', data.updatedDate.toLocaleDateString(DATE_TAG[locale], { month: 'short', year: 'numeric' }))}</span>
           )}
-          <span>· {data.readTime} min read</span>
+          <span>{t.readTime.replace('{n}', String(data.readTime))}</span>
         </div>
       </div>
     </header>
@@ -116,14 +124,14 @@ const relatedAll = [...related, ...relatedFallback];
 
     <footer class="post-foot">
       <div class="tags">
-        {data.tags.map((t) => <span class="chip">{t}</span>)}
+        {data.tags.map((tag) => <span class="chip">{tag}</span>)}
       </div>
       <div class="post-cta card card-pad">
-        <p class="eyebrow">Working on this decision?</p>
-        <p class="post-cta-text">Get the answer for your specific case — the fit check takes four questions, advisors reply within a day.</p>
+        <p class="eyebrow">{t.cta.eyebrow}</p>
+        <p class="post-cta-text">{t.cta.text}</p>
         <div class="post-cta-btns">
-          <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">Start the fit check</a>
-          <a href={link('/contact')} class="btn btn-outline btn-sm">Talk to us</a>
+          <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">{t.cta.primary}</a>
+          <a href={link('/contact')} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
         </div>
       </div>
     </footer>
@@ -132,18 +140,19 @@ const relatedAll = [...related, ...relatedFallback];
   {relatedAll.length > 0 && (
     <section class="section section-sunken related">
       <div class="container">
-        <p class="divider-label">Related reading</p>
+        <p class="divider-label">{t.related}</p>
         <div class="related-grid">
           {relatedAll.map((p) => (
             <ArticleCard
+              locale={locale}
               title={p.data.title}
-              href={link(`/blog/${p.id}`)}
+              href={link(`/blog/${entrySlug(p)}`)}
               description={p.data.description}
               image={p.data.image}
               imageAlt={p.data.imageAlt}
-              tag={p.data.category}
+              tag={t.categories[p.data.category]}
               pillar={p.data.category}
-              meta={`${p.data.readTime} min`}
+              meta={t.minShort.replace('{n}', String(p.data.readTime))}
             />
           ))}
         </div>

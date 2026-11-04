@@ -1,14 +1,15 @@
 ---
 /**
  * Contact page — shared by all five locales (route shells under src/pages/
- * and src/pages/<locale>/ pass `locale`). Page structure and body copy are
- * identical across locales by design; internal links are localized through
- * translatePath and the contact form takes the active locale.
+ * and src/pages/<locale>/ pass `locale`). All copy comes from the CONTACT
+ * dictionary in src/i18n/pages/contact.ts; internal links are localized
+ * through translatePath and the contact form takes the active locale.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../lib/site';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
 import { uiFor } from '../../i18n/ui';
+import { CONTACT } from '../../i18n/pages/contact';
 
 // ContactForm and PageHero are imported dynamically rather than statically:
 // ContactForm is used only by the contact pages, so a static import would
@@ -24,22 +25,23 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
+const t = CONTACT[locale];
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
 ---
 
 <BaseLayout
-  title="Contact — Talk to the New Delhi or Guangzhou Desk"
-  description="Reach RouteToAbroad: education, tourism or trade enquiries answered within one working day. New Delhi office (Saket) and Guangzhou office (Tianhe), WhatsApp +91 96330 61109."
+  title={t.meta.title}
+  description={t.meta.description.replace('{phone}', SITE.phoneIndia)}
   path="/contact"
   locale={locale}
-  crumbs={[{ name: 'Contact', url: link('/contact') }]}
+  crumbs={[{ name: t.crumb, url: link('/contact') }]}
 >
   <PageHero
-    eyebrow="Contact"
-    title="Let's build your future, together."
-    lede="Pick a desk, send a message, or just call. Someone accountable replies within one working day."
-    crumbs={[{ name: 'Contact', url: link('/contact') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/contact') }]}
   />
 
   <section class="section">
@@ -50,7 +52,7 @@ const link = (path: string) => translatePath(path, locale);
 
       <aside class="contact-side">
         <div class="c-office card card-pad" data-reveal>
-          <p class="eyebrow">New Delhi · India desk</p>
+          <p class="eyebrow">{t.delhiDesk}</p>
           <address>
             {SITE.offices[0].street}<br />
             {SITE.offices[0].city} {SITE.offices[0].postal}
@@ -59,19 +61,19 @@ const link = (path: string) => translatePath(path, locale);
         </div>
 
         <div class="c-office card card-pad" data-reveal>
-          <p class="eyebrow">Guangzhou · China desk</p>
+          <p class="eyebrow">{t.chinaDesk}</p>
           <address>
             {SITE.offices[1].street}<br />
-            {SITE.offices[1].city}, China {SITE.offices[1].postal}
+            {SITE.offices[1].city}, {t.chinaLabel} {SITE.offices[1].postal}
           </address>
           <a href={`mailto:${SITE.email}`} class="c-phone">{SITE.email}</a>
         </div>
 
         <div class="c-direct card card-pad" data-reveal>
-          <h2>Faster than forms</h2>
+          <h2>{t.direct.title}</h2>
           <div class="c-direct-btns">
-            <a href={SITE.whatsapp} class="btn btn-primary" rel="noopener">WhatsApp an advisor</a>
-            <a href={SITE.phoneIndiaHref} class="btn btn-outline">Call {SITE.phoneIndia}</a>
+            <a href={SITE.whatsapp} class="btn btn-primary" rel="noopener">{t.direct.whatsapp}</a>
+            <a href={SITE.phoneIndiaHref} class="btn btn-outline">{t.direct.call.replace('{phone}', SITE.phoneIndia)}</a>
           </div>
           <p class="c-hours num">{SITE.hours}</p>
         </div>

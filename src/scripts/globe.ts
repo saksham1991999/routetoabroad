@@ -30,12 +30,45 @@ type PointSet = {
 const DEG = Math.PI / 180;
 const TAU = Math.PI * 2;
 
-const PAPER = '#f7f7f7';
-const LAND = '#3a3a3a';
+/**
+ * Palette follows the site theme (html[data-theme]) so the globe re-inks
+ * when the toggle flips. Light mirrors the paper tokens; dark swaps the
+ * ocean to near-black, land to light-grey and the signal dot to the
+ * dark-mode accent (see src/styles/tokens.css).
+ */
+interface Palette {
+  paper: string;
+  land: string;
+  border: string;
+  rim: string;
+  signal: string;
+}
+
+const LIGHT: Palette = {
+  paper: '#f7f7f7',
+  land: '#3a3a3a',
+  border: 'rgba(255, 255, 255, 0.7)',
+  rim: 'rgba(18, 18, 18, 0.72)',
+  signal: '#5e78ee',
+};
+
+const DARK: Palette = {
+  paper: '#0a0a0a',
+  land: '#8a8a8a',
+  border: 'rgba(255, 255, 255, 0.22)',
+  rim: 'rgba(242, 242, 242, 0.5)',
+  signal: '#7d93f5',
+};
+
 const LAND_ALPHA = 0.78;
-const BORDER = 'rgba(255, 255, 255, 0.7)';
-const RIM = 'rgba(18, 18, 18, 0.72)';
-const SIGNAL = '#5e78ee';
+
+function currentPalette(): Palette {
+  try {
+    return document.documentElement.getAttribute('data-theme') === 'dark' ? DARK : LIGHT;
+  } catch {
+    return LIGHT;
+  }
+}
 
 const BASE_SPIN = 0.18; // degrees per frame — v2 cadence
 const RESUME_MS = 1400;
@@ -275,6 +308,7 @@ export function initGlobe(
   function draw() {
     if (!W || !H || R < 4) return;
 
+    const pal = currentPalette();
     project(land, PX, PY, PZ, 0);
     project(borders, PX, PY, PZ, nLand);
     project(dots, DX, DY, DZ, 0);
@@ -284,9 +318,9 @@ export function initGlobe(
     // Ocean disc + rim
     ctx!.beginPath();
     ctx!.arc(cx, cy, R, 0, TAU);
-    ctx!.fillStyle = PAPER;
+    ctx!.fillStyle = pal.paper;
     ctx!.fill();
-    ctx!.strokeStyle = RIM;
+    ctx!.strokeStyle = pal.rim;
     ctx!.lineWidth = 1.6;
     ctx!.stroke();
 
@@ -309,7 +343,7 @@ export function initGlobe(
     }
     if (any) {
       ctx!.globalAlpha = LAND_ALPHA;
-      ctx!.fillStyle = LAND;
+      ctx!.fillStyle = pal.land;
       ctx!.fill('evenodd');
       ctx!.globalAlpha = 1;
     }
@@ -317,7 +351,7 @@ export function initGlobe(
     // Country borders
     ctx!.beginPath();
     for (const r of borders.ranges) traceOpen(nLand, r.start, r.len);
-    ctx!.strokeStyle = BORDER;
+    ctx!.strokeStyle = pal.border;
     ctx!.lineWidth = 0.7;
     ctx!.stroke();
 
@@ -334,7 +368,7 @@ export function initGlobe(
       ctx!.moveTo(DX[i]! + dotR, DY[i]!);
       ctx!.arc(DX[i]!, DY[i]!, dotR, 0, TAU);
     }
-    ctx!.fillStyle = LAND;
+    ctx!.fillStyle = pal.land;
     ctx!.fill();
 
     ctx!.restore();
@@ -342,7 +376,7 @@ export function initGlobe(
     // Rim again — the clip above eats half the stroke width.
     ctx!.beginPath();
     ctx!.arc(cx, cy, R, 0, TAU);
-    ctx!.strokeStyle = RIM;
+    ctx!.strokeStyle = pal.rim;
     ctx!.lineWidth = 1.6;
     ctx!.stroke();
 
@@ -374,7 +408,7 @@ export function initGlobe(
       const sx = cx + R * cl * sinD;
       const sy = cy - R * (cosP0 * Math.sin(lat) - sinP0 * cl * cosD);
       ctx!.globalAlpha = Math.min(1, (z - 0.08) / 0.35);
-      ctx!.fillStyle = SIGNAL;
+      ctx!.fillStyle = currentPalette().signal;
       ctx!.beginPath();
       ctx!.arc(sx, sy, radius, 0, TAU);
       ctx!.fill();
@@ -464,6 +498,13 @@ export function initGlobe(
   };
   document.addEventListener('visibilitychange', onVisibility);
 
+  // Re-ink when the theme flips (the header toggle sets html[data-theme]).
+  const themeObserver = new MutationObserver(draw);
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['data-theme'],
+  });
+
   size();
   draw();
   start();
@@ -472,6 +513,7 @@ export function initGlobe(
     stop();
     ro.disconnect();
     io.disconnect();
+    themeObserver.disconnect();
     document.removeEventListener('visibilitychange', onVisibility);
     window.clearTimeout(resumeTimer);
   };

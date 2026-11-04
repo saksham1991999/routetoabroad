@@ -1,69 +1,73 @@
 ---
 /**
  * Blog index page — shared by all five locales (route shells under
- * src/pages/blog/ and src/pages/<locale>/blog/ pass `locale`). Page
- * structure and body copy are identical across locales by design; post
- * links are localized through translatePath and the filter/search script
- * ships with the component.
+ * src/pages/blog/ and src/pages/<locale>/blog/ pass `locale`). All copy comes
+ * from the per-locale dictionary in src/i18n/pages/blog-index.ts; the post
+ * list resolves through localizedEntries (localized copy or English fallback)
+ * and links localize through translatePath. The filter/search script ships
+ * with the component.
  */
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import ArticleCard from '../ArticleCard.astro';
 import CtaBand from '../CtaBand.astro';
-import { uiFor } from '../../i18n/ui';
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
+import { localizedEntries, entrySlug } from '../../lib/content';
+import { BLOG_INDEX } from '../../i18n/pages/blog-index';
 
 interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = BLOG_INDEX[locale];
 
-const posts = (await getCollection('blog')).sort(
+const posts = localizedEntries(await getCollection('blog'), locale).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
+const countTotal = t.countTotal.replace('{total}', String(posts.length));
 ---
 
 <BaseLayout
-  title="Insights — Field Notes on Studying, Travelling & Trading in Asia"
-  description="The RouteToAbroad desk blog: MBBS decisions, CSC scholarship guides, Beijing and Kyoto travel, India–China trade practice — written by the people doing the work."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/blog"
   locale={locale}
-  crumbs={[{ name: 'Insights', url: link('/blog') }]}
+  crumbs={[{ name: t.crumb, url: link('/blog') }]}
 >
   <PageHero
-    eyebrow="Insights"
+    eyebrow={t.hero.eyebrow}
     index="INS / 06"
-    title="Notes from both sides of the bridge."
-    lede="No listicles about '10 reasons to study abroad'. Field notes from admissions desks, tour routes and factory floors."
-    crumbs={[{ name: 'Insights', url: link('/blog') }]}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/blog') }]}
     facts={[
-      { label: 'Field notes', value: `${posts.length} articles` },
-      { label: 'Desks', value: 'Edu · Travel · Trade' },
-      { label: 'Cadence', value: 'Monthly' },
-      { label: 'Listicles', value: 'None' },
+      { label: t.hero.facts.notesLabel, value: t.hero.facts.articlesCount.replace('{n}', String(posts.length)) },
+      { label: t.hero.facts.desksLabel, value: t.hero.facts.desksValue },
+      { label: t.hero.facts.cadenceLabel, value: t.hero.facts.cadenceValue },
+      { label: t.hero.facts.listiclesLabel, value: t.hero.facts.listiclesValue },
     ]}
-    actions={[{ href: '#posts', label: 'Read the latest' }]}
+    actions={[{ href: '#posts', label: t.action }]}
   />
 
   <section class="section" id="posts">
     <div class="container">
       <div class="filter-bar">
-        <div class="filter-row" role="group" aria-label="Filter articles by category">
-          <button class="filter-pill active" data-filter="all" aria-pressed="true">All</button>
-          <button class="filter-pill" data-filter="education" aria-pressed="false">Education</button>
-          <button class="filter-pill" data-filter="tourism" aria-pressed="false">Tourism</button>
-          <button class="filter-pill" data-filter="trade" aria-pressed="false">Trade</button>
+        <div class="filter-row" role="group" aria-label={t.filters.aria}>
+          <button class="filter-pill active" data-filter="all" aria-pressed="true">{t.filters.all}</button>
+          <button class="filter-pill" data-filter="education" aria-pressed="false">{t.filters.categories.education}</button>
+          <button class="filter-pill" data-filter="tourism" aria-pressed="false">{t.filters.categories.tourism}</button>
+          <button class="filter-pill" data-filter="trade" aria-pressed="false">{t.filters.categories.trade}</button>
         </div>
         <form class="blog-search" role="search" id="blog-search-form">
-          <label class="visually-hidden" for="blog-search">Search the notes</label>
-          <input type="search" id="blog-search" name="q" placeholder="Search the notes…" autocomplete="off" />
+          <label class="visually-hidden" for="blog-search">{t.search.label}</label>
+          <input type="search" id="blog-search" name="q" placeholder={t.search.placeholder} autocomplete="off" />
         </form>
         <p class="filter-count" aria-live="polite">
-          <span id="filter-count">{posts.length}</span> / {posts.length} notes
+          <span id="filter-count">{posts.length}</span> / {countTotal}
         </p>
       </div>
 
@@ -71,19 +75,20 @@ const posts = (await getCollection('blog')).sort(
         {posts.map((post) => (
           <div class="post-item" data-category={post.data.category}>
             <ArticleCard
+              locale={locale}
               title={post.data.title}
-              href={link(`/blog/${post.id}`)}
+              href={link(`/blog/${entrySlug(post)}`)}
               description={post.data.description}
               image={post.data.image}
               imageAlt={post.data.imageAlt}
-              tag={post.data.category}
+              tag={t.filters.categories[post.data.category]}
               pillar={post.data.category}
-              meta={`${post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'short', year: 'numeric' })} · ${post.data.readTime} min`}
+              meta={`${post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'short', year: 'numeric' })} · ${t.minShort.replace('{n}', String(post.data.readTime))}`}
             />
           </div>
         ))}
       </div>
-      <p class="no-results" id="no-results" hidden>Nothing in this category yet — the desks are writing.</p>
+      <p class="no-results" id="no-results" hidden>{t.noResults}</p>
     </div>
   </section>
 

@@ -109,14 +109,6 @@ const ui = uiFor(locale);
     color: #0a0a0a; /* light periwinkle needs dark ink for contrast */
   }
 
-  /* The homepage is a forced-light composition (tokens.css re-declares the
-     surface set light), so the FAB keeps its light-theme face there even
-     when the stored theme is dark. */
-  html[data-theme='dark'] body[data-chrome='home'] .chat-fab {
-    background: var(--accent-surface);
-    color: #ffffff;
-  }
-
   html[data-theme='dark'] .chat-fab:hover {
     background: var(--accent-strong);
   }

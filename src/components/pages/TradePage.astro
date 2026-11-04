@@ -1,11 +1,12 @@
 ---
 /**
  * Trade pillar page — shared by all five locales (route shells under
- * src/pages/trade/ and src/pages/<locale>/trade/ pass `locale`). Structure
- * and body copy are identical across locales by design; internal links are
- * localized through translatePath and forms/CTA take the locale prop.
+ * src/pages/trade/ and src/pages/<locale>/trade/ pass `locale`). All
+ * copy comes from the per-locale dictionary in src/i18n/pages/trade.ts;
+ * internal links are localized through translatePath and forms/CTA take the
+ * locale prop.
  */
-import { Image, Picture } from 'astro:assets';
+import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
 import SectionHead from '../SectionHead.astro';
@@ -15,6 +16,7 @@ import TradeForm from '../forms/TradeForm.astro';
 import { TRADE_FAQS } from '../../data/faqs';
 import { faqSchema, serviceSchema } from '../../lib/schema';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { TRADE } from '../../i18n/pages/trade';
 
 interface Props {
   locale?: Locale;
@@ -22,121 +24,79 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = TRADE[locale];
 
 const heroImg = (await import('../../assets/images/hero-trade.jpg')).default;
-const pageFaqs = TRADE_FAQS.slice(0, 6);
+const pageFaqs = TRADE_FAQS[locale].slice(0, 6);
 
-const disciplines = [
-  {
-    n: '01',
-    name: 'Product sourcing',
-    text: '5,000+ audited supplier contacts across the Pearl River Delta. We shortlist, verify and negotiate — with a 24-hour response promise during working weeks.',
-    stat: '200+ factories audited',
-  },
-  {
-    n: '02',
-    name: 'Quality control',
-    text: 'AQL-standard inspections at ~20% and ~80% of production, plus pre-shipment checks and container loading supervision. Photo-video reports at every gate.',
-    stat: 'AQL 20% / 80% gates',
-  },
-  {
-    n: '03',
-    name: 'Customs & compliance',
-    text: 'HS classification, BIS/WPC registrations, COO documents and complete customs files prepared before goods reach port — clearance never waits on paperwork.',
-    stat: 'BIS · WPC · HS codes',
-  },
-  {
-    n: '04',
-    name: 'Smart logistics',
-    text: 'Sea 18–25 days port-to-port, air 3–7 days door-to-door, LCL for trials, FCL at scale. Port congestion monitoring with re-routing when it pays.',
-    stat: '100% insured shipments',
-  },
-  {
-    n: '05',
-    name: 'Global trade consulting',
-    text: 'Market entry, payment structuring (TT/LC/escrow), supplier contracts with penalty clauses, and dispute representation on the ground.',
-    stat: 'On-ground representation',
-  },
-];
+/* Discipline numerals are glyphs, not copy — they stay in the component. */
+const disciplineNs = ['01', '02', '03', '04', '05'];
+const disciplines = t.disciplines.items.map((d, i) => ({ ...d, n: disciplineNs[i] }));
 
-const industries = [
-  'Electronics & components', 'Industrial machinery', 'Textiles & apparel', 'Auto parts',
-  'Consumer goods', 'Chemicals', 'Home décor', 'Medical equipment', 'Packaging materials',
-];
-
-const process = [
-  { name: 'Enquiry & landed-cost picture', text: 'Tell us the product and target price. We come back with a realistic landed cost to Indian warehouse — duty, freight and inspection included.' },
-  { name: 'Factory audit', text: 'One-day on-ground audit of the candidate factories: licenses, capacity, QC maturity, photo-video evidence. No audit, no commitment.' },
-  { name: 'Sampling & golden sample', text: 'Specs locked in English + Chinese, golden samples sealed in triplicate. Every later dispute resolves against this.' },
-  { name: 'Production with QC gates', text: '30% deposit releases production; AQL inspections at 20%/80% decide whether the remaining money moves.' },
-  { name: 'Ship, clear, deliver', text: '70% against B/L copy. Customs pre-filed. Goods land at Mundra/JNPT or your door — insured end to end.' },
-];
+const industries = t.industries.items;
+const process = t.process.steps;
 ---
 
 <BaseLayout
   locale={locale}
-  title="India–China Trade Services — Sourcing, QC & Logistics"
-  description="Product sourcing, factory audits, AQL quality control, customs clearance and sea/air freight between China and India — run from Guangzhou on a success-fee model tied to shipped value."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/trade"
   image="/og/trade.jpg"
-  crumbs={[{ name: 'Trade', url: link('/trade') }]}
+  crumbs={[{ name: t.crumb, url: link('/trade') }]}
   jsonLd={[
     serviceSchema({
-      name: 'India–China trade services',
-      description: 'Sourcing, quality control, customs compliance and freight management for India–China trade, on a success-fee model.',
+      name: t.schema.serviceName,
+      description: t.schema.serviceDescription,
       url: link('/trade'),
-      serviceType: 'Trade services',
+      serviceType: t.schema.serviceType,
       areaServed: ['IN', 'CN'],
     }),
     faqSchema(pageFaqs),
   ]}
 >
   <PageHero
-    eyebrow="Trade"
-    index="TRD / 03"
-    title="Your supply chain doesn't need more complexity."
-    lede="It needs one accountable team on the factory floor. Sourcing, quality gates, customs and freight between China and India — run from our Guangzhou office, on a success fee tied to shipped value."
-    crumbs={[{ name: 'Trade', url: link('/trade') }]}
-    facts={[
-      { label: 'Base', value: 'Guangzhou · Delhi' },
-      { label: 'Network', value: '200+ vetted' },
-      { label: 'Quality', value: 'AQL inspections' },
-      { label: 'Model', value: 'Success fee' },
-    ]}
+    eyebrow={t.hero.eyebrow}
+    index={t.hero.index}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/trade') }]}
+    facts={t.hero.facts}
     actions={[
-      { href: '#enquire', label: 'Get a landed cost' },
-      { href: '#disciplines', label: 'See disciplines', variant: 'outline' },
+      { href: '#enquire', label: t.hero.primaryCta },
+      { href: '#disciplines', label: t.hero.secondaryCta, variant: 'outline' },
     ]}
     jumps={[
-      { href: '#disciplines', label: 'Disciplines' },
-      { href: '#process', label: 'Process' },
-      { href: '#industries', label: 'Industries' },
-      { href: '#enquire', label: 'Enquire' },
-      { href: '#faq', label: 'FAQ' },
+      { href: '#disciplines', label: t.hero.jumps[0] },
+      { href: '#process', label: t.hero.jumps[1] },
+      { href: '#industries', label: t.hero.jumps[2] },
+      { href: '#enquire', label: t.hero.jumps[3] },
+      { href: '#faq', label: t.hero.jumps[4] },
     ]}
   />
 
   <section class="hero-band">
     <Picture
       src={heroImg}
-      alt="Container cranes working at the Guangzhou port at dawn"
+      alt={t.heroBand.alt}
       widths={[768, 1280, 1920]}
       sizes="100vw"
       formats={['avif', 'webp']}
       loading="eager"
       fetchpriority="high"
     />
-    <p class="hero-band-caption num">Port of Guangzhou · our trade desk is 40 minutes away</p>
+    <p class="hero-band-caption num">{t.heroBand.caption}</p>
   </section>
 
   <!-- Disciplines -->
   <section class="section" id="disciplines">
     <div class="container">
       <SectionHead
-        eyebrow="Supply chain orchestration"
-        index="01 / 04"
-        title="Five core disciplines"
-        lede="Each one exists because we got tired of watching importers pay for its absence."
+        eyebrow={t.disciplines.eyebrow}
+        index={t.disciplines.index}
+        title={t.disciplines.title}
+        lede={t.disciplines.lede}
       />
       <div class="disc-grid">
         {disciplines.map((d, i) => (
@@ -155,10 +115,10 @@ const process = [
   <section class="section section-sunken" id="process">
     <div class="container-text">
       <SectionHead
-        eyebrow="How we work"
-        index="02 / 04"
-        title="From product idea to Indian warehouse"
-        lede="Money moves in steps — and each step ends with evidence, not assurances."
+        eyebrow={t.process.eyebrow}
+        index={t.process.index}
+        title={t.process.title}
+        lede={t.process.lede}
       />
       <ol class="timeline">
         {process.map((step, i) => (
@@ -178,32 +138,22 @@ const process = [
   <section class="section" id="industries">
     <div class="container">
       <SectionHead
-        eyebrow="Categories"
-        index="03 / 04"
-        title="Industries we run"
-        lede="Deep benches in these categories — and honest referrals where we don't."
+        eyebrow={t.industries.eyebrow}
+        index={t.industries.index}
+        title={t.industries.title}
+        lede={t.industries.lede}
       />
       <div class="industry-chips" data-reveal>
         {industries.map((ind) => <span class="chip">{ind}</span>)}
       </div>
 
       <div class="pay-strip" data-reveal>
-        <div class="pay-item">
-          <p class="num">30 / 70</p>
-          <p>deposit + balance against B/L — the structure we insist on</p>
-        </div>
-        <div class="pay-item">
-          <p class="num">24 hr</p>
-          <p>supplier response target during working weeks</p>
-        </div>
-        <div class="pay-item">
-          <p class="num">18–25 d</p>
-          <p>sea transit to Indian west-coast ports</p>
-        </div>
-        <div class="pay-item">
-          <p class="num">3–7 d</p>
-          <p>air freight door-to-door, 5–8× sea cost</p>
-        </div>
+        {t.payStrip.map((item) => (
+          <div class="pay-item">
+            <p class="num">{item.num}</p>
+            <p>{item.text}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
@@ -213,14 +163,14 @@ const process = [
     <div class="container form-split">
       <div data-reveal>
         <SectionHead
-          eyebrow="Start here"
-          title="Bring us a product, get a landed cost"
-          lede="Tell us what you're sourcing and your target price. We reply with a realistic landed-cost picture to an Indian warehouse — audit costs quoted upfront, success fee only when goods ship."
+          eyebrow={t.enquire.eyebrow}
+          title={t.enquire.title}
+          lede={t.enquire.lede}
         />
         <ul class="why-trade">
-          <li><strong>No success, no success fee.</strong> If the deal dies, you owe only the quoted audit/inspection costs.</li>
-          <li><strong>Evidence at every gate.</strong> Reports, photos, videos — before money moves.</li>
-          <li><strong>One team, both countries.</strong> Delhi relationships, Guangzhou floor presence.</li>
+          {t.enquire.why.map((item) => (
+            <li><strong>{item.lead}</strong> {item.text}</li>
+          ))}
         </ul>
       </div>
       <div class="form-card card card-pad" data-reveal>
@@ -232,9 +182,9 @@ const process = [
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container-text">
-      <SectionHead center eyebrow="Trade FAQ" index="04 / 04" title="Trade Intel, answered straight" />
+      <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
-      <p class="faq-more"><a href={link('/trade/faq')} class="arrow-link">All trade FAQs</a></p>
+      <p class="faq-more"><a href={link('/trade/faq')} class="arrow-link">{t.faq.more}</a></p>
     </div>
   </section>
 

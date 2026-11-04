@@ -1,53 +1,57 @@
 ---
 /**
  * Comparisons index page — shared by all five locales (route shells under
- * src/pages/compare/ and src/pages/<locale>/compare/ pass `locale`). Page
- * structure and body copy are identical across locales by design; comparison
- * links are localized through translatePath. The comparisons data lives in
- * src/data/comparisons.ts.
+ * src/pages/compare/ and src/pages/<locale>/compare/ pass `locale`). All
+ * template copy comes from the per-locale dictionary in
+ * src/i18n/pages/compare-index.ts; the comparison cards render the locale's
+ * own set from COMPARISONS[locale] in src/data/comparisons.ts (same slugs
+ * across locales) and links localize through translatePath.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
-import { uiFor } from '../../i18n/ui';
 import { COMPARISONS } from '../../data/comparisons';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { COMPARE_INDEX } from '../../i18n/pages/compare-index';
 import CtaBand from '../CtaBand.astro';
 
 interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const ui = uiFor(locale);
 /** Localize an internal href for this page's locale. */
 const link = (path: string) => translatePath(path, locale);
+/** Localized page copy. */
+const t = COMPARE_INDEX[locale];
+/** This locale's comparison set (same slugs across locales). */
+const comparisons = COMPARISONS[locale];
 ---
 
 <BaseLayout
-  title="Comparisons — MBBS China vs India, Universities, Freight"
-  description="Side-by-side comparisons with clear verdicts: MBBS in China vs India, Tsinghua vs Peking University, sea vs air freight from China to India — tables, numbers and honest calls."
+  title={t.meta.title}
+  description={t.meta.description}
   path="/compare"
   locale={locale}
-  crumbs={[{ name: 'Compare', url: link('/compare') }]}
+  crumbs={[{ name: t.crumb, url: link('/compare') }]}
 >
   <PageHero
-    eyebrow="Comparisons"
-    title="Tables and verdicts, not hedging."
-    lede="The three comparisons we're asked weekly, each with the full table, the trade-offs, and an actual answer."
-    crumbs={[{ name: 'Compare', url: link('/compare') }]}
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[{ name: t.crumb, url: link('/compare') }]}
   />
 
   <section class="section">
     <div class="container compare-list">
-      {COMPARISONS.map((c, i) => (
+      {comparisons.map((c, i) => (
         <a href={link(`/compare/${c.slug}`)} class="compare-item card" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
           <div class="vs num" aria-hidden="true">
             <span>{c.entityA}</span>
-            <em>vs</em>
+            <em>{t.item.vsLabel}</em>
             <span>{c.entityB}</span>
           </div>
           <h2>{c.headline}</h2>
           <p>{c.answer.slice(0, 180)}…</p>
-          <span class="arrow-link">Full comparison</span>
+          <span class="arrow-link">{t.item.readMore}</span>
         </a>
       ))}
     </div>

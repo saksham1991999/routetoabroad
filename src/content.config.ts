@@ -1,11 +1,19 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import { LOCALES } from "./lib/i18n";
+
+/**
+ * Locales a collection entry can be written for; en is the unprefixed root.
+ * Derived from LOCALES in lib/i18n.ts so a new locale only edits one file.
+ */
+const entryLocale = z.enum(LOCALES).default("en");
 
 const blog = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/blog" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
   schema: ({ image }) =>
     z.object({
+      locale: entryLocale,
       title: z.string(),
       description: z.string(),
       category: z.enum(["education", "tourism", "trade"]),
@@ -21,9 +29,10 @@ const blog = defineCollection({
 });
 
 const guides = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/guides" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/guides" }),
   schema: ({ image }) =>
     z.object({
+      locale: entryLocale,
       title: z.string(),
       description: z.string(),
       pillar: z.enum(["education", "tourism", "trade"]),
@@ -40,9 +49,10 @@ const guides = defineCollection({
 });
 
 const universities = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/universities" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/universities" }),
   schema: ({ image }) =>
     z.object({
+      locale: entryLocale,
       name: z.string(),
       chineseName: z.string(),
       city: z.string(),
@@ -69,9 +79,10 @@ const universities = defineCollection({
 });
 
 const cities = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/cities" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/cities" }),
   schema: ({ image }) =>
     z.object({
+      locale: entryLocale,
       name: z.string(),
       chineseName: z.string(),
       country: z.string(),
@@ -91,9 +102,10 @@ const cities = defineCollection({
 });
 
 const countries = defineCollection({
-  loader: glob({ pattern: "*.md", base: "./src/content/countries" }),
+  loader: glob({ pattern: "**/*.md", base: "./src/content/countries" }),
   schema: ({ image }) =>
     z.object({
+      locale: entryLocale,
       name: z.string(),
       intro: z.string(),
       image: image(),
