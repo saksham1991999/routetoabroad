@@ -11,7 +11,7 @@ faqs:
   - question: 'What HSK level do I need to study in China?'
     answer: 'English-taught programmes need no HSK for admission, but MBBS students must reach roughly HSK 4 before clinical rotations. Chinese-taught degrees typically require HSK 5, sometimes HSK 6.'
   - question: 'How long does it take to pass HSK 4?'
-    answer: 'From zero, plan on 12–18 months of consistent study (600+ hours). Starting in your first semester with 5–6 hours a week puts you at HSK 4 comfortably by year two.'
+    answer: 'From zero, plan on 12–18 months of consistent study (600+ hours). Starting in your first semester with 5–6 hours a week puts you at HSK 4 comfortably by year three.'
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'HSK 3.0: confirm current band-structure adoption with test centres when next updating this guide'

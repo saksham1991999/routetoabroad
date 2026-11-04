@@ -1,6 +1,6 @@
 ---
 locale: 'fr'
-name: 'China'
+name: 'Chine'
 intro: 'La Chine est notre corridor d''origine — le pays où nous plaçons des étudiants, que nous faisons visiter aux voyageurs et avec lequel nous commerçons chaque jour. Des universités homologuées MOE et des bourses CSC à la Grande Muraille et à la foire de Canton, c''est le marché que nous connaissons de l''intérieur.'
 image: '../../../assets/images/country-china.jpg'
 imageAlt: 'Montagnes karstiques le long de la rivière Li près de Guilin, en Chine'

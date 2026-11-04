@@ -34,7 +34,7 @@ Le **Type B** va directement aux universités chinoises désignées CSC. La plup
 | Composant | Bourse complète | Partielle typique |
 | --- | --- | --- |
 | Frais de scolarité | Couverts à 100 % | Exonération de 30–100 % |
-| Dorm | Chambre sur le campus gratuite | Réduite ou à votre charge |
+| Hébergement | Chambre sur le campus gratuite | Réduite ou à votre charge |
 | Allocation | ~2 500–3 500 ¥/mois | Généralement aucune |
 | Assurance maladie | Couverte | Parfois couverte |
 

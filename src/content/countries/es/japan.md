@@ -1,6 +1,6 @@
 ---
 locale: 'es'
-name: 'Japan'
+name: 'Japón'
 intro: 'Japón es nuestro segundo destino de viaje — templos, precisión ferroviaria y cultura gastronómica en su máxima expresión. Gestionamos itinerarios privados y de grupo por la ruta dorada Kioto–Tokio, ocupándonos de los visados y los tramos transfronterizos desde nuestra oficina en la India.'
 image: '../../../assets/images/country-japan.jpg'
 imageAlt: 'Una pagoda enmarcada por cerezos en flor en Kioto, Japón'

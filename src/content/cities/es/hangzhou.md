@@ -3,7 +3,7 @@ locale: 'es'
 name: 'Hangzhou'
 chineseName: '杭州'
 country: 'China'
-intro: 'Hangzhou combina los paisajes del Lago del Oeste con la capital china de la economía digital — la mejor ciudad estudiantil en relación calidad-precio: prestigio de una universidad top 5 (Zhejiang University) con costes de vida un 30% más bajos que Pekín y Shanghái.'
+intro: 'Hangzhou combina los paisajes del Lago del Oeste con la capital china de la economía digital — la mejor ciudad estudiantil en relación calidad-precio: prestigio de una universidad top 5 (Zhejiang University) con costes de vida un 30% más bajos que Pekín y Shanghái.' # {{VERIFY}} "30% más bajos" cost claim — confirm before launch
 image: '../../../assets/images/university-zhejiang.jpg'
 imageAlt: 'Edificios del campus de Zhejiang University a orillas del Lago del Oeste, Hangzhou'
 studentMonthly:
@@ -28,7 +28,7 @@ faqs:
   - question: '¿Vale la pena visitar Hangzhou con Shanghái tan cerca?'
     answer: 'Sí — está a 45–60 minutos en tren de alta velocidad de Shanghái y parece de otro siglo: lago, colinas, aldeas de té y senderos de templos. La mayoría de los viajeros la convierten en parada de una o dos noches.'
   - question: '¿Es barata Hangzhou para los estudiantes?'
-    answer: 'Con los estándares de las ciudades chinas de primer nivel, sí: US$350–600/mes cubren una vida estudiantil cómoda, con residencias desde unos US$70/mes en el campus de Zhejiang University.'
+    answer: 'Con los estándares de las ciudades chinas de primer nivel, sí: US$350–600/mes cubren una vida estudiantil cómoda, con residencias desde unos US$70/mes en el campus de Zhejiang University.' # {{VERIFY}} "residencias desde unos US$70/mes" — confirm current ZJU dorm rates
 order: 4
 ---
 

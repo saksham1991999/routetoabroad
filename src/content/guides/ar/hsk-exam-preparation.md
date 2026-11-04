@@ -12,7 +12,7 @@ faqs:
   - question: 'ما مستوى HSK الذي أحتاجه للدراسة في الصين؟'
     answer: 'البرامج المُدرَّسة بالإنجليزية لا تشترط HSK للقبول، لكن طلاب MBBS يجب أن يبلغوا نحو HSK 4 قبل الأدوار السريرية. والدرجات المُدرَّسة بالصينية تشترط عادة HSK 5، وأحيانًا HSK 6.'
   - question: 'كم يستغرق النجاح في HSK 4؟'
-    answer: 'من الصفر، خطط لـ 12–18 شهرًا من دراسة منتظمة (600+ ساعة). البدء في الفصل الأول بخمس إلى ست ساعات أسبوعيًا يوصلك إلى HSK 4 بارتياح بحلول السنة الثانية.'
+    answer: 'من الصفر، خطط لـ 12–18 شهرًا من دراسة منتظمة (600+ ساعة). البدء في الفصل الأول بخمس إلى ست ساعات أسبوعيًا يوصلك إلى HSK 4 بارتياح بحلول السنة الثالثة.'
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'HSK 3.0: confirm current band-structure adoption with test centres when next updating this guide'

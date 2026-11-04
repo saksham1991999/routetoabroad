@@ -9,6 +9,13 @@ readTime: 7
 tags: ['Visados', 'Visa X1', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'
 imageAlt: 'Un pasaporte y documentos de visado sobre un escritorio junto a un formulario de solicitud'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'Visa fees: confirm the current Chinese visa fee schedule for Indian nationals before launch'
+  - 'Processing times: re-confirm the standard 4–7 working days and paid express options'
+  - 'Peak-season timing: re-confirm the July–August slowdown cited in the FAQ'
+  - 'Medical exam validity: confirm the 6-month validity rule for the medical examination form'
+  - 'X1 entry type: confirm the X1 is still issued single-entry for this route'
 faqs:
   - question: '¿Cuál es la diferencia entre un visado X1 y X2?'
     answer: 'El X1 cubre programas de más de 180 días (títulos oficiales) y debe convertirse en permiso de residencia dentro de los 30 días siguientes a la llegada. El X2 cubre cursos cortos de 180 días o menos y no puede convertirse en residencia.'

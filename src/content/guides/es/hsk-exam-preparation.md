@@ -12,7 +12,7 @@ faqs:
   - question: '¿Qué nivel de HSK necesito para estudiar en China?'
     answer: 'Los programas en inglés no exigen HSK para la admisión, pero los estudiantes de MBBS deben alcanzar aproximadamente HSK 4 antes de las rotaciones clínicas. Los títulos impartidos en chino suelen requerir HSK 5, a veces HSK 6.'
   - question: '¿Cuánto se tarda en aprobar el HSK 4?'
-    answer: 'Desde cero, calcula de 12 a 18 meses de estudio constante (600+ horas). Empezar en tu primer semestre con 5–6 horas semanales te deja en HSK 4 con comodidad al llegar a segundo curso.'
+    answer: 'Desde cero, calcula de 12 a 18 meses de estudio constante (600+ horas). Empezar en tu primer semestre con 5–6 horas semanales te deja en HSK 4 con comodidad al llegar a tercer curso.'
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'HSK 3.0: confirm current band-structure adoption with test centres when next updating this guide'

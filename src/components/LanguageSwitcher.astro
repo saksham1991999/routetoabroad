@@ -19,6 +19,9 @@ const currentPath = Astro.url.pathname;
 const currentLocale = (Astro.props.locale as Locale | undefined) ?? DEFAULT_LOCALE;
 const ui = uiFor(currentLocale);
 const current = LOCALE_META[currentLocale];
+// Header mounts this component twice (desktop + mobile menu) — each instance
+// needs its own menu id so aria-controls stays unambiguous.
+const menuId = `lang-menu-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
 <nav class="lang-switcher" aria-label={ui.language.aria}>
@@ -27,7 +30,7 @@ const current = LOCALE_META[currentLocale];
     class="lang-btn"
     id="lang-btn"
     aria-expanded="false"
-    aria-controls="lang-menu"
+    aria-controls={menuId}
     aria-label={`${ui.language.aria}: ${current.nativeLabel}`}
   >
     <svg class="lang-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
@@ -40,7 +43,7 @@ const current = LOCALE_META[currentLocale];
     </svg>
   </button>
 
-  <ul class="lang-menu" id="lang-menu" hidden>
+  <ul class="lang-menu" id={menuId} hidden>
     {LOCALES.map((code) => {
       const active = code === currentLocale;
       return (
@@ -177,20 +180,39 @@ const current = LOCALE_META[currentLocale];
     background: rgba(255, 255, 255, 0.08);
   }
 
-  /* Mobile menu: larger tap targets, anchor the panel to the start edge */
-  .mobile-menu .lang-btn {
+  /* Mobile menu: larger tap targets, anchor the panel to the start edge.
+     .mobile-menu lives in Header.astro's markup, so it needs :global() to
+     match from this component's scoped sheet. */
+  :global(.mobile-menu) .lang-btn {
     padding: 0.55rem 0.8rem;
     font-size: 0.82rem;
   }
 
-  .mobile-menu .lang-menu {
+  :global(.mobile-menu) .lang-menu {
     inset-inline-end: auto;
     inset-inline-start: 0;
   }
 
-  .mobile-menu .lang-option {
+  :global(.mobile-menu) .lang-option {
     padding: 0.65rem 0.75rem;
     font-size: 0.88rem;
+  }
+
+  /* No-JS fallback: reveal the menu as a plain visible list (the pill links
+     it replaces were usable without JavaScript; this keeps parity). Author
+     styles outrank the UA's [hidden] { display: none }. */
+  :global(html.no-js) .lang-btn {
+    display: none;
+  }
+
+  :global(html.no-js) .lang-menu,
+  :global(html.no-js) .lang-menu[hidden] {
+    display: block;
+    position: static;
+    min-width: 0;
+    border: 0;
+    box-shadow: none;
+    padding: 0.25rem 0 0;
   }
 </style>
 
@@ -215,12 +237,20 @@ const current = LOCALE_META[currentLocale];
       if (!switcher.contains(e.target as Node)) setOpen(false);
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
-        setOpen(false);
-        btn.focus();
-      }
-    });
+    // Capture phase + stopPropagation: the Header also listens for Escape on
+    // document (bubble) to close the mobile menu — closing only the dropdown
+    // must not close both.
+    document.addEventListener(
+      'keydown',
+      (e) => {
+        if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') {
+          e.stopPropagation();
+          setOpen(false);
+          btn.focus();
+        }
+      },
+      true
+    );
 
     // Navigating closes the menu anyway (new page), but same-page hash links
     // or bfcache restores could leave it open — reset on show.

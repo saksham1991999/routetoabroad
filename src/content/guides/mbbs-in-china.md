@@ -42,7 +42,7 @@ All three matter. We shortlist only universities that clear all three.
 | Living costs (city-dependent) | 2,400 – 5,000 |
 | Insurance & residence permit | 300 – 600 |
 
-A five-and-a-half-year programme therefore lands roughly between US$35,000 and US$80,000 for the costs listed above — before one-time extras such as flights, visa fees, application charges and initial setup. That is still a fraction of a private Indian MBBS seat at ₹60 lakh–1 crore+. CSC and university scholarships can reduce tuition substantially for strong applicants.
+A five-and-a-half-year programme therefore lands roughly between US$38,500 and US$83,000 for the costs listed above — before one-time extras such as flights, visa fees, application charges and initial setup. That is still a fraction of a private Indian MBBS seat at ₹60 lakh–1 crore+. CSC and university scholarships can reduce tuition substantially for strong applicants.
 
 ## Admission timeline (September intake)
 

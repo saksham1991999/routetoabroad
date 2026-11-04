@@ -38,7 +38,7 @@ const COMPARISONS_EN: Comparison[] = [
     updated: '2025-11-01',
     rows: [
       { label: 'Tuition (per year)', a: 'US$3,500–8,000 (MOE-listed)', b: 'Government: ₹10k–1L · Private: ₹8–20L' },
-      { label: 'Total programme cost', a: 'US$35–80k all-in (5.5 yrs)', b: 'Govt: ₹5–10L · Private: ₹60L–1Cr+' },
+      { label: 'Total programme cost', a: 'US$38.5–83k all-in (5.5 yrs)', b: 'Govt: ₹5–10L · Private: ₹60L–1Cr+' },
       { label: 'Licensing exam for India practice', a: 'FMGE/NExT screening (foreign graduates only)', b: 'NExT / university registration — FMGE does not apply to Indian graduates' },
       { label: 'Medium of instruction', a: 'English (HSK 4 needed for clinical years)', b: 'English (private) / regional languages' },
       { label: 'Admission gate', a: 'NEET qualification + Class 12 PCB', b: 'NEET rank (govt) / NEET qualification (private)' },
@@ -49,7 +49,7 @@ const COMPARISONS_EN: Comparison[] = [
     ],
     verdict: {
       winner: 'Depends on your NEET outcome',
-      text: 'Government MBBS seat in India → take it, full stop. No government seat and budget-tight → MOE-listed China beats any private Indian seat on cost with comparable recognition effort (FMGE either way). Paying ₹1Cr privately with funds available and no appetite for abroad adjustment → private India remains rational. The two failure modes to avoid: unlisted Chinese universities, and choosing China while ignoring HSK and FMGE preparation.',
+      text: 'Government MBBS seat in India → take it, full stop. No government seat and budget-tight → MOE-listed China beats any private Indian seat on cost with comparable recognition effort (FMGE for China graduates; India graduates register through NExT). Paying ₹1Cr privately with funds available and no appetite for abroad adjustment → private India remains rational. The two failure modes to avoid: unlisted Chinese universities, and choosing China while ignoring HSK and FMGE preparation.',
     },
     body: [
       'The comparison most Indian families actually face is not China-vs-India in the abstract — it is China-vs-the-only-Indian-option-they-have: a private seat with a seven-figure price tag. Frame it that way and the decision gets clearer.',
@@ -177,7 +177,7 @@ const COMPARISONS_ZH: Comparison[] = [
     updated: '2025-11-01',
     rows: [
       { label: '学费（每年）', a: 'US$3,500–8,000（教育部名单院校）', b: '公办：₹10k–1L · 私立：₹8–20L' },
-      { label: '项目总花费', a: 'US$35–80k 全包（5.5 年）', b: '公办：₹5–10L · 私立：₹60L–1Cr+' },
+      { label: '项目总花费', a: 'US$38.5–83k 全包（5.5 年）', b: '公办：₹5–10L · 私立：₹60L–1Cr+' },
       { label: '在印度执业的执照考试', a: 'FMGE/NExT 筛查（仅限外国毕业生）', b: 'NExT / 大学注册——FMGE 不适用于印度毕业生' },
       { label: '授课语言', a: '英语（临床年份需 HSK 4）', b: '英语（私立）/ 地方语言' },
       { label: '入学门槛', a: 'NEET 达标 + 12 年级 PCB', b: 'NEET 排名（公办）/ NEET 达标（私立）' },
@@ -188,7 +188,7 @@ const COMPARISONS_ZH: Comparison[] = [
     ],
     verdict: {
       winner: '取决于你的 NEET 结果',
-      text: '印度的公办 MBBS 名额 → 直接拿下，不犹豫。没有公办名额且预算紧张 → 就认证所需的同等努力（两边都要 FMGE）而言，教育部名单上的中国在成本上胜过任何印度私立名额。资金充裕、无意适应国外生活、却要为私立名额支付 ₹1Cr → 印度私立仍是理性选择。要避免的两种失败模式：未上榜的中国大学，以及选了中国却忽视 HSK 和 FMGE 备考。',
+      text: '印度的公办 MBBS 名额 → 直接拿下，不犹豫。没有公办名额且预算紧张 → 就认证所需的同等努力（中国毕业生需通过 FMGE，印度毕业生走 NExT）而言，教育部名单上的中国在成本上胜过任何印度私立名额。资金充裕、无意适应国外生活、却要为私立名额支付 ₹1Cr → 印度私立仍是理性选择。要避免的两种失败模式：未上榜的中国大学，以及选了中国却忽视 HSK 和 FMGE 备考。',
     },
     body: [
       '大多数印度家庭真正面对的比较，不是抽象的中国对印度——而是中国对他们唯一拥有的印度选项：一个七位数的私立名额。按这个框架去想，决定就清晰了。',
@@ -304,7 +304,7 @@ const COMPARISONS_FR: Comparison[] = [
     updated: '2025-11-01',
     rows: [
       { label: 'Frais de scolarité (par an)', a: 'US$3,500–8,000 (universités listées MOE)', b: 'Public : ₹10k–1L · Privé : ₹8–20L' },
-      { label: 'Coût total du cursus', a: 'US$35–80k tout compris (5.5 ans)', b: 'Public : ₹5–10L · Privé : ₹60L–1Cr+' },
+      { label: 'Coût total du cursus', a: 'US$38.5–83k tout compris (5.5 ans)', b: 'Public : ₹5–10L · Privé : ₹60L–1Cr+' },
       { label: 'Examen de licence pour exercer en Inde', a: 'Screening FMGE/NExT (diplômés étrangers uniquement)', b: 'NExT / inscription universitaire — le FMGE ne s’applique pas aux diplômés indiens' },
       { label: 'Langue d’enseignement', a: 'Anglais (HSK 4 requis pour les années cliniques)', b: 'Anglais (privé) / langues régionales' },
       { label: 'Porte d’entrée', a: 'Qualification NEET + PCB en classe 12', b: 'Rang NEET (public) / qualification NEET (privé)' },
@@ -315,7 +315,7 @@ const COMPARISONS_FR: Comparison[] = [
     ],
     verdict: {
       winner: 'Cela dépend de votre résultat NEET',
-      text: 'Place publique de MBBS en Inde → prenez-la, point. Pas de place publique et budget serré → la Chine listée MOE bat toute place privée indienne sur le coût, à effort de reconnaissance comparable (FMGE dans les deux cas). Payer ₹1Cr en privé avec des fonds disponibles et aucune envie d’adaptation à l’étranger → le privé en Inde reste rationnel. Les deux échecs à éviter : les universités chinoises non listées, et choisir la Chine en ignorant la préparation HSK et FMGE.',
+      text: 'Place publique de MBBS en Inde → prenez-la, point. Pas de place publique et budget serré → la Chine listée MOE bat toute place privée indienne sur le coût, à effort de reconnaissance comparable (FMGE pour les diplômés de Chine ; les diplômés indiens s’inscrivent via le NExT). Payer ₹1Cr en privé avec des fonds disponibles et aucune envie d’adaptation à l’étranger → le privé en Inde reste rationnel. Les deux échecs à éviter : les universités chinoises non listées, et choisir la Chine en ignorant la préparation HSK et FMGE.',
     },
     body: [
       'La comparaison à laquelle font face la plupart des familles indiennes n’est pas la Chine contre l’Inde dans l’abstrait — c’est la Chine contre la seule option indienne qu’elles ont : une place privée à sept chiffres. Cadrée ainsi, la décision s’éclaircit.',
@@ -430,7 +430,7 @@ const COMPARISONS_AR: Comparison[] = [
     updated: '2025-11-01',
     rows: [
       { label: 'الرسوم الدراسية (سنويًا)', a: 'US$3,500–8,000 (جامعات مدرجة على قائمة MOE)', b: 'حكومي: ₹10k–1L · خاص: ₹8–20L' },
-      { label: 'إجمالي تكلفة البرنامج', a: 'US$35–80k شاملًا (5.5 سنوات)', b: 'حكومي: ₹5–10L · خاص: ₹60L–1Cr+' },
+      { label: 'إجمالي تكلفة البرنامج', a: 'US$38.5–83k شاملًا (5.5 سنوات)', b: 'حكومي: ₹5–10L · خاص: ₹60L–1Cr+' },
       { label: 'امتحان الترخيص للممارسة في الهند', a: 'فرز FMGE/NExT (للخريجين الأجانب فقط)', b: 'NExT / تسجيل الجامعة — FMGE لا ينطبق على الخريجين الهنود' },
       { label: 'لغة التعليم', a: 'الإنجليزية (يلزم HSK 4 للسنوات السريرية)', b: 'الإنجليزية (خاص) / لغات إقليمية' },
       { label: 'بوابة القبول', a: 'اجتياز NEET + مواد PCB في الصف 12', b: 'ترتيب NEET (حكومي) / اجتياز NEET (خاص)' },
@@ -441,7 +441,7 @@ const COMPARISONS_AR: Comparison[] = [
     ],
     verdict: {
       winner: 'يعتمد على نتيجتك في NEET',
-      text: 'مقعد MBBS حكومي في الهند → خذه، نقطة. لا مقعد حكومي والميزانية ضيقة → الصين المدرجة على قائمة MOE تتفوق على أي مقعد هندي خاص في التكلفة بمجهود اعتراف مماثل (FMGE في الحالتين). دفع ₹1Cr خاصًا مع توفر الأموال ولا رغبة في التأقلم بالخارج → الخاص في الهند يبقى خيارًا عقلانيًا. نمطا الفشل اللذان يجب تجنبهما: الجامعات الصينية غير المدرجة، واختيار الصين مع إهمال التحضير لـHSK وFMGE.',
+      text: 'مقعد MBBS حكومي في الهند → خذه، نقطة. لا مقعد حكومي والميزانية ضيقة → الصين المدرجة على قائمة MOE تتفوق على أي مقعد هندي خاص في التكلفة بمجهود اعتراف مماثل (FMGE لخريجي الصين؛ أما خريجو الهند فيسجلون عبر NExT). دفع ₹1Cr خاصًا مع توفر الأموال ولا رغبة في التأقلم بالخارج → الخاص في الهند يبقى خيارًا عقلانيًا. نمطا الفشل اللذان يجب تجنبهما: الجامعات الصينية غير المدرجة، واختيار الصين مع إهمال التحضير لـHSK وFMGE.',
     },
     body: [
       'المقارنة التي تواجهها معظم العائلات الهندية ليست الصين ضد الهند في المجرد — بل الصين ضد الخيار الهندي الوحيد المتاح لها: مقعد خاص بسعر من سبعة أرقام. بإطار ذلك تصبح القراءة أوضح.',
@@ -556,7 +556,7 @@ const COMPARISONS_ES: Comparison[] = [
     updated: '2025-11-01',
     rows: [
       { label: 'Matrícula (por año)', a: 'US$3,500–8,000 (universidades de la lista MOE)', b: 'Pública: ₹10k–1L · Privada: ₹8–20L' },
-      { label: 'Coste total del programa', a: 'US$35–80k todo incluido (5.5 años)', b: 'Pública: ₹5–10L · Privada: ₹60L–1Cr+' },
+      { label: 'Coste total del programa', a: 'US$38.5–83k todo incluido (5.5 años)', b: 'Pública: ₹5–10L · Privada: ₹60L–1Cr+' },
       { label: 'Examen de licencia para ejercer en India', a: 'Filtro FMGE/NExT (solo graduados extranjeros)', b: 'NExT / registro universitario — el FMGE no aplica a graduados indios' },
       { label: 'Idioma de instrucción', a: 'Inglés (se necesita HSK 4 para los años clínicos)', b: 'Inglés (privada) / lenguas regionales' },
       { label: 'Puerta de admisión', a: 'Calificación NEET + PCB en 12.º', b: 'Rango NEET (pública) / calificación NEET (privada)' },
@@ -567,7 +567,7 @@ const COMPARISONS_ES: Comparison[] = [
     ],
     verdict: {
       winner: 'Depende de tu resultado NEET',
-      text: 'Plaza pública de MBBS en India → tómala, sin más. Sin plaza pública y presupuesto ajustado → China de la lista MOE supera a cualquier plaza india privada en coste con esfuerzo de reconocimiento comparable (FMGE en ambos casos). Pagar ₹1Cr en privada con fondos disponibles y sin ganas de adaptación en el extranjero → la privada en India sigue siendo racional. Los dos modos de fallo que hay que evitar: universidades chinas fuera de la lista, y elegir China ignorando la preparación de HSK y FMGE.',
+      text: 'Plaza pública de MBBS en India → tómala, sin más. Sin plaza pública y presupuesto ajustado → China de la lista MOE supera a cualquier plaza india privada en coste con esfuerzo de reconocimiento comparable (FMGE para los graduados de China; los graduados indios se registran vía NExT). Pagar ₹1Cr en privada con fondos disponibles y sin ganas de adaptación en el extranjero → la privada en India sigue siendo racional. Los dos modos de fallo que hay que evitar: universidades chinas fuera de la lista, y elegir China ignorando la preparación de HSK y FMGE.',
     },
     body: [
       'La comparación a la que se enfrentan la mayoría de las familias indias no es China contra India en abstracto — es China contra la única opción india que tienen: una plaza privada de siete cifras. Planteado así, la decisión se aclara.',

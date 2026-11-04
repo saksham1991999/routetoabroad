@@ -43,7 +43,7 @@ Los tres importan. Preseleccionamos solo universidades que superan los tres.
 | Costes de vida (según ciudad) | 2.400 – 5.000 |
 | Seguro y permiso de residencia | 300 – 600 |
 
-Un programa de cinco años y medio queda pues aproximadamente entre 35.000 y 80.000 US$ para los conceptos listados arriba — antes de extras puntuales como vuelos, tasas de visado, gastos de solicitud e instalación inicial. Eso sigue siendo una fracción de una plaza india privada de MBBS de ₹60 lakh–1 crore+. Las becas CSC y universitarias pueden reducir sustancialmente la matrícula para candidatos fuertes.
+Un programa de cinco años y medio queda pues aproximadamente entre 38.500 y 83.000 US$ para los conceptos listados arriba — antes de extras puntuales como vuelos, tasas de visado, gastos de solicitud e instalación inicial. Eso sigue siendo una fracción de una plaza india privada de MBBS de ₹60 lakh–1 crore+. Las becas CSC y universitarias pueden reducir sustancialmente la matrícula para candidatos fuertes.
 
 ## Calendario de admisión (ingreso de septiembre)
 

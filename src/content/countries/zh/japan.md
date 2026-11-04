@@ -1,6 +1,6 @@
 ---
 locale: 'zh'
-name: 'Japan'
+name: '日本'
 intro: '日本是我们的第二大旅行目的地——寺庙、铁路准点与饮食文化的极致呈现。我们运营京都–东京黄金路线的私家团与团体行程，签证与跨境段均由我们的印度团队办理。'
 image: '../../../assets/images/country-japan.jpg'
 imageAlt: '日本京都樱花掩映下的宝塔'

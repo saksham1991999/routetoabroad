@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { NOT_FOUND } from '../i18n/pages/not-found';
 
 /**
  * 404 — one static page serves every missing URL, so the locale is unknown
@@ -8,68 +9,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
  * prefix (/zh/… → zh), including <html lang/dir>, document.title and the
  * localized link hrefs. English is the default and crawler-visible markup.
  */
-const I18N = {
-  en: {
-    title: 'Page Not Found',
-    heading: 'That page is not on this route.',
-    sub: 'The link is old, mistyped, or the page has moved. Nothing lost.',
-    goHome: 'Go home',
-    fitCheck: 'Start the fit check',
-    hintPre: 'Or try: ',
-    education: 'Education',
-    tourism: 'Tourism',
-    trade: 'Trade',
-    guides: 'Guides',
-  },
-  zh: {
-    title: '页面不存在',
-    heading: '这个页面不在这条路线上。',
-    sub: '链接已过期、输入有误，或页面已迁移。没有丢失任何内容。',
-    goHome: '返回首页',
-    fitCheck: '开始适配检查',
-    hintPre: '或者试试：',
-    education: '留学',
-    tourism: '旅游',
-    trade: '贸易',
-    guides: '指南',
-  },
-  fr: {
-    title: 'Page introuvable',
-    heading: 'Cette page n’est pas sur cet itinéraire.',
-    sub: 'Le lien est ancien, mal saisie, ou la page a été déplacée. Rien n’est perdu.',
-    goHome: 'Retour à l’accueil',
-    fitCheck: 'Commencer le test',
-    hintPre: 'Ou essayez : ',
-    education: 'Études',
-    tourism: 'Tourisme',
-    trade: 'Commerce',
-    guides: 'Guides',
-  },
-  ar: {
-    title: 'الصفحة غير موجودة',
-    heading: 'هذه الصفحة ليست على هذا المسار.',
-    sub: 'الرابط قديم أو مكتوب بشكل خاطئ أو تم نقل الصفحة. لم يُفقد شيء.',
-    goHome: 'العودة للرئيسية',
-    fitCheck: 'ابدأ فحص التوافق',
-    hintPre: 'أو جرّب: ',
-    education: 'التعليم',
-    tourism: 'السياحة',
-    trade: 'التجارة',
-    guides: 'الدلائل',
-  },
-  es: {
-    title: 'Página no encontrada',
-    heading: 'Esa página no está en esta ruta.',
-    sub: 'El enlace es antiguo, está mal escrito o la página se ha mudado. No se ha perdido nada.',
-    goHome: 'Ir al inicio',
-    fitCheck: 'Empezar el fit check',
-    hintPre: 'O prueba: ',
-    education: 'Educación',
-    tourism: 'Turismo',
-    trade: 'Comercio',
-    guides: 'Guías',
-  },
-} as const;
 ---
 
 <BaseLayout
@@ -79,7 +18,7 @@ const I18N = {
   noindex
   hideSwitcher
 >
-  <section class="section nf" data-404={JSON.stringify(I18N)}>
+  <section class="section nf" data-404={JSON.stringify(NOT_FOUND)}>
     <div class="container-text nf-inner">
       <p class="num nf-code">404</p>
       <h1 data-404-heading>That page is not on this route.</h1>

@@ -9,6 +9,10 @@ readTime: 8
 tags: ['Viajes', 'China', 'Itinerarios']
 image: '../../../assets/images/guide-li-river.jpg'
 imageAlt: 'Balsas de bambú derivando en el río Li bajo picos kársticos'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - '240-hour visa-free transit: re-confirm current rules, eligible nationalities and ports of entry before launch'
+  - 'Foreign card acceptance: confirm current Visa/Mastercard support in Alipay/WeChat Pay and direct card acceptance before launch'
 faqs:
   - question: '¿Cuántos días hacen falta para un primer viaje a China?'
     answer: 'De diez a doce días cubren con comodidad Pekín, Xi''an y Shanghái. Añade Guilin/Yangshuo por el paisaje o Chengdu por los pandas y la comida, con +3–4 días.'
@@ -51,7 +55,7 @@ El tren de alta velocidad (300+ km/h) gana al avión por debajo de ~1.200 km: Pe
 
 ## Visado y trámites
 
-Los indios necesitan un visado L por adelantado: itinerario, reservas, prueba de continuación — nuestra concierge lo tramita de principio a fin (ver la [guía de tipos de visado](/guides/china-visa-types)). Los esquemas de tránsito sin visado cambian a menudo; verifica las reglas vigentes para tu pasaporte antes de planificar sobre uno.
+Los indios necesitan un visado L por adelantado: itinerario, reservas, prueba de continuación — nuestra concierge lo tramita de principio a fin (ver la [guía de tipos de visado](/guides/china-visa-types)).
 
 ## Por qué los viajeros nos eligen
 

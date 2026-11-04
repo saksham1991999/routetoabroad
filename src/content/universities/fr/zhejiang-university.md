@@ -41,7 +41,7 @@ facts:
     value: 'Septembre (principale), quelques-unes en mars'
 faqs:
   - question: 'Hangzhou est-elle une bonne ville pour les étudiants internationaux ?'
-    answer: 'Oui — elle est régulièrement classée parmi les villes les plus agréables de Chine : plus petite et plus calme que Shanghai (25 minutes en train), entièrement sans espèces, avec une large communauté d''étudiants internationaux autour de ZJU.'
+    answer: 'Oui — elle est régulièrement classée parmi les villes les plus agréables de Chine : plus petite et plus calme que Shanghai (45–60 minutes en train à grande vitesse), entièrement sans espèces, avec une large communauté d''étudiants internationaux autour de ZJU.'
   - question: 'Comment l''université de Zhejiang se compare-t-elle à Fudan ?'
     answer: 'Académiquement, elles se disputent les places du top 5. ZJU l''emporte sur la profondeur ingénierie/informatique et les coûts de vie ; Fudan sur le placement finance/commerce dans Shanghai même.'
 order: 4

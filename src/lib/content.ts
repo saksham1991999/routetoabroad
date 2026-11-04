@@ -13,7 +13,7 @@
  *  - `localizedEntry`    → one entry by slug for a locale, same fallback.
  *  - `entrySlug`         → the URL slug of an entry, whatever its locale.
  */
-import { DEFAULT_LOCALE, type Locale } from './i18n';
+import { DEFAULT_LOCALE, LOCALES, type Locale } from './i18n';
 
 interface LocalizedEntry {
   id: string;
@@ -33,6 +33,28 @@ function isBaseEntry(entry: LocalizedEntry): boolean {
   return !entry.id.includes('/');
 }
 
+/**
+ * Build-time guard: an entry under a subdirectory must carry a KNOWN locale
+ * prefix that matches its declared `locale` field. Without this a mistyped
+ * locale folder (or a drifting frontmatter field) silently drops content
+ * from every locale's routes.
+ */
+function assertValidLocale(entry: LocalizedEntry): void {
+  if (!entry.id.includes('/')) return;
+  const prefix = entry.id.split('/')[0];
+  if (!LOCALES.includes(prefix as Locale)) {
+    throw new Error(
+      `Content entry "${entry.id}" lives in an unrecognized locale directory "/${prefix}/" — expected one of: ${LOCALES.join(', ')}`
+    );
+  }
+  const declared = (entry.data as { locale?: Locale }).locale;
+  if (declared && declared !== prefix) {
+    throw new Error(
+      `Content entry "${entry.id}" declares locale "${declared}" but lives in the "/${prefix}/" directory — the two must match`
+    );
+  }
+}
+
 function localePrefix(locale: Locale): string {
   return `${locale}/`;
 }
@@ -42,6 +64,7 @@ function localePrefix(locale: Locale): string {
  * entries where they don't (missing translations must never 404 a route).
  */
 export function localizedEntries<T extends LocalizedEntry>(entries: T[], locale: Locale): T[] {
+  for (const entry of entries) assertValidLocale(entry);
   if (locale === DEFAULT_LOCALE) return entries.filter(isBaseEntry);
   const localized = entries.filter((e) => e.id.startsWith(localePrefix(locale)));
   const translatedSlugs = new Set(localized.map(entrySlug));
@@ -55,6 +78,7 @@ export function localizedEntry<T extends LocalizedEntry>(
   slug: string,
   locale: Locale
 ): T | undefined {
+  for (const entry of entries) assertValidLocale(entry);
   if (locale !== DEFAULT_LOCALE) {
     const hit = entries.find((e) => e.id === `${locale}/${slug}`);
     if (hit) return hit;

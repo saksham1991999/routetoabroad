@@ -1767,7 +1767,7 @@ const tools = [
         ws.forEach((w, wi) => {
           w.classList.toggle('is-lit', wi < rowLit);
         });
-        if (rowLit >= counts[ri]) row.classList.add('lit');
+        row.classList.toggle('lit', rowLit >= counts[ri]);
         seen += counts[ri];
       });
     }

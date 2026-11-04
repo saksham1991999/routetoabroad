@@ -16,7 +16,7 @@ faqs:
     answer: 'Oui — bourses gouvernementales CSC (complètes ou partielles), bourses provinciales et bourses de mérite universitaires. Les profils compétitifs avec 80 %+ de moyennes ont des chances réelles de financement partiel à complet.'
 ---
 
-**Réponse courte : la Chine fonctionne pour les étudiants indiens qui veulent des diplômes accrédités en médecine, ingénierie ou commerce à des frais 3 à 8 fois inférieurs aux places privées indiennes — à condition de vérifier les bonnes approbations pour votre programme : le listage MOE pour le MBBS en anglais, et l'accréditation/reconnaissance propre de l'université et du programme pour l'ingénierie et le commerce — et de traiter langue et examens de licence comme partie intégrante du plan, pas comme une réflexion après coup.**
+**Réponse courte : la Chine fonctionne pour les étudiants indiens qui veulent des diplômes accrédités en médecine, ingénierie ou commerce à des frais nettement inférieurs aux places privées indiennes — à condition de vérifier les bonnes approbations pour votre programme : le listage MOE pour le MBBS en anglais, et l'accréditation/reconnaissance propre de l'université et du programme pour l'ingénierie et le commerce — et de traiter langue et examens de licence comme partie intégrante du plan, pas comme une réflexion après coup.**
 
 ## À qui cette voie convient
 

@@ -16,7 +16,7 @@ faqs:
     answer: 'Sí — becas gubernamentales CSC (completas o parciales), becas provinciales y galardones de mérito universitarios. Los perfiles competitivos con notas de 80%+ tienen posibilidades reales de financiación parcial a completa.'
 ---
 
-**Respuesta corta: China funciona para estudiantes indios que quieren títulos acreditados en medicina, ingeniería o negocios con matrícula 3–8 veces más baja que las plazas privadas indias — siempre que verifiques las aprobaciones correctas para tu programa: el listado MOE para MBBS en inglés, y la acreditación/reconocimiento propia de la universidad y del programa para ingeniería y negocios — y trates el idioma y los exámenes de licencia como parte del plan, no como una idea tardía.**
+**Respuesta corta: China funciona para estudiantes indios que quieren títulos acreditados en medicina, ingeniería o negocios con una matrícula considerablemente más baja que las plazas privadas indias — siempre que verifiques las aprobaciones correctas para tu programa: el listado MOE para MBBS en inglés, y la acreditación/reconocimiento propia de la universidad y del programa para ingeniería y negocios — y trates el idioma y los exámenes de licencia como parte del plan, no como una idea tardía.**
 
 ## A quién encaja esta vía
 

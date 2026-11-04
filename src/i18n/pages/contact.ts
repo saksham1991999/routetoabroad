@@ -40,8 +40,8 @@ export interface ContactStrings {
   /** "Faster than forms" card. The WhatsApp/call hrefs stay in the component. */
   direct: {
     title: string;
-    /** Carries a {phone} placeholder replaced with SITE.phoneIndia. */
     whatsapp: string;
+    /** Carries a {phone} placeholder replaced with SITE.phoneIndia. */
     call: string;
   };
 }

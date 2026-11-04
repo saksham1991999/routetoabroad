@@ -9,6 +9,11 @@ readTime: 7
 tags: ['التأشيرات', 'تأشيرة X1', 'JW202']
 image: '../../../assets/images/guide-visa.jpg'
 imageAlt: 'جواز سفر ومستندات تأشيرة على مكتب بجانب نموذج طلب'
+# Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
+verify:
+  - 'Processing times: confirm current standard embassy/CVASC processing (guide states 4–7 working days) and the 4–8 week end-to-end estimate, as both vary by post and season'
+  - 'Visa fees: confirm current X1/X2 visa fee schedule and expedited-option surcharges, as both change periodically'
+  - 'Medical exam: confirm the 6-month validity window for the physical examination record'
 faqs:
   - question: 'ما الفرق بين تأشيرة X1 وتأشيرة X2؟'
     answer: 'تغطي X1 البرامج الأطول من 180 يومًا (الشهادات العلمية) ويجب تحويلها إلى تصريح إقامة خلال 30 يومًا من الوصول. وتغطي X2 الدورات القصيرة التي لا تتجاوز 180 يومًا ولا يمكن تحويلها إلى إقامة.'
@@ -26,7 +31,7 @@ faqs:
 2. **نموذج JW202** (أو JW201 لطلاب المنح عبر القنوات الحكومية) — نموذج طلب التأشيرة للدراسة، يصدره قسم التعليم في المقاطعة لصالح الجامعة.
 3. **تأشيرة X1** — تُختم في السفارة/القنصلية الصينية المحلية باستخدام المستندين 1 و2، وجواز سفرك، ونموذج الطلب، وصورة، وسجل الفحص الطبي.
 
-لا JW202، لا تأشيرة. لهذا تحطّم الجامعات البطيئة في إصدار JW202 مواسم قبول سبتمبر — تابع الأمر بنفسك، أو دعنا نتابعه عنك.
+لا نموذج JW، لا تأشيرة — والنموذج الصحيح يتبع مسارك: JW202 للقبول الجامعي المباشر وJW201 لطلاب المنح عبر القنوات الحكومية. لهذا تحطّم الجامعات البطيئة في إصدار النموذج مواسم قبول سبتمبر — تابع الأمر بنفسك، أو دعنا نتابعه عنك.
 
 ## خطوة بخطوة: من العرض إلى التأشيرة
 

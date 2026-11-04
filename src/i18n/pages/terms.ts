@@ -178,7 +178,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
         items: [
           { strong: 'Admission.', text: ' Les universités décident des admissions. Nous préparons des dossiers qui vous donnent la meilleure chance honnête ; nous ne pouvons pas acheter des résultats.' },
           { strong: 'Bourses.', text: ' Les comités de bourses décident du financement. Nous ne vendons pas de bourses complètes garanties, et aucun cabinet sérieux ne le peut.' },
-          { strong: 'Visas.', text: ' Les ambassades décident des visas. Nous veillons à ce que votre dossier soit complet et correct ; un refus pour fausse déclaration ou changement de policy échappe à tout le monde.' },
+          { strong: 'Visas.', text: ' Les ambassades décident des visas. Nous veillons à ce que votre dossier soit complet et correct ; un refus pour fausse déclaration ou changement de politique échappe à tout le monde.' },
           { strong: 'Reconnaissance.', text: ' Les organismes d’agrément (NMC/FMGE-NExT, PMDC, ECFMG et autres) fixent leurs propres règles, qui évoluent. Vérifiez les exigences actuelles de votre pays avant de vous engager.' },
         ],
       },
@@ -235,7 +235,7 @@ export const TERMS: Record<Locale, TermsStrings> = {
         items: [
           { strong: 'القبول.', text: ' الجامعات تقرر القبول. نعدّ ملفات تمنحك أفضل فرصة صادقة؛ لا يمكننا شراء النتائج.' },
           { strong: 'المنح.', text: ' لجان المنح تقرر التمويل. لا نبيع منحًا كاملة مضمونة، ولا يمكن لأي شركة استشارات نظامية ذلك.' },
-          { strong: 'التأشيرات.', text: ' السفارات تقرر التأشيرات. نضمن أن ملفك كامل وصحيح؛ أما الرفض بسبب تحريف أو تغيير في السياس فخارج سيطرة الجميع.' },
+          { strong: 'التأشيرات.', text: ' السفارات تقرر التأشيرات. نضمن أن ملفك كامل وصحيح؛ أما الرفض بسبب تحريف أو تغيير في السياسة فخارج سيطرة الجميع.' },
           { strong: 'الاعتراف.', text: ' الجهات الترخيصية (NMC/FMGE-NExT وPMDC وECFMG وغيرها) تضع قواعدها الخاصة، وهي تتغير. تحقق من متطلبات بلدك الحالية قبل الالتزام.' },
         ],
       },

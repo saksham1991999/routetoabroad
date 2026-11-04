@@ -1,6 +1,6 @@
 ---
 locale: 'fr'
-name: 'Japan'
+name: 'Japon'
 intro: 'Le Japon est notre deuxième destination de voyage — temples, précision ferroviaire et culture gastronomique à leur sommet. Nous opérons des itinéraires privés et en groupe sur la route dorée Kyoto–Tokyo, en gérant les visas et les segments transfrontaliers depuis notre bureau indien.'
 image: '../../../assets/images/country-japan.jpg'
 imageAlt: 'Une pagoda encadrée par les cerisiers en fleurs à Kyoto, au Japon'

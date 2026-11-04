@@ -355,7 +355,7 @@ export const TOURISM: Record<Locale, TourismStrings> = {
       eyebrow: 'Façons de voyager',
       index: '02 / 04',
       title: 'Trois modes, un seul standard',
-      lede: 'Quoi que vous voyagiez avec nous, le socle d’assistance reste le même.',
+      lede: 'Quelle que soit votre façon de voyager avec nous, le niveau d’assistance reste le même.',
       items: [
         {
           name: 'Immersion culturelle',
@@ -490,7 +490,7 @@ export const TOURISM: Record<Locale, TourismStrings> = {
       items: [
         { name: 'خدمة التأشيرات', text: 'ملفات L وM وF والدول المتعددة نجهزها ونحجزها من البداية للنهاية.' },
         { name: 'رحلات وقطارات ذات أولوية', text: 'الرحلات الداخلية والقطارات فائقة السرعة تُحجز لحظة فتح البيع.' },
-        { name: 'إقامات مميزة', text: 'فنادق نم فيها فعلًا، لا مجرد ما نراه على مواقع الحجز.' },
+        { name: 'إقامات مميزة', text: 'فنادق نمنا فيها فعلًا، لا مجرد ما نراه على مواقع الحجز.' },
         { name: 'برامج ذكية', text: 'خطط يومية فيها راحة مدمجة — لا مسيرات مرهقة بـ14 موقعًا.' },
         { name: 'مواصلات محلية', text: 'سائقون وبطاقات مترو ووسائل تنقل — مرتبة قبل هبوطك.' },
         { name: 'مكتب 24/7', text: 'دعم واتساب في منطقتك الزمنية طوال الرحلة.' },
@@ -572,7 +572,7 @@ export const TOURISM: Record<Locale, TourismStrings> = {
       eyebrow: 'Formas de viajar',
       index: '02 / 04',
       title: 'Tres modos, un solo estándar',
-      lede: 'Sin importar cómo viajes con nosotros, el paquete de cuidados de debajo es el mismo.',
+      lede: 'Sin importar cómo viajes con nosotros, el nivel de acompañamiento es el mismo.',
       items: [
         {
           name: 'Inmersión cultural',

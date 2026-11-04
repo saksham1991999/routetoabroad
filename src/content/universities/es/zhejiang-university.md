@@ -41,7 +41,7 @@ facts:
     value: 'Septiembre (principal), algunos en marzo'
 faqs:
   - question: '¿Es Hangzhou buena para estudiantes internacionales?'
-    answer: 'Sí — se clasifica regularmente entre las ciudades más habitables de China: más pequeña y tranquila que Shanghái (25 minutos en tren), completamente sin efectivo y con una gran comunidad de estudiantes internacionales alrededor de ZJU.'
+    answer: 'Sí — se clasifica regularmente entre las ciudades más habitables de China: más pequeña y tranquila que Shanghái (45–60 minutos en tren de alta velocidad), completamente sin efectivo y con una gran comunidad de estudiantes internacionales alrededor de ZJU.'
   - question: '¿Cómo se compara Zhejiang University con Fudan?'
     answer: 'Académicamente intercambian posiciones dentro del top 5. ZJU gana en profundidad de ingeniería/informática y costes de vida; Fudan gana en colocación de finanzas/negocios en la propia Shanghái.'
 order: 4

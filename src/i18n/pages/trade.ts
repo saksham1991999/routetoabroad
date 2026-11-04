@@ -651,7 +651,7 @@ export const TRADE: Record<Locale, TradeStrings> = {
       eyebrow: 'Categorías',
       index: '03 / 04',
       title: 'Industrias en las que operamos',
-      lede: 'Bancos profundos en estas categorías — y derivaciones honestas donde no los tenemos.',
+      lede: 'Experiencia sólida y proveedores verificados en estas categorías — y derivaciones honestas donde no tenemos esa cobertura.',
       items: [
         'Electrónica y componentes', 'Maquinaria industrial', 'Textiles y confección', 'Autopartes',
         'Bienes de consumo', 'Química', 'Decoración del hogar', 'Equipamiento médico', 'Materiales de empaque',

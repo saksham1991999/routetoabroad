@@ -27,8 +27,8 @@ programmes:
   - 'MBA (collège Antai, enseigné en anglais)'
   - 'Science des matériaux (parcours recherche)'
 costs:
-  tuition: 'Généralement US$4,000–9,000/an ; la CSC couvre 100% pour les lauréats'
-  dorm: 'US$1,000–1,800/an sur le campus'
+  tuition: 'Généralement US$4 000–9 000/an ; la CSC couvre 100% pour les lauréats'
+  dorm: 'US$1 000–1 800/an sur le campus'
   living: 'US$550–900/mois à Shanghai'
 facts:
   - label: 'Ville'

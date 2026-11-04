@@ -49,7 +49,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
       storage: {
         h: '3. Functional storage',
-        p: 'Two small pieces of state live in your browser’s local storage: your light/dark theme preference and your saved progress on the document checklist tool. Neither leaves your device.',
+        p: 'A few small pieces of state live in your browser’s local storage: your light/dark theme preference, your saved progress on the document checklist tool, the values you enter into the cost calculator, fit check and timeline planner, your conversation with the AI assistant, and a flag that remembers you have already seen the homepage intro. None of it leaves your device.',
       },
       forms: {
         h: '4. Form processing',
@@ -93,7 +93,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
       storage: {
         h: '3. 功能性存储',
-        p: '你的浏览器本地存储中有两小段状态：你的明暗主题偏好，以及你在文件清单工具中的保存进度。两者都不会离开你的设备。',
+        p: '你的浏览器本地存储中有几小段状态：你的明暗主题偏好、你在文件清单工具中的保存进度、你在费用计算器 / 适配检查 / 时间线规划中输入的数值、你与 AI 助手的对话，以及记录你是否看过首页开场动画的标记。它们都不会离开你的设备。',
       },
       forms: {
         h: '4. 表单处理',
@@ -138,7 +138,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
       storage: {
         h: '3. Stockage fonctionnel',
-        p: 'Deux petites données vivent dans le stockage local de votre navigateur : votre préférence de thème clair/sombre et votre progression sauvegardée sur l’outil de liste de documents. Aucune ne quitte votre appareil.',
+        p: 'Quelques petites données vivent dans le stockage local de votre navigateur : votre préférence de thème clair/sombre, votre progression sauvegardée sur la liste de documents, les valeurs saisies dans le calculateur de coûts, le test de compatibilité et le planificateur, votre conversation avec l’assistant IA, ainsi qu’un indicateur mémorisant que vous avez déjà vu l’introduction de la page d’accueil. Aucune ne quitte votre appareil.',
       },
       forms: {
         h: '4. Traitement des formulaires',
@@ -182,7 +182,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
       storage: {
         h: '3. تخزين وظيفي',
-        p: 'قطعتان صغيرتان من البيانات تعيشان في التخزين المحلي لمتصفحك: تفضيلك للوضع الفاتح/الداكن، وتقدمك المحفوظ في أداة قائمة المستندات. لا واحدة منهما تغادر جهازك.',
+        p: 'عدة أجزاء صغيرة من البيانات تعيش في التخزين المحلي لمتصفحك: تفضيلك للوضع الفاتح/الداكن، وتقدمك المحفوظ في أداة قائمة المستندات، والقيم التي تُدخلها في حاسبة التكاليف وفحص التوافق ومخطط الجدول الزمني، ومحادثتك مع المساعد الذكي، وعلامة تذكّر أنك شاهدت مقدم الصفحة الرئيسية. لا شيء منها يغادر جهازك.',
       },
       forms: {
         h: '4. معالجة النماذج',
@@ -227,7 +227,7 @@ export const PRIVACY: Record<Locale, PrivacyStrings> = {
       },
       storage: {
         h: '3. Almacenamiento funcional',
-        p: 'Dos pequeños datos viven en el almacenamiento local de tu navegador: tu preferencia de tema claro/oscuro y tu progreso guardado en la herramienta de lista de documentos. Ninguno sale de tu dispositivo.',
+        p: 'Algunos pequeños datos viven en el almacenamiento local de tu navegador: tu preferencia de tema claro/oscuro, tu progreso guardado en la lista de documentos, los valores que introduces en la calculadora de costes, el fit check y el planificador, tu conversación con el asistente de IA y una marca que recuerda que ya viste la introducción de la portada. Ninguno sale de tu dispositivo.',
       },
       forms: {
         h: '4. Procesamiento de formularios',

@@ -35,7 +35,7 @@ Puedes solicitar hasta tres universidades a través del portal del CSC. Juega co
 
 ## Paso 4: Presenta antes de la fecha límite
 
-Las fechas límite del CSC suelen situarse entre finales de febrero y mediados de abril para la ingesta de septiembre. Cuando se exija copia física, envíala con tiempo — las solicitudes tardías quedan descalificadas sin excepción. Deja un margen de tres semanas en tu calendario.
+Las fechas límite del CSC suelen situarse entre finales de febrero y mediados de abril para la admisión de septiembre. Cuando se exija copia física, envíala con tiempo — las solicitudes tardías quedan descalificadas sin excepción. Deja un margen de tres semanas en tu calendario.
 
 ## Paso 5: Haz seguimiento y acompaña
 

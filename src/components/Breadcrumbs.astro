@@ -1,6 +1,6 @@
 ---
 import { SITE } from '../lib/site';
-import { localeFromPath } from '../lib/i18n';
+import { localeFromPath, translatePath } from '../lib/i18n';
 import { uiFor } from '../i18n/ui';
 
 interface Props {
@@ -9,7 +9,7 @@ interface Props {
 
 const { crumbs } = Astro.props;
 const locale = localeFromPath(Astro.url.pathname);
-const withHome = [{ name: uiFor(locale).breadcrumbsHome, url: SITE.url }, ...crumbs];
+const withHome = [{ name: uiFor(locale).breadcrumbsHome, url: translatePath('/', locale) }, ...crumbs];
 ---
 
 <nav class="breadcrumbs" aria-label="Breadcrumb">

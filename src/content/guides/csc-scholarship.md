@@ -60,7 +60,7 @@ Full CSC awards at top-tier universities (Tsinghua, Peking, Fudan) are highly co
 - **October–December:** shortlist universities and professors; draft study plan
 - **January:** CSC portal opens; notarise documents
 - **February–mid-April:** submit — deadlines vary per university, never assume April is safe
-- **May–July:** results; pair the award with your Admission Notice and the route-appropriate JW form — most scholarship students receive a **JW201** (government/Type A channel) while self-funded and most Type B university-award students receive a **JW202**. Use whichever form your university issues; either supports the X1 visa application.
+- **May–July:** results; pair the award with your Admission Notice and the route-appropriate JW form — **JW202** covers Type B university-route awards and self-funded students, while **JW201** belongs to the Type A government channel. Use whichever form your university issues; either supports the X1 visa application.
 - **July–August:** X1 visa, arrival, residence permit
 
 ## The honesty clause

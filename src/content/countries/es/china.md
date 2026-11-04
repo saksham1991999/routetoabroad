@@ -9,7 +9,7 @@ stats:
     value: '500+'
   - label: 'Universidades asociadas'
     value: '150+'
-  - label: 'Ingresos al año'
+  - label: 'Convocatorias al año'
     value: '2 (sept. y mar.)'
   - label: 'Tasa de éxito de visados'
     value: '98%' # {{VERIFY}}

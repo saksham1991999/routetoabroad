@@ -1,7 +1,7 @@
 ---
 locale: 'fr'
 title: 'MBBS en Chine : le guide complet pour les candidats de 2026'
-description: 'Un MBBS chinois peut coûter un tiers d''une place privée indienne en médecine — à condition de choisir une université listée par le MOE et de planifier le FMGE. Coûts, reconnaissance, langue, calendrier d''admission et comment éviter les pièges.'
+description: 'Un MBBS chinois coûte considérablement moins qu''une place privée indienne en médecine — à condition de choisir une université listée par le MOE et de planifier le FMGE. Coûts, reconnaissance, langue, calendrier d''admission et comment éviter les pièges.'
 pillar: 'education'
 pubDate: 2025-01-15
 updatedDate: 2025-11-01
@@ -43,7 +43,7 @@ Les trois comptent. Nous présélectionnons uniquement des universités qui fran
 | Coûts de vie (selon la ville) | 2 400 – 5 000 |
 | Assurance & titre de séjour | 300 – 600 |
 
-Un programme de cinq ans et demi se situe donc grossièrement entre 35 000 et 80 000 USD pour les postes listés ci-dessus — hors extras ponctuels comme vols, frais de visa, frais de candidature et installation initiale. Cela reste une fraction d'une place privée indienne en MBBS à ₹60 lakh–1 crore et plus. Les bourses CSC et universitaires peuvent réduire substantiellement les frais pour les bons candidats.
+Un programme de cinq ans et demi se situe donc grossièrement entre 38 500 et 83 000 USD pour les postes listés ci-dessus — hors extras ponctuels comme vols, frais de visa, frais de candidature et installation initiale. Cela reste une fraction d'une place privée indienne en MBBS à ₹60 lakh–1 crore et plus. Les bourses CSC et universitaires peuvent réduire substantiellement les frais pour les bons candidats.
 
 ## Calendrier d'admission (rentrée de septembre)
 

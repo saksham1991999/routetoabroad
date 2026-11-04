@@ -347,6 +347,7 @@ const GENERAL_FAQS_ZH: Faq[] = [
     question: 'RouteToAbroad 运营多久了？',
     answer:
       '在印度与中国之间的跨境服务领域深耕十余年。',
+      // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
   },
   {
     question: '团队使用哪些语言工作？',
@@ -523,6 +524,7 @@ const GENERAL_FAQS_FR: Faq[] = [
     question: 'Depuis combien de temps RouteToAbroad opère-t-il ?',
     answer:
       'Plus d’une décennie dans les services transfrontaliers entre l’Inde et la Chine.',
+      // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
   },
   {
     question: 'Dans quelles langues l’équipe travaille-t-elle ?',
@@ -699,6 +701,7 @@ const GENERAL_FAQS_AR: Faq[] = [
     question: 'منذ متى تعمل RouteToAbroad؟',
     answer:
       'أكثر من عقد في الخدمات العابرة للحدود بين الهند والصين.',
+      // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
   },
   {
     question: 'بأي اللغات يعمل الفريق؟',
@@ -875,6 +878,7 @@ const GENERAL_FAQS_ES: Faq[] = [
     question: '¿Cuánto tiempo lleva RouteToAbroad operando?',
     answer:
       'Más de una década en servicios transfronterizos entre India y China.',
+      // {{VERIFY}} confirm exact founding year (records conflict: 2012 vs 2018) before making the claim specific
   },
   {
     question: '¿En qué idiomas trabaja el equipo?',

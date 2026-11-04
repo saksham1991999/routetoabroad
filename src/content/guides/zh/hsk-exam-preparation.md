@@ -12,7 +12,7 @@ faqs:
   - question: '在中国留学需要什么HSK等级？'
     answer: '英语授课项目录取不要求HSK，但MBBS学生在进入临床轮转前须达到约HSK 4。中文授课学位通常要求HSK 5，有时为HSK 6。'
   - question: '通过HSK 4需要多长时间？'
-    answer: '从零开始，按稳定学习计划预计12–18个月（600小时以上）。第一学期就开始、每周学习5–6小时，到大二时可以从容达到HSK 4。'
+    answer: '从零开始，按稳定学习计划预计12–18个月（600小时以上）。第一学期就开始、每周学习5–6小时，到大三时可以从容达到HSK 4。'
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'HSK 3.0: confirm current band-structure adoption with test centres when next updating this guide'

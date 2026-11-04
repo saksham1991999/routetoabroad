@@ -1,9 +1,13 @@
 import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 import { glob } from "astro/loaders";
+import { LOCALES } from "./lib/i18n";
 
-/** Locales a collection entry can be written for; en is the unprefixed root. */
-const entryLocale = z.enum(["en", "zh", "fr", "ar", "es"]).default("en");
+/**
+ * Locales a collection entry can be written for; en is the unprefixed root.
+ * Derived from LOCALES in lib/i18n.ts so a new locale only edits one file.
+ */
+const entryLocale = z.enum(LOCALES).default("en");
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),

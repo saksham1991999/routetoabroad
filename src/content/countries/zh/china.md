@@ -1,6 +1,6 @@
 ---
 locale: 'zh'
-name: 'China'
+name: '中国'
 intro: '中国是我们的核心走廊——我们为学生安排留学、带旅行者游览、每天与之打交道的市场。从教育部备案的高校、CSC奖学金，到长城与广交会，这是一个我们从内部了解的市场。'
 image: '../../../assets/images/country-china.jpg'
 imageAlt: '中国桂林漓江沿岸的喀斯特山峰'

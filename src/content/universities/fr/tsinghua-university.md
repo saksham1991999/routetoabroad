@@ -47,6 +47,6 @@ faqs:
 order: 2
 ---
 
-Tsinghua fait face à l'université de Pékin à Haidian, et la rivalité est affectueuse mais bien réelle : Tsinghua règne sur l'ingénierie et la technologie ; Pékin règne sur les humanités et les sciences pures. Le campus mêle l'architecture universitaire américaine du début du XXe siècle (il commença comme école préparatoire financée par les revers des indemnités des Boxers) à des laboratoires modernes spectaculaires.
+Tsinghua fait face à l'université de Pékin à Haidian, et la rivalité est affectueuse mais bien réelle : Tsinghua règne sur l'ingénierie et la technologie ; Pékin règne sur les humanités et les sciences pures. Le campus mêle l'architecture universitaire américaine du début du XXe siècle (il commença comme école préparatoire financée par les restitutions des indemnités des Boxers) à des laboratoires modernes spectaculaires.
 
 **Pour qui nous plaçons ici :** les candidats en ingénierie et informatique avec d'excellentes notes et une intention de recherche, plus les professionnels du parcours MBA en quête d'immersion dans le marché chinois.

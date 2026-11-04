@@ -13,13 +13,22 @@ import { AUTHORS } from './authors';
 const minhajImg = (await import('../assets/founders/ceo_minhaj.jpg')).default;
 const vijeeshImg = (await import('../assets/founders/director_vijeesh.jpg')).default;
 
-/** TODO(i18n): zh/fr/ar/es still alias the English strings — translations pending. */
-const pts = (...en: string[]): Record<Locale, string[]> => ({ en, zh: en, fr: en, ar: en, es: en });
-
 const POINTS = {
-  minhaj: pts('Sets direction and the partnerships we keep', 'Runs the trade desk', 'Fifteen years across the corridor'),
-  vijeesh: pts('Owns academic matching and student files', 'Runs university relationships', 'Hundreds of placements, first call to campus gate'),
-} as const;
+  minhaj: {
+    en: ['Sets direction and the partnerships we keep', 'Runs the trade desk', 'Fifteen years across the corridor'],
+    zh: ['把握方向并维系合作网络', '主持贸易业务', '深耕走廊十五年'],
+    fr: ['Fixe le cap et entretient nos partenariats', 'Dirige le pôle commerce', 'Quinze ans sur le corridor'],
+    ar: ['يحدد التوجه ويحافظ على شراكاتنا', 'يدير مكتب التجارة', 'خمسة عشر عامًا على الممر'],
+    es: ['Marca el rumbo y cultiva nuestras alianzas', 'Dirige el área de comercio', 'Quince años en el corredor'],
+  },
+  vijeesh: {
+    en: ['Owns academic matching and student files', 'Runs university relationships', 'Hundreds of placements, first call to campus gate'],
+    zh: ['负责学业匹配与学生档案', '维护大学合作关系', '数百名学生成功入学，从首次咨询到校园注册'],
+    fr: ['Pilote le placement académique et les dossiers étudiants', 'Gère les relations universitaires', 'Des centaines de placements, du premier appel au portail du campus'],
+    ar: ['مسؤول عن المطابقة الأكاديمية وملفات الطلاب', 'يدير علاقات الجامعات', 'مئات القبولات، من أول اتصال إلى بوابة الحرم'],
+    es: ['Responsable del emparejamiento académico y los expedientes', 'Gestiona las relaciones universitarias', 'Cientos de colocaciones, de la primera llamada a la puerta del campus'],
+  },
+} satisfies Record<string, Record<Locale, string[]>>;
 
 export interface Founder {
   id: string;
