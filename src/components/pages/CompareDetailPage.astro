@@ -35,7 +35,9 @@ const c =
   COMPARISONS[locale].find((x) => x.slug === slug) ??
   COMPARISONS.en.find((x) => x.slug === slug) ??
   COMPARISONS.en[0];
-const updated = new Date(c.updated).toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric' });
+// Date-only stamps are UTC midnights; format in UTC so the rendered
+// calendar day matches the stored date regardless of build timezone.
+const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' });
 ---
 
 <BaseLayout

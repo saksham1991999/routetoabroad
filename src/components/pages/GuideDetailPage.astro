@@ -84,7 +84,7 @@ const pillarColor: Record<string, string> = {
       <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{t.pillarGuide[data.pillar]}</p>
       <h1>{data.title}</h1>
       <p class="guide-meta num">
-        {t.updated.replace('{date}', new Date(data.updatedDate ?? data.pubDate).toLocaleDateString(DATE_TAG[locale], { month: 'long', year: 'numeric' }))}
+        {t.updated.replace('{date}', new Date(data.updatedDate ?? data.pubDate).toLocaleDateString(DATE_TAG[locale], { month: 'long', year: 'numeric', timeZone: 'UTC' }))}
         · {t.readTime.replace('{n}', String(data.readTime))}
         {data.tags.map((tag) => <span class="guide-tag">{tag}</span>)}
       </p>

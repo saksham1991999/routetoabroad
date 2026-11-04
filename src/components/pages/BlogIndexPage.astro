@@ -83,7 +83,7 @@ const countTotal = t.countTotal.replace('{total}', String(posts.length));
               imageAlt={post.data.imageAlt}
               tag={t.filters.categories[post.data.category]}
               pillar={post.data.category}
-              meta={`${post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'short', year: 'numeric' })} · ${t.minShort.replace('{n}', String(post.data.readTime))}`}
+              meta={`${post.data.pubDate.toLocaleDateString(DATE_TAG[locale], { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })} · ${t.minShort.replace('{n}', String(post.data.readTime))}`}
             />
           </div>
         ))}
