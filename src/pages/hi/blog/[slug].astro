@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared BlogPostPage component, slugs in src/lib/static-paths.ts.
+import BlogPostPage from '../../../components/pages/BlogPostPage.astro';
+import { blogPaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return blogPaths('hi');
+}
+
+const { post } = Astro.props;
+---
+
+<BlogPostPage locale="hi" post={post} />

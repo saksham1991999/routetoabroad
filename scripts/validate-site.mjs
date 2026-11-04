@@ -3,7 +3,7 @@
  * Site QA: validates every built HTML page for
  *  - unique title + meta description + canonical per locale
  *  - self-canonicalization on every localized, indexable page
- *  - complete + reciprocal hreflang clusters (en/zh/fr/ar/es + x-default),
+ *  - complete + reciprocal hreflang clusters (en/zh/fr/ar/es/de/ja/pt/hi + x-default),
  *    each target being a built page whose own canonical equals the target
  *  - parseable JSON-LD with required fields per type
  *  - single H1
@@ -30,12 +30,14 @@ const SITE = 'https://routetoabroad.com'; // keep in sync with astro.config.mjs 
 const errors = [];
 const warnings = [];
 
-// i18n: the site supports 5 locales. English lives at the unprefixed root;
-// zh / fr / ar / es pages live under /<locale>/. Localized pages are
-// intentional translations of the English page, so title/description
-// duplication ACROSS LOCALES is expected — we only error on duplicates
-// within the same locale.
-const LOCALES = ['en', 'zh', 'fr', 'ar', 'es'];
+// i18n: the site supports 9 locales. English lives at the unprefixed root;
+// zh / fr / ar / es / de / ja / pt / hi pages live under /<locale>/. This
+// list must stay in sync with astro.config.mjs i18n.locales and
+// src/lib/i18n.ts LOCALES (the consistency check below enforces it).
+// Localized pages are intentional translations of the English page, so
+// title/description duplication ACROSS LOCALES is expected — we only error
+// on duplicates within the same locale.
+const LOCALES = ['en', 'zh', 'fr', 'ar', 'es', 'de', 'ja', 'pt', 'hi'];
 const localeOf = (rel) => {
   const seg = rel.split('/')[0];
   return LOCALES.includes(seg) ? seg : 'en';
@@ -154,6 +156,8 @@ for (const [probe, expected] of [
   ['404.html', true],
   ['zh/route-with-no-source/index.html', false],
   ['fr/route-with-no-source/index.html', false],
+  ['hi/blog/any-slug/index.html', true],
+  ['de/route-with-no-source/index.html', false],
 ]) {
   if (isSourcePageHtml(probe) !== expected) {
     throw new Error(`validate-site: source-page detector self-test failed for "${probe}"`);

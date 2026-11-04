@@ -253,6 +253,198 @@ const MARQUEE_ITEMS_ES: string[] = [
   'Auditoría de fábrica superada — Apex Components',
 ];
 
+/* de — machine-assisted translation (meaning translated, names kept accurate). */
+const TESTIMONIALS_DE: Testimonial[] = [
+  {
+    id: 'ananya',
+    quote: 'RouteToAbroad hat mir nicht nur eine Universität gefunden, sondern eine Zukunft. Die Stipendienabdeckung für meinen MBBS an der Peking University lief reibungslos, und die Betreuung vor Ort ließ mich China wie ein Zuhause fühlen.',
+    name: 'Ananya Krishnan',
+    role: 'MBBS, Peking University (Jahrgang 2024)',
+    category: 'education',
+  },
+  {
+    id: 'rohan',
+    quote: 'Ich war anfangs skeptisch, im Ausland Ingenieurwesen zu studieren, aber das Team begleitete mich durch jeden Schritt — von der Auswahl der Universitäten bis zur Ankunft in Peking. Ich bekam ein CSC-Stipendium, von dem ich nicht einmal wusste, dass ich mich dafür qualifiziere.',
+    name: 'Rohan Sharma',
+    role: 'B.Tech Informatik, BJTU Peking (Jahrgang 2025)',
+    category: 'education',
+  },
+  {
+    id: 'priya',
+    quote: 'Unsere Gruppenreise nach Shanghai und Peking war schlicht außergewöhnlich. Jedes Detail — Hotels, Guides, Reiseroute — war perfekt kuratiert. Wir fühlten uns bei jedem Schritt betreut, selbst die Essensvorlieben wurden ohne einen einzigen Haken gehandhabt.',
+    name: 'Priya Mehta',
+    role: 'Bildungsgruppenreise, Shanghai & Peking (2024)',
+    category: 'tourism',
+  },
+  {
+    id: 'meera',
+    quote: 'Als Berufstätige mit einem MBA an der Fudan University brauchte ich eine Beraterin oder einen Berater, der den akademischen und kulturellen Übergang versteht. RouteToAbroad erledigte alles — von den Unterlagen bis zur Wohnungssuche.',
+    name: 'Meera Nair',
+    role: 'MBA, Fudan University (Jahrgang 2025)',
+    category: 'education',
+  },
+  {
+    id: 'arjun',
+    quote: 'Elektronikkomponenten aus China zu beziehen war immer ein Ärgernis — bis wir das Trade-Team von RouteToAbroad einschalteten. Sie prüften drei Fabriken, verhandelten Preise und betreuten unsere erste FCL-Sendung von Anfang bis Ende. Unsere Lieferkette war nie zuverlässiger.',
+    name: 'Arjun Patel',
+    role: 'Gründer, Apex Components India — Handelskunde (2024)',
+    category: 'trade',
+  },
+];
+
+const MARQUEE_ITEMS_DE: string[] = [
+  'Aufnahme an der Tsinghua University — Rahul M.',
+  'Vollstipendium für MBBS — Priya S.',
+  'Sourcing von 40-Fuß-Containern monatlich — TechTrade India',
+  'Bildungsreise nach Shanghai — 45 Studierende',
+  'CSC-Zuwendung, Fudan University — Meera N.',
+  'Fabrik-Audit bestanden — Apex Components',
+];
+
+/* ja — machine-assisted translation (meaning translated, names kept accurate). */
+const TESTIMONIALS_JA: Testimonial[] = [
+  {
+    id: 'ananya',
+    quote: 'RouteToAbroadは大学を見つけてくれただけでなく、未来を見つけてくれました。北京大学のMBBSの奨学金手続きは一切のトラブルもなく、現地でのサポートのおかげで中国がまるで我が家のように感じられました。',
+    name: 'Ananya Krishnan',
+    role: 'MBBS、北京大学（2024年卒）',
+    category: 'education',
+  },
+  {
+    id: 'rohan',
+    quote: '海外で工学を学ぶことには半信半疑でしたが、チームは大学選びから北京での生活の立ち上げまで、一つひとつのステップを伴走してくれました。自分が応募資格があることさえ知らなかったCSC奨学金を獲得しました。',
+    name: 'Rohan Sharma',
+    role: 'コンピュータサイエンス学部、北京交通大学（2025年卒）',
+    category: 'education',
+  },
+  {
+    id: 'priya',
+    quote: '上海と北京への団体ツアーは、言いようのないほど素晴らしいものでした。ホテル、ガイド、旅程——すべての細部が完璧に仕上げられていました。食事の好みまですべてのステップで手厚く、一度もつまずきがありませんでした。',
+    name: 'Priya Mehta',
+    role: '教育団体ツアー、上海・北京（2024）',
+    category: 'tourism',
+  },
+  {
+    id: 'meera',
+    quote: '復旦大学でMBAを学ぶ社会人として、学問的・文化的な移行を理解してくれるアドバイザーが必要でした。書類準備から住まい探しまで、RouteToAbroadがすべて対応してくれました。',
+    name: 'Meera Nair',
+    role: 'MBA、復旦大学（2025年卒）',
+    category: 'education',
+  },
+  {
+    id: 'arjun',
+    quote: '中国からの電子部品の調達はいつも頭痛の種でした——RouteToAbroadの貿易チームに依頼するまでは。3つの工場を検証し、価格を交渉し、初めてのFCL出荷を最後まで管理してくれました。サプライチェーンは今までで一番信頼できるものになりました。',
+    name: 'Arjun Patel',
+    role: '創業者、Apex Components India — 貿易顧客（2024）',
+    category: 'trade',
+  },
+];
+
+const MARQUEE_ITEMS_JA: string[] = [
+  '清華大学に合格 — Rahul M.',
+  'MBBS全額奨学金 — Priya S.',
+  '毎月40フィートコンテナを調達 — TechTrade India',
+  '上海教育ツアー — 学生45名',
+  'CSC奨学金、復旦大学 — Meera N.',
+  '工場監査に合格 — Apex Components',
+];
+
+/* pt — machine-assisted translation (meaning translated, names kept accurate). */
+const TESTIMONIALS_PT: Testimonial[] = [
+  {
+    id: 'ananya',
+    quote: 'A RouteToAbroad não apenas encontrou uma universidade para mim; encontrou um futuro. A cobertura da bolsa para meu MBBS na Peking University foi impecável, e o suporte local fez a China parecer um lar.',
+    name: 'Ananya Krishnan',
+    role: 'MBBS, Peking University (turma de 2024)',
+    category: 'education',
+  },
+  {
+    id: 'rohan',
+    quote: 'Eu era cético quanto a estudar engenharia no exterior, mas a equipe me acompanhou em cada etapa — da pré-seleção de universidades à adaptação em Pequim. Consegui uma bolsa CSC para a qual nem sabia que tinha direito.',
+    name: 'Rohan Sharma',
+    role: 'B.Tech em Ciência da Computação, BJTU Pequim (turma de 2025)',
+    category: 'education',
+  },
+  {
+    id: 'priya',
+    quote: 'Nossa viagem em grupo a Xangai e Pequim foi simplesmente extraordinária. Cada detalhe — hotéis, guias, roteiro — foi curado com perfeição. Nos sentimos cuidados a cada passo, mesmo com as preferências alimentares resolvidas sem um único contratempo.',
+    name: 'Priya Mehta',
+    role: 'Viagem em grupo educativa, Xangai e Pequim (2024)',
+    category: 'tourism',
+  },
+  {
+    id: 'meera',
+    quote: 'Como profissional em atividade fazendo um MBA na Fudan University, eu precisava de um consultor que entendesse a transição acadêmica e cultural. A RouteToAbroad cuidou de tudo, da documentação à procura de moradia.',
+    name: 'Meera Nair',
+    role: 'MBA, Fudan University (turma de 2025)',
+    category: 'education',
+  },
+  {
+    id: 'arjun',
+    quote: 'Comprar componentes eletrônicos na China sempre foi uma dor de cabeça — até contratarmos a equipe de comércio da RouteToAbroad. Eles verificaram três fábricas, negociaram preços e geriram nossa primeira carga FCL de ponta a ponta. Nossa cadeia de suprimentos nunca foi tão confiável.',
+    name: 'Arjun Patel',
+    role: 'Fundador, Apex Components India — Cliente de comércio (2024)',
+    category: 'trade',
+  },
+];
+
+const MARQUEE_ITEMS_PT: string[] = [
+  'Aprovado na Tsinghua University — Rahul M.',
+  'Bolsa integral de MBBS — Priya S.',
+  'Comprando contêineres de 40 pés todo mês — TechTrade India',
+  'Viagem educativa a Xangai — 45 estudantes',
+  'Bolsa CSC, Fudan University — Meera N.',
+  'Auditoria de fábrica aprovada — Apex Components',
+];
+
+/* hi — machine-assisted translation (meaning translated, names kept accurate). */
+const TESTIMONIALS_HI: Testimonial[] = [
+  {
+    id: 'ananya',
+    quote: 'RouteToAbroad ने सिर्फ़ मेरे लिए एक विश्वविद्यालय नहीं खोजा; उसने मेरे लिए एक भविष्य खोजा। पेकिंग यूनिवर्सिटी में मेरे MBBS की छात्रवृत्ति कवरेज सहज रही, और वहाँ के सपोर्ट ने चीन को घर जैसा महसूस करा दिया।',
+    name: 'Ananya Krishnan',
+    role: 'MBBS, पेकिंग यूनिवर्सिटी (2024 बैच)',
+    category: 'education',
+  },
+  {
+    id: 'rohan',
+    quote: 'विदेश में इंजीनियरिंग पढ़ने को लेकर मैं संशय में था, पर टीम ने हर कदम में मेरा साथ दिया — यूनिवर्सिटी शॉर्टलिस्टिंग से बीजिंग में बसने तक। मुझे CSC छात्रवृत्ति मिली, जिसके लिए मैं पात्र हूँ यह तो मुझे पता ही नहीं था।',
+    name: 'Rohan Sharma',
+    role: 'B.Tech कंप्यूटर साइंस, BJTU बीजिंग (2025 बैच)',
+    category: 'education',
+  },
+  {
+    id: 'priya',
+    quote: 'शंघाई और बीजिंग की हमारी ग्रुप ट्रिप कमाल की रही। हर ब्योरा — होटल, गाइड, कार्यक्रम — बेहतरीन तरीके से सुसज्जित था। हर कदम पर हमें देखभाल मिली, यहाँ तक कि खाने की पसंदें भी बिना किसी अड़चन के संभाली गईं।',
+    name: 'Priya Mehta',
+    role: 'शैक्षिक ग्रुप टूर, शंघाई और बीजिंग (2024)',
+    category: 'tourism',
+  },
+  {
+    id: 'meera',
+    quote: 'फ़ुदान यूनिवर्सिटी में MBA करती हुई कामकाजी प्रोफेशनल के नाते मुझे ऐसे सलाहकार की ज़रूरत थी जो शैक्षिक और सांस्कृतिक बदलाव को समझे। दस्तावेज़ों से लेकर आवास तलाश तक RouteToAbroad ने सब संभाला।',
+    name: 'Meera Nair',
+    role: 'MBA, फ़ुदान यूनिवर्सिटी (2025 बैच)',
+    category: 'education',
+  },
+  {
+    id: 'arjun',
+    quote: 'चीन से इलेक्ट्रॉनिक कंपोनेंट ख़रीदना हमेशा सिरदर्द था — जब तक हमने RouteToAbroad की ट्रेड टीम के साथ काम शुरू किया। उन्होंने तीन फ़ैक्टरियाँ सत्यापित कीं, क़ीमतों पर बातचीत की और हमारी पहली FCL शिपमेंट को शुरू से अंत तक संभाला। हमारी सप्लाई चेन पहले से कहीं ज़्यादा भरोसेमंद है।',
+    name: 'Arjun Patel',
+    role: 'संस्थापक, Apex Components India — ट्रेड ग्राहक (2024)',
+    category: 'trade',
+  },
+];
+
+const MARQUEE_ITEMS_HI: string[] = [
+  'त्सिंगहुआ यूनिवर्सिटी में प्रवेश — Rahul M.',
+  'पूर्ण MBBS छात्रवृत्ति — Priya S.',
+  'हर महीने 40 फ़ीट कंटेनर सोर्सिंग — TechTrade India',
+  'शंघाई शैक्षिक यात्रा — 45 छात्र',
+  'CSC छात्रवृत्ति, फ़ुदान यूनिवर्सिटी — Meera N.',
+  'फ़ैक्टरी ऑडिट पास — Apex Components',
+];
+
 /**
  * Client voices — a localized page reads TESTIMONIALS[locale]. id, name,
  * category and image stay identical across locales; quote and role are
@@ -264,6 +456,10 @@ export const TESTIMONIALS: Record<Locale, Testimonial[]> = {
   fr: TESTIMONIALS_FR,
   ar: TESTIMONIALS_AR,
   es: TESTIMONIALS_ES,
+  de: TESTIMONIALS_DE,
+  ja: TESTIMONIALS_JA,
+  pt: TESTIMONIALS_PT,
+  hi: TESTIMONIALS_HI,
 };
 
 /** Short proof-strip lines under the pillar rows. */
@@ -273,4 +469,8 @@ export const MARQUEE_ITEMS: Record<Locale, string[]> = {
   fr: MARQUEE_ITEMS_FR,
   ar: MARQUEE_ITEMS_AR,
   es: MARQUEE_ITEMS_ES,
+  de: MARQUEE_ITEMS_DE,
+  ja: MARQUEE_ITEMS_JA,
+  pt: MARQUEE_ITEMS_PT,
+  hi: MARQUEE_ITEMS_HI,
 };

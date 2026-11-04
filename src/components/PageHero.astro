@@ -3,6 +3,9 @@ import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
 import Breadcrumbs from './Breadcrumbs.astro';
 import { SITE } from '../lib/site';
+import { localeFromPath } from '../lib/i18n';
+import { uiFor } from '../i18n/ui';
+import { cityName } from '../data/city-names';
 
 interface Fact {
   label: string;
@@ -52,9 +55,12 @@ const {
   index = 'RTA',
 } = Astro.props;
 
+const locale = localeFromPath(Astro.url.pathname);
+const ui = uiFor(locale);
+
 const corridor = SITE.offices.map((o) => ({
   code: o.code,
-  city: o.city,
+  city: cityName(o.id, locale),
   lat: o.lat,
   lng: o.lng,
 }));
@@ -93,7 +99,7 @@ const corridor = SITE.offices.map((o) => ({
         )}
       </div>
 
-      <aside class="hero-aside" aria-label="At a glance">
+      <aside class="hero-aside" aria-label={ui.hero.asideAria}>
         {facts && facts.length > 0 ? (
           <dl class="hero-facts">
             {facts.map((f) => (
@@ -120,7 +126,7 @@ const corridor = SITE.offices.map((o) => ({
           </figure>
         ) : (
           <div class="hero-coords">
-            <p class="hero-coords-label">The corridor</p>
+            <p class="hero-coords-label">{ui.hero.corridorLabel}</p>
             <div class="coord-track" aria-hidden="true">
               <span></span>
               <span></span>
@@ -134,14 +140,14 @@ const corridor = SITE.offices.map((o) => ({
                 </span>
               </div>
             ))}
-            <p class="coord-note">Two offices. One accountable team.</p>
+            <p class="coord-note">{ui.hero.coordsNote}</p>
           </div>
         )}
       </aside>
     </div>
 
     {jumps && jumps.length > 0 && (
-      <nav class="hero-jumps" aria-label="On this page">
+      <nav class="hero-jumps" aria-label={ui.hero.jumpsAria}>
         {jumps.map((j) => (
           <a href={j.href}>
             <span aria-hidden="true">→</span>

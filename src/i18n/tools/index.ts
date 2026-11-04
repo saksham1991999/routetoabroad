@@ -183,4 +183,134 @@ const es: ToolsIndexStrings = {
   },
 };
 
-export const TOOLS_INDEX_STRINGS: Record<Locale, ToolsIndexStrings> = { en, zh, fr, ar, es };
+const de: ToolsIndexStrings = {
+  title: 'Kostenlose Tools — Eignungscheck, Kostenrechner, Stipendien & Visum-Planung',
+  description:
+    'Fünf kostenlose Tools für ein Studium in China: ein Eignungscheck mit vier Fragen, Stipendien-Stufen, ein Kostenrechner, ein Dokumenten-Checklisten-Generator und ein Bewerbungszeitplaner.',
+  crumb: 'Tools',
+  hero: {
+    eyebrow: 'Kostenlose Tools',
+    title: 'Erst die Antwort, dann der Rat.',
+    lede: 'Fünf schnelle Tools, die Ihnen echte Zahlen und ehrliche Einschätzungen liefern, bevor Sie überhaupt mit uns sprechen. Keine E-Mail-Hürden, keine Scheingenauigkeit.',
+    facts: [
+      { label: 'Tools', value: '05 kostenlos' },
+      { label: 'Zeit', value: '1–3 Minuten' },
+      { label: 'E-Mail', value: 'Nicht erforderlich' },
+      { label: 'Antworten', value: 'Echte Spannen' },
+    ],
+    action: 'Mit dem Eignungscheck starten',
+  },
+  tools: [
+    { name: 'Eignungscheck', desc: 'Vier Fragen — Staatsangehörigkeit, Qualifikation, Fachrichtung, Studienbeginn. Wir antworten ja, vielleicht oder nicht in dieser Aufnahme — mit Begründung. Derselbe erste Eindruck wie ein Berater am Telefon.', time: '2 Min.' },
+    { name: 'Stipendien-Check', desc: 'Wo Ihre Noten und Ihr Niveau tatsächlich stehen für volle CSC-Stipendien, Provinz-Teilstipendien oder den selbstfinanzierten Weg. Ehrliche Stufen, keine Schmeichelei.', time: '2 Min.' },
+    { name: 'Kostenrechner für das Studium', desc: 'Studiengebühren plus Lebenshaltungskosten nach Stadt, Programm und Lebensstil — jährlich und gesamt, in USD, mit nachvollziehbarer Rechnung.', time: '1 Min.' },
+    { name: 'Dokumenten-Checklisten-Generator', desc: 'Ihre persönliche Dokumentenliste nach Level, Programm und Stipendienweg. Punkte abhaken, Fortschritt speichern, ausdrucken.', time: '3 Min.' },
+    { name: 'Bewerbungszeitplaner', desc: 'Wählen Sie Ihren Studienbeginn und erhalten Sie den Monat-für-Monat-Plan rückwärts gerechnet — Fristen markiert, Puffer eingerechnet.', time: '1 Min.' },
+  ],
+  open: 'Öffnen',
+  note: {
+    bold: 'Warum keine E-Mail-Hürde?',
+    before: 'Weil die Tools ehrlicher nützlicher sind als hinter einer Schranke. Wenn die Antworten Sie zu einem Gespräch mit einem Menschen verleiten —',
+    link: 'diese Seite',
+    after: 'ist nur einen Klick entfernt.',
+  },
+};
+
+const ja: ToolsIndexStrings = {
+  title: '無料ツール — 適性チェック、費用計算、奨学金・ビザ計画',
+  description: '中国留学のための5つの無料ツール：4つの質問の適性チェック、奨学金受給ランク、費用計算ツール、書類チェックリスト生成ツール、出願スケジュールプランナー。',
+  crumb: 'ツール',
+  hero: {
+    eyebrow: '無料ツール',
+    title: 'まず答え、その後にアドバイス。',
+    lede: 'ご連絡いただく前に、実際の数字と正直な評価をお届けする5つのクイックツール。メールアドレスの登録も、見せかけの精度もありません。',
+    facts: [
+      { label: 'ツール', value: '5つ無料' },
+      { label: '所要時間', value: '1〜3分' },
+      { label: 'メール', value: '不要' },
+      { label: '回答', value: '実際の幅' },
+    ],
+    action: '適性チェックから始める',
+  },
+  tools: [
+    { name: '適性チェック', desc: '4つの質問 — 国籍、学歴、専攻、入学時期。回答は「可」「要検討」「今回は不可」のいずれかと、その理由。アドバイザーが電話で行う最初のふるい分けと同じものです。', time: '2分' },
+    { name: '奨学金受給資格チェック', desc: 'あなたの成績と学習段階が、CSC全額奨学金、省級部分奨学金、自費ルートのどの水準に当てはまるか。正直なランク表示で、お世辞はありません。', time: '2分' },
+    { name: '留学費用計算ツール', desc: '都市・プログラム・ライフスタイル別の学費と生活費 — 年間と総額を米ドルで、計算過程も表示します。', time: '1分' },
+    { name: '書類チェックリスト生成ツール', desc: '学習段階・プログラム・奨学金ルートに応じたあなた専用の書類リスト。項目にチェックを付け、進捗を保存して印刷できます。', time: '3分' },
+    { name: '出願スケジュールプランナー', desc: '入学時期を選ぶと、締め切りから逆算した月別プランを作成 — 締め切りを明示し、余裕も織り込み済み。', time: '1分' },
+  ],
+  open: '開く',
+  note: {
+    bold: 'なぜメールの壁がないのか？',
+    before: '正直なほうが、登録を求めるより役に立つからです。この答えを見て、人と話したくなったら —',
+    link: 'そのページ',
+    after: 'ワンクリックでアクセスできます。',
+  },
+};
+
+const pt: ToolsIndexStrings = {
+  title: 'Ferramentas gratuitas — teste de compatibilidade, calculadora de custos, bolsas e planejamento de visto',
+  description:
+    'Cinco ferramentas gratuitas para estudar na China: um teste de compatibilidade de quatro perguntas, faixas de elegibilidade para bolsas, uma calculadora de custos, um gerador de lista de documentos e um planejador de cronograma de candidatura.',
+  crumb: 'Ferramentas',
+  hero: {
+    eyebrow: 'Ferramentas gratuitas',
+    title: 'Respostas antes dos conselhos.',
+    lede: 'Cinco ferramentas rápidas que trazem números reais e leituras honestas antes de você falar conosco. Sem barreiras de e-mail, sem precisão falsa.',
+    facts: [
+      { label: 'Ferramentas', value: '05 gratuitas' },
+      { label: 'Tempo', value: '1–3 minutos' },
+      { label: 'E-mail', value: 'Não é necessário' },
+      { label: 'Respostas', value: 'Faixas reais' },
+    ],
+    action: 'Começar pelo teste de compatibilidade',
+  },
+  tools: [
+    { name: 'Teste de compatibilidade', desc: 'Quatro perguntas — cidadania, qualificação, área e ingresso. Respondemos sim, talvez ou não neste ingresso, com o motivo. A mesma primeira análise que um consultor faz por telefone.', time: '2 min' },
+    { name: 'Verificação de elegibilidade para bolsas', desc: 'Onde suas notas e seu nível realmente se situam para bolsas CSC integrais, parciais provinciais ou rotas autofinanciadas. Faixas honestas, sem bajulação.', time: '2 min' },
+    { name: 'Calculadora do custo de estudar', desc: 'Mensalidade mais custos de vida por cidade, programa e estilo de vida — anual e total, em USD, com as contas à vista.', time: '1 min' },
+    { name: 'Gerador de lista de documentos', desc: 'Sua lista de documentos personalizada por nível, programa e rota de bolsa. Marque itens, salve o progresso e imprima.', time: '3 min' },
+    { name: 'Planejador de cronograma de candidatura', desc: 'Escolha seu ingresso e receba o plano mês a mês calculado de trás para frente — prazos marcados, folgas incluídas.', time: '1 min' },
+  ],
+  open: 'Abrir',
+  note: {
+    bold: 'Por que não há barreira de e-mail?',
+    before: 'Porque as ferramentas são mais úteis honestas do que bloqueadas. Se as respostas lhe derem vontade de conversar com alguém —',
+    link: 'essa página',
+    after: 'está a um clique.',
+  },
+};
+
+const hi: ToolsIndexStrings = {
+  title: 'मुफ़्त टूल्स — फिट चेक, लागत कैलकुलेटर, छात्रवृत्ति और वीज़ा योजना',
+  description: 'चीन में पढ़ाई के लिए पाँच मुफ़्त टूल्स: चार सवालों का फिट चेक, छात्रवृत्ति पात्रता स्तर, लागत कैलकुलेटर, दस्तावेज़ चेकलिस्ट जेनरेटर और आवेदन टाइमलाइन प्लानर।',
+  crumb: 'टूल्स',
+  hero: {
+    eyebrow: 'मुफ़्त टूल्स',
+    title: 'पहले जवाब, फिर सलाह।',
+    lede: 'पाँच त्वरित टूल्स जो हमसे बात करने से पहले ही असली आंकड़े और ईमानदार आकलन देते हैं। न ईमेल की दीवार, न कृत्रिम सटीकता।',
+    facts: [
+      { label: 'टूल्स', value: '05 मुफ़्त' },
+      { label: 'समय', value: '1–3 मिनट' },
+      { label: 'ईमेल', value: 'आवश्यक नहीं' },
+      { label: 'जवाब', value: 'असली रेंज' },
+    ],
+    action: 'फिट चेक से शुरू करें',
+  },
+  tools: [
+    { name: 'फिट चेक', desc: 'चार सवाल — नागरिकता, योग्यता, क्षेत्र, प्रवेश सत्र। हमारा जवाब: हाँ, शायद, या इस सत्र में नहीं — कारण के साथ। वही पहला आकलन जो सलाहकार फ़ोन पर करता है।', time: '2 मिनट' },
+    { name: 'छात्रवृत्ति पात्रता जाँच', desc: 'CSC पूर्ण छात्रवृत्ति, प्रांतीय आंशिक छात्रवृत्ति या स्वयं वित्तपोषित रास्ते के लिए आपके अंक और स्तर असल में कहाँ खड़े हैं। ईमानदार स्तर, चापलूसी नहीं।', time: '2 मिनट' },
+    { name: 'पढ़ाई की लागत कैलकुलेटर', desc: 'शहर, प्रोग्राम और जीवनशैली के अनुसार ट्यूशन फीस और रहन-सहन का खर्च — सालाना और कुल, USD में, हिसाब दिखाते हुए।', time: '1 मिनट' },
+    { name: 'दस्तावेज़ चेकलिस्ट जेनरेटर', desc: 'स्तर, प्रोग्राम और छात्रवृत्ति रास्ते के अनुसार आपकी व्यक्तिगत दस्तावेज़ सूची। आइटम पर टिक करें, प्रगति सहेजें, प्रिंट करें।', time: '3 मिनट' },
+    { name: 'आवेदन टाइमलाइन प्लानर', desc: 'अपना प्रवेश सत्र चुनें और पीछे की ओर गिना गया महीना-दर-महीना प्लान पाएँ — डेडलाइन चिह्नित, बफ़र शामिल।', time: '1 मिनट' },
+  ],
+  open: 'खोलें',
+  note: {
+    bold: 'ईमेल की दीवार क्यों नहीं?',
+    before: 'क्योंकि ईमानदार टूल्स बंद टूल्स से ज़्यादा काम के हैं। अगर ये जवाब आपको किसी इंसान से बात करने के लिए प्रेरित करें —',
+    link: 'वह पेज',
+    after: 'एक क्लिक की दूरी पर है।',
+  },
+};
+
+export const TOOLS_INDEX_STRINGS: Record<Locale, ToolsIndexStrings> = { en, zh, fr, ar, es, de, ja, pt, hi };

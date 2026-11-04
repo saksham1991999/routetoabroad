@@ -148,4 +148,103 @@ export const GLOSSARY_PAGE: Record<Locale, GlossaryStrings> = {
     noteLink: 'Cuéntanos',
     notePost: ' y lo añadimos — el glosario crece con cada ingreso.',
   },
+
+  de: {
+    meta: {
+      title: 'Glossar — CSC, JW202, HSK, AQL & Ostasien-Begriffe erklärt',
+      description:
+        'Verständliche Definitionen der Begriffe rund um Studieren, Reisen und Handeln in Ostasien: CSC-Stipendium, JW202, X1-Visum, HSK, AQL, Bill of Lading, Canton Fair und mehr.',
+    },
+    crumb: 'Glossar',
+    hero: {
+      eyebrow: 'Glossar',
+      title: 'Jedes Kürzel, klar erklärt.',
+      lede: 'Der Wortschatz des Korridors — definiert so, wie wir ihn am Telefon erklären. Anker unten; verlinken Sie direkt zu jedem Begriff.',
+    },
+    tocAria: 'Glossar-Kategorien',
+    categories: {
+      education: 'Bildung',
+      visas: 'Visa',
+      exams: 'Prüfungen & Sprache',
+      travel: 'Reisen',
+      trade: 'Handel',
+    },
+    notePre: 'Etwas fehlt? ',
+    noteLink: 'Sagen Sie es uns',
+    notePost: ' und wir ergänzen es — das Glossar wächst mit jedem Studiengang.',
+  },
+
+  ja: {
+    meta: {
+      title: '用語集 — CSC、JW202、HSK、AQL と東アジアの用語解説',
+      description: '東アジアでの学び・旅・貿易の用語をわかりやすく解説：CSC 奨学金、JW202、X1 ビザ、HSK、AQL、船荷証券、カントンフェアなど。',
+    },
+    crumb: '用語集',
+    hero: {
+      eyebrow: '用語集',
+      title: 'どんな略語も、わかりやすく。',
+      lede: '回廊の語彙 — 電話での説明と同じ言葉で定義しています。下にアンカーがあります。どの用語にも直接リンクできます。',
+    },
+    tocAria: '用語集のカテゴリー',
+    categories: {
+      education: '教育',
+      visas: 'ビザ',
+      exams: '試験と言語',
+      travel: '旅行',
+      trade: '貿易',
+    },
+    notePre: '足りない用語がありますか？ ',
+    noteLink: 'お知らせください',
+    notePost: '。追加します — 用語集は毎回の入学とともに育ちます。',
+  },
+
+  pt: {
+    meta: {
+      title: 'Glossário — CSC, JW202, HSK, AQL e termos da Ásia Oriental explicados',
+      description:
+        'Definições em linguagem clara dos termos de estudar, viajar e negociar na Ásia Oriental: bolsa CSC, JW202, visto X1, HSK, AQL, Bill of Lading, Canton Fair e mais.',
+    },
+    crumb: 'Glossário',
+    hero: {
+      eyebrow: 'Glossário',
+      title: 'Cada sigla, em linguagem clara.',
+      lede: 'O vocabulário do corredor — definido como explicamos ao telefone. Âncoras abaixo; link direto para qualquer termo.',
+    },
+    tocAria: 'Categorias do glossário',
+    categories: {
+      education: 'Educação',
+      visas: 'Vistos',
+      exams: 'Exames e idiomas',
+      travel: 'Viagem',
+      trade: 'Comércio',
+    },
+    notePre: 'Falta algo? ',
+    noteLink: 'Avise-nos',
+    notePost: ' e adicionamos — o glossário cresce a cada turma.',
+  },
+
+  hi: {
+    meta: {
+      title: 'शब्दावली — CSC, JW202, HSK, AQL और पूर्वी एशिया के शब्द समझाए गए',
+      description:
+        'पूर्वी एशिया में पढ़ाई, यात्रा और व्यापार के शब्दों की सरल परिभाषाएँ: CSC छात्रवृत्ति, JW202, X1 वीज़ा, HSK, AQL, बिल ऑफ़ लेडिंग, कैंटन फेयर और अधिक।',
+    },
+    crumb: 'शब्दावली',
+    hero: {
+      eyebrow: 'शब्दावली',
+      title: 'हर संक्षिप्त रूप, सरल भाषा में।',
+      lede: 'गलियारे की शब्दावली — वैसे परिभाषित जैसे हम कॉल पर समझाते हैं। नीचे एंकर हैं; किसी भी शब्द से सीधे जोड़ें।',
+    },
+    tocAria: 'शब्दावली श्रेणियाँ',
+    categories: {
+      education: 'शिक्षा',
+      visas: 'वीज़ा',
+      exams: 'परीक्षाएँ और भाषा',
+      travel: 'यात्रा',
+      trade: 'व्यापार',
+    },
+    notePre: 'कुछ छूट गया? ',
+    noteLink: 'हमें बताएँ',
+    notePost: ' और हम जोड़ देंगे — शब्दावली हर प्रवेश सत्र के साथ बढ़ती है।',
+  },
 };

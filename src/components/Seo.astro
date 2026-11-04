@@ -43,7 +43,8 @@ const {
 // The English canonical path for this page. Locale-prefixed callers pass
 // e.g. path="/zh/education" + locale="zh"; strip the locale segment so every
 // URL computation (canonical, hreflang, og:url) is derived from one source.
-const englishPath = path.replace(/^\/+(zh|fr|ar|es)(?=\/|$)/, '');
+// The alternation must mirror src/lib/i18n.ts LOCALES (minus 'en').
+const englishPath = path.replace(/^\/+(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/, '');
 // i18n: when this page is a localized copy, the canonical points at the
 // localized URL (self-reference), not the English one. The English version
 // stays reachable via the hreflang links emitted below.
@@ -51,14 +52,19 @@ const canonical = new URL(translatePath(englishPath, locale), SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
 const fullTitle = englishPath === '/' ? title : `${title} | ${SITE.name}`;
 const pageLocale = LOCALE_META[locale].code;
-// og:locale wants language_TERRITORY (en_IN, zh_CN, fr_FR, ar_AE, es_ES).
-// English is en_IN: the consultancy is India-anchored (IN offices, +91 line).
+// og:locale wants language_TERRITORY (en_IN, zh_CN, fr_FR, ar_AE, es_ES,
+// de_DE, ja_JP, pt_BR, hi_IN). English is en_IN: the consultancy is
+// India-anchored (IN offices, +91 line).
 const OG_TERRITORY: Record<string, string> = {
   en: 'IN',
   zh: 'CN',
   fr: 'FR',
   ar: 'AE',
   es: 'ES',
+  de: 'DE',
+  ja: 'JP',
+  pt: 'BR',
+  hi: 'IN',
 };
 const ogLocaleTag = `${pageLocale.replace('-', '_')}_${OG_TERRITORY[pageLocale] ?? 'US'}`;
 

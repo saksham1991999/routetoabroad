@@ -1,0 +1,13 @@
+---
+// Route shell — markup in the shared CityDetailPage component, slugs in src/lib/static-paths.ts.
+import CityDetailPage from '../../../components/pages/CityDetailPage.astro';
+import { cityPaths } from '../../../lib/static-paths';
+
+export async function getStaticPaths() {
+  return cityPaths('pt');
+}
+
+const { city } = Astro.props;
+---
+
+<CityDetailPage locale="pt" city={city} />

@@ -124,4 +124,84 @@ export const FAQ: Record<Locale, FaqStrings> = {
       trade: { eyebrow: 'Comercio', heading: 'Comercio India–China', link: 'Página de FAQ de Comercio' },
     },
   },
+
+  de: {
+    meta: {
+      title: 'FAQ — Studieren, Reisen & Handeln in Ostasien',
+      description:
+        'Jede Frage, die wir hören, geradeheraus beantwortet: Anerkennung, Stipendien, Visa, Kosten, Reisen, Beschaffung und Zahlungen — das FAQ-Zentrum von RouteToAbroad.',
+    },
+    crumb: 'FAQ',
+    hero: {
+      eyebrow: 'FAQ-Zentrum',
+      title: 'Die Antworten — auch die unbequemen bleiben drin.',
+      lede: 'Nach Leistung sortiert, geschrieben wie wir am Telefon antworten. Fehlt eine Frage, landet sie auf dieser Seite — fragen Sie uns.',
+    },
+    groups: {
+      general: { heading: 'Allgemein' },
+      education: { eyebrow: 'Bildung', heading: 'In China studieren', link: 'Bildungs-FAQ-Seite' },
+      tourism: { eyebrow: 'Tourismus', heading: 'Reisen nach China & Japan', link: 'Tourismus-FAQ-Seite' },
+      trade: { eyebrow: 'Handel', heading: 'Indien–China-Handel', link: 'Handels-FAQ-Seite' },
+    },
+  },
+
+  ja: {
+    meta: {
+      title: 'よくある質問 — 東アジアでの学び・旅・貿易',
+      description:
+        '寄せられるすべての質問に率直に回答：認可、奨学金、ビザ、費用、旅行、調達、支払い — RouteToAbroad の FAQ ハブ。',
+    },
+    crumb: 'よくある質問',
+    hero: {
+      eyebrow: 'FAQ ハブ',
+      title: '答えはそのままに — 答えにくい質問も含めて。',
+      lede: 'サービス別に整理し、電話での回答と同じ言葉で書いています。ない質問があれば、このページに追加されます — ぜひお尋ねください。',
+    },
+    groups: {
+      general: { heading: '一般' },
+      education: { eyebrow: '教育', heading: '中国で学ぶ', link: '教育 FAQ ページ' },
+      tourism: { eyebrow: '観光', heading: '中国・日本を旅する', link: '観光 FAQ ページ' },
+      trade: { eyebrow: '貿易', heading: 'インド–中国貿易', link: '貿易 FAQ ページ' },
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'FAQ — Estudar, viajar e negociar pela Ásia Oriental',
+      description:
+        'Cada pergunta que ouvimos, respondida sem rodeios: reconhecimento, bolsas, vistos, custos, viagens, suprimentos e pagamentos — o hub de FAQ da RouteToAbroad.',
+    },
+    crumb: 'FAQ',
+    hero: {
+      eyebrow: 'Hub de FAQ',
+      title: 'As respostas — inclusive as desconfortáveis.',
+      lede: 'Organizadas por serviço, escritas como respondemos ao telefone. Se faltar uma pergunta, ela vai para esta página — pergunte-nos.',
+    },
+    groups: {
+      general: { heading: 'Geral' },
+      education: { eyebrow: 'Educação', heading: 'Estudar na China', link: 'Página de FAQ de Educação' },
+      tourism: { eyebrow: 'Turismo', heading: 'Viajar para China e Japão', link: 'Página de FAQ de Turismo' },
+      trade: { eyebrow: 'Comércio', heading: 'Comércio Índia–China', link: 'Página de FAQ de Comércio' },
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'सामान्य प्रश्न — पूर्वी एशिया में पढ़ाई, यात्रा और व्यापार',
+      description:
+        'हर सवाल जो हम सुनते हैं, सीधा जवाब: मान्यता, छात्रवृत्तियाँ, वीज़ा, लागत, यात्राएँ, सोर्सिंग और भुगतान — RouteToAbroad FAQ केंद्र।',
+    },
+    crumb: 'सामान्य प्रश्न',
+    hero: {
+      eyebrow: 'FAQ केंद्र',
+      title: 'जवाब — असहज करने वाले सवाल भी शामिल।',
+      lede: 'सेवा के अनुसार व्यवस्थित, वैसे ही लिखे गए जैसे हम कॉल पर जवाब देते हैं। कोई सवाल छूट गया हो, तो वह इस पृष्ठ पर आएगा — हमसे पूछें।',
+    },
+    groups: {
+      general: { heading: 'सामान्य' },
+      education: { eyebrow: 'शिक्षा', heading: 'चीन में पढ़ाई', link: 'शिक्षा FAQ पृष्ठ' },
+      tourism: { eyebrow: 'पर्यटन', heading: 'चीन और जापान यात्रा', link: 'पर्यटन FAQ पृष्ठ' },
+      trade: { eyebrow: 'व्यापार', heading: 'भारत–चीन व्यापार', link: 'व्यापार FAQ पृष्ठ' },
+    },
+  },
 };

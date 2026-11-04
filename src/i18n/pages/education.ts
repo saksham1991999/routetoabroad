@@ -753,4 +753,542 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     },
     faq: { eyebrow: 'FAQ de Estudios', index: '05 / 05', title: 'Preguntadas cada temporada', more: 'Todas las FAQ de estudios' },
   },
+
+  de: {
+    meta: {
+      title: 'In China studieren — MBBS, Ingenieurwissenschaften & Stipendien',
+      description:
+        'Universitätsvermittlung in China von A bis Z: MOE-gelistete Universitäten, CSC-Stipendien, MBBS- und Ingenieurstudiengänge, Visabearbeitung und Ankunftssupport. Über 500 vermittelte Studierende.',
+    },
+    crumb: 'Bildung',
+    schema: {
+      serviceName: 'In China studieren — Universitätsvermittlung',
+      serviceDescription:
+        'Zulassungs-, Stipendien- und Visaservices für internationale Studierende an chinesischen Universitäten — von der ersten Beratung bis zur Immatrikulation.',
+      serviceType: 'Bildungsberatung',
+      howToName: 'Wie Sie mit RouteToAbroad in China studieren',
+      howToDescription: 'Der fünfstufige Vermittlungsprozess von der ersten Beratung bis zur Immatrikulation.',
+    },
+    hero: {
+      eyebrow: 'Bildung',
+      index: 'EDU / 01',
+      title: 'In China studieren. Alles verändern.',
+      lede: 'Englischsprachige Abschlüsse an MOE-gelisteten Universitäten, Stipendien, die die Gebühren wirklich senken, und ein Team, das von der Bewerbung bis zum Campus-Tor an Ihrer Seite bleibt.',
+      facts: [
+        { label: 'Studiengebühren ab', value: 'US$2,500 / Jahr' },
+        { label: 'Studienbeginn', value: 'Sep · Feb' },
+        { label: 'Sprache', value: 'Englischsprachig' },
+        { label: 'Vermittelt', value: '500+ Studierende' },
+      ],
+      primaryCta: 'Eignung prüfen',
+      secondaryCta: 'Studiengänge ansehen',
+      jumps: ['Studiengänge', 'Ablauf', 'Stipendien', 'Universitäten', 'Bewerben', 'FAQ'],
+    },
+    qa: {
+      label: 'Kurze Antwort',
+      strong: 'Ja — chinesische Universitäten sind ein legitimer und günstiger Weg für internationale Studierende',
+      rest: ', sofern Sie MOE-gelistete Einrichtungen wählen und Sprache und Zulassungsprüfungen von Anfang an einplanen. Die Gebühren liegen typischerweise bei US$2,500–8,000/Jahr, und Stipendien können sie auf null drücken.',
+    },
+    photo: {
+      alt: 'Internationale Studierende arbeiten in einem modernen chinesischen Universitätslabor zusammen',
+      caption: 'Studierendenjahrgänge, die wir in Peking, Shanghai und Hangzhou vermittelt haben.',
+    },
+    programmes: {
+      eyebrow: 'Studiengänge',
+      index: '01 / 05',
+      title: 'Was Sie studieren können',
+      lede: 'Fünf Wege mit Unterrichtssprache und Studienbeginn, von vornherein angegeben. Gebühren werden pro Universität genannt — eine einzige Zahl für ein ganzes Land wäre eine Schätzung.',
+      items: [
+        {
+          name: 'MBBS / Medizin',
+          text: 'Englischsprachige Medizinstudiengänge an MOE-gelisteten, WHO-anerkannten Universitäten, mit integriertem HSK-Training und FMGE/NExT-Planung ab dem ersten Tag.',
+        },
+        {
+          name: 'Ingenieurwesen & Technologie',
+          text: 'KI, Robotik, Bau-, Maschinen- und Elektrotechnik an Universitäten, die eng mit Chinas Produktionswirtschaft verwoben sind.',
+        },
+        {
+          name: 'Betriebswirtschaft & Management',
+          text: 'Englischsprachige BBA-, MBA- und Finanzprogramme in Shanghai und Peking mit Praktikumszugang zu Arbeitgebern.',
+        },
+        {
+          name: 'Chinesische Sprache (HSK)',
+          text: 'HSK 1–6-Stufenprogramme, von null bis zur Studientauglichkeit, inklusive Prüfungsanmeldung durch uns.',
+        },
+        {
+          name: 'Bachelorstudiengänge',
+          text: 'Bachelorprogramme in Volkswirtschaftslehre, internationalem Handel, Design und Informatik.',
+        },
+        {
+          name: 'Master & PhD (Forschung)',
+          text: 'CSC-geförderte Forschungsplätze — wir vermitteln Sie an Betreuer, schärfen Ihre Anträge und verwalten die komplette Akte.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'Der Ablauf',
+      index: '02 / 05',
+      title: 'Fünf Stationen von der ersten Nachricht bis zum Campus',
+      lede: 'Schritt eins dauert etwa fünfzehn Minuten. Wir stellen Anträge, folgen nach und haken nach — bis es ein Angebot gibt, oder ein klares Nein mit Begründung.',
+      steps: [
+        {
+          name: 'Erstberatung',
+          time: 'Tag 1–2',
+          text: 'Ein kostenloses Gespräch: Ihre Noten, Ihr Budget, Ihre Ziele. Wir sagen Ihnen ehrlich, wo Sie stehen — auch dann, wenn die Antwort lautet „nicht über diesen Weg".',
+        },
+        {
+          name: 'Universitätsauswahl',
+          time: 'Tag 3–5',
+          text: 'Eine Shortlist MOE-gelisteter Universitäten passend zu Ihrem Profil und Ihrer Stipendienstrategie, mit echten Gebührentabellen pro Studiengang.',
+        },
+        {
+          name: 'Antragstellung',
+          time: 'Woche 1–2',
+          text: 'Wir bereiten Bewerbungen und Stipendienunterlagen vor und reichen sie ein — Studienplan, Übersetzungen, Beglaubigungen, Portalformulare.',
+        },
+        {
+          name: 'Angebot, JW202 & Visum',
+          time: 'Woche 3–12',
+          text: 'Angebotsbrief und JW202 werden von der Universitätsseite verfolgt; Gesundheitsprüfung, Botschaftstermin und Interviewvorbereitung mit unserem Team.',
+        },
+        {
+          name: 'Ankunft & Immatrikulation',
+          time: 'September',
+          text: 'Flughafenabholung, Wohnheimanmeldung, Aufenthaltserlaubnis, SIM und Bankkonto — die langweiligen Dinge, die eine erste Woche blockieren, erledigt.',
+        },
+      ],
+    },
+    scholarship: {
+      eyebrow: 'Kostenloses Tool',
+      title: 'Haben Sie Anspruch auf ein chinesisches Stipendium?',
+      text: 'Drei ehrliche Fragen zu Ihren Noten und Ihrem Niveau. Wir sagen Ihnen, wo Ihr Profil steht — volle CSC-Spanne, Teilstipendien oder Selbstfinanzierung mit besseren Chancen. Keine falschen „Sie qualifizieren sich!"-Ergebnisse.',
+      cta: 'Anspruch prüfen',
+      stats: [
+        { num: '$2M+', label: 'Stipendien, die unsere Studierenden gewonnen haben' },
+        { num: '150+', label: 'Partneruniversitäten' },
+      ],
+    },
+    unis: {
+      eyebrow: 'Universitätspartner',
+      index: '03 / 05',
+      title: 'Wohin unsere Studierenden gehen',
+      lede: 'Profile, echte Kosten und Zulassungsrealität für die fünf Universitäten, an die wir am häufigsten vermitteln.',
+      est: 'gegr.',
+      profile: 'Universitätsprofil',
+    },
+    apply: {
+      eyebrow: 'Hier starten',
+      title: 'Kostenlose Einschätzung anfordern',
+      lede: 'Sagen Sie uns, wo Sie stehen. Wir antworten innerhalb eines Werktags mit einer ehrlichen Einschätzung — und einem Plan, falls es einen gibt.',
+      next: [
+        { lead: 'Überprüfung innerhalb von 24 Stunden.', text: 'Ein Berater — kein Bot — prüft Ihr Profil.' },
+        { lead: 'Rückruf in Ihrer Sprache.', text: 'Englisch, Hindi, Malayalam; Mandarin auf der China-Seite.' },
+        { lead: 'Eine schriftliche Roadmap.', text: 'Universitäten, Gebühren, Stipendienchancen, Zeitplan — schriftlich.' },
+      ],
+    },
+    faq: { eyebrow: 'Bildungs-FAQ', index: '05 / 05', title: 'Jede Saison gefragt', more: 'Alle Bildungs-FAQs' },
+  },
+
+  ja: {
+    meta: {
+      title: '中国で学ぶ — MBBS・工学・奨学金',
+      description:
+        '中国の大学への進学を一貫サポート：教育部認可大学、CSC 奨学金、MBBS・工学系プログラム、ビザ手続き、到着後サポート。500 名以上の進学実績。',
+    },
+    crumb: '教育',
+    schema: {
+      serviceName: '中国で学ぶ — 大学進学サポート',
+      serviceDescription: '中国の大学に進学する外国人学生向けの入学・奨学金・ビザサービス。初回相談からキャンパス登録まで対応します。',
+      serviceType: '教育コンサルティング',
+      howToName: 'RouteToAbroad で中国に留学するには',
+      howToDescription: '初回相談からキャンパス登録までの 5 ステップの進学プロセス。',
+    },
+    hero: {
+      eyebrow: '教育',
+      index: 'EDU / 01',
+      title: '中国で学ぶ。すべてを変える。',
+      lede: '教育部認可大学での英語開講の学位、学費を本当に下げる奨学金、そして出願からキャンパスの門まで寄り添うチーム。',
+      facts: [
+        { label: '学費（最低）', value: 'US$2,500 / 年' },
+        { label: '入学時期', value: '9月 · 2月' },
+        { label: '言語', value: '英語で開講' },
+        { label: '進学者', value: '500 名以上' },
+      ],
+      primaryCta: 'マッチングを診断する',
+      secondaryCta: 'プログラムを見る',
+      jumps: ['プログラム', '流れ', '奨学金', '大学', '申し込み', 'FAQ'],
+    },
+    qa: {
+      label: '簡単に言うと',
+      strong: 'はい — 教育部認可の大学を選び、言語と国家試験を最初から計画すれば、中国の大学は外国人学生にとって正当で手ごろな選択肢です',
+      rest: '。学費は通常 US$2,500〜8,000/年で、奨学金がゼロにできることもあります。',
+    },
+    photo: {
+      alt: '現代的な中国の大学の実験室で協働する外国人学生',
+      caption: '私たちが北京、上海、杭州の大学に送り出した学生たち。',
+    },
+    programmes: {
+      eyebrow: 'プログラム',
+      index: '01 / 05',
+      title: '学べること',
+      lede: '5 つの進路。開講言語と入学時期を最初に明示。学費は大学ごとに提示 — 一国をひとつの数字で括るのは推測にすぎません。',
+      items: [
+        {
+          name: 'MBBS／医学',
+          text: '教育部認可・WHO 認定大学の英語開講医学学位。HSK 訓練を組み込み、初日から FMGE/NExT 対策を計画します。',
+        },
+        {
+          name: '工学・テクノロジー',
+          text: 'AI、ロボティクス、土木、機械、電気工学を、中国の製造業経済に密着した大学で。',
+        },
+        {
+          name: 'ビジネス・経営',
+          text: '上海と北京の英語開講 BBA、MBA、ファイナンスプログラム。企業でのインターンにもアクセスできます。',
+        },
+        {
+          name: '中国語（HSK）',
+          text: 'HSK 1〜6 のステップ方式コース。ゼロから学位レベルまで、試験の申し込みも代行します。',
+        },
+        {
+          name: '学士課程',
+          text: '経済学、国際ビジネス、デザイン、コンピュータサイエンスの学士プログラム。',
+        },
+        {
+          name: '修士・博士（研究）',
+          text: 'CSC 資金の研究ポジション — 指導教員とのマッチング、研究計画の調整、申請書類一式の管理まで行います。',
+        },
+      ],
+    },
+    process: {
+      eyebrow: '進学の流れ',
+      index: '02 / 05',
+      title: '最初の連絡からキャンパスまでの 5 つのステップ',
+      lede: '最初のステップは 15 分ほど。私たちが書類を出し、追い、確実に答えが出るまで動きます — 内定か、理由のはっきりしたお断りか。',
+      steps: [
+        {
+          name: '初回相談',
+          time: '1〜2 日目',
+          text: '無料の通話：成績、予算、目標。現在地を正直にお伝えします — 「この道ではない」という答えの場合も含めて。',
+        },
+        {
+          name: '大学のマッチング',
+          time: '3〜5 日目',
+          text: 'あなたのプロフィールと奨学金戦略に合わせた教育部認可大学の候補リスト。プログラム別の実際の学費表を添えます。',
+        },
+        {
+          name: '出願手続き',
+          time: '1〜2 週目',
+          text: '出願書類と奨学金ファイルを準備・提出します — 学習計画、翻訳、公証、ポータルのフォーム。',
+        },
+        {
+          name: '内定・JW202・ビザ',
+          time: '3〜12 週目',
+          text: '内定書と JW202 を大学側から追跡。健康診断、大使館の予約、面接対策は私たちのチームが伴走します。',
+        },
+        {
+          name: '到着・登録',
+          time: '9 月',
+          text: '空港送迎、寮の登録、居留許可、SIM、銀行口座 — 初週を滞らせる地味な手続きは、すべてこちらで。',
+        },
+      ],
+    },
+    scholarship: {
+      eyebrow: '無料ツール',
+      title: '中国の奨学金の対象になりますか？',
+      text: '成績とレベルについての 3 つの率直な質問。あなたのプロフィールがどこに位置するか — CSC 全額圏、部分給付、または確率の高い自費 — をお伝えします。「あなたは対象です！」という偽の結果は出しません。',
+      cta: '対象か診断する',
+      stats: [
+        { num: '$2M+', label: '私たちの学生が獲得した奨学金' },
+        { num: '150+', label: '提携大学' },
+      ],
+    },
+    unis: {
+      eyebrow: '提携大学',
+      index: '03 / 05',
+      title: '学生たちの進路先',
+      lede: '最も多く送り出している 5 大学のプロフィール、実際の費用、入学の現実。',
+      est: '設立',
+      profile: '大学プロフィール',
+    },
+    apply: {
+      eyebrow: 'ここから始める',
+      title: '無料評価を申し込む',
+      lede: '今のご状況を教えてください。1 営業日以内に率直な評価をお返しします — 見込みがあれば、計画も添えて。',
+      next: [
+        { lead: '24 時間以内に確認。', text: 'プロフィールを見るのはアドバイザー — ボットではありません。' },
+        { lead: 'ご希望の言語で折り返し連絡。', text: '英語、ヒンディー語、マラヤーラム語。中国側は北京語。' },
+        { lead: '書面でのロードマップ。', text: '大学、学費、奨学金の可能性、タイムライン — 書面でお渡しします。' },
+      ],
+    },
+    faq: { eyebrow: '教育 FAQ', index: '05 / 05', title: '毎シーズン寄せられる質問', more: '教育に関する FAQ すべて' },
+  },
+
+  pt: {
+    meta: {
+      title: 'Estudar na China — MBBS, engenharia e bolsas',
+      description:
+        'Admissão universitária na China de ponta a ponta: universidades listadas pelo MOE, bolsas CSC, programas de MBBS e engenharia, tramitação de vistos e apoio na chegada. Mais de 500 estudantes matriculados.',
+    },
+    crumb: 'Educação',
+    schema: {
+      serviceName: 'Estudar na China — admissão universitária',
+      serviceDescription:
+        'Serviços de admissão, bolsa e visto para estudantes internacionais que ingressam em universidades chinesas, da primeira consulta à matrícula no campus.',
+      serviceType: 'Consultoria educacional',
+      howToName: 'Como estudar na China com a RouteToAbroad',
+      howToDescription: 'O processo de admissão em cinco etapas, da primeira consulta à matrícula no campus.',
+    },
+    hero: {
+      eyebrow: 'Educação',
+      index: 'EDU / 01',
+      title: 'Estude na China. Mude tudo.',
+      lede: 'Diplomas ministrados em inglês em universidades listadas pelo MOE, bolsas que de fato reduzem as mensalidades e uma equipe que fica com você da candidatura ao portão do campus.',
+      facts: [
+        { label: 'Mensalidade a partir de', value: 'US$2,500 / ano' },
+        { label: 'Ingressos', value: 'Set · Fev' },
+        { label: 'Idioma', value: 'Aulas em inglês' },
+        { label: 'Matriculados', value: '500+ estudantes' },
+      ],
+      primaryCta: 'Verifique seu perfil',
+      secondaryCta: 'Ver programas',
+      jumps: ['Programas', 'Processo', 'Bolsas', 'Universidades', 'Candidatar-se', 'FAQ'],
+    },
+    qa: {
+      label: 'Resposta curta',
+      strong: 'Sim — as universidades chinesas são um caminho legítimo e acessível para estudantes internacionais',
+      rest: ', desde que você escolha instituições listadas pelo MOE e planeje o idioma e os exames de licenciatura desde o início. As mensalidades costumam ficar entre US$2,500–8,000/ano, e as bolsas podem reduzi-las a zero.',
+    },
+    photo: {
+      alt: 'Estudantes internacionais colaborando em um moderno laboratório universitário chinês',
+      caption: 'As turmas de estudantes que colocamos em Pequim, Xangai e Hangzhou.',
+    },
+    programmes: {
+      eyebrow: 'Programas',
+      index: '01 / 05',
+      title: 'O que você pode estudar',
+      lede: 'Cinco caminhos com idioma de ensino e ingresso declarados desde o início. As mensalidades são cotadas por universidade — um único número para um país inteiro seria um chute.',
+      items: [
+        {
+          name: 'MBBS / Medicina',
+          text: 'Diplomas de medicina em inglês em universidades listadas pelo MOE e reconhecidas pela OMS, com treinamento HSK integrado e planejamento FMGE/NExT desde o primeiro dia.',
+        },
+        {
+          name: 'Engenharia e tecnologia',
+          text: 'IA, robótica, civil, mecânica e elétrica em universidades conectadas à economia manufatureira da China.',
+        },
+        {
+          name: 'Negócios e gestão',
+          text: 'Programas de BBA, MBA e finanças em inglês em Xangai e Pequim, com acesso a estágios em empresas.',
+        },
+        {
+          name: 'Língua chinesa (HSK)',
+          text: 'Trilhas HSK 1–6, do zero à prontidão para o diploma, com inscrição nos exames cuidada por nós.',
+        },
+        {
+          name: 'Graduações',
+          text: 'Programas de graduação em economia, negócios internacionais, design e ciência da computação.',
+        },
+        {
+          name: 'Mestrado e doutorado (pesquisa)',
+          text: 'Posições de pesquisa financiadas pelo CSC — conectamos você a orientadores, moldamos as propostas e gerenciamos o dossiê completo.',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'O processo',
+      index: '02 / 05',
+      title: 'Cinco paradas da primeira mensagem ao campus',
+      lede: 'O primeiro passo leva cerca de quinze minutos. Protocolamos, acompanhamos e cobramos até chegar a uma oferta — ou a um não claro, com motivo.',
+      steps: [
+        {
+          name: 'Consulta inicial',
+          time: 'Dia 1–2',
+          text: 'Uma ligação gratuita: suas notas, orçamento e objetivos. Dizemos com honestidade onde você está — inclusive quando a resposta é "não este caminho".',
+        },
+        {
+          name: 'Seleção de universidades',
+          time: 'Dia 3–5',
+          text: 'Uma lista curta de universidades listadas pelo MOE ajustada ao seu perfil e à sua estratégia de bolsas, com tabelas reais de mensalidades por programa.',
+        },
+        {
+          name: 'Envio das candidaturas',
+          time: 'Semana 1–2',
+          text: 'Preparamos e enviamos candidaturas e dossiês de bolsa — plano de estudos, traduções, apostilamentos e formulários dos portais.',
+        },
+        {
+          name: 'Oferta, JW202 e visto',
+          time: 'Semana 3–12',
+          text: 'Carta de oferta e JW202 acompanhadas junto à universidade; exame médico, agendamento na embaixada e preparação para a entrevista com a nossa equipe.',
+        },
+        {
+          name: 'Chegada e matrícula',
+          time: 'Setembro',
+          text: 'Recepção no aeroporto, registro na residência, autorização de residência, SIM e conta bancária — os trâmites chatos que atrapalham a primeira semana, resolvidos.',
+        },
+      ],
+    },
+    scholarship: {
+      eyebrow: 'Ferramenta gratuita',
+      title: 'Você é elegível para uma bolsa chinesa?',
+      text: 'Três perguntas honestas sobre suas notas e seu nível. Dizemos onde o seu perfil se situa — faixa CSC completa, bolsas parciais, ou autofinanciado com melhores chances. Sem falsos "Você é elegível!".',
+      cta: 'Verificar elegibilidade',
+      stats: [
+        { num: '$2M+', label: 'em bolsas ganhas por nossos estudantes' },
+        { num: '150+', label: 'universidades parceiras' },
+      ],
+    },
+    unis: {
+      eyebrow: 'Universidades parceiras',
+      index: '03 / 05',
+      title: 'Para onde vão nossos estudantes',
+      lede: 'Perfis, custos reais e realidade de admissão das cinco universidades onde mais colocamos.',
+      est: 'fundada em',
+      profile: 'Perfil da universidade',
+    },
+    apply: {
+      eyebrow: 'Comece aqui',
+      title: 'Solicite uma avaliação gratuita',
+      lede: 'Conte-nos onde você está. Retornamos em um dia útil com uma leitura honesta — e um plano, se houver.',
+      next: [
+        { lead: 'Verificação em 24 horas.', text: 'Um orientador — não um bot — analisa o seu perfil.' },
+        { lead: 'Retorno no seu idioma.', text: 'Inglês, hindi, malaiala; mandarim no lado chinês.' },
+        { lead: 'Um roteiro por escrito.', text: 'Universidades, mensalidades, chances de bolsa, cronograma — por escrito.' },
+      ],
+    },
+    faq: { eyebrow: 'FAQ de Educação', index: '05 / 05', title: 'Perguntadas a cada ciclo', more: 'Todas as FAQs de educação' },
+  },
+
+  hi: {
+    meta: {
+      title: 'चीन में पढ़ाई — MBBS, इंजीनियरिंग और छात्रवृत्तियाँ',
+      description:
+        'चीन में विश्वविद्यालय प्रवेश, शुरू से अंत तक: MOE सूचीबद्ध विश्वविद्यालय, CSC छात्रवृत्तियाँ, MBBS और इंजीनियरिंग प्रोग्राम, वीज़ा प्रक्रिया और आगमन सहायता। 500+ विद्यार्थी प्रवेश पा चुके हैं।',
+    },
+    crumb: 'शिक्षा',
+    schema: {
+      serviceName: 'चीन में पढ़ाई — विश्वविद्यालय प्रवेश',
+      serviceDescription: 'चीनी विश्वविद्यालयों में प्रवेश लेने वाले अंतरराष्ट्रीय विद्यार्थियों के लिए प्रवेश, छात्रवृत्ति और वीज़ा सेवाएँ — पहली सलाह से कैंपस पंजीकरण तक।',
+      serviceType: 'शिक्षा परामर्श',
+      howToName: 'RouteToAbroad के साथ चीन में कैसे पढ़ें',
+      howToDescription: 'पहली सलाह से कैंपस पंजीकरण तक पाँच-चरणीय प्रवेश प्रक्रिया।',
+    },
+    hero: {
+      eyebrow: 'शिक्षा',
+      index: 'EDU / 01',
+      title: 'चीन में पढ़ें। सब बदल दें।',
+      lede: 'MOE सूचीबद्ध विश्वविद्यालयों में अंग्रेज़ी-माध्यम डिग्री, सचमुच फ़ीस घटाने वाली छात्रवृत्तियाँ, और आवेदन से कैंपस द्वार तक आपके साथ रहने वाली टीम।',
+      facts: [
+        { label: 'ट्यूशन से शुरू', value: 'US$2,500 / वर्ष' },
+        { label: 'प्रवेश सत्र', value: 'सित · फ़र' },
+        { label: 'भाषा', value: 'अंग्रेज़ी माध्यम' },
+        { label: 'प्रवेश दिलाए', value: '500+ विद्यार्थी' },
+      ],
+      primaryCta: 'फ़िट जाँचें',
+      secondaryCta: 'प्रोग्राम देखें',
+      jumps: ['प्रोग्राम', 'प्रक्रिया', 'छात्रवृत्ति', 'विश्वविद्यालय', 'आवेदन', 'FAQ'],
+    },
+    qa: {
+      label: 'संक्षिप्त उत्तर',
+      strong: 'हाँ — अगर आप MOE सूचीबद्ध संस्थान चुनें और भाषा व लाइसेंसिंग परीक्षाओं की योजना शुरू से बनाएँ, तो चीनी विश्वविद्यालय अंतरराष्ट्रीय विद्यार्थियों के लिए वैध और किफ़ायती रास्ता हैं',
+      rest: '। ट्यूशन आमतौर पर US$2,500–8,000/वर्ष रहता है, और छात्रवृत्तियाँ इसे शून्य तक ले जा सकती हैं।',
+    },
+    photo: {
+      alt: 'आधुनिक चीनी विश्वविद्यालय प्रयोगशाला में सहयोग करते अंतरराष्ट्रीय विद्यार्थी',
+      caption: 'हमारे द्वारा बीजिंग, शंघाई और हांगझोऊ में प्रवेश दिलाए गए विद्यार्थी-समूह।',
+    },
+    programmes: {
+      eyebrow: 'प्रोग्राम',
+      index: '01 / 05',
+      title: 'आप क्या पढ़ सकते हैं',
+      lede: 'पाँच रास्ते, पढ़ाई की भाषा और प्रवेश समय पहले से स्पष्ट। फ़ीस हर विश्वविद्यालय के हिसाब से — पूरे देश के लिए एक आँकड़ा केवल अंदाज़ा होगा।',
+      items: [
+        {
+          name: 'MBBS / चिकित्सा',
+          text: 'MOE सूचीबद्ध, WHO-मान्यता प्राप्त विश्वविद्यालयों में अंग्रेज़ी-माध्यम चिकित्सा डिग्री, साथ में HSK प्रशिक्षण और पहले दिन से FMGE/NExT योजना।',
+        },
+        {
+          name: 'इंजीनियरिंग और तकनीक',
+          text: 'AI, रोबोटिक्स, सिविल, मैकेनिकल और इलेक्ट्रिकल इंजीनियरिंग — ऐसे विश्वविद्यालयों में जो चीन की निर्माण अर्थव्यवस्था से जुड़े हैं।',
+        },
+        {
+          name: 'बिज़नेस और मैनेजमेंट',
+          text: 'शंघाई और बीजिंग में अंग्रेज़ी-माध्यम BBA, MBA और फ़ाइनेंस प्रोग्राम, नियोक्ताओं में इंटर्नशिप के अवसरों के साथ।',
+        },
+        {
+          name: 'चीनी भाषा (HSK)',
+          text: 'HSK 1–6 स्तरीय मार्ग, शून्य से डिग्री-तैयारी तक — परीक्षा पंजीकरण भी हमारी ओर से।',
+        },
+        {
+          name: 'स्नातक डिग्री',
+          text: 'अर्थशास्त्र, अंतरराष्ट्रीय व्यापार, डिज़ाइन और कंप्यूटर साइंस में स्नातक प्रोग्राम।',
+        },
+        {
+          name: 'मास्टर्स और PhD (शोध)',
+          text: 'CSC-वित्तपोषित शोध स्थान — हम आपको पर्यवेक्षकों से मिलाते हैं, प्रस्ताव आकार देते हैं और पूरी फ़ाइल संभालते हैं।',
+        },
+      ],
+    },
+    process: {
+      eyebrow: 'प्रक्रिया',
+      index: '02 / 05',
+      title: 'पहले संदेश से कैंपस तक पाँच पड़ाव',
+      lede: 'पहला क़दम करीब पंद्रह मिनट लेता है। हम आवेदन दाख़िल करते हैं, पीछा करते हैं और रफ़्तार बनाए रखते हैं — जब तक ऑफ़र न मिले, या कारण सहित साफ़ इनकार न मिले।',
+      steps: [
+        {
+          name: 'प्रारंभिक परामर्श',
+          time: 'दिन 1–2',
+          text: 'एक मुफ़्त कॉल: आपके अंक, बजट, लक्ष्य। हम ईमानदारी से बताते हैं कि आप कहाँ खड़े हैं — जब जवाब "यह रास्ता नहीं" हो, तब भी।',
+        },
+        {
+          name: 'विश्वविद्यालय मिलान',
+          time: 'दिन 3–5',
+          text: 'आपकी प्रोफ़ाइल और छात्रवृत्ति रणनीति के अनुरूप MOE सूचीबद्ध विश्वविद्यालयों की छोटी सूची, हर प्रोग्राम की वास्तविक फ़ीस-तालिका के साथ।',
+        },
+        {
+          name: 'आवेदन जमा करना',
+          time: 'सप्ताह 1–2',
+          text: 'हम आवेदन और छात्रवृत्ति फ़ाइलें तैयार कर जमा करते हैं — स्टडी प्लान, अनुवाद, नोटरीकरण, पोर्टल फ़ॉर्म।',
+        },
+        {
+          name: 'ऑफ़र, JW202 और वीज़ा',
+          time: 'सप्ताह 3–12',
+          text: 'ऑफ़र लेटर और JW202 विश्वविद्यालय की ओर से ट्रैक; मेडिकल, दूतावास अपॉइंटमेंट और इंटरव्यू तैयारी हमारी टीम के साथ।',
+        },
+        {
+          name: 'आगमन और पंजीकरण',
+          time: 'सितंबर',
+          text: 'एयरपोर्ट पिकअप, हॉस्टल पंजीकरण, रेसिडेंस परमिट, SIM और बैंक खाता — वे नीरस काम जो पहला सप्ताह अटका देते हैं, हम संभाल लेते हैं।',
+        },
+      ],
+    },
+    scholarship: {
+      eyebrow: 'मुफ़्त टूल',
+      title: 'क्या आप चीनी छात्रवृत्ति के पात्र हैं?',
+      text: 'आपके अंकों और स्तर पर तीन ईमानदार सवाल। हम बताते हैं कि आपकी प्रोफ़ाइल कहाँ खड़ी है — पूरा CSC रेंज, आंशिक अवार्ड, या बेहतर संभावना वाला स्व-वित्तपोषण। झूठे "आप पात्र हैं!" परिणाम नहीं।',
+      cta: 'पात्रता जाँचें',
+      stats: [
+        { num: '$2M+', label: 'हमारे विद्यार्थियों ने छात्रवृत्तियाँ जीतीं' },
+        { num: '150+', label: 'साझेदार विश्वविद्यालय' },
+      ],
+    },
+    unis: {
+      eyebrow: 'साझेदार विश्वविद्यालय',
+      index: '03 / 05',
+      title: 'हमारे विद्यार्थी कहाँ जाते हैं',
+      lede: 'उन पाँच विश्वविद्यालयों की प्रोफ़ाइल, वास्तविक लागत और प्रवेश की सच्चाई, जहाँ हम सबसे अधिक विद्यार्थी भेजते हैं।',
+      est: 'स्थापित',
+      profile: 'विश्वविद्यालय प्रोफ़ाइल',
+    },
+    apply: {
+      eyebrow: 'यहाँ से शुरू करें',
+      title: 'मुफ़्त मूल्यांकन के लिए आवेदन करें',
+      lede: 'बताइए आप कहाँ हैं। हम एक व्यावसायिक दिन में ईमानदार आकलन लौटाते हैं — और अगर रास्ता हो, तो योजना भी।',
+      next: [
+        { lead: '24 घंटे में सत्यापन।', text: 'आपकी प्रोफ़ाइल सलाहकार देखता है — बॉट नहीं।' },
+        { lead: 'आपकी भाषा में कॉलबैक।', text: 'अंग्रेज़ी, हिन्दी, मलयालम; चीन की ओर मंदारिन।' },
+        { lead: 'लिखित रोडमैप।', text: 'विश्वविद्यालय, फ़ीस, छात्रवृत्ति संभावनाएँ, समय-रेखा — लिखित रूप में।' },
+      ],
+    },
+    faq: { eyebrow: 'शिक्षा FAQ', index: '05 / 05', title: 'हर सत्र में पूछे जाने वाले', more: 'सभी शिक्षा FAQ' },
+  },
 };

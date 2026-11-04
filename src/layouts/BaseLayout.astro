@@ -60,9 +60,11 @@ const isRtl = LOCALE_META[pageLocale].dir === 'rtl';
 const ui = uiFor(pageLocale);
 
 /** Homepage gets the loader, HUD and tone-switching chrome. Locale homepages
- * (/, /zh, /fr, /ar, /es) count as home too — the loader/HUD live here. */
+ * (/, /zh, /fr, /ar, /es, /de, /ja, /pt, /hi) count as home too — the
+ * loader/HUD live here. The alternation must mirror src/lib/i18n.ts LOCALES
+ * (minus 'en'); inline because this file also ships client-side code. */
 const isHome = ['', '/'].includes(
-  Astro.url.pathname.replace(/^\/+(zh|fr|ar|es)(?=\/|$)/, '') || '/'
+  Astro.url.pathname.replace(/^\/+(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/, '') || '/'
 );
 ---
 

@@ -669,11 +669,527 @@ const COMPARISONS_ES: Comparison[] = [
   },
 ];
 
+/* de — machine-assisted translation, pending native-speaker review (Sie-form). */
+const COMPARISONS_DE: Comparison[] = [
+  {
+    slug: 'mbbs-china-vs-india',
+    title: 'MBBS in China vs. Indien: Kosten, Anerkennung & Fazit',
+    headline: 'MBBS in China vs. Indien',
+    answer:
+      'Wählen Sie Indien, wenn Sie einen staatlichen Studienplatz gewinnen können — es bleibt der günstigste anerkannte Weg. Wählen Sie China, wenn die realistische indische Alternative ein privater Platz für ₹60L–1Cr ist: ein MBBS an einer MOE-gelisteten chinesischen Hochschule liefert vergleichbare Anerkennung zu rund einem Drittel der Kosten, mit der unverhandelbaren Bedingung, dass Sie als ausländischer Medizinabsolvent bei der Rückkehr das FMGE/NExT-Screening bestehen (indische Absolventen registrieren sich stattdessen über NExT — die Eignungsregeln hängen von Ihrem Zulassungsjahr ab, prüfen Sie also die aktuellen NMC-Vorschriften, bevor Sie sich festlegen).',
+    entityA: 'MBBS in China',
+    entityB: 'MBBS in Indien',
+    pillar: 'education',
+    updated: '2025-11-01',
+    rows: [
+      { label: 'Studiengebühren (pro Jahr)', a: 'US$3,500–8,000 (MOE-gelistet)', b: 'Staatlich: ₹10k–1L · Privat: ₹8–20L' },
+      { label: 'Gesamtkosten des Studiums', a: 'US$38,5–83k alles in allem (5,5 Jahre)', b: 'Staatlich: ₹5–10L · Privat: ₹60L–1Cr+' },
+      { label: 'Lizenzprüfung für die Praxis in Indien', a: 'FMGE/NExT-Screening (nur ausländische Absolventen)', b: 'NExT / Universitätsregistrierung — FMGE gilt nicht für indische Absolventen' },
+      { label: 'Unterrichtssprache', a: 'Englisch (HSK 4 für die klinischen Jahre nötig)', b: 'Englisch (privat) / Regionalsprachen' },
+      { label: 'Zulassungshürde', a: 'NEET-Qualifikation + Klasse 12 PCB', b: 'NEET-Rang (staatlich) / NEET-Qualifikation (privat)' },
+      { label: 'Lebenshaltungskosten', a: 'US$300–850/Monat je nach Stadt', b: '₹12–30k/Monat je nach Stadt' },
+      { label: 'Stipendien', a: 'CSC + Universitätsstipendien können die Gebühren auf null senken', b: 'An privaten Hochschulen selten; Staatsquoten' },
+      { label: 'Patientenkontakt', a: 'Stark an Universitätskliniken; sprachabhängig', b: 'Stark; die Sprache ist die Muttersprache' },
+      { label: 'Größtes Risiko', a: 'Ungelistete Universitäten + vernachlässigte Sprache', b: 'Kapitationsgebühren + Platzmangel' },
+    ],
+    verdict: {
+      winner: 'Hängt von Ihrem NEET-Ergebnis ab',
+      text: 'Staatlicher MBBS-Platz in Indien → nehmen Sie ihn, ohne Wenn und Aber. Kein staatlicher Platz und knappes Budget → MOE-gelistetes China schlägt jeden privaten indischen Platz bei den Kosten, bei gleichem Anerkennungsaufwand (FMGE für Absolventen aus China; indische Absolventen registrieren sich über NExT). ₹1Cr privat zahlen, obwohl Mittel vorhanden sind und keine Bereitschaft zur Auslandsanpassung besteht → privates Indien bleibt rational. Die zwei Fehlerarten, die es zu vermeiden gilt: ungelistete chinesische Universitäten, und China zu wählen, während man die HSK- und FMGE-Vorbereitung vernachlässigt.',
+    },
+    body: [
+      'Der Vergleich, dem sich die meisten indischen Familien tatsächlich stellen, ist nicht China-gegen-Indien im Abstrakten — sondern China gegen die einzige indische Option, die sie haben: einen privaten Platz mit siebenstelligem Preis. So gerahmt wird die Entscheidung klarer.',
+      'Die Anerkennung ist symmetrisch: Ein MBBS von beiden Seiten der Grenze erfordert das Bestehen von FMGE/NExT für die Praxis in Indien (Absolventen indischer Privathochschulen stehen ebenfalls vor dem NExT). Was sich unterscheidet, sind die Kosten des Abschlusses und die Disziplin, die der Auslandsweg verlangt — Sprache, Eigenständigkeit und Dokumentensorgfalt.',
+      'Chinas MBBS-System ist für internationale Studierende gebaut: englischsprachige Tracks an MOE-gelisteten Universitäten, vorhersehbare Gebührenlisten und Wohnheiminfrastruktur. Indiens Vorteil ist der klinische Kontakt mit dem eigenen Gesundheitssystem vom ersten Tag an — eine echte Stärke für FMGE und die spätere Praxis.',
+    ],
+    faqs: [
+      {
+        question: 'Ist ein chinesischer MBBS besser als ein indischer privater MBBS?',
+        answer: 'Bei den Kosten eindeutig ja: Ein vollständiger chinesischer MBBS an einer MOE-gelisteten Hochschule kostet etwa ein Drittel eines privaten indischen Platzes. Bei klinischem Kontakt und Vertrautheit mit dem System gewinnen indische Privathochschulen. Bei der Anerkennung brauchen beide FMGE/NExT — nichts davon ist automatisch.',
+      },
+      {
+        question: 'Kann ich nach einem MBBS aus China in Indien praktizieren?',
+        answer: 'Ja, nach dem Bestehen der vom NBE durchgeführten FMGE (in Übergang zum NExT), plus der üblichen Internatsregistrierung. Tausende tun dies jedes Jahr; die Vorbereitung während des Studiums zählt mehr als der Studienort.',
+      },
+      {
+        question: 'Was ist insgesamt günstiger?',
+        answer: 'Ein chinesischer MBBS an einer Hochschule in einer zweitrangigen Stadt landet gesamt bei etwa US$35–45k. Indische private Plätze übersteigen allein an Gebühren häufig ₹60L–1Cr. Staatliche indische Plätze sind günstiger als beide, aber selten.',
+      },
+    ],
+  },
+  {
+    slug: 'tsinghua-vs-peking',
+    title: 'Tsinghua vs. Peking University: Wohin sollten Sie sich bewerben?',
+    headline: 'Tsinghua vs. Peking University',
+    answer:
+      'Sie sind die zwei Hälften des akademischen Gipfels Chinas, 3 km voneinander entfernt in Haidian. Wählen Sie Tsinghua für Ingenieurwesen, Informatik und Technologiekarrieren; wählen Sie Peking für Geisteswissenschaften, Ökonomie, Naturwissenschaften und Forschungsbreite. Die internationale Zulassung ist vergleichbar schwer — bewerben Sie sich dort, wo es Ihr Fach verlangt, nicht dort, wo es ein Ranking sagt.',
+    entityA: 'Tsinghua University',
+    entityB: 'Peking University',
+    pillar: 'education',
+    updated: '2025-10-15',
+    rows: [
+      { label: 'Identität', a: 'Vormachtstellung in Ingenieurwesen & Technologie', b: 'Breite in Geisteswissenschaften, Naturwissenschaften & Politik' },
+      { label: 'Globaler Rang (QS)', a: 'Top-25, Ingenieurwesen Top-10', b: 'Top-15 insgesamt' },
+      { label: 'Flaggschiffe für internationale Studierende', a: 'CS/KI, Ingenieurwesen, Schwarzman, MBA', b: 'Ökonomie, Internationale Beziehungen, Chinastudien, Yenching' },
+      { label: 'Campus-Charakter', a: 'Rotziegel-Collegiate + moderne Labore', b: 'Kaiserliche Gärten, Weiming-See' },
+      { label: 'Industrienähe', a: 'Zhongguancun: Baidu, ByteDance, MSR Asia', b: 'Think Tanks, Finanzen, Regierungspfade' },
+      { label: 'Internationale Kohorte', a: '~3,000+ über alle Abschlüsse', b: '~3,000+ über alle Abschlüsse' },
+      { label: 'Am besten passender Bewerber', a: 'Bauer/Forscher im MINT-Bereich', b: 'Analytiker-/Politik-/Geisteswissenschafts-Kopf' },
+    ],
+    verdict: {
+      winner: 'Das Fach entscheidet, nicht die Rankings',
+      text: 'Für Ingenieurwesen und Informatik ist Tsinghuas Anziehungskraft in Asien unerreicht; für Ökonomie, internationale Beziehungen, Recht oder reine Naturwissenschaften gewinnen Pekings Tiefe und der Garten-Campus. Die Bewerbung ist für internationale Studierende vergleichbar schwer; die Chancen bei Forschungsabschlüssen steigen an beiden deutlich mit frühem Betreuerkontakt — genau die Arbeit, die wir leisten, bevor die Bewerbungen öffnen.',
+    },
+    body: [
+      'Die Rivalität ist herzlich und geografisch: Die beiden Campus liegen sich über Haidian hinweg gegenüber, und chinesische Familien scherzen, auf welcher Seite der Chengfu-Straße ein Kind wohnt. Für internationale Bewerber ist die Wahl weniger stammeshaft und eher pragmatisch — Stärke der Fakultät, englischsprachiges Angebot und das Netzwerk nach dem Studium.',
+      'Beide Universitäten führen CSC-Typ-B-Zulassungen und Universitätsstipendien durch (Tsinghuas Presidential Awards; Pekings Yenching und Fakultätsfinanzierungen). Beide erwarten konkurrenzfähige Noten und, bei Forschungsabschlüssen, frühe Betreueransprache. Keine der beiden ist für irgendeinen ein „Sicherheitsnetz“.',
+    ],
+    faqs: [
+      {
+        question: 'Welche ist für internationale Studierende schwerer zu bekommen?',
+        answer: 'Insgesamt vergleichbar; an den Rändern fachabhängig. Tsinghuas Ingenieur-/CS-Quote ist winzig und erbittert; Pekings Ökonomie- und Yenching-Kohorten sind ähnlich selektiv. Forschungszulassungen sind an beiden realistisch gewinnbar — mit starken Unterlagen und Betreuerunterstützung.',
+      },
+      {
+        question: 'Bieten beide CSC-Stipendien an?',
+        answer: 'Ja — beide sind Typ-B-designierte Universitäten, d. h. Sie bewerben sich über die Universität selbst (der direkte Weg). Der staatliche Typ-A-Kanal läuft über Ihr Heimatministerium oder Ihre Botschaft, nicht über die Universität. Vollstipendien sind an beiden konkurrenzfähig, egal welche Noten Sie haben; bewerben Sie sich an beiden plus einer wahrscheinlichen Partneruniversität.',
+      },
+    ],
+  },
+  {
+    slug: 'sea-vs-air-freight',
+    title: 'Seefracht vs. Luftfracht: China–Indien Versand im Vergleich',
+    headline: 'Seefracht vs. Luftfracht von China nach Indien',
+    answer:
+      'Die See gewinnt bei den Kosten — 5–8× günstiger pro kg — und verliert bei der Zeit: 18–25 Tage Hafen zu Hafen gegenüber 3–7 Tagen Tür zu Tür per Luft. Verschiffen Sie per See alles, was durch Warten kein Geld verliert; fliegen Sie hochwertdichte Waren, Launches und dringende Ersatzware. Für die meisten Sourcing-Programme lautet die richtige Antwort: See für Volumen plus einer ständigen Luftfrachtroute für Notfälle.',
+    entityA: 'Seefracht',
+    entityB: 'Luftfracht',
+    pillar: 'trade',
+    updated: '2025-10-20',
+    rows: [
+      { label: 'Transit (China → Indien)', a: '18–25 Tage Hafen zu Hafen + Zoll', b: '3–7 Tage Tür zu Tür' },
+      { label: 'Relative Kosten', a: '1× (Basislinie)', b: '5–8× pro kg' },
+      { label: 'Am besten für', a: 'Massengut, Nachschub, geringe Wertdichte', b: 'Launches, Muster, Ersatzteile, Elektronik' },
+      { label: 'Modi', a: 'LCL (geteilt) oder FCL 20ft/40ft', b: 'Consol oder direkt, Regeln zum abrechenbaren Gewicht' },
+      { label: 'CO₂-Intensität', a: 'Am niedrigsten pro Tonne-km', b: 'Hoch — 20×+ der See pro Tonne-km' },
+      { label: 'Hauptrisiko', a: 'Hafenüberlastung, ausgesetzte Abfahrten (Golden Week)', b: 'Kapazitätspreisspitzen (Messensaison)' },
+      { label: 'Cashflow-Form', a: 'Langsamer Lagerumschlag, geringerer Frachtaufwand', b: 'Schneller Umschlag, P&L frachtlastig' },
+    ],
+    verdict: {
+      winner: 'See für Volumen, Luft für Tempo',
+      text: 'Fahren Sie den Standard auf See — LCL für Versuche unter ca. 12–15 CBM, FCL in der Skalierung — und halten Sie eine definierte Luftfrachtroute für Launches und Bestandslücken bereit. Entscheidend ist nicht der Frachtpreis pro kg, sondern die Landekosten pro Einheit, gemessen an Ihrer Absatzgeschwindigkeit; unser Desk modelliert beides, bevor Sie sich festlegen.',
+    },
+    body: [
+      'Die Hafenpaare zählen so viel wie der Modus: Guangzhou/Shenzhen nach Mundra oder JNPT ist der Hauptkorridor (18–25 Tage), Shanghai/Ningbo kommen 2–3 Tage hinzu. Luft geht über PVG/CAN nach DEL/BOM in 3–7 Tagen Tür zu Tür einschließlich Abfertigung.',
+      'Zeitrisiken sind saisonal: Golden-Week-Aussetzungen drücken die Seekapazität jeden Oktober, während Canton-Fair-Wochen und der Run vor dem chinesischen Neujahrsfest Lufttarife hochtreiben. Bauen Sie Pufferbestände um diese Fenster auf, statt Spot-Prämien zu zahlen.',
+    ],
+    faqs: [
+      {
+        question: 'Wann ergibt Luftfracht von China nach Indien Sinn?',
+        answer: 'Drei Fälle: Launchbestand, der einen Marktermin einhalten muss, hochwertdichte Waren, bei denen Fracht ein kleiner Anteil der Stückökonomie ist, und Notfall-Stockouts. Alles andere geht üblicherweise per See.',
+      },
+      {
+        question: 'Wie viel günstiger ist Seefracht?',
+        answer: 'Etwa 5–8× günstiger pro kg als Luft auf der China–Indien-Route, vor Lagerhaltungskosten. Bei vollen Containern ist See kein Vergleich — es ist die einzige wirtschaftliche Option.',
+      },
+      {
+        question: 'LCL oder FCL für die erste Bestellung?',
+        answer: 'LCL für Probevolumen (bis ca. 12–15 CBM) — Sie zahlen nur den genutzten Platz. Wechseln Sie zu FCL, wenn die Volumina die Stückrechnung gewinnen lassen, typischerweise nach 2–3 Bestellungen.',
+      },
+    ],
+  },
+];
+
+/* ja — machine-assisted translation, pending native-speaker review. */
+const COMPARISONS_JA: Comparison[] = [
+  {
+    slug: 'mbbs-china-vs-india',
+    title: '中国とインドのMBBS：費用、認可、結論',
+    headline: '中国MBBS vs インドMBBS',
+    answer:
+      '政府枠を取れるならインドを選んでください——依然として最も安い認可ルートです。現実的なインド側の選択肢が₹60L–1Crの私立枠であるなら中国を選びましょう：MOE掲載大学の中国MBBSは約3分の1の費用で同等の認可見通しを提供します。ただし譲れない条件として、外国医学卒業生は帰国後にFMGE/NExT審査に合格する必要があります（インド卒業生はNExTで登録——適格規則は入学年度によって異なるため、決断前に現行のNMC規則を確認してください）。',
+    entityA: '中国のMBBS',
+    entityB: 'インドのMBBS',
+    pillar: 'education',
+    updated: '2025-11-01',
+    rows: [
+      { label: '学費（年間）', a: 'US$3,500–8,000（MOE掲載校）', b: '公立：₹10k–1L · 私立：₹8–20L' },
+      { label: 'プログラム総費用', a: 'US$38.5–83k 全込み（5.5年）', b: '公立：₹5–10L · 私立：₹60L–1Cr+' },
+      { label: 'インド開業のライセンス試験', a: 'FMGE/NExT審査（外国卒業生のみ）', b: 'NExT / 大学登録——FMGEはインド卒業生には適用されない' },
+      { label: '授業言語', a: '英語（臨床年次にはHSK 4が必要）', b: '英語（私立）/ 地域言語' },
+      { label: '入学ゲート', a: 'NEET合格 + 12年生のPCB', b: 'NEET順位（公立）/ NEET合格（私立）' },
+      { label: '生活費', a: 'US$300–850/月、都市による', b: '₹12–30k/月、都市による' },
+      { label: '奨学金', a: 'CSCや大学奨学金で学費がゼロになることも', b: '私立では稀；州割当あり' },
+      { label: '患者への接点', a: '附属病院で豊富；言語次第', b: '豊富；言語は母語' },
+      { label: '最大のリスク', a: '未掲載大学＋言語の軽視', b: '寄付金（キャピテーション）＋枠の希少性' },
+    ],
+    verdict: {
+      winner: 'NEETの結果次第',
+      text: 'インドの公立MBBS枠 → 迷わず取る。公立枠がなく予算が限られる → 同じ認可努力（中国卒はFMGE、インド卒はNExT登録）なら、MOE掲載の中国は費用面でどのインド私立枠よりも有利。資金があり海外適応の意欲もないのに₹1Crを私立に払う → インド私立が合理的。避けるべき2つの失敗パターン：未掲載の中国大学、そして中国を選びながらHSKとFMGE対策を怠ること。',
+    },
+    body: [
+      '多くのインドの家庭が実際に直面する比較は、抽象的な「中国かインドか」ではありません——彼らの唯一のインドの選択肢、七桁の値段がついた私立枠と中国の比較です。こう枠組みを変えると決断ははっきりします。',
+      '認可は対称です：どちら側のMBBSでも、インドで開業するにはFMGE/NExTの合格が求められます（インド私立卒業生もNExTを直面します）。違うのは学位取得コストと、海外ルートが要求する規律——言語、自立、書類管理です。',
+      '中国のMBBS制度は留学生向けに設計されています：MOE掲載大学の英語授業トラック、予測可能な費用表、寮インフラ。インドの強みは初日から自国の医療制度の中での臨床経験——FMGEと将来の開業にとって実質的な強みです。',
+    ],
+    faqs: [
+      {
+        question: '中国のMBBSはインドの私立MBBSより優れていますか？',
+        answer: '費用では明確にイエス：MOE掲載大学での中国MBBS全課程は、インド私立枠の約3分の1です。臨床経験と制度への慣れではインド私立が有利。認可では双方ともFMGE/NExTが必要——どちらも自動ではありません。',
+      },
+      {
+        question: '中国でMBBSを取った後、インドで開業できますか？',
+        answer: 'はい。NBEが実施するFMGE（NExTへ移行中）に合格し、標準のインターン登録を済ませれば可能です。毎年何千人もがそうしています。学位取得中の試験対策が、どこで学んだかより重要です。',
+      },
+      {
+        question: '総合的にどちらが安いですか？',
+        answer: '第二級都市の大学での中国MBBSなら総費用US$35–45k程度に収まります。インド私立枠は学費だけで₹60L–1Crを超えるのが通例。インド公立枠は両方より安いですが希少です。',
+      },
+    ],
+  },
+  {
+    slug: 'tsinghua-vs-peking',
+    title: '清華大学 vs 北京大学：どちらに出願すべき？',
+    headline: '清華大学 vs 北京大学',
+    answer:
+      '両校は中国の学術の頂点を分け合う2つの半分で、海淀区内で3kmしか離れていません。工学・コンピュータサイエンス・テクノロジー職なら清華、人文・経済・理学・研究の広がりなら北大を選びましょう。留学生の入学難易度はほぼ同等——ランキングではなく、自分の学問分野が求める方に出願してください。',
+    entityA: '清華大学',
+    entityB: '北京大学',
+    pillar: 'education',
+    updated: '2025-10-15',
+    rows: [
+      { label: 'アイデンティティ', a: '工学・技術の頂点', b: '人文・理学・政策の広がり' },
+      { label: '世界ランキング（QS）', a: 'トップ25、工学トップ10', b: '総合トップ15' },
+      { label: '留学生向けの看板', a: 'CS/AI、工学、シュワルツマン、MBA', b: '経済、国際関係、中国研究、燕京' },
+      { label: 'キャンパスの性格', a: '赤煉瓦のコレジエート＋近代的な実験棟', b: '皇家庭園、未名湖' },
+      { label: '産業との近さ', a: '中関村：百度、字節跳動、マイクロソフトアジア研究院', b: 'シンクタンク、金融、政府ルート' },
+      { label: '留学生の規模', a: '全学位で約3,000人以上', b: '全学位で約3,000人以上' },
+      { label: '最適な志望者', a: 'STEMの構築者/研究者', b: '分析・政策・人文系の思考' },
+    ],
+    verdict: {
+      winner: '決めるのは学科であってランキングではない',
+      text: '工学とCSでは清華の引力はアジアで比類がなく、経済・国際関係・法学・純粋理学では北大の深さと庭園キャンパスが勝ります。留学生にとって出願難易度は同等で、どちらも研究学位の勝率は事前の指導教員コンタクトで大きく上がります——出願が始まる前に私たちが行っている仕事です。',
+    },
+    body: [
+      '両校の対決は親愛で地理的：海淀を挟んでキャンパスが向かい合い、中国の家庭は子どもが成府路のどちら側に住むかを冗談にします。留学生にとって選択は部族性より実用性——学科の強さ、英語授業のメニュー、卒業後のネットワークです。',
+      '両校ともCSC B類の入学と大学独自の奨学金（清華の校長奨学金；北大の燕京と各学院の資金）を実施しています。双方とも競争力のある成績を、研究学位では早期の指導教員との関係を期待します。どちらも誰にとっての「滑り止め」ではありません。',
+    ],
+    faqs: [
+      {
+        question: '留学生にとってどちらが入るのが難しいですか？',
+        answer: '総体ではほぼ同等；境界は学科次第。清華の工学/CS枠は極端に少なく激戦で、北大の経済学と燕京も同様に選抜が厳しい。どちらも強い書類と指導教員の後押しがあれば研究学位は現実的に狙えます。',
+      },
+      {
+        question: '両校ともCSC奨学金はありますか？',
+        answer: 'はい——両校ともB類指定大学で、大学自身に直接出願します（直通ルート）。A類の政府ルートは母国の省庁や大使館を通ります。どちらの全額支給も成績にかかわらず競争的；両校に加えて可能性の高い提携大学にも出願してください。',
+      },
+    ],
+  },
+  {
+    slug: 'sea-vs-air-freight',
+    title: '海上輸送 vs 航空輸送：中国からインドへの輸送比較',
+    headline: '中国からインドへ：海上輸送 vs 航空輸送',
+    answer:
+      '海はコストで勝ち——kgあたり5～8倍安い——時間で負けます：港から港まで18～25日、航空なら戸口から戸口まで3～7日。待っても損をしない貨物はすべて海へ；価値密度の高い貨物、新規上市、緊急補充は空へ。ほとんどの調達プログラムでは、基本は海で量を運び、緊急用の空輸ルートを常設するのが正解です。',
+    entityA: '海上輸送',
+    entityB: '航空輸送',
+    pillar: 'trade',
+    updated: '2025-10-20',
+    rows: [
+      { label: '輸送期間（中国 → インド）', a: '18～25日 港⇔港 ＋ 通関', b: '3～7日 戸口⇔戸口' },
+      { label: '相対コスト', a: '1×（基準）', b: 'kgあたり5～8×' },
+      { label: '最適な用途', a: '大量・補充・低価値密度', b: '新規上市、サンプル、スペア部品、電子機器' },
+      { label: '方式', a: 'LCL（混載）またはFCL 20ft/40ft', b: '混載または直行、課金重量ルール' },
+      { label: '炭素強度', a: 'トンkmあたり最も低い', b: '高い——トンkmあたり海の20×以上' },
+      { label: '主なリスク', a: '港湾混雑、欠航（黄金週間）', b: '運賃急騰（見本市シーズン）' },
+      { label: 'キャッシュフローの形状', a: '在庫回転が遅く輸送費負担が小さい', b: '回転が速く損益が輸送費中心' },
+    ],
+    verdict: {
+      winner: '量は海で、速さは空で',
+      text: 'デフォルトは海——トライアルは約12～15CBM未満をLCL、規模が出たらFCL——で運用し、新規上市と在庫切れ用に明確な空輸ルートを確保します。重要なのはkgあたり運賃ではなく、販売スピードに対する1単位あたりの着地コスト。当社デスクはご決断前に両方を試算します。',
+    },
+    body: [
+      '港の組み合わせは方式と同じくらい重要：広州/深圳からムンドラまたはJNPTへの幹線回廊（18～25日）に、上海/寧波はさらに2～3日。空はPVG/CANからDEL/BOMへ、通関込みで3～7日戸口から戸口です。',
+      'タイミングのリスクは季節性：毎年10月の黄金週間の欠航は海の能力を圧迫し、広交会の期間と春節前の駆け込みは航空運賃を押し上げます。スポットプレミアムを払うのではなく、これらの窓の前後でバッファ在庫を組んでください。',
+    ],
+    faqs: [
+      {
+        question: '中国からインドへ航空輸送が理にかなうのはいつ？',
+        answer: '3つの場合：市場の日付に間に合わせる必要がある上市在庫、運賃が単位経済に占める割合が小さい高価値密度品、緊急の在庫切れ。それ以外は通常、海です。',
+      },
+      {
+        question: '海運はどれほど安いですか？',
+        answer: '中国–インド航路ではkgあたり航空より約5～8倍安く、在庫保有コストは含みません。フルコンテナでは海は比較の対象ではなく、唯一の経済的選択肢です。',
+      },
+      {
+        question: '最初の発注はLCLかFCLか？',
+        answer: 'トライアル量（約12～15CBMまで）はLCL——使ったスペース分だけ払います。量が揃って単位あたり計算が勝つようになったらFCLへ。通常は2～3回の発注の後です。',
+      },
+    ],
+  },
+];
+
+/* pt — machine-assisted translation, pending native-speaker review. */
+const COMPARISONS_PT: Comparison[] = [
+  {
+    slug: 'mbbs-china-vs-india',
+    title: 'MBBS na China vs Índia: custos, reconhecimento e veredito',
+    headline: 'MBBS na China vs MBBS na Índia',
+    answer:
+      'Escolha a Índia se você puder conquistar uma vaga pública — continua sendo o caminho reconhecido mais barato. Escolha a China quando a alternativa indiana realista é uma vaga privada de ₹60L–1Cr: um MBBS chinês numa universidade da lista do MOE entrega reconhecimento comparável por cerca de um terço do custo, com a condição inegociável de que, como graduado médico estrangeiro, você passe na triagem FMGE/NExT ao voltar (graduados indianos se registram via NExT — as regras de elegibilidade dependem do seu ano de admissão, verifique a regulamentação atual do NMC antes de se comprometer).',
+    entityA: 'MBBS na China',
+    entityB: 'MBBS na Índia',
+    pillar: 'education',
+    updated: '2025-11-01',
+    rows: [
+      { label: 'Mensalidade (por ano)', a: 'US$3,500–8,000 (universidades listadas MOE)', b: 'Pública: ₹10k–1L · Privada: ₹8–20L' },
+      { label: 'Custo total do curso', a: 'US$38,5–83 mil completo (5,5 anos)', b: 'Pública: ₹5–10L · Privada: ₹60L–1Cr+' },
+      { label: 'Exame de licença para exercer na Índia', a: 'Triagem FMGE/NExT (só graduados estrangeiros)', b: 'NExT / registro universitário — FMGE não se aplica a graduados indianos' },
+      { label: 'Idioma de instrução', a: 'Inglês (HSK 4 necessário nos anos clínicos)', b: 'Inglês (privadas) / línguas regionais' },
+      { label: 'Portão de admissão', a: 'Qualificação NEET + PCB no 12.º ano', b: 'Classificação NEET (pública) / qualificação NEET (privada)' },
+      { label: 'Custo de vida', a: 'US$300–850/mês conforme a cidade', b: '₹12–30k/mês conforme a cidade' },
+      { label: 'Bolsas', a: 'CSC + bolsas universitárias podem zerar a mensalidade', b: 'Raras em faculdades privadas; cotas estaduais' },
+      { label: 'Exposição a pacientes', a: 'Forte em hospitais universitários; depende do idioma', b: 'Forte; o idioma é o nativo' },
+      { label: 'Maior risco', a: 'Universidades fora da lista + negligenciar o idioma', b: 'Doações capitais + escassez de vagas' },
+    ],
+    verdict: {
+      winner: 'Depende do seu resultado no NEET',
+      text: 'Vaga pública de MBBS na Índia → pegue, ponto final. Sem vaga pública e orçamento apertado → a China listada no MOE vence qualquer vaga privada indiana em custo, com esforço de reconhecimento equivalente (FMGE para graduados da China; graduados indianos se registram via NExT). Pagar ₹1Cr numa privada com recursos disponíveis e sem vontade de adaptação no exterior → a privada na Índia continua racional. Os dois modos de falha a evitar: universidades chinesas fora da lista, e escolher a China ignorando a preparação de HSK e FMGE.',
+    },
+    body: [
+      'A comparação que a maioria das famílias indianas realmente enfrenta não é China contra Índia no abstrato — é China contra a única opção indiana de que dispõem: uma vaga privada com preço de sete dígitos. Encarada assim, a decisão fica mais clara.',
+      'O reconhecimento é simétrico: um MBBS de qualquer lado da fronteira exige passar no FMGE/NExT para exercer na Índia (graduados de faculdades privadas indianas também enfrentam o NExT). O que muda é o custo de obter o diploma e a disciplina que o caminho do exterior exige — idioma, independência e higiene documental.',
+      'O sistema de MBBS chinês é feito sob medida para estudantes internacionais: trilhas em inglês em universidades da lista do MOE, tabelas de tarifas previsíveis e infraestrutura de alojamento. A vantagem da Índia é a exposição clínica no seu próprio sistema de saúde desde o primeiro dia — uma força genuína para o FMGE e a prática futura.',
+    ],
+    faqs: [
+      {
+        question: 'O MBBS chinês é melhor que o MBBS privado indiano?',
+        answer: 'No custo, decisivamente sim: um MBBS chinês completo numa universidade da lista do MOE custa cerca de um terço de uma vaga privada indiana. Em exposição clínica e familiaridade com o sistema, vencem as privadas indianas. Em reconhecimento, ambos precisam de FMGE/NExT — nenhum é automático.',
+      },
+      {
+        question: 'Posso exercer na Índia depois de um MBBS na China?',
+        answer: 'Sim, depois de passar no FMGE (em transição para o NExT) conduzido pelo NBE, mais o registro de internato padrão. Milhares fazem isso todos os anos; a preparação durante o curso importa mais do que onde você estudou.',
+      },
+      {
+        question: 'Qual é mais barato no total?',
+        answer: 'Um MBBS chinês numa universidade de cidade de segundo nível pode ficar perto de US$35–45 mil completo. Vagas privadas indianas costumam passar de ₹60L–1Cr só em mensalidade. Vagas públicas indianas são mais baratas que ambas, mas escassas.',
+      },
+    ],
+  },
+  {
+    slug: 'tsinghua-vs-peking',
+    title: 'Tsinghua vs Peking University: em qual se candidatar?',
+    headline: 'Tsinghua vs Peking University',
+    answer:
+      'São duas metades do pico acadêmico da China, a 3 km uma da outra em Haidian. Tsinghua para engenharia, computação e carreiras tecnológicas; Peking para humanidades, economia, ciências e amplitude de pesquisa. A dificuldade de admissão internacional é comparável — candidate-se àquela que sua área pede, não à que um ranking indica.',
+    entityA: 'Universidade Tsinghua',
+    entityB: 'Universidade de Pequim (Peking University)',
+    pillar: 'education',
+    updated: '2025-10-15',
+    rows: [
+      { label: 'Identidade', a: 'Supremacia em engenharia e tecnologia', b: 'Amplitude em humanidades, ciências e políticas públicas' },
+      { label: 'Posição global (QS)', a: 'Top-25, engenharia top-10', b: 'Top-15 geral' },
+      { label: 'Carros-chefes para internacionais', a: 'CS/IA, engenharia, Schwarzman, MBA', b: 'Economia, RI, estudos chineses, Yenching' },
+      { label: 'Caráter do campus', a: 'Colegial de tijolo vermelho + laboratórios modernos', b: 'Jardins imperiais, lago Weiming' },
+      { label: 'Vizinhança industrial', a: 'Zhongguancun: Baidu, ByteDance, MSR Asia', b: 'Think tanks, finanças, caminhos governamentais' },
+      { label: 'Coorte internacional', a: '~3.000+ nos cursos', b: '~3.000+ nos cursos' },
+      { label: 'Candidato ideal', a: 'Construtor/pesquisador em STEM', b: 'Mente analítica/pública/humanista' },
+    ],
+    verdict: {
+      winner: 'A área decide, não os rankings',
+      text: 'Para engenharia e computação, a atração de Tsinghua não tem rival na Ásia; para economia, relações internacionais, direito ou ciências puras, vencem a profundidade de Peking e seu campus-jardim. A dificuldade de candidatura é comparável para estudantes internacionais; as chances em pesquisa melhoram muito nas duas com contato prévio com o orientador — o trabalho que fazemos antes de as candidaturas abrirem.',
+    },
+    body: [
+      'A rivalidade é afetuosa e geográfica: os dois campi se encaram através de Haidian, e famílias chinesas brincam sobre de que lado da estrada Chengfu um filho mora. Para candidatos internacionais a escolha é menos tribal e mais prática — força do departamento, oferta em inglês e rede pós-graduação.',
+      'As duas universidades administram admissões CSC Tipo B e bolsas universitárias (os prêmios presidenciais de Tsinghua; o Yenching e financiamentos de escolas de Peking). Ambas esperam notas competitivas e, nos títulos de pesquisa, engajamento precoce do orientador. Nenhuma é “segurança” para ninguém.',
+    ],
+    faqs: [
+      {
+        question: 'Qual é mais difícil de entrar para estudantes internacionais?',
+        answer: 'Comparável no geral; dependente da área nas bordas. O cupo de engenharia/CS de Tsinghua é minúsculo e feroz; as coortes de economia e Yenching de Peking são igualmente seletivas. Admissão de pesquisa é vencível de forma realista nas duas com dossiês fortes e apoio do orientador.',
+      },
+      {
+        question: 'As duas oferecem bolsas CSC?',
+        answer: 'Sim — ambas são universidades designadas Tipo B, ou seja, você se candidata pela própria universidade (a via direta). O canal governamental Tipo A passa pelo seu ministério ou embaixada de origem, não pela universidade. As concessões integrais nas duas são competitivas, independentemente das notas; candidate-se às duas mais uma universidade parceira de alta probabilidade.',
+      },
+    ],
+  },
+  {
+    slug: 'sea-vs-air-freight',
+    title: 'Frete marítimo vs aéreo: comparação de envios da China para a Índia',
+    headline: 'Frete marítimo vs aéreo da China para a Índia',
+    answer:
+      'O mar vence no custo — 5–8× mais barato por kg — e perde no tempo: 18–25 dias porta a porta contra 3–7 dias porta a porta pelo ar. Envie por mar tudo o que não perde dinheiro esperando; voe mercadorias de alta densidade de valor, lançamentos e reposições urgentes. Para a maioria dos programas de sourcing, a resposta certa é mar para volume mais uma rota aérea permanente para emergências.',
+    entityA: 'Frete marítimo',
+    entityB: 'Frete aéreo',
+    pillar: 'trade',
+    updated: '2025-10-20',
+    rows: [
+      { label: 'Trânsito (China → Índia)', a: '18–25 dias porta a porta + alfândega', b: '3–7 dias porta a porta' },
+      { label: 'Custo relativo', a: '1× (linha de base)', b: '5–8× por kg' },
+      { label: 'Melhor para', a: 'Volume, reposição, baixa densidade de valor', b: 'Lançamentos, amostras, peças, eletrônicos' },
+      { label: 'Modos', a: 'LCL (compartilhado) ou FCL 20ft/40ft', b: 'Consol ou direto, regras de peso tarifável' },
+      { label: 'Intensidade de carbono', a: 'A menor por tonelada-km', b: 'Alta — 20×+ o mar por tonelada-km' },
+      { label: 'Risco principal', a: 'Congestionamento portuário, saídas canceladas (Golden Week)', b: 'Picos de preço de capacidade (temporada de feiras)' },
+      { label: 'Forma do fluxo de caixa', a: 'Giro lento de estoque, menor gasto de frete', b: 'Giro rápido, DRE pesado em frete' },
+    ],
+    verdict: {
+      winner: 'Mar para volume, ar para velocidade',
+      text: 'Opere o padrão no mar — LCL para testes abaixo de ~12–15 CBM, FCL em escala — e mantenha uma rota aérea definida para lançamentos e rupturas de estoque. A conta que importa não é o frete por kg, mas o custo posto em destino por unidade contra sua velocidade de venda; nossa mesa modela os dois antes de você se comprometer.',
+    },
+    body: [
+      'Os pares de portos importam tanto quanto o modo: Guangzhou/Shenzhen para Mundra ou JNPT é o corredor de trabalho (18–25 dias), com Shanghai/Ningbo somando 2–3 dias. O ar vai via PVG/CAN para DEL/BOM em 3–7 dias porta a porta, desembaraço incluído.',
+      'Os riscos de calendário são sazonais: as saídas canceladas da Golden Week comprimem a capacidade marítima todo outubro, enquanto as semanas da Canton Fair e a corrida pré-Ano Novo Chinês disparam as tarifas aéreas. Monte estoque colchão em torno dessas janelas em vez de pagar prêmios spot.',
+    ],
+    faqs: [
+      {
+        question: 'Quando o frete aéreo da China para a Índia faz sentido?',
+        answer: 'Três casos: estoque de lançamento que precisa cumprir uma data de mercado, bens de alta densidade de valor em que o frete é fatia pequena da economia unitária, e rupturas de estoque de emergência. Todo o resto geralmente vai por mar.',
+      },
+      {
+        question: 'Quanto mais barato é o frete marítimo?',
+        answer: 'Cerca de 5–8× mais barato por kg que o aéreo na rota China–Índia, antes dos custos de manter estoque. Para contêineres cheios, o mar não é uma comparação — é a única opção econômica.',
+      },
+      {
+        question: 'LCL ou FCL para o primeiro pedido?',
+        answer: 'LCL para volumes de teste (até ~12–15 CBM) — você paga só o espaço que usa. Mude para FCL quando os volumes fizerem a matemática por unidade vencer, tipicamente após 2–3 pedidos.',
+      },
+    ],
+  },
+];
+
+/* hi — machine-assisted translation, pending native-speaker review. */
+const COMPARISONS_HI: Comparison[] = [
+  {
+    slug: 'mbbs-china-vs-india',
+    title: 'चीन बनाम भारत में MBBS: लागत, मान्यता और निष्कर्ष',
+    headline: 'चीन MBBS बनाम भारत MBBS',
+    answer:
+      'अगर आप सरकारी सीट जीत सकते हैं तो भारत चुनें — यह मान्यता प्राप्त सबसे सस्ता रास्ता बना हुआ है। जब वास्तविक भारतीय विकल्प ₹60L–1Cr की प्राइवेट सीट हो, तब चीन चुनें: MOE सूची में शामिल चीनी MBBS लगभग एक-तिहाई लागत में तुलनीय मान्यता देता है, बशर्ते — यह बातचीत-से-बाहर शर्त है — कि विदेशी मेडिकल ग्रेजुएट के रूप में लौटते समय आप FMGE/NExT स्क्रीनिंग पास करें (भारतीय ग्रेजुएट NExT से रजिस्टर होते हैं — पात्रता नियम आपके प्रवेश वर्ष पर निर्भर हैं, प्रतिबद्ध होने से पहले वर्तमान NMC नियम जाँचें)।',
+    entityA: 'चीन में MBBS',
+    entityB: 'भारत में MBBS',
+    pillar: 'education',
+    updated: '2025-11-01',
+    rows: [
+      { label: 'ट्यूशन (प्रति वर्ष)', a: 'US$3,500–8,000 (MOE सूचीबद्ध)', b: 'सरकारी: ₹10k–1L · प्राइवेट: ₹8–20L' },
+      { label: 'कुल कार्यक्रम लागत', a: 'US$38.5–83k सब मिलाकर (5.5 वर्ष)', b: 'सरकारी: ₹5–10L · प्राइवेट: ₹60L–1Cr+' },
+      { label: 'भारत में प्रैक्टिस के लिए लाइसेंस परीक्षा', a: 'FMGE/NExT स्क्रीनिंग (केवल विदेशी ग्रेजुएट)', b: 'NExT / विश्वविद्यालय पंजीकरण — FMGE भारतीय ग्रेजुएट पर लागू नहीं' },
+      { label: 'शिक्षा का माध्यम', a: 'अंग्रेज़ी (क्लिनिकल वर्षों के लिए HSK 4 चाहिए)', b: 'अंग्रेज़ी (प्राइवेट) / क्षेत्रीय भाषाएँ' },
+      { label: 'प्रवेश द्वार', a: 'NEET योग्यता + कक्षा 12 PCB', b: 'NEET रैंक (सरकारी) / NEET योग्यता (प्राइवेट)' },
+      { label: 'जीवन-यापन लागत', a: 'US$300–850/माह शहर अनुसार', b: '₹12–30k/माह शहर अनुसार' },
+      { label: 'छात्रवृत्तियाँ', a: 'CSC + विश्वविद्यालय पुरस्कार ट्यूशन शून्य तक घटा सकते हैं', b: 'प्राइवेट कॉलेजों में दुर्लभ; राज्य कोटा' },
+      { label: 'मरीज़ों का संपर्क', a: 'संबद्ध अस्पतालों में मज़बूत; भाषा पर निर्भर', b: 'मज़बूत; भाषा मातृभाषा' },
+      { label: 'सबसे बड़ा जोखिम', a: 'सूची-बाहर विश्वविद्यालय + भाषा की उपेक्षा', b: 'कैपिटेशन फ़ीस + सीटों की कमी' },
+    ],
+    verdict: {
+      winner: 'आपके NEET नतीजे पर निर्भर',
+      text: 'भारत में सरकारी MBBS सीट → ले लो, बस। सरकारी सीट नहीं और बजट तंग → समान मान्यता प्रयास (चीन ग्रेजुएट के लिए FMGE; भारतीय ग्रेजुएट NExT से रजिस्टर) में MOE-सूचीबद्ध चीन लागत पर किसी भी भारतीय प्राइवेट सीट से बेहतर। धन उपलब्ध होने पर भी ₹1Cr प्राइवेट देना और विदेशी अनुकूलन की इच्छा न होना → भारत प्राइवेट तर्कसंगत है। दो असफलता-पैटर्न जिनसे बचें: सूची-बाहर चीनी विश्वविद्यालय, और चीन चुनकर HSK व FMGE तैयारी की उपेक्षा।',
+    },
+    body: [
+      'ज़्यादातर भारतीय परिवारों के सामने असली तुलना भावनात्मक “चीन बनाम भारत” नहीं है — बल्कि चीन बनाम उनका एकमात्र भारतीय विकल्प: सात अंकों की क़ीमत वाली प्राइवेट सीट। इस ढाँचे में सोचें तो फ़ैसला साफ़ हो जाता है।',
+      'मान्यता सममित है: सीमा के दोनों ओर का MBBS भारत में प्रैक्टिस के लिए FMGE/NExT पास करने को कहता है (भारतीय प्राइवेट कॉलेजों के ग्रेजुएट भी NExT का सामना करते हैं)। फ़र्क़ डिग्री हासिल करने की लागत और विदेश रास्ते की अनुशासन माँग में है — भाषा, आत्मनिर्भरता और दस्तावेज़-सफ़ाई।',
+      'चीन का MBBS तंत्र अंतरराष्ट्रीय प्रवेश के लिए बना है: MOE-सूचीबद्ध विश्वविद्यालयों में अंग्रेज़ी-माध्यम ट्रैक, पूर्वानुमेय फ़ीस तालिकाएँ और छात्रावास बुनियादी ढाँचा। भारत का फ़ायदा पहले दिन से अपनी स्वास्थ्य प्रणाली में क्लिनिकल अनुभव है — FMGE और भविष्य की प्रैक्टिस के लिए वास्तविक शक्ति।',
+    ],
+    faqs: [
+      {
+        question: 'क्या चीनी MBBS भारतीय प्राइवेट MBBS से बेहतर है?',
+        answer: 'लागत पर, निर्णायक रूप से हाँ: MOE-सूचीबद्ध चीनी MBBS पूरा करने की लागत भारतीय प्राइवेट सीट की लगभग एक-तिहाई है। क्लिनिकल संपर्क और प्रणाली परिचय पर भारतीय प्राइवेट बेहतर। मान्यता पर दोनों को FMGE/NExT चाहिए — कोई भी स्वतः नहीं।',
+      },
+      {
+        question: 'क्या चीन से MBBS के बाद भारत में प्रैक्टिस कर सकता हूँ?',
+        answer: 'हाँ, NBE द्वारा आयोजित FMGE (NExT में तब्दील हो रही) पास करने और मानक इंटर्न पंजीकरण के बाद। हर साल हज़ारों लोग यह करते हैं; डिग्री के दौरान तैयारी, आपने कहाँ पढ़ा उससे ज़्यादा मायने रखती है।',
+      },
+      {
+        question: 'कुल मिलाकर कौन सस्ता है?',
+        answer: 'द्वितीय श्रेणी शहर के विश्वविद्यालय में चीनी MBBS सब मिलाकर लगभग US$35–45k तक आ सकता है। भारतीय प्राइवेट सीटें अक्सर केवल ट्यूशन में ₹60L–1Cr पार करती हैं। सरकारी भारतीय सीटें दोनों से सस्ती पर दुर्लभ।',
+      },
+    ],
+  },
+  {
+    slug: 'tsinghua-vs-peking',
+    title: 'त्सिंगहुआ बनाम पेकिंग यूनिवर्सिटी: किसमें आवेदन करें?',
+    headline: 'त्सिंगहुआ बनाम पेकिंग यूनिवर्सिटी',
+    answer:
+      'ये चीन की शैक्षिक चोटी के दो आधे हिस्से हैं, हाइडियन में 3 किमी दूर। इंजीनियरिंग, कंप्यूटर साइंस और टेक्नोलॉजी करियर के लिए त्सिंगहुआ; मानविकी, अर्थशास्त्र, विज्ञान और शोध व्याप्ति के लिए पेकिंग चुनें। अंतरराष्ट्रीय प्रवेश कठिनाई तुलनीय है — रैंकिंग की नहीं, अपने विषय की ज़रूरत वाले विश्वविद्यालय में आवेदन करें।',
+    entityA: 'त्सिंगहुआ विश्वविद्यालय',
+    entityB: 'पेकिंग विश्वविद्यालय',
+    pillar: 'education',
+    updated: '2025-10-15',
+    rows: [
+      { label: 'पहचान', a: 'इंजीनियरिंग और तकनीक की सर्वोच्चता', b: 'मानविकी, विज्ञान और नीति की व्याप्ति' },
+      { label: 'वैश्विक स्थान (QS)', a: 'टॉप-25, इंजीनियरिंग टॉप-10', b: 'कुल में टॉप-15' },
+      { label: 'अंतरराष्ट्रीय छात्रों के लिए प्रमुख कार्यक्रम', a: 'CS/AI, इंजीनियरिंग, श्वार्ट्ज़मैन, MBA', b: 'अर्थशास्त्र, अंतरराष्ट्रीय संबंध, चीनी अध्ययन, येनचिंग' },
+      { label: 'कैंपस का स्वभाव', a: 'लाल-ईंट कॉलेजिएट + आधुनिक लैब', b: 'शाही बाग, वेइमिंग झील' },
+      { label: 'उद्योग निकटता', a: 'झोंगग्वानचुन: बैडू, बाइटडांस, MSR एशिया', b: 'थिंक टैंक, वित्त, सरकारी मार्ग' },
+      { label: 'अंतरराष्ट्रीय समूह', a: 'सभी डिग्री में ~3,000+', b: 'सभी डिग्री में ~3,000+' },
+      { label: 'सबसे उपयुक्त आवेदक', a: 'STEM का निर्माता/शोधकर्ता', b: 'विश्लेषक/नीति/मानविकी मस्तिष्क' },
+    ],
+    verdict: {
+      winner: 'विषय फ़ैसला करता है, रैंकिंग नहीं',
+      text: 'इंजीनियरिंग और CS में त्सिंगहुआ का आकर्षण एशिया में अद्वितीय है; अर्थशास्त्र, अंतरराष्ट्रीय संबंध, कानून या शुद्ध विज्ञान में पेकिंग की गहराई और बाग-कैंपस जीतते हैं। अंतरराष्ट्रीय छात्रों के लिए आवेदन कठिनाई तुलनीय है; दोनों में शोध-डिग्री की संभावनाएँ पूर्व-सलाहकार संपर्क से तेज़ी से बेहतर होती हैं — यही वह काम है जो हम आवेदन खुलने से पहले करते हैं।',
+    },
+    body: [
+      'यह प्रतिद्वंद्विता सौम्य और भौगोलिक है: हाइडियन में दोनों कैंपस आमने-सामने हैं, और चीनी परिवार हँसते हैं कि बच्चा चेंगफ़ू रोड के किस पार्श्व में रहता है। अंतरराष्ट्रीय आवेदकों के लिए चुनाव कम गुटबाज़, अधिक व्यावहारिक है — विभाग की ताक़त, अंग्रेज़ी-माध्यम का मेनू और पढ़ाई के बाद का नेटवर्क।',
+      'दोनों विश्वविद्यालय CSC टाइप B प्रवेश और विश्वविद्यालय-स्तरीय छात्रवृत्तियाँ चलाते हैं (त्सिंगहुआ के अध्यक्षीय पुरस्कार; पेकिंग का येनचिंग और स्कूल-स्तरीय वित्तपोषण)। दोनों प्रतिस्पर्धी अंक चाहते हैं, और शोध-डिग्री के लिए जल्दी सलाहकार-संपर्क। कोई भी किसी के लिए “सेफ़्टी” नहीं है।',
+    ],
+    faqs: [
+      {
+        question: 'अंतरराष्ट्रीय छात्रों के लिए किसमें प्रवेश कठिन है?',
+        answer: 'कुल में तुलनीय; किनारों पर विषय-आधारित। त्सिंगहुआ का इंजीनियरिंग/CS कोटा छोटा और कठोर है; पेकिंग के अर्थशास्त्र और येनचिंग समूह भी उतने ही चयनात्मक। दोनों में मज़बूत फ़ाइल और सलाहकार समर्थन से शोध-प्रवेश वास्तविक रूप से जीता जा सकता है।',
+      },
+      {
+        question: 'क्या दोनों CSC छात्रवृत्तियाँ देती हैं?',
+        answer: 'हाँ — दोनों टाइप B नामित विश्वविद्यालय हैं, यानी आप विश्वविद्यालय के ज़रिए ही आवेदन करते हैं (सीधा मार्ग)। टाइप A सरकारी मार्ग आपके देश के मंत्रालय या दूतावास से होकर जाता है, विश्वविद्यालय से नहीं। दोनों में पूर्ण वित्तपोषण अंक चाहे जो हों प्रतिस्पर्धी हैं; दोनों में, साथ में एक अधिक-संभावना पार्टनर विश्वविद्यालय में आवेदन करें।',
+      },
+    ],
+  },
+  {
+    slug: 'sea-vs-air-freight',
+    title: 'समुद्री बनाम हवाई मालभाड़ा: चीन से भारत शिपिंग तुलना',
+    headline: 'चीन से भारत: समुद्री बनाम हवाई मालभाड़ा',
+    answer:
+      'समुद्र लागत में जीतता है — प्रति किग्रा 5–8× सस्ता — और समय में हारता है: पोर्ट-टू-पोर्ट 18–25 दिन बनाम हवाई 3–7 दिन डोर-टू-डोर। जो चीज़ इंतज़ार से पैसा नहीं खोती वह समुद्र से भेजें; उच्च-मूल्य-घनत्व, लॉन्च और अत्यावश्यक प्रतिस्थापन हवा से। ज़्यादातर सोर्सिंग कार्यक्रमों के लिए सही उत्तर: वॉल्यूम के लिए समुद्र और आपात के लिए एक स्थायी हवाई मार्ग।',
+    entityA: 'समुद्री मालभाड़ा',
+    entityB: 'हवाई मालभाड़ा',
+    pillar: 'trade',
+    updated: '2025-10-20',
+    rows: [
+      { label: 'पारगमन (चीन → भारत)', a: '18–25 दिन पोर्ट-टू-पोर्ट + कस्टम', b: '3–7 दिन डोर-टू-डोर' },
+      { label: 'सापेक्ष लागत', a: '1× (आधार)', b: 'प्रति किग्रा 5–8×' },
+      { label: 'सर्वोत्तम', a: 'थोक, पुनःपूर्ति, कम मूल्य घनत्व', b: 'लॉन्च, नमूने, स्पेयर, इलेक्ट्रॉनिक्स' },
+      { label: 'पद्धतियाँ', a: 'LCL (साझा) या FCL 20ft/40ft', b: 'Consol या सीधा, चार्जेबल वेट नियम' },
+      { label: 'कार्बन तीव्रता', a: 'प्रति टन-किमी सबसे कम', b: 'अधिक — प्रति टन-किमी समुद्र का 20×+' },
+      { label: 'मुख्य जोखिम', a: 'पोर्ट जाम, रद्द वॉयेज (गोल्डन वीक)', b: 'क्षमता-मूल्य उछाल (फ़ेयर सीज़न)' },
+      { label: 'कैशफ़्लो आकार', a: 'धीमा इन्वेंटरी टर्न, कम फ़्रेट खर्च', b: 'तेज़ टर्न, P&L में फ़्रेट-भारी' },
+    ],
+    verdict: {
+      winner: 'वॉल्यूम के लिए समुद्र, रफ़्तार के लिए हवा',
+      text: 'डिफ़ॉल्ट समुद्र पर चलाएँ — ~12–15 CBM से नीचे ट्रायल के लिए LCL, स्केल पर FCL — और लॉन्च व स्टॉकआउट के लिए एक स्पष्ट हवाई मार्ग रखें। असली गणित प्रति किग्रा फ़्रेट नहीं, आपकी बिक्री गति के मुक़ाबले प्रति यूनिट लैंडेड लागत है; प्रतिबद्ध होने से पहले हमारी डेस्क दोनों का मॉडल बनाती है।',
+    },
+    body: [
+      'पोर्ट-जोड़ी उतनी ही मायने रखती है जितनी पद्धति: गुआंगझू/शेनज़ें से मुंद्रा या JNPT मुख्य कॉरिडोर (18–25 दिन) है, शंघाई/निंगबो 2–3 दिन जोड़ते हैं। हवाई PVG/CAN से DEL/BOM 3–7 दिन डोर-टू-डोर, क्लियरेंस सहित।',
+      'समय के जोखिम मौसमी हैं: गोल्डन वीक के रद्द वॉयेज हर अक्टूबर समुद्री क्षमता सिकोड़ते हैं, जबकि कैंटन फ़ेयर सप्ताह और चीनी नववर्ष-पूर्व की भागदौड़ हवाई दरें चढ़ाती हैं। स्पॉट प्रीमियम देने के बजाय इन खिड़कियों के इर्द-गिर्द बफ़र स्टॉक बनाएँ।',
+    ],
+    faqs: [
+      {
+        question: 'चीन से भारत हवाई मालभाड़ा कब सही रहता है?',
+        answer: 'तीन स्थितियाँ: बाज़ार-तिथि पर पहुँचना ज़रूरी लॉन्च स्टॉक, ऐसे उच्च-मूल्य-घनत्व माल जहाँ फ़्रेट यूनिट-अर्थशास्त्र का छोटा हिस्सा है, और आपातकालीन स्टॉकआउट। बाक़ी सब आमतौर पर समुद्र से।',
+      },
+      {
+        question: 'समुद्री मालभाड़ा कितना सस्ता है?',
+        answer: 'चीन–भारत मार्ग पर हवाई से प्रति किग्रा लगभग 5–8× सस्ता, इन्वेंटरी-धारण लागत से पहले। पूरे कंटेनर के लिए समुद्र तुलना नहीं — एकमात्र आर्थिक विकल्प है।',
+      },
+      {
+        question: 'पहले ऑर्डर के लिए LCL या FCL?',
+        answer: 'ट्रायल वॉल्यूम (~12–15 CBM तक) के लिए LCL — आप जो स्पेस इस्तेमाल करें बस उसका भुगतान करते हैं। जब वॉल्यूम प्रति-यूनिट गणित जिताने लगें, आमतौर पर 2–3 ऑर्डर बाद, FCL पर जाएँ।',
+      },
+    ],
+  },
+];
+
 /**
  * Slugs stay identical across locales (URLs are shared); en is the source
- * of truth and zh/fr/ar/es are machine-assisted translations pending
- * native-speaker review — same comparison count and order, same row and
- * FAQ counts, identical slug/pillar/updated/figures.
+ * of truth and zh/fr/ar/es/de/ja/pt/hi are machine-assisted translations
+ * pending native-speaker review — same comparison count and order, same
+ * row and FAQ counts, identical slug/pillar/updated/figures.
  */
 export const COMPARISONS: Record<Locale, Comparison[]> = {
   en: COMPARISONS_EN,
@@ -681,4 +1197,8 @@ export const COMPARISONS: Record<Locale, Comparison[]> = {
   fr: COMPARISONS_FR,
   ar: COMPARISONS_AR,
   es: COMPARISONS_ES,
+  de: COMPARISONS_DE,
+  ja: COMPARISONS_JA,
+  pt: COMPARISONS_PT,
+  hi: COMPARISONS_HI,
 };

@@ -60,7 +60,7 @@ const footerGroups = ui.footer.groups;
       <p class="footer-coords num" aria-hidden="true">
         {SITE.offices.map((o) => `${o.lat.toFixed(2)}°N ${o.code}`).join(' · ')}
       </p>
-      <p class="footer-note">{ui.footer.openNote} <bdi>{SITE.hours}</bdi> · {ui.cta.replyValue}</p>
+      <p class="footer-note">{ui.footer.openNote} <bdi>{ui.footer.hoursValue}</bdi> · {ui.cta.replyValue}</p>
     </div>
   </div>
 </footer>

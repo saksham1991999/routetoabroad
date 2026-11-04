@@ -20,6 +20,7 @@ import { GUIDE_DETAIL } from '../../i18n/pages/guide-detail';
 
 
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, localizeHtmlLinks, type Locale } from '../../lib/i18n';
+import { uiFor } from '../../i18n/ui';
 import type { CollectionEntry } from 'astro:content';
 
 interface Props {
@@ -31,6 +32,7 @@ const { locale = DEFAULT_LOCALE, guide } = Astro.props;
 const link = (path: string) => translatePath(path, locale);
 /** Localized template copy. */
 const t = GUIDE_DETAIL[locale];
+const chrome = uiFor(locale);
 const { data } = guide;
 const { Content } = await render(guide);
 const slug = entrySlug(guide);
@@ -65,7 +67,7 @@ const pillarColor: Record<string, string> = {
       image: 'https://routetoabroad.com/og/default.jpg',
       datePublished: data.pubDate.toISOString(),
       dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
-      authorName: 'RouteToAbroad Desk',
+      authorName: chrome.guideDeskByline,
       section: data.pillar,
     }),
     ...(faqs.length ? [faqSchema(faqs)] : []),

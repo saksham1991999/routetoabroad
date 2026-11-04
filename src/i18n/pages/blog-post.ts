@@ -104,4 +104,64 @@ export const BLOG_POST: Record<Locale, BlogPostStrings> = {
       secondary: 'Hablar con nosotros',
     },
   },
+
+  de: {
+    crumb: 'Einblicke',
+    categories: { education: 'Bildung', tourism: 'Tourismus', trade: 'Handel' },
+    updated: '· aktualisiert {date}',
+    readTime: '· {n} Min. Lesezeit',
+    minShort: '{n} Min.',
+    related: 'Weiterlesen',
+    cta: {
+      eyebrow: 'Sie stehen vor dieser Entscheidung?',
+      text: 'Erhalten Sie die Antwort für Ihren konkreten Fall — der Eignungscheck umfasst vier Fragen, Berater antworten innerhalb eines Tages.',
+      primary: 'Eignungscheck starten',
+      secondary: 'Mit uns sprechen',
+    },
+  },
+
+  ja: {
+    crumb: 'インサイト',
+    categories: { education: '教育', tourism: '観光', trade: '貿易' },
+    updated: '· {date} 更新',
+    readTime: '· 読了時間 約 {n} 分',
+    minShort: '{n} 分',
+    related: 'あわせて読みたい',
+    cta: {
+      eyebrow: 'この決断を考えていますか？',
+      text: 'あなたのケースに合った答えを。マッチング診断は質問 4 つ、アドバイザーは 1 日以内に返信します。',
+      primary: 'マッチング診断を始める',
+      secondary: '相談する',
+    },
+  },
+
+  pt: {
+    crumb: 'Análises',
+    categories: { education: 'Educação', tourism: 'Turismo', trade: 'Comércio' },
+    updated: '· atualizado em {date}',
+    readTime: '· leitura de {n} min',
+    minShort: '{n} min',
+    related: 'Leituras relacionadas',
+    cta: {
+      eyebrow: 'Avaliando esta decisão?',
+      text: 'Receba a resposta para o seu caso específico — a avaliação de perfil tem quatro perguntas e os orientadores respondem em um dia.',
+      primary: 'Iniciar avaliação de perfil',
+      secondary: 'Fale conosco',
+    },
+  },
+
+  hi: {
+    crumb: 'इनसाइट्स',
+    categories: { education: 'शिक्षा', tourism: 'पर्यटन', trade: 'व्यापार' },
+    updated: '· अपडेट {date}',
+    readTime: '· {n} मिनट पठन',
+    minShort: '{n} मिनट',
+    related: 'संबंधित लेख',
+    cta: {
+      eyebrow: 'इस निर्णय पर विचार कर रहे हैं?',
+      text: 'अपने विशेष मामले का उत्तर पाएँ — फ़िट जाँच में चार सवाल होते हैं, सलाहकार एक दिन में जवाब देते हैं।',
+      primary: 'फ़िट जाँच शुरू करें',
+      secondary: 'हमसे बात करें',
+    },
+  },
 };

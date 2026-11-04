@@ -144,4 +144,98 @@ export const PILLAR_FAQ: Record<Locale, PillarFaqStrings> = {
       },
     },
   },
+
+  de: {
+    crumb: 'FAQ',
+    heroTitle: 'Häufige Fragen',
+    pillars: {
+      education: {
+        title: 'Bildungs-FAQ — In China studieren',
+        description:
+          'Häufige Fragen zum Studium in China: MBBS-Anerkennung, CSC-Stipendien, HSK-Anforderungen, Visa-Zeitpläne, Kosten und Studentenleben.',
+        eyebrow: 'Bildung',
+      },
+      tourism: {
+        title: 'Tourismus-FAQ — China- & Japan-Reisen',
+        description:
+          'Fragen zu Reisen nach China und Japan: Visa-Typen, beste Jahreszeiten, Geschäftsdelegationen, Ernährungsberücksichtigung, Versicherung und Stornierungen.',
+        eyebrow: 'Tourismus',
+      },
+      trade: {
+        title: 'Handels-FAQ — Beschaffung, QS & Logistik',
+        description:
+          'Einblicke in den Indien–China-Handel: Mindestbestellmengen (MOQ), AQL-Qualitätsinspektionen, Versandzeiten, Zoll und BIS, Zahlungsbedingungen, Streitfälle und Gebühren.',
+        eyebrow: 'Handel',
+      },
+    },
+  },
+
+  ja: {
+    crumb: 'よくある質問',
+    heroTitle: 'よくある質問',
+    pillars: {
+      education: {
+        title: '教育 FAQ — 中国で学ぶ',
+        description: '中国での留学に関するよくある質問：MBBS の認可、CSC 奨学金、HSK の要件、ビザのスケジュール、費用と学生生活。',
+        eyebrow: '教育',
+      },
+      tourism: {
+        title: '観光 FAQ — 中国・日本旅行',
+        description: '中国と日本への旅行に関する質問：ビザの種類、ベストシーズン、ビジネス視察、食事対応、保険とキャンセル。',
+        eyebrow: '観光',
+      },
+      trade: {
+        title: '貿易 FAQ — 調達・品質管理・ロジスティクス',
+        description: 'インド–中国貿易の実務知識：MOQ、AQL 品質検査、輸送日数、通関と BIS、支払い条件、紛争と手数料。',
+        eyebrow: '貿易',
+      },
+    },
+  },
+
+  pt: {
+    crumb: 'FAQ',
+    heroTitle: 'Perguntas frequentes',
+    pillars: {
+      education: {
+        title: 'FAQ de Educação — Estudar na China',
+        description:
+          'Perguntas comuns sobre estudar na China: reconhecimento do MBBS, bolsas CSC, requisitos de HSK, prazos de visto, custos e vida estudantil.',
+        eyebrow: 'Educação',
+      },
+      tourism: {
+        title: 'FAQ de Turismo — Viagens pela China e pelo Japão',
+        description:
+          'Perguntas sobre viajar para a China e o Japão: tipos de visto, melhores temporadas, delegações de negócios, atenção a dietas, seguros e cancelamentos.',
+        eyebrow: 'Turismo',
+      },
+      trade: {
+        title: 'FAQ de Comércio — Suprimentos, QC e logística',
+        description:
+          'Claves do comércio Índia–China: MOQ, inspeções de qualidade AQL, prazos de envio, alfândega e BIS, condições de pagamento, disputas e honorários.',
+        eyebrow: 'Comércio',
+      },
+    },
+  },
+
+  hi: {
+    crumb: 'सामान्य प्रश्न',
+    heroTitle: 'सामान्य प्रश्न',
+    pillars: {
+      education: {
+        title: 'शिक्षा FAQ — चीन में पढ़ाई',
+        description: 'चीन में पढ़ाई से जुड़े सामान्य प्रश्न: MBBS मान्यता, CSC छात्रवृत्तियाँ, HSK आवश्यकताएँ, वीज़ा समय-रेखा, लागत और छात्र जीवन।',
+        eyebrow: 'शिक्षा',
+      },
+      tourism: {
+        title: 'पर्यटन FAQ — चीन और जापान यात्रा',
+        description: 'चीन और जापान की यात्रा से जुड़े प्रश्न: वीज़ा प्रकार, सर्वोत्तम मौसम, व्यावसायिक शिष्ट मंडल, भोजन व्यवस्था, बीमा और रद्दीकरण।',
+        eyebrow: 'पर्यटन',
+      },
+      trade: {
+        title: 'व्यापार FAQ — सोर्सिंग, गुणवत्ता और लॉजिस्टिक्स',
+        description: 'भारत–चीन व्यापार की व्यावहारिक जानकारी: MOQ, AQL गुणवत्ता निरीक्षण, शिपिंग समय, कस्टम्स और BIS, भुगतान शर्तें, विवाद और शुल्क।',
+        eyebrow: 'व्यापार',
+      },
+    },
+  },
 };

@@ -118,4 +118,76 @@ export const COMPARE_INDEX: Record<Locale, CompareIndexStrings> = {
       readMore: 'Ver la comparación completa',
     },
   },
+
+  de: {
+    meta: {
+      title: 'Vergleiche — MBBS China vs. Indien, Universitäten, Fracht',
+      description:
+        'Vergleiche Seite an Seite mit klaren Urteilen: MBBS in China vs. Indien, Tsinghua vs. Peking-Universität, See- vs. Luftfracht von China nach Indien — Tabellen, Zahlen und ehrliche Einschätzungen.',
+    },
+    crumb: 'Vergleichen',
+    hero: {
+      eyebrow: 'Vergleiche',
+      title: 'Tabellen und Urteile, kein Ausweichen.',
+      lede: 'Die drei Vergleiche, die uns wöchentlich gestellt werden — jeweils mit der vollständigen Tabelle, den Abwägungen und einer echten Antwort.',
+    },
+    item: {
+      vsLabel: 'vs.',
+      readMore: 'Vollständiger Vergleich',
+    },
+  },
+
+  ja: {
+    meta: {
+      title: '比較 — 中国 vs インド MBBS、大学、輸送',
+      description:
+        '明確な結論つきの詳細比較：中国 vs インドの MBBS、清華大学 vs 北京大学、中国からインドへの海上 vs 航空輸送 — 表、数字、率直な判断。',
+    },
+    crumb: '比較',
+    hero: {
+      eyebrow: '比較',
+      title: '表と結論。ごまかしはなし。',
+      lede: '毎週お問い合わせいただく三つの比較。それぞれ完全な表、トレードオフ、そして実際の答えを添えています。',
+    },
+    item: {
+      vsLabel: 'vs',
+      readMore: '比較全体を見る',
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Comparações — MBBS China vs Índia, universidades, frete',
+      description:
+        'Comparações lado a lado com vereditos claros: MBBS na China vs Índia, Tsinghua vs Universidade de Pequim, frete marítimo vs aéreo da China para a Índia — tabelas, números e avaliações honestas.',
+    },
+    crumb: 'Comparar',
+    hero: {
+      eyebrow: 'Comparações',
+      title: 'Tabelas e vereditos, sem enrolação.',
+      lede: 'As três comparações que nos fazem toda semana, cada uma com a tabela completa, os trade-offs e uma resposta de verdade.',
+    },
+    item: {
+      vsLabel: 'vs',
+      readMore: 'Comparação completa',
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'तुलना — MBBS चीन vs भारत, विश्वविद्यालय, माल ढुलाई',
+      description:
+        'साफ़ निर्णय वाली तुलनाएँ: MBBS चीन vs भारत, त्सिंघुआ vs पेकिंग विश्वविद्यालय, चीन से भारत तक समुद्री vs वायु माल ढुलाई — तालिकाएँ, आँकड़े और ईमानदार राय।',
+    },
+    crumb: 'तुलना',
+    hero: {
+      eyebrow: 'तुलनाएँ',
+      title: 'तालिकाएँ और निर्णय — कोई टालमटोल नहीं।',
+      lede: 'तीन तुलनाएँ जो हमें हर सप्ताह पूछी जाती हैं, हर एक में पूरी तालिका, व्यापार-बिंदु और एक असली जवाब।',
+    },
+    item: {
+      vsLabel: 'बनाम',
+      readMore: 'पूरी तुलना',
+    },
+  },
 };

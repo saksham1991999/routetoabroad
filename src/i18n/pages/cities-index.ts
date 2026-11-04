@@ -130,4 +130,84 @@ export const CITIES_INDEX: Record<Locale, CitiesIndexStrings> = {
       perDay: '/día',
     },
   },
+
+  de: {
+    meta: {
+      title: 'Stadtführer — Studieren & Reisen in Chinas großen Städten',
+      description:
+        'Ehrliche Stadtführer für internationale Studierende und Reisende: Peking, Shanghai, Guangzhou und Hangzhou — echte Monatskosten, Universitäten, Highlights und beste Reisezeiten.',
+    },
+    crumb: 'Städte',
+    hero: {
+      eyebrow: 'Städte',
+      title: 'Vier Städte, die wir Haus für Haus kennen.',
+      lede: 'Kosten aus unseren eigenen Studierendenjahrgängen, Essen, das wir selbst gegessen haben, Campus, auf denen wir Studierende immatrikuliert haben. Peking, Shanghai, Guangzhou, Hangzhou.',
+    },
+    card: {
+      studentsLabel: 'Studierende:',
+      travellersLabel: 'Reisende:',
+      perMonth: '/Monat',
+      perDay: '/Tag',
+    },
+  },
+
+  ja: {
+    meta: {
+      title: '都市ガイド — 中国の大都市で学び、旅する',
+      description:
+        '外国人学生と旅行者のための率直な都市ガイド：北京、上海、広州、杭州 — 実際の月間費用、大学、見どころ、ベストな訪問時期。',
+    },
+    crumb: '都市',
+    hero: {
+      eyebrow: '都市',
+      title: '一歩一歩知っている四つの都市。',
+      lede: '費用は私たち自身の学生たちの実績から、食事は実際に口にしたもの、キャンパスは学生を登録させた場所。北京、上海、広州、杭州。',
+    },
+    card: {
+      studentsLabel: '学生：',
+      travellersLabel: '旅行者：',
+      perMonth: '/月',
+      perDay: '/日',
+    },
+  },
+
+  pt: {
+    meta: {
+      title: 'Guias de cidade — Estudar e viajar nas grandes cidades da China',
+      description:
+        'Guias de cidade honestos para estudantes internacionais e viajantes: Pequim, Xangai, Guangzhou e Hangzhou — custos mensais reais, universidades, destaques e melhores épocas.',
+    },
+    crumb: 'Cidades',
+    hero: {
+      eyebrow: 'Cidades',
+      title: 'Quatro cidades que conhecemos rua por rua.',
+      lede: 'Custos das nossas próprias turmas de estudantes, comida que provamos, campi onde matriculamos estudantes. Pequim, Xangai, Guangzhou, Hangzhou.',
+    },
+    card: {
+      studentsLabel: 'Estudantes:',
+      travellersLabel: 'Viajantes:',
+      perMonth: '/mês',
+      perDay: '/dia',
+    },
+  },
+
+  hi: {
+    meta: {
+      title: 'शहर गाइड — चीन के बड़े शहरों में पढ़ाई और यात्रा',
+      description:
+        'अंतरराष्ट्रीय विद्यार्थियों और यात्रियों के लिए ईमानदार शहर गाइड: बीजिंग, शंघाई, ग्वांगज़ू और हांगझोऊ — वास्तविक मासिक लागत, विश्वविद्यालय, आकर्षण और यात्रा का सर्वोत्तम समय।',
+    },
+    crumb: 'शहर',
+    hero: {
+      eyebrow: 'शहर',
+      title: 'चार शहर जिन्हें हम गली-दर-गली जानते हैं।',
+      lede: 'लागत हमारे अपने विद्यार्थी-समूहों से, भोजन जो हमने ख़ुद खाया, परिसर जहाँ हमने विद्यार्थियों का पंजीकरण किया। बीजिंग, शंघाई, ग्वांगज़ू, हांगझोऊ।',
+    },
+    card: {
+      studentsLabel: 'विद्यार्थी:',
+      travellersLabel: 'यात्री:',
+      perMonth: '/माह',
+      perDay: '/दिन',
+    },
+  },
 };
