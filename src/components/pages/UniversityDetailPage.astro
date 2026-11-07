@@ -11,6 +11,7 @@
 import { render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
@@ -45,16 +46,16 @@ const hasBody = Boolean(university.body && university.body.trim());
   path={`/universities/${slug}`}
   crumbs={[
     { name: t.crumb, url: link('/universities') },
-    { name: data.name, url: `https://routetoabroad.com${link(`/universities/${slug}`)}` },
+    { name: data.name, url: `${SITE.url}${link(`/universities/${slug}`)}` },
   ]}
   jsonLd={[
     courseSchema({
       name: t.schemaStudyAtTemplate.replace('{name}', data.name),
       description: data.intro,
-      url: `https://routetoabroad.com${link(`/universities/${slug}`)}`,
+      url: `${SITE.url}${link(`/universities/${slug}`)}`,
       // The provider is the university itself, not the consultancy.
       providerName: data.name,
-      providerUrl: `https://routetoabroad.com${link(`/universities/${slug}`)}`,
+      providerUrl: `${SITE.url}${link(`/universities/${slug}`)}`,
     }),
     faqSchema(faqs),
   ]}

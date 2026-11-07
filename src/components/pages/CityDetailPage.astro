@@ -11,6 +11,7 @@
 import { render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import SectionHead from '../SectionHead.astro';
 import FaqAccordion from '../FaqAccordion.astro';
@@ -45,7 +46,7 @@ const hasBody = Boolean(city.body && city.body.trim());
   path={`/cities/${slug}`}
   crumbs={[
     { name: t.crumb, url: link('/cities') },
-    { name: data.name, url: `https://routetoabroad.com${link(`/cities/${slug}`)}` },
+    { name: data.name, url: `${SITE.url}${link(`/cities/${slug}`)}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >

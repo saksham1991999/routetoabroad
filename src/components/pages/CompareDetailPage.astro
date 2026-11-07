@@ -9,6 +9,7 @@
  * links localize through translatePath.
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import CtaBand from '../CtaBand.astro';
 import FaqAccordion from '../FaqAccordion.astro';
@@ -48,7 +49,7 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
   type="article"
   crumbs={[
     { name: t.crumb, url: link('/compare') },
-    { name: c.headline, url: `https://routetoabroad.com${link(`/compare/${c.slug}`)}` },
+    { name: c.headline, url: `${SITE.url}${link(`/compare/${c.slug}`)}` },
   ]}
   jsonLd={[faqSchema(c.faqs)]}
 >
