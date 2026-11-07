@@ -20,8 +20,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = UNIVERSITIES_INDEX[locale];
 
@@ -35,16 +33,16 @@ const universities = localizedEntries(await getCollection('universities'), local
   title={t.meta.title}
   description={t.meta.description}
   path="/universities"
-  crumbs={[{ name: t.crumb, url: link('/universities') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/universities', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     index={t.hero.index}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/universities') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/universities', locale) }]}
     facts={t.hero.facts}
-    actions={[{ href: link('/contact'), label: t.hero.action }]}
+    actions={[{ href: translatePath('/contact', locale), label: t.hero.action }]}
   />
 
   <section class="section">
@@ -54,7 +52,7 @@ const universities = localizedEntries(await getCollection('universities'), local
           <ArticleCard
               locale={locale}
             title={u.data.name}
-            href={link(`/universities/${entrySlug(u)}`)}
+            href={translatePath(`/universities/${entrySlug(u)}`, locale)}
             description={u.data.intro}
             image={u.data.image}
             imageAlt={u.data.imageAlt}

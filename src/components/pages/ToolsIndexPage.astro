@@ -11,11 +11,10 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const link = (path: string) => translatePath(path, locale);
 const t = TOOLS_INDEX_STRINGS[locale];
 
 const HREFS = ['/tools/fit-check', '/tools/scholarship-eligibility', '/tools/cost-calculator', '/tools/document-checklist', '/tools/timeline-planner'] as const;
-const tools = t.tools.map((tool, i) => ({ ...tool, href: link(HREFS[i]!) }));
+const tools = t.tools.map((tool, i) => ({ ...tool, href: translatePath(HREFS[i]!, locale) }));
 ---
 
 <BaseLayout
@@ -23,16 +22,16 @@ const tools = t.tools.map((tool, i) => ({ ...tool, href: link(HREFS[i]!) }));
   description={t.description}
   path="/tools"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/tools') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/tools', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     index="TLS / 05"
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/tools') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/tools', locale) }]}
     facts={t.hero.facts}
-    actions={[{ href: link('/tools/fit-check'), label: t.hero.action }]}
+    actions={[{ href: translatePath('/tools/fit-check', locale), label: t.hero.action }]}
   />
 
   <section class="section">
@@ -54,7 +53,7 @@ const tools = t.tools.map((tool, i) => ({ ...tool, href: link(HREFS[i]!) }));
 
     <div class="container tools-note" data-reveal>
       <p>
-        <strong>{t.note.bold}</strong> {t.note.before} <a href={link('/contact')}>{t.note.link}</a> {t.note.after}
+        <strong>{t.note.bold}</strong> {t.note.before} <a href={translatePath('/contact', locale)}>{t.note.link}</a> {t.note.after}
       </p>
     </div>
   </section>

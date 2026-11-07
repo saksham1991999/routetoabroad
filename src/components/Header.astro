@@ -22,7 +22,6 @@ const navItems = NAV_LINKS.map((linkItem, i) => ({
 
 const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 /** Translate a hard-coded English path to the current locale's URL. */
-const link = (path: string) => translatePath(path, locale);
 /**
  * Nav active-state. `href` values are hard-coded English paths, so
  * compare against the *localized* current path (strip the locale prefix) —
@@ -35,7 +34,7 @@ const isActive = (href: string) =>
 
 <header class="site-header" id="site-header">
   <div class="container-wide header-inner">
-    <a href={link('/')} class="wordmark" aria-label={ui.headerWordmarkAria}>
+    <a href={translatePath('/', locale)} class="wordmark" aria-label={ui.headerWordmarkAria}>
       <Logo />
     </a>
 
@@ -43,7 +42,7 @@ const isActive = (href: string) =>
       <ul>
         {navItems.map((linkItem) => (
           <li>
-            <a href={link(linkItem.href)} class:list={{ active: isActive(linkItem.href) }} aria-current={isActive(linkItem.href) ? 'page' : undefined}>
+            <a href={translatePath(linkItem.href, locale)} class:list={{ active: isActive(linkItem.href) }} aria-current={isActive(linkItem.href) ? 'page' : undefined}>
               {linkItem.label}
             </a>
           </li>
@@ -62,7 +61,7 @@ const isActive = (href: string) =>
           <path stroke-linecap="round" stroke-linejoin="round" d="M20.6 14.2A8.8 8.8 0 0 1 9.8 3.4a8.8 8.8 0 1 0 10.8 10.8Z"></path>
         </svg>
       </button>
-      <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm header-cta">{ui.headerCta}</a>
+      <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary btn-sm header-cta">{ui.headerCta}</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-menu" aria-label={ui.menuOpenAria} data-menu-open-aria={ui.menuOpenAria} data-menu-close-aria={ui.menuCloseAria}>
         <span class="menu-line"></span>
         <span class="menu-line"></span>
@@ -75,12 +74,12 @@ const isActive = (href: string) =>
       <ul>
         {navItems.map((linkItem) => (
           <li>
-            <a href={link(linkItem.href)} aria-current={isActive(linkItem.href) ? 'page' : undefined}>{linkItem.label}</a>
+            <a href={translatePath(linkItem.href, locale)} aria-current={isActive(linkItem.href) ? 'page' : undefined}>{linkItem.label}</a>
           </li>
         ))}
       </ul>
       <div class="mobile-menu-cta">
-        <a href={link('/tools/fit-check')} class="btn btn-primary">{ui.mobileCtaStart}</a>
+        <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary">{ui.mobileCtaStart}</a>
         <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">{ui.mobileCtaWhatsApp}</a>
       </div>
       {!hideSwitcher && <LanguageSwitcher locale={locale} />}

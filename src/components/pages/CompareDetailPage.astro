@@ -26,8 +26,6 @@ interface Props {
   c?: Comparison;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = COMPARE_DETAIL[locale];
 /** This locale's comparison entry (same slugs across locales). */
@@ -48,8 +46,8 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
   path={`/compare/${c.slug}`}
   type="article"
   crumbs={[
-    { name: t.crumb, url: link('/compare') },
-    { name: c.headline, url: `${SITE.url}${link(`/compare/${c.slug}`)}` },
+    { name: t.crumb, url: translatePath('/compare', locale) },
+    { name: c.headline, url: `${SITE.url}${translatePath(`/compare/${c.slug}`, locale)}` },
   ]}
   jsonLd={[faqSchema(c.faqs)]}
 >
@@ -57,8 +55,8 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
     <header>
       <Breadcrumbs
         crumbs={[
-          { name: t.crumb, url: link('/compare') },
-          { name: c.headline, url: link(`/compare/${c.slug}`) },
+          { name: t.crumb, url: translatePath('/compare', locale) },
+          { name: c.headline, url: translatePath(`/compare/${c.slug}`, locale) },
         ]}
       />
       <p class="eyebrow">{t.eyebrow.comparison} · {t.eyebrow.updated} {updated}</p>
@@ -112,13 +110,13 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
       <div class="related-links">
         {c.pillar === 'education' ? (
           <>
-            <a href={link('/tools/fit-check')} class="btn btn-primary">{t.related.education.fitCheck}</a>
-            <a href={link('/guides/study-in-china-from-india')} class="btn btn-outline">{t.related.education.roadmap}</a>
+            <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary">{t.related.education.fitCheck}</a>
+            <a href={translatePath('/guides/study-in-china-from-india', locale)} class="btn btn-outline">{t.related.education.roadmap}</a>
           </>
         ) : (
           <>
-            <a href={link('/guides/china-sourcing-guide')} class="btn btn-primary">{t.related.trade.sourcingGuide}</a>
-            <a href={link('/trade#enquire')} class="btn btn-outline">{t.related.trade.tradeDesk}</a>
+            <a href={translatePath('/guides/china-sourcing-guide', locale)} class="btn btn-primary">{t.related.trade.sourcingGuide}</a>
+            <a href={translatePath('/trade#enquire', locale)} class="btn btn-outline">{t.related.trade.tradeDesk}</a>
           </>
         )}
       </div>

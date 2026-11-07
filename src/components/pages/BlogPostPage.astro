@@ -29,15 +29,13 @@ interface Props {
   post: CollectionEntry<'blog'>;
 }
 const { locale = DEFAULT_LOCALE, post } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized template copy. */
 const t = BLOG_POST[locale];
 const { data } = post;
 const { Content } = await render(post);
 const author = AUTHORS[data.author];
 const slug = entrySlug(post);
-const url = `${SITE.url}${link(`/blog/${slug}`)}`;
+const url = `${SITE.url}${translatePath(`/blog/${slug}`, locale)}`;
 
 const related = localizedEntries(await getCollection('blog'), locale)
   .filter((p) => entrySlug(p) !== slug && p.data.category === data.category)
@@ -61,7 +59,7 @@ const relatedAll = [...related, ...relatedFallback];
   type="article"
   image="/og/default.jpg"
   crumbs={[
-    { name: t.crumb, url: link('/blog') },
+    { name: t.crumb, url: translatePath('/blog', locale) },
     { name: data.title, url },
   ]}
   publishedTime={data.pubDate}
@@ -85,8 +83,8 @@ const relatedAll = [...related, ...relatedFallback];
     <header class="post-head">
       <Breadcrumbs
         crumbs={[
-          { name: t.crumb, url: link('/blog') },
-          { name: data.title, url: link(`/blog/${slug}`) },
+          { name: t.crumb, url: translatePath('/blog', locale) },
+          { name: data.title, url: translatePath(`/blog/${slug}`, locale) },
         ]}
       />
       <p class="eyebrow">{t.categories[data.category]}</p>
@@ -131,8 +129,8 @@ const relatedAll = [...related, ...relatedFallback];
         <p class="eyebrow">{t.cta.eyebrow}</p>
         <p class="post-cta-text">{t.cta.text}</p>
         <div class="post-cta-btns">
-          <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">{t.cta.primary}</a>
-          <a href={link('/contact')} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
+          <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary btn-sm">{t.cta.primary}</a>
+          <a href={translatePath('/contact', locale)} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
         </div>
       </div>
     </footer>
@@ -147,7 +145,7 @@ const relatedAll = [...related, ...relatedFallback];
             <ArticleCard
               locale={locale}
               title={p.data.title}
-              href={link(`/blog/${entrySlug(p)}`)}
+              href={translatePath(`/blog/${entrySlug(p)}`, locale)}
               description={p.data.description}
               image={p.data.image}
               imageAlt={p.data.imageAlt}

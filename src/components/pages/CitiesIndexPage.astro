@@ -20,8 +20,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = CITIES_INDEX[locale];
 
@@ -35,20 +33,20 @@ const cities = localizedEntries(await getCollection('cities'), locale).sort(
   description={t.meta.description}
   path="/cities"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/cities') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/cities', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/cities') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/cities', locale) }]}
   />
 
   <section class="section">
     <div class="container">
       <div class="city-grid">
         {cities.map((c, i) => (
-          <a href={link(`/cities/${entrySlug(c)}`)} class="city-card" data-reveal style={`--reveal-delay: ${(i % 2) * 90}ms`}>
+          <a href={translatePath(`/cities/${entrySlug(c)}`, locale)} class="city-card" data-reveal style={`--reveal-delay: ${(i % 2) * 90}ms`}>
             <div class="city-media">
               <Picture src={c.data.image} alt={c.data.imageAlt} widths={[640, 1024]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
             </div>

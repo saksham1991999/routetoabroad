@@ -29,15 +29,13 @@ interface Props {
   guide: CollectionEntry<'guides'>;
 }
 const { locale = DEFAULT_LOCALE, guide } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized template copy. */
 const t = GUIDE_DETAIL[locale];
 const chrome = uiFor(locale);
 const { data } = guide;
 const { Content } = await render(guide);
 const slug = entrySlug(guide);
-const url = `${SITE.url}${link(`/guides/${slug}`)}`;
+const url = `${SITE.url}${translatePath(`/guides/${slug}`, locale)}`;
 const faqs = data.faqs ?? [];
 
 const pillarColor: Record<string, string> = {
@@ -54,7 +52,7 @@ const pillarColor: Record<string, string> = {
   path={`/guides/${slug}`}
   type="article"
   crumbs={[
-    { name: t.crumb, url: link('/guides') },
+    { name: t.crumb, url: translatePath('/guides', locale) },
     { name: data.title, url },
   ]}
   publishedTime={data.pubDate}
@@ -78,8 +76,8 @@ const pillarColor: Record<string, string> = {
     <header>
       <Breadcrumbs
         crumbs={[
-          { name: t.crumb, url: link('/guides') },
-          { name: data.title, url: link(`/guides/${slug}`) },
+          { name: t.crumb, url: translatePath('/guides', locale) },
+          { name: data.title, url: translatePath(`/guides/${slug}`, locale) },
         ]}
       />
       <p class="eyebrow" style={`color: ${pillarColor[data.pillar]}`}>{t.pillarGuide[data.pillar]}</p>
@@ -110,8 +108,8 @@ const pillarColor: Record<string, string> = {
       <p class="eyebrow">{t.cta.eyebrow}</p>
       <p>{t.cta.text}</p>
       <div class="guide-cta-btns">
-        <a href={link('/tools/fit-check')} class="btn btn-primary btn-sm">{t.cta.primary}</a>
-        <a href={link('/contact')} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
+        <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary btn-sm">{t.cta.primary}</a>
+        <a href={translatePath('/contact', locale)} class="btn btn-outline btn-sm">{t.cta.secondary}</a>
       </div>
     </aside>
   </article>

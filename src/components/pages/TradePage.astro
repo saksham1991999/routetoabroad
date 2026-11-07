@@ -22,8 +22,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = TRADE[locale];
 
@@ -44,12 +42,12 @@ const process = t.process.steps;
   description={t.meta.description}
   path="/trade"
   image="/og/trade.jpg"
-  crumbs={[{ name: t.crumb, url: link('/trade') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/trade', locale) }]}
   jsonLd={[
     serviceSchema({
       name: t.schema.serviceName,
       description: t.schema.serviceDescription,
-      url: link('/trade'),
+      url: translatePath('/trade', locale),
       serviceType: t.schema.serviceType,
       areaServed: ['IN', 'CN'],
     }),
@@ -61,7 +59,7 @@ const process = t.process.steps;
     index={t.hero.index}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/trade') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/trade', locale) }]}
     facts={t.hero.facts}
     actions={[
       { href: '#enquire', label: t.hero.primaryCta },
@@ -184,7 +182,7 @@ const process = t.process.steps;
     <div class="container-text">
       <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
-      <p class="faq-more"><a href={link('/trade/faq')} class="arrow-link">{t.faq.more}</a></p>
+      <p class="faq-more"><a href={translatePath('/trade/faq', locale)} class="arrow-link">{t.faq.more}</a></p>
     </div>
   </section>
 

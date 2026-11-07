@@ -13,7 +13,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const link = (path: string) => translatePath(path, locale);
 const t = COST_STRINGS[locale];
 const inc = COST_INCLUDED[locale];
 ---
@@ -24,8 +23,8 @@ const inc = COST_INCLUDED[locale];
   path="/tools/cost-calculator"
   locale={locale}
   crumbs={[
-    { name: t.toolsCrumb, url: link('/tools') },
-    { name: t.crumb, url: link('/tools/cost-calculator') },
+    { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+    { name: t.crumb, url: translatePath('/tools/cost-calculator', locale) },
   ]}
 >
   <PageHero
@@ -33,8 +32,8 @@ const inc = COST_INCLUDED[locale];
     title={t.hero.title}
     lede={t.hero.lede}
     crumbs={[
-      { name: t.toolsCrumb, url: link('/tools') },
-      { name: t.crumb, url: link('/tools/cost-calculator') },
+      { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+      { name: t.crumb, url: translatePath('/tools/cost-calculator', locale) },
     ]}
   />
 

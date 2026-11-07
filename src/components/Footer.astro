@@ -6,7 +6,6 @@ import Logo from './Logo.astro';
 
 const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
 const ui = uiFor(locale);
-const link = (path: string) => translatePath(path, locale);
 const footerGroups = ui.footer.groups;
 ---
 
@@ -50,7 +49,7 @@ const footerGroups = ui.footer.groups;
       {footerGroups.map((group, i) => (
         <nav aria-label={group.heading}>
           <h3>{group.heading}</h3>
-          <ul>{group.links.map((l) => <li><a href={link(l.href)}>{l.label}</a></li>)}</ul>
+          <ul>{group.links.map((l) => <li><a href={translatePath(l.href, locale)}>{l.label}</a></li>)}</ul>
         </nav>
       ))}
     </div>

@@ -28,8 +28,6 @@ interface Props {
   university: CollectionEntry<'universities'>;
 }
 const { locale = DEFAULT_LOCALE, university } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = UNIVERSITY_DETAIL[locale];
 const slug = entrySlug(university);
@@ -45,17 +43,17 @@ const hasBody = Boolean(university.body && university.body.trim());
   description={data.intro}
   path={`/universities/${slug}`}
   crumbs={[
-    { name: t.crumb, url: link('/universities') },
-    { name: data.name, url: `${SITE.url}${link(`/universities/${slug}`)}` },
+    { name: t.crumb, url: translatePath('/universities', locale) },
+    { name: data.name, url: `${SITE.url}${translatePath(`/universities/${slug}`, locale)}` },
   ]}
   jsonLd={[
     courseSchema({
       name: t.schemaStudyAtTemplate.replace('{name}', data.name),
       description: data.intro,
-      url: `${SITE.url}${link(`/universities/${slug}`)}`,
+      url: `${SITE.url}${translatePath(`/universities/${slug}`, locale)}`,
       // The provider is the university itself, not the consultancy.
       providerName: data.name,
-      providerUrl: `${SITE.url}${link(`/universities/${slug}`)}`,
+      providerUrl: `${SITE.url}${translatePath(`/universities/${slug}`, locale)}`,
     }),
     faqSchema(faqs),
   ]}
@@ -65,8 +63,8 @@ const hasBody = Boolean(university.body && university.body.trim());
       <div class="container">
         <Breadcrumbs
           crumbs={[
-            { name: t.crumb, url: link('/universities') },
-            { name: data.name, url: link(`/universities/${slug}`) },
+            { name: t.crumb, url: translatePath('/universities', locale) },
+            { name: data.name, url: translatePath(`/universities/${slug}`, locale) },
           ]}
         />
         <p class="eyebrow">{data.chineseName}</p>
@@ -130,7 +128,7 @@ const hasBody = Boolean(university.body && university.body.trim());
               <div><dt>{t.costs.dormitory}</dt><dd>{data.costs.dorm}</dd></div>
               <div><dt>{t.costs.living}</dt><dd>{data.costs.living}</dd></div>
             </dl>
-            <a href={link('/tools/cost-calculator')} class="btn btn-outline btn-sm">{t.costs.estimateCta}</a>
+            <a href={translatePath('/tools/cost-calculator', locale)} class="btn btn-outline btn-sm">{t.costs.estimateCta}</a>
           </div>
 
           <div class="u-card card card-pad" data-reveal>
@@ -145,7 +143,7 @@ const hasBody = Boolean(university.body && university.body.trim());
           <div class="u-cta card card-pad" data-reveal>
             <h2>{t.cta.title}</h2>
             <p>{t.cta.text}</p>
-            <a href={link('/education#apply')} class="btn btn-primary btn-sm">{t.cta.button}</a>
+            <a href={translatePath('/education#apply', locale)} class="btn btn-primary btn-sm">{t.cta.button}</a>
           </div>
         </aside>
       </div>
