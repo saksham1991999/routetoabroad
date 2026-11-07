@@ -28,8 +28,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = HOME[locale];
 
@@ -73,19 +71,19 @@ const stats = [
 ];
 
 const pillars = [
-  { n: '01', key: t.pillars.names[0], href: link('/education'), image: eduImg },
-  { n: '02', key: t.pillars.names[1], href: link('/tourism'), image: tourismImg },
-  { n: '03', key: t.pillars.names[2], href: link('/trade'), image: tradeImg },
+  { n: '01', key: t.pillars.names[0], href: translatePath('/education', locale), image: eduImg },
+  { n: '02', key: t.pillars.names[1], href: translatePath('/tourism', locale), image: tourismImg },
+  { n: '03', key: t.pillars.names[2], href: translatePath('/trade', locale), image: tradeImg },
 ].map((pillar, i) => ({ ...pillar, ...t.pillars.items[i] }));
 
 const illuminated = t.illum.lines;
 
 const tools = [
-  { n: '01', href: link('/tools/fit-check'), ...t.tools.items[0] },
-  { n: '02', href: link('/tools/scholarship-eligibility'), ...t.tools.items[1] },
-  { n: '03', href: link('/tools/cost-calculator'), ...t.tools.items[2] },
-  { n: '04', href: link('/tools/document-checklist'), ...t.tools.items[3] },
-  { n: '05', href: link('/tools/timeline-planner'), ...t.tools.items[4] },
+  { n: '01', href: translatePath('/tools/fit-check', locale), ...t.tools.items[0] },
+  { n: '02', href: translatePath('/tools/scholarship-eligibility', locale), ...t.tools.items[1] },
+  { n: '03', href: translatePath('/tools/cost-calculator', locale), ...t.tools.items[2] },
+  { n: '04', href: translatePath('/tools/document-checklist', locale), ...t.tools.items[3] },
+  { n: '05', href: translatePath('/tools/timeline-planner', locale), ...t.tools.items[4] },
 ];
 ---
 
@@ -171,8 +169,8 @@ const tools = [
                 {t.journey.campusLede}
               </p>
               <div class="campus-actions">
-                <a href={link('/tools/fit-check')} class="btn btn-primary">{t.journey.campusCtaPrimary}</a>
-                <a href={link('/education')} class="btn btn-ghost">{t.journey.campusCtaSecondary}</a>
+                <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary">{t.journey.campusCtaPrimary}</a>
+                <a href={translatePath('/education', locale)} class="btn btn-ghost">{t.journey.campusCtaSecondary}</a>
               </div>
               <p class="campus-note">{t.journey.campusNote}</p>
             </div>
@@ -285,7 +283,7 @@ const tools = [
         index={t.tools.index}
         title={`<span id='tools-title'>${t.tools.title}</span>`}
         lede={t.tools.lede}
-        action={{ href: link('/tools'), label: t.tools.action }}
+        action={{ href: translatePath('/tools', locale), label: t.tools.action }}
       />
       <div class="tool-rows">
         {tools.map((t, i) => (
@@ -312,11 +310,11 @@ const tools = [
         index={t.insights.index}
         title={`<span id='insights-title'>${t.insights.title}</span>`}
         lede={t.insights.lede}
-        action={{ href: link('/blog'), label: t.insights.action }}
+        action={{ href: translatePath('/blog', locale), label: t.insights.action }}
       />
       <div class="post-rows">
         {posts.map((post, i) => (
-          <a href={link(`/blog/${entrySlug(post)}`)} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+          <a href={translatePath(`/blog/${entrySlug(post)}`, locale)} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
             <div class="post-body">
               <h3 class="post-title">{post.data.title}</h3>
               <p class="post-desc">{post.data.description}</p>
@@ -359,7 +357,7 @@ const tools = [
           lede={t.faq.lede}
         />
         <p class="faq-note">
-          {t.faq.notePre}<a href={link('/faq')}>{t.faq.noteLink1}</a>{t.faq.noteMid}<a href={link('/contact')}>{t.faq.noteLink2}</a>{t.faq.notePost}
+          {t.faq.notePre}<a href={translatePath('/faq', locale)}>{t.faq.noteLink1}</a>{t.faq.noteMid}<a href={translatePath('/contact', locale)}>{t.faq.noteLink2}</a>{t.faq.notePost}
         </p>
       </div>
       <div class="faq-panel">

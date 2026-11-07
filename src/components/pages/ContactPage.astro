@@ -26,8 +26,6 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
 const t = CONTACT[locale];
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 ---
 
 <BaseLayout
@@ -35,13 +33,13 @@ const link = (path: string) => translatePath(path, locale);
   description={t.meta.description.replace('{phone}', SITE.phoneIndia)}
   path="/contact"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/contact') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/contact', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/contact') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/contact', locale) }]}
   />
 
   <section class="section">

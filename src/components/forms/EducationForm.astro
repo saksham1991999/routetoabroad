@@ -1,5 +1,6 @@
 ---
 import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { formOptions } from '../../lib/form-options';
 import { uiFor } from '../../i18n/ui';
 
 interface Props {
@@ -36,8 +37,8 @@ const ff = ui.formFields;
         <label for="edu-level">{ff.educationLevel} <span class="req" aria-hidden="true">*</span></label>
         <select id="edu-level" name="educationLevel" required aria-describedby="edu-level-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.levels.map((label, i) => (
-            <option value={['hs', 'bachelor', 'master'][i]}>{label}</option>
+          {formOptions('levels', ['hs', 'bachelor', 'master'], f.levels).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="edu-level-error">{f.errors.level}</p>
@@ -49,8 +50,8 @@ const ff = ui.formFields;
         <label for="edu-programme">{ff.programmeInterest} <span class="req" aria-hidden="true">*</span></label>
         <select id="edu-programme" name="programInterest" required aria-describedby="edu-programme-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.programmes.map((label, i) => (
-            <option value={['mbbs', 'engineering', 'business', 'language', 'undergrad', 'research'][i]}>{label}</option>
+          {formOptions('programmes', ['mbbs', 'engineering', 'business', 'language', 'undergrad', 'research'], f.programmes).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="edu-programme-error">{f.errors.programme}</p>
@@ -59,8 +60,8 @@ const ff = ui.formFields;
         <label for="edu-intake">{ff.targetIntake} <span class="req" aria-hidden="true">*</span></label>
         <select id="edu-intake" name="targetIntake" required aria-describedby="edu-intake-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.intakes.map((label, i) => (
-            <option value={['sept_2027', 'march_2027', 'later'][i]}>{label}</option>
+          {formOptions('intakes', ['sept_2027', 'march_2027', 'later'], f.intakes).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="edu-intake-error">{f.errors.intake}</p>
@@ -87,32 +88,3 @@ const ff = ui.formFields;
   <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
   <p class="form-fineprint">{f.fineprint}</p>
 </form>
-
-
-<style>
-  .enquiry-form {
-    display: grid;
-    gap: 1.2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .form-row--single {
-    grid-template-columns: 1fr;
-  }
-
-  .form-fineprint {
-    font-size: 0.84rem;
-    color: var(--ink-faint);
-  }
-
-  @media (max-width: 40rem) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

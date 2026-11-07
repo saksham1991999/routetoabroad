@@ -19,8 +19,6 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
 const t = FOR_AGENTS[locale];
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 ---
 
 <BaseLayout
@@ -28,13 +26,13 @@ const link = (path: string) => translatePath(path, locale);
   description={t.meta.description}
   path="/for-agents"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/for-agents') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/for-agents', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/for-agents') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/for-agents', locale) }]}
   />
 
   <section class="section">

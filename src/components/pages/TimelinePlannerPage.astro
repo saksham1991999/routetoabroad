@@ -14,7 +14,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const link = (path: string) => translatePath(path, locale);
 const t = TIMELINE_STRINGS[locale];
 ---
 
@@ -24,8 +23,8 @@ const t = TIMELINE_STRINGS[locale];
   path="/tools/timeline-planner"
   locale={locale}
   crumbs={[
-    { name: t.toolsCrumb, url: link('/tools') },
-    { name: t.crumb, url: link('/tools/timeline-planner') },
+    { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+    { name: t.crumb, url: translatePath('/tools/timeline-planner', locale) },
   ]}
   jsonLd={[
     howToSchema({
@@ -40,8 +39,8 @@ const t = TIMELINE_STRINGS[locale];
     title={t.hero.title}
     lede={t.hero.lede}
     crumbs={[
-      { name: t.toolsCrumb, url: link('/tools') },
-      { name: t.crumb, url: link('/tools/timeline-planner') },
+      { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+      { name: t.crumb, url: translatePath('/tools/timeline-planner', locale) },
     ]}
   />
 

@@ -27,8 +27,6 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const ui = uiFor(locale);
 const t = ABOUT[locale];
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 
 const founders = FOUNDERS[locale];
 const founderLead = AUTHORS.minhaj;
@@ -39,7 +37,7 @@ const founderLead = AUTHORS.minhaj;
   description={t.meta.description}
   path="/about"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/about') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/about', locale) }]}
   jsonLd={founders.map((f) =>
     personSchema({
       name: f.name,
@@ -55,11 +53,11 @@ const founderLead = AUTHORS.minhaj;
     index={t.hero.index}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/about') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/about', locale) }]}
     facts={t.hero.facts}
     actions={[
       { href: '#team', label: t.hero.actionTeam },
-      { href: link('/contact'), label: t.hero.actionTalk, variant: 'outline' },
+      { href: translatePath('/contact', locale), label: t.hero.actionTalk, variant: 'outline' },
     ]}
     jumps={[
       { href: '#story', label: t.hero.jumps[0] },
@@ -151,7 +149,7 @@ const founderLead = AUTHORS.minhaj;
         ))}
       </div>
       <p class="team-note">
-        {t.team.notePre}<a href={link('/blog')}>{t.team.noteLink}</a>{t.team.notePost}
+        {t.team.notePre}<a href={translatePath('/blog', locale)}>{t.team.noteLink}</a>{t.team.notePost}
       </p>
     </div>
   </section>

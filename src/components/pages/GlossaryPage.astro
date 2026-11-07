@@ -20,8 +20,6 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const t = GLOSSARY_PAGE[locale];
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 const terms = GLOSSARY[locale];
 
 const categories = (
@@ -45,14 +43,14 @@ const grouped = categories.map((cat) => ({
   description={t.meta.description}
   path="/glossary"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/glossary') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/glossary', locale) }]}
   jsonLd={[...definedTermSchemas(terms.map((term) => ({ term: term.term, definition: term.definition })))]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/glossary') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/glossary', locale) }]}
   />
 
   <section class="section">
@@ -81,7 +79,7 @@ const grouped = categories.map((cat) => ({
       ))}
 
       <p class="glossary-note">
-        {t.notePre}<a href={link('/contact')}>{t.noteLink}</a>{t.notePost}
+        {t.notePre}<a href={translatePath('/contact', locale)}>{t.noteLink}</a>{t.notePost}
       </p>
     </div>
   </section>

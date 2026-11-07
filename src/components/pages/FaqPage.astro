@@ -20,8 +20,6 @@ interface Props {
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const t = FAQ[locale];
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 
 const all = [...GENERAL_FAQS[locale], ...EDUCATION_FAQS[locale], ...TOURISM_FAQS[locale], ...TRADE_FAQS[locale]];
 ---
@@ -31,14 +29,14 @@ const all = [...GENERAL_FAQS[locale], ...EDUCATION_FAQS[locale], ...TOURISM_FAQS
   description={t.meta.description}
   path="/faq"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/faq') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/faq', locale) }]}
   jsonLd={[faqSchema(all)]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/faq') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/faq', locale) }]}
   />
 
   <section class="section">
@@ -52,21 +50,21 @@ const all = [...GENERAL_FAQS[locale], ...EDUCATION_FAQS[locale], ...TOURISM_FAQS
         <p class="eyebrow">{t.groups.education.eyebrow}</p>
         <h2 id="edu-h" class="faq-h">{t.groups.education.heading}</h2>
         <FaqAccordion faqs={EDUCATION_FAQS[locale]} />
-        <a href={link('/education/faq')} class="arrow-link faq-link">{t.groups.education.link}</a>
+        <a href={translatePath('/education/faq', locale)} class="arrow-link faq-link">{t.groups.education.link}</a>
       </section>
 
       <section aria-labelledby="tour-h" class="faq-group">
         <p class="eyebrow">{t.groups.tourism.eyebrow}</p>
         <h2 id="tour-h" class="faq-h">{t.groups.tourism.heading}</h2>
         <FaqAccordion faqs={TOURISM_FAQS[locale]} />
-        <a href={link('/tourism/faq')} class="arrow-link faq-link">{t.groups.tourism.link}</a>
+        <a href={translatePath('/tourism/faq', locale)} class="arrow-link faq-link">{t.groups.tourism.link}</a>
       </section>
 
       <section aria-labelledby="trade-h" class="faq-group">
         <p class="eyebrow">{t.groups.trade.eyebrow}</p>
         <h2 id="trade-h" class="faq-h">{t.groups.trade.heading}</h2>
         <FaqAccordion faqs={TRADE_FAQS[locale]} />
-        <a href={link('/trade/faq')} class="arrow-link faq-link">{t.groups.trade.link}</a>
+        <a href={translatePath('/trade/faq', locale)} class="arrow-link faq-link">{t.groups.trade.link}</a>
       </section>
     </div>
   </section>

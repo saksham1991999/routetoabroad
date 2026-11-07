@@ -1,5 +1,6 @@
 ---
 import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { formOptions } from '../../lib/form-options';
 import { uiFor } from '../../i18n/ui';
 
 interface Props {
@@ -44,8 +45,8 @@ const ff = ui.formFields;
         <label for="trade-direction">{ff.tradeDirection} <span class="req" aria-hidden="true">*</span></label>
         <select id="trade-direction" name="tradeDirection" required aria-describedby="trade-direction-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.directions.map((label, i) => (
-            <option value={['import', 'export', 'bilateral'][i]}>{label}</option>
+          {formOptions('directions', ['import', 'export', 'bilateral'], f.directions).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="trade-direction-error">{f.errors.direction}</p>
@@ -54,8 +55,8 @@ const ff = ui.formFields;
         <label for="trade-category">{ff.productCategory} <span class="req" aria-hidden="true">*</span></label>
         <select id="trade-category" name="productCategory" required aria-describedby="trade-category-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.categories.map((label, i) => (
-            <option value={['electronics', 'machinery', 'textiles', 'consumer', 'other'][i]}>{label}</option>
+          {formOptions('categories', ['electronics', 'machinery', 'textiles', 'consumer', 'other'], f.categories).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="trade-category-error">{f.errors.category}</p>
@@ -75,32 +76,3 @@ const ff = ui.formFields;
   <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
   <p class="form-fineprint">{f.fineprint}</p>
 </form>
-
-
-<style>
-  .enquiry-form {
-    display: grid;
-    gap: 1.2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .form-row--single {
-    grid-template-columns: 1fr;
-  }
-
-  .form-fineprint {
-    font-size: 0.84rem;
-    color: var(--ink-faint);
-  }
-
-  @media (max-width: 40rem) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

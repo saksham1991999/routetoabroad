@@ -21,7 +21,6 @@ interface Props {
   pillar: FaqPillar;
 }
 const { locale = DEFAULT_LOCALE, pillar } = Astro.props;
-const link = (path: string) => translatePath(path, locale);
 
 const COLORS: Record<FaqPillar, string> = {
   education: 'var(--edu)',
@@ -46,14 +45,14 @@ const color = COLORS[pillar];
   description={t.description}
   path={`/${pillar}/faq`}
   locale={locale}
-  crumbs={[{ name: t.eyebrow, url: link(`/${pillar}`) }, { name: crumb, url: link(`/${pillar}/faq`) }]}
+  crumbs={[{ name: t.eyebrow, url: translatePath(`/${pillar}`, locale) }, { name: crumb, url: translatePath(`/${pillar}/faq`, locale) }]}
   jsonLd={[faqSchema(faqs)]}
 >
   <PageHero
     eyebrow={t.eyebrow}
     title={heroTitle}
     lede={t.description}
-    crumbs={[{ name: t.eyebrow, url: link(`/${pillar}`) }, { name: crumb, url: link(`/${pillar}/faq`) }]}
+    crumbs={[{ name: t.eyebrow, url: translatePath(`/${pillar}`, locale) }, { name: crumb, url: translatePath(`/${pillar}/faq`, locale) }]}
   />
 
   <section class="section">

@@ -11,6 +11,7 @@
 import { render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import SectionHead from '../SectionHead.astro';
 import FaqAccordion from '../FaqAccordion.astro';
@@ -28,8 +29,6 @@ interface Props {
   country: CollectionEntry<'countries'>;
 }
 const { locale = DEFAULT_LOCALE, country } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = COUNTRY_DETAIL[locale];
 const slug = entrySlug(country);
@@ -44,14 +43,14 @@ const hasBody = Boolean(country.body && country.body.trim());
   description={data.intro}
   path={`/countries/${slug}`}
   crumbs={[
-    { name: data.name, url: `https://routetoabroad.com${link(`/countries/${slug}`)}` },
+    { name: data.name, url: `${SITE.url}${translatePath(`/countries/${slug}`, locale)}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
   <article>
     <header class="co-hero">
       <div class="container">
-        <Breadcrumbs crumbs={[{ name: data.name, url: link(`/countries/${slug}`) }]} />
+        <Breadcrumbs crumbs={[{ name: data.name, url: translatePath(`/countries/${slug}`, locale) }]} />
         <h1>{data.name}</h1>
         <p class="co-intro">{data.intro}</p>
         <div class="co-stats num">
@@ -92,7 +91,7 @@ const hasBody = Boolean(country.body && country.body.trim());
                 </div>
               ))}
             </div>
-            <a href={link('/education')} class="arrow-link co-col-link">{t.links.education}</a>
+            <a href={translatePath('/education', locale)} class="arrow-link co-col-link">{t.links.education}</a>
           </section>
 
           <section aria-labelledby="travel-h" data-reveal>
@@ -107,7 +106,7 @@ const hasBody = Boolean(country.body && country.body.trim());
                 </div>
               ))}
             </div>
-            <a href={link('/tourism')} class="arrow-link co-col-link">{t.links.tourism}</a>
+            <a href={translatePath('/tourism', locale)} class="arrow-link co-col-link">{t.links.tourism}</a>
           </section>
         </div>
 

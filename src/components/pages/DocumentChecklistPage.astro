@@ -13,7 +13,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-const link = (path: string) => translatePath(path, locale);
 const t = CHECKLIST_STRINGS[locale];
 ---
 
@@ -23,8 +22,8 @@ const t = CHECKLIST_STRINGS[locale];
   path="/tools/document-checklist"
   locale={locale}
   crumbs={[
-    { name: t.toolsCrumb, url: link('/tools') },
-    { name: t.crumb, url: link('/tools/document-checklist') },
+    { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+    { name: t.crumb, url: translatePath('/tools/document-checklist', locale) },
   ]}
 >
   <PageHero
@@ -32,8 +31,8 @@ const t = CHECKLIST_STRINGS[locale];
     title={t.hero.title}
     lede={t.hero.lede}
     crumbs={[
-      { name: t.toolsCrumb, url: link('/tools') },
-      { name: t.crumb, url: link('/tools/document-checklist') },
+      { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+      { name: t.crumb, url: translatePath('/tools/document-checklist', locale) },
     ]}
   />
 

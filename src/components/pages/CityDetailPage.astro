@@ -11,6 +11,7 @@
 import { render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import SectionHead from '../SectionHead.astro';
 import FaqAccordion from '../FaqAccordion.astro';
@@ -28,8 +29,6 @@ interface Props {
   city: CollectionEntry<'cities'>;
 }
 const { locale = DEFAULT_LOCALE, city } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = CITY_DETAIL[locale];
 const slug = entrySlug(city);
@@ -44,8 +43,8 @@ const hasBody = Boolean(city.body && city.body.trim());
   description={data.intro}
   path={`/cities/${slug}`}
   crumbs={[
-    { name: t.crumb, url: link('/cities') },
-    { name: data.name, url: `https://routetoabroad.com${link(`/cities/${slug}`)}` },
+    { name: t.crumb, url: translatePath('/cities', locale) },
+    { name: data.name, url: `${SITE.url}${translatePath(`/cities/${slug}`, locale)}` },
   ]}
   jsonLd={[faqSchema(data.faqs ?? [])]}
 >
@@ -54,8 +53,8 @@ const hasBody = Boolean(city.body && city.body.trim());
       <div class="container">
         <Breadcrumbs
           crumbs={[
-            { name: t.crumb, url: link('/cities') },
-            { name: data.name, url: link(`/cities/${slug}`) },
+            { name: t.crumb, url: translatePath('/cities', locale) },
+            { name: data.name, url: translatePath(`/cities/${slug}`, locale) },
           ]}
         />
         <p class="eyebrow">{data.chineseName} · {data.country}</p>
@@ -124,15 +123,15 @@ const hasBody = Boolean(city.body && city.body.trim());
               <ul class="c-uni-list">
                 {data.universities.map((u) => <li>{u}</li>)}
               </ul>
-              <a href={link('/universities')} class="arrow-link c-side-link">{t.side.uniLink}</a>
+              <a href={translatePath('/universities', locale)} class="arrow-link c-side-link">{t.side.uniLink}</a>
             </div>
           )}
           <div class="card card-pad c-cta" data-reveal>
             <h2 class="c-side-title">{t.side.ctaTitle}</h2>
             <p>{t.side.ctaText}</p>
             <div class="c-cta-btns">
-              <a href={link('/tourism#plan')} class="btn btn-primary btn-sm">{t.side.planTrip}</a>
-              <a href={link('/education#apply')} class="btn btn-outline btn-sm">{t.side.applyStudy}</a>
+              <a href={translatePath('/tourism#plan', locale)} class="btn btn-primary btn-sm">{t.side.planTrip}</a>
+              <a href={translatePath('/education#apply', locale)} class="btn btn-outline btn-sm">{t.side.applyStudy}</a>
             </div>
           </div>
         </aside>

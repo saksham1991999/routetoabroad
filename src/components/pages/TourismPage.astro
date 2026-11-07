@@ -24,8 +24,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = TOURISM[locale];
 
@@ -51,12 +49,12 @@ const care = t.care.items;
   description={t.meta.description}
   path="/tourism"
   image="/og/tourism.jpg"
-  crumbs={[{ name: t.crumb, url: link('/tourism') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/tourism', locale) }]}
   jsonLd={[
     serviceSchema({
       name: t.schema.serviceName,
       description: t.schema.serviceDescription,
-      url: link('/tourism'),
+      url: translatePath('/tourism', locale),
       serviceType: t.schema.serviceType,
       areaServed: ['IN', 'CN', 'JP'],
     }),
@@ -68,7 +66,7 @@ const care = t.care.items;
     index={t.hero.index}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/tourism') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/tourism', locale) }]}
     facts={t.hero.facts}
     actions={[
       { href: '#plan', label: t.hero.primaryCta },
@@ -129,7 +127,7 @@ const care = t.care.items;
         <p class="divider-label">{t.destinations.cityGuides}</p>
         <div class="city-chips">
           {cities.map((c) => (
-            <a href={link(`/cities/${entrySlug(c)}`)} class="chip">{c.data.name}</a>
+            <a href={translatePath(`/cities/${entrySlug(c)}`, locale)} class="chip">{c.data.name}</a>
           ))}
         </div>
       </div>
@@ -209,7 +207,7 @@ const care = t.care.items;
     <div class="container-text">
       <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
-      <p class="faq-more"><a href={link('/tourism/faq')} class="arrow-link">{t.faq.more}</a></p>
+      <p class="faq-more"><a href={translatePath('/tourism/faq', locale)} class="arrow-link">{t.faq.more}</a></p>
     </div>
   </section>
 

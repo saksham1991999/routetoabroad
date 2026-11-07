@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>routetoabroad wiring diagram (before)</title>
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: #f7f7f7; color: #111; font: 12px/1.35 Helvetica, Arial, sans-serif; }
+  .wrap { height: 100vh; display: flex; flex-direction: column; padding: 12px 16px; gap: 8px; overflow: hidden; }
+  header { display: flex; justify-content: space-between; align-items: baseline; }
+  h1 { font-size: 15px; margin: 0; font-weight: 600; }
+  .sub { color: #555; }
+  .stage { position: relative; flex: 1; min-height: 0; display: grid; grid-template-columns: 1fr 1.5fr; gap: 0 120px; }
+  svg { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+  .col { position: relative; z-index: 1; display: flex; flex-direction: column; justify-content: space-between; gap: 5px; }
+  .feat { border: 1px solid #111; background: #fff; padding: 5px 9px; border-radius: 4px; }
+  .feat b { font-size: 12.5px; }
+  .feat small { display: block; color: #666; }
+  .file { position: relative; border: 1px solid #bbb; background: #fff; padding: 2px 8px; border-radius: 3px; font: 10.5px/1.3 ui-monospace, Menlo, monospace; }
+  .file .ln { color: #666; }
+  .file .ln::before { content: " · "; }
+  .file.knot { border: 1.5px solid #d61f1f; background: #fff3f3; }
+  .badge { position: absolute; right: -8px; top: -8px; width: 17px; height: 17px; border-radius: 50%; background: #d61f1f; color: #fff; font: 700 10.5px/17px Helvetica, Arial, sans-serif; text-align: center; }
+  .key { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px 16px; border-top: 1px solid #ccc; padding-top: 6px; }
+  .key div { font-size: 11px; }
+  .key span.n { display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: #d61f1f; color: #fff; text-align: center; font: 700 10px/15px Helvetica, Arial, sans-serif; margin-right: 5px; }
+  code { font: 11px ui-monospace, Menlo, monospace; }
+  /* Narrow screens: let content flow instead of clipping it. */
+  @media (max-width: 900px) {
+    html, body { height: auto; }
+    .wrap { height: auto; overflow: visible; }
+    .stage { gap: 0 40px; }
+    .key { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>routetoabroad: wiring diagram, before</h1>
+    <span class="sub">Feature to file. Red = knot (numbered, ranked worst first). Lines show what each feature touches.</span>
+  </header>
+
+  <div class="stage" id="stage">
+    <svg id="lines" aria-hidden="true"></svg>
+    <div class="col" id="feats"></div>
+    <div class="col" id="files"></div>
+  </div>
+
+  <div class="key" id="key"></div>
+</div>
+
+<script>
+const features = [
+  { id: 'f1', name: 'Locale routing', sub: 'URL prefixes, translatePath, html lang', to: ['i18n', 'i18nc', 'base', 'e404', 'seo', 'linkw'] },
+  { id: 'f2', name: 'SEO and JSON-LD', sub: 'canonical, hreflang, og, schema', to: ['seo', 'schema', 'jsonld', 'detail', 'site', 'i18n'] },
+  { id: 'f3', name: 'Company facts', sub: 'URL, phone, email, Formspree', to: ['site', 'llms', 'detail'] },
+  { id: 'f4', name: 'Enquiry forms', sub: 'four forms, POST via base engine', to: ['edu', 'trade', 'tour', 'contact', 'base', 'site'] },
+  { id: 'f5', name: 'Detail pages', sub: 'city, country, guide, blog, uni, compare', to: ['detail', 'static', 'content', 'linkw'] },
+  { id: 'f6', name: 'Interactive tools', sub: 'five tools, strings per locale', to: ['tools_pages', 'tools_dir', 'linkw', 'i18nTools'] },
+  { id: 'f7', name: 'Build gate', sub: 'validate-site.mjs, astro config', to: ['validate'] },
+];
+
+const files = [
+  { id: 'detail', label: 'components/pages/ *DetailPage.astro (6)', lines: 'Blog 39,74 · City 48 · Country 47 · Compare 51 · Guide 39,67 · Uni 48,54,57', knots: [1] },
+  { id: 'llms', label: 'pages/llms-full.txt.ts', lines: 'line 25', knots: [2] },
+  { id: 'seo', label: 'components/Seo.astro', lines: 'line 47 · lines 58-68', knots: [3, 6] },
+  { id: 'base', label: 'layouts/BaseLayout.astro', lines: 'line 67', knots: [3] },
+  { id: 'e404', label: 'pages/404.astro', lines: 'line 40', knots: [3] },
+  { id: 'i18n', label: 'lib/i18n.ts', lines: 'lines 47-49 (regex) · 82-94 (INTL_TAG)', knots: [] },
+  { id: 'i18nc', label: 'lib/i18n-client.ts', lines: 'lines 11-17', knots: [7] },
+  { id: 'edu', label: 'components/forms/EducationForm.astro', lines: 'lines 40,53,63 · 98-117', knots: [4, 5] },
+  { id: 'trade', label: 'components/forms/TradeForm.astro', lines: 'lines 48,58 · 86-105', knots: [4, 5] },
+  { id: 'tour', label: 'components/forms/TourismForm.astro', lines: 'lines 85-104', knots: [4] },
+  { id: 'contact', label: 'components/forms/ContactForm.astro', lines: 'lines 146-166', knots: [4] },
+  { id: 'linkw', label: 'components/pages/*Page.astro (27) + Header + Footer', lines: 'e.g. HomePage.astro:32, TourismPage.astro:28', knots: [8] },
+  { id: 'tools_dir', label: 'src/components/tools/', lines: 'empty, local only (not tracked by git)', knots: [9] },
+  { id: 'site', label: 'lib/site.ts', lines: 'SITE, FORMSPREE_ENDPOINT', knots: [] },
+  { id: 'schema', label: 'lib/schema.ts', lines: 'JSON-LD builders', knots: [] },
+  { id: 'jsonld', label: 'components/JsonLd.astro · SiteSchemas.astro', lines: 'thin wrappers', knots: [] },
+  { id: 'static', label: 'lib/static-paths.ts', lines: 'getStaticPaths helpers', knots: [] },
+  { id: 'content', label: 'lib/content.ts', lines: 'localized collection access', knots: [] },
+  { id: 'tools_pages', label: 'pages/tools/*.astro (shells)', lines: 'delegate to *ToolPage components', knots: [] },
+  { id: 'i18nTools', label: 'i18n/tools/*.ts', lines: 'per-locale tool strings', knots: [] },
+  { id: 'validate', label: 'scripts/validate-site.mjs', lines: 'build QA gate', knots: [] },
+];
+
+const knots = [
+  ['Site domain hardcoded in 6 detail pages (10 lines)', 'use SITE.url from lib/site.ts'],
+  ['Company phone and email typed inline (llms-full.txt.ts:25)', 'interpolate from SITE'],
+  ['Locale-prefix regex copied 3 times (Seo.astro:47, BaseLayout.astro:67, 404.astro:40)', 'one stripLocalePrefix() in i18n.ts'],
+  ['Form CSS copied in 4 forms (EducationForm.astro:98-117 and 3 more)', 'one shared stylesheet'],
+  ['Option values by array index (EducationForm.astro:40, TradeForm.astro:48)', 'typed key arrays next to the labels'],
+  ['og:locale territory map copied (Seo.astro:58-68)', 'territory field in LOCALE_META'],
+  ['Locale list re-derived (i18n-client.ts:11-17)', 'import from i18n.ts'],
+  ['link wrapper redefined in 29 files (e.g. HomePage.astro:32)', 'call translatePath directly'],
+  ['Empty directory src/components/tools/ (local only, not tracked by git)', 'delete it'],
+];
+
+const feats = document.getElementById('feats');
+const filesCol = document.getElementById('files');
+const svg = document.getElementById('lines');
+const byId = {};
+
+for (const f of features) {
+  const el = document.createElement('div');
+  el.className = 'feat';
+  el.id = f.id;
+  el.innerHTML = `<b>${f.name}</b><small>${f.sub}</small>`;
+  feats.appendChild(el);
+}
+
+for (const f of files) {
+  const el = document.createElement('div');
+  el.className = 'file' + (f.knots.length ? ' knot' : '');
+  el.id = 'file-' + f.id;
+  el.innerHTML = `${f.label}<span class="ln">${f.lines}</span>` +
+    f.knots.map((n, i) => `<span class="badge" style="right:${-8 + i * 21}px">${n}</span>`).join('');
+  filesCol.appendChild(el);
+  byId[f.id] = el;
+}
+
+const knotOrder = knots.map((_, i) => i + 1);
+document.getElementById('key').innerHTML = knots
+  .map(([what, fix], i) => `<div><span class="n">${i + 1}</span>${what}. <i>Fix:</i> ${fix}.</div>`)
+  .join('');
+
+function draw() {
+  const stage = document.getElementById('stage').getBoundingClientRect();
+  svg.setAttribute('viewBox', `0 0 ${stage.width} ${stage.height}`);
+  let out = '';
+  for (const f of features) {
+    const fe = document.getElementById(f.id).getBoundingClientRect();
+    const x1 = fe.right - stage.left;
+    const y1 = fe.top + fe.height / 2 - stage.top;
+    for (const t of f.to) {
+      const tf = byId[t].getBoundingClientRect();
+      const x2 = tf.left - stage.left;
+      const y2 = tf.top + tf.height / 2 - stage.top;
+      const mx = (x1 + x2) / 2;
+      const knot = files.find((x) => x.id === t).knots.length > 0;
+      out += `<path d="M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}" fill="none" stroke="${knot ? '#d61f1f' : '#9a9a9a'}" stroke-width="${knot ? 1.4 : 1}" opacity="${knot ? 0.9 : 0.7}"/>`;
+    }
+  }
+  svg.innerHTML = out;
+}
+window.addEventListener('resize', draw);
+document.fonts && document.fonts.ready.then(draw);
+draw();
+</script>
+</body>
+</html>

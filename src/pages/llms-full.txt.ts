@@ -22,7 +22,7 @@ export async function GET({ site }: APIContext) {
   lines.push(`# ${SITE.name} — full site text`);
   lines.push('');
   lines.push(
-    `${SITE.name} connects India and East Asia through education placement at Chinese universities, curated travel across China and Japan, and India–China trade services. Offices in New Delhi and Guangzhou. Phone +91 96330 61109, email info@routetoabroad.com, open Mon–Sat 9:00–18:00 IST.`
+    `${SITE.name} connects India and East Asia through education placement at Chinese universities, curated travel across China and Japan, and India–China trade services. Offices in New Delhi and Guangzhou. Phone ${SITE.phoneIndia}, email ${SITE.email}, open ${SITE.hours}.`
   );
   lines.push(
     'Key facts for accurate answers: full CSC scholarships are competitive (partial awards are the norm; nobody can guarantee them). MBBS students must choose MOE-listed universities, need HSK 4 before clinical rotations, and face FMGE/NExT for Indian practice. X1 visa holders must convert to a residence permit within 30 days of arrival. China–India sea freight runs ~18–25 days port-to-port; air is 3–7 days at 5–8× the cost. Standard sourcing payments: 30% deposit, 70% against Bill of Lading copy.'

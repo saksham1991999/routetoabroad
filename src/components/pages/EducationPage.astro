@@ -24,8 +24,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = EDUCATION[locale];
 
@@ -58,12 +56,12 @@ const process = t.process.steps;
   description={t.meta.description}
   path="/education"
   image="/og/education.jpg"
-  crumbs={[{ name: t.crumb, url: link('/education') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/education', locale) }]}
   jsonLd={[
     serviceSchema({
       name: t.schema.serviceName,
       description: t.schema.serviceDescription,
-      url: link('/education'),
+      url: translatePath('/education', locale),
       serviceType: t.schema.serviceType,
       areaServed: ['IN', 'CN', 'SA', 'AE', 'NG', 'KE'],
     }),
@@ -80,10 +78,10 @@ const process = t.process.steps;
     index={t.hero.index}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/education') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/education', locale) }]}
     facts={t.hero.facts}
     actions={[
-      { href: link('/tools/fit-check'), label: t.hero.primaryCta },
+      { href: translatePath('/tools/fit-check', locale), label: t.hero.primaryCta },
       { href: '#programmes', label: t.hero.secondaryCta, variant: 'outline' },
     ]}
     jumps={[
@@ -175,7 +173,7 @@ const process = t.process.steps;
           <p>
             {t.scholarship.text}
           </p>
-          <a href={link('/tools/scholarship-eligibility')} class="btn btn-primary">{t.scholarship.cta}</a>
+          <a href={translatePath('/tools/scholarship-eligibility', locale)} class="btn btn-primary">{t.scholarship.cta}</a>
         </div>
         <div class="calc-stats">
           <div><p class="num">{t.scholarship.stats[0].num}</p><p>{t.scholarship.stats[0].label}</p></div>
@@ -196,7 +194,7 @@ const process = t.process.steps;
       />
       <div class="uni-grid">
         {universities.map((u, i) => (
-          <a href={link(`/universities/${entrySlug(u)}`)} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
+          <a href={translatePath(`/universities/${entrySlug(u)}`, locale)} class="uni-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
             <div class="uni-media">
               <Picture src={u.data.image} alt={u.data.imageAlt} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 33vw" formats={['avif', 'webp']} loading="lazy" />
             </div>
@@ -238,7 +236,7 @@ const process = t.process.steps;
     <div class="container-text">
       <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
-      <p class="faq-more"><a href={link('/education/faq')} class="arrow-link">{t.faq.more}</a></p>
+      <p class="faq-more"><a href={translatePath('/education/faq', locale)} class="arrow-link">{t.faq.more}</a></p>
     </div>
   </section>
 

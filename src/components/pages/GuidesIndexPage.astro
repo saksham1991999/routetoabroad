@@ -19,8 +19,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = GUIDES_INDEX[locale];
 
@@ -45,13 +43,13 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
   description={t.meta.description}
   path="/guides"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/guides') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/guides', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/guides') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/guides', locale) }]}
   />
 
   {byPillar.map(({ pillar, guides: group }) =>
@@ -66,7 +64,7 @@ const byPillar = (['education', 'tourism', 'trade'] as const).map((p) => ({
               <ArticleCard
               locale={locale}
                 title={g.data.title}
-                href={link(`/guides/${entrySlug(g)}`)}
+                href={translatePath(`/guides/${entrySlug(g)}`, locale)}
                 description={g.data.description}
                 image={g.data.image}
                 imageAlt={g.data.imageAlt}

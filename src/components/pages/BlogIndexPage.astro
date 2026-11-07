@@ -20,8 +20,6 @@ interface Props {
   locale?: Locale;
 }
 const { locale = DEFAULT_LOCALE } = Astro.props;
-/** Localize an internal href for this page's locale. */
-const link = (path: string) => translatePath(path, locale);
 /** Localized page copy. */
 const t = BLOG_INDEX[locale];
 
@@ -36,14 +34,14 @@ const countTotal = t.countTotal.replace('{total}', String(posts.length));
   description={t.meta.description}
   path="/blog"
   locale={locale}
-  crumbs={[{ name: t.crumb, url: link('/blog') }]}
+  crumbs={[{ name: t.crumb, url: translatePath('/blog', locale) }]}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
     index="INS / 06"
     title={t.hero.title}
     lede={t.hero.lede}
-    crumbs={[{ name: t.crumb, url: link('/blog') }]}
+    crumbs={[{ name: t.crumb, url: translatePath('/blog', locale) }]}
     facts={[
       { label: t.hero.facts.notesLabel, value: t.hero.facts.articlesCount.replace('{n}', String(posts.length)) },
       { label: t.hero.facts.desksLabel, value: t.hero.facts.desksValue },
@@ -77,7 +75,7 @@ const countTotal = t.countTotal.replace('{total}', String(posts.length));
             <ArticleCard
               locale={locale}
               title={post.data.title}
-              href={link(`/blog/${entrySlug(post)}`)}
+              href={translatePath(`/blog/${entrySlug(post)}`, locale)}
               description={post.data.description}
               image={post.data.image}
               imageAlt={post.data.imageAlt}
