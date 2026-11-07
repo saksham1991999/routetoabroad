@@ -87,32 +87,3 @@ const ff = ui.formFields;
   <button type="submit" class="btn btn-primary btn-lg">{f.submit}</button>
   <p class="form-fineprint">{f.fineprint}</p>
 </form>
-
-
-<style>
-  .enquiry-form {
-    display: grid;
-    gap: 1.2rem;
-  }
-
-  .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.2rem;
-  }
-
-  .form-row--single {
-    grid-template-columns: 1fr;
-  }
-
-  .form-fineprint {
-    font-size: 0.84rem;
-    color: var(--ink-faint);
-  }
-
-  @media (max-width: 40rem) {
-    .form-row {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
