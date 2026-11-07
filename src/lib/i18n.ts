@@ -41,14 +41,14 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
   hi: { code: 'hi', territory: 'IN', label: 'Hindi', nativeLabel: 'हिन्दी', dir: 'ltr', prefixed: true },
 };
 
+/** Locales that carry a URL prefix: everything except the default. */
+export const PREFIXED_LOCALES: readonly Locale[] = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
+
 /**
  * Regex matching a locale URL prefix at the start of a path, derived from
  * LOCALES so a new locale needs one edit only (this list, plus astro.config).
  * Matches /zh, /fr/…, /de/… etc. but never a bare non-locale segment.
  */
-/** Locales that carry a URL prefix: everything except the default. */
-export const PREFIXED_LOCALES: readonly Locale[] = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
-
 const PREFIX_RE = new RegExp(`^\\/+(?:${PREFIXED_LOCALES.join('|')})(?=\\/|$)`);
 
 /** Drop a leading locale segment: '/zh/education' becomes '/education', '/zh' becomes ''. */
