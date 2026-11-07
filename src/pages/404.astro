@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { NOT_FOUND } from '../i18n/pages/not-found';
+import { PREFIXED_LOCALES } from '../lib/i18n';
 
 /**
  * 404 — one static page serves every missing URL, so the locale is unknown
@@ -31,13 +32,13 @@ import { NOT_FOUND } from '../i18n/pages/not-found';
     </div>
   </section>
 
-  <script is:inline>
+  <script is:inline define:vars={{ prefixes: PREFIXED_LOCALES }}>
     // Apply the copy for the requested URL's locale prefix (the 404 is one
     // static page for every missing URL, so the locale is runtime knowledge).
-    // Inline JS — cannot import from i18n.ts; the alternation below must
-    // mirror src/lib/i18n.ts LOCALES (minus 'en').
+    // Inline JS cannot import from i18n.ts, so the prefixes arrive through
+    // define:vars from the same LOCALES list.
     (function () {
-      var m = location.pathname.match(/^\/(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/);
+      var m = location.pathname.match(new RegExp('^\\/(' + prefixes.join('|') + ')(?=\\/|$)'));
       if (!m) return;
       var packEl = document.querySelector('[data-404]');
       if (!packEl) return;

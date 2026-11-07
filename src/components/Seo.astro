@@ -2,7 +2,7 @@
 import { SITE } from '../lib/site';
 import JsonLd from './JsonLd.astro';
 import { breadcrumbSchema } from '../lib/schema';
-import { LOCALES, LOCALE_META, DEFAULT_LOCALE, translatePath, type Locale } from '../lib/i18n';
+import { LOCALES, LOCALE_META, DEFAULT_LOCALE, stripLocalePrefix, translatePath, type Locale } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -43,8 +43,7 @@ const {
 // The English canonical path for this page. Locale-prefixed callers pass
 // e.g. path="/zh/education" + locale="zh"; strip the locale segment so every
 // URL computation (canonical, hreflang, og:url) is derived from one source.
-// The alternation must mirror src/lib/i18n.ts LOCALES (minus 'en').
-const englishPath = path.replace(/^\/+(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/, '');
+const englishPath = stripLocalePrefix(path);
 // i18n: when this page is a localized copy, the canonical points at the
 // localized URL (self-reference), not the English one. The English version
 // stays reachable via the hreflang links emitted below.

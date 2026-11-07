@@ -44,9 +44,15 @@ export const LOCALE_META: Record<Locale, LocaleMeta> = {
  * LOCALES so a new locale needs one edit only (this list, plus astro.config).
  * Matches /zh, /fr/…, /de/… etc. but never a bare non-locale segment.
  */
-const PREFIX_RE = new RegExp(
-  `^\\/+(?:${LOCALES.filter((l) => l !== DEFAULT_LOCALE).join('|')})(?=\\/|$)`
-);
+/** Locales that carry a URL prefix: everything except the default. */
+export const PREFIXED_LOCALES: readonly Locale[] = LOCALES.filter((l) => l !== DEFAULT_LOCALE);
+
+const PREFIX_RE = new RegExp(`^\\/+(?:${PREFIXED_LOCALES.join('|')})(?=\\/|$)`);
+
+/** Drop a leading locale segment: '/zh/education' becomes '/education', '/zh' becomes ''. */
+export function stripLocalePrefix(pathname: string): string {
+  return pathname.replace(PREFIX_RE, '');
+}
 
 /**
  * Detect the locale from a pathname like /, /zh, /fr/education, /ar/tools/fit-check.

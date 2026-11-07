@@ -12,7 +12,7 @@ import Seo from '../components/Seo.astro';
 import SiteSchemas from '../components/SiteSchemas.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
-import { localeFromPath, LOCALE_META, translatePath, type Locale } from '../lib/i18n';
+import { localeFromPath, LOCALE_META, stripLocalePrefix, translatePath, type Locale } from '../lib/i18n';
 import { uiFor } from '../i18n/ui';
 
 interface Props {
@@ -61,11 +61,8 @@ const ui = uiFor(pageLocale);
 
 /** Homepage gets the loader, HUD and tone-switching chrome. Locale homepages
  * (/, /zh, /fr, /ar, /es, /de, /ja, /pt, /hi) count as home too — the
- * loader/HUD live here. The alternation must mirror src/lib/i18n.ts LOCALES
- * (minus 'en'); inline because this file also ships client-side code. */
-const isHome = ['', '/'].includes(
-  Astro.url.pathname.replace(/^\/+(zh|fr|ar|es|de|ja|pt|hi)(?=\/|$)/, '') || '/'
-);
+ * loader/HUD live here. */
+const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
 ---
 
 <!doctype html>
