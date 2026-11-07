@@ -25,13 +25,20 @@
   .key div { font-size: 11px; }
   .key span.n { display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: #1f8a4c; color: #fff; text-align: center; font: 700 10px/15px Helvetica, Arial, sans-serif; margin-right: 5px; }
   code { font: 11px ui-monospace, Menlo, monospace; }
+  /* Narrow screens: let content flow instead of clipping it. */
+  @media (max-width: 900px) {
+    html, body { height: auto; }
+    .wrap { height: auto; overflow: visible; }
+    .stage { gap: 0 40px; }
+    .key { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
 <div class="wrap">
   <header>
     <h1>routetoabroad: wiring diagram, after</h1>
-    <span class="sub">Same features and files as the before diagram. Green = knot resolved on branch refactor/untangle-knots (commit shown).</span>
+    <span class="sub">Same feature set; shared stylesheet and helper files are added, and the removed directory is shown. Green = knot resolved on branch refactor/untangle-knots (commit shown).</span>
   </header>
 
   <div class="stage" id="stage">
@@ -69,7 +76,7 @@ const files = [
   { id: 'globalcss', label: 'styles/global.css', lines: 'one copy of .enquiry-form, .form-row, .form-fineprint', fixed: [4] },
   { id: 'formopts', label: 'lib/form-options.ts (new)', lines: 'pairs values with labels, fails build on mismatch', fixed: [5] },
   { id: 'linkw', label: 'components/pages/*Page.astro (27) + Header + Footer', lines: 'call translatePath(path, locale) directly', fixed: [8] },
-  { id: 'tools_dir', label: 'src/components/tools/', lines: 'removed', fixed: [9] },
+  { id: 'tools_dir', label: 'src/components/tools/', lines: 'removed (local only, not tracked by git)', fixed: [9] },
   { id: 'site', label: 'lib/site.ts', lines: 'SITE, FORMSPREE_ENDPOINT (single source)', fixed: [] },
   { id: 'schema', label: 'lib/schema.ts', lines: 'JSON-LD builders', fixed: [] },
   { id: 'jsonld', label: 'components/JsonLd.astro · SiteSchemas.astro', lines: 'thin wrappers', fixed: [] },
@@ -110,7 +117,7 @@ for (const f of files) {
   el.className = 'file' + (f.fixed.length ? ' fixed' : '');
   el.id = 'file-' + f.id;
   el.innerHTML = `${f.label}<span class="ln">${f.lines}</span>` +
-    f.fixed.map((n) => `<span class="badge">&#10003;${n}</span>`).join('');
+    f.fixed.map((n, i) => `<span class="badge" style="right:${-8 + i * 21}px">&#10003;${n}</span>`).join('');
   filesCol.appendChild(el);
   byId[f.id] = el;
 }

@@ -25,6 +25,13 @@
   .key div { font-size: 11px; }
   .key span.n { display: inline-block; width: 15px; height: 15px; border-radius: 50%; background: #d61f1f; color: #fff; text-align: center; font: 700 10px/15px Helvetica, Arial, sans-serif; margin-right: 5px; }
   code { font: 11px ui-monospace, Menlo, monospace; }
+  /* Narrow screens: let content flow instead of clipping it. */
+  @media (max-width: 900px) {
+    html, body { height: auto; }
+    .wrap { height: auto; overflow: visible; }
+    .stage { gap: 0 40px; }
+    .key { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
 <body>
@@ -67,7 +74,7 @@ const files = [
   { id: 'tour', label: 'components/forms/TourismForm.astro', lines: 'lines 85-104', knots: [4] },
   { id: 'contact', label: 'components/forms/ContactForm.astro', lines: 'lines 146-166', knots: [4] },
   { id: 'linkw', label: 'components/pages/*Page.astro (27) + Header + Footer', lines: 'e.g. HomePage.astro:32, TourismPage.astro:28', knots: [8] },
-  { id: 'tools_dir', label: 'src/components/tools/', lines: 'empty directory, no references', knots: [9] },
+  { id: 'tools_dir', label: 'src/components/tools/', lines: 'empty, local only (not tracked by git)', knots: [9] },
   { id: 'site', label: 'lib/site.ts', lines: 'SITE, FORMSPREE_ENDPOINT', knots: [] },
   { id: 'schema', label: 'lib/schema.ts', lines: 'JSON-LD builders', knots: [] },
   { id: 'jsonld', label: 'components/JsonLd.astro · SiteSchemas.astro', lines: 'thin wrappers', knots: [] },
@@ -79,7 +86,7 @@ const files = [
 ];
 
 const knots = [
-  ['Site domain hardcoded in 6 detail pages (9 lines)', 'use SITE.url from lib/site.ts'],
+  ['Site domain hardcoded in 6 detail pages (10 lines)', 'use SITE.url from lib/site.ts'],
   ['Company phone and email typed inline (llms-full.txt.ts:25)', 'interpolate from SITE'],
   ['Locale-prefix regex copied 3 times (Seo.astro:47, BaseLayout.astro:67, 404.astro:40)', 'one stripLocalePrefix() in i18n.ts'],
   ['Form CSS copied in 4 forms (EducationForm.astro:98-117 and 3 more)', 'one shared stylesheet'],
@@ -87,7 +94,7 @@ const knots = [
   ['og:locale territory map copied (Seo.astro:58-68)', 'territory field in LOCALE_META'],
   ['Locale list re-derived (i18n-client.ts:11-17)', 'import from i18n.ts'],
   ['link wrapper redefined in 29 files (e.g. HomePage.astro:32)', 'call translatePath directly'],
-  ['Empty directory src/components/tools/', 'delete it'],
+  ['Empty directory src/components/tools/ (local only, not tracked by git)', 'delete it'],
 ];
 
 const feats = document.getElementById('feats');
@@ -108,7 +115,7 @@ for (const f of files) {
   el.className = 'file' + (f.knots.length ? ' knot' : '');
   el.id = 'file-' + f.id;
   el.innerHTML = `${f.label}<span class="ln">${f.lines}</span>` +
-    f.knots.map((n) => `<span class="badge">${n}</span>`).join('');
+    f.knots.map((n, i) => `<span class="badge" style="right:${-8 + i * 21}px">${n}</span>`).join('');
   filesCol.appendChild(el);
   byId[f.id] = el;
 }
