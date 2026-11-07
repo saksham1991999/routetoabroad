@@ -54,18 +54,7 @@ const pageLocale = LOCALE_META[locale].code;
 // og:locale wants language_TERRITORY (en_IN, zh_CN, fr_FR, ar_AE, es_ES,
 // de_DE, ja_JP, pt_BR, hi_IN). English is en_IN: the consultancy is
 // India-anchored (IN offices, +91 line).
-const OG_TERRITORY: Record<string, string> = {
-  en: 'IN',
-  zh: 'CN',
-  fr: 'FR',
-  ar: 'AE',
-  es: 'ES',
-  de: 'DE',
-  ja: 'JP',
-  pt: 'BR',
-  hi: 'IN',
-};
-const ogLocaleTag = `${pageLocale.replace('-', '_')}_${OG_TERRITORY[pageLocale] ?? 'US'}`;
+const ogLocaleTag = `${pageLocale.replace('-', '_')}_${LOCALE_META[locale].territory}`;
 
 /**
  * Build an absolute URL for the same page under every configured locale.
@@ -112,7 +101,7 @@ const descMeta = trimDesc(description);
 {LOCALES.filter((c) => c !== locale).map((c) => (
   <meta
     property="og:locale:alternate"
-    content={`${LOCALE_META[c].code.replace('-', '_')}_${OG_TERRITORY[LOCALE_META[c].code] ?? 'US'}`}
+    content={`${LOCALE_META[c].code.replace('-', '_')}_${LOCALE_META[c].territory}`}
   />
 ))}
 {publishedTime && <meta property="article:published_time" content={publishedTime.toISOString()} />}

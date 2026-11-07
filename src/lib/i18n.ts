@@ -17,6 +17,8 @@ export const DEFAULT_LOCALE: Locale = 'en';
 export interface LocaleMeta {
   /** BCP-47 tag for <html lang> and hreflang/og:locale. */
   code: string;
+  /** Territory half of og:locale (language_TERRITORY), e.g. IN in en_IN. */
+  territory: string;
   /** Human label used in the switcher (English-facing). */
   label: string;
   /** Native-script label used in the switcher. */
@@ -28,15 +30,15 @@ export interface LocaleMeta {
 }
 
 export const LOCALE_META: Record<Locale, LocaleMeta> = {
-  en: { code: 'en', label: 'English', nativeLabel: 'English', dir: 'ltr', prefixed: false },
-  zh: { code: 'zh', label: 'Chinese', nativeLabel: '中文', dir: 'ltr', prefixed: true },
-  fr: { code: 'fr', label: 'French', nativeLabel: 'Français', dir: 'ltr', prefixed: true },
-  ar: { code: 'ar', label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl', prefixed: true },
-  es: { code: 'es', label: 'Spanish', nativeLabel: 'Español', dir: 'ltr', prefixed: true },
-  de: { code: 'de', label: 'German', nativeLabel: 'Deutsch', dir: 'ltr', prefixed: true },
-  ja: { code: 'ja', label: 'Japanese', nativeLabel: '日本語', dir: 'ltr', prefixed: true },
-  pt: { code: 'pt', label: 'Portuguese', nativeLabel: 'Português', dir: 'ltr', prefixed: true },
-  hi: { code: 'hi', label: 'Hindi', nativeLabel: 'हिन्दी', dir: 'ltr', prefixed: true },
+  en: { code: 'en', territory: 'IN', label: 'English', nativeLabel: 'English', dir: 'ltr', prefixed: false },
+  zh: { code: 'zh', territory: 'CN', label: 'Chinese', nativeLabel: '中文', dir: 'ltr', prefixed: true },
+  fr: { code: 'fr', territory: 'FR', label: 'French', nativeLabel: 'Français', dir: 'ltr', prefixed: true },
+  ar: { code: 'ar', territory: 'AE', label: 'Arabic', nativeLabel: 'العربية', dir: 'rtl', prefixed: true },
+  es: { code: 'es', territory: 'ES', label: 'Spanish', nativeLabel: 'Español', dir: 'ltr', prefixed: true },
+  de: { code: 'de', territory: 'DE', label: 'German', nativeLabel: 'Deutsch', dir: 'ltr', prefixed: true },
+  ja: { code: 'ja', territory: 'JP', label: 'Japanese', nativeLabel: '日本語', dir: 'ltr', prefixed: true },
+  pt: { code: 'pt', territory: 'BR', label: 'Portuguese', nativeLabel: 'Português', dir: 'ltr', prefixed: true },
+  hi: { code: 'hi', territory: 'IN', label: 'Hindi', nativeLabel: 'हिन्दी', dir: 'ltr', prefixed: true },
 };
 
 /**
