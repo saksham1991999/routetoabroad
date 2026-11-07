@@ -1,5 +1,6 @@
 ---
 import { DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { formOptions } from '../../lib/form-options';
 import { uiFor } from '../../i18n/ui';
 
 interface Props {
@@ -36,8 +37,8 @@ const ff = ui.formFields;
         <label for="tour-dest">{ff.destination} <span class="req" aria-hidden="true">*</span></label>
         <select id="tour-dest" name="destination" required aria-describedby="tour-dest-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.destinations.map((label, i) => (
-            <option value={['china', 'japan', 'multi', 'custom'][i]}>{label}</option>
+          {formOptions('destinations', ['china', 'japan', 'multi', 'custom'], f.destinations).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="tour-dest-error">{f.errors.destination}</p>
@@ -49,8 +50,8 @@ const ff = ui.formFields;
         <label for="tour-type">{ff.tripType} <span class="req" aria-hidden="true">*</span></label>
         <select id="tour-type" name="tripType" required aria-describedby="tour-type-error">
           <option value="">{ff.selectPlaceholder}</option>
-          {f.tripTypes.map((label, i) => (
-            <option value={['cultural', 'group', 'business'][i]}>{label}</option>
+          {formOptions('tripTypes', ['cultural', 'group', 'business'], f.tripTypes).map((o) => (
+            <option value={o.value}>{o.label}</option>
           ))}
         </select>
         <p class="error" id="tour-type-error">{f.errors.tripType}</p>
