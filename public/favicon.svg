@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
-  <!--
-    Canonical RouteToAbroad brand mark: R / paper plane / A on a black rounded tile.
-    Letters are vector paths (no font dependency) so every render target — favicon,
-    apple-touch-icon, PWA icons, favicon.ico (scripts/generate-icons.mjs) — is identical.
-  -->
-  <rect width="32" height="32" rx="8" fill="#000000"/>
-  <g stroke="#ffffff" stroke-width="2.2" fill="none">
-    <!-- R: stem, bowl, leg -->
-    <path d="M5.1 12 V22"/>
-    <path d="M5.1 13.1 H7.1 A1.9 1.9 0 0 1 7.1 16.9 H5.1"/>
-    <path d="M7.6 17.1 L11.5 22"/>
-    <!-- A: apex (bevel-cut) + crossbar -->
-    <path d="M21.3 22 L24 13.5 L26.7 22" stroke-linejoin="bevel"/>
-    <path d="M22.3 18.5 H25.7"/>
-  </g>
-  <!-- Paper plane, scaled to sit between the letters -->
-  <path d="M12.2 14.1 21.4 10.4c.26-.11.44.19.29.42l-3.7 8.55c-.13.2-.44.15-.49-.09l-.71-3.92-4.06-.85c-.25-.05-.27-.36-.23-.41Z" fill="#5e78ee" transform="translate(1.48 3.58) scale(0.8)"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 636.923 636.923">
+  <rect width="636.923" height="636.923" fill="#2142E6"/>
+  <path fill="#F4F2EC" d="M323.02,366.118c47.834-7.14,84.643-48.491,84.643-98.281c0-54.796-44.579-99.375-99.375-99.375 H144.316l117.565,160.205c11.53-1.455,23.809-2.316,36.856-2.597L206.01,199.711h102.278c37.564,0,68.125,30.561,68.125,68.125 s-30.561,68.125-68.125,68.125c-57.902,0-100.418,11.022-129.978,33.696c-28.204,21.634-44.936,53.639-50.925,97.554h31.585 c10.247-65.008,48.629-94.974,127.471-99.412c23.697,36.377,43.56,58.624,65.7,73.726c26.315,17.95,57.264,26.311,97.398,26.311 v-31.25c-34.015,0-58.622-6.439-79.789-20.876C354.306,405.175,339.747,389.824,323.02,366.118z"/>
+  <polygon fill="#F4F2EC" points="440.163,417.836 455.163,437.211 509.538,415.961"/>
+  <polygon fill="#F4F2EC" points="475.788,468.461 508.913,419.086 460.163,445.961"/>
 </svg>
