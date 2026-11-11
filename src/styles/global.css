@@ -3,8 +3,8 @@
    Base, primitives and shared component classes. Page-specific styles
    live in scoped <style> blocks of their components.
 
-   Language: neutral paper, ONE Helvetica stack (weight 500 headings,
-   tight tracking), signal periwinkle accent used as a pen, hairlines
+   Language: Paper #F4F2EC, ONE Helvetica stack (weight 500 headings,
+   tight tracking), Route Blue #2142E6 as the accent, hairlines
    instead of shadows, instrument text 11–13px on the alpha scale.
 ------------------------------------------------------------------- */
 
@@ -408,8 +408,8 @@ h4 {
 }
 
 .btn-light {
-  background: #f7f7f7;
-  color: #111111;
+  background: #F4F2EC;
+  color: #0B1533;
 }
 
 .btn-light:hover {
@@ -1055,8 +1055,8 @@ details.faq .faq-body {
   inset-inline-start: 1rem;
   top: -3.5rem;
   z-index: 200;
-  background: #0a0a0a;
-  color: #f7f7f7;
+  background: #0B1533;
+  color: #F4F2EC;
   /* 0.7rem blocks → ≥44px tall: keeps the first Tab target a valid touch target */
   padding: 0.7rem 1.1rem;
   border-radius: var(--radius-s);

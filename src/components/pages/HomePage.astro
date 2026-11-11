@@ -202,6 +202,12 @@ const tools = [
     </div>
   </section>
 
+  <div class="route-line" aria-hidden="true">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="-20 268 1240 284">
+      <path d="M-20 520 C 240 520 300 300 560 300 L 1220 300" fill="none" stroke="currentColor" stroke-width="64"/>
+    </svg>
+  </div>
+
   <!-- ============================================================
        2 · ILLUMINATED STATEMENT — words light up word-by-word
        ============================================================ -->
@@ -548,10 +554,10 @@ const tools = [
   @keyframes origin-caret {
     0%,
     100% {
-      box-shadow: 0 1px 0 0 rgba(94, 120, 238, 0);
+      box-shadow: 0 1px 0 0 rgba(33, 66, 230, 0);
     }
     50% {
-      box-shadow: 0 1px 0 0 rgba(94, 120, 238, 0.55);
+      box-shadow: 0 1px 0 0 rgba(33, 66, 230, 0.55);
     }
   }
 
@@ -956,6 +962,20 @@ const tools = [
   :global(html.no-js) .jline-inner {
     transform: none;
     opacity: 1;
+  }
+
+  /* Static route rule between the journey and the illuminated statement */
+  .route-line {
+    color: var(--accent);
+    margin-block: 0.75rem;
+    margin-inline: auto;
+  }
+
+  .route-line svg {
+    width: min(100%, 16rem);
+    height: auto;
+    display: block;
+    margin-inline: auto;
   }
 
   /* ============================================================

@@ -1,7 +1,7 @@
 /**
  * Hero globe — dotted-continent orthographic sphere.
  *
- * Visual reference: RouteToAbroad v2 — charcoal land at 78%, a halftone dot
+ * Visual reference: RouteToAbroad v2 — ink land at 78%, a halftone dot
  * field over the continents, white country borders, paper ocean, 1.6px rim.
  *
  * The geography is precomputed at build time by scripts/build-globe-data.mjs,
@@ -32,9 +32,9 @@ const TAU = Math.PI * 2;
 
 /**
  * Palette follows the site theme (html[data-theme]) so the globe re-inks
- * when the toggle flips. Light mirrors the paper tokens; dark swaps the
- * ocean to near-black, land to light-grey and the signal dot to the
- * dark-mode accent (see src/styles/tokens.css).
+ * when the toggle flips. Light uses Paper ocean and Route Blue. Dark uses
+ * Corridor Ink ocean. The dark signal is a lighter Route Blue so the dot
+ * clears the ink (see src/styles/tokens.css).
  */
 interface Palette {
   paper: string;
@@ -45,19 +45,19 @@ interface Palette {
 }
 
 const LIGHT: Palette = {
-  paper: '#f7f7f7',
-  land: '#3a3a3a',
-  border: 'rgba(255, 255, 255, 0.7)',
-  rim: 'rgba(18, 18, 18, 0.72)',
-  signal: '#5e78ee',
+  paper: '#F4F2EC',
+  land: '#0B1533',
+  border: 'rgba(244, 242, 236, 0.7)',
+  rim: 'rgba(11, 21, 51, 0.72)',
+  signal: '#2142E6',
 };
 
 const DARK: Palette = {
-  paper: '#0a0a0a',
-  land: '#8a8a8a',
-  border: 'rgba(255, 255, 255, 0.22)',
-  rim: 'rgba(242, 242, 242, 0.5)',
-  signal: '#7d93f5',
+  paper: '#0B1533',
+  land: '#B9B6AD',
+  border: 'rgba(244, 242, 236, 0.22)',
+  rim: 'rgba(244, 242, 236, 0.5)',
+  signal: '#6A80EE',
 };
 
 const LAND_ALPHA = 0.78;

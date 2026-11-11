@@ -1,43 +1,47 @@
 /* ------------------------------------------------------------------
-   RouteToAbroad v4 — "RTA Editorial Instrument" design tokens
-   Neutral paper, one Helvetica stack, signal periwinkle accent.
-   The accent is a PEN (eyebrows, numerals, markers, focus rings) —
-   never a paint, with one exception: the floating CTA tab.
-   Hairlines replace shadows. No webfonts, no red, no gold.
+   RouteToAbroad — colour tokens
+   Five-colour kit (branding/05_Colour):
+   Route Blue #2142E6 (accent, links, eyebrows, primary buttons),
+   Corridor Ink #0B1533 (text, and the dark bands),
+   Paper #F4F2EC (page background),
+   Sky #DCE4FF (panel tints only — never body text or button labels),
+   Stone #B9B6AD (rules, captions, secondary UI).
+   One Helvetica stack. No webfonts.
 ------------------------------------------------------------------- */
 
 :root {
   color-scheme: light;
 
   /* Surfaces */
-  --paper: #f7f7f7;
-  --paper-raised: #ffffff;
-  --paper-sunken: #f0f0f0;
+  --paper: #F4F2EC;
+  --paper-raised: #FFFdf8;
+  --paper-sunken: #E8E6DE;
 
-  /* Ink — alpha scale on near-black */
-  --ink: #111111;
-  --ink-soft: #333333;
-  --ink-label: rgba(0, 0, 0, 0.6);
-  --ink-faint: rgba(0, 0, 0, 0.6);
-  --line: rgba(0, 0, 0, 0.08);
-  --line-strong: rgba(0, 0, 0, 0.15);
+  /* Ink — Corridor Ink, softened for body and labels */
+  --ink: #0B1533;
+  --ink-soft: #2A3354;
+  --ink-label: rgba(11, 21, 51, 0.6);
+  --ink-faint: rgba(11, 21, 51, 0.6);
+  --line: rgba(11, 21, 51, 0.1);
+  --line-strong: #B9B6AD;
 
-  /* Accent — "signal" periwinkle (pen, not paint) */
-  --accent: #5e78ee;
-  --accent-text: #4a63d8; /* AA-safe accent for small text (4.8:1 on paper) */
-  --accent-surface: #4a63d8; /* signal surfaces carrying white 13px text (5.2:1) */
-  --accent-strong: #7d93f5;
-  --accent-btn: #0a0a0a;
-  --accent-btn-hover: rgba(0, 0, 0, 0.85);
-  --on-accent: #f7f7f7;
+  /* Accent — Route Blue. Small text on Paper is 6.3:1, so the text
+     token stays the brand blue. Button labels are Paper on this blue. */
+  --accent: #2142E6;
+  --accent-text: #2142E6;
+  --accent-surface: #2142E6;
+  --accent-strong: #3A58EA;
+  --accent-btn: #2142E6;
+  --accent-btn-hover: #1A35B8;
+  --on-accent: #F4F2EC;
 
-  /* Gold — retired; aliased to signal so stragglers render correctly */
-  --gold: #5e78ee;
+  /* Gold — retired; aliased to Route Blue so stragglers render correctly */
+  --gold: #2142E6;
 
-  /* Pillars — coding only (tiny tags, 2px rules) */
-  --edu: #3b5bdb;
-  --tourism: #0f766e;
-  --trade: #6d28d9;
+  /* Pillars — inside the five-colour set (tags and 2px rules) */
+  --edu: #2142E6;
+  --tourism: #0B1533;
+  --trade: #6F6C64;
 
   /* Status — AA on their own 10% tinted surfaces (.form-status), not just
      on plain paper (#15803d/#dc2626 measured 4.39/4.14 on the tint). */
@@ -73,8 +77,8 @@
   --radius-m: 6px;
   --radius-l: 10px;
   --shadow-pop: 0 8px 40px rgba(0, 0, 0, 0.12);
-  --shadow-fab: 0 1px 18px rgba(94, 120, 238, 0.28);
-  --glow-accent: 0 0 0 4px rgba(94, 120, 238, 0.14);
+  --shadow-fab: 0 1px 18px rgba(33, 66, 230, 0.28);
+  --glow-accent: 0 0 0 4px rgba(33, 66, 230, 0.14);
 
   /* Motion */
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
@@ -85,44 +89,47 @@
 [data-theme='dark'] {
   color-scheme: dark;
 
-  --paper: #0a0a0a;
-  --paper-raised: #141414;
-  --paper-sunken: #000000;
+  --paper: #0B1533;
+  --paper-raised: #152044;
+  --paper-sunken: #070E22;
 
-  --ink: #f2f2f2;
-  --ink-soft: rgba(255, 255, 255, 0.7);
-  --ink-label: rgba(255, 255, 255, 0.6);
-  --ink-faint: rgba(255, 255, 255, 0.55);
-  --line: rgba(255, 255, 255, 0.12);
-  --line-strong: rgba(255, 255, 255, 0.2);
+  --ink: #F4F2EC;
+  --ink-soft: rgba(244, 242, 236, 0.78);
+  --ink-label: rgba(244, 242, 236, 0.6);
+  --ink-faint: rgba(244, 242, 236, 0.6);
+  --line: rgba(244, 242, 236, 0.12);
+  --line-strong: #B9B6AD;
 
-  --accent: #7d93f5;
-  --accent-text: #9db1f8;
-  --accent-surface: #7d93f5;
-  --accent-strong: #9db1f8;
-  --accent-btn: #f7f7f7;
-  --accent-btn-hover: #ffffff;
-  --on-accent: #0a0a0a;
+  /* Route Blue on Corridor Ink is 2.6:1, so small accent text uses a
+     lighter blue on the same hue (#6A80EE, 5.1:1). Fills stay #2142E6.
+     Button labels stay Paper. */
+  --accent: #2142E6;
+  --accent-text: #6A80EE;
+  --accent-surface: #2142E6;
+  --accent-strong: #3A58EA;
+  --accent-btn: #2142E6;
+  --accent-btn-hover: #3A58EA;
+  --on-accent: #F4F2EC;
 
-  --gold: #7d93f5;
+  --gold: #2142E6;
 
-  /* Pillars — +20% lightness for dark grounds */
-  --edu: #7b91ea;
-  --tourism: #34c0b5;
-  --trade: #a78bfa;
+  /* Pillars */
+  --edu: #2142E6;
+  --tourism: #F4F2EC;
+  --trade: #B9B6AD;
 
   --ok: #4ade80;
   --warn: #fbbf24;
   --err: #f87171;
 
   --shadow-pop: 0 8px 40px rgba(0, 0, 0, 0.5);
-  --shadow-fab: 0 1px 18px rgba(125, 147, 245, 0.3);
-  --glow-accent: 0 0 0 4px rgba(125, 147, 245, 0.18);
+  --shadow-fab: 0 1px 18px rgba(33, 66, 230, 0.3);
+  --glow-accent: 0 0 0 4px rgba(33, 66, 230, 0.18);
 }
 
 /* ------------------------------------------------------------------
    Homepage: fully theme-aware. Sections read the same paper/ink
-   tokens as the inner pages; the black "instrument" bands (stats,
-   CTA, footer) stay #0a0a0a in both themes by design, and the
+   tokens as the inner pages; the instrument bands (stats, CTA,
+   footer) stay Corridor Ink #0B1533 in both themes, and the
    header/HUD chrome follows each section's data-tone.
 ------------------------------------------------------------------- */
