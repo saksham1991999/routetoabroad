@@ -106,7 +106,7 @@ const footerGroups = ui.footer.groups;
   }
 
   .footer-email span {
-    color: #6A80EE;
+    color: var(--accent-on-ink);
     transition: transform 0.3s var(--ease-out);
   }
 
@@ -126,7 +126,7 @@ const footerGroups = ui.footer.groups;
   }
 
   .footer-email:hover {
-    color: #6A80EE;
+    color: var(--accent-on-ink);
   }
 
   /* --- Link grid --- */
@@ -169,7 +169,7 @@ const footerGroups = ui.footer.groups;
   }
 
   .footer-contact a:hover {
-    color: #6A80EE;
+    color: var(--accent-on-ink);
   }
 
   .loc {
@@ -211,8 +211,8 @@ const footerGroups = ui.footer.groups;
   }
 
   .footer-social a:hover {
-    color: #6A80EE;
-    border-color: rgba(106, 128, 238, 0.6);
+    color: var(--accent-on-ink);
+    border-color: color-mix(in srgb, var(--accent-on-ink) 60%, transparent);
   }
 
   .footer-grid nav {
@@ -228,7 +228,7 @@ const footerGroups = ui.footer.groups;
     font-weight: 500;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #6A80EE;
+    color: var(--accent-on-ink);
     margin-bottom: 1.1rem;
   }
 

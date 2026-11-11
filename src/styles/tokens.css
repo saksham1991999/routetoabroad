@@ -34,6 +34,8 @@
   --accent-btn: #2142E6;
   --accent-btn-hover: #1A35B8;
   --on-accent: #F4F2EC;
+  /* Type on the ink bands. Those bands stay Corridor Ink in both themes. */
+  --accent-on-ink: #6A80EE;
 
   /* Gold — retired; aliased to Route Blue so stragglers render correctly */
   --gold: #2142E6;

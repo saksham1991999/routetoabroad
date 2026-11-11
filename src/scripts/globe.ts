@@ -55,7 +55,7 @@ const LIGHT: Palette = {
 const DARK: Palette = {
   paper: '#0B1533',
   land: '#B9B6AD',
-  border: 'rgba(244, 242, 236, 0.22)',
+  border: 'rgba(244, 242, 236, 0.6)',
   rim: 'rgba(244, 242, 236, 0.5)',
   signal: '#6A80EE',
 };
