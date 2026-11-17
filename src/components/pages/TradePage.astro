@@ -14,7 +14,13 @@ import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
 import TradeForm from '../forms/TradeForm.astro';
 import { TRADE_FAQS } from '../../data/faqs';
-import { faqSchema, serviceSchema } from '../../lib/schema';
+import {
+  TRADE_CATEGORIES,
+  TRADE_SKUS,
+  SOURCING_CLUSTERS,
+  COMPLIANCE_MATRIX,
+} from '../../data/trade-catalog';
+import { faqSchema, serviceSchema, tradeOfferCatalogSchema } from '../../lib/schema';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
 import { TRADE } from '../../i18n/pages/trade';
 
@@ -49,8 +55,17 @@ const process = t.process.steps;
       description: t.schema.serviceDescription,
       url: translatePath('/trade', locale),
       serviceType: t.schema.serviceType,
-      areaServed: ['IN', 'CN'],
+      areaServed: ['US', 'IN', 'CN', 'AE', 'SA', 'NG', 'KE', 'GB', 'DE'],
     }),
+    tradeOfferCatalogSchema(
+      TRADE_SKUS.map((s) => ({
+        name: s.name,
+        sku: s.sku,
+        category: s.category,
+        description: `${s.moq} · ${s.fobRange} · ${s.port}`,
+      })),
+      translatePath('/trade', locale)
+    ),
     faqSchema(pageFaqs),
   ]}
 >
@@ -156,8 +171,184 @@ const process = t.process.steps;
     </div>
   </section>
 
+  <!-- Sourcing Catalog -->
+  <section class="section section-sunken" id="catalog">
+    <div class="container">
+      <SectionHead
+        eyebrow={t.catalog.eyebrow}
+        index={t.catalog.index}
+        title={t.catalog.title}
+        lede={t.catalog.lede}
+      />
+
+      <div class="catalog-controls" data-reveal>
+        <div class="catalog-search-wrap">
+          <label for="catalog-search" class="visually-hidden">{t.catalog.searchLabel}</label>
+          <input
+            id="catalog-search"
+            type="search"
+            class="catalog-search"
+            placeholder={t.catalog.searchPlaceholder}
+            autocomplete="off"
+          />
+          <span
+            class="catalog-count num"
+            id="catalog-count"
+            aria-live="polite"
+            data-template={t.catalog.skuCount}
+          >
+            {t.catalog.skuCount
+              .replace('{visible}', String(TRADE_SKUS.length))
+              .replace('{total}', String(TRADE_SKUS.length))}
+          </span>
+        </div>
+
+        <div class="catalog-cats" role="group" aria-label={t.catalog.filterGroupLabel}>
+          <button type="button" class="cat-pill is-active" data-cat="all" aria-pressed="true">
+            {t.catalog.allCategories} ({TRADE_SKUS.length})
+          </button>
+          {TRADE_CATEGORIES.map((cat) => (
+            <button type="button" class="cat-pill" data-cat={cat.id} aria-pressed="false">
+              {cat.name}
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <div class="catalog-grid" id="catalog-grid">
+        {TRADE_SKUS.map((item) => {
+          const catObj = TRADE_CATEGORIES.find((c) => c.id === item.category);
+          const searchBlob = `${item.sku} ${item.name} ${catObj?.name ?? ''} ${item.port} ${item.compliance.join(' ')}`.toLowerCase();
+          const quoteAria = t.catalog.quoteAria.replace('{sku}', item.sku).replace('{name}', item.name);
+          const quotePrefill = t.catalog.quotePrefill.replace('{sku}', item.sku).replace('{name}', item.name);
+          return (
+            <article
+              class="sku-card card"
+              data-category={item.category}
+              data-search={searchBlob}
+            >
+              <div class="sku-top">
+                <span class="sku-code num">{item.sku}</span>
+                <span class="sku-cat">{catObj?.name}</span>
+              </div>
+              <h3 class="sku-name">{item.name}</h3>
+              <dl class="sku-meta">
+                <div>
+                  <dt>{t.catalog.labels.moq}</dt>
+                  <dd class="num">{item.moq}</dd>
+                </div>
+                <div>
+                  <dt>{t.catalog.labels.fobRange}</dt>
+                  <dd class="num sku-fob">{item.fobRange}</dd>
+                </div>
+                <div>
+                  <dt>{t.catalog.labels.port}</dt>
+                  <dd>{item.port}</dd>
+                </div>
+                <div>
+                  <dt>{t.catalog.labels.leadTime}</dt>
+                  <dd class="num">{item.leadTime}</dd>
+                </div>
+              </dl>
+              <div class="sku-bottom">
+                <div class="sku-badges" aria-label={t.catalog.labels.complianceMarks}>
+                  {item.compliance.map((mark) => (
+                    <span class="comp-badge num">{mark}</span>
+                  ))}
+                </div>
+                <a
+                  href="#enquire"
+                  class="arrow-link sku-cta"
+                  aria-label={quoteAria}
+                  data-prefill={quotePrefill}
+                >
+                  {t.catalog.quote}
+                </a>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <p class="catalog-empty" id="catalog-empty" hidden>
+        {t.catalog.empty}
+      </p>
+
+      <div class="catalog-tool-bar" data-reveal>
+        <p>{t.catalog.toolBarText}</p>
+        <a href={translatePath('/tools/trade-cost-calculator', locale)} class="btn btn-primary">
+          {t.catalog.toolBarCta}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sourcing Clusters -->
+  <section class="section" id="clusters">
+    <div class="container">
+      <SectionHead
+        eyebrow={t.clusters.eyebrow}
+        index={t.clusters.index}
+        title={t.clusters.title}
+        lede={t.clusters.lede}
+      />
+      <div class="clusters-grid">
+        {SOURCING_CLUSTERS.map((hub, i) => (
+          <article class="cluster-card card" data-reveal style={`--reveal-delay: ${(i % 2) * 80}ms`}>
+            <div class="cluster-head">
+              <span class="cluster-num num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{hub.province}</h3>
+            </div>
+            <p class="cluster-cities num">{hub.cities}</p>
+            <p class="cluster-spec"><strong>{t.clusters.specialtiesLabel}</strong> {hub.specialties}</p>
+            <p class="cluster-ports"><strong>{t.clusters.portsLabel}</strong> {hub.ports}</p>
+            <p class="cluster-notes">{hub.notes}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Compliance Matrix -->
+  <section class="section section-sunken" id="compliance">
+    <div class="container">
+      <SectionHead
+        eyebrow={t.compliance.eyebrow}
+        index={t.compliance.index}
+        title={t.compliance.title}
+        lede={t.compliance.lede}
+      />
+      <div class="matrix-wrap card" data-reveal>
+        <table class="matrix-table">
+          <thead>
+            <tr>
+              <th>{t.compliance.headers.region}</th>
+              <th>{t.compliance.headers.marks}</th>
+              <th>{t.compliance.headers.authority}</th>
+              <th>{t.compliance.headers.appliesTo}</th>
+              <th>{t.compliance.headers.leadTime}</th>
+              <th>{t.compliance.headers.verification}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COMPLIANCE_MATRIX.map((row) => (
+              <tr>
+                <td class="matrix-region"><strong>{row.region}</strong></td>
+                <td class="num matrix-mark">{row.mark}</td>
+                <td>{row.authority}</td>
+                <td>{row.appliesTo}</td>
+                <td class="num">{row.leadTime}</td>
+                <td class="matrix-notes">{row.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
   <!-- Form -->
-  <section class="section section-sunken" id="enquire">
+  <section class="section" id="enquire">
     <div class="container form-split">
       <div data-reveal>
         <SectionHead
@@ -178,7 +369,7 @@ const process = t.process.steps;
   </section>
 
   <!-- FAQ -->
-  <section class="section" id="faq">
+  <section class="section section-sunken" id="faq">
     <div class="container-text">
       <SectionHead center eyebrow={t.faq.eyebrow} index={t.faq.index} title={t.faq.title} />
       <FaqAccordion faqs={pageFaqs} />
@@ -398,4 +589,361 @@ const process = t.process.steps;
       border-top: 1px solid var(--line);
     }
   }
+
+  /* Sourcing Catalog */
+  .catalog-controls {
+    display: grid;
+    gap: 1.1rem;
+    margin-bottom: 1.8rem;
+  }
+
+  .catalog-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .catalog-search {
+    flex: 1 1 20rem;
+    padding: 0.75rem 1rem;
+    font: inherit;
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper-raised);
+    border: 1px solid var(--line-strong);
+    border-radius: var(--radius-m);
+    transition: border-color 0.15s;
+  }
+
+  .catalog-search:focus {
+    outline: none;
+    border-color: var(--trade);
+    box-shadow: var(--glow-accent);
+  }
+
+  .catalog-count {
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .catalog-cats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cat-pill {
+    padding: 0.45rem 0.9rem;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-s);
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+  }
+
+  .cat-pill:hover {
+    border-color: var(--trade);
+    color: var(--ink);
+  }
+
+  .cat-pill.is-active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  .catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .sku-card {
+    padding: 1.4rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+    border-top: 2px solid var(--trade);
+  }
+
+  .sku-card[hidden] {
+    display: none;
+  }
+
+  .sku-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .sku-code {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--accent-text);
+  }
+
+  .sku-cat {
+    font-size: 0.75rem;
+    color: var(--ink-faint);
+  }
+
+  .sku-name {
+    font-size: 1.12rem;
+    font-weight: 500;
+    line-height: 1.35;
+  }
+
+  .sku-meta {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.65rem 1rem;
+    margin: 0;
+    padding-block: 0.75rem;
+    border-block: 1px solid var(--line);
+  }
+
+  .sku-meta dt {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .sku-meta dd {
+    margin: 0.15rem 0 0;
+    font-size: 0.88rem;
+    color: var(--ink);
+  }
+
+  .sku-fob {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+
+  .sku-bottom {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .sku-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  .comp-badge {
+    font-size: 0.7rem;
+    padding: 0.18rem 0.5rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-s);
+    background: var(--paper);
+    color: var(--ink-soft);
+  }
+
+  .sku-cta {
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .catalog-empty {
+    padding: 2rem;
+    text-align: center;
+    border: 1px dashed var(--line-strong);
+    border-radius: var(--radius-m);
+    color: var(--ink-soft);
+  }
+
+  .catalog-tool-bar {
+    margin-top: 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .catalog-tool-bar p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  /* Sourcing Clusters */
+  .clusters-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  .cluster-card {
+    padding: 1.5rem;
+    display: grid;
+    gap: 0.55rem;
+    border-top: 2px solid var(--trade);
+  }
+
+  .cluster-head {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+  }
+
+  .cluster-num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent-text);
+  }
+
+  .cluster-head h3 {
+    font-size: 1.25rem;
+  }
+
+  .cluster-cities {
+    font-size: 0.82rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  .cluster-spec,
+  .cluster-ports,
+  .cluster-notes {
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* Compliance Matrix */
+  .matrix-wrap {
+    overflow-x: auto;
+  }
+
+  .matrix-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    min-width: 44rem;
+  }
+
+  .matrix-table th,
+  .matrix-table td {
+    text-align: start;
+    padding: 0.9rem 1rem;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  .matrix-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: var(--paper);
+  }
+
+  .matrix-table tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .matrix-mark {
+    font-weight: 600;
+    color: var(--accent-text);
+    white-space: nowrap;
+  }
+
+  .matrix-notes {
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 56rem) {
+    .catalog-grid,
+    .clusters-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
+
+<script>
+  const searchInput = document.getElementById('catalog-search') as HTMLInputElement | null;
+  const countEl = document.getElementById('catalog-count');
+  const emptyEl = document.getElementById('catalog-empty');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#catalog-grid .sku-card'));
+  const catButtons = Array.from(document.querySelectorAll<HTMLButtonElement>('.catalog-cats .cat-pill'));
+
+  let activeCat = 'all';
+  let query = '';
+
+  function applyCatalogFilter() {
+    let visible = 0;
+    const q = query.trim().toLowerCase();
+
+    for (const card of cards) {
+      const catMatch = activeCat === 'all' || card.dataset.category === activeCat;
+      const searchMatch = !q || (card.dataset.search ?? '').includes(q);
+      const show = catMatch && searchMatch;
+      card.hidden = !show;
+      if (show) visible++;
+    }
+
+    if (countEl) {
+      const tpl = countEl.dataset.template ?? '{visible} / {total} SKUs';
+      countEl.textContent = tpl
+        .replace('{visible}', String(visible))
+        .replace('{total}', String(cards.length));
+    }
+    if (emptyEl) {
+      emptyEl.hidden = visible > 0;
+    }
+  }
+
+  searchInput?.addEventListener('input', () => {
+    query = searchInput.value;
+    applyCatalogFilter();
+  });
+
+  for (const btn of catButtons) {
+    btn.addEventListener('click', () => {
+      activeCat = btn.dataset.cat ?? 'all';
+      for (const b of catButtons) {
+        const isActive = b === btn;
+        b.classList.toggle('is-active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
+      }
+      applyCatalogFilter();
+    });
+  }
+
+  const quoteLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('#catalog-grid .sku-cta'));
+  const notesEl = document.querySelector<HTMLTextAreaElement>('#trade-notes, #enquire textarea');
+  for (const link of quoteLinks) {
+    link.addEventListener('click', () => {
+      const prefill = link.dataset.prefill?.trim();
+      if (notesEl && prefill) {
+        if (!notesEl.value.includes(prefill)) {
+          notesEl.value = notesEl.value.trim() ? `${prefill}\n${notesEl.value}` : prefill;
+        }
+        notesEl.focus({ preventScroll: true });
+      }
+    });
+  }
+</script>

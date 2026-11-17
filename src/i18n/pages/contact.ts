@@ -35,6 +35,7 @@ export interface ContactStrings {
   /** Eyebrow labels of the two office cards (addresses come from SITE). */
   delhiDesk: string;
   chinaDesk: string;
+  registeredOffice: string;
   /** Country name in the Guangzhou address line. */
   chinaLabel: string;
   /** "Faster than forms" card. The WhatsApp/call hrefs stay in the component. */
@@ -61,6 +62,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'New Delhi · India desk',
     chinaDesk: 'Guangzhou · China desk',
+    registeredOffice: 'Registered Office · USA',
     chinaLabel: 'China',
     direct: {
       title: 'Faster than forms',
@@ -83,6 +85,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: '新德里 · 印度事务组',
     chinaDesk: '广州 · 中国事务组',
+    registeredOffice: '注册办公室 · 美国',
     chinaLabel: '中国',
     direct: {
       title: '比表单更快',
@@ -105,6 +108,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'New Delhi · Bureau Inde',
     chinaDesk: 'Canton · Bureau Chine',
+    registeredOffice: 'Siège enregistré · États-Unis',
     chinaLabel: 'Chine',
     direct: {
       title: 'Plus rapide qu’un formulaire',
@@ -127,6 +131,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'نيودلهي · المكتب الهندي',
     chinaDesk: 'قوانغتشو · المكتب الصيني',
+    registeredOffice: 'المكتب المسجل · الولايات المتحدة',
     chinaLabel: 'الصين',
     direct: {
       title: 'أسرع من النماذج',
@@ -149,6 +154,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'Nueva Delhi · Mesa India',
     chinaDesk: 'Cantón · Mesa China',
+    registeredOffice: 'Oficina registrada · EE. UU.',
     chinaLabel: 'China',
     direct: {
       title: 'Más rápido que un formulario',
@@ -171,6 +177,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'Neu-Delhi · India-Desk',
     chinaDesk: 'Guangzhou · China-Desk',
+    registeredOffice: 'Registrierter Sitz · USA',
     chinaLabel: 'China',
     direct: {
       title: 'Schneller als Formulare',
@@ -193,6 +200,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'ニューデリー · インドデスク',
     chinaDesk: '広州 · 中国デスク',
+    registeredOffice: '登記オフィス · 米国',
     chinaLabel: '中国',
     direct: {
       title: 'フォームより早く',
@@ -215,6 +223,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'Nova Délhi · Mesa Índia',
     chinaDesk: 'Guangzhou · Mesa China',
+    registeredOffice: 'Escritório registrado · EUA',
     chinaLabel: 'China',
     direct: {
       title: 'Mais rápido que formulários',
@@ -237,6 +246,7 @@ export const CONTACT: Record<Locale, ContactStrings> = {
     },
     delhiDesk: 'नई दिल्ली · इंडिया डेस्क',
     chinaDesk: 'ग्वांगज़ू · चाइना डेस्क',
+    registeredOffice: 'पंजीकृत कार्यालय · अमेरिका',
     chinaLabel: 'चीन',
     direct: {
       title: 'फ़ॉर्म से तेज़',

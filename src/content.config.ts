@@ -71,6 +71,11 @@ const universities = defineCollection({
         living: z.string(),
       }),
       facts: z.array(z.object({ label: z.string(), value: z.string() })),
+      recognitions: z.array(z.string()).default([]),
+      intakes: z.string().optional(),
+      scholarships: z.string().optional(),
+      taughtLanguages: z.array(z.string()).default([]),
+      hskRequirement: z.string().optional(),
       faqs: z
         .array(z.object({ question: z.string(), answer: z.string() }))
         .default([]),

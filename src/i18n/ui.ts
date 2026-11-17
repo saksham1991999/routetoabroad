@@ -148,6 +148,8 @@ export interface UiStrings {
   chat: {
     openAria: string;
     fabLabel: string;
+    whatsappAria: string;
+    whatsappPrefill: string;
     assistantName: string;
     assistantTag: string;
     resetAria: string;
@@ -390,6 +392,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: '打开 AI 顾问聊天',
       fabLabel: '问我们',
+      whatsappAria: 'WhatsApp 咨询 {phone}',
+      whatsappPrefill: '您好 RouteToAbroad，我想咨询赴华留学、旅游或中国采购贸易事宜。',
       assistantName: 'RouteToAbroad 助手',
       assistantTag: '由 Claude 驱动 · 秒级回复',
       resetAria: '开始新对话',
@@ -671,6 +675,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'Ouvrir la discussion avec l’assistant IA',
       fabLabel: 'Nous poser une question',
+      whatsappAria: 'WhatsApp {phone}',
+      whatsappPrefill: 'Bonjour RouteToAbroad, je souhaite des conseils pour étudier, voyager ou importer depuis la Chine.',
       assistantName: 'Assistant RouteToAbroad',
       assistantTag: 'Propulsé par Claude · répond en secondes',
       resetAria: 'Recommencer la conversation',
@@ -952,6 +958,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'افتح دردشة المستشار الذكي',
       fabLabel: 'اسألنا',
+      whatsappAria: 'واتساب {phone}',
+      whatsappPrefill: 'مرحباً RouteToAbroad، أود الاستفسار عن الدراسة أو السفر أو الاستيراد من الصين.',
       assistantName: 'مساعد RouteToAbroad',
       assistantTag: 'مدعوم بواسطة Claude · ردود خلال ثوانٍ',
       resetAria: 'ابدأ محادثة جديدة',
@@ -1235,6 +1243,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'Abrir chat con el asesor IA',
       fabLabel: 'Pregúntenos',
+      whatsappAria: 'WhatsApp {phone}',
+      whatsappPrefill: 'Hola RouteToAbroad, me gustaría orientación sobre estudios, viajes o compras en China.',
       assistantName: 'Asistente RouteToAbroad',
       assistantTag: 'Impulsado por Claude · responde en segundos',
       resetAria: 'Iniciar una conversación nueva',
@@ -1516,6 +1526,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'KI-Berater-Chat öffnen',
       fabLabel: 'Fragen Sie uns',
+      whatsappAria: 'WhatsApp {phone}',
+      whatsappPrefill: 'Hallo RouteToAbroad, ich hätte gerne Beratung zu Studium, Reisen oder Einkauf in China.',
       assistantName: 'RouteToAbroad-Assistent',
       assistantTag: 'Mit Claude betrieben · antwortet in Sekunden',
       resetAria: 'Neues Gespräch starten',
@@ -1797,6 +1809,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'AIカウンセラーチャットを開く',
       fabLabel: '質問する',
+      whatsappAria: 'WhatsApp {phone}',
+      whatsappPrefill: 'RouteToAbroad様、中国への留学・旅行・貿易ソーシングについて相談したいです。',
       assistantName: 'RouteToAbroadアシスタント',
       assistantTag: 'Claude搭載 · 数秒で回答',
       resetAria: '新しい会話を始める',
@@ -2078,6 +2092,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'Abrir chat com o consultor de IA',
       fabLabel: 'Pergunte-nos',
+      whatsappAria: 'WhatsApp {phone}',
+      whatsappPrefill: 'Olá RouteToAbroad, gostaria de orientação sobre estudos, viagens ou importação da China.',
       assistantName: 'Assistente RouteToAbroad',
       assistantTag: 'Impulsionado por Claude · responde em segundos',
       resetAria: 'Iniciar uma nova conversa',
@@ -2359,6 +2375,8 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
     chat: {
       openAria: 'AI काउंसलर चैट खोलें',
       fabLabel: 'हमसे पूछें',
+      whatsappAria: 'व्हाट्सएप {phone}',
+      whatsappPrefill: 'नमस्ते RouteToAbroad, मुझे चीन में पढ़ाई, यात्रा या सोर्सिंग के बारे में मार्गदर्शन चाहिए।',
       assistantName: 'RouteToAbroad सहायक',
       assistantTag: 'Claude द्वारा संचालित · सेकंडों में जवाब',
       resetAria: 'नई बातचीत शुरू करें',
@@ -2674,6 +2692,8 @@ export const UI_EN: UiStrings = {
   chat: {
     openAria: 'Open AI counselor chat',
     fabLabel: 'Ask us',
+    whatsappAria: 'WhatsApp {phone}',
+    whatsappPrefill: 'Hi RouteToAbroad, I would like guidance on studying, travelling, or sourcing from China.',
     assistantName: 'RouteToAbroad Assistant',
     assistantTag: 'Powered by Claude · replies in seconds',
     resetAria: 'Start a new conversation',

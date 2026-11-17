@@ -33,8 +33,15 @@ export interface UniversityDetailStrings {
     dormitory: string;
     living: string;
     estimateCta: string;
+    printSheet: string;
   };
-  facts: { title: string };
+  facts: {
+    title: string;
+    intakes: string;
+    taughtIn: string;
+    hsk: string;
+    scholarships: string;
+  };
   cta: {
     title: string;
     text: string;
@@ -58,8 +65,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'Dormitory',
       living: 'Living',
       estimateCta: 'Run full cost estimate',
+      printSheet: 'Print / Save Fee Sheet',
     },
-    facts: { title: 'Quick facts' },
+    facts: {
+      title: 'Quick facts',
+      intakes: 'Intakes',
+      taughtIn: 'Taught in',
+      hsk: 'HSK',
+      scholarships: 'Scholarships',
+    },
     cta: {
       title: 'Want this university?',
       text: 'Get an honest read on your chances — free, within one working day.',
@@ -82,8 +96,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: '宿舍',
       living: '生活费',
       estimateCta: '测算完整费用',
+      printSheet: '打印 / 保存费用表',
     },
-    facts: { title: '快速信息' },
+    facts: {
+      title: '快速信息',
+      intakes: '入学季',
+      taughtIn: '授课语言',
+      hsk: 'HSK 要求',
+      scholarships: '奖学金',
+    },
     cta: {
       title: '想读这所大学？',
       text: '免费获得对你录取机会的坦诚评估——一个工作日内回复。',
@@ -106,8 +127,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'Résidence',
       living: 'Vie quotidienne',
       estimateCta: 'Estimer le coût complet',
+      printSheet: 'Imprimer / Enregistrer la fiche tarifaire',
     },
-    facts: { title: 'En bref' },
+    facts: {
+      title: 'En bref',
+      intakes: 'Rentrées',
+      taughtIn: 'Langue d’enseignement',
+      hsk: 'HSK',
+      scholarships: 'Bourses',
+    },
     cta: {
       title: 'Cette université vous intéresse ?',
       text: 'Obtenez une lecture honnête de vos chances — gratuitement, sous un jour ouvré.',
@@ -130,8 +158,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'السكن الجامعي',
       living: 'المعيشة',
       estimateCta: 'احسب التكلفة الكاملة',
+      printSheet: 'طباعة / حفظ ورقة الرسوم',
     },
-    facts: { title: 'حقائق سريعة' },
+    facts: {
+      title: 'حقائق سريعة',
+      intakes: 'مواعيد القبول',
+      taughtIn: 'لغة التدريس',
+      hsk: 'متطلب HSK',
+      scholarships: 'المنح الدراسية',
+    },
     cta: {
       title: 'تريد الالتحاق بهذه الجامعة؟',
       text: 'احصل على قراءة صادقة لفرصك — مجانًا، خلال يوم عمل واحد.',
@@ -154,8 +189,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'Residencia',
       living: 'Vida',
       estimateCta: 'Calcular el coste completo',
+      printSheet: 'Imprimir / Guardar hoja de costes',
     },
-    facts: { title: 'Datos clave' },
+    facts: {
+      title: 'Datos clave',
+      intakes: 'Convocatorias',
+      taughtIn: 'Idioma',
+      hsk: 'HSK',
+      scholarships: 'Becas',
+    },
     cta: {
       title: '¿Quieres esta universidad?',
       text: 'Obtén una lectura honesta de tus posibilidades — gratis, en un día hábil.',
@@ -178,8 +220,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'Wohnheim',
       living: 'Lebenshaltung',
       estimateCta: 'Vollständige Kostenschätzung starten',
+      printSheet: 'Gebührenblatt drucken / speichern',
     },
-    facts: { title: 'Kurzinfos' },
+    facts: {
+      title: 'Kurzinfos',
+      intakes: 'Studienbeginn',
+      taughtIn: 'Unterrichtssprache',
+      hsk: 'HSK',
+      scholarships: 'Stipendien',
+    },
     cta: {
       title: 'Diese Universität im Blick?',
       text: 'Erhalten Sie eine ehrliche Einschätzung Ihrer Chancen — kostenlos, innerhalb eines Werktags.',
@@ -202,8 +251,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: '寮',
       living: '生活費',
       estimateCta: '費用を詳しく試算する',
+      printSheet: '学費シートを印刷 / 保存',
     },
-    facts: { title: '要点' },
+    facts: {
+      title: '要点',
+      intakes: '入学時期',
+      taughtIn: '使用言語',
+      hsk: 'HSK 要件',
+      scholarships: '奨学金',
+    },
     cta: {
       title: 'この大学を考えていますか？',
       text: 'あなたの合格可能性を率直に評価します — 無料、1 営業日以内。',
@@ -226,8 +282,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'Residência',
       living: 'Custo de vida',
       estimateCta: 'Calcular o custo completo',
+      printSheet: 'Imprimir / Salvar folha de taxas',
     },
-    facts: { title: 'Resumo rápido' },
+    facts: {
+      title: 'Resumo rápido',
+      intakes: 'Entradas',
+      taughtIn: 'Idioma',
+      hsk: 'HSK',
+      scholarships: 'Bolsas',
+    },
     cta: {
       title: 'Quer esta universidade?',
       text: 'Receba uma leitura honesta das suas chances — grátis, em um dia útil.',
@@ -250,8 +313,15 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
       dormitory: 'छात्रावास',
       living: 'रहन-सहन',
       estimateCta: 'पूरी लागत का अनुमान लगाएँ',
+      printSheet: 'शुल्क पत्र प्रिंट / सहेजें',
     },
-    facts: { title: 'त्वरित जानकारी' },
+    facts: {
+      title: 'त्वरित जानकारी',
+      intakes: 'प्रवेश सत्र',
+      taughtIn: 'शिक्षण भाषा',
+      hsk: 'HSK',
+      scholarships: 'छात्रवृत्ति',
+    },
     cta: {
       title: 'यह विश्वविद्यालय चाहिए?',
       text: 'अपनी संभावनाओं का ईमानदार आकलन पाएँ — मुफ़्त, एक व्यावसायिक दिन में।',

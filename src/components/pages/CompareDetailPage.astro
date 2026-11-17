@@ -14,7 +14,7 @@ import Breadcrumbs from '../Breadcrumbs.astro';
 import CtaBand from '../CtaBand.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import { COMPARISONS, type Comparison } from '../../data/comparisons';
-import { faqSchema } from '../../lib/schema';
+import { faqSchema, speakableSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
@@ -49,7 +49,13 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
     { name: t.crumb, url: translatePath('/compare', locale) },
     { name: c.headline, url: `${SITE.url}${translatePath(`/compare/${c.slug}`, locale)}` },
   ]}
-  jsonLd={[faqSchema(c.faqs)]}
+  jsonLd={[
+    faqSchema(c.faqs),
+    speakableSchema({
+      url: translatePath(`/compare/${c.slug}`, locale),
+      cssSelector: ['h1', '.quick-answer'],
+    }),
+  ]}
 >
   <article class="container-text compare-article">
     <header>
@@ -112,6 +118,11 @@ const updated = new Date(`${c.updated}T00:00:00Z`).toLocaleDateString(DATE_TAG[l
           <>
             <a href={translatePath('/tools/fit-check', locale)} class="btn btn-primary">{t.related.education.fitCheck}</a>
             <a href={translatePath('/guides/study-in-china-from-india', locale)} class="btn btn-outline">{t.related.education.roadmap}</a>
+          </>
+        ) : c.pillar === 'tourism' ? (
+          <>
+            <a href={translatePath('/guides/china-travel-guide', locale)} class="btn btn-primary">{t.related.tourism.travelGuide}</a>
+            <a href={translatePath('/tourism#plan', locale)} class="btn btn-outline">{t.related.tourism.planTrip}</a>
           </>
         ) : (
           <>

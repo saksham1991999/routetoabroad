@@ -30,6 +30,7 @@ const footerGroups = ui.footer.groups;
           <li><a href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
           <li>
             <address>
+              {SITE.registeredOffice.street}, {SITE.registeredOffice.city}, {SITE.registeredOffice.region} {SITE.registeredOffice.postal}, {SITE.registeredOffice.country}<br />
               {SITE.offices[0].street}, {SITE.offices[0].city} {SITE.offices[0].postal}<br />
               {SITE.offices[1].street}, {SITE.offices[1].city}, {SITE.offices[1].country}
             </address>

@@ -28,9 +28,8 @@ export function organizationSchema() {
     logo: `${SITE.url}/icon-512.png?v=2`,
     email: SITE.email,
     foundingDate: String(SITE.founded),
-    description:
-      'Consultancy connecting India and East Asia through education placements, cultural tourism, and cross-border trade services.',
-    address: SITE.offices.map((o) => ({
+    description: SITE.description,
+    address: [SITE.registeredOffice, ...SITE.offices].map((o) => ({
       '@type': 'PostalAddress',
       streetAddress: o.street,
       addressLocality: o.city,
@@ -43,8 +42,8 @@ export function organizationSchema() {
         '@type': 'ContactPoint',
         telephone: SITE.phoneIndiaHref.replace('tel:', ''),
         contactType: 'customer service',
-        areaServed: ['IN', 'CN', 'SA', 'AE', 'NG', 'KE'],
-        availableLanguage: ['English', 'Chinese', 'Hindi', 'Malayalam'],
+        areaServed: ['US', 'IN', 'CN', 'SA', 'AE', 'NG', 'KE', 'PK', 'GB', 'DE', 'FR', 'ES', 'BR', 'JP'],
+        availableLanguage: ['English', 'Chinese', 'Hindi', 'Arabic', 'French', 'Spanish', 'German', 'Japanese', 'Portuguese'],
       },
     ],
     sameAs: Object.values(SITE.socials),
@@ -290,4 +289,43 @@ export function definedTermSchemas(terms: { term: string; definition: string }[]
       url: `${SITE.url}/glossary`,
     },
   }));
+}
+
+/** AEO SpeakableSpecification for answer-first pages, guides, and comparisons. */
+export function speakableSchema(opts: { url: string; cssSelector?: string[] }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': absUrl(opts.url),
+    url: absUrl(opts.url),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: opts.cssSelector ?? ['h1', '.lede', '.answer-first', 'main p:first-of-type'],
+    },
+  };
+}
+
+/** GEO/SEO OfferCatalog for China-to-World sourcing categories & SKUs. */
+export function tradeOfferCatalogSchema(
+  items: { name: string; sku: string; category: string; description: string }[],
+  url = '/trade'
+) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'RouteToAbroad Global China Sourcing Catalog',
+    url: absUrl(url),
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: item.name,
+        sku: item.sku,
+        category: item.category,
+        description: item.description,
+        brand: { '@type': 'Brand', name: SITE.name },
+      },
+    })),
+  };
 }

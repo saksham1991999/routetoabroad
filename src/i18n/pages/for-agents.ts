@@ -57,8 +57,40 @@ export interface ForAgentsStrings {
     /** Carries a {phone} placeholder replaced with SITE.phoneIndia. */
     whatsapp: string;
   };
-  /** "Agent portal: coming soon" fineprint. */
+  /** "Agent portal: coming soon" fineprint (preserved for i18n parity). */
   portal: string;
+  tiers: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    items: {
+      name: string;
+      badge: string;
+      summary: string;
+      bullets: string[];
+    }[];
+  };
+  onboarding: {
+    eyebrow: string;
+    title: string;
+    lede: string;
+    fields: {
+      agencyName: string;
+      contactName: string;
+      email: string;
+      phone: string;
+      country: string;
+      tier: string;
+      tierOptions: { value: string; label: string }[];
+      volume: string;
+      volumeOptions: { value: string; label: string }[];
+      notes: string;
+      notesPlaceholder: string;
+    };
+    submit: string;
+    success: string;
+    fineprint: string;
+  };
 }
 
 export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
@@ -133,6 +165,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'Agent portal: coming soon',
+    tiers: {
+      eyebrow: 'Partnership tiers',
+      title: 'Three B2B partnership tracks',
+      lede: 'Choose the track that fits your agency volume and client base — or combine education and trade under one co-operation note.',
+      items: [
+        {
+          name: 'Education Admissions Partner',
+          badge: 'Tier 01 · Degree & MBBS',
+          summary: 'For overseas education consultancies placing degree, MBBS, Engineering, and CSC scholarship candidates across China.',
+          bullets: [
+            'Shortlist verification & direct university submission',
+            'Co-branded offer tracking & JW201/JW202 milestones',
+            'Airport pickup, dorm check-in & residence permit support',
+          ],
+        },
+        {
+          name: 'Chinese Language & Diploma Track',
+          badge: 'Tier 02 · HSK & Vocational',
+          summary: 'For language centres, high schools, and pathway counsellors sending 1-semester, 1-year HSK, or diploma cohorts.',
+          bullets: [
+            'X2 (<180d) and X1 (>180d) language & diploma placements',
+            'Structured HSK 1–6 progression into degree programmes',
+            'Group arrival coordination for 5+ student intakes',
+          ],
+        },
+        {
+          name: 'Canton Fair & Trade Delegation Partner',
+          badge: 'Tier 03 · Business & Trade',
+          summary: 'For chambers of commerce, travel agencies, and B2B facilitators running buyer delegations to Guangzhou, Yiwu, and Shanghai.',
+          bullets: [
+            'M/F business visa invitation & delegation scheduling',
+            'Bilingual sourcing interpreters & factory audit support',
+            'Turnkey Canton Fair hotel, HSR & supplier coordination',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'B2B partner onboarding',
+      title: 'Apply to become an active partner',
+      lede: 'Submit your agency details below. Our B2B desk reviews every onboarding request within 24 business hours.',
+      fields: {
+        agencyName: 'Agency / Company Name',
+        contactName: 'Primary Contact Person',
+        email: 'Business Email',
+        phone: 'WhatsApp / Phone Number',
+        country: 'Operating Country / Region',
+        tier: 'Partnership Track',
+        tierOptions: [
+          { value: 'admissions', label: 'Education Admissions Partner' },
+          { value: 'language-diploma', label: 'Chinese Language & Diploma Track' },
+          { value: 'trade-delegation', label: 'Canton Fair & Trade Delegation Partner' },
+          { value: 'multi-track', label: 'Multi-track (Education + Trade)' },
+        ],
+        volume: 'Estimated Annual Volume',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 clients / yr' },
+          { value: '11-30', label: '11–30 clients / yr' },
+          { value: '31-75', label: '31–75 clients / yr' },
+          { value: '75+', label: '75+ clients / yr' },
+        ],
+        notes: 'Target Programmes or Delegation Needs',
+        notesPlaceholder: 'Share your primary student markets, degree tracks, or upcoming trade delegation dates…',
+      },
+      submit: 'Submit Partner Application',
+      success: 'Partner onboarding request received — our B2B desk will reply within 24 hours with next steps.',
+      fineprint: 'Non-exclusive co-operation. Your client relationships remain strictly yours.',
+    },
   },
 
   zh: {
@@ -206,6 +306,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: '代理门户：即将上线',
+    tiers: {
+      eyebrow: '合作层级',
+      title: '三大 B2B 合作轨道',
+      lede: '根据贵机构的业务规模与客户群选择对应轨道——也可在同一份合作备忘下同时覆盖教育与商贸。',
+      items: [
+        {
+          name: '学历招生合作伙伴',
+          badge: 'Tier 01 · 学位与 MBBS',
+          summary: '面向输送中国本科、硕博、MBBS、工程及 CSC 奖学金申请人的留学机构。',
+          bullets: [
+            '选校清单核验与院校直报',
+            '联合品牌进度跟踪与 JW201/JW202 节点同步',
+            '接机、宿舍入住与居留许可落地支持',
+          ],
+        },
+        {
+          name: '汉语进修与大专轨道',
+          badge: 'Tier 02 · HSK 与职业教育',
+          summary: '面向输送一学期、一年期汉语进修或大专项目生源的语言中心与升学顾问。',
+          bullets: [
+            'X2（≤180天）与 X1（>180天）语言及大专安置',
+            'HSK 1–6 衔接本科或硕士的路径规划',
+            '5 人以上团体接机与集中报到协调',
+          ],
+        },
+        {
+          name: '广交会与商贸代表团合作',
+          badge: 'Tier 03 · 商务与贸易',
+          summary: '面向组织赴广州、义乌、上海采购团的商会、旅行社与 B2B 服务机构。',
+          bullets: [
+            'M/F 商务签证邀请函与代表团行程安排',
+            '双语采购翻译与工厂实地验厂支持',
+            '广交会酒店、高铁与供应商对接一站式协调',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'B2B 合作伙伴入驻',
+      title: '在线提交合作入驻申请',
+      lede: '填写以下机构信息，我们的 B2B 团队将在 24 个工作小时内回复审核结果与对接方式。',
+      fields: {
+        agencyName: '机构 / 公司名称',
+        contactName: '主要联系人',
+        email: '商务邮箱',
+        phone: 'WhatsApp / 联系电话',
+        country: '所在国家 / 地区',
+        tier: '合作轨道',
+        tierOptions: [
+          { value: 'admissions', label: '学历招生合作伙伴' },
+          { value: 'language-diploma', label: '汉语进修与大专轨道' },
+          { value: 'trade-delegation', label: '广交会与商贸代表团合作' },
+          { value: 'multi-track', label: '综合轨道（教育 + 商贸）' },
+        ],
+        volume: '预计年输送规模',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 人/年' },
+          { value: '11-30', label: '11–30 人/年' },
+          { value: '31-75', label: '31–75 人/年' },
+          { value: '75+', label: '75+ 人/年' },
+        ],
+        notes: '目标项目或代表团需求',
+        notesPlaceholder: '请简述您的生源市场、目标专业或近期商贸考察计划……',
+      },
+      submit: '提交合作入驻申请',
+      success: '已收到您的合作入驻申请——我们的 B2B 团队将在 24 小时内与您联系。',
+      fineprint: '非排他性合作。您的客户关系始终归您所有。',
+    },
   },
 
   fr: {
@@ -279,6 +447,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'Portail agents : bientôt disponible',
+    tiers: {
+      eyebrow: 'Niveaux de partenariat',
+      title: 'Trois programmes B2B',
+      lede: 'Choisissez la filière adaptée à votre volume et à votre clientèle — ou combinez éducation et commerce sous un même accord.',
+      items: [
+        {
+          name: 'Partenaire Admissions Universitaires',
+          badge: 'Tier 01 · Diplômes & MBBS',
+          summary: 'Pour les cabinets plaçant des candidats en Licence, Master, PhD, MBBS, ingénierie et bourses CSC en Chine.',
+          bullets: [
+            'Vérification de présélection et dépôt direct universitaire',
+            'Suivi co-marqué et jalons JW201/JW202 transparents',
+            'Accueil aéroport, dortoir et titre de séjour sur place',
+          ],
+        },
+        {
+          name: 'Filière Langue Chinoise & Diplôme',
+          badge: 'Tier 02 · HSK & Technique',
+          summary: 'Pour les centres de langues et conseillers envoyant des cohortes HSK semestrielles, annuelles ou diplômantes.',
+          bullets: [
+            'Placements langue et diplôme sous visas X2 (<180j) et X1 (>180j)',
+            'Progression structurée HSK 1–6 vers les cursus diplômants',
+            'Coordination d’arrivée groupée dès 5 étudiants',
+          ],
+        },
+        {
+          name: 'Partenaire Foire de Canton & Délégations',
+          badge: 'Tier 03 · Commerce & B2B',
+          summary: 'Pour les chambres de commerce et organisateurs menant des délégations d’acheteurs à Guangzhou, Yiwu et Shanghai.',
+          bullets: [
+            'Invitations visa M/F et planification des délégations',
+            'Interprètes bilingues et audits d’usines sur site',
+            'Hôtels Foire de Canton, TGV et coordination fournisseurs',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'Intégration partenaire B2B',
+      title: 'Demander votre accréditation partenaire',
+      lede: 'Renseignez les coordonnées de votre agence ci-dessous. Notre équipe B2B répond sous 24 heures ouvrées.',
+      fields: {
+        agencyName: 'Nom de l’agence / société',
+        contactName: 'Contact principal',
+        email: 'E-mail professionnel',
+        phone: 'WhatsApp / Téléphone',
+        country: 'Pays / Région d’activité',
+        tier: 'Programme de partenariat',
+        tierOptions: [
+          { value: 'admissions', label: 'Partenaire Admissions Universitaires' },
+          { value: 'language-diploma', label: 'Filière Langue Chinoise & Diplôme' },
+          { value: 'trade-delegation', label: 'Partenaire Foire de Canton & Délégations' },
+          { value: 'multi-track', label: 'Multi-filières (Éducation + Commerce)' },
+        ],
+        volume: 'Volume annuel estimé',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 clients / an' },
+          { value: '11-30', label: '11–30 clients / an' },
+          { value: '31-75', label: '31–75 clients / an' },
+          { value: '75+', label: '75+ clients / an' },
+        ],
+        notes: 'Programmes ciblés ou besoins de délégation',
+        notesPlaceholder: 'Précisez vos marchés, filières visées ou dates de délégation…',
+      },
+      submit: 'Envoyer la demande partenaire',
+      success: 'Demande d’intégration B2B reçue — notre équipe vous répondra sous 24 heures.',
+      fineprint: 'Coopération non exclusive. Vos relations clients restent strictement les vôtres.',
+    },
   },
 
   ar: {
@@ -352,6 +588,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'واتساب {phone}',
     },
     portal: 'بوابة المندوبين: قريبًا',
+    tiers: {
+      eyebrow: 'فئات الشراكة',
+      title: 'ثلاثة مسارات للشراكة B2B',
+      lede: 'اختر المسار المناسب لحجم وكالتك وعملائك — أو اجمع بين التعليم والتجارة تحت مذكرة تعاون واحدة.',
+      items: [
+        {
+          name: 'شريك القبول الجامعي',
+          badge: 'Tier 01 · الدرجات و MBBS',
+          summary: 'لمكاتب الاستشارات التعليمية التي ترسل طلاب الطب MBBS والهندسة والأعمال ومنح CSC إلى الصين.',
+          bullets: [
+            'تدقيق قائمة الجامعات والتقديم المباشر للجامعة',
+            'تتبع مشترك للهوية ومراحل JW201/JW202 بوضوح',
+            'استقبال المطار والسكن الجامعي وإصدار الإقامة',
+          ],
+        },
+        {
+          name: 'مسار اللغة الصينية والدبلوم',
+          badge: 'Tier 02 · HSK والدبلوم',
+          summary: 'لمراكز اللغات والمستشارين لإرسال مجموعات دراسة اللغة الصينية HSK أو الدبلوم المهني.',
+          bullets: [
+            'قبول برامج اللغة والدبلوم لتأشيرات X2 و X1',
+            'تدرج منظم من HSK 1–6 نحو البرامج الجامعية',
+            'تنسيق وصول المجموعات لـ 5 طلاب فأكثر',
+          ],
+        },
+        {
+          name: 'شريك معرض كانتون والوفود التجارية',
+          badge: 'Tier 03 · الأعمال والتجارة',
+          summary: 'لغرف التجارة ومنظمي الوفود التجارية المتجهة إلى غوانغتشو وييوو وشنغهاي.',
+          bullets: [
+            'خطابات دعوة تأشيرة M/F وجدولة الوفود',
+            'مترجمو توريد ثنائيو اللغة وتدقيق المصانع',
+            'تنسيق فنادق معرض كانتون والقطارات والموردين',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'انضمام شركاء B2B',
+      title: 'تقدّم بطلب شراكة نشطة',
+      lede: 'أرسل بيانات وكالتك أدناه، وسيراجع فريق B2B طلبك خلال 24 ساعة عمل.',
+      fields: {
+        agencyName: 'اسم الوكالة / الشركة',
+        contactName: 'اسم مسؤول التواصل',
+        email: 'البريد الإلكتروني الرسمي',
+        phone: 'واتساب / رقم الهاتف',
+        country: 'الدولة / منطقة العمل',
+        tier: 'مسار الشراكة',
+        tierOptions: [
+          { value: 'admissions', label: 'شريك القبول الجامعي' },
+          { value: 'language-diploma', label: 'مسار اللغة الصينية والدبلوم' },
+          { value: 'trade-delegation', label: 'شريك معرض كانتون والوفود التجارية' },
+          { value: 'multi-track', label: 'مسار مزدوج (تعليم + تجارة)' },
+        ],
+        volume: 'الحجم السنوي المتوقع',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 عملاء/سنة' },
+          { value: '11-30', label: '11–30 عميلاً/سنة' },
+          { value: '31-75', label: '31–75 عميلاً/سنة' },
+          { value: '75+', label: '75+ عميلاً/سنة' },
+        ],
+        notes: 'التخصصات المستهدفة أو احتياجات الوفد',
+        notesPlaceholder: 'اذكر أسواقك الرئيسية أو التخصصات أو مواعيد الوفود التجارية…',
+      },
+      submit: 'إرسال طلب الشراكة',
+      success: 'تم استلام طلب الشراكة — سيتواصل معك فريق B2B خلال 24 ساعة.',
+      fineprint: 'تعاون غير حصري. تبقى علاقاتك مع عملائك ملكاً لك بالكامل.',
+    },
   },
 
   es: {
@@ -425,6 +729,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'Portal de agentes: próximamente',
+    tiers: {
+      eyebrow: 'Niveles de alianza',
+      title: 'Tres vías de colaboración B2B',
+      lede: 'Elige la vía acorde a tu volumen y cartera — o combina educación y comercio bajo una sola nota de cooperación.',
+      items: [
+        {
+          name: 'Socio de Admisiones Universitarias',
+          badge: 'Tier 01 · Grados y MBBS',
+          summary: 'Para agencias educativas que colocan estudiantes en MBBS, ingeniería, negocios y becas CSC en China.',
+          bullets: [
+            'Validación de preselección y envío directo a universidades',
+            'Seguimiento de marca compartida e hitos JW201/JW202',
+            'Recogida en aeropuerto, residencia y permiso de estancia',
+          ],
+        },
+        {
+          name: 'Vía de Idioma Chino y Diploma',
+          badge: 'Tier 02 · HSK y Técnico',
+          summary: 'Para centros de idiomas y orientadores que envían grupos de HSK semestral, anual o diploma técnico.',
+          bullets: [
+            'Colocaciones de idioma y diploma para visados X2 y X1',
+            'Progresión estructurada HSK 1–6 hacia carreras universitarias',
+            'Coordinación de llegada grupal desde 5 estudiantes',
+          ],
+        },
+        {
+          name: 'Socio Feria de Cantón y Delegaciones',
+          badge: 'Tier 03 · Comercio y B2B',
+          summary: 'Para cámaras de comercio y operadores que organizan delegaciones de compradores a Guangzhou, Yiwu y Shanghái.',
+          bullets: [
+            'Invitaciones de visado M/F y agenda de delegación',
+            'Intérpretes bilingües y auditoría de fábricas in situ',
+            'Hoteles de Feria de Cantón, trenes y coordinación con proveedores',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'Alta de socios B2B',
+      title: 'Solicita tu acreditación como socio',
+      lede: 'Envía los datos de tu agencia abajo. Nuestro equipo B2B responde en un máximo de 24 horas hábiles.',
+      fields: {
+        agencyName: 'Nombre de la agencia / empresa',
+        contactName: 'Persona de contacto principal',
+        email: 'Correo corporativo',
+        phone: 'WhatsApp / Teléfono',
+        country: 'País / Región de operación',
+        tier: 'Vía de colaboración',
+        tierOptions: [
+          { value: 'admissions', label: 'Socio de Admisiones Universitarias' },
+          { value: 'language-diploma', label: 'Vía de Idioma Chino y Diploma' },
+          { value: 'trade-delegation', label: 'Socio Feria de Cantón y Delegaciones' },
+          { value: 'multi-track', label: 'Mixto (Educación + Comercio)' },
+        ],
+        volume: 'Volumen anual estimado',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 clientes / año' },
+          { value: '11-30', label: '11–30 clientes / año' },
+          { value: '31-75', label: '31–75 clientes / año' },
+          { value: '75+', label: '75+ clientes / año' },
+        ],
+        notes: 'Programas objetivo o fechas de delegación',
+        notesPlaceholder: 'Indica tus mercados principales, carreras o próximas fechas de viaje…',
+      },
+      submit: 'Enviar solicitud de socio',
+      success: 'Solicitud B2B recibida — nuestro equipo responderá en 24 horas con los siguientes pasos.',
+      fineprint: 'Cooperación no exclusiva. Tus clientes siguen siendo exclusivamente tuyos.',
+    },
   },
 
   de: {
@@ -498,6 +870,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'Agenturportal: kommt bald',
+    tiers: {
+      eyebrow: 'Partnerstufen',
+      title: 'Drei B2B-Partnerschaftsmodelle',
+      lede: 'Wählen Sie das Modell passend zu Ihrem Volumen — oder kombinieren Sie Bildung und Handel unter einer Kooperationsvereinbarung.',
+      items: [
+        {
+          name: 'Studienzulassungs-Partner',
+          badge: 'Tier 01 · Studium & MBBS',
+          summary: 'Für Studienberatungen, die Bachelor-, Master-, PhD-, MBBS-, Ingenieur- und CSC-Stipendienbewerber nach China vermitteln.',
+          bullets: [
+            'Shortlist-Prüfung & direkte Hochschuleinreichung',
+            'Co-Branded Statusverfolgung & JW201/JW202-Meilensteine',
+            'Flughafenabholung, Wohnheim & Aufenthaltserlaubnis vor Ort',
+          ],
+        },
+        {
+          name: 'Chinesisch- & Diplom-Schiene',
+          badge: 'Tier 02 · HSK & Diplom',
+          summary: 'Für Sprachschulen und Berater, die Semester-, Jahres-HSK- oder Diplomkohorten entsenden.',
+          bullets: [
+            'Sprach- und Diplomplätze für X2- (<180T) und X1-Visa (>180T)',
+            'Strukturierter HSK 1–6-Übergang ins Vollstudium',
+            'Gruppenankunftskoordination ab 5 Studierenden',
+          ],
+        },
+        {
+          name: 'Canton-Fair- & Handelsdelegations-Partner',
+          badge: 'Tier 03 · Handel & B2B',
+          summary: 'Für Handelskammern und B2B-Organisatoren von Einkäuferdelegationen nach Guangzhou, Yiwu und Shanghai.',
+          bullets: [
+            'M/F-Geschäftsvisum-Einladungen & Delegationsplanung',
+            'Zweisprachige Sourcing-Dolmetscher & Werksaudits',
+            'Canton-Fair-Hotels, Hochgeschwindigkeitszug & Lieferantenbetreuung',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'B2B-Partner-Onboarding',
+      title: 'Als aktiver Partner bewerben',
+      lede: 'Senden Sie Ihre Agenturdaten unten ab. Unser B2B-Desk prüft jede Anfrage innerhalb von 24 Geschäftsstunden.',
+      fields: {
+        agencyName: 'Agentur / Firmenname',
+        contactName: 'Hauptansprechpartner',
+        email: 'Geschäftliche E-Mail',
+        phone: 'WhatsApp / Telefonnummer',
+        country: 'Land / Region',
+        tier: 'Partnerschaftsmodell',
+        tierOptions: [
+          { value: 'admissions', label: 'Studienzulassungs-Partner' },
+          { value: 'language-diploma', label: 'Chinesisch- & Diplom-Schiene' },
+          { value: 'trade-delegation', label: 'Canton-Fair- & Handelsdelegations-Partner' },
+          { value: 'multi-track', label: 'Kombiniert (Bildung + Handel)' },
+        ],
+        volume: 'Geschätztes Jahresvolumen',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 Kunden / Jahr' },
+          { value: '11-30', label: '11–30 Kunden / Jahr' },
+          { value: '31-75', label: '31–75 Kunden / Jahr' },
+          { value: '75+', label: '75+ Kunden / Jahr' },
+        ],
+        notes: 'Zielprogramme oder Delegationsbedarf',
+        notesPlaceholder: 'Nennen Sie Ihre Zielmärkte, Studiengänge oder geplante Messetermine…',
+      },
+      submit: 'Partnerantrag absenden',
+      success: 'Partneranfrage eingegangen — unser B2B-Desk meldet sich innerhalb von 24 Stunden.',
+      fineprint: 'Nicht-exklusive Kooperation. Ihre Kundenbeziehungen bleiben uneingeschränkt bei Ihnen.',
+    },
   },
 
   ja: {
@@ -571,6 +1011,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'エージェントポータル：近日公開',
+    tiers: {
+      eyebrow: 'パートナー区分',
+      title: '3つの B2B パートナーシップ枠',
+      lede: '貴社の送客規模と顧客層に合わせてお選びいただけます。教育と貿易の両方を1つの覚書で組み合わせることも可能です。',
+      items: [
+        {
+          name: '大学進学アドミッション・パートナー',
+          badge: 'Tier 01 · 学位・MBBS',
+          summary: '中国の学位課程、MBBS、工学、CSC奨学金志願者を支援する留学エージェント向け。',
+          bullets: [
+            '志望校リスト精査と大学への直接出願',
+            '共同ブランドでの進捗管理と JW201/JW202 共有',
+            '空港送迎・寮入居・居留許可取得の現地サポート',
+          ],
+        },
+        {
+          name: '中国語研修・ディプロマ枠',
+          badge: 'Tier 02 · HSK・専門課程',
+          summary: '1学期・1年間のHSK語学留学やディプロマ課程を送客する語学機関・進路指導者向け。',
+          bullets: [
+            'X2（180日以内）・X1（180日超）語学・ディプロマ手配',
+            'HSK 1–6 から学位課程への段階的進学設計',
+            '5名以上のグループ来華・到着コーディネート',
+          ],
+        },
+        {
+          name: '広州交易会・貿易視察団パートナー',
+          badge: 'Tier 03 · 商務・貿易',
+          summary: '広州・義烏・上海へのバイヤー視察団を運営する商工会議所・旅行会社・B2B事業者向け。',
+          bullets: [
+            'M/F 商務ビザ招聘状と視察スケジュール手配',
+            'バイリンガル調達通訳と工場監査同行',
+            '交易会ホテル・高速鉄道・サプライヤー調整の一括対応',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'B2B パートナー登録',
+      title: 'パートナー申請フォーム',
+      lede: '以下のフォームに貴社情報をご入力ください。B2B担当チームが24営業時間以内にご返信します。',
+      fields: {
+        agencyName: '会社名 / エージェント名',
+        contactName: 'ご担当者名',
+        email: 'ビジネス用メールアドレス',
+        phone: 'WhatsApp / 電話番号',
+        country: '主な対応国・地域',
+        tier: '希望パートナー枠',
+        tierOptions: [
+          { value: 'admissions', label: '大学進学アドミッション・パートナー' },
+          { value: 'language-diploma', label: '中国語研修・ディプロマ枠' },
+          { value: 'trade-delegation', label: '広州交易会・貿易視察団パートナー' },
+          { value: 'multi-track', label: '複合枠（教育＋貿易）' },
+        ],
+        volume: '年間見込み送客数',
+        volumeOptions: [
+          { value: '1-10', label: '年 1–10 名' },
+          { value: '11-30', label: '年 11–30 名' },
+          { value: '31-75', label: '年 31–75 名' },
+          { value: '75+', label: '年 75 名以上' },
+        ],
+        notes: '対象プログラム・視察団のご要望',
+        notesPlaceholder: '主な対象市場、希望専攻、予定されている視察時期などをご記入ください…',
+      },
+      submit: 'パートナー申請を送信',
+      success: 'パートナー申請を受け付けました。24時間以内にB2B担当よりご連絡いたします。',
+      fineprint: '非独占契約です。貴社のお客様との関係は厳格に貴社に帰属します。',
+    },
   },
 
   pt: {
@@ -644,6 +1152,74 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'Portal do agente: em breve',
+    tiers: {
+      eyebrow: 'Níveis de parceria',
+      title: 'Três frentes de parceria B2B',
+      lede: 'Escolha a frente alinhada ao seu volume e carteira — ou combine educação e comércio em um único termo de cooperação.',
+      items: [
+        {
+          name: 'Parceiro de Admissões Universitárias',
+          badge: 'Tier 01 · Graduação & MBBS',
+          summary: 'Para consultorias educacionais que enviam candidatos de MBBS, engenharia, negócios e bolsas CSC para a China.',
+          bullets: [
+            'Validação de shortlist e submissão direta às universidades',
+            'Acompanhamento co-branded e marcos JW201/JW202',
+            'Recepção no aeroporto, dormitório e visto de residência',
+          ],
+        },
+        {
+          name: 'Trilha de Mandarim & Diploma',
+          badge: 'Tier 02 · HSK & Técnico',
+          summary: 'Para escolas de idiomas e orientadores que enviam turmas de HSK semestral, anual ou diploma técnico.',
+          bullets: [
+            'Vagas de idioma e diploma para vistos X2 e X1',
+            'Progressão estruturada HSK 1–6 para graduação',
+            'Coordenação de chegada em grupo a partir de 5 alunos',
+          ],
+        },
+        {
+          name: 'Parceiro Feira de Cantão & Missões',
+          badge: 'Tier 03 · Comércio & B2B',
+          summary: 'Para câmaras de comércio e operadores que levam missões empresariais a Guangzhou, Yiwu e Xangai.',
+          bullets: [
+            'Cartas-convite de visto M/F e agenda da delegação',
+            'Intérpretes bilíngues e suporte a auditoria fabril',
+            'Hotéis da Feira de Cantão, trem-bala e agenda de fornecedores',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'Cadastro de parceiro B2B',
+      title: 'Candidate-se como parceiro ativo',
+      lede: 'Envie os dados da sua agência abaixo. Nossa mesa B2B analisa cada solicitação em até 24 horas úteis.',
+      fields: {
+        agencyName: 'Nome da agência / empresa',
+        contactName: 'Contato principal',
+        email: 'E-mail corporativo',
+        phone: 'WhatsApp / Telefone',
+        country: 'País / Região de atuação',
+        tier: 'Frente de parceria',
+        tierOptions: [
+          { value: 'admissions', label: 'Parceiro de Admissões Universitárias' },
+          { value: 'language-diploma', label: 'Trilha de Mandarim & Diploma' },
+          { value: 'trade-delegation', label: 'Parceiro Feira de Cantão & Missões' },
+          { value: 'multi-track', label: 'Multifrente (Educação + Comércio)' },
+        ],
+        volume: 'Volume anual estimado',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 clientes / ano' },
+          { value: '11-30', label: '11–30 clientes / ano' },
+          { value: '31-75', label: '31–75 clientes / ano' },
+          { value: '75+', label: '75+ clientes / ano' },
+        ],
+        notes: 'Programas-alvo ou datas de missão',
+        notesPlaceholder: 'Informe seus mercados principais, cursos ou datas previstas de missão…',
+      },
+      submit: 'Enviar solicitação de parceria',
+      success: 'Solicitação B2B recebida — nossa equipe responderá em até 24 horas com os próximos passos.',
+      fineprint: 'Cooperação não exclusiva. O relacionamento com seu cliente permanece exclusivamente seu.',
+    },
   },
 
   hi: {
@@ -717,5 +1293,73 @@ export const FOR_AGENTS: Record<Locale, ForAgentsStrings> = {
       whatsapp: 'WhatsApp {phone}',
     },
     portal: 'एजेंट पोर्टल: जल्द आ रहा है',
+    tiers: {
+      eyebrow: 'साझेदारी स्तर',
+      title: 'तीन B2B साझेदारी ट्रैक',
+      lede: 'अपनी एजेंसी की क्षमता और ग्राहकों के अनुसार ट्रैक चुनें — या एक ही सहयोग समझौते में शिक्षा व व्यापार दोनों जोड़ें।',
+      items: [
+        {
+          name: 'एजुकेशन एडमिशन पार्टनर',
+          badge: 'Tier 01 · डिग्री व MBBS',
+          summary: 'उन शिक्षा परामर्शदाताओं के लिए जो चीन में MBBS, इंजीनियरिंग, बिज़नेस और CSC छात्रवृत्ति के छात्र भेजते हैं।',
+          bullets: [
+            'शॉर्टलिस्ट सत्यापन और सीधे विश्वविद्यालय आवेदन',
+            'को-ब्रांडेड फ़ाइल ट्रैकिंग और JW201/JW202 अपडेट',
+            'एयरपोर्ट पिकअप, हॉस्टल और रेज़िडेंस परमिट सहायता',
+          ],
+        },
+        {
+          name: 'चीनी भाषा व डिप्लोमा ट्रैक',
+          badge: 'Tier 02 · HSK व डिप्लोमा',
+          summary: 'भाषा केंद्रों और काउंसलरों के लिए जो 1-सेमेस्टर, 1-वर्षीय HSK या डिप्लोमा समूह भेजते हैं।',
+          bullets: [
+            'X2 (<180 दिन) व X1 (>180 दिन) भाषा और डिप्लोमा प्रवेश',
+            'HSK 1–6 से डिग्री कार्यक्रमों में सुव्यवस्थित प्रवेश',
+            '5+ छात्रों के समूह आगमन का समन्वय',
+          ],
+        },
+        {
+          name: 'कैंटन फ़ेयर व ट्रेड डेलिगेशन पार्टनर',
+          badge: 'Tier 03 · व्यापार व B2B',
+          summary: 'चैंबर ऑफ़ कॉमर्स और B2B आयोजकों के लिए जो गुआंगझू, ईवू और शंघाई में ख़रीदार प्रतिनिधिमंडल ले जाते हैं।',
+          bullets: [
+            'M/F बिज़नेस वीज़ा आमंत्रण और प्रतिनिधिमंडल शेड्यूल',
+            'द्विभाषी सोर्सिंग दुभाषिए और फ़ैक्टरी ऑडिट सहायता',
+            'कैंटन फ़ेयर होटल, हाई-स्पीड रेल और सप्लायर समन्वय',
+          ],
+        },
+      ],
+    },
+    onboarding: {
+      eyebrow: 'B2B पार्टनर ऑनबोर्डिंग',
+      title: 'सक्रिय पार्टनर बनने के लिए आवेदन करें',
+      lede: 'नीचे अपनी एजेंसी का विवरण सबमिट करें। हमारी B2B डेस्क 24 कार्य-घंटों के भीतर हर अनुरोध की समीक्षा करती है।',
+      fields: {
+        agencyName: 'एजेंसी / कंपनी का नाम',
+        contactName: 'मुख्य संपर्क व्यक्ति',
+        email: 'बिज़नेस ईमेल',
+        phone: 'WhatsApp / फ़ोन नंबर',
+        country: 'कार्यक्षेत्र देश / क्षेत्र',
+        tier: 'साझेदारी ट्रैक',
+        tierOptions: [
+          { value: 'admissions', label: 'एजुकेशन एडमिशन पार्टनर' },
+          { value: 'language-diploma', label: 'चीनी भाषा व डिप्लोमा ट्रैक' },
+          { value: 'trade-delegation', label: 'कैंटन फ़ेयर व ट्रेड डेलिगेशन पार्टनर' },
+          { value: 'multi-track', label: 'मल्टी-ट्रैक (शिक्षा + व्यापार)' },
+        ],
+        volume: 'अनुमानित वार्षिक संख्या',
+        volumeOptions: [
+          { value: '1-10', label: '1–10 क्लाइंट / वर्ष' },
+          { value: '11-30', label: '11–30 क्लाइंट / वर्ष' },
+          { value: '31-75', label: '31–75 क्लाइंट / वर्ष' },
+          { value: '75+', label: '75+ क्लाइंट / वर्ष' },
+        ],
+        notes: 'लक्षित कार्यक्रम या प्रतिनिधिमंडल आवश्यकताएँ',
+        notesPlaceholder: 'अपने मुख्य छात्र बाज़ार, डिग्री ट्रैक या आगामी ट्रेड विज़िट की तारीख़ें साझा करें…',
+      },
+      submit: 'पार्टनर आवेदन सबमिट करें',
+      success: 'पार्टनर ऑनबोर्डिंग अनुरोध प्राप्त हुआ — हमारी B2B डेस्क 24 घंटों में अगले चरणों के साथ उत्तर देगी।',
+      fineprint: 'ग़ैर-विशिष्ट सहयोग। आपके ग्राहक संबंध पूरी तरह आपके ही रहते हैं।',
+    },
   },
 };

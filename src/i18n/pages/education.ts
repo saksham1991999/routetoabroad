@@ -10,6 +10,16 @@
  */
 import type { Locale } from '../../lib/i18n';
 
+export type ProgrammeIconKey =
+  | 'mbbs'
+  | 'allied'
+  | 'engineering'
+  | 'business'
+  | 'language'
+  | 'diploma'
+  | 'bachelors'
+  | 'research';
+
 export interface EducationStrings {
   /** <title> and meta description (must stay unique per locale — validator). */
   meta: { title: string; description: string };
@@ -33,7 +43,7 @@ export interface EducationStrings {
     primaryCta: string;
     secondaryCta: string;
     /** Anchor-jump labels, in section order (programmes → faq). */
-    jumps: [string, string, string, string, string, string];
+    jumps: [string, string, string, string, string, string, string];
   };
   /** "Short answer" intro, split at the <strong> boundary. */
   qa: { label: string; strong: string; rest: string };
@@ -43,7 +53,7 @@ export interface EducationStrings {
     index: string;
     title: string;
     lede: string;
-    items: { name: string; text: string }[];
+    items: { icon: ProgrammeIconKey; name: string; text: string }[];
   };
   process: {
     eyebrow: string;
@@ -78,6 +88,13 @@ export interface EducationStrings {
     next: { lead: string; text: string }[];
   };
   faq: { eyebrow: string; index: string; title: string; more: string };
+  visas: {
+    eyebrow: string;
+    index: string;
+    title: string;
+    lede: string;
+    items: { code: string; title: string; duration: string; text: string }[];
+  };
 }
 
 export const EDUCATION: Record<Locale, EducationStrings> = {
@@ -109,7 +126,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'Check your fit',
       secondaryCta: 'See programmes',
-      jumps: ['Programmes', 'Process', 'Scholarships', 'Universities', 'Apply', 'FAQ'],
+      jumps: ['Programmes', 'Process', 'Visas', 'Scholarships', 'Universities', 'Apply', 'FAQ'],
     },
     qa: {
       label: 'Short answer',
@@ -124,31 +141,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Programmes',
       index: '01 / 05',
       title: 'What you can study',
-      lede: 'Five routes with teaching language and intake stated up front. Fees are quoted per university — a single number across a country would be a guess.',
+      lede: 'Eight degree and pathway tracks open to international applicants from India, Africa, the GCC, Southeast Asia, Central Asia, Europe and the Americas — with teaching language and intake stated up front.',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / Medicine',
-          text: 'MOE-listed English-medium medical degrees with WHO-recognised universities, integrated HSK training and FMGE/NExT planning from day one.',
+          text: 'MOE-listed English-medium medical degrees with WHO-recognised universities, integrated HSK training and licensing exam planning (FMGE/NExT, USMLE, PLAB) from day one.',
         },
         {
-          name: 'Engineering & Technology',
-          text: 'AI, robotics, civil, mechanical and electrical engineering at universities wired into China\'s manufacturing economy.',
+          icon: 'allied',
+          name: 'BDS, Nursing & Pharmacy',
+          text: 'Recognised dental surgery, clinical nursing and pharmaceutical science degrees at provincial medical universities with hospital lab rotations.',
         },
         {
-          name: 'Business & Management',
-          text: 'English-taught BBA, MBA and finance programmes in Shanghai and Beijing with internship access to employers.',
+          icon: 'engineering',
+          name: 'Engineering & Computer Science',
+          text: 'AI, software, robotics, civil, mechanical and electrical engineering at universities wired into China\'s industrial economy.',
         },
         {
-          name: 'Chinese Language (HSK)',
-          text: 'HSK 1–6 pathway programmes, from zero to degree-readiness, with exam registration handled for you.',
+          icon: 'business',
+          name: 'Business, Finance & MBA',
+          text: 'English-taught BBA, MBA and international trade programmes in Shanghai, Beijing and Hangzhou with employer internship access.',
         },
         {
+          icon: 'language',
+          name: 'Chinese Language (HSK 1–6)',
+          text: 'Non-degree 1-semester and 1-year HSK pathway programmes, from zero Mandarin to degree-readiness, with exam registration handled.',
+        },
+        {
+          icon: 'diploma',
+          name: 'Diploma & Vocational Tracks',
+          text: '2–3 year applied technical, e-commerce, logistics and hospitality diplomas with practical lab training and degree-upgrade routes.',
+        },
+        {
+          icon: 'bachelors',
           name: 'Bachelor\'s Degrees',
-          text: 'Undergraduate programmes across economics, international business, design and computer science.',
+          text: '4-year undergraduate programmes across economics, international relations, architecture, design and applied sciences.',
         },
         {
+          icon: 'research',
           name: 'Masters & PhD (Research)',
-          text: 'CSC-funded research placements — we match you to supervisors, shape proposals and manage the full file.',
+          text: 'CSC-funded and university-funded research placements — we match you to supervisors, shape proposals and manage the full file.',
         },
       ],
     },
@@ -214,6 +247,44 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'Education FAQ', index: '05 / 05', title: 'Asked every season', more: 'All education FAQs' },
+    visas: {
+      eyebrow: 'Visa pathways',
+      index: 'VISA / 01',
+      title: 'China visa categories for students & visitors',
+      lede: 'We place students from every eligible passport into China and prepare the exact visa file — whether you are arriving for a 6-year degree, a 6-month language term, a trade delegation or a campus visit.',
+      items: [
+        {
+          code: 'X1',
+          title: 'Long-term Student Visa',
+          duration: '> 180 days',
+          text: 'For degree, MBBS, Diploma and full-year Chinese language students. Requires JW201/JW202 and admission notice; converts to a Residence Permit within 30 days of arrival.',
+        },
+        {
+          code: 'X2',
+          title: 'Short-term Study Visa',
+          duration: '≤ 180 days',
+          text: 'For one-semester HSK language courses, summer schools and short clinical or technical exchanges under 180 days.',
+        },
+        {
+          code: 'M',
+          title: 'Business & Trade Visa',
+          duration: 'Varies (typically 30–90 days; consular-determined)',
+          text: 'For Canton Fair buyers, factory inspections and B2B partner meetings with an official Chinese company invitation. Validity and stay per entry are set by the consular officer.',
+        },
+        {
+          code: 'F',
+          title: 'Academic & Cultural Exchange',
+          duration: 'Varies (typically 30–180 days; consular-determined)',
+          text: 'For non-commercial university conferences, research visits, faculty exchanges and short institutional delegations. Actual stay duration is determined by the consular officer.',
+        },
+        {
+          code: 'L',
+          title: 'Tourist Visa',
+          duration: 'Varies (typically 30–60 days; consular-determined)',
+          text: 'For sightseeing, campus scouting and pre-enrolment city visits. Family visits to residents or students in China require Q2 (relatives of Chinese citizens/permanent residents) or S2 (relatives of foreign students/workers) visas instead.',
+        },
+      ],
+    },
   },
 
   zh: {
@@ -243,7 +314,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: '检查你的适配',
       secondaryCta: '查看课程',
-      jumps: ['课程', '流程', '奖学金', '大学', '申请', 'FAQ'],
+      jumps: ['课程', '流程', '签证', '奖学金', '大学', '申请', 'FAQ'],
     },
     qa: {
       label: '简短回答',
@@ -258,31 +329,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: '课程方向',
       index: '01 / 05',
       title: '你可以学什么',
-      lede: '五种路线，授课语言和入学时间一目了然。学费按学校逐所报价——用一个数字概括一个国家，只能是猜测。',
+      lede: '八大学位与预科方向，面向印度、非洲、海湾国家、东南亚、中亚、欧美等全球国际生开放——授课语言与入学季一目了然。',
       items: [
         {
+          icon: 'mbbs',
           name: '临床医学（MBBS）',
-          text: '教育部认可的英文授课医学学位，合作大学获 WHO 认可，内置 HSK 培训，并从第一天起规划 FMGE/NExT 考试。',
+          text: '教育部认可的英文授课医学学位，合作大学获 WHO 认可，内置 HSK 培训，并从第一天起规划 FMGE/NExT、USMLE、PLAB 执业考试。',
         },
         {
-          name: '工程与技术',
-          text: '人工智能、机器人、土木、机械与电气工程，就读院校深度融入中国的制造业经济。',
+          icon: 'allied',
+          name: '口腔医学（BDS）、护理与药学',
+          text: '省属医科大学开设的受认可口腔医学、临床护理与药学学位课程，配备附属医院实验室轮转。',
         },
         {
-          name: '商业与管理',
-          text: '在上海和北京的英文授课 BBA、MBA 与金融课程，并可接触雇主实习机会。',
+          icon: 'engineering',
+          name: '工程与计算机科学',
+          text: '人工智能、软件、机器人、土木、机械与电气工程，就读院校深度融入中国的产业经济。',
         },
         {
-          name: '中文（HSK）',
-          text: 'HSK 1–6 进阶课程，从零基础到具备学位学习资格，考试报名由我们代办。',
+          icon: 'business',
+          name: '商业、金融与 MBA',
+          text: '在上海、北京和杭州的英文授课 BBA、MBA 与国际贸易课程，并可接触雇主实习机会。',
         },
         {
+          icon: 'language',
+          name: '中文（HSK 1–6）',
+          text: '非学历一学期或一年期 HSK 衔接课程，从零基础到具备学位学习资格，考试报名由我们代办。',
+        },
+        {
+          icon: 'diploma',
+          name: '专科与职业教育方向',
+          text: '2–3 年应用技术、跨境电商、物流与酒店管理专科项目，包含实训课程与专升本衔接路径。',
+        },
+        {
+          icon: 'bachelors',
           name: '本科课程',
-          text: '涵盖经济学、国际商务、设计与计算机科学的本科项目。',
+          text: '涵盖经济学、国际关系、建筑、设计与应用科学的四年制本科项目。',
         },
         {
+          icon: 'research',
           name: '硕士／博士（研究型）',
-          text: 'CSC 资助的科研深造——我们为你匹配导师、打磨研究计划并管理整套申请材料。',
+          text: 'CSC 及高校资助的科研深造——我们为你匹配导师、打磨研究计划并管理整套申请材料。',
         },
       ],
     },
@@ -348,6 +435,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: '留学常见问题', index: '05 / 05', title: '每个申请季都被问到', more: '查看全部留学 FAQ' },
+    visas: {
+      eyebrow: '签证路径',
+      index: 'VISA / 01',
+      title: '赴华学生与访问签证类别总览',
+      lede: '我们面向印度、非洲、海湾国家、东南亚、中亚、欧美等全球生源提供来华升学与签证材料支持——覆盖多年制学位、短期语言、商务考察及家长陪行。',
+      items: [
+        { code: 'X1', title: '长期学习签证', duration: '> 180 天', text: '适用于本科、硕博、MBBS、大专及一年期以上语言生；凭录取通知书与 JW201/JW202 办理，入境 30 天内换发居留许可。' },
+        { code: 'X2', title: '短期学习签证', duration: '≤ 180 天', text: '适用于一学期 HSK 汉语进修、夏令营及 180 天以内的短期交流学习。' },
+        { code: 'M', title: '商贸签证', duration: '视领馆签发而定（通常 30–90 天）', text: '适用于广交会采购商、工厂验厂及凭中国企业官方邀请函赴华的 B2B 商务洽谈；具体停留期由签证官核定。' },
+        { code: 'F', title: '交流访问签证', duration: '视领馆签发而定（通常 30–180 天）', text: '适用于非商业性质的高校学术会议、科研访问及校际代表团交流；实际停留天数由签证官核定。' },
+        { code: 'L', title: '旅游签证', duration: '视领馆签发而定（通常 30–60 天）', text: '适用于个人观光、校园考察或入学前城市访问。赴华探望中国公民/永居人员或外籍留学生/工作人员的亲属，应分别申请 Q2 或 S2 探亲签证。' },
+      ],
+    },
   },
 
   fr: {
@@ -378,7 +478,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'Tester votre profil',
       secondaryCta: 'Voir les programmes',
-      jumps: ['Programmes', 'Processus', 'Bourses', 'Universités', 'Candidater', 'FAQ'],
+      jumps: ['Programmes', 'Processus', 'Visas', 'Bourses', 'Universités', 'Candidater', 'FAQ'],
     },
     qa: {
       label: 'Réponse courte',
@@ -393,31 +493,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Programmes',
       index: '01 / 05',
       title: 'Ce que vous pouvez étudier',
-      lede: 'Cinq voies avec langue d’enseignement et intake annoncés d’entrée. Les frais sont annoncés université par université — un chiffre unique pour tout un pays serait une devinette.',
+      lede: 'Huit voies de diplôme et de préparation ouvertes aux candidats internationaux d’Inde, d’Afrique, du CCG, d’Asie du Sud-Est, d’Asie centrale, d’Europe et des Amériques — avec langue d’enseignement et rentrée annoncées d’entrée.',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / Médecine',
-          text: 'Diplômes de médecine en anglais dans des universités listées par le ministère et reconnues par l’OMS, avec formation HSK intégrée et préparation FMGE/NExT dès le premier jour.',
+          text: 'Diplômes de médecine en anglais dans des universités listées par le ministère et reconnues par l’OMS, avec formation HSK intégrée et préparation FMGE/NExT, USMLE et PLAB dès le premier jour.',
         },
         {
-          name: 'Ingénierie & technologie',
-          text: 'IA, robotique, génie civil, mécanique et électrique dans des universités connectées à l’économie manufacturière chinoise.',
+          icon: 'allied',
+          name: 'BDS, Sciences infirmières & Pharmacie',
+          text: 'Diplômes reconnus en chirurgie dentaire, soins infirmiers cliniques et sciences pharmaceutiques dans des universités médicales provinciales avec stages hospitaliers.',
         },
         {
-          name: 'Business & management',
-          text: 'Programmes BBA, MBA et finance enseignés en anglais à Shanghai et Pékin, avec un accès aux stages chez les employeurs.',
+          icon: 'engineering',
+          name: 'Ingénierie & Informatique',
+          text: 'IA, logiciel, robotique, génie civil, mécanique et électrique dans des universités connectées à l’économie industrielle chinoise.',
         },
         {
-          name: 'Langue chinoise (HSK)',
-          text: 'Parcours HSK 1–6, de zéro jusqu’au niveau requis pour un diplôme, inscription aux examens gérée pour vous.',
+          icon: 'business',
+          name: 'Business, Finance & MBA',
+          text: 'Programmes BBA, MBA et commerce international enseignés en anglais à Shanghai, Pékin et Hangzhou, avec accès aux stages en entreprise.',
         },
         {
+          icon: 'language',
+          name: 'Langue chinoise (HSK 1–6)',
+          text: 'Parcours non diplômants d’un semestre ou d’un an en HSK, de zéro jusqu’au niveau requis pour un diplôme, inscription aux examens gérée pour vous.',
+        },
+        {
+          icon: 'diploma',
+          name: 'Diplômes techniques & professionnels',
+          text: 'Diplômes appliqués de 2 à 3 ans en technologie, e-commerce, logistique et hôtellerie avec travaux pratiques en laboratoire et passerelles vers la licence.',
+        },
+        {
+          icon: 'bachelors',
           name: 'Licences',
-          text: 'Programmes de licence en économie, commerce international, design et informatique.',
+          text: 'Programmes de licence en 4 ans en économie, relations internationales, architecture, design et sciences appliquées.',
         },
         {
+          icon: 'research',
           name: 'Master / doctorat (recherche)',
-          text: 'Placements de recherche financés par le CSC — nous vous mettons en relation avec des directeurs de thèse, façonnons vos propositions et gérons le dossier complet.',
+          text: 'Placements de recherche financés par le CSC ou l’université — nous vous mettons en relation avec des directeurs de thèse, façonnons vos propositions et gérons le dossier complet.',
         },
       ],
     },
@@ -483,6 +599,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ Études', index: '05 / 05', title: 'Posées à chaque rentrée', more: 'Toutes les FAQ études' },
+    visas: {
+      eyebrow: 'Visas Chine',
+      index: 'VISA / 01',
+      title: 'Catégories de visas pour étudier et visiter la Chine',
+      lede: 'Nous accompagnons les candidats de tous les pays éligibles vers la Chine — du cursus complet de 6 ans au semestre HSK, en passant par les visites familiales ou commerciales.',
+      items: [
+        { code: 'X1', title: 'Visa étudiant long séjour', duration: '> 180 jours', text: 'Pour Licence, Master, PhD, MBBS, Diplôme et année complète de mandarin. Nécessite JW201/JW202 et avis d’admission.' },
+        { code: 'X2', title: 'Visa étudiant court séjour', duration: '≤ 180 jours', text: 'Pour un semestre de langue HSK, université d’été ou échange académique de moins de 180 jours.' },
+        { code: 'M', title: 'Visa affaires & commerce', duration: 'Variable (souvent 30–90 j ; selon le consulat)', text: 'Pour la Foire de Canton, les visites d’usines et réunions B2B avec lettre d’invitation officielle. La durée autorisée est fixée par l’agent consulaire.' },
+        { code: 'F', title: 'Échange académique & culturel', duration: 'Variable (souvent 30–180 j ; selon le consulat)', text: 'Pour conférences universitaires, séjours de recherche et délégations institutionnelles non commerciales. La durée réelle du séjour dépend de la décision consulaire.' },
+        { code: 'L', title: 'Visa de tourisme', duration: 'Variable (souvent 30–60 j ; selon le consulat)', text: 'Pour le tourisme, la découverte des campus ou les visites préalables à l’inscription. Les visites familiales relèvent des visas Q2 (proches de citoyens/résidents permanents chinois) ou S2 (proches d’étudiants/travailleurs étrangers).' },
+      ],
+    },
   },
 
   ar: {
@@ -512,7 +641,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'تحقق من ملاءمتك',
       secondaryCta: 'استعرض البرامج',
-      jumps: ['البرامج', 'الخطوات', 'المنح', 'الجامعات', 'التقديم', 'الأسئلة الشائعة'],
+      jumps: ['البرامج', 'الخطوات', 'التأشيرات', 'المنح', 'الجامعات', 'التقديم', 'الأسئلة الشائعة'],
     },
     qa: {
       label: 'الإجابة المختصرة',
@@ -527,31 +656,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'البرامج',
       index: '01 / 05',
       title: 'ماذا يمكنك أن تدرس',
-      lede: 'خمسة مسارات بلغة التدريس وموعد الالتحاق معلنين منذ البداية. الرسوم تُسعَّر لكل جامعة — رقم واحد لكل بلد ما هو إلا تخمين.',
+      lede: 'ثمانية مسارات دراسية وتحضيرية متاحة للمتقدمين الدوليين من الهند وأفريقيا ودول الخليج وجنوب شرق آسيا وآسيا الوسطى وأوروبا والأمريكتين — مع إعلان لغة التدريس وموعد الالتحاق منذ البداية.',
       items: [
         {
+          icon: 'mbbs',
           name: 'الطب البشري (MBBS)',
-          text: 'شهادات طب بالإنجليزية من جامعات معتمدة من الوزارة ومعترف بها من WHO، مع تدريب HSK مدمج وتخطيط FMGE/NExT من اليوم الأول.',
+          text: 'شهادات طب بالإنجليزية من جامعات معتمدة من الوزارة ومعترف بها من WHO، مع تدريب HSK مدمج وتخطيط امتحانات الترخيص (FMGE/NExT، USMLE، PLAB) من اليوم الأول.',
         },
         {
-          name: 'الهندسة والتقنية',
-          text: 'الذكاء الاصطناعي والروبوتات والهندسة المدنية والميكانيكية والكهربائية في جامعات مرتبطة باقتصاد التصنيع الصيني.',
+          icon: 'allied',
+          name: 'طب الأسنان (BDS) والتمريض والصيدلة',
+          text: 'شهادات معترف بها في جراحة الأسنان والتمريض السريري والعلوم الصيدلانية في جامعات طبية إقليمية مع تدريبات مختبرية ومستشفيات تعليمية.',
         },
         {
-          name: 'إدارة الأعمال',
-          text: 'برامج BBA وMBA ومالية بالإنجليزية في شنغهاي وبكين مع فرص تدرب لدى جهات التوظيف.',
+          icon: 'engineering',
+          name: 'الهندسة وعلوم الحاسب',
+          text: 'الذكاء الاصطناعي والبرمجيات والروبوتات والهندسة المدنية والميكانيكية والكهربائية في جامعات مرتبطة بالاقتصاد الصناعي الصيني.',
         },
         {
-          name: 'اللغة الصينية (HSK)',
-          text: 'مسارات HSK 1–6 من الصفر حتى الجاهزية للدراسة الجامعية، مع حجز الاختبارات نيابة عنك.',
+          icon: 'business',
+          name: 'إدارة الأعمال والمالية وMBA',
+          text: 'برامج BBA وMBA والتجارة الدولية بالإنجليزية في شنغهاي وبكين وهانغتشو مع فرص تدرب لدى جهات التوظيف.',
         },
         {
+          icon: 'language',
+          name: 'اللغة الصينية (HSK 1–6)',
+          text: 'برامج مسار HSK غير الدرجية لمدة فصل واحد أو سنة واحدة، من الصفر حتى الجاهزية للدراسة الجامعية، مع حجز الاختبارات نيابة عنك.',
+        },
+        {
+          icon: 'diploma',
+          name: 'مسارات الدبلوم والتدريب المهني',
+          text: 'دبلومات تطبيقية لمدة 2–3 سنوات في التقنية والتجارة الإلكترونية واللوجستيات والضيافة مع تدريب عملي ومسارات للترقية إلى البكالوريوس.',
+        },
+        {
+          icon: 'bachelors',
           name: 'شهادات البكالوريوس',
-          text: 'برامج جامعية في الاقتصاد والأعمال الدولية والتصميم وعلوم الحاسب.',
+          text: 'برامج جامعية لمدة 4 سنوات في الاقتصاد والعلاقات الدولية والعمارة والتصميم والعلوم التطبيقية.',
         },
         {
+          icon: 'research',
           name: 'ماجستير / دكتوراه (بحث)',
-          text: 'مقاعد بحثية ممولة من CSC — نربطك بالمشرفين، نصيغ المقترحات وندير الملف كاملًا.',
+          text: 'مقاعد بحثية ممولة من CSC والجامعات — نربطك بالمشرفين، نصيغ المقترحات وندير الملف كاملًا.',
         },
       ],
     },
@@ -617,6 +762,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'أسئلة التعليم الشائعة', index: '05 / 05', title: 'تُسأل كل موسم', more: 'كل أسئلة التعليم الشائعة' },
+    visas: {
+      eyebrow: 'مسارات التأشيرة',
+      index: 'VISA / 01',
+      title: 'فئات تأشيرات الصين للطلاب والزوار',
+      lede: 'نقبل الطلاب من جميع الدول المؤهلة إلى الصين ونجهز ملف التأشيرة المناسب — من الدراسة الجامعية الطويلة إلى دورات اللغة والوفود.',
+      items: [
+        { code: 'X1', title: 'تأشيرة طالب طويلة الأمد', duration: '> 180 يوماً', text: 'لبرامج البكالوريوس و MBBS والدبلوم والدراسات العليا. تتطلب JW201/JW202 وتُحوّل لإقامة خلال 30 يوماً.' },
+        { code: 'X2', title: 'تأشيرة دراسة قصيرة الأمد', duration: '≤ 180 يوماً', text: 'لفصل دراسي واحد في اللغة الصينية HSK أو البرامج القصيرة دون 180 يوماً.' },
+        { code: 'M', title: 'تأشيرة الأعمال والتجارة', duration: 'متغيرة (عادةً 30–90 يوماً؛ يحددها القنصل)', text: 'لزوار معرض كانتون وفحص المصانع والاجتماعات التجارية بدعوة شركة صينية رسمية؛ مدة الإقامة يحددها المسؤول القنصلي.' },
+        { code: 'F', title: 'تأشيرة التبادل الأكاديمي', duration: 'متغيرة (عادةً 30–180 يوماً؛ يحددها القنصل)', text: 'للمؤتمرات الجامعية والزيارات البحثية والوفود الثقافية غير التجارية؛ مدة الإقامة الفعلية تخضع لتقدير القنصلية.' },
+        { code: 'L', title: 'تأشيرة السياحة', duration: 'متغيرة (عادةً 30–60 يوماً؛ يحددها القنصل)', text: 'للسياحة واستكشاف الجامعات والزيارات قبل التسجيل. أما الزيارات العائلية للمقيمين أو الطلاب في الصين فتتطلب تأشيرة Q2 (لأقارب المواطنين/المقيمين الدائمين) أو S2 (لأقارب الطلاب/العاملين الأجانب).' },
+      ],
+    },
   },
 
   es: {
@@ -647,7 +805,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'Comprueba si encajas',
       secondaryCta: 'Ver programas',
-      jumps: ['Programas', 'Proceso', 'Becas', 'Universidades', 'Solicitar', 'FAQ'],
+      jumps: ['Programas', 'Proceso', 'Visados', 'Becas', 'Universidades', 'Solicitar', 'FAQ'],
     },
     qa: {
       label: 'Respuesta corta',
@@ -662,31 +820,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Programas',
       index: '01 / 05',
       title: 'Qué puedes estudiar',
-      lede: 'Cinco vías con idioma de enseñanza e intake declarados de entrada. Las tasas se cotizan por universidad — una sola cifra para todo un país sería una apuesta.',
+      lede: 'Ocho itinerarios de grado y preparación abiertos a solicitantes internacionales de India, África, el CCG, Sudeste Asiático, Asia Central, Europa y América — con idioma de enseñanza y convocatoria declarados desde el inicio.',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / Medicina',
-          text: 'Títulos de medicina en inglés de universidades listadas por el Ministerio y reconocidas por la OMS, con formación HSK integrada y planificación FMGE/NExT desde el primer día.',
+          text: 'Títulos de medicina en inglés de universidades listadas por el Ministerio y reconocidas por la OMS, con formación HSK integrada y planificación FMGE/NExT, USMLE y PLAB desde el primer día.',
         },
         {
-          name: 'Ingeniería y tecnología',
-          text: 'IA, robótica, civil, mecánica y eléctrica en universidades conectadas a la economía manufacturera de China.',
+          icon: 'allied',
+          name: 'Odontología (BDS), Enfermería y Farmacia',
+          text: 'Grados reconocidos en cirugía dental, enfermería clínica y ciencias farmacéuticas en universidades médicas provinciales con rotaciones en laboratorios hospitalarios.',
         },
         {
-          name: 'Negocios y gestión',
-          text: 'Programas de BBA, MBA y finanzas en inglés en Shanghái y Pekín, con acceso a prácticas en empresas.',
+          icon: 'engineering',
+          name: 'Ingeniería y Ciencias de la Computación',
+          text: 'IA, software, robótica, civil, mecánica y eléctrica en universidades conectadas a la economía industrial de China.',
         },
         {
-          name: 'Chino (HSK)',
-          text: 'Itinerarios HSK 1–6, desde cero hasta el nivel para cursar un grado, con la inscripción a los exámenes gestionada por nosotros.',
+          icon: 'business',
+          name: 'Negocios, Finanzas y MBA',
+          text: 'Programas de BBA, MBA y comercio internacional en inglés en Shanghái, Pekín y Hangzhou, con acceso a prácticas en empresas.',
         },
         {
-          name: 'Grados',
-          text: 'Programas de grado en economía, negocios internacionales, diseño e informática.',
+          icon: 'language',
+          name: 'Chino (HSK 1–6)',
+          text: 'Itinerarios preparatorios HSK de 1 semestre y 1 año, desde cero hasta el nivel para cursar un grado, con inscripción a exámenes gestionada por nosotros.',
         },
         {
-          name: 'Máster / doctorado (investigación)',
-          text: 'Plazas de investigación financiadas por CSC — te emparejamos con supervisores, damos forma a las propuestas y gestionamos el expediente completo.',
+          icon: 'diploma',
+          name: 'Diplomas y Vías Técnicas',
+          text: 'Diplomas aplicados de 2–3 años en tecnología, comercio electrónico, logística y hostelería con prácticas de laboratorio y pasarelas a grado.',
+        },
+        {
+          icon: 'bachelors',
+          name: 'Grados universitarios',
+          text: 'Programas de grado de 4 años en economía, relaciones internacionales, arquitectura, diseño y ciencias aplicadas.',
+        },
+        {
+          icon: 'research',
+          name: 'Máster y Doctorado (investigación)',
+          text: 'Plazas de investigación financiadas por CSC o universidades — te emparejamos con supervisores, damos forma a las propuestas y gestionamos el expediente completo.',
         },
       ],
     },
@@ -752,6 +926,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ de Estudios', index: '05 / 05', title: 'Preguntadas cada temporada', more: 'Todas las FAQ de estudios' },
+    visas: {
+      eyebrow: 'Vías de visado',
+      index: 'VISA / 01',
+      title: 'Categorías de visado para estudiantes y visitantes en China',
+      lede: 'Colocamos estudiantes de todos los países elegibles en China y preparamos el expediente exacto de visado, desde grados completos hasta estancias cortas.',
+      items: [
+        { code: 'X1', title: 'Visado de estudiante de larga duración', duration: '> 180 días', text: 'Para Grado, MBBS, Diploma, Máster/PhD y año completo de chino. Requiere JW201/JW202 y carta de admisión.' },
+        { code: 'X2', title: 'Visado de estudio de corta duración', duration: '≤ 180 días', text: 'Para un semestre de idioma HSK, escuelas de verano e intercambios menores a 180 días.' },
+        { code: 'M', title: 'Visado de negocios y comercio', duration: 'Variable (habitualmente 30–90 d; según consulado)', text: 'Para compradores de la Feria de Cantón, inspecciones de fábricas y reuniones B2B con invitación oficial; la estancia por entrada la fija el funcionario consular.' },
+        { code: 'F', title: 'Intercambio académico y cultural', duration: 'Variable (habitualmente 30–180 d; según consulado)', text: 'Para congresos universitarios, estancias de investigación y delegaciones no comerciales; la duración real depende de la decisión consular.' },
+        { code: 'L', title: 'Visado de turismo', duration: 'Variable (habitualmente 30–60 d; según consulado)', text: 'Para turismo, visitas a campus o viajes previos a la matrícula. Las visitas familiares requieren visado Q2 (familiares de ciudadanos/residentes permanentes chinos) o S2 (familiares de estudiantes/trabajadores extranjeros).' },
+      ],
+    },
   },
 
   de: {
@@ -782,7 +969,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'Eignung prüfen',
       secondaryCta: 'Studiengänge ansehen',
-      jumps: ['Studiengänge', 'Ablauf', 'Stipendien', 'Universitäten', 'Bewerben', 'FAQ'],
+      jumps: ['Studiengänge', 'Ablauf', 'Visa', 'Stipendien', 'Universitäten', 'Bewerben', 'FAQ'],
     },
     qa: {
       label: 'Kurze Antwort',
@@ -797,31 +984,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Studiengänge',
       index: '01 / 05',
       title: 'Was Sie studieren können',
-      lede: 'Fünf Wege mit Unterrichtssprache und Studienbeginn, von vornherein angegeben. Gebühren werden pro Universität genannt — eine einzige Zahl für ein ganzes Land wäre eine Schätzung.',
+      lede: 'Acht Studien- und Vorbereitungswege für internationale Bewerber aus Indien, Afrika, dem GCC, Südostasien, Zentralasien, Europa und Amerika — mit Unterrichtssprache und Studienbeginn von vornherein angegeben.',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / Medizin',
-          text: 'Englischsprachige Medizinstudiengänge an MOE-gelisteten, WHO-anerkannten Universitäten, mit integriertem HSK-Training und FMGE/NExT-Planung ab dem ersten Tag.',
+          text: 'Englischsprachige Medizinstudiengänge an MOE-gelisteten, WHO-anerkannten Universitäten, mit integriertem HSK-Training und FMGE/NExT-, USMLE- und PLAB-Planung ab dem ersten Tag.',
         },
         {
-          name: 'Ingenieurwesen & Technologie',
-          text: 'KI, Robotik, Bau-, Maschinen- und Elektrotechnik an Universitäten, die eng mit Chinas Produktionswirtschaft verwoben sind.',
+          icon: 'allied',
+          name: 'Zahnmedizin (BDS), Pflege & Pharmazie',
+          text: 'Anerkannte Studiengänge in Zahnmedizin, klinischer Pflege und Pharmazie an provinziellen medizinischen Universitäten mit Krankenhaus-Laborrotationen.',
         },
         {
-          name: 'Betriebswirtschaft & Management',
-          text: 'Englischsprachige BBA-, MBA- und Finanzprogramme in Shanghai und Peking mit Praktikumszugang zu Arbeitgebern.',
+          icon: 'engineering',
+          name: 'Ingenieurwesen & Informatik',
+          text: 'KI, Software, Robotik, Bau-, Maschinen- und Elektrotechnik an Universitäten, die eng mit Chinas Industriewirtschaft verwoben sind.',
         },
         {
-          name: 'Chinesische Sprache (HSK)',
-          text: 'HSK 1–6-Stufenprogramme, von null bis zur Studientauglichkeit, inklusive Prüfungsanmeldung durch uns.',
+          icon: 'business',
+          name: 'Wirtschaft, Finanzen & MBA',
+          text: 'Englischsprachige BBA-, MBA- und internationale Handelsprogramme in Shanghai, Peking und Hangzhou mit Praktikumszugang zu Arbeitgebern.',
         },
         {
+          icon: 'language',
+          name: 'Chinesische Sprache (HSK 1–6)',
+          text: 'Einsemestrige und einjährige HSK-Vorbereitungsprogramme ohne Abschluss, von null bis zur Studientauglichkeit, inklusive Prüfungsanmeldung durch uns.',
+        },
+        {
+          icon: 'diploma',
+          name: 'Diplom- & Berufsbildungswege',
+          text: '2–3-jährige praxisorientierte Diplome in Technik, E-Commerce, Logistik und Hotellerie mit Laborpraxis und Übergangsmöglichkeiten in den Bachelor.',
+        },
+        {
+          icon: 'bachelors',
           name: 'Bachelorstudiengänge',
-          text: 'Bachelorprogramme in Volkswirtschaftslehre, internationalem Handel, Design und Informatik.',
+          text: '4-jährige Bachelorprogramme in Volkswirtschaftslehre, internationalen Beziehungen, Architektur, Design und angewandten Wissenschaften.',
         },
         {
+          icon: 'research',
           name: 'Master & PhD (Forschung)',
-          text: 'CSC-geförderte Forschungsplätze — wir vermitteln Sie an Betreuer, schärfen Ihre Anträge und verwalten die komplette Akte.',
+          text: 'CSC- und universitätsgeförderte Forschungsplätze — wir vermitteln Sie an Betreuer, schärfen Ihre Anträge und verwalten die komplette Akte.',
         },
       ],
     },
@@ -887,6 +1090,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'Bildungs-FAQ', index: '05 / 05', title: 'Jede Saison gefragt', more: 'Alle Bildungs-FAQs' },
+    visas: {
+      eyebrow: 'Visumswege',
+      index: 'VISA / 01',
+      title: 'Chinesische Visakategorien für Studierende & Besucher',
+      lede: 'Wir vermitteln Bewerber aus allen berechtigten Ländern nach China und bereiten die passenden Visumsunterlagen vor.',
+      items: [
+        { code: 'X1', title: 'Langzeit-Studentenvisum', duration: '> 180 Tage', text: 'Für Studium, MBBS, Diplom und einjährige Sprachkurse. Erfordert JW201/JW202 und Zulassungsbescheid.' },
+        { code: 'X2', title: 'Kurzzeit-Studienvisum', duration: '≤ 180 Tage', text: 'Für ein Semester HSK-Chinesisch, Summer Schools und Kurzzeit-Austausche unter 180 Tagen.' },
+        { code: 'M', title: 'Geschäfts- & Handelsvisum', duration: 'Variabel (meist 30–90 T; konsularisch festgelegt)', text: 'Für Canton-Fair-Einkäufer, Werksinspektionen und B2B-Termine mit offizieller Einladung; die Aufenthaltsdauer legt das Konsulat fest.' },
+        { code: 'F', title: 'Akademischer Austausch', duration: 'Variabel (meist 30–180 T; konsularisch festgelegt)', text: 'Für Hochschulkonferenzen, Forschungsaufenthalte und nicht-kommerzielle Delegationen; die tatsächliche Aufenthaltsdauer entscheidet der Konsularbeamte.' },
+        { code: 'L', title: 'Touristenvisum', duration: 'Variabel (meist 30–60 T; konsularisch festgelegt)', text: 'Für Sightseeing, Campus-Besichtigungen und Städtereisen vor Studienbeginn. Familienbesuche erfordern stattdessen ein Q2-Visum (Angehörige chinesischer Staatsbürger/Daueraufenthalter) oder S2-Visum (Angehörige ausländischer Studierender/Arbeitnehmer).' },
+      ],
+    },
   },
 
   ja: {
@@ -916,7 +1132,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'マッチングを診断する',
       secondaryCta: 'プログラムを見る',
-      jumps: ['プログラム', '流れ', '奨学金', '大学', '申し込み', 'FAQ'],
+      jumps: ['プログラム', '流れ', 'ビザ', '奨学金', '大学', '申し込み', 'FAQ'],
     },
     qa: {
       label: '簡単に言うと',
@@ -931,31 +1147,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'プログラム',
       index: '01 / 05',
       title: '学べること',
-      lede: '5 つの進路。開講言語と入学時期を最初に明示。学費は大学ごとに提示 — 一国をひとつの数字で括るのは推測にすぎません。',
+      lede: 'インド、アフリカ、GCC、東南アジア、中央アジア、欧米からの国際志願者に開かれた 8 つの学位・準備コース — 開講言語と入学時期を最初から明示します。',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS／医学',
-          text: '教育部認可・WHO 認定大学の英語開講医学学位。HSK 訓練を組み込み、初日から FMGE/NExT 対策を計画します。',
+          text: '教育部認可・WHO 認定大学の英語開講医学学位。HSK 訓練を組み込み、初日から FMGE/NExT、USMLE、PLAB 対策を計画します。',
         },
         {
-          name: '工学・テクノロジー',
-          text: 'AI、ロボティクス、土木、機械、電気工学を、中国の製造業経済に密着した大学で。',
+          icon: 'allied',
+          name: '歯学（BDS）・看護・薬学',
+          text: '省立医科大学で開講される認定歯学・臨床看護・薬学学位プログラム。付属病院での実習ローテーション付き。',
         },
         {
-          name: 'ビジネス・経営',
-          text: '上海と北京の英語開講 BBA、MBA、ファイナンスプログラム。企業でのインターンにもアクセスできます。',
+          icon: 'engineering',
+          name: '工学・コンピュータサイエンス',
+          text: 'AI、ソフトウェア、ロボティクス、土木、機械、電気工学を、中国の産業経済に密着した大学で学びます。',
         },
         {
-          name: '中国語（HSK）',
-          text: 'HSK 1〜6 のステップ方式コース。ゼロから学位レベルまで、試験の申し込みも代行します。',
+          icon: 'business',
+          name: 'ビジネス・ファイナンス・MBA',
+          text: '上海、北京、杭州の英語開講 BBA、MBA、国際貿易プログラム。企業でのインターンシップにもアクセスできます。',
         },
         {
+          icon: 'language',
+          name: '中国語（HSK 1–6）',
+          text: '1 学期または 1 年間の非学位 HSK 準備コース。ゼロから学位レベルまで、試験の申し込みも代行します。',
+        },
+        {
+          icon: 'diploma',
+          name: 'ディプロマ・職業教育コース',
+          text: '技術、EC、物流、ホスピタリティの 2〜3 年制実践ディプロマ。実験室実習と学士課程への編入ルートあり。',
+        },
+        {
+          icon: 'bachelors',
           name: '学士課程',
-          text: '経済学、国際ビジネス、デザイン、コンピュータサイエンスの学士プログラム。',
+          text: '経済学、国際関係、建築、デザイン、応用科学の 4 年制学士プログラム。',
         },
         {
+          icon: 'research',
           name: '修士・博士（研究）',
-          text: 'CSC 資金の研究ポジション — 指導教員とのマッチング、研究計画の調整、申請書類一式の管理まで行います。',
+          text: 'CSC および大学資金の研究ポジション — 指導教員とのマッチング、研究計画の調整、申請書類一式の管理まで行います。',
         },
       ],
     },
@@ -1021,6 +1253,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: '教育 FAQ', index: '05 / 05', title: '毎シーズン寄せられる質問', more: '教育に関する FAQ すべて' },
+    visas: {
+      eyebrow: 'ビザ区分',
+      index: 'VISA / 01',
+      title: '中国留学・渡航ビザの種類一覧',
+      lede: 'インド・アフリカ・中東・東南アジア・欧米など世界中の志願者の中国留学とビザ書類準備を一貫サポートします。',
+      items: [
+        { code: 'X1', title: '長期留学ビザ', duration: '> 180 日', text: '学位課程・MBBS・ディプロマ・1年語学留学向け。JW201/JW202と入学通知書が必要。' },
+        { code: 'X2', title: '短期留学ビザ', duration: '≤ 180 日', text: '1学期のHSK語学研修、サマースクール、180日未満の短期交流向け。' },
+        { code: 'M', title: '商業・貿易ビザ', duration: '領事判断による（通常 30–90 日）', text: '広州交易会バイヤー、工場視察、中国企業招待によるB2B商談向け。滞在日数は領事館の審査により決定されます。' },
+        { code: 'F', title: '学術・文化交流ビザ', duration: '領事判断による（通常 30–180 日）', text: '大学会議、研究訪問、非営利の教育・文化視察団向け。実際の滞在期間は領事官の判断に委ねられます。' },
+        { code: 'L', title: '観光ビザ', duration: '領事判断による（通常 30–60 日）', text: '観光、キャンパス見学、入学前の都市訪問向け。中国在住の家族訪問には Q2（中国公民・永住者の親族）または S2（外国人留学生・就労者の親族）ビザが必要です。' },
+      ],
+    },
   },
 
   pt: {
@@ -1051,7 +1296,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'Verifique seu perfil',
       secondaryCta: 'Ver programas',
-      jumps: ['Programas', 'Processo', 'Bolsas', 'Universidades', 'Candidatar-se', 'FAQ'],
+      jumps: ['Programas', 'Processo', 'Vistos', 'Bolsas', 'Universidades', 'Candidatar-se', 'FAQ'],
     },
     qa: {
       label: 'Resposta curta',
@@ -1066,31 +1311,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Programas',
       index: '01 / 05',
       title: 'O que você pode estudar',
-      lede: 'Cinco caminhos com idioma de ensino e ingresso declarados desde o início. As mensalidades são cotadas por universidade — um único número para um país inteiro seria um chute.',
+      lede: 'Oito trilhas de graduação e preparação abertas a candidatos internacionais da Índia, África, CCG, Sudeste Asiático, Ásia Central, Europa e Américas — com idioma de ensino e ingresso declarados desde o início.',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / Medicina',
-          text: 'Diplomas de medicina em inglês em universidades listadas pelo MOE e reconhecidas pela OMS, com treinamento HSK integrado e planejamento FMGE/NExT desde o primeiro dia.',
+          text: 'Diplomas de medicina em inglês em universidades listadas pelo MOE e reconhecidas pela OMS, com treinamento HSK integrado e planejamento FMGE/NExT, USMLE e PLAB desde o primeiro dia.',
         },
         {
-          name: 'Engenharia e tecnologia',
-          text: 'IA, robótica, civil, mecânica e elétrica em universidades conectadas à economia manufatureira da China.',
+          icon: 'allied',
+          name: 'Odontologia (BDS), Enfermagem e Farmácia',
+          text: 'Graduações reconhecidas em cirurgia dentária, enfermagem clínica e ciências farmacêuticas em universidades médicas provinciais com rotações hospitalares.',
         },
         {
-          name: 'Negócios e gestão',
-          text: 'Programas de BBA, MBA e finanças em inglês em Xangai e Pequim, com acesso a estágios em empresas.',
+          icon: 'engineering',
+          name: 'Engenharia e Ciência da Computação',
+          text: 'IA, software, robótica, civil, mecânica e elétrica em universidades conectadas à economia industrial da China.',
         },
         {
-          name: 'Língua chinesa (HSK)',
-          text: 'Trilhas HSK 1–6, do zero à prontidão para o diploma, com inscrição nos exames cuidada por nós.',
+          icon: 'business',
+          name: 'Negócios, Finanças e MBA',
+          text: 'Programas de BBA, MBA e comércio internacional em inglês em Xangai, Pequim e Hangzhou, com acesso a estágios em empresas.',
         },
         {
+          icon: 'language',
+          name: 'Língua chinesa (HSK 1–6)',
+          text: 'Trilhas preparatórias HSK de 1 semestre e 1 ano, do zero à prontidão para o diploma, com inscrição nos exames cuidada por nós.',
+        },
+        {
+          icon: 'diploma',
+          name: 'Diplomas e Trilhas Técnicas',
+          text: 'Diplomas aplicados de 2–3 anos em tecnologia, e-commerce, logística e hotelaria com prática em laboratório e passagem para graduação.',
+        },
+        {
+          icon: 'bachelors',
           name: 'Graduações',
-          text: 'Programas de graduação em economia, negócios internacionais, design e ciência da computação.',
+          text: 'Programas de graduação de 4 anos em economia, relações internacionais, arquitetura, design e ciências aplicadas.',
         },
         {
-          name: 'Mestrado e doutorado (pesquisa)',
-          text: 'Posições de pesquisa financiadas pelo CSC — conectamos você a orientadores, moldamos as propostas e gerenciamos o dossiê completo.',
+          icon: 'research',
+          name: 'Mestrado e Doutorado (pesquisa)',
+          text: 'Posições de pesquisa financiadas pelo CSC ou universidades — conectamos você a orientadores, moldamos as propostas e gerenciamos o dossiê completo.',
         },
       ],
     },
@@ -1156,6 +1417,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ de Educação', index: '05 / 05', title: 'Perguntadas a cada ciclo', more: 'Todas as FAQs de educação' },
+    visas: {
+      eyebrow: 'Vistos para a China',
+      index: 'VISA / 01',
+      title: 'Categorias de visto para estudantes e visitantes',
+      lede: 'Atendemos candidatos de todos os países elegíveis para estudar na China, preparando o dossiê completo de visto.',
+      items: [
+        { code: 'X1', title: 'Visto de estudante de longa duração', duration: '> 180 dias', text: 'Para graduação, MBBS, diploma, pós-graduação e ano completo de mandarim. Exige JW201/JW202.' },
+        { code: 'X2', title: 'Visto de estudo de curta duração', duration: '≤ 180 dias', text: 'Para um semestre de HSK, cursos de verão e intercâmbios abaixo de 180 dias.' },
+        { code: 'M', title: 'Visto de negócios e comércio', duration: 'Variável (geralmente 30–90 d; decisão consular)', text: 'Para compradores da Feira de Cantão, visitas a fábricas e reuniões B2B com carta-convite oficial; a permanência por entrada é definida pelo consulado.' },
+        { code: 'F', title: 'Intercâmbio acadêmico e cultural', duration: 'Variável (geralmente 30–180 d; decisão consular)', text: 'Para congressos universitários, visitas de pesquisa e delegações não comerciais; a duração real depende da decisão consular.' },
+        { code: 'L', title: 'Visto de turismo', duration: 'Variável (geralmente 30–60 d; decisão consular)', text: 'Para turismo, reconhecimento de campus ou visitas prévias à matrícula. Visitas familiares exigem visto Q2 (familiares de cidadãos/residentes permanentes chineses) ou S2 (familiares de estudantes/trabalhadores estrangeiros).' },
+      ],
+    },
   },
 
   hi: {
@@ -1185,7 +1459,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
       primaryCta: 'फ़िट जाँचें',
       secondaryCta: 'प्रोग्राम देखें',
-      jumps: ['प्रोग्राम', 'प्रक्रिया', 'छात्रवृत्ति', 'विश्वविद्यालय', 'आवेदन', 'FAQ'],
+      jumps: ['प्रोग्राम', 'प्रक्रिया', 'वीज़ा', 'छात्रवृत्ति', 'विश्वविद्यालय', 'आवेदन', 'FAQ'],
     },
     qa: {
       label: 'संक्षिप्त उत्तर',
@@ -1200,31 +1474,47 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'प्रोग्राम',
       index: '01 / 05',
       title: 'आप क्या पढ़ सकते हैं',
-      lede: 'पाँच रास्ते, पढ़ाई की भाषा और प्रवेश समय पहले से स्पष्ट। फ़ीस हर विश्वविद्यालय के हिसाब से — पूरे देश के लिए एक आँकड़ा केवल अंदाज़ा होगा।',
+      lede: 'भारत, अफ़्रीका, GCC, दक्षिण-पूर्व एशिया, मध्य एशिया, यूरोप और अमेरिका के अंतरराष्ट्रीय आवेदकों के लिए खुले आठ डिग्री और पाथवे ट्रैक — शिक्षण भाषा और प्रवेश समय पहले से स्पष्ट।',
       items: [
         {
+          icon: 'mbbs',
           name: 'MBBS / चिकित्सा',
-          text: 'MOE सूचीबद्ध, WHO-मान्यता प्राप्त विश्वविद्यालयों में अंग्रेज़ी-माध्यम चिकित्सा डिग्री, साथ में HSK प्रशिक्षण और पहले दिन से FMGE/NExT योजना।',
+          text: 'MOE सूचीबद्ध, WHO-मान्यता प्राप्त विश्वविद्यालयों में अंग्रेज़ी-माध्यम चिकित्सा डिग्री, साथ में HSK प्रशिक्षण और पहले दिन से FMGE/NExT, USMLE व PLAB योजना।',
         },
         {
-          name: 'इंजीनियरिंग और तकनीक',
-          text: 'AI, रोबोटिक्स, सिविल, मैकेनिकल और इलेक्ट्रिकल इंजीनियरिंग — ऐसे विश्वविद्यालयों में जो चीन की निर्माण अर्थव्यवस्था से जुड़े हैं।',
+          icon: 'allied',
+          name: 'BDS, नर्सिंग और फ़ार्मेसी',
+          text: 'प्रांतीय चिकित्सा विश्वविद्यालयों में अस्पताल लैब रोटेशन के साथ मान्यता प्राप्त डेंटल सर्जरी, क्लिनिकल नर्सिंग और फ़ार्मास्युटिकल साइंस डिग्री।',
         },
         {
-          name: 'बिज़नेस और मैनेजमेंट',
-          text: 'शंघाई और बीजिंग में अंग्रेज़ी-माध्यम BBA, MBA और फ़ाइनेंस प्रोग्राम, नियोक्ताओं में इंटर्नशिप के अवसरों के साथ।',
+          icon: 'engineering',
+          name: 'इंजीनियरिंग और कंप्यूटर साइंस',
+          text: 'AI, सॉफ़्टवेयर, रोबोटिक्स, सिविल, मैकेनिकल और इलेक्ट्रिकल इंजीनियरिंग — ऐसे विश्वविद्यालयों में जो चीन की औद्योगिक अर्थव्यवस्था से जुड़े हैं।',
         },
         {
-          name: 'चीनी भाषा (HSK)',
-          text: 'HSK 1–6 स्तरीय मार्ग, शून्य से डिग्री-तैयारी तक — परीक्षा पंजीकरण भी हमारी ओर से।',
+          icon: 'business',
+          name: 'बिज़नेस, फ़ाइनेंस और MBA',
+          text: 'शंघाई, बीजिंग और हांगझोऊ में अंग्रेज़ी-माध्यम BBA, MBA और अंतरराष्ट्रीय व्यापार प्रोग्राम, नियोक्ताओं में इंटर्नशिप के अवसरों के साथ।',
         },
         {
+          icon: 'language',
+          name: 'चीनी भाषा (HSK 1–6)',
+          text: 'ग़ैर-डिग्री 1-सेमेस्टर और 1-वर्षीय HSK पाथवे प्रोग्राम, शून्य मंदारिन से डिग्री-तैयारी तक — परीक्षा पंजीकरण भी हमारी ओर से।',
+        },
+        {
+          icon: 'diploma',
+          name: 'डिप्लोमा और व्यावसायिक ट्रैक',
+          text: 'प्रैक्टिकल लैब प्रशिक्षण और डिग्री-अपग्रेड मार्गों के साथ तकनीकी, ई-कॉमर्स, लॉजिस्टिक्स और हॉस्पिटैलिटी में 2–3 वर्षीय डिप्लोमा।',
+        },
+        {
+          icon: 'bachelors',
           name: 'स्नातक डिग्री',
-          text: 'अर्थशास्त्र, अंतरराष्ट्रीय व्यापार, डिज़ाइन और कंप्यूटर साइंस में स्नातक प्रोग्राम।',
+          text: 'अर्थशास्त्र, अंतरराष्ट्रीय संबंध, आर्किटेक्चर, डिज़ाइन और एप्लाइड साइंस में 4-वर्षीय स्नातक प्रोग्राम।',
         },
         {
+          icon: 'research',
           name: 'मास्टर्स और PhD (शोध)',
-          text: 'CSC-वित्तपोषित शोध स्थान — हम आपको पर्यवेक्षकों से मिलाते हैं, प्रस्ताव आकार देते हैं और पूरी फ़ाइल संभालते हैं।',
+          text: 'CSC और विश्वविद्यालय-वित्तपोषित शोध स्थान — हम आपको पर्यवेक्षकों से मिलाते हैं, प्रस्ताव आकार देते हैं और पूरी फ़ाइल संभालते हैं।',
         },
       ],
     },
@@ -1290,5 +1580,18 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'शिक्षा FAQ', index: '05 / 05', title: 'हर सत्र में पूछे जाने वाले', more: 'सभी शिक्षा FAQ' },
+    visas: {
+      eyebrow: 'वीज़ा मार्ग',
+      index: 'VISA / 01',
+      title: 'छात्रों और आगंतुकों के लिए चीन वीज़ा श्रेणियाँ',
+      lede: 'हम भारत, अफ़्रीका, GCC, दक्षिण-पूर्व एशिया, मध्य एशिया व विश्व भर के पात्र छात्रों को चीन में प्रवेश और सटीक वीज़ा फ़ाइल तैयार करने में मदद करते हैं।',
+      items: [
+        { code: 'X1', title: 'दीर्घकालिक छात्र वीज़ा', duration: '> 180 दिन', text: 'डिग्री, MBBS, डिप्लोमा व 1-वर्षीय चीनी भाषा के लिए। JW201/JW202 व प्रवेश पत्र आवश्यक; आगमन के 30 दिन में रेज़िडेंस परमिट में बदलता है।' },
+        { code: 'X2', title: 'अल्पकालिक अध्ययन वीज़ा', duration: '≤ 180 दिन', text: '1-सेमेस्टर HSK भाषा, समर स्कूल व 180 दिन से कम के शैक्षणिक आदान-प्रदान के लिए।' },
+        { code: 'M', title: 'व्यापार व बिज़नेस वीज़ा', duration: 'परिवर्तनशील (आमतौर पर 30–90 दिन; वाणिज्य दूतावास पर निर्भर)', text: 'कैंटन फ़ेयर ख़रीदारों, फ़ैक्टरी निरीक्षण व आधिकारिक निमंत्रण वाली B2B बैठकों के लिए; प्रत्येक प्रवेश की अवधि वाणिज्य दूतावास अधिकारी तय करते हैं।' },
+        { code: 'F', title: 'शैक्षणिक व सांस्कृतिक आदान-प्रदान', duration: 'परिवर्तनशील (आमतौर पर 30–180 दिन; वाणिज्य दूतावास पर निर्भर)', text: 'ग़ैर-व्यावसायिक विश्वविद्यालय सम्मेलन, शोध यात्रा व संस्थान प्रतिनिधिमंडल के लिए; वास्तविक ठहराव अवधि वाणिज्य दूतावास के निर्णय पर निर्भर है।' },
+        { code: 'L', title: 'पर्यटन वीज़ा', duration: 'परिवर्तनशील (आमतौर पर 30–60 दिन; वाणिज्य दूतावास पर निर्भर)', text: 'पर्यटन, कैंपस देखने या नामांकन-पूर्व शहर यात्रा के लिए। चीन में रहने वाले परिवार या छात्रों से मिलने के लिए Q2 (चीनी नागरिकों/स्थायी निवासियों के परिजन) या S2 (विदेशी छात्रों/कर्मचारियों के परिजन) वीज़ा आवश्यक है।' },
+      ],
+    },
   },
 };

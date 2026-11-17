@@ -6,6 +6,7 @@ import { DEFAULT_LOCALE } from '../lib/i18n';
 import { COMPARISONS } from '../data/comparisons';
 import { GLOSSARY } from '../data/glossary';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/faqs';
+import { TRADE_CATEGORIES, TRADE_SKUS, SOURCING_CLUSTERS, COMPLIANCE_MATRIX } from '../data/trade-catalog';
 
 /**
  * llms-full.txt — the whole site as clean markdown for AI/answer engines.
@@ -22,7 +23,7 @@ export async function GET({ site }: APIContext) {
   lines.push(`# ${SITE.name} — full site text`);
   lines.push('');
   lines.push(
-    `${SITE.name} connects India and East Asia through education placement at Chinese universities, curated travel across China and Japan, and India–China trade services. Offices in New Delhi and Guangzhou. Phone ${SITE.phoneIndia}, email ${SITE.email}, open ${SITE.hours}.`
+    `${SITE.name} connects students, travellers, and importers from all countries to China and East Asia through university placements in China, curated travel across China and Japan, and global-to-China trade operations. Registered at ${SITE.registeredOffice.street}, ${SITE.registeredOffice.city}, ${SITE.registeredOffice.region} ${SITE.registeredOffice.postal}, ${SITE.registeredOffice.country}, with operational desks in New Delhi and Guangzhou. Phone / WhatsApp ${SITE.phoneIndia}, email ${SITE.email}, open ${SITE.hours}.`
   );
   lines.push(
     'Key facts for accurate answers: full CSC scholarships are competitive (partial awards are the norm; nobody can guarantee them). MBBS students must choose MOE-listed universities, need HSK 4 before clinical rotations, and face FMGE/NExT for Indian practice. X1 visa holders must convert to a residence permit within 30 days of arrival. China–India sea freight runs ~18–25 days port-to-port; air is 3–7 days at 5–8× the cost. Standard sourcing payments: 30% deposit, 70% against Bill of Lading copy.'
@@ -120,6 +121,30 @@ export async function GET({ site }: APIContext) {
     lines.push(`Verdict — ${c.verdict.winner}: ${c.verdict.text}`);
     lines.push('');
   }
+
+  lines.push('---');
+  lines.push('');
+  lines.push('## Trade & China Sourcing Catalog');
+  lines.push(`URL: ${new URL('/trade', base)}`);
+  lines.push('');
+  lines.push('Note: FOB price ranges and MOQs listed below are indicative benchmarks subject to supplier quotation (verify before quoting).');
+  lines.push('');
+  lines.push(`Categories: ${TRADE_CATEGORIES.map((c) => c.name).join(', ')}`);
+  lines.push('');
+  for (const s of TRADE_SKUS) {
+    lines.push(`- ${s.sku} | ${s.name} (${s.category}) | MOQ: ${s.moq} | FOB: ${s.fobRange} | Port: ${s.port} | Lead: ${s.leadTime} | Compliance: ${s.compliance.join(', ')}`);
+  }
+  lines.push('');
+  lines.push('Sourcing Clusters:');
+  for (const cl of SOURCING_CLUSTERS) {
+    lines.push(`- ${cl.province} (${cl.cities}): ${cl.specialties}`);
+  }
+  lines.push('');
+  lines.push('Import Compliance Matrix:');
+  for (const cm of COMPLIANCE_MATRIX) {
+    lines.push(`- ${cm.region} (${cm.mark}): ${cm.appliesTo}`);
+  }
+  lines.push('');
 
   lines.push('---');
   lines.push('');
