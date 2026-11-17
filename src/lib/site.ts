@@ -84,6 +84,19 @@ export const CLAIMS = {
   scholarshipValue: '$2M+', // {{VERIFY}}
 } as const;
 
-export const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xjgpgllz';
+export const FORMSPREE_ENDPOINT =
+  import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xjgpgllz';
+
+export const ANALYTICS = {
+  /** Google Search Console verification token (<meta name="google-site-verification">). */
+  googleSiteVerification: import.meta.env.PUBLIC_GSC_VERIFICATION ?? '',
+  /** Google Analytics 4 Measurement ID, e.g. G-XXXXXXXXXX. */
+  gaMeasurementId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? '',
+  /** PostHog project API key, e.g. phc_... */
+  posthogKey:
+    import.meta.env.PUBLIC_POSTHOG_KEY || 'phc_z8MaPR5QeGzvWRva4eHEWUJHNh4FLXRyJSwsixT9qSta',
+  /** PostHog ingest host (defaults to US Cloud). */
+  posthogHost: import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
+} as const;
 
 export const CURRENT_YEAR = new Date().getFullYear();

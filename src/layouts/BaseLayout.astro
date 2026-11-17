@@ -10,6 +10,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Seo from '../components/Seo.astro';
 import SiteSchemas from '../components/SiteSchemas.astro';
+import Analytics from '../components/Analytics.astro';
 import ChatWidget from '../components/ChatWidget.astro';
 import { SITE } from '../lib/site';
 import { localeFromPath, LOCALE_META, stripLocalePrefix, translatePath, type Locale } from '../lib/i18n';
@@ -93,6 +94,7 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
     </Seo>
 
     <SiteSchemas />
+    <Analytics />
 
     {/* RTL overrides ship only to Arabic pages — see the import note above. */}
     {isRtl && <style is:inline set:html={rtlCss} />}
@@ -398,6 +400,9 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             const fd = new FormData(form);
             const pageLang = document.documentElement.lang;
             if (pageLang) fd.append('locale', pageLang);
+            if (!fd.has('serviceContext') && form.dataset.formType) {
+              fd.append('serviceContext', form.dataset.formType);
+            }
             const res = await fetch(FORMSPREE, {
               method: 'POST',
               body: fd,
@@ -405,6 +410,21 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             });
 
             if (status && res.ok) {
+              const formType = fd.get('serviceContext')?.toString() || form.dataset.formType || 'enquiry';
+              const win = window as Window & {
+                gtag?: (...args: unknown[]) => void;
+                posthog?: { capture?: (event: string, props?: Record<string, unknown>) => void };
+              };
+              win.gtag?.('event', 'form_submit', {
+                form_type: formType,
+                locale: pageLang || 'en',
+              });
+              win.posthog?.capture?.('form_submitted', {
+                form_type: formType,
+                locale: pageLang || 'en',
+                path: window.location.pathname,
+              });
+
               form.reset();
               status.className = 'form-status ok';
               status.textContent =

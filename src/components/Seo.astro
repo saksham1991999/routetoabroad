@@ -1,5 +1,5 @@
 ---
-import { SITE } from '../lib/site';
+import { ANALYTICS, SITE } from '../lib/site';
 import JsonLd from './JsonLd.astro';
 import { breadcrumbSchema } from '../lib/schema';
 import { LOCALES, LOCALE_META, DEFAULT_LOCALE, stripLocalePrefix, translatePath, type Locale } from '../lib/i18n';
@@ -81,6 +81,9 @@ const descMeta = trimDesc(description);
 
 <title>{fullTitle}</title>
 <meta name="description" content={descMeta} />
+{ANALYTICS.googleSiteVerification && (
+  <meta name="google-site-verification" content={ANALYTICS.googleSiteVerification} />
+)}
 <link rel="canonical" href={canonical} />
 {noindex && <meta name="robots" content="noindex, follow" />}
 {!noindex && <meta name="robots" content="index, follow, max-image-preview:large" />}
