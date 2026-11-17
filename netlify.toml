@@ -132,8 +132,9 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Brand icons are content-addressed by hand (regenerate via npm run icons:generate
-# and rename on breaking changes), so they cache like build assets.
+# Brand icons cache for a year. Bump the ?v= query in BaseLayout, the
+# manifest, and schema.ts when the artwork changes so old immutable
+# responses are not reused.
 [[headers]]
   for = "/favicon*"
   [headers.values]

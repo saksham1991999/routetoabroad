@@ -36,6 +36,7 @@ const isActive = (href: string) =>
   <div class="container-wide header-inner">
     <a href={translatePath('/', locale)} class="wordmark" aria-label={ui.headerWordmarkAria}>
       <Logo />
+      <Logo markOnly />
     </a>
 
     <nav class="main-nav" aria-label={ui.navAria}>
@@ -142,19 +143,19 @@ const isActive = (href: string) =>
     border-bottom-color: var(--line);
   }
 
-  /* The black instrument bands stay #0a0a0a in both themes, so their
-     scrim stays dark ink too. */
+  /* The instrument bands stay #0B1533 in both themes, so their
+     scrim stays Corridor Ink too. */
   body[data-chrome='home'][data-tone='dark'] .header-inner.is-condensed {
-    background: color-mix(in srgb, #0a0a0a 84%, transparent);
+    background: color-mix(in srgb, #0B1533 84%, transparent);
     border-bottom-color: rgba(255, 255, 255, 0.12);
   }
 
   body[data-chrome='home'][data-tone='dark'] .site-header {
-    color: #ffffff;
+    color: #F4F2EC;
   }
 
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .site-header {
-    color: #ffffff;
+    color: #F4F2EC;
   }
 
   .wordmark {
@@ -175,19 +176,26 @@ const isActive = (href: string) =>
     padding: 0.55rem 0 0.55rem 0.55rem;
   }
 
+  .wordmark :global(.logo.is-mark) { display: none; }
+
+  @media (max-width: 640px) {
+    .wordmark :global(.logo:not(.is-mark)) { display: none; }
+    .wordmark :global(.logo.is-mark) { display: inline-flex; }
+  }
+
   /* The homepage chrome sits over the hero composition, which follows the
      theme tokens — tone rules below still invert the chrome over dark bands. */
 
-  /* Over a dark band the primary pill must invert, not disappear. */
+  /* Over a dark band the primary pill stays Route Blue with Paper text. */
   body[data-chrome='home'][data-tone='dark'] .header-cta,
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-cta {
-    background: #f7f7f7;
-    color: #0a0a0a;
+    background: #2142E6;
+    color: #F4F2EC;
   }
 
   body[data-chrome='home'][data-tone='dark'] .header-cta:hover,
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .header-cta:hover {
-    background: #ffffff;
+    background: #3A58EA;
   }
 
   .main-nav ul {
@@ -257,12 +265,12 @@ const isActive = (href: string) =>
 
   body[data-chrome='home'][data-tone='dark'] .main-nav a:hover,
   body[data-chrome='home'][data-tone='dark'] .main-nav a.active {
-    color: #ffffff;
+    color: #F4F2EC;
   }
 
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .main-nav a:hover,
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .main-nav a.active {
-    color: #ffffff;
+    color: #F4F2EC;
   }
 
   .header-actions {
@@ -297,12 +305,12 @@ const isActive = (href: string) =>
   }
 
   body[data-chrome='home'][data-tone='dark'] .theme-toggle:hover {
-    color: #ffffff;
+    color: #F4F2EC;
     border-color: rgba(255, 255, 255, 0.55);
   }
 
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .theme-toggle:hover {
-    color: #ffffff;
+    color: #F4F2EC;
     border-color: rgba(255, 255, 255, 0.55);
   }
 
@@ -330,12 +338,12 @@ const isActive = (href: string) =>
   }
 
   body[data-chrome='home'][data-tone='dark'] .menu-toggle {
-    color: #ffffff;
+    color: #F4F2EC;
     border-color: rgba(255, 255, 255, 0.25);
   }
 
   html[data-theme='dark'] body[data-chrome='home'][data-tone='dark'] .menu-toggle {
-    color: #ffffff;
+    color: #F4F2EC;
     border-color: rgba(255, 255, 255, 0.25);
   }
 

@@ -171,7 +171,7 @@ const hasBody = Boolean(university.body && university.body.trim());
     font-size: var(--step-1);
     font-weight: 500;
     letter-spacing: -0.015em;
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .u-intro {
@@ -245,7 +245,7 @@ const hasBody = Boolean(university.body && university.body.trim());
   }
 
   .prog-list li::marker {
-    color: var(--accent);
+    color: var(--accent-text);
     font-weight: 700;
   }
 
@@ -292,7 +292,7 @@ const hasBody = Boolean(university.body && university.body.trim());
   }
 
   .u-cta {
-    background: #f0f0f0;
+    background: var(--paper-sunken);
   }
 
   :global([data-theme='dark']) .u-cta {

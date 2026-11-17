@@ -18,15 +18,16 @@ const here = dirname(fileURLToPath(import.meta.url));
 const publicDir = join(here, '..', 'public');
 const svgPath = join(publicDir, 'favicon.svg');
 
-// The SVG's natural size is 32px; density scales the rasterisation.
-const render = (size) => sharp(svgPath, { density: 72 * (size / 32) }).png();
+// The favicon is a square viewBox (~637 units) with no width/height.
+// Resize to the target square; density scaling assumed a 32px SVG and blows this up.
+const render = (size) => sharp(svgPath).resize(size, size, { fit: 'fill' }).png();
 
-// Full-bleed opaque square: the mark's rounded corners are invisible against
-// the same black, so iOS/Android masks never see transparency.
+// Opaque square on Route Blue (#2142E6), the same fill as the favicon tile.
+// Maskable padding stays blue so the safe-zone inset does not show another colour.
 async function opaque(size, markSize) {
   const mark = await render(markSize).toBuffer();
   return sharp({
-    create: { width: size, height: size, channels: 4, background: '#000000' },
+    create: { width: size, height: size, channels: 4, background: '#2142E6' },
   })
     .composite([{ input: mark, top: Math.round((size - markSize) / 2), left: Math.round((size - markSize) / 2) }])
     .png()
