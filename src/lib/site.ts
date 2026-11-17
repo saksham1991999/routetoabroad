@@ -94,7 +94,7 @@ export const ANALYTICS = {
   gaMeasurementId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? '',
   /** PostHog project API key, e.g. phc_... */
   posthogKey:
-    import.meta.env.PUBLIC_POSTHOG_KEY || 'phc_z8MaPR5QeGzvWRva4eHEWUJHNh4FLXRyJSwsixT9qSta',
+    import.meta.env.PUBLIC_POSTHOG_KEY ?? 'phc_z8MaPR5QeGzvWRva4eHEWUJHNh4FLXRyJSwsixT9qSta',
   /** PostHog ingest host (defaults to US Cloud). */
   posthogHost: import.meta.env.PUBLIC_POSTHOG_HOST || 'https://us.i.posthog.com',
 } as const;

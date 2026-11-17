@@ -415,15 +415,19 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
                 gtag?: (...args: unknown[]) => void;
                 posthog?: { capture?: (event: string, props?: Record<string, unknown>) => void };
               };
-              win.gtag?.('event', 'form_submit', {
-                form_type: formType,
-                locale: pageLang || 'en',
-              });
-              win.posthog?.capture?.('form_submitted', {
-                form_type: formType,
-                locale: pageLang || 'en',
-                path: window.location.pathname,
-              });
+              try {
+                win.gtag?.('event', 'form_submit', {
+                  form_type: formType,
+                  locale: pageLang || 'en',
+                });
+                win.posthog?.capture?.('form_submitted', {
+                  form_type: formType,
+                  locale: pageLang || 'en',
+                  path: window.location.pathname,
+                });
+              } catch {
+                // Analytics is best effort and must not change form success.
+              }
 
               form.reset();
               status.className = 'form-status ok';
