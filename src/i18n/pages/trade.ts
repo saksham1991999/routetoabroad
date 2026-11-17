@@ -64,6 +64,52 @@ export interface TradeStrings {
     lede: string;
     why: { lead: string; text: string }[];
   };
+  catalog: {
+    eyebrow: string;
+    index: string;
+    title: string;
+    lede: string;
+    searchLabel: string;
+    searchPlaceholder: string;
+    skuCount: string;
+    filterGroupLabel: string;
+    allCategories: string;
+    labels: {
+      moq: string;
+      fobRange: string;
+      port: string;
+      leadTime: string;
+      complianceMarks: string;
+    };
+    quote: string;
+    quoteAria: string;
+    quotePrefill: string;
+    empty: string;
+    toolBarText: string;
+    toolBarCta: string;
+  };
+  clusters: {
+    eyebrow: string;
+    index: string;
+    title: string;
+    lede: string;
+    specialtiesLabel: string;
+    portsLabel: string;
+  };
+  compliance: {
+    eyebrow: string;
+    index: string;
+    title: string;
+    lede: string;
+    headers: {
+      region: string;
+      marks: string;
+      authority: string;
+      appliesTo: string;
+      leadTime: string;
+      verification: string;
+    };
+  };
   faq: { eyebrow: string; index: string; title: string; more: string };
 }
 
@@ -187,6 +233,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'One team, both countries.', text: 'Delhi relationships, Guangzhou floor presence.' },
       ],
     },
+    catalog: {
+      eyebrow: 'Sourcing Catalog',
+      index: 'CAT / 08',
+      title: 'Verified SKUs & factory benchmarks',
+      lede: 'Filter 16 benchmark SKUs across 8 core manufacturing categories. Indicative FOB ranges, port of departure, MOQ and target compliance marks — ready for OEM customisation.',
+      searchLabel: 'Search SKUs, ports, or compliance marks',
+      searchPlaceholder: 'Search SKU, product, port, or compliance (e.g. BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKUs',
+      filterGroupLabel: 'Filter by product category',
+      allCategories: 'All categories',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'FOB Range',
+        port: 'Port',
+        leadTime: 'Lead Time',
+        complianceMarks: 'Compliance marks',
+      },
+      quote: 'Quote',
+      quoteAria: 'Request quote for {sku}: {name}',
+      quotePrefill: 'Quote request: {sku} — {name}',
+      empty: 'No SKUs match your current filter. Try clearing the search or selecting another category.',
+      toolBarText: 'Need FCL, LCL CBM, or air freight landed cost to India, GCC, Africa, EU, or Americas?',
+      toolBarCta: 'Open Landed Cost Estimator',
+    },
+    clusters: {
+      eyebrow: 'China Manufacturing Hubs',
+      index: 'HUB / 04',
+      title: 'Four industrial clusters, one QC team',
+      lede: 'We match your BOM to the province where tier-1 component suppliers and export ports actually sit — cutting domestic drayage and middleman markups.',
+      specialtiesLabel: 'Specialties:',
+      portsLabel: 'Primary ports:',
+    },
+    compliance: {
+      eyebrow: 'Import & Regulatory Matrix',
+      index: 'REG / 06',
+      title: 'Global & India compliance before dispatch',
+      lede: 'Certifications and pre-shipment inspections are verified at the factory gate so containers do not stall at destination customs.',
+      headers: {
+        region: 'Region',
+        marks: 'Marks',
+        authority: 'Authority',
+        appliesTo: 'Applies To',
+        leadTime: 'Lead Time',
+        verification: 'Verification',
+      },
+    },
     faq: { eyebrow: 'Trade FAQ', index: '04 / 04', title: 'Trade Intel, answered straight', more: 'All trade FAQs' },
   },
 
@@ -307,6 +399,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: '每个关卡都有证据。', text: '报告、照片、视频——都发生在钱动之前。' },
         { lead: '一个团队，两国落点。', text: '德里的人脉资源，广州的车间驻场。' },
       ],
+    },
+    catalog: {
+      eyebrow: '采购目录',
+      index: 'CAT / 08',
+      title: '已核验 SKU 与工厂基准报价',
+      lede: '按 8 大核心制造品类筛选 16 个基准 SKU。包含指示性 FOB 区间、起运港、最小起订量与目标认证标识——可直接用于 OEM 定制。',
+      searchLabel: '搜索 SKU、港口或认证标识',
+      searchPlaceholder: '搜索 SKU、产品、港口或认证（如 BIS、深圳、GaN）…',
+      skuCount: '{visible} / {total} 个 SKU',
+      filterGroupLabel: '按产品品类筛选',
+      allCategories: '全部品类',
+      labels: {
+        moq: '起订量 (MOQ)',
+        fobRange: 'FOB 区间',
+        port: '起运港',
+        leadTime: '交期',
+        complianceMarks: '合规认证',
+      },
+      quote: '询价',
+      quoteAria: '询价 {sku}：{name}',
+      quotePrefill: '询价请求：{sku} — {name}',
+      empty: '没有符合当前筛选条件的 SKU。请尝试清空搜索或选择其他品类。',
+      toolBarText: '需要测算发往印度、海湾国家、非洲、欧洲或美洲的整箱、拼箱 CBM 或空运到岸总成本？',
+      toolBarCta: '打开到岸成本估算器',
+    },
+    clusters: {
+      eyebrow: '中国产业带',
+      index: 'HUB / 04',
+      title: '四大产业集群，同一支品控团队',
+      lede: '我们将您的 BOM 精准匹配到一线核心零部件供应商与出口港口所在省份——大幅降低国内短驳费用与中间商加价。',
+      specialtiesLabel: '优势品类：',
+      portsLabel: '主要港口：',
+    },
+    compliance: {
+      eyebrow: '进口与合规矩阵',
+      index: 'REG / 06',
+      title: '出货前完成全球及印度合规核验',
+      lede: '所有认证与装船前检验均在工厂出厂前完成核验，避免货柜在目的港海关滞留。',
+      headers: {
+        region: '地区',
+        marks: '认证标识',
+        authority: '监管机构',
+        appliesTo: '适用产品',
+        leadTime: '周期',
+        verification: '核验方式',
+      },
     },
     faq: { eyebrow: '贸易常见问题', index: '04 / 04', title: 'Trade Intel，直答不绕弯', more: '查看全部贸易 FAQ' },
   },
@@ -430,6 +568,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'Une équipe, deux pays.', text: 'Relations à Delhi, présence à l’usine à Canton.' },
       ],
     },
+    catalog: {
+      eyebrow: 'Catalogue de sourcing',
+      index: 'CAT / 08',
+      title: 'SKU vérifiés et repères usine',
+      lede: 'Filtrez 16 SKU de référence répartis sur 8 catégories industrielles clés. Fourchettes FOB indicatives, port de départ, MOQ et marques de conformité — prêts pour la personnalisation OEM.',
+      searchLabel: 'Rechercher des SKU, ports ou marques de conformité',
+      searchPlaceholder: 'Rechercher SKU, produit, port ou norme (ex. BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKU',
+      filterGroupLabel: 'Filtrer par catégorie de produit',
+      allCategories: 'Toutes les catégories',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'Fourchette FOB',
+        port: 'Port',
+        leadTime: 'Délai',
+        complianceMarks: 'Marques de conformité',
+      },
+      quote: 'Devis',
+      quoteAria: 'Demander un devis pour {sku} : {name}',
+      quotePrefill: 'Demande de devis : {sku} — {name}',
+      empty: 'Aucun SKU ne correspond à votre filtre. Essayez d’effacer la recherche ou de choisir une autre catégorie.',
+      toolBarText: 'Besoin d’estimer le coût rendu FCL, LCL CBM ou aérien vers l’Inde, le CCG, l’Afrique, l’UE ou les Amériques ?',
+      toolBarCta: 'Ouvrir l’estimateur de coût rendu',
+    },
+    clusters: {
+      eyebrow: 'Pôles industriels en Chine',
+      index: 'HUB / 04',
+      title: 'Quatre bassins industriels, une seule équipe QC',
+      lede: 'Nous associons votre nomenclature à la province où se trouvent réellement les fournisseurs de rang 1 et les ports d’exportation — réduisant le transport intérieur et les intermédiaires.',
+      specialtiesLabel: 'Spécialités :',
+      portsLabel: 'Ports principaux :',
+    },
+    compliance: {
+      eyebrow: 'Matrice d’importation & conformité',
+      index: 'REG / 06',
+      title: 'Conformité mondiale et indienne avant expédition',
+      lede: 'Les certifications et inspections avant expédition sont vérifiées à la sortie d’usine afin d’éviter tout blocage en douane à destination.',
+      headers: {
+        region: 'Région',
+        marks: 'Marques',
+        authority: 'Autorité',
+        appliesTo: 'Concerne',
+        leadTime: 'Délai',
+        verification: 'Vérification',
+      },
+    },
     faq: { eyebrow: 'FAQ Commerce', index: '04 / 04', title: 'Trade Intel, réponses directes', more: 'Toutes les FAQ commerce' },
   },
 
@@ -550,6 +734,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'دليل عند كل بوابة.', text: 'تقارير وصور وفيديو — قبل أن يتحرك المال.' },
         { lead: 'فريق واحد، بلدان.', text: 'علاقات في دلهي وحضور على أرض المصانع في قوانغتشو.' },
       ],
+    },
+    catalog: {
+      eyebrow: 'كتالوج التوريد',
+      index: 'CAT / 08',
+      title: 'وحدات SKU موثّقة ومعايير المصانع',
+      lede: 'صفِّ 16 منتجاً مرجعياً عبر 8 فئات تصنيع رئيسية. نطاقات FOB استرشادية وميناء الشحن والحد الأدنى للطلب وعلامات المطابقة المستهدفة — جاهزة للتخصيص OEM.',
+      searchLabel: 'ابحث عن SKU أو ميناء أو علامة مطابقة',
+      searchPlaceholder: 'ابحث عن رمز SKU أو منتج أو ميناء أو مطابقة (مثل BIS، Shenzhen، GaN)…',
+      skuCount: '{visible} / {total} SKU',
+      filterGroupLabel: 'تصفية حسب فئة المنتج',
+      allCategories: 'كل الفئات',
+      labels: {
+        moq: 'الحد الأدنى للطلب',
+        fobRange: 'نطاق FOB',
+        port: 'الميناء',
+        leadTime: 'مدة التنفيذ',
+        complianceMarks: 'علامات المطابقة',
+      },
+      quote: 'عرض سعر',
+      quoteAria: 'اطلب عرض سعر للمنتج {sku}: {name}',
+      quotePrefill: 'طلب عرض سعر: {sku} — {name}',
+      empty: 'لا توجد منتجات تطابق التصفية الحالية. جرّب مسح البحث أو اختيار فئة أخرى.',
+      toolBarText: 'هل تحتاج إلى تقدير التكلفة الواصلة للحاويات FCL أو LCL أو الشحن الجوي إلى الهند أو الخليج أو أفريقيا أو أوروبا أو الأمريكتين؟',
+      toolBarCta: 'افتح حاسبة التكلفة الواصلة',
+    },
+    clusters: {
+      eyebrow: 'مراكز التصنيع في الصين',
+      index: 'HUB / 04',
+      title: 'أربعة تجمعات صناعية، فريق جودة واحد',
+      lede: 'نربط قائمة مكوناتك بالمقاطعة التي يتمركز فيها موردو الفئة الأولى وموانئ التصدير — مما يقلل النقل الداخلي وهوامش الوسطاء.',
+      specialtiesLabel: 'التخصصات:',
+      portsLabel: 'الموانئ الرئيسية:',
+    },
+    compliance: {
+      eyebrow: 'مصفوفة الاستيراد والامتثال',
+      index: 'REG / 06',
+      title: 'الامتثال العالمي والهندي قبل الشحن',
+      lede: 'يتم التحقق من الشهادات وفحوصات ما قبل الشحن عند بوابة المصنع حتى لا تتعطل الحاويات في جمارك الوجهة.',
+      headers: {
+        region: 'المنطقة',
+        marks: 'العلامات',
+        authority: 'الجهة',
+        appliesTo: 'ينطبق على',
+        leadTime: 'المدة',
+        verification: 'التحقق',
+      },
     },
     faq: { eyebrow: 'أسئلة التجارة الشائعة', index: '04 / 04', title: 'Trade Intel، إجابات مباشرة', more: 'كل أسئلة التجارة الشائعة' },
   },
@@ -673,6 +903,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'Un equipo, dos países.', text: 'Relaciones en Delhi, presencia en planta en Cantón.' },
       ],
     },
+    catalog: {
+      eyebrow: 'Catálogo de compras',
+      index: 'CAT / 08',
+      title: 'SKU verificados y referencias de fábrica',
+      lede: 'Filtre 16 SKU de referencia en 8 categorías industriales clave. Rangos FOB indicativos, puerto de embarque, MOQ y marcas de cumplimiento objetivo — listos para personalización OEM.',
+      searchLabel: 'Buscar SKU, puertos o marcas de cumplimiento',
+      searchPlaceholder: 'Buscar SKU, producto, puerto o norma (p. ej. BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKU',
+      filterGroupLabel: 'Filtrar por categoría de producto',
+      allCategories: 'Todas las categorías',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'Rango FOB',
+        port: 'Puerto',
+        leadTime: 'Plazo',
+        complianceMarks: 'Marcas de cumplimiento',
+      },
+      quote: 'Cotizar',
+      quoteAria: 'Solicitar cotización para {sku}: {name}',
+      quotePrefill: 'Solicitud de cotización: {sku} — {name}',
+      empty: 'Ningún SKU coincide con el filtro actual. Pruebe borrar la búsqueda o elegir otra categoría.',
+      toolBarText: '¿Necesita calcular el costo puesto en destino para FCL, LCL CBM o flete aéreo hacia India, CCG, África, UE o América?',
+      toolBarCta: 'Abrir calculadora de costo puesto en destino',
+    },
+    clusters: {
+      eyebrow: 'Polos industriales de China',
+      index: 'HUB / 04',
+      title: 'Cuatro clústeres industriales, un equipo de QC',
+      lede: 'Conectamos su lista de materiales con la provincia donde realmente operan los proveedores de primer nivel y los puertos de exportación — reduciendo el acarreo interno y los márgenes de intermediarios.',
+      specialtiesLabel: 'Especialidades:',
+      portsLabel: 'Puertos principales:',
+    },
+    compliance: {
+      eyebrow: 'Matriz de importación y cumplimiento',
+      index: 'REG / 06',
+      title: 'Cumplimiento global e indio antes del despacho',
+      lede: 'Las certificaciones e inspecciones previas al embarque se verifican a pie de fábrica para que los contenedores no queden retenidos en la aduana de destino.',
+      headers: {
+        region: 'Región',
+        marks: 'Marcas',
+        authority: 'Autoridad',
+        appliesTo: 'Aplica a',
+        leadTime: 'Plazo',
+        verification: 'Verificación',
+      },
+    },
     faq: { eyebrow: 'FAQ de Comercio', index: '04 / 04', title: 'Trade Intel, respuestas directas', more: 'Todas las FAQ de comercio' },
   },
 
@@ -795,6 +1071,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'Ein Team, zwei Länder.', text: 'Delhi-Beziehungen, Präsenz in der Werkshalle in Guangzhou.' },
       ],
     },
+    catalog: {
+      eyebrow: 'Beschaffungskatalog',
+      index: 'CAT / 08',
+      title: 'Geprüfte SKUs & Werksrichtwerte',
+      lede: 'Filtern Sie 16 Referenz-SKUs aus 8 zentralen Fertigungskategorien. Indikative FOB-Spannen, Abgangshafen, MOQ und Zielzertifizierungen — bereit für OEM-Anpassungen.',
+      searchLabel: 'SKUs, Häfen oder Prüfzeichen suchen',
+      searchPlaceholder: 'SKU, Produkt, Hafen oder Norm suchen (z. B. BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKUs',
+      filterGroupLabel: 'Nach Produktkategorie filtern',
+      allCategories: 'Alle Kategorien',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'FOB-Spanne',
+        port: 'Hafen',
+        leadTime: 'Lieferzeit',
+        complianceMarks: 'Prüfzeichen',
+      },
+      quote: 'Anfragen',
+      quoteAria: 'Angebot für {sku} anfordern: {name}',
+      quotePrefill: 'Angebotsanfrage: {sku} — {name}',
+      empty: 'Keine SKUs entsprechen Ihrem Filter. Setzen Sie die Suche zurück oder wählen Sie eine andere Kategorie.',
+      toolBarText: 'Benötigen Sie die Landed-Cost-Schätzung für FCL, LCL CBM oder Luftfracht nach Indien, GCC, Afrika, EU oder Amerika?',
+      toolBarCta: 'Landed-Cost-Rechner öffnen',
+    },
+    clusters: {
+      eyebrow: 'Chinas Fertigungszentren',
+      index: 'HUB / 04',
+      title: 'Vier Industriecluster, ein QC-Team',
+      lede: 'Wir ordnen Ihre Stückliste der Provinz zu, in der Tier-1-Komponentenlieferanten und Exporthäfen tatsächlich sitzen — und sparen so Vorlaufkosten und Zwischenhändlermargen.',
+      specialtiesLabel: 'Schwerpunkte:',
+      portsLabel: 'Haupthäfen:',
+    },
+    compliance: {
+      eyebrow: 'Import- & Compliance-Matrix',
+      index: 'REG / 06',
+      title: 'Globale & indische Compliance vor Versand',
+      lede: 'Zertifizierungen und Vorversandprüfungen werden direkt am Werkstor verifiziert, damit Container am Zielzoll nicht stecken bleiben.',
+      headers: {
+        region: 'Region',
+        marks: 'Prüfzeichen',
+        authority: 'Behörde',
+        appliesTo: 'Gilt für',
+        leadTime: 'Vorlaufzeit',
+        verification: 'Prüfung',
+      },
+    },
     faq: { eyebrow: 'Handels-FAQ', index: '04 / 04', title: 'Trade Intel, geradeheraus beantwortet', more: 'Alle Handels-FAQs' },
   },
 
@@ -915,6 +1237,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: '各ゲートに証拠。', text: 'レポート、写真、動画 — お金が動く前に。' },
         { lead: 'ひとつのチーム、両国に足場。', text: 'デリーの人脈、広州の現場力。' },
       ],
+    },
+    catalog: {
+      eyebrow: '調達カタログ',
+      index: 'CAT / 08',
+      title: '検証済み SKU と工場ベンチマーク',
+      lede: '8つの主要製造カテゴリーにわたる16のベンチマーク SKU を絞り込み。参考 FOB 価格帯、積出港、MOQ、対象認証マーク — OEM カスタマイズ対応。',
+      searchLabel: 'SKU、港、または認証マークを検索',
+      searchPlaceholder: 'SKU、製品、港、認証を検索（例：BIS、Shenzhen、GaN）…',
+      skuCount: '{visible} / {total} SKU',
+      filterGroupLabel: '製品カテゴリーで絞り込む',
+      allCategories: 'すべてのカテゴリー',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'FOB 価格帯',
+        port: '積出港',
+        leadTime: 'リードタイム',
+        complianceMarks: '適合認証マーク',
+      },
+      quote: '見積依頼',
+      quoteAria: '{sku} の見積を依頼：{name}',
+      quotePrefill: '見積依頼：{sku} — {name}',
+      empty: '現在の条件に一致する SKU がありません。検索をクリアするか別のカテゴリーをお選びください。',
+      toolBarText: 'インド、GCC、アフリカ、欧州、米州向けの FCL、LCL CBM、航空貨物の着地コスト試算が必要ですか？',
+      toolBarCta: '着地コスト見積ツールを開く',
+    },
+    clusters: {
+      eyebrow: '中国の製造ハブ',
+      index: 'HUB / 04',
+      title: '4つの産業クラスター、1つの QC チーム',
+      lede: 'Tier-1 部品サプライヤーと輸出港が実際に立地する省へ BOM を直結させ、国内輸送費と仲介マージンを削減します。',
+      specialtiesLabel: '主要品目：',
+      portsLabel: '主要港：',
+    },
+    compliance: {
+      eyebrow: '輸入・規制マトリックス',
+      index: 'REG / 06',
+      title: '出荷前のグローバルおよびインド規制適合',
+      lede: '認証および出荷前検査を工場出荷時に確認し、仕向地税関でのコンテナ滞留を防ぎます。',
+      headers: {
+        region: '地域',
+        marks: '認証マーク',
+        authority: '管轄機関',
+        appliesTo: '対象品目',
+        leadTime: '所要期間',
+        verification: '確認方法',
+      },
     },
     faq: { eyebrow: '貿易 FAQ', index: '04 / 04', title: 'Trade Intel への率直な回答', more: '貿易に関する FAQ すべて' },
   },
@@ -1038,6 +1406,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'Uma equipe, dois países.', text: 'Relações em Délhi, presença no chão de fábrica em Guangzhou.' },
       ],
     },
+    catalog: {
+      eyebrow: 'Catálogo de sourcing',
+      index: 'CAT / 08',
+      title: 'SKUs verificados e referências de fábrica',
+      lede: 'Filtre 16 SKUs de referência em 8 categorias industriais principais. Faixas FOB indicativas, porto de embarque, MOQ e selos de conformidade — prontos para personalização OEM.',
+      searchLabel: 'Buscar SKUs, portos ou selos de conformidade',
+      searchPlaceholder: 'Buscar SKU, produto, porto ou norma (ex.: BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKUs',
+      filterGroupLabel: 'Filtrar por categoria de produto',
+      allCategories: 'Todas as categorias',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'Faixa FOB',
+        port: 'Porto',
+        leadTime: 'Prazo',
+        complianceMarks: 'Selos de conformidade',
+      },
+      quote: 'Cotar',
+      quoteAria: 'Solicitar cotação para {sku}: {name}',
+      quotePrefill: 'Solicitação de cotação: {sku} — {name}',
+      empty: 'Nenhum SKU corresponde ao filtro atual. Tente limpar a busca ou escolher outra categoria.',
+      toolBarText: 'Precisa estimar o custo landed para FCL, LCL CBM ou frete aéreo para Índia, GCC, África, UE ou Américas?',
+      toolBarCta: 'Abrir estimador de custo landed',
+    },
+    clusters: {
+      eyebrow: 'Polos industriais da China',
+      index: 'HUB / 04',
+      title: 'Quatro clusters industriais, uma equipe de QC',
+      lede: 'Conectamos sua lista de materiais à província onde os fornecedores de nível 1 e os portos de exportação realmente estão — reduzindo frete interno e margens de intermediários.',
+      specialtiesLabel: 'Especialidades:',
+      portsLabel: 'Portos principais:',
+    },
+    compliance: {
+      eyebrow: 'Matriz de importação e conformidade',
+      index: 'REG / 06',
+      title: 'Conformidade global e indiana antes do embarque',
+      lede: 'Certificações e inspeções pré-embarque são verificadas na porta da fábrica para que os contêineres não fiquem retidos na alfândega de destino.',
+      headers: {
+        region: 'Região',
+        marks: 'Selos',
+        authority: 'Autoridade',
+        appliesTo: 'Aplica-se a',
+        leadTime: 'Prazo',
+        verification: 'Verificação',
+      },
+    },
     faq: { eyebrow: 'FAQ de Comércio', index: '04 / 04', title: 'Trade Intel, respostas diretas', more: 'Todas as FAQs de comércio' },
   },
 
@@ -1158,6 +1572,52 @@ export const TRADE: Record<Locale, TradeStrings> = {
         { lead: 'हर गेट पर साक्ष्य।', text: 'रिपोर्ट, फ़ोटो, वीडियो — पैसा चलने से पहले।' },
         { lead: 'एक टीम, दोनों देश।', text: 'दिल्ली के संबंध, ग्वांगज़ू की फ़्लोर उपस्थिति।' },
       ],
+    },
+    catalog: {
+      eyebrow: 'सोर्सिंग कैटलॉग',
+      index: 'CAT / 08',
+      title: 'सत्यापित SKU और फ़ैक्टरी बेंचमार्क',
+      lede: '8 प्रमुख विनिर्माण श्रेणियों में 16 बेंचमार्क SKU फ़िल्टर करें। सांकेतिक FOB रेंज, प्रस्थान बंदरगाह, MOQ और लक्षित अनुपालन चिह्न — OEM कस्टमाइज़ेशन के लिए तैयार।',
+      searchLabel: 'SKU, बंदरगाह या अनुपालन चिह्न खोजें',
+      searchPlaceholder: 'SKU, उत्पाद, बंदरगाह या मानक खोजें (जैसे BIS, Shenzhen, GaN)…',
+      skuCount: '{visible} / {total} SKU',
+      filterGroupLabel: 'उत्पाद श्रेणी के अनुसार फ़िल्टर करें',
+      allCategories: 'सभी श्रेणियाँ',
+      labels: {
+        moq: 'MOQ',
+        fobRange: 'FOB रेंज',
+        port: 'बंदरगाह',
+        leadTime: 'लीड टाइम',
+        complianceMarks: 'अनुपालन चिह्न',
+      },
+      quote: 'कोटेशन लें',
+      quoteAria: '{sku} के लिए कोटेशन अनुरोध करें: {name}',
+      quotePrefill: 'कोटेशन अनुरोध: {sku} — {name}',
+      empty: 'वर्तमान फ़िल्टर से कोई SKU मेल नहीं खाता। खोज साफ़ करें या दूसरी श्रेणी चुनें।',
+      toolBarText: 'भारत, GCC, अफ्रीका, EU या अमेरिका के लिए FCL, LCL CBM या एयर फ्रेट की लैंडेड कॉस्ट जानना चाहते हैं?',
+      toolBarCta: 'लैंडेड कॉस्ट अनुमानक खोलें',
+    },
+    clusters: {
+      eyebrow: 'चीन के विनिर्माण केंद्र',
+      index: 'HUB / 04',
+      title: 'चार औद्योगिक क्लस्टर, एक QC टीम',
+      lede: 'हम आपके BOM को उसी प्रांत से जोड़ते हैं जहाँ टियर-1 कंपोनेंट सप्लायर और निर्यात बंदरगाह वास्तव में स्थित हैं — जिससे घरेलू ढुलाई और बिचौलियों का मार्जिन कम होता है।',
+      specialtiesLabel: 'विशेषज्ञता:',
+      portsLabel: 'प्रमुख बंदरगाह:',
+    },
+    compliance: {
+      eyebrow: 'आयात और नियामक मैट्रिक्स',
+      index: 'REG / 06',
+      title: 'डिस्पैच से पहले वैश्विक और भारतीय अनुपालन',
+      lede: 'प्रमाणन और प्री-शिपमेंट निरीक्षण फ़ैक्टरी गेट पर ही सत्यापित किए जाते हैं ताकि गंतव्य कस्टम पर कंटेनर न अटकें।',
+      headers: {
+        region: 'क्षेत्र',
+        marks: 'चिह्न',
+        authority: 'प्राधिकरण',
+        appliesTo: 'लागू उत्पाद',
+        leadTime: 'अवधि',
+        verification: 'सत्यापन',
+      },
     },
     faq: { eyebrow: 'व्यापार FAQ', index: '04 / 04', title: 'Trade Intel, सीधे जवाब', more: 'सभी व्यापार FAQ' },
   },

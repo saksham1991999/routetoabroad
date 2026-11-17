@@ -79,6 +79,14 @@ export interface TradeCostStrings {
     copyLink: string;
     linkCopied: string;
     copyFailed: string;
+    originBasis: string;
+    dutyBasis: string;
+    destBasis: string;
+    totalBasis: string;
+    basisFcl20: string;
+    basisFcl40hq: string;
+    basisLcl: string;
+    basisAir: string;
   };
 }
 
@@ -162,6 +170,14 @@ const en: TradeCostStrings = {
     copyLink: 'Copy link',
     linkCopied: 'Link copied',
     copyFailed: 'Copy failed',
+    originBasis: 'THC + B/L',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'Port + CHB',
+    totalBasis: 'CIF + Duty + Port',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg vol.',
   },
 };
 
@@ -237,13 +253,21 @@ const zh: TradeCostStrings = {
     daysAir: '机场到机场 {d} 天',
     modeShort: { fcl20: '20GP', fcl40hq: '40HQ', lcl: 'LCL 拼箱', air: '空运' },
     originShort: { shenzhen: '深圳', guangzhou: '广州', ningbo: '宁波', shanghai: '上海' },
-    destShort: { india: '印度', gcc: '中东', africa: '非洲', europe: '欧美/英', americas: '美洲', sea: '东南亚' },
+    destShort: { india: '印度', gcc: '中东', africa: '非洲', europe: '欧洲/英', americas: '美洲', sea: '东南亚' },
     note: '即期运价随船司舱位与旺季附加费每周波动。如需锁定 14 天有效报价，请提交正式询盘。',
     ctaQuote: '获取锁定报价',
     ctaCatalog: '浏览采购目录',
     copyLink: '复制链接',
     linkCopied: '链接已复制',
     copyFailed: '复制失败',
+    originBasis: '起运港 THC + 提单费',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: '目的港杂费 + 清关',
+    totalBasis: 'CIF + 关税 + 港杂',
+    basisFcl20: '{n} × 20GP 整箱',
+    basisFcl40hq: '{n} × 40HQ 高箱',
+    basisLcl: '{cbm} 立方米',
+    basisAir: '{kg} 公斤计费重',
   },
 };
 
@@ -327,6 +351,14 @@ const fr: TradeCostStrings = {
     copyLink: 'Copier le lien',
     linkCopied: 'Lien copié',
     copyFailed: 'Échec de la copie',
+    originBasis: 'THC + connaissement',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'Port + courtier',
+    totalBasis: 'CIF + droits + port',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg vol.',
   },
 };
 
@@ -410,6 +442,14 @@ const ar: TradeCostStrings = {
     copyLink: 'نسخ الرابط',
     linkCopied: 'تم نسخ الرابط',
     copyFailed: 'فشل النسخ',
+    originBasis: 'مناولة المنشأ + بوليصة الشحن',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'الميناء + التخليص',
+    totalBasis: 'CIF + الرسوم + الميناء',
+    basisFcl20: '{n} × حاوية 20 قدماً',
+    basisFcl40hq: '{n} × حاوية 40 قدماً HQ',
+    basisLcl: '{cbm} م³',
+    basisAir: '{kg} كجم حجمي',
   },
 };
 
@@ -493,6 +533,14 @@ const es: TradeCostStrings = {
     copyLink: 'Copiar enlace',
     linkCopied: 'Enlace copiado',
     copyFailed: 'Error al copiar',
+    originBasis: 'THC + B/L',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'Puerto + agente aduanal',
+    totalBasis: 'CIF + arancel + puerto',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg vol.',
   },
 };
 
@@ -576,6 +624,14 @@ const de: TradeCostStrings = {
     copyLink: 'Link kopieren',
     linkCopied: 'Link kopiert',
     copyFailed: 'Kopieren fehlgeschlagen',
+    originBasis: 'THC + Konnossement',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'Hafen + Zollagent',
+    totalBasis: 'CIF + Zoll + Hafen',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg Vol.',
   },
 };
 
@@ -659,6 +715,14 @@ const ja: TradeCostStrings = {
     copyLink: 'リンクをコピー',
     linkCopied: 'コピーしました',
     copyFailed: 'コピー失敗',
+    originBasis: 'THC + B/L',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: '港湾料 + 通関',
+    totalBasis: 'CIF + 関税 + 港湾料',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg 容積',
   },
 };
 
@@ -742,6 +806,14 @@ const pt: TradeCostStrings = {
     copyLink: 'Copiar link',
     linkCopied: 'Link copiado',
     copyFailed: 'Falha ao copiar',
+    originBasis: 'THC + B/L',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'Porto + despachante',
+    totalBasis: 'CIF + imposto + porto',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} kg vol.',
   },
 };
 
@@ -825,6 +897,14 @@ const hi: TradeCostStrings = {
     copyLink: 'लिंक कॉपी करें',
     linkCopied: 'लिंक कॉपी हो गया',
     copyFailed: 'कॉपी विफल',
+    originBasis: 'THC + B/L',
+    dutyBasis: '{lo}% – {hi}% CIF',
+    destBasis: 'पोर्ट + कस्टम ब्रोकर',
+    totalBasis: 'CIF + शुल्क + पोर्ट',
+    basisFcl20: '{n} × 20ft FCL',
+    basisFcl40hq: '{n} × 40ft HQ',
+    basisLcl: '{cbm} CBM',
+    basisAir: '{kg} किग्रा वॉल्यूम',
   },
 };
 

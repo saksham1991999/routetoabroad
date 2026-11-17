@@ -19,10 +19,10 @@ const ui = uiFor(locale);
   <div class="chat-fab-stack">
     <a
       class="wa-fab"
-      href={`${SITE.whatsapp}?text=${encodeURIComponent('Hi RouteToAbroad, I would like guidance on studying, travelling, or sourcing from China.')}`}
+      href={`${SITE.whatsapp}?text=${encodeURIComponent(ui.chat.whatsappPrefill)}`}
       target="_blank"
       rel="noopener noreferrer"
-      aria-label={`WhatsApp ${SITE.phoneIndia}`}
+      aria-label={ui.chat.whatsappAria.replace('{phone}', SITE.phoneIndia)}
     >
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
         <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.5 8.5 0 0 1-12.6 7.45L3 20l1.1-4.8A8.5 8.5 0 1 1 21 11.5Z" />
@@ -126,7 +126,7 @@ const ui = uiFor(locale);
   .wa-fab:hover {
     transform: translateY(-2px);
     border-color: var(--accent);
-    color: var(--accent);
+    color: var(--accent-text);
   }
 
   .wa-fab svg {

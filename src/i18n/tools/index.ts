@@ -55,12 +55,12 @@ const en: ToolsIndexStrings = {
 
 const zh: ToolsIndexStrings = {
   title: '免费工具 — 适配检查、费用计算器、奖学金与签证规划',
-  description: '五个中国留学免费工具：四个问题的适配检查、奖学金资格档位、费用计算器、文件清单生成器和申请时间线规划器。',
+  description: '六个中国留学与外贸免费工具：四个问题的适配检查、奖学金资格档位、费用计算器、文件清单生成器、申请时间线规划器和外贸到岸成本与整箱/拼箱估算器。',
   crumb: '工具',
   hero: {
     eyebrow: '免费工具',
     title: '先有答案，再有建议。',
-    lede: '五个快速工具，在您联系我们之前就给出真实的数字和坦诚的判断。没有邮箱门槛，没有虚假的精确。',
+    lede: '六个快速工具，在您联系我们之前就给出真实的数字和坦诚的判断。没有邮箱门槛，没有虚假的精确。',
     facts: [
       { label: '工具', value: '6 个免费' },
       { label: '耗时', value: '1–3 分钟' },
@@ -89,12 +89,12 @@ const zh: ToolsIndexStrings = {
 const fr: ToolsIndexStrings = {
   title: 'Outils gratuits — test de compatibilité, calculateur de coûts, bourses et visa',
   description:
-    'Cinq outils gratuits pour étudier en Chine : un test de compatibilité en quatre questions, des fourchettes d’éligibilité aux bourses, un calculateur de coûts, un générateur de liste de documents et un planificateur de calendrier de candidature.',
+    'Six outils gratuits pour étudier en Chine : un test de compatibilité en quatre questions, des fourchettes d’éligibilité aux bourses, un calculateur de coûts, un générateur de liste de documents et un planificateur de calendrier de candidature.',
   crumb: 'Outils',
   hero: {
     eyebrow: 'Outils gratuits',
     title: 'Des réponses avant les conseils.',
-    lede: 'Cinq outils rapides qui vous donnent de vrais chiffres et des avis honnêtes avant même de nous parler. Pas de mur d’e-mail, pas de fausse précision.',
+    lede: 'Six outils rapides qui vous donnent de vrais chiffres et des avis honnêtes avant même de nous parler. Pas de mur d’e-mail, pas de fausse précision.',
     facts: [
       { label: 'Outils', value: '06 gratuits' },
       { label: 'Durée', value: '1–3 minutes' },
@@ -123,12 +123,12 @@ const fr: ToolsIndexStrings = {
 const ar: ToolsIndexStrings = {
   title: 'أدوات مجانية — فحص الملاءمة وحاسبة التكاليف والمنح وتخطيط التأشيرة',
   description:
-    'خمس أدوات مجانية للدراسة في الصين: فحص ملاءمة من أربعة أسئلة، ونطاقات أهلية المنح، وحاسبة تكاليف، ومولّد قائمة مستندات، ومخطط جدول زمني للتقديم.',
+    'ست أدوات مجانية للدراسة في الصين: فحص ملاءمة من أربعة أسئلة، ونطاقات أهلية المنح، وحاسبة تكاليف، ومولّد قائمة مستندات، ومخطط جدول زمني للتقديم.',
   crumb: 'الأدوات',
   hero: {
     eyebrow: 'أدوات مجانية',
     title: 'إجابات قبل النصيحة.',
-    lede: 'خمس أدوات سريعة تعطيك أرقاماً حقيقية وقراءات صادقة قبل أن تتحدث إلينا. بلا حواجز بريد إلكتروني، وبلا دقة زائفة.',
+    lede: 'ست أدوات سريعة تعطيك أرقاماً حقيقية وقراءات صادقة قبل أن تتحدث إلينا. بلا حواجز بريد إلكتروني، وبلا دقة زائفة.',
     facts: [
       { label: 'الأدوات', value: '06 مجانية' },
       { label: 'الوقت', value: '1–3 دقائق' },
@@ -157,12 +157,12 @@ const ar: ToolsIndexStrings = {
 const es: ToolsIndexStrings = {
   title: 'Herramientas gratis — prueba de compatibilidad, calculadora de costos, becas y visa',
   description:
-    'Cinco herramientas gratis para estudiar en China: una prueba de compatibilidad de cuatro preguntas, rangos de elegibilidad para becas, una calculadora de costos, un generador de lista de documentos y un planificador de cronograma de solicitud.',
+    'Seis herramientas gratis para estudiar en China: una prueba de compatibilidad de cuatro preguntas, rangos de elegibilidad para becas, una calculadora de costos, un generador de lista de documentos y un planificador de cronograma de solicitud.',
   crumb: 'Herramientas',
   hero: {
     eyebrow: 'Herramientas gratis',
     title: 'Respuestas antes que consejos.',
-    lede: 'Cinco herramientas rápidas que le dan cifras reales y lecturas honestas antes de hablar con nosotros. Sin muros de correo electrónico, sin falsa precisión.',
+    lede: 'Seis herramientas rápidas que le dan cifras reales y lecturas honestas antes de hablar con nosotros. Sin muros de correo electrónico, sin falsa precisión.',
     facts: [
       { label: 'Herramientas', value: '06 gratis' },
       { label: 'Tiempo', value: '1–3 minutos' },
@@ -191,12 +191,12 @@ const es: ToolsIndexStrings = {
 const de: ToolsIndexStrings = {
   title: 'Kostenlose Tools — Eignungscheck, Kostenrechner, Stipendien & Visum-Planung',
   description:
-    'Fünf kostenlose Tools für ein Studium in China: ein Eignungscheck mit vier Fragen, Stipendien-Stufen, ein Kostenrechner, ein Dokumenten-Checklisten-Generator und ein Bewerbungszeitplaner.',
+    'Sechs kostenlose Tools für ein Studium in China: ein Eignungscheck mit vier Fragen, Stipendien-Stufen, ein Kostenrechner, ein Dokumenten-Checklisten-Generator und ein Bewerbungszeitplaner.',
   crumb: 'Tools',
   hero: {
     eyebrow: 'Kostenlose Tools',
     title: 'Erst die Antwort, dann der Rat.',
-    lede: 'Fünf schnelle Tools, die Ihnen echte Zahlen und ehrliche Einschätzungen liefern, bevor Sie überhaupt mit uns sprechen. Keine E-Mail-Hürden, keine Scheingenauigkeit.',
+    lede: 'Sechs schnelle Tools, die Ihnen echte Zahlen und ehrliche Einschätzungen liefern, bevor Sie überhaupt mit uns sprechen. Keine E-Mail-Hürden, keine Scheingenauigkeit.',
     facts: [
       { label: 'Tools', value: '06 kostenlos' },
       { label: 'Zeit', value: '1–3 Minuten' },
@@ -224,12 +224,12 @@ const de: ToolsIndexStrings = {
 
 const ja: ToolsIndexStrings = {
   title: '無料ツール — 適性チェック、費用計算、奨学金・ビザ計画',
-  description: '中国留学のための5つの無料ツール：4つの質問の適性チェック、奨学金受給ランク、費用計算ツール、書類チェックリスト生成ツール、出願スケジュールプランナー。',
+  description: '中国留学のための6つの無料ツール：4つの質問の適性チェック、奨学金受給ランク、費用計算ツール、書類チェックリスト生成ツール、出願スケジュールプランナー。',
   crumb: 'ツール',
   hero: {
     eyebrow: '無料ツール',
     title: 'まず答え、その後にアドバイス。',
-    lede: 'ご連絡いただく前に、実際の数字と正直な評価をお届けする5つのクイックツール。メールアドレスの登録も、見せかけの精度もありません。',
+    lede: 'ご連絡いただく前に、実際の数字と正直な評価をお届けする6つのクイックツール。メールアドレスの登録も、見せかけの精度もありません。',
     facts: [
       { label: 'ツール', value: '6つ無料' },
       { label: '所要時間', value: '1〜3分' },
@@ -258,12 +258,12 @@ const ja: ToolsIndexStrings = {
 const pt: ToolsIndexStrings = {
   title: 'Ferramentas gratuitas — teste de compatibilidade, calculadora de custos, bolsas e planejamento de visto',
   description:
-    'Cinco ferramentas gratuitas para estudar na China: um teste de compatibilidade de quatro perguntas, faixas de elegibilidade para bolsas, uma calculadora de custos, um gerador de lista de documentos e um planejador de cronograma de candidatura.',
+    'Seis ferramentas gratuitas para estudar na China: um teste de compatibilidade de quatro perguntas, faixas de elegibilidade para bolsas, uma calculadora de custos, um gerador de lista de documentos e um planejador de cronograma de candidatura.',
   crumb: 'Ferramentas',
   hero: {
     eyebrow: 'Ferramentas gratuitas',
     title: 'Respostas antes dos conselhos.',
-    lede: 'Cinco ferramentas rápidas que trazem números reais e leituras honestas antes de você falar conosco. Sem barreiras de e-mail, sem precisão falsa.',
+    lede: 'Seis ferramentas rápidas que trazem números reais e leituras honestas antes de você falar conosco. Sem barreiras de e-mail, sem precisão falsa.',
     facts: [
       { label: 'Ferramentas', value: '06 gratuitas' },
       { label: 'Tempo', value: '1–3 minutos' },
@@ -291,12 +291,12 @@ const pt: ToolsIndexStrings = {
 
 const hi: ToolsIndexStrings = {
   title: 'मुफ़्त टूल्स — फिट चेक, लागत कैलकुलेटर, छात्रवृत्ति और वीज़ा योजना',
-  description: 'चीन में पढ़ाई के लिए पाँच मुफ़्त टूल्स: चार सवालों का फिट चेक, छात्रवृत्ति पात्रता स्तर, लागत कैलकुलेटर, दस्तावेज़ चेकलिस्ट जेनरेटर और आवेदन टाइमलाइन प्लानर।',
+  description: 'चीन में पढ़ाई के लिए छह मुफ़्त टूल्स: चार सवालों का फिट चेक, छात्रवृत्ति पात्रता स्तर, लागत कैलकुलेटर, दस्तावेज़ चेकलिस्ट जेनरेटर और आवेदन टाइमलाइन प्लानर।',
   crumb: 'टूल्स',
   hero: {
     eyebrow: 'मुफ़्त टूल्स',
     title: 'पहले जवाब, फिर सलाह।',
-    lede: 'पाँच त्वरित टूल्स जो हमसे बात करने से पहले ही असली आंकड़े और ईमानदार आकलन देते हैं। न ईमेल की दीवार, न कृत्रिम सटीकता।',
+    lede: 'छह त्वरित टूल्स जो हमसे बात करने से पहले ही असली आंकड़े और ईमानदार आकलन देते हैं। न ईमेल की दीवार, न कृत्रिम सटीकता।',
     facts: [
       { label: 'टूल्स', value: '06 मुफ़्त' },
       { label: 'समय', value: '1–3 मिनट' },

@@ -93,7 +93,7 @@ const t = TRADE_COST_STRINGS[locale];
           <div class="calc-row">
             <div class="field">
               <label for="tcalc-fob">{t.labels.fobValue}</label>
-              <input id="tcalc-fob" type="number" min="500" step="500" value="15000" />
+              <input id="tcalc-fob" type="number" min="500" max="5000000" step="500" value="15000" />
             </div>
             <div class="field">
               <label for="tcalc-cbm">{t.labels.volume}</label>
@@ -252,8 +252,8 @@ const t = TRADE_COST_STRINGS[locale];
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .field-missing select,
-    .field-missing input {
+    .field.field-missing select,
+    .field.field-missing input {
       animation: none;
     }
   }
@@ -451,13 +451,16 @@ const t = TRADE_COST_STRINGS[locale];
     const fob = parseFloat((document.getElementById('tcalc-fob') as HTMLInputElement).value);
     const cbm = parseFloat((document.getElementById('tcalc-cbm') as HTMLInputElement).value);
 
+    const fobValid = Number.isFinite(fob) && fob >= 500 && fob <= 5000000;
+    const cbmValid = Number.isFinite(cbm) && cbm >= 1 && cbm <= 100;
+
     const missing = [
       !origin && 'tcalc-origin',
       !dest && 'tcalc-dest',
       !mode && 'tcalc-mode',
       !cat && 'tcalc-cat',
-      (!fob || fob < 100) && 'tcalc-fob',
-      (!cbm || cbm <= 0) && 'tcalc-cbm',
+      !fobValid && 'tcalc-fob',
+      !cbmValid && 'tcalc-cbm',
     ].filter(Boolean) as string[];
 
     if (missing.length) {
@@ -483,26 +486,28 @@ const t = TRADE_COST_STRINGS[locale];
     let destHi = 360;
 
     if (mode === 'fcl20') {
-      freightLo = lane.fcl20[0] * mult;
-      freightHi = lane.fcl20[1] * mult;
-      freightBasis = '1 × 20ft FCL';
-      originLo = 260;
-      originHi = 380;
-      destLo = 350;
-      destHi = 550;
+      const containers = Math.ceil(cbm / 28);
+      freightLo = lane.fcl20[0] * mult * containers;
+      freightHi = lane.fcl20[1] * mult * containers;
+      freightBasis = T.basisFcl20.replace('{n}', String(containers));
+      originLo = 260 * containers;
+      originHi = 380 * containers;
+      destLo = 350 * containers;
+      destHi = 550 * containers;
     } else if (mode === 'fcl40hq') {
-      freightLo = lane.fcl40hq[0] * mult;
-      freightHi = lane.fcl40hq[1] * mult;
-      freightBasis = '1 × 40ft HQ';
-      originLo = 340;
-      originHi = 490;
-      destLo = 480;
-      destHi = 740;
+      const containers = Math.ceil(cbm / 68);
+      freightLo = lane.fcl40hq[0] * mult * containers;
+      freightHi = lane.fcl40hq[1] * mult * containers;
+      freightBasis = T.basisFcl40hq.replace('{n}', String(containers));
+      originLo = 340 * containers;
+      originHi = 490 * containers;
+      destLo = 480 * containers;
+      destHi = 740 * containers;
     } else if (mode === 'lcl') {
       const billableCbm = Math.max(1, cbm);
       freightLo = lane.lcl[0] * billableCbm * mult;
       freightHi = lane.lcl[1] * billableCbm * mult;
-      freightBasis = `${billableCbm} CBM`;
+      freightBasis = T.basisLcl.replace('{cbm}', String(billableCbm));
       originLo = 110 + billableCbm * 18;
       originHi = 170 + billableCbm * 25;
       destLo = 180 + billableCbm * 22;
@@ -511,7 +516,7 @@ const t = TRADE_COST_STRINGS[locale];
       const kg = Math.max(45, Math.round(cbm * 167));
       freightLo = lane.airKg[0] * kg * mult;
       freightHi = lane.airKg[1] * kg * mult;
-      freightBasis = `${kg} kg vol.`;
+      freightBasis = T.basisAir.replace('{kg}', String(kg));
       originLo = 120;
       originHi = 210;
       destLo = 160;
@@ -572,12 +577,12 @@ const t = TRADE_COST_STRINGS[locale];
           </thead>
           <tbody>
             <tr><td>${T.fobRow}</td><td>100%</td><td>${fmt(fob)}</td></tr>
-            <tr><td>${T.originRow}</td><td>THC + B/L</td><td>${fmt(originLo)} – ${fmt(originHi)}</td></tr>
+            <tr><td>${T.originRow}</td><td>${T.originBasis}</td><td>${fmt(originLo)} – ${fmt(originHi)}</td></tr>
             <tr><td>${T.freightRow}</td><td>${freightBasis}</td><td>${fmt(freightLo)} – ${fmt(freightHi)}</td></tr>
             <tr><td>${T.insuranceRow}</td><td>0.35% – 0.50%</td><td>${fmt(insLo)} – ${fmt(insHi)}</td></tr>
-            <tr><td>${T.dutyRow}</td><td>${Math.round(dutyPctLo * 100)}% – ${Math.round(dutyPctHi * 100)}% CIF</td><td>${fmt(dutyLo)} – ${fmt(dutyHi)}</td></tr>
-            <tr><td>${T.destRow}</td><td>Port + CHB</td><td>${fmt(destLo)} – ${fmt(destHi)}</td></tr>
-            <tr><td><strong>${T.totalRow}</strong></td><td><strong>CIF + Duty + Port</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
+            <tr><td>${T.dutyRow}</td><td>${T.dutyBasis.replace('{lo}', String(Math.round(dutyPctLo * 100))).replace('{hi}', String(Math.round(dutyPctHi * 100)))}</td><td>${fmt(dutyLo)} – ${fmt(dutyHi)}</td></tr>
+            <tr><td>${T.destRow}</td><td>${T.destBasis}</td><td>${fmt(destLo)} – ${fmt(destHi)}</td></tr>
+            <tr><td><strong>${T.totalRow}</strong></td><td><strong>${T.totalBasis}</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
           </tbody>
         </table>
         <p class="cost-note">${T.note}</p>

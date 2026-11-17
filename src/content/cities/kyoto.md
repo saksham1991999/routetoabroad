@@ -12,7 +12,7 @@ touristDaily:
   low: 90
   high: 220
 highlights:
-  - title: 'Fushimi Inari & Kiyomizu-dera'
+  - title: 'Fushimi Inari & Arashiyama'
     text: 'Arrive before 07:00 at Fushimi Inari''s vermilion torii gates or Arashiyama''s bamboo grove to experience Kyoto before tour buses arrive.'
   - title: 'Gion & Higashiyama lanes'
     text: 'Stone-paved slopes, wooden teahouses, and preserved machiya districts offer the clearest window into historic urban Japan.'

@@ -6,16 +6,17 @@ citySlug: 'kunming'
 type: 'medical'
 founded: '1933'
 nickname: 'Spring City medical hub with mild year-round climate'
-intro: 'Kunming Medical University (KMU) is Yunnan Province''s largest and highest-ranked medical institution, widely chosen by international students for its MOE/WHO/NMC-listed English MBBS, low living costs, and Kunming''s mild year-round weather.'
+intro: 'Kunming Medical University (KMU) is Yunnan Province''s largest and highest-ranked medical institution, widely chosen by international students for its MOE-listed and WDOMS-listed English MBBS, low living costs, and Kunming''s mild year-round weather.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'University study environment representing Kunming Medical University'
 strengths:
   - title: 'Spring City climate & comfort'
     text: 'Kunming''s temperate plateau climate (15–25°C most of the year) makes it one of the easiest transitions in China for students from South Asia, Africa, and Southeast Asia.'
-  - title: 'Full MOE & WDOMS recognition'
-    text: 'Approved by China''s MOE for English-medium MBBS and listed in WDOMS, supporting NMC FMGE/NExT, USMLE, PLAB, and home-country medical licensing.'
+  - title: 'MOE & WDOMS listing'
+    text: 'Included on China''s MOE list for English-medium MBBS and in WDOMS; graduates should verify current eligibility rules with their home-country medical council (ECFMG, GMC/PLAB, NMC FMGE/NExT, etc.).'
   - title: 'Budget-friendly tuition & living'
     text: 'Significantly lower tuition and dormitory costs than eastern coastal cities while maintaining modern Chenggong campus facilities.'
+  # {{VERIFY}} Confirm current international student nationality count
   - title: 'Large international cohort'
     text: 'Active international student offices and established student associations from over 40 countries.'
 programmes:
@@ -37,10 +38,9 @@ facts:
   - label: 'Climate'
     value: 'Mild year-round ("Spring City")'
 recognitions:
-  - 'MOE China'
-  - 'WHO'
-  - 'WDOMS'
-  - 'NMC'
+  - 'MOE-listed (verify current intake)'
+  - 'WDOMS-listed'
+# {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
 scholarships: 'Yunnan Provincial Government Scholarship & KMU International Student Merit Awards'
 taughtLanguages:
@@ -50,6 +50,8 @@ hskRequirement: 'None at entry for English MBBS; HSK 4 required prior to clinica
 faqs:
   - question: 'Is Kunming Medical University good for international students on a budget?'
     answer: 'Yes. KMU offers one of the most cost-effective MOE-listed English MBBS programmes in China, with total annual tuition and dorm costs often under US$5,500.'
+  - question: 'Are KMU MBBS graduates eligible for home-country medical licensing?'
+    answer: 'KMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'How far is Kunming from major international flight hubs?'
     answer: 'Kunming Changshui International Airport has direct or one-stop connections across South Asia, Southeast Asia, and the Middle East, as well as frequent domestic flights to Beijing, Shanghai, and Guangzhou.'
 order: 9

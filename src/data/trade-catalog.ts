@@ -106,6 +106,7 @@ export const TRADE_CATEGORIES: TradeCategory[] = [
   },
 ];
 
+// {{VERIFY}} Indicative FOB ranges and MOQ benchmarks below are subject to current supplier quotation.
 export const TRADE_SKUS: TradeSku[] = [
   {
     id: 'sku-anc-tws',
@@ -193,7 +194,7 @@ export const TRADE_SKUS: TradeSku[] = [
     fobRange: 'US$9,800 – $14,200',
     port: 'Guangzhou (Nansha)',
     leadTime: '35 days',
-    compliance: ['CE', 'ISO 9001', 'CDSCO'],
+    compliance: ['CE', 'ISO 9001', 'RoHS'],
   },
   {
     id: 'sku-gan-65w',
@@ -281,7 +282,7 @@ export const TRADE_SKUS: TradeSku[] = [
     fobRange: 'US$0.07 – $0.14',
     port: 'Qingdao / Ningbo',
     leadTime: '18 days',
-    compliance: ['FDA', 'ISO 9001', 'CDSCO'],
+    compliance: ['FDA', 'ISO 9001', 'FSSAI'],
   },
 ];
 

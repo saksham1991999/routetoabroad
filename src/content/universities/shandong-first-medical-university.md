@@ -7,15 +7,15 @@ type: 'medical'
 founded: '1974'
 nickname: 'Major provincial medical powerhouse across Jinan and Tai''an'
 intro: 'Shandong First Medical University (SDFMU) — formed by merging Taishan Medical University and the Shandong Academy of Medical Sciences — is a top-tier provincial medical university offering English MBBS, BDS, Nursing, and Pharmacy across modern campuses in Jinan and Tai''an.'
-image: '../../assets/images/city-shanghai.jpg'
-imageAlt: 'Modern medical research and university campus representing Shandong First Medical University'
+image: '../../assets/images/blog-mbbs.jpg'
+imageAlt: 'Medical training and laboratory environment representing Shandong First Medical University'
 strengths:
   - title: 'Expanded research & hospital scale'
     text: 'Combines Taishan Medical''s decades of international MBBS teaching with the Shandong Academy of Medical Sciences'' research institutes and provincial hospitals.'
   - title: 'Broad health-science degrees'
     text: 'Beyond English MBBS, international students can pursue Dental Surgery (BDS), Nursing, Pharmacy, and Medical Imaging.'
-  - title: 'Strong licensing track record'
-    text: 'Long-standing alumni network across India, Pakistan, Nepal, Africa, and the Middle East with solid pass rates on national medical screening exams.'
+  - title: 'Established international alumni network'
+    text: 'Long-standing alumni community across South Asia, Africa, and the Middle East pursuing medical licensing pathways worldwide.'
   - title: 'Dual-city campus advantage'
     text: 'Students benefit from Jinan''s provincial capital medical centres and Tai''an''s scenic, affordable Mount Tai university environment.'
 programmes:
@@ -37,11 +37,9 @@ facts:
   - label: 'Status'
     value: 'Provincial key medical university'
 recognitions:
-  - 'MOE China'
-  - 'WHO'
-  - 'WDOMS'
-  - 'NMC'
-  - 'ECFMG / WFME'
+  - 'MOE-listed (verify current intake)'
+  - 'WDOMS-listed'
+# {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main intake)'
 scholarships: 'Shandong Provincial Government Scholarship & SDFMU International Student Scholarship'
 taughtLanguages:
@@ -50,9 +48,11 @@ taughtLanguages:
 hskRequirement: 'No HSK at entry for English MBBS; HSK 4 required prior to clinical internship/graduation'
 faqs:
   - question: 'Is Shandong First Medical University the same as Taishan Medical University?'
-    answer: 'Yes. In 2019 Taishan Medical University merged with the Shandong Academy of Medical Sciences to form Shandong First Medical University (SDFMU), significantly upgrading its research funding and hospital network.'
+    answer: 'No — it is the successor institution. In 2019 Taishan Medical University merged with the Shandong Academy of Medical Sciences to form Shandong First Medical University (SDFMU), expanding its research funding and affiliated hospital network.'
   - question: 'Does SDFMU offer Dentistry (BDS) and Pharmacy in addition to MBBS?'
     answer: 'Yes. SDFMU offers Clinical Medicine (MBBS), Stomatology (BDS), Nursing, and Pharmacy, making it suitable for students across allied health fields.'
+  - question: 'Are SDFMU MBBS graduates eligible for international medical licensing exams?'
+    answer: 'SDFMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 14
 ---
 

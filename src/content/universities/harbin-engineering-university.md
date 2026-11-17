@@ -15,7 +15,7 @@ strengths:
   - title: 'World-class Marine & CS labs'
     text: 'Ranked among the global top tier in Marine & Ocean Engineering, Automation, Robotics, and Computer Science.'
   - title: 'Strong CSC scholarship quota'
-    text: 'High-priority CSC host university for English-taught master''s and PhD programmes, covering tuition, dormitory, and a monthly living stipend.'
+    text: 'CSC host university for English-taught master''s and PhD programmes; full awards cover tuition, dormitory, and a monthly living stipend for successful scholarship award recipients.'
   - title: 'Low-cost northern research city'
     text: 'Harbin combines European-influenced architecture and famous winter culture with very affordable off-campus and dormitory living costs.'
 programmes:
@@ -25,7 +25,7 @@ programmes:
   - 'Nuclear Science & Energy Engineering'
   - 'International Business & Management (English-taught)'
 costs:
-  tuition: 'RMB 20,000–32,000/yr (~US$2,800–4,450/yr); 100% covered by CSC'
+  tuition: 'RMB 20,000–32,000/yr (~US$2,800–4,450/yr); 100% covered only for successful CSC scholarship award recipients'
   dorm: 'RMB 5,000–8,000/yr (~US$700–1,100/yr) on campus'
   living: 'US$220–350/month in Harbin'
 facts:

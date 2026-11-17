@@ -137,27 +137,27 @@ const hasBody = Boolean(university.body && university.body.trim());
             </dl>
             <a href={translatePath('/tools/cost-calculator', locale)} class="btn btn-outline btn-sm">{t.costs.estimateCta}</a>
             <button type="button" class="btn btn-ghost btn-sm u-print-btn" data-print-sheet>
-              Print / Save Fee Sheet
+              {t.costs.printSheet}
             </button>
           </div>
 
-          <div class="u-card card card-pad" data-reveal>
+          <div class="u-card u-facts-card card card-pad" data-reveal>
             <h2>{t.facts.title}</h2>
             <dl class="facts">
               {data.facts.map((f) => (
                 <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
               ))}
-              {data.intakes && (
-                <div><dt>Intakes</dt><dd>{data.intakes}</dd></div>
+              {data.intakes && !data.facts.some((f) => f.label.toLowerCase() === 'intakes' || f.label === t.facts.intakes) && (
+                <div><dt>{t.facts.intakes}</dt><dd>{data.intakes}</dd></div>
               )}
               {data.taughtLanguages && data.taughtLanguages.length > 0 && (
-                <div><dt>Taught in</dt><dd>{data.taughtLanguages.join(' / ')}</dd></div>
+                <div><dt>{t.facts.taughtIn}</dt><dd>{data.taughtLanguages.join(' / ')}</dd></div>
               )}
               {data.hskRequirement && (
-                <div><dt>HSK</dt><dd>{data.hskRequirement}</dd></div>
+                <div><dt>{t.facts.hsk}</dt><dd>{data.hskRequirement}</dd></div>
               )}
               {data.scholarships && (
-                <div><dt>Scholarships</dt><dd>{data.scholarships}</dd></div>
+                <div><dt>{t.facts.scholarships}</dt><dd>{data.scholarships}</dd></div>
               )}
             </dl>
           </div>
@@ -356,9 +356,26 @@ const hasBody = Boolean(university.body && university.body.trim());
   }
 
   @media print {
+    .u-hero {
+      padding-block: 0 1rem;
+    }
+    .u-hero :global(nav),
+    .u-hero .eyebrow,
+    .u-hero .u-nickname,
+    .u-hero .u-intro,
+    .u-hero .u-badges,
+    .u-media,
+    .u-main,
+    .prose,
+    .u-facts-card,
+    .u-cta,
     .u-print-btn,
-    .u-cta {
+    .u-card .btn,
+    :global(.cta-band) {
       display: none !important;
+    }
+    .u-grid {
+      grid-template-columns: 1fr;
     }
     .u-side {
       position: static;

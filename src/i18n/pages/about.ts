@@ -46,6 +46,7 @@ export interface AboutStrings {
     /** Parenthetical appended after SITE.founded. */
     foundedNote: string;
     officesLabel: string;
+    registeredLabel: string;
     emailLabel: string;
     phoneLabel: string;
     hoursLabel: string;
@@ -112,6 +113,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'Founded',
       foundedNote: '',
       officesLabel: 'Offices',
+      registeredLabel: 'Registered',
       emailLabel: 'Email',
       phoneLabel: 'Phone',
       hoursLabel: 'Hours',
@@ -187,6 +189,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: '成立年份',
       foundedNote: '（深耕走廊十余年）',
       officesLabel: '办公室',
+      registeredLabel: '注册地址',
       emailLabel: '邮箱',
       phoneLabel: '电话',
       hoursLabel: '工作时间',
@@ -263,6 +266,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'Fondation',
       foundedNote: '(présents sur le corridor depuis plus d’une décennie)',
       officesLabel: 'Bureaux',
+      registeredLabel: 'Siège enregistré',
       emailLabel: 'E-mail',
       phoneLabel: 'Téléphone',
       hoursLabel: 'Horaires',
@@ -338,6 +342,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'تأسست',
       foundedNote: '(حاضرون على الممر لأكثر من عقد)',
       officesLabel: 'المكاتب',
+      registeredLabel: 'المقر المسجل',
       emailLabel: 'البريد الإلكتروني',
       phoneLabel: 'الهاتف',
       hoursLabel: 'ساعات العمل',
@@ -414,6 +419,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'Fundación',
       foundedNote: '(en el corredor desde hace más de una década)',
       officesLabel: 'Oficinas',
+      registeredLabel: 'Sede registrada',
       emailLabel: 'Correo',
       phoneLabel: 'Teléfono',
       hoursLabel: 'Horario',
@@ -490,6 +496,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'Gegründet',
       foundedNote: '(seit über einem Jahrzehnt im Korridor)',
       officesLabel: 'Büros',
+      registeredLabel: 'Registrierter Sitz',
       emailLabel: 'E-Mail',
       phoneLabel: 'Telefon',
       hoursLabel: 'Öffnungszeiten',
@@ -565,6 +572,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: '設立',
       foundedNote: '（回廊での活動は 10 年以上）',
       officesLabel: '事務所',
+      registeredLabel: '登記住所',
       emailLabel: 'メール',
       phoneLabel: '電話',
       hoursLabel: '受付時間',
@@ -641,6 +649,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'Fundação',
       foundedNote: '(presentes no corredor há mais de uma década)',
       officesLabel: 'Escritórios',
+      registeredLabel: 'Sede registrada',
       emailLabel: 'E-mail',
       phoneLabel: 'Telefone',
       hoursLabel: 'Horário',
@@ -716,6 +725,7 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       foundedLabel: 'स्थापना',
       foundedNote: '(दशक से अधिक समय से गलियारे में)',
       officesLabel: 'कार्यालय',
+      registeredLabel: 'पंजीकृत कार्यालय',
       emailLabel: 'ईमेल',
       phoneLabel: 'फ़ोन',
       hoursLabel: 'समय',

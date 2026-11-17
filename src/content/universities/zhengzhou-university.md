@@ -7,8 +7,8 @@ type: 'comprehensive'
 founded: '1956'
 nickname: 'Double First-Class comprehensive giant in Central China'
 intro: 'Zhengzhou University (ZZU) is a national Double First-Class and Project 211 comprehensive university in Henan Province — offering English-taught MBBS, MBA, Computer Science, and Civil Engineering alongside generous CSC and provincial scholarships.'
-image: '../../assets/images/city-beijing.jpg'
-imageAlt: 'Modern Chinese university city skyline representing Zhengzhou University'
+image: '../../assets/images/hero-campus-ink.jpg'
+imageAlt: 'University campus architecture representing Zhengzhou University'
 strengths:
   - title: 'Double First-Class & 211 pedigree'
     text: 'One of China''s largest comprehensive universities by enrolment and research output, carrying strong national and international employer recognition.'
@@ -35,14 +35,14 @@ facts:
     value: 'Double First-Class / Project 211'
   - label: 'Best for'
     value: 'MBBS, MBA, CS, CSC scholarship applicants'
+  # {{VERIFY}} Confirm current international student enrolment count
   - label: 'International cohort'
     value: '2,500+ international students'
 recognitions:
-  - 'MOE China'
-  - 'WHO'
-  - 'WDOMS'
-  - 'NMC'
+  - 'MOE-listed (verify current intake)'
+  - 'WDOMS-listed'
   - 'CSC Designated'
+# {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main), March (select language/postgraduate programmes)'
 scholarships: 'CSC Type A/B Scholarships, Henan Government Scholarship, and ZZU President Scholarship'
 taughtLanguages:
@@ -53,7 +53,7 @@ faqs:
   - question: 'Can I apply for CSC scholarships at Zhengzhou University?'
     answer: 'Yes. Zhengzhou University is a CSC-designated university for master''s, PhD, and select undergraduate tracks, and also administers Henan Provincial Government Scholarships.'
   - question: 'Is Zhengzhou University''s MBBS recognized internationally?'
-    answer: 'Yes. ZZU is MOE-listed and included in WDOMS, allowing graduates to apply for USMLE/ECFMG, PLAB, NMC FMGE/NExT, and other national medical licensing exams.'
+    answer: 'ZZU is included in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 10
 ---
 

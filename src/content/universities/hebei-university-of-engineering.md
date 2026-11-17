@@ -5,13 +5,14 @@ city: 'Handan'
 citySlug: 'handan'
 type: 'technical'
 founded: '1958'
-nickname: 'Washington Accord engineering hub in North China'
-intro: 'Hebei University of Engineering (HEBEU) in Handan is a specialized technical university recognized for Civil, Mechanical, and Architectural Engineering — offering Washington Accord-aligned engineering tracks and practical degrees for international students at low northern living costs.'
+nickname: 'Applied engineering university in North China'
+intro: 'Hebei University of Engineering (HEBEU) in Handan is a specialized technical university recognized for Civil, Mechanical, and Architectural Engineering — offering engineering tracks aligned with China''s Washington Accord-participating accreditation framework (verify programme-level accreditation for your specific intake) and practical degrees for international students at low northern living costs.'
 image: '../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'Engineering campus architecture representing Hebei University of Engineering'
 strengths:
-  - title: 'Engineering accreditation & rigour'
-    text: 'Core Civil and Mechanical Engineering curricula align with China''s Washington Accord engineering education standards, supporting global degree recognition.'
+  # {{VERIFY}} Confirm which specific engineering majors at HEBEU hold current CEEAA/Washington Accord programme-level accreditation
+  - title: 'Programme-level engineering standards'
+    text: 'Selected Civil and Mechanical Engineering curricula follow China''s CEEAA/Washington Accord outcome-based standards — verify current programme-level accreditation status for your intended major.'
   - title: 'Practical infrastructure focus'
     text: 'Strong faculties in Civil Engineering, Water Resources, Architecture, Mechanical Design, and Computer Science with hands-on laboratory training.'
   - title: 'Low cost of attendance'
@@ -39,7 +40,8 @@ facts:
     value: '4 years (BEng) / 2–3 years (MEng)'
 recognitions:
   - 'MOE China'
-  - 'Washington Accord (Engineering)'
+  # {{VERIFY}} Confirm which specific engineering majors at HEBEU hold current CEEAA/Washington Accord programme-level accreditation
+  - 'Washington Accord (select accredited programmes)'
 intakes: 'September (main), March (Chinese language preparatory)'
 scholarships: 'Hebei Provincial Government Scholarship & HEBEU International Student Awards'
 taughtLanguages:
@@ -47,8 +49,8 @@ taughtLanguages:
   - 'Chinese'
 hskRequirement: 'No HSK at entry for English-medium cohorts / 1-yr Chinese prep; HSK 4 required for Chinese-taught engineering degrees'
 faqs:
-  - question: 'Why does Washington Accord alignment matter for engineering students?'
-    answer: 'China is a full signatory to the Washington Accord, meaning accredited Chinese engineering programmes follow internationally benchmarked outcomes recognized across signatory countries including the US, UK, Australia, India, Singapore, and Malaysia.'
+  - question: 'Why does Washington Accord recognition matter for engineering students?'
+    answer: 'China is a full signatory to the Washington Accord through CEEAA, meaning specific accredited engineering programmes (rather than an entire university) follow internationally benchmarked outcomes recognized across signatory countries. Always verify whether your exact degree track at HEBEU holds current programme-level accreditation.'
   - question: 'What is Handan like for international students?'
     answer: 'Handan is a historic, affordable northern city with a brand-new modern university campus and direct high-speed rail links to Beijing and Zhengzhou.'
 order: 15

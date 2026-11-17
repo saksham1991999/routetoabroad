@@ -63,7 +63,8 @@ const process = t.process.steps;
         sku: s.sku,
         category: s.category,
         description: `${s.moq} · ${s.fobRange} · ${s.port}`,
-      }))
+      })),
+      translatePath('/trade', locale)
     ),
     faqSchema(pageFaqs),
   ]}
@@ -174,33 +175,40 @@ const process = t.process.steps;
   <section class="section section-sunken" id="catalog">
     <div class="container">
       <SectionHead
-        eyebrow="Sourcing Catalog"
-        index="CAT / 08"
-        title="Verified SKUs & factory benchmarks"
-        lede="Filter 16 benchmark SKUs across 8 core manufacturing categories. Indicative FOB ranges, port of departure, MOQ and target compliance marks — ready for OEM customisation."
+        eyebrow={t.catalog.eyebrow}
+        index={t.catalog.index}
+        title={t.catalog.title}
+        lede={t.catalog.lede}
       />
 
       <div class="catalog-controls" data-reveal>
         <div class="catalog-search-wrap">
-          <label for="catalog-search" class="visually-hidden">Search SKUs, ports, or compliance marks</label>
+          <label for="catalog-search" class="visually-hidden">{t.catalog.searchLabel}</label>
           <input
             id="catalog-search"
             type="search"
             class="catalog-search"
-            placeholder="Search SKU, product, port, or compliance (e.g. BIS, Shenzhen, GaN)…"
+            placeholder={t.catalog.searchPlaceholder}
             autocomplete="off"
           />
-          <span class="catalog-count num" id="catalog-count" aria-live="polite">
-            {TRADE_SKUS.length} / {TRADE_SKUS.length} SKUs
+          <span
+            class="catalog-count num"
+            id="catalog-count"
+            aria-live="polite"
+            data-template={t.catalog.skuCount}
+          >
+            {t.catalog.skuCount
+              .replace('{visible}', String(TRADE_SKUS.length))
+              .replace('{total}', String(TRADE_SKUS.length))}
           </span>
         </div>
 
-        <div class="catalog-cats" role="group" aria-label="Filter by product category">
-          <button type="button" class="cat-pill is-active" data-cat="all">
-            All categories ({TRADE_SKUS.length})
+        <div class="catalog-cats" role="group" aria-label={t.catalog.filterGroupLabel}>
+          <button type="button" class="cat-pill is-active" data-cat="all" aria-pressed="true">
+            {t.catalog.allCategories} ({TRADE_SKUS.length})
           </button>
           {TRADE_CATEGORIES.map((cat) => (
-            <button type="button" class="cat-pill" data-cat={cat.id}>
+            <button type="button" class="cat-pill" data-cat={cat.id} aria-pressed="false">
               {cat.name}
             </button>
           ))}
@@ -211,6 +219,8 @@ const process = t.process.steps;
         {TRADE_SKUS.map((item) => {
           const catObj = TRADE_CATEGORIES.find((c) => c.id === item.category);
           const searchBlob = `${item.sku} ${item.name} ${catObj?.name ?? ''} ${item.port} ${item.compliance.join(' ')}`.toLowerCase();
+          const quoteAria = t.catalog.quoteAria.replace('{sku}', item.sku).replace('{name}', item.name);
+          const quotePrefill = t.catalog.quotePrefill.replace('{sku}', item.sku).replace('{name}', item.name);
           return (
             <article
               class="sku-card card"
@@ -224,29 +234,36 @@ const process = t.process.steps;
               <h3 class="sku-name">{item.name}</h3>
               <dl class="sku-meta">
                 <div>
-                  <dt>MOQ</dt>
+                  <dt>{t.catalog.labels.moq}</dt>
                   <dd class="num">{item.moq}</dd>
                 </div>
                 <div>
-                  <dt>FOB Range</dt>
+                  <dt>{t.catalog.labels.fobRange}</dt>
                   <dd class="num sku-fob">{item.fobRange}</dd>
                 </div>
                 <div>
-                  <dt>Port</dt>
+                  <dt>{t.catalog.labels.port}</dt>
                   <dd>{item.port}</dd>
                 </div>
                 <div>
-                  <dt>Lead Time</dt>
+                  <dt>{t.catalog.labels.leadTime}</dt>
                   <dd class="num">{item.leadTime}</dd>
                 </div>
               </dl>
               <div class="sku-bottom">
-                <div class="sku-badges" aria-label="Compliance marks">
+                <div class="sku-badges" aria-label={t.catalog.labels.complianceMarks}>
                   {item.compliance.map((mark) => (
                     <span class="comp-badge num">{mark}</span>
                   ))}
                 </div>
-                <a href="#enquire" class="arrow-link sku-cta">Quote</a>
+                <a
+                  href="#enquire"
+                  class="arrow-link sku-cta"
+                  aria-label={quoteAria}
+                  data-prefill={quotePrefill}
+                >
+                  {t.catalog.quote}
+                </a>
               </div>
             </article>
           );
@@ -254,13 +271,13 @@ const process = t.process.steps;
       </div>
 
       <p class="catalog-empty" id="catalog-empty" hidden>
-        No SKUs match your current filter. Try clearing the search or selecting another category.
+        {t.catalog.empty}
       </p>
 
       <div class="catalog-tool-bar" data-reveal>
-        <p>Need FCL, LCL CBM, or air freight landed cost to India, GCC, Africa, EU, or Americas?</p>
+        <p>{t.catalog.toolBarText}</p>
         <a href={translatePath('/tools/trade-cost-calculator', locale)} class="btn btn-primary">
-          Open Landed Cost Estimator
+          {t.catalog.toolBarCta}
         </a>
       </div>
     </div>
@@ -270,10 +287,10 @@ const process = t.process.steps;
   <section class="section" id="clusters">
     <div class="container">
       <SectionHead
-        eyebrow="China Manufacturing Hubs"
-        index="HUB / 04"
-        title="Four industrial clusters, one QC team"
-        lede="We match your BOM to the province where tier-1 component suppliers and export ports actually sit — cutting domestic drayage and middleman markups."
+        eyebrow={t.clusters.eyebrow}
+        index={t.clusters.index}
+        title={t.clusters.title}
+        lede={t.clusters.lede}
       />
       <div class="clusters-grid">
         {SOURCING_CLUSTERS.map((hub, i) => (
@@ -283,8 +300,8 @@ const process = t.process.steps;
               <h3>{hub.province}</h3>
             </div>
             <p class="cluster-cities num">{hub.cities}</p>
-            <p class="cluster-spec"><strong>Specialties:</strong> {hub.specialties}</p>
-            <p class="cluster-ports"><strong>Primary ports:</strong> {hub.ports}</p>
+            <p class="cluster-spec"><strong>{t.clusters.specialtiesLabel}</strong> {hub.specialties}</p>
+            <p class="cluster-ports"><strong>{t.clusters.portsLabel}</strong> {hub.ports}</p>
             <p class="cluster-notes">{hub.notes}</p>
           </article>
         ))}
@@ -296,21 +313,21 @@ const process = t.process.steps;
   <section class="section section-sunken" id="compliance">
     <div class="container">
       <SectionHead
-        eyebrow="Import & Regulatory Matrix"
-        index="REG / 06"
-        title="Global & India compliance before dispatch"
-        lede="Certifications and pre-shipment inspections are verified at the factory gate so containers do not stall at destination customs."
+        eyebrow={t.compliance.eyebrow}
+        index={t.compliance.index}
+        title={t.compliance.title}
+        lede={t.compliance.lede}
       />
       <div class="matrix-wrap card" data-reveal>
         <table class="matrix-table">
           <thead>
             <tr>
-              <th>Region</th>
-              <th>Marks</th>
-              <th>Authority</th>
-              <th>Applies To</th>
-              <th>Lead Time</th>
-              <th>Verification</th>
+              <th>{t.compliance.headers.region}</th>
+              <th>{t.compliance.headers.marks}</th>
+              <th>{t.compliance.headers.authority}</th>
+              <th>{t.compliance.headers.appliesTo}</th>
+              <th>{t.compliance.headers.leadTime}</th>
+              <th>{t.compliance.headers.verification}</th>
             </tr>
           </thead>
           <tbody>
@@ -889,7 +906,10 @@ const process = t.process.steps;
     }
 
     if (countEl) {
-      countEl.textContent = `${visible} / ${cards.length} SKUs`;
+      const tpl = countEl.dataset.template ?? '{visible} / {total} SKUs';
+      countEl.textContent = tpl
+        .replace('{visible}', String(visible))
+        .replace('{total}', String(cards.length));
     }
     if (emptyEl) {
       emptyEl.hidden = visible > 0;
@@ -905,9 +925,25 @@ const process = t.process.steps;
     btn.addEventListener('click', () => {
       activeCat = btn.dataset.cat ?? 'all';
       for (const b of catButtons) {
-        b.classList.toggle('is-active', b === btn);
+        const isActive = b === btn;
+        b.classList.toggle('is-active', isActive);
+        b.setAttribute('aria-pressed', String(isActive));
       }
       applyCatalogFilter();
+    });
+  }
+
+  const quoteLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('#catalog-grid .sku-cta'));
+  const notesEl = document.querySelector<HTMLTextAreaElement>('#trade-notes, #enquire textarea');
+  for (const link of quoteLinks) {
+    link.addEventListener('click', () => {
+      const prefill = link.dataset.prefill?.trim();
+      if (notesEl && prefill) {
+        if (!notesEl.value.includes(prefill)) {
+          notesEl.value = notesEl.value.trim() ? `${prefill}\n${notesEl.value}` : prefill;
+        }
+        notesEl.focus({ preventScroll: true });
+      }
     });
   }
 </script>

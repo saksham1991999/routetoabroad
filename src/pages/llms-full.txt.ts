@@ -127,6 +127,8 @@ export async function GET({ site }: APIContext) {
   lines.push('## Trade & China Sourcing Catalog');
   lines.push(`URL: ${new URL('/trade', base)}`);
   lines.push('');
+  lines.push('Note: FOB price ranges and MOQs listed below are indicative benchmarks subject to supplier quotation (verify before quoting).');
+  lines.push('');
   lines.push(`Categories: ${TRADE_CATEGORIES.map((c) => c.name).join(', ')}`);
   lines.push('');
   for (const s of TRADE_SKUS) {

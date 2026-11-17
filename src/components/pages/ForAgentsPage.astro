@@ -135,7 +135,6 @@ const t = FOR_AGENTS[locale];
           data-formspree
           data-form-type="b2b-partner"
           data-success-msg={t.onboarding.success}
-          novalidate
         >
           <input type="hidden" name="formType" value="B2B Partner Onboarding" />
           <div class="form-fields">
@@ -170,7 +169,7 @@ const t = FOR_AGENTS[locale];
                 <label for="b2b-tier">{t.onboarding.fields.tier}</label>
                 <select id="b2b-tier" name="partnershipTier">
                   {t.onboarding.fields.tierOptions.map((opt) => (
-                    <option value={opt}>{opt}</option>
+                    <option value={opt.value}>{opt.label}</option>
                   ))}
                 </select>
               </div>
@@ -181,7 +180,7 @@ const t = FOR_AGENTS[locale];
                 <label for="b2b-volume">{t.onboarding.fields.volume}</label>
                 <select id="b2b-volume" name="estimatedVolume">
                   {t.onboarding.fields.volumeOptions.map((opt) => (
-                    <option value={opt}>{opt}</option>
+                    <option value={opt.value}>{opt.label}</option>
                   ))}
                 </select>
               </div>
@@ -248,7 +247,9 @@ const t = FOR_AGENTS[locale];
   }
 
   .agent-list--simple li {
-    padding: 0.8rem 0 0.8rem 1.3rem;
+    padding-block: 0.8rem;
+    padding-inline-start: 1.3rem;
+    padding-inline-end: 0;
     font-size: 0.94rem;
     color: var(--ink-soft);
     position: relative;
@@ -257,13 +258,21 @@ const t = FOR_AGENTS[locale];
   .agent-list--simple li::before {
     content: '→';
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     color: var(--accent-text);
+  }
+
+  html:global([dir='rtl']) .agent-list--simple li::before {
+    content: '←';
   }
 
   .agent-list--no li::before {
     content: '✕';
     color: var(--err);
+  }
+
+  html:global([dir='rtl']) .agent-list--no li::before {
+    content: '✕';
   }
 
   .agent-note {
@@ -336,7 +345,9 @@ const t = FOR_AGENTS[locale];
   }
 
   .tier-bullets li {
-    padding: 0.65rem 0 0.65rem 1.2rem;
+    padding-block: 0.65rem;
+    padding-inline-start: 1.2rem;
+    padding-inline-end: 0;
     border-bottom: 1px solid var(--line);
     font-size: 0.88rem;
     color: var(--ink-soft);
@@ -346,8 +357,12 @@ const t = FOR_AGENTS[locale];
   .tier-bullets li::before {
     content: '→';
     position: absolute;
-    left: 0;
+    inset-inline-start: 0;
     color: var(--accent-text);
+  }
+
+  html:global([dir='rtl']) .tier-bullets li::before {
+    content: '←';
   }
 
   .onboard-wrap {

@@ -3,8 +3,8 @@ name: 'Chengdu'
 chineseName: '成都'
 country: 'China'
 intro: 'Chengdu is the relaxed, creative capital of Sichuan — famous for giant pandas, UNESCO-listed gastronomy, teahouse culture, and a fast-growing tech and medical-research hub in southwest China.'
-image: '../../assets/images/guide-li-river.jpg'
-imageAlt: 'Misty limestone mountains and lush greenery in southwest China'
+image: '../../assets/images/country-china.jpg'
+imageAlt: 'Chinese urban skyline and cultural landscape representing Chengdu'
 studentMonthly:
   low: 330
   high: 600

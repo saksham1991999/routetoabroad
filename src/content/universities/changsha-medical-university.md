@@ -12,6 +12,7 @@ imageAlt: 'Medical campus and lecture hall representing Changsha Medical Univers
 strengths:
   - title: 'Dedicated medical focus'
     text: 'Unlike large multi-faculty schools, CSMU''s campus, labs, and library are built specifically around clinical medicine, dentistry, nursing, and pharmacy.'
+  # {{VERIFY}} Confirm current international student enrolment scale
   - title: 'Large international MBBS community'
     text: 'Hosts hundreds of international medical students from South Asia, Africa, and the Middle East with established peer networks and student support.'
   - title: 'Clinical training in Hunan'
@@ -37,10 +38,9 @@ facts:
   - label: 'Nearest hub'
     value: '2.5 hrs by rail to Guangzhou'
 recognitions:
-  - 'MOE China'
-  - 'WHO'
-  - 'WDOMS'
-  - 'NMC'
+  - 'MOE-listed (verify current intake)'
+  - 'WDOMS-listed'
+# {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
 scholarships: 'Hunan Provincial Government Scholarship & CSMU Merit Tuition Waivers'
 taughtLanguages:
@@ -49,7 +49,7 @@ taughtLanguages:
 hskRequirement: 'None at entry for English MBBS; HSK 4 required prior to clinical internship / graduation'
 faqs:
   - question: 'Is Changsha Medical University listed in WDOMS and recognized for MBBS?'
-    answer: 'Yes. Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and approved by China''s MOE, supporting international licensing pathways such as ECFMG/USMLE, PLAB, and NMC FMGE/NExT.'
+    answer: 'Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and on China''s MOE list (verify current-year intake status). Eligibility for international licensing pathways such as ECFMG/USMLE, GMC/PLAB, and NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'What is student life like in Changsha?'
     answer: 'Changsha is famous across China for its energetic youth culture, affordable Hunan cuisine, and convenient metro and high-speed rail connections.'
 order: 13

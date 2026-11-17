@@ -28,8 +28,7 @@ export function organizationSchema() {
     logo: `${SITE.url}/icon-512.png?v=2`,
     email: SITE.email,
     foundingDate: String(SITE.founded),
-    description:
-      'Global-to-China and East Asia consultancy connecting students, travellers, and importers from all countries to China and Japan through university admissions, cultural tourism, and cross-border trade.',
+    description: SITE.description,
     address: [SITE.registeredOffice, ...SITE.offices].map((o) => ({
       '@type': 'PostalAddress',
       streetAddress: o.street,
@@ -71,14 +70,13 @@ export function websiteSchema() {
   };
 }
 
-export function localBusinessSchema(officeIndex: number | 'registered') {
-  const o = officeIndex === 'registered' ? SITE.registeredOffice : SITE.offices[officeIndex];
-  // Publish only verified numbers: the registered US HQ and India desk use
-  // the verified helpline; the China office omits telephone until confirmed.
+export function localBusinessSchema(officeIndex: number) {
+  const o = SITE.offices[officeIndex];
+  // Publish only verified numbers: the India office uses the national line,
+  // the China office omits telephone until its own number is confirmed
+  // (SITE.phoneChina is {{VERIFY}}-marked).
   const telephone =
-    o.country === 'IN' || o.country === 'US'
-      ? SITE.phoneIndiaHref.replace('tel:', '')
-      : undefined;
+    o.country === 'IN' ? SITE.phoneIndiaHref.replace('tel:', '') : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -308,12 +306,15 @@ export function speakableSchema(opts: { url: string; cssSelector?: string[] }) {
 }
 
 /** GEO/SEO OfferCatalog for China-to-World sourcing categories & SKUs. */
-export function tradeOfferCatalogSchema(items: { name: string; sku: string; category: string; description: string }[]) {
+export function tradeOfferCatalogSchema(
+  items: { name: string; sku: string; category: string; description: string }[],
+  url = '/trade'
+) {
   return {
     '@context': 'https://schema.org',
     '@type': 'OfferCatalog',
     name: 'RouteToAbroad Global China Sourcing Catalog',
-    url: `${SITE.url}/trade`,
+    url: absUrl(url),
     itemListElement: items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,

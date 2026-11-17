@@ -17,7 +17,7 @@ strengths:
   - title: 'Flexible short & degree tracks'
     text: 'Offers 1-semester, 1-year, and 4-year BA programmes in Chinese Language, Business Chinese, Translation, and International Politics.'
   - title: 'Prime Haidian location'
-    text: 'Walking distance from Tsinghua and Peking University campuses, making it an ideal foundation year before entering top Chinese-taught degrees.'
+    text: 'Located next to Tsinghua University and a short metro ride from Peking University in Beijing''s Wudaokou district, making it an ideal foundation year before entering top Chinese-taught degrees.'
 programmes:
   - 'Intensive Chinese Language & HSK 1–6 (1 semester to 2 years)'
   - 'BA in Chinese Language / Business Chinese (4 years)'

@@ -22,7 +22,7 @@ highlights:
     text: 'Suica/PASMO IC cards work across JR, Tokyo Metro, Toei, and convenience stores, making navigation effortless even on a first visit.'
 universities:
   - 'University of Tokyo'
-  - 'Tokyo Institute of Technology'
+  - 'Institute of Science Tokyo'
 bestTime: 'Late March–April (cherry blossom) and October–November (clear skies, autumn foliage, Mount Fuji visibility)'
 faqs:
   - question: 'How much does a 7-to-10-day Tokyo trip cost per day?'

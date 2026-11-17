@@ -25,6 +25,21 @@ export interface UniversitiesIndexStrings {
   };
   /** ArticleCard meta line — composed as `${estLabel} ${founded}`. */
   card: { estLabel: string };
+  controls: {
+    searchLabel: string;
+    searchPlaceholder: string;
+    countSuffix: string;
+    filterAriaLabel: string;
+    filters: {
+      all: string;
+      medical: string;
+      comprehensive: string;
+      technical: string;
+      whoNmcMoe: string;
+      csc: string;
+    };
+    emptyState: string;
+  };
 }
 
 export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
@@ -49,6 +64,22 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'Get a shortlist',
     },
     card: { estLabel: 'est.' },
+    controls: {
+      searchLabel: 'Search universities',
+      searchPlaceholder: 'Search by university, city, programme (e.g. MBBS, CS), or recognition (WHO, NMC, CSC)…',
+      countSuffix: 'shown',
+      filterAriaLabel: 'Filter universities',
+      filters: {
+        all: 'All',
+        medical: 'Medical / MBBS',
+        comprehensive: 'Comprehensive',
+        technical: 'Technical',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'CSC Scholarship',
+      },
+      emptyState:
+        'No universities match your current search and filter. Try clearing the search box or switching to “All”.',
+    },
   },
 
   zh: {
@@ -72,6 +103,21 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: '获取候选名单',
     },
     card: { estLabel: '建于' },
+    controls: {
+      searchLabel: '搜索大学',
+      searchPlaceholder: '按大学、城市、专业（如 MBBS、计算机）或认证（WHO、NMC、CSC）搜索…',
+      countSuffix: '所显示',
+      filterAriaLabel: '筛选大学',
+      filters: {
+        all: '全部',
+        medical: '医学 / MBBS',
+        comprehensive: '综合类',
+        technical: '理工类',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'CSC 奖学金',
+      },
+      emptyState: '没有符合当前搜索与筛选条件的大学。请尝试清空搜索框或切换回“全部”。',
+    },
   },
 
   fr: {
@@ -95,6 +141,23 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'Recevoir une présélection',
     },
     card: { estLabel: 'fondée en' },
+    controls: {
+      searchLabel: 'Rechercher des universités',
+      searchPlaceholder:
+        'Rechercher par université, ville, programme (ex. MBBS, informatique) ou reconnaissance (OMS, NMC, CSC)…',
+      countSuffix: 'affichées',
+      filterAriaLabel: 'Filtrer les universités',
+      filters: {
+        all: 'Toutes',
+        medical: 'Médecine / MBBS',
+        comprehensive: 'Généralistes',
+        technical: 'Techniques',
+        whoNmcMoe: 'OMS / NMC / MOE',
+        csc: 'Bourse CSC',
+      },
+      emptyState:
+        'Aucune université ne correspond à votre recherche et à votre filtre. Essayez d’effacer la recherche ou de sélectionner « Toutes ».',
+    },
   },
 
   ar: {
@@ -118,6 +181,23 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'احصل على قائمة مختصرة',
     },
     card: { estLabel: 'تأسست عام' },
+    controls: {
+      searchLabel: 'البحث عن الجامعات',
+      searchPlaceholder:
+        'ابحث بالجامعة أو المدينة أو البرنامج (مثل MBBS أو علوم الحاسوب) أو الاعتراف (WHO، NMC، CSC)…',
+      countSuffix: 'معروضة',
+      filterAriaLabel: 'تصفية الجامعات',
+      filters: {
+        all: 'الكل',
+        medical: 'الطب / MBBS',
+        comprehensive: 'شاملة',
+        technical: 'تقنية',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'منحة CSC',
+      },
+      emptyState:
+        'لا توجد جامعات تطابق بحثك ومرشحك الحاليين. جرّب مسح خانة البحث أو التبديل إلى «الكل».',
+    },
   },
 
   es: {
@@ -141,6 +221,23 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'Recibe tu selección',
     },
     card: { estLabel: 'fundada en' },
+    controls: {
+      searchLabel: 'Buscar universidades',
+      searchPlaceholder:
+        'Buscar por universidad, ciudad, programa (p. ej. MBBS, Informática) o reconocimiento (OMS, NMC, CSC)…',
+      countSuffix: 'mostradas',
+      filterAriaLabel: 'Filtrar universidades',
+      filters: {
+        all: 'Todas',
+        medical: 'Medicina / MBBS',
+        comprehensive: 'Integrales',
+        technical: 'Técnicas',
+        whoNmcMoe: 'OMS / NMC / MOE',
+        csc: 'Beca CSC',
+      },
+      emptyState:
+        'Ninguna universidad coincide con tu búsqueda y filtro actuales. Prueba a borrar el cuadro de búsqueda o cambiar a «Todas».',
+    },
   },
 
   de: {
@@ -164,6 +261,23 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'Shortlist erhalten',
     },
     card: { estLabel: 'gegr.' },
+    controls: {
+      searchLabel: 'Universitäten durchsuchen',
+      searchPlaceholder:
+        'Nach Universität, Stadt, Studiengang (z. B. MBBS, Informatik) oder Anerkennung (WHO, NMC, CSC) suchen…',
+      countSuffix: 'angezeigt',
+      filterAriaLabel: 'Universitäten filtern',
+      filters: {
+        all: 'Alle',
+        medical: 'Medizin / MBBS',
+        comprehensive: 'Volluniversitäten',
+        technical: 'Technisch',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'CSC-Stipendium',
+      },
+      emptyState:
+        'Keine Universität entspricht Ihrer aktuellen Suche und Auswahl. Leeren Sie das Suchfeld oder wechseln Sie zu „Alle“.',
+    },
   },
 
   ja: {
@@ -187,6 +301,21 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: '候補リストを受け取る',
     },
     card: { estLabel: '設立' },
+    controls: {
+      searchLabel: '大学を検索',
+      searchPlaceholder: '大学名・都市・プログラム（例：MBBS、CS）・認定（WHO、NMC、CSC）で検索…',
+      countSuffix: '校表示',
+      filterAriaLabel: '大学を絞り込む',
+      filters: {
+        all: 'すべて',
+        medical: '医学 / MBBS',
+        comprehensive: '総合大学',
+        technical: '理工系',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'CSC 奨学金',
+      },
+      emptyState: '現在の検索条件・フィルターに一致する大学がありません。検索語を消去するか「すべて」に切り替えてください。',
+    },
   },
 
   pt: {
@@ -210,6 +339,23 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'Receber uma lista curta',
     },
     card: { estLabel: 'fundada em' },
+    controls: {
+      searchLabel: 'Pesquisar universidades',
+      searchPlaceholder:
+        'Pesquisar por universidade, cidade, programa (ex.: MBBS, Ciência da Computação) ou reconhecimento (OMS, NMC, CSC)…',
+      countSuffix: 'exibidas',
+      filterAriaLabel: 'Filtrar universidades',
+      filters: {
+        all: 'Todas',
+        medical: 'Medicina / MBBS',
+        comprehensive: 'Abrangentes',
+        technical: 'Técnicas',
+        whoNmcMoe: 'OMS / NMC / MOE',
+        csc: 'Bolsa CSC',
+      },
+      emptyState:
+        'Nenhuma universidade corresponde à sua pesquisa e filtro atuais. Tente limpar a busca ou mudar para “Todas”.',
+    },
   },
 
   hi: {
@@ -233,5 +379,21 @@ export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
       action: 'शॉर्टलिस्ट पाएँ',
     },
     card: { estLabel: 'स्थापित' },
+    controls: {
+      searchLabel: 'विश्वविद्यालय खोजें',
+      searchPlaceholder: 'विश्वविद्यालय, शहर, प्रोग्राम (जैसे MBBS, CS) या मान्यता (WHO, NMC, CSC) से खोजें…',
+      countSuffix: 'दिखाए गए',
+      filterAriaLabel: 'विश्वविद्यालय फ़िल्टर करें',
+      filters: {
+        all: 'सभी',
+        medical: 'मेडिकल / MBBS',
+        comprehensive: 'व्यापक',
+        technical: 'तकनीकी',
+        whoNmcMoe: 'WHO / NMC / MOE',
+        csc: 'CSC छात्रवृत्ति',
+      },
+      emptyState:
+        'आपकी वर्तमान खोज और फ़िल्टर से कोई विश्वविद्यालय मेल नहीं खाता। खोज बॉक्स साफ़ करें या “सभी” पर स्विच करें।',
+    },
   },
 };

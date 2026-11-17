@@ -7,8 +7,8 @@ type: 'comprehensive'
 founded: '2003'
 nickname: 'Affordable comprehensive hub on the Yangtze River'
 intro: 'Yangtze University in Jingzhou (Hubei Province) is a well-established provincial comprehensive university known across Asia and Africa for its affordable English-taught MBBS, Computer Science, AI, and Petroleum Engineering programmes.'
-image: '../../assets/images/city-guangzhou.jpg'
-imageAlt: 'Riverfront Chinese city view representing Yangtze University in Jingzhou'
+image: '../../assets/images/hero-education.jpg'
+imageAlt: 'University study and campus setting representing Yangtze University'
 strengths:
   - title: 'High value for money'
     text: 'Among the most affordable English-medium MBBS and Engineering/CS degrees in China, with low tuition and very economical campus living in Jingzhou.'
@@ -37,10 +37,8 @@ facts:
   - label: 'Living cost'
     value: 'One of the lowest in China'
 recognitions:
-  - 'MOE China'
-  - 'WHO'
-  - 'WDOMS'
-  - 'NMC'
+  - 'MOE-listed (verify current intake)'
+  - 'WDOMS-listed'
 intakes: 'September (main), March (select non-medical & language tracks)'
 scholarships: 'Hubei Provincial Government Scholarship & Yangtze University Excellence Awards'
 taughtLanguages:
@@ -49,7 +47,7 @@ taughtLanguages:
 hskRequirement: 'No HSK required at entry for English-taught programmes; HSK 4 required prior to MBBS internship/graduation'
 faqs:
   - question: 'How affordable is Yangtze University compared to coastal cities?'
-    answer: 'Total annual expenses (tuition, campus dorm, and basic living) typically run around US$4,500–6,000/year — roughly half the cost of studying in Beijing or Shanghai.'
+    answer: 'Total annual expenses (tuition, campus dorm, and basic living) typically run around US$4,840–7,570/year — noticeably lower than studying in Beijing or Shanghai.'
   - question: 'Does Yangtze University offer non-medical English degrees?'
     answer: 'Yes. In addition to MBBS, Yangtze University offers English-taught undergraduate and master''s programmes in Computer Science, AI, Petroleum Engineering, and Business.'
 order: 11

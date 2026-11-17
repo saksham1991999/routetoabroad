@@ -18,7 +18,7 @@ import EducationForm from '../forms/EducationForm.astro';
 import { EDUCATION_FAQS } from '../../data/faqs';
 import { faqSchema, serviceSchema, howToSchema } from '../../lib/schema';
 import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
-import { EDUCATION } from '../../i18n/pages/education';
+import { EDUCATION, type ProgrammeIconKey } from '../../i18n/pages/education';
 
 interface Props {
   locale?: Locale;
@@ -35,19 +35,19 @@ const universities = localizedEntries(await getCollection('universities'), local
 
 const pageFaqs = EDUCATION_FAQS[locale].slice(0, 6);
 
-/* Card icons are glyphs, not copy — they stay in the component while the
-   names/descriptions come from the dictionary (same order). */
-const programmeIcons = [
-  'M12 3v18M3 12h18',
-  'M9 3h6v4l3 5v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7l3-5V3Z',
-  'M14 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM6 10v4a4 4 0 0 0 4 4',
-  'M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2',
-  'M4 5h16M4 12h10M4 19h7',
-  'M4 7h16v12H4zM8 7V5h8v2M9 13h6',
-  'M12 4 2 9l10 5 10-5-10-5ZM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5',
-  'M4 20V9m5 11V4m5 16v-8m5 8V7',
-];
-const programmes = t.programmes.items.map((p, i) => ({ ...p, icon: programmeIcons[i % programmeIcons.length] }));
+/* Card icons are glyphs keyed by ProgrammeIconKey so every locale maps
+   each track to its exact icon regardless of array order or length. */
+const programmeIcons: Record<ProgrammeIconKey, string> = {
+  mbbs: 'M12 3v18M3 12h18',
+  allied: 'M9 3h6v4l3 5v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7l3-5V3Z',
+  engineering: 'M14 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM6 10v4a4 4 0 0 0 4 4',
+  business: 'M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2',
+  language: 'M4 5h16M4 12h10M4 19h7',
+  diploma: 'M4 7h16v12H4zM8 7V5h8v2M9 13h6',
+  bachelors: 'M12 4 2 9l10 5 10-5-10-5ZM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5',
+  research: 'M4 20V9m5 11V4m5 16v-8m5 8V7',
+};
+const programmes = t.programmes.items.map((p) => ({ ...p, iconPath: programmeIcons[p.icon] }));
 
 const process = t.process.steps;
 ---
@@ -89,10 +89,11 @@ const process = t.process.steps;
     jumps={[
       { href: '#programmes', label: t.hero.jumps[0] },
       { href: '#process', label: t.hero.jumps[1] },
-      { href: '#scholarships', label: t.hero.jumps[2] },
-      { href: '#universities', label: t.hero.jumps[3] },
-      { href: '#apply', label: t.hero.jumps[4] },
-      { href: '#faq', label: t.hero.jumps[5] },
+      { href: '#visas', label: t.hero.jumps[2] },
+      { href: '#scholarships', label: t.hero.jumps[3] },
+      { href: '#universities', label: t.hero.jumps[4] },
+      { href: '#apply', label: t.hero.jumps[5] },
+      { href: '#faq', label: t.hero.jumps[6] },
     ]}
   />
 
@@ -131,7 +132,7 @@ const process = t.process.steps;
         {programmes.map((p, i) => (
           <article class="prog-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 80}ms`}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d={p.icon}></path>
+              <path d={p.iconPath}></path>
             </svg>
             <h3>{p.name}</h3>
             <p>{p.text}</p>

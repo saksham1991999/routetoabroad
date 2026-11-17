@@ -7,7 +7,7 @@
 export const SITE = {
   name: 'RouteToAbroad',
   legalName: 'RouteToAbroad Consulting',
-  title: 'RouteToAbroad — Study in China, Travel East Asia, Trade From All Countries to China',
+  title: 'RouteToAbroad — Study in China, Travel & Trade Across Borders',
   description:
     'Education, tourism and trade from all countries to China and East Asia. RouteToAbroad places international students in Chinese universities, designs private and group journeys across China and Japan, and runs global-to-China sourcing and trade operations.',
   url: 'https://routetoabroad.com',

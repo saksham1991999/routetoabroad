@@ -3,8 +3,8 @@ name: 'Xi''an'
 chineseName: '西安'
 country: 'China'
 intro: 'Xi''an is the eastern terminus of the Silk Road and one of China''s most affordable major university cities — home to Xi''an Jiaotong University, C9-league engineering, and 3,000 years of imperial history from the Terracotta Army to the intact Ming City Wall.'
-image: '../../assets/images/blog-beijing-sites.jpg'
-imageAlt: 'Ancient Chinese city walls and illuminated historic architecture at dusk'
+image: '../../assets/images/hero-tourism.jpg'
+imageAlt: 'Historic East Asian architecture and travel scenery representing Xi''an'
 studentMonthly:
   low: 320
   high: 580
@@ -15,7 +15,7 @@ highlights:
   - title: 'Terracotta Army & Tang heritage'
     text: 'Emperor Qin Shi Huang''s Terracotta Warriors sit an hour outside the centre; inside the walls, the Giant Wild Goose Pagoda and Tang Paradise anchor the southern cultural belt.'
   - title: 'C9 engineering & medical hub'
-    text: 'Xi''an Jiaotong University (XJTU) is a C9 member with strong English-taught MBBS and engineering tracks at roughly half the living cost of Beijing or Shanghai.'
+    text: 'Xi''an Jiaotong University (XJTU) is a C9 member with English-taught MBBS and engineering tracks alongside significantly lower living costs than Beijing or Shanghai.'
   - title: 'The Muslim Quarter (Huimin Jie)'
     text: 'Centuries-old halal food street behind the Drum Tower serving biangbiang noodles, roujiamo, and lamb paomo — a major draw for Muslim and South Asian students.'
   - title: 'Cycling the Ming City Wall'
@@ -26,7 +26,7 @@ universities:
 bestTime: 'April–May and September–October (mild temperatures, clear skies for walking the wall)'
 faqs:
   - question: 'Is Xi''an a good city for international MBBS and engineering students?'
-    answer: 'Yes. Xi''an Jiaotong University is a top-tier C9 university with MOE-listed English-medium MBBS and engineering programmes, while living costs of US$320–580/month are noticeably lower than coastal Tier-1 cities.'
+    answer: 'Yes. Xi''an Jiaotong University is a top-tier C9 university offering English-medium MBBS (verify current-year MOE listing for your intake) and engineering programmes, while living costs of US$320–580/month are noticeably lower than coastal Tier-1 cities.'
   - question: 'Is halal food easy to find in Xi''an?'
     answer: 'Xi''an has one of China''s oldest Hui Muslim communities. Halal restaurants, groceries, and university halal canteens are widespread across the city.'
 order: 5
