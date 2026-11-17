@@ -78,6 +78,13 @@ export interface EducationStrings {
     next: { lead: string; text: string }[];
   };
   faq: { eyebrow: string; index: string; title: string; more: string };
+  visas: {
+    eyebrow: string;
+    index: string;
+    title: string;
+    lede: string;
+    items: { code: string; title: string; duration: string; text: string }[];
+  };
 }
 
 export const EDUCATION: Record<Locale, EducationStrings> = {
@@ -124,31 +131,39 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       eyebrow: 'Programmes',
       index: '01 / 05',
       title: 'What you can study',
-      lede: 'Five routes with teaching language and intake stated up front. Fees are quoted per university — a single number across a country would be a guess.',
+      lede: 'Eight degree and pathway tracks open to international applicants from India, Africa, the GCC, Southeast Asia, Central Asia, Europe and the Americas — with teaching language and intake stated up front.',
       items: [
         {
           name: 'MBBS / Medicine',
-          text: 'MOE-listed English-medium medical degrees with WHO-recognised universities, integrated HSK training and FMGE/NExT planning from day one.',
+          text: 'MOE-listed English-medium medical degrees with WHO-recognised universities, integrated HSK training and licensing exam planning (FMGE/NExT, USMLE, PLAB) from day one.',
         },
         {
-          name: 'Engineering & Technology',
-          text: 'AI, robotics, civil, mechanical and electrical engineering at universities wired into China\'s manufacturing economy.',
+          name: 'BDS, Nursing & Pharmacy',
+          text: 'Recognised dental surgery, clinical nursing and pharmaceutical science degrees at provincial medical universities with hospital lab rotations.',
         },
         {
-          name: 'Business & Management',
-          text: 'English-taught BBA, MBA and finance programmes in Shanghai and Beijing with internship access to employers.',
+          name: 'Engineering & Computer Science',
+          text: 'AI, software, robotics, civil, mechanical and electrical engineering at universities wired into China\'s industrial economy.',
         },
         {
-          name: 'Chinese Language (HSK)',
-          text: 'HSK 1–6 pathway programmes, from zero to degree-readiness, with exam registration handled for you.',
+          name: 'Business, Finance & MBA',
+          text: 'English-taught BBA, MBA and international trade programmes in Shanghai, Beijing and Hangzhou with employer internship access.',
+        },
+        {
+          name: 'Chinese Language (HSK 1–6)',
+          text: 'Non-degree 1-semester and 1-year HSK pathway programmes, from zero Mandarin to degree-readiness, with exam registration handled.',
+        },
+        {
+          name: 'Diploma & Vocational Tracks',
+          text: '2–3 year applied technical, e-commerce, logistics and hospitality diplomas with practical lab training and degree-upgrade routes.',
         },
         {
           name: 'Bachelor\'s Degrees',
-          text: 'Undergraduate programmes across economics, international business, design and computer science.',
+          text: '4-year undergraduate programmes across economics, international relations, architecture, design and applied sciences.',
         },
         {
           name: 'Masters & PhD (Research)',
-          text: 'CSC-funded research placements — we match you to supervisors, shape proposals and manage the full file.',
+          text: 'CSC-funded and university-funded research placements — we match you to supervisors, shape proposals and manage the full file.',
         },
       ],
     },
@@ -214,6 +229,44 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'Education FAQ', index: '05 / 05', title: 'Asked every season', more: 'All education FAQs' },
+    visas: {
+      eyebrow: 'Visa pathways',
+      index: 'VISA / 01',
+      title: 'China visa categories for students & visitors',
+      lede: 'We place students from every eligible passport into China and prepare the exact visa file — whether you are arriving for a 6-year degree, a 6-month language term, a trade delegation or a campus visit.',
+      items: [
+        {
+          code: 'X1',
+          title: 'Long-term Student Visa',
+          duration: '> 180 days',
+          text: 'For degree, MBBS, Diploma and full-year Chinese language students. Requires JW201/JW202 and admission notice; converts to a Residence Permit within 30 days of arrival.',
+        },
+        {
+          code: 'X2',
+          title: 'Short-term Study Visa',
+          duration: '≤ 180 days',
+          text: 'For one-semester HSK language courses, summer schools and short clinical or technical exchanges under 180 days.',
+        },
+        {
+          code: 'M',
+          title: 'Business & Trade Visa',
+          duration: '30–90 days / entry',
+          text: 'For Canton Fair buyers, factory inspections and B2B partner meetings with an official Chinese company invitation.',
+        },
+        {
+          code: 'F',
+          title: 'Academic & Cultural Exchange',
+          duration: '30–180 days',
+          text: 'For non-commercial university conferences, research visits, faculty exchanges and short institutional delegations.',
+        },
+        {
+          code: 'L',
+          title: 'Tourist & Family Visit',
+          duration: '30–60 days / entry',
+          text: 'For parents accompanying students at campus orientation, sightseeing or pre-enrolment city visits.',
+        },
+      ],
+    },
   },
 
   zh: {
@@ -348,6 +401,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: '留学常见问题', index: '05 / 05', title: '每个申请季都被问到', more: '查看全部留学 FAQ' },
+    visas: {
+      eyebrow: '签证路径',
+      index: 'VISA / 01',
+      title: '赴华学生与访问签证类别总览',
+      lede: '我们面向印度、非洲、海湾国家、东南亚、中亚、欧美等全球生源提供来华升学与签证材料支持——覆盖多年制学位、短期语言、商务考察及家长陪行。',
+      items: [
+        { code: 'X1', title: '长期学习签证', duration: '> 180 天', text: '适用于本科、硕博、MBBS、大专及一年期以上语言生；凭录取通知书与 JW201/JW202 办理，入境 30 天内换发居留许可。' },
+        { code: 'X2', title: '短期学习签证', duration: '≤ 180 天', text: '适用于一学期 HSK 汉语进修、夏令营及 180 天以内的短期交流学习。' },
+        { code: 'M', title: '商贸签证', duration: '每次 30–90 天', text: '适用于广交会采购商、工厂验厂及凭中国企业邀请函赴华的 B2B 商务洽谈。' },
+        { code: 'F', title: '交流访问签证', duration: '30–180 天', text: '适用于非商业性质的高校学术会议、科研访问及校际代表团交流。' },
+        { code: 'L', title: '旅游与探亲陪行签证', duration: '每次 30–60 天', text: '适用于新生家长陪同报到、城市考察或个人观光旅行。' },
+      ],
+    },
   },
 
   fr: {
@@ -483,6 +549,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ Études', index: '05 / 05', title: 'Posées à chaque rentrée', more: 'Toutes les FAQ études' },
+    visas: {
+      eyebrow: 'Visas Chine',
+      index: 'VISA / 01',
+      title: 'Catégories de visas pour étudier et visiter la Chine',
+      lede: 'Nous accompagnons les candidats de tous les pays éligibles vers la Chine — du cursus complet de 6 ans au semestre HSK, en passant par les visites familiales ou commerciales.',
+      items: [
+        { code: 'X1', title: 'Visa étudiant long séjour', duration: '> 180 jours', text: 'Pour Licence, Master, PhD, MBBS, Diplôme et année complète de mandarin. Nécessite JW201/JW202 et avis d’admission.' },
+        { code: 'X2', title: 'Visa étudiant court séjour', duration: '≤ 180 jours', text: 'Pour un semestre de langue HSK, université d’été ou échange académique de moins de 180 jours.' },
+        { code: 'M', title: 'Visa affaires & commerce', duration: '30–90 j / entrée', text: 'Pour la Foire de Canton, les visites d’usines et réunions B2B avec lettre d’invitation officielle.' },
+        { code: 'F', title: 'Échange académique & culturel', duration: '30–180 jours', text: 'Pour conférences universitaires, séjours de recherche et délégations institutionnelles non commerciales.' },
+        { code: 'L', title: 'Tourisme & accompagnement', duration: '30–60 j / entrée', text: 'Pour les parents accompagnant l’étudiant à la rentrée ou les séjours touristiques.' },
+      ],
+    },
   },
 
   ar: {
@@ -617,6 +696,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'أسئلة التعليم الشائعة', index: '05 / 05', title: 'تُسأل كل موسم', more: 'كل أسئلة التعليم الشائعة' },
+    visas: {
+      eyebrow: 'مسارات التأشيرة',
+      index: 'VISA / 01',
+      title: 'فئات تأشيرات الصين للطلاب والزوار',
+      lede: 'نقبل الطلاب من جميع الدول المؤهلة إلى الصين ونجهز ملف التأشيرة المناسب — من الدراسة الجامعية الطويلة إلى دورات اللغة والوفود.',
+      items: [
+        { code: 'X1', title: 'تأشيرة طالب طويلة الأمد', duration: '> 180 يوماً', text: 'لبرامج البكالوريوس و MBBS والدبلوم والدراسات العليا. تتطلب JW201/JW202 وتُحوّل لإقامة خلال 30 يوماً.' },
+        { code: 'X2', title: 'تأشيرة دراسة قصيرة الأمد', duration: '≤ 180 يوماً', text: 'لفصل دراسي واحد في اللغة الصينية HSK أو البرامج القصيرة دون 180 يوماً.' },
+        { code: 'M', title: 'تأشيرة الأعمال والتجارة', duration: '30–90 يوماً/دخول', text: 'لزوار معرض كانتون وفحص المصانع والاجتماعات التجارية بدعوة شركة صينية.' },
+        { code: 'F', title: 'تأشيرة التبادل الأكاديمي', duration: '30–180 يوماً', text: 'للمؤتمرات الجامعية والزيارات البحثية والوفود الثقافية غير التجارية.' },
+        { code: 'L', title: 'تأشيرة السياحة والزيارة', duration: '30–60 يوماً/دخول', text: 'لأولياء الأمور المرافقين للطلاب عند التسجيل أو للسياحة.' },
+      ],
+    },
   },
 
   es: {
@@ -752,6 +844,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ de Estudios', index: '05 / 05', title: 'Preguntadas cada temporada', more: 'Todas las FAQ de estudios' },
+    visas: {
+      eyebrow: 'Vías de visado',
+      index: 'VISA / 01',
+      title: 'Categorías de visado para estudiantes y visitantes en China',
+      lede: 'Colocamos estudiantes de todos los países elegibles en China y preparamos el expediente exacto de visado, desde grados completos hasta estancias cortas.',
+      items: [
+        { code: 'X1', title: 'Visado de estudiante de larga duración', duration: '> 180 días', text: 'Para Grado, MBBS, Diploma, Máster/PhD y año completo de chino. Requiere JW201/JW202 y carta de admisión.' },
+        { code: 'X2', title: 'Visado de estudio de corta duración', duration: '≤ 180 días', text: 'Para un semestre de idioma HSK, escuelas de verano e intercambios menores a 180 días.' },
+        { code: 'M', title: 'Visado de negocios y comercio', duration: '30–90 d / entrada', text: 'Para compradores de la Feria de Cantón, inspecciones de fábricas y reuniones B2B con invitación oficial.' },
+        { code: 'F', title: 'Intercambio académico y cultural', duration: '30–180 días', text: 'Para congresos universitarios, estancias de investigación y delegaciones no comerciales.' },
+        { code: 'L', title: 'Turismo y visita familiar', duration: '30–60 d / entrada', text: 'Para padres que acompañan al estudiante en su llegada o viajes turísticos.' },
+      ],
+    },
   },
 
   de: {
@@ -887,6 +992,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'Bildungs-FAQ', index: '05 / 05', title: 'Jede Saison gefragt', more: 'Alle Bildungs-FAQs' },
+    visas: {
+      eyebrow: 'Visumswege',
+      index: 'VISA / 01',
+      title: 'Chinesische Visakategorien für Studierende & Besucher',
+      lede: 'Wir vermitteln Bewerber aus allen berechtigten Ländern nach China und bereiten die passenden Visumsunterlagen vor.',
+      items: [
+        { code: 'X1', title: 'Langzeit-Studentenvisum', duration: '> 180 Tage', text: 'Für Studium, MBBS, Diplom und einjährige Sprachkurse. Erfordert JW201/JW202 und Zulassungsbescheid.' },
+        { code: 'X2', title: 'Kurzzeit-Studienvisum', duration: '≤ 180 Tage', text: 'Für ein Semester HSK-Chinesisch, Summer Schools und Kurzzeit-Austausche unter 180 Tagen.' },
+        { code: 'M', title: 'Geschäfts- & Handelsvisum', duration: '30–90 T / Einreise', text: 'Für Canton-Fair-Einkäufer, Werksinspektionen und B2B-Termine mit offizieller Einladung.' },
+        { code: 'F', title: 'Akademischer Austausch', duration: '30–180 Tage', text: 'Für Hochschulkonferenzen, Forschungsaufenthalte und nicht-kommerzielle Delegationen.' },
+        { code: 'L', title: 'Touristen- & Familienbesuch', duration: '30–60 T / Einreise', text: 'Für Eltern zur Begleitung bei der Immatrikulation oder für Städtereisen.' },
+      ],
+    },
   },
 
   ja: {
@@ -1021,6 +1139,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: '教育 FAQ', index: '05 / 05', title: '毎シーズン寄せられる質問', more: '教育に関する FAQ すべて' },
+    visas: {
+      eyebrow: 'ビザ区分',
+      index: 'VISA / 01',
+      title: '中国留学・渡航ビザの種類一覧',
+      lede: 'インド・アフリカ・中東・東南アジア・欧米など世界中の志願者の中国留学とビザ書類準備を一貫サポートします。',
+      items: [
+        { code: 'X1', title: '長期留学ビザ', duration: '> 180 日', text: '学位課程・MBBS・ディプロマ・1年語学留学向け。JW201/JW202と入学通知書が必要。' },
+        { code: 'X2', title: '短期留学ビザ', duration: '≤ 180 日', text: '1学期のHSK語学研修、サマースクール、180日未満の短期交流向け。' },
+        { code: 'M', title: '商業・貿易ビザ', duration: '30–90 日 / 回', text: '広州交易会バイヤー、工場視察、中国企業招待によるB2B商談向け。' },
+        { code: 'F', title: '学術・文化交流ビザ', duration: '30–180 日', text: '大学会議、研究訪問、非営利の教育・文化視察団向け。' },
+        { code: 'L', title: '観光・家族訪問ビザ', duration: '30–60 日 / 回', text: '入学時の保護者同伴や観光渡航向け。' },
+      ],
+    },
   },
 
   pt: {
@@ -1156,6 +1287,19 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'FAQ de Educação', index: '05 / 05', title: 'Perguntadas a cada ciclo', more: 'Todas as FAQs de educação' },
+    visas: {
+      eyebrow: 'Vistos para a China',
+      index: 'VISA / 01',
+      title: 'Categorias de visto para estudantes e visitantes',
+      lede: 'Atendemos candidatos de todos os países elegíveis para estudar na China, preparando o dossiê completo de visto.',
+      items: [
+        { code: 'X1', title: 'Visto de estudante de longa duração', duration: '> 180 dias', text: 'Para graduação, MBBS, diploma, pós-graduação e ano completo de mandarim. Exige JW201/JW202.' },
+        { code: 'X2', title: 'Visto de estudo de curta duração', duration: '≤ 180 dias', text: 'Para um semestre de HSK, cursos de verão e intercâmbios abaixo de 180 dias.' },
+        { code: 'M', title: 'Visto de negócios e comércio', duration: '30–90 d / entrada', text: 'Para compradores da Feira de Cantão, visitas a fábricas e reuniões B2B com carta-convite.' },
+        { code: 'F', title: 'Intercâmbio acadêmico e cultural', duration: '30–180 dias', text: 'Para congressos universitários, visitas de pesquisa e delegações não comerciais.' },
+        { code: 'L', title: 'Turismo e visita familiar', duration: '30–60 d / entrada', text: 'Para pais que acompanham o estudante na chegada ou turismo.' },
+      ],
+    },
   },
 
   hi: {
@@ -1290,5 +1434,18 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       ],
     },
     faq: { eyebrow: 'शिक्षा FAQ', index: '05 / 05', title: 'हर सत्र में पूछे जाने वाले', more: 'सभी शिक्षा FAQ' },
+    visas: {
+      eyebrow: 'वीज़ा मार्ग',
+      index: 'VISA / 01',
+      title: 'छात्रों और आगंतुकों के लिए चीन वीज़ा श्रेणियाँ',
+      lede: 'हम भारत, अफ़्रीका, GCC, दक्षिण-पूर्व एशिया, मध्य एशिया व विश्व भर के पात्र छात्रों को चीन में प्रवेश और सटीक वीज़ा फ़ाइल तैयार करने में मदद करते हैं।',
+      items: [
+        { code: 'X1', title: 'दीर्घकालिक छात्र वीज़ा', duration: '> 180 दिन', text: 'डिग्री, MBBS, डिप्लोमा व 1-वर्षीय चीनी भाषा के लिए। JW201/JW202 व प्रवेश पत्र आवश्यक; आगमन के 30 दिन में रेज़िडेंस परमिट में बदलता है।' },
+        { code: 'X2', title: 'अल्पकालिक अध्ययन वीज़ा', duration: '≤ 180 दिन', text: '1-सेमेस्टर HSK भाषा, समर स्कूल व 180 दिन से कम के शैक्षणिक आदान-प्रदान के लिए।' },
+        { code: 'M', title: 'व्यापार व बिज़नेस वीज़ा', duration: '30–90 दिन / प्रवेश', text: 'कैंटन फ़ेयर ख़रीदारों, फ़ैक्टरी निरीक्षण व आधिकारिक निमंत्रण वाली B2B बैठकों के लिए।' },
+        { code: 'F', title: 'शैक्षणिक व सांस्कृतिक आदान-प्रदान', duration: '30–180 दिन', text: 'ग़ैर-व्यावसायिक विश्वविद्यालय सम्मेलन, शोध यात्रा व संस्थान प्रतिनिधिमंडल के लिए।' },
+        { code: 'L', title: 'पर्यटन व पारिवारिक यात्रा', duration: '30–60 दिन / प्रवेश', text: 'कैंपस ओरिएंटेशन में साथ आने वाले अभिभावकों या पर्यटन यात्राओं के लिए।' },
+      ],
+    },
   },
 };

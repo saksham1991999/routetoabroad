@@ -1,6 +1,7 @@
 ---
-// Floating AI counselor. The heavy logic only loads on first open.
+// Floating AI counselor + persistent WhatsApp quick-action. The heavy logic only loads on first open.
 import { DEFAULT_LOCALE, type Locale } from '../lib/i18n';
+import { SITE } from '../lib/site';
 import { uiFor } from '../i18n/ui';
 
 const locale: Locale = (Astro.props.locale as Locale) ?? DEFAULT_LOCALE;
@@ -15,12 +16,27 @@ const ui = uiFor(locale);
   data-locale={locale}
   data-typing={ui.chat.typing}
 >
-  <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label={ui.chat.openAria}>
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
-      <path stroke-linecap="round" stroke-linejoin="round" d="M8 10.5h8M8 13.5h5M21 12c0 4.14-4.03 7.5-9 7.5-1.06 0-2.08-.15-3.02-.44L3.6 20.4l1.06-3.63C3.6 15.4 3 13.76 3 12c0-4.14 4.03-7.5 9-7.5s9 3.36 9 7.5Z" />
-    </svg>
-    <span class="chat-fab-label">{ui.chat.fabLabel}</span>
-  </button>
+  <div class="chat-fab-stack">
+    <a
+      class="wa-fab"
+      href={`${SITE.whatsapp}?text=${encodeURIComponent('Hi RouteToAbroad, I would like guidance on studying, travelling, or sourcing from China.')}`}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`WhatsApp ${SITE.phoneIndia}`}
+    >
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 11.5a8.5 8.5 0 0 1-12.6 7.45L3 20l1.1-4.8A8.5 8.5 0 1 1 21 11.5Z" />
+        <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 8.8c.2-.4.4-.4.6-.4h.5c.2 0 .4.1.5.4l.7 1.6c.1.2 0 .4-.1.6l-.4.5c-.1.1-.1.3 0 .5.4.8 1.2 1.6 2 2 .2.1.4.1.5 0l.5-.4c.2-.1.4-.2.6-.1l1.6.7c.3.1.4.3.4.5v.5c0 .2 0 .4-.4.6-.5.3-1.4.5-2.5.1-1.3-.4-2.8-1.5-3.9-2.9-1-1.2-1.6-2.5-1.6-3.6 0-.7.2-1.2.5-1.5Z" />
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+    <button class="chat-fab" id="chat-fab" type="button" aria-expanded="false" aria-controls="chat-panel" aria-label={ui.chat.openAria}>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M8 10.5h8M8 13.5h5M21 12c0 4.14-4.03 7.5-9 7.5-1.06 0-2.08-.15-3.02-.44L3.6 20.4l1.06-3.63C3.6 15.4 3 13.76 3 12c0-4.14 4.03-7.5 9-7.5s9 3.36 9 7.5Z" />
+      </svg>
+      <span class="chat-fab-label">{ui.chat.fabLabel}</span>
+    </button>
+  </div>
 
   <div class="chat-panel" id="chat-panel" role="dialog" aria-label={ui.chat.assistantName} hidden>
     <header class="chat-head">
@@ -85,6 +101,49 @@ const ui = uiFor(locale);
   }
 
   /* The accent surface exception: signal FAB */
+  .chat-fab-stack {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .wa-fab {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: var(--paper-raised);
+    color: var(--ink);
+    border: 1px solid color-mix(in srgb, var(--ink) 16%, transparent);
+    border-radius: 999px;
+    padding: 0.72rem 1.05rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-decoration: none;
+    box-shadow: var(--shadow-fab);
+    transition: transform 0.25s var(--ease-out), border-color 0.2s;
+  }
+
+  .wa-fab:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .wa-fab svg {
+    width: 1.05rem;
+    height: 1.05rem;
+    color: #16a34a;
+  }
+
+  @media (max-width: 40rem) {
+    .wa-fab span {
+      display: none;
+    }
+    .wa-fab {
+      padding: 0.78rem;
+    }
+  }
+
   .chat-fab {
     display: inline-flex;
     align-items: center;

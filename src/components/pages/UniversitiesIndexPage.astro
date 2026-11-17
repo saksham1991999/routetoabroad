@@ -26,6 +26,39 @@ const t = UNIVERSITIES_INDEX[locale];
 const universities = localizedEntries(await getCollection('universities'), locale).sort(
   (a, b) => a.data.order - b.data.order
 );
+
+const universityItems = universities.map((u) => {
+  const recognitions = u.data.recognitions ?? [];
+  const programmes = u.data.programmes ?? [];
+  const scholarships = u.data.scholarships ?? '';
+  const faqText = (u.data.faqs ?? []).map((f) => `${f.question} ${f.answer}`).join(' ');
+  const hasMbbs = u.data.type === 'medical' || programmes.some((p) => /mbbs/i.test(p));
+  const hasWhoNmcMoe =
+    recognitions.some((r) => /who|nmc|moe|wdoms/i.test(r)) || u.data.type === 'medical';
+  const hasCsc =
+    /csc/i.test(scholarships) ||
+    recognitions.some((r) => /csc/i.test(r)) ||
+    /csc/i.test(faqText);
+  const searchBlob = [
+    u.data.name,
+    u.data.chineseName,
+    u.data.city,
+    u.data.type,
+    ...programmes,
+    ...recognitions,
+    scholarships,
+  ]
+    .join(' ')
+    .toLowerCase();
+
+  return {
+    entry: u,
+    hasMbbs,
+    hasWhoNmcMoe,
+    hasCsc,
+    searchBlob,
+  };
+});
 ---
 
 <BaseLayout
@@ -47,32 +80,270 @@ const universities = localizedEntries(await getCollection('universities'), local
 
   <section class="section">
     <div class="container">
-      <div class="uni-grid">
-        {universities.map((u) => (
-          <ArticleCard
-              locale={locale}
-            title={u.data.name}
-            href={translatePath(`/universities/${entrySlug(u)}`, locale)}
-            description={u.data.intro}
-            image={u.data.image}
-            imageAlt={u.data.imageAlt}
-            tag={u.data.city}
-            meta={`${t.card.estLabel} ${u.data.founded}`}
-            pillar="education"
+      <div class="uni-controls" data-uni-controls>
+        <div class="uni-search-wrap">
+          <label for="uni-search" class="sr-only">Search universities</label>
+          <input
+            id="uni-search"
+            type="search"
+            class="uni-search"
+            placeholder="Search by university, city, programme (e.g. MBBS, CS), or recognition (WHO, NMC, CSC)…"
+            autocomplete="off"
+            data-uni-search
           />
+          <span class="uni-count num" data-uni-count>
+            {universityItems.length} / {universityItems.length}
+          </span>
+        </div>
+
+        <div class="uni-pills" role="group" aria-label="Filter universities">
+          <button type="button" class="uni-pill is-active" data-uni-filter="all" aria-pressed="true">
+            All
+          </button>
+          <button type="button" class="uni-pill" data-uni-filter="medical" aria-pressed="false">
+            Medical / MBBS
+          </button>
+          <button type="button" class="uni-pill" data-uni-filter="comprehensive" aria-pressed="false">
+            Comprehensive
+          </button>
+          <button type="button" class="uni-pill" data-uni-filter="technical" aria-pressed="false">
+            Technical
+          </button>
+          <button type="button" class="uni-pill" data-uni-filter="who-nmc-moe" aria-pressed="false">
+            WHO / NMC / MOE
+          </button>
+          <button type="button" class="uni-pill" data-uni-filter="csc" aria-pressed="false">
+            CSC Scholarship
+          </button>
+        </div>
+      </div>
+
+      <div class="uni-grid" data-uni-grid>
+        {universityItems.map(({ entry: u, hasMbbs, hasWhoNmcMoe, hasCsc, searchBlob }) => (
+          <div
+            class="uni-item"
+            data-uni-item
+            data-type={u.data.type}
+            data-mbbs={hasMbbs ? 'true' : 'false'}
+            data-rec={hasWhoNmcMoe ? 'true' : 'false'}
+            data-csc={hasCsc ? 'true' : 'false'}
+            data-search={searchBlob}
+          >
+            <ArticleCard
+              locale={locale}
+              title={u.data.name}
+              href={translatePath(`/universities/${entrySlug(u)}`, locale)}
+              description={u.data.intro}
+              image={u.data.image}
+              imageAlt={u.data.imageAlt}
+              tag={u.data.city}
+              meta={`${t.card.estLabel} ${u.data.founded}`}
+              pillar="education"
+            />
+          </div>
         ))}
       </div>
+
+      <p class="uni-empty" data-uni-empty hidden>
+        No universities match your current search and filter. Try clearing the search box or switching to “All”.
+      </p>
     </div>
   </section>
 
   <CtaBand locale={locale} ctaKey="universities" />
 </BaseLayout>
 
+<script>
+  function initUniversityDirectory() {
+    const controls = document.querySelector('[data-uni-controls]');
+    if (!controls) return;
+
+    const searchInput = controls.querySelector<HTMLInputElement>('[data-uni-search]');
+    const countEl = controls.querySelector<HTMLElement>('[data-uni-count]');
+    const pills = Array.from(controls.querySelectorAll<HTMLButtonElement>('[data-uni-filter]'));
+    const items = Array.from(document.querySelectorAll<HTMLElement>('[data-uni-item]'));
+    const emptyEl = document.querySelector<HTMLElement>('[data-uni-empty]');
+
+    if (!searchInput || !items.length) return;
+
+    let activeFilter = 'all';
+
+    function matchesFilter(el: HTMLElement, filter: string): boolean {
+      switch (filter) {
+        case 'medical':
+          return el.dataset.mbbs === 'true';
+        case 'comprehensive':
+          return el.dataset.type === 'comprehensive';
+        case 'technical':
+          return el.dataset.type === 'technical';
+        case 'who-nmc-moe':
+          return el.dataset.rec === 'true';
+        case 'csc':
+          return el.dataset.csc === 'true';
+        default:
+          return true;
+      }
+    }
+
+    function applyFilters() {
+      const query = (searchInput?.value ?? '').trim().toLowerCase();
+      const terms = query ? query.split(/\s+/).filter(Boolean) : [];
+      let visible = 0;
+
+      for (const item of items) {
+        const haystack = item.dataset.search ?? '';
+        const matchesQuery = terms.every((term) => haystack.includes(term));
+        const show = matchesQuery && matchesFilter(item, activeFilter);
+        item.hidden = !show;
+        if (show) visible += 1;
+      }
+
+      if (countEl) {
+        countEl.textContent = `${visible} / ${items.length}`;
+      }
+      if (emptyEl) {
+        emptyEl.hidden = visible > 0;
+      }
+    }
+
+    searchInput.addEventListener('input', applyFilters);
+
+    for (const pill of pills) {
+      pill.addEventListener('click', () => {
+        activeFilter = pill.dataset.uniFilter ?? 'all';
+        for (const p of pills) {
+          const isCurrent = p === pill;
+          p.classList.toggle('is-active', isCurrent);
+          p.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
+        }
+        applyFilters();
+      });
+    }
+  }
+
+  initUniversityDirectory();
+</script>
+
 <style>
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  .uni-controls {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .uni-search-wrap {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    background: var(--paper-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    padding: 0.25rem 0.9rem;
+    transition: border-color 0.2s var(--ease-out);
+  }
+
+  .uni-search-wrap:focus-within {
+    border-color: var(--accent);
+  }
+
+  .uni-search {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: 0;
+    padding: 0.65rem 0;
+    color: var(--ink);
+    font: inherit;
+    font-size: 0.95rem;
+    outline: none;
+  }
+
+  .uni-search::placeholder {
+    color: var(--ink-faint);
+  }
+
+  .uni-count {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    white-space: nowrap;
+  }
+
+  .uni-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .uni-pill {
+    appearance: none;
+    background: var(--paper-raised);
+    color: var(--ink-soft);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-s);
+    padding: 0.45rem 0.85rem;
+    font: inherit;
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    transition:
+      background-color 0.2s var(--ease-out),
+      color 0.2s var(--ease-out),
+      border-color 0.2s var(--ease-out);
+  }
+
+  .uni-pill:hover {
+    border-color: var(--ink-soft);
+    color: var(--ink);
+  }
+
+  .uni-pill.is-active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+  }
+
   .uni-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1.4rem;
+  }
+
+  .uni-item {
+    display: flex;
+  }
+
+  .uni-item[hidden] {
+    display: none;
+  }
+
+  .uni-item > :global(.article-card) {
+    width: 100%;
+  }
+
+  .uni-empty {
+    margin-top: 2rem;
+    padding: 2rem;
+    text-align: center;
+    color: var(--ink-soft);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius-m);
+    font-size: 0.95rem;
   }
 
   @media (max-width: 64rem) {

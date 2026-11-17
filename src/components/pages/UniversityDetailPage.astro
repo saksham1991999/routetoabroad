@@ -71,6 +71,13 @@ const hasBody = Boolean(university.body && university.body.trim());
         <h1>{data.name}</h1>
         {data.nickname && <p class="u-nickname">{data.nickname}</p>}
         <p class="u-intro">{data.intro}</p>
+        {data.recognitions && data.recognitions.length > 0 && (
+          <ul class="u-badges" aria-label="Recognitions and accreditations">
+            {data.recognitions.map((badge) => (
+              <li class="u-badge">{badge}</li>
+            ))}
+          </ul>
+        )}
       </div>
     </header>
 
@@ -129,6 +136,9 @@ const hasBody = Boolean(university.body && university.body.trim());
               <div><dt>{t.costs.living}</dt><dd>{data.costs.living}</dd></div>
             </dl>
             <a href={translatePath('/tools/cost-calculator', locale)} class="btn btn-outline btn-sm">{t.costs.estimateCta}</a>
+            <button type="button" class="btn btn-ghost btn-sm u-print-btn" data-print-sheet>
+              Print / Save Fee Sheet
+            </button>
           </div>
 
           <div class="u-card card card-pad" data-reveal>
@@ -137,6 +147,18 @@ const hasBody = Boolean(university.body && university.body.trim());
               {data.facts.map((f) => (
                 <div><dt>{f.label}</dt><dd>{f.value}</dd></div>
               ))}
+              {data.intakes && (
+                <div><dt>Intakes</dt><dd>{data.intakes}</dd></div>
+              )}
+              {data.taughtLanguages && data.taughtLanguages.length > 0 && (
+                <div><dt>Taught in</dt><dd>{data.taughtLanguages.join(' / ')}</dd></div>
+              )}
+              {data.hskRequirement && (
+                <div><dt>HSK</dt><dd>{data.hskRequirement}</dd></div>
+              )}
+              {data.scholarships && (
+                <div><dt>Scholarships</dt><dd>{data.scholarships}</dd></div>
+              )}
             </dl>
           </div>
 
@@ -152,6 +174,14 @@ const hasBody = Boolean(university.body && university.body.trim());
     <CtaBand locale={locale} />
   </article>
 </BaseLayout>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>('[data-print-sheet]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      window.print();
+    });
+  });
+</script>
 
 <style>
   .u-hero {
@@ -181,6 +211,27 @@ const hasBody = Boolean(university.body && university.body.trim());
     line-height: 1.6;
     color: var(--ink-soft);
     text-wrap: pretty;
+  }
+
+  .u-badges {
+    list-style: none;
+    padding: 0;
+    margin: 1.35rem 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .u-badge {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-s);
+    background: var(--paper-raised);
+    color: var(--accent-text);
   }
 
   .u-media {
@@ -289,6 +340,29 @@ const hasBody = Boolean(university.body && university.body.trim());
   .u-card .btn {
     margin-top: 0.9rem;
     width: 100%;
+  }
+
+  .u-print-btn {
+    margin-top: 0.55rem !important;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .u-print-btn:hover {
+    border-color: var(--ink-soft);
+    color: var(--ink);
+  }
+
+  @media print {
+    .u-print-btn,
+    .u-cta {
+      display: none !important;
+    }
+    .u-side {
+      position: static;
+    }
   }
 
   .u-cta {

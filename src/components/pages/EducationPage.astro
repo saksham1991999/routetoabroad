@@ -39,13 +39,15 @@ const pageFaqs = EDUCATION_FAQS[locale].slice(0, 6);
    names/descriptions come from the dictionary (same order). */
 const programmeIcons = [
   'M12 3v18M3 12h18',
+  'M9 3h6v4l3 5v7a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-7l3-5V3Z',
   'M14 6a4 4 0 1 0-8 0 4 4 0 0 0 8 0Zm6 12a4 4 0 1 0-8 0 4 4 0 0 0 8 0ZM6 10v4a4 4 0 0 0 4 4',
   'M3 7h18v13H3zM8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2',
   'M4 5h16M4 12h10M4 19h7',
+  'M4 7h16v12H4zM8 7V5h8v2M9 13h6',
   'M12 4 2 9l10 5 10-5-10-5ZM6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5',
   'M4 20V9m5 11V4m5 16v-8m5 8V7',
 ];
-const programmes = t.programmes.items.map((p, i) => ({ ...p, icon: programmeIcons[i] }));
+const programmes = t.programmes.items.map((p, i) => ({ ...p, icon: programmeIcons[i % programmeIcons.length] }));
 
 const process = t.process.steps;
 ---
@@ -160,6 +162,30 @@ const process = t.process.steps;
           </li>
         ))}
       </ol>
+    </div>
+  </section>
+
+  <!-- Visa pathways -->
+  <section class="section" id="visas">
+    <div class="container">
+      <SectionHead
+        eyebrow={t.visas.eyebrow}
+        index={t.visas.index}
+        title={t.visas.title}
+        lede={t.visas.lede}
+      />
+      <div class="visa-grid">
+        {t.visas.items.map((v, i) => (
+          <article class="visa-card card" data-reveal style={`--reveal-delay: ${(i % 3) * 70}ms`}>
+            <div class="visa-top">
+              <span class="visa-code num">{v.code}</span>
+              <span class="visa-dur num">{v.duration}</span>
+            </div>
+            <h3>{v.title}</h3>
+            <p>{v.text}</p>
+          </article>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -501,6 +527,47 @@ const process = t.process.steps;
     margin-top: 2rem;
   }
 
+  .visa-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+
+  .visa-card {
+    padding: 1.5rem 1.6rem 1.7rem;
+  }
+
+  .visa-top {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+  }
+
+  .visa-code {
+    font-size: var(--step-2);
+    font-weight: 600;
+    color: var(--accent-text);
+  }
+
+  .visa-dur {
+    font-size: 0.78rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+  }
+
+  .visa-card h3 {
+    margin-top: 0.6rem;
+    font-size: 1.15rem;
+  }
+
+  .visa-card p {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
   @media (max-width: 64rem) {
     .edu-intro,
     .calc-teaser,
@@ -508,14 +575,16 @@ const process = t.process.steps;
       grid-template-columns: 1fr;
     }
     .prog-grid,
-    .uni-grid {
+    .uni-grid,
+    .visa-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 
   @media (max-width: 40rem) {
     .prog-grid,
-    .uni-grid {
+    .uni-grid,
+    .visa-grid {
       grid-template-columns: 1fr;
     }
   }

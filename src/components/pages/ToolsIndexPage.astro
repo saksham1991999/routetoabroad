@@ -13,7 +13,7 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const t = TOOLS_INDEX_STRINGS[locale];
 
-const HREFS = ['/tools/fit-check', '/tools/scholarship-eligibility', '/tools/cost-calculator', '/tools/document-checklist', '/tools/timeline-planner'] as const;
+const HREFS = ['/tools/fit-check', '/tools/scholarship-eligibility', '/tools/cost-calculator', '/tools/document-checklist', '/tools/timeline-planner', '/tools/trade-cost-calculator'] as const;
 const tools = t.tools.map((tool, i) => ({ ...tool, href: translatePath(HREFS[i]!, locale) }));
 ---
 
@@ -26,7 +26,7 @@ const tools = t.tools.map((tool, i) => ({ ...tool, href: translatePath(HREFS[i]!
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
-    index="TLS / 05"
+    index="TLS / 06"
     title={t.hero.title}
     lede={t.hero.lede}
     crumbs={[{ name: t.crumb, url: translatePath('/tools', locale) }]}

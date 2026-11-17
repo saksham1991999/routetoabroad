@@ -29,8 +29,8 @@ export function organizationSchema() {
     email: SITE.email,
     foundingDate: String(SITE.founded),
     description:
-      'Consultancy connecting India and East Asia through education placements, cultural tourism, and cross-border trade services.',
-    address: SITE.offices.map((o) => ({
+      'Global-to-China and East Asia consultancy connecting students, travellers, and importers from all countries to China and Japan through university admissions, cultural tourism, and cross-border trade.',
+    address: [SITE.registeredOffice, ...SITE.offices].map((o) => ({
       '@type': 'PostalAddress',
       streetAddress: o.street,
       addressLocality: o.city,
@@ -43,8 +43,8 @@ export function organizationSchema() {
         '@type': 'ContactPoint',
         telephone: SITE.phoneIndiaHref.replace('tel:', ''),
         contactType: 'customer service',
-        areaServed: ['IN', 'CN', 'SA', 'AE', 'NG', 'KE'],
-        availableLanguage: ['English', 'Chinese', 'Hindi', 'Malayalam'],
+        areaServed: ['US', 'IN', 'CN', 'SA', 'AE', 'NG', 'KE', 'PK', 'GB', 'DE', 'FR', 'ES', 'BR', 'JP'],
+        availableLanguage: ['English', 'Chinese', 'Hindi', 'Arabic', 'French', 'Spanish', 'German', 'Japanese', 'Portuguese'],
       },
     ],
     sameAs: Object.values(SITE.socials),
@@ -71,13 +71,14 @@ export function websiteSchema() {
   };
 }
 
-export function localBusinessSchema(officeIndex: number) {
-  const o = SITE.offices[officeIndex];
-  // Publish only verified numbers: the India office uses the national line,
-  // the China office omits telephone until its own number is confirmed
-  // (SITE.phoneChina is {{VERIFY}}-marked).
+export function localBusinessSchema(officeIndex: number | 'registered') {
+  const o = officeIndex === 'registered' ? SITE.registeredOffice : SITE.offices[officeIndex];
+  // Publish only verified numbers: the registered US HQ and India desk use
+  // the verified helpline; the China office omits telephone until confirmed.
   const telephone =
-    o.country === 'IN' ? SITE.phoneIndiaHref.replace('tel:', '') : undefined;
+    o.country === 'IN' || o.country === 'US'
+      ? SITE.phoneIndiaHref.replace('tel:', '')
+      : undefined;
   return {
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
@@ -290,4 +291,40 @@ export function definedTermSchemas(terms: { term: string; definition: string }[]
       url: `${SITE.url}/glossary`,
     },
   }));
+}
+
+/** AEO SpeakableSpecification for answer-first pages, guides, and comparisons. */
+export function speakableSchema(opts: { url: string; cssSelector?: string[] }) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': absUrl(opts.url),
+    url: absUrl(opts.url),
+    speakable: {
+      '@type': 'SpeakableSpecification',
+      cssSelector: opts.cssSelector ?? ['h1', '.lede', '.answer-first', 'main p:first-of-type'],
+    },
+  };
+}
+
+/** GEO/SEO OfferCatalog for China-to-World sourcing categories & SKUs. */
+export function tradeOfferCatalogSchema(items: { name: string; sku: string; category: string; description: string }[]) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'OfferCatalog',
+    name: 'RouteToAbroad Global China Sourcing Catalog',
+    url: `${SITE.url}/trade`,
+    itemListElement: items.map((item, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'Product',
+        name: item.name,
+        sku: item.sku,
+        category: item.category,
+        description: item.description,
+        brand: { '@type': 'Brand', name: SITE.name },
+      },
+    })),
+  };
 }

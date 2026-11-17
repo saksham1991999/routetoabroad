@@ -1,0 +1,650 @@
+---
+/**
+ * Trade Landed Cost & FCL/CBM Estimator — shared by all 9 locales.
+ * Static copy comes from src/i18n/tools/trade-cost-calculator.ts; the client
+ * script reads its strings from data-i18n and formats USD with Intl.
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PageHero from '../PageHero.astro';
+import { translatePath, DEFAULT_LOCALE, type Locale } from '../../lib/i18n';
+import { TRADE_COST_STRINGS } from '../../i18n/tools/trade-cost-calculator';
+
+interface Props {
+  locale?: Locale;
+}
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const t = TRADE_COST_STRINGS[locale];
+---
+
+<BaseLayout
+  title={t.title}
+  description={t.description}
+  path="/tools/trade-cost-calculator"
+  locale={locale}
+  crumbs={[
+    { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+    { name: t.crumb, url: translatePath('/tools/trade-cost-calculator', locale) },
+  ]}
+>
+  <PageHero
+    eyebrow={t.hero.eyebrow}
+    title={t.hero.title}
+    lede={t.hero.lede}
+    crumbs={[
+      { name: t.toolsCrumb, url: translatePath('/tools', locale) },
+      { name: t.crumb, url: translatePath('/tools/trade-cost-calculator', locale) },
+    ]}
+  />
+
+  <section class="section">
+    <div class="container-text">
+      <div class="calc card card-pad" id="tcalc-root" data-i18n={JSON.stringify(t.script)}>
+        <div class="calc-form" id="tcalc-form">
+          <div class="calc-row">
+            <div class="field">
+              <label for="tcalc-origin">{t.labels.origin}</label>
+              <select id="tcalc-origin">
+                <option value="">{t.select}</option>
+                <option value="shenzhen">{t.origins.shenzhen}</option>
+                <option value="guangzhou">{t.origins.guangzhou}</option>
+                <option value="ningbo">{t.origins.ningbo}</option>
+                <option value="shanghai">{t.origins.shanghai}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tcalc-dest">{t.labels.destination}</label>
+              <select id="tcalc-dest">
+                <option value="">{t.select}</option>
+                <option value="india">{t.destinations.india}</option>
+                <option value="gcc">{t.destinations.gcc}</option>
+                <option value="africa">{t.destinations.africa}</option>
+                <option value="europe">{t.destinations.europe}</option>
+                <option value="americas">{t.destinations.americas}</option>
+                <option value="sea">{t.destinations.sea}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="field">
+              <label for="tcalc-mode">{t.labels.mode}</label>
+              <select id="tcalc-mode">
+                <option value="">{t.select}</option>
+                <option value="fcl20">{t.modes.fcl20}</option>
+                <option value="fcl40hq">{t.modes.fcl40hq}</option>
+                <option value="lcl">{t.modes.lcl}</option>
+                <option value="air">{t.modes.air}</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="tcalc-cat">{t.labels.category}</label>
+              <select id="tcalc-cat">
+                <option value="">{t.select}</option>
+                <option value="electronics">{t.categories.electronics}</option>
+                <option value="solar">{t.categories.solar}</option>
+                <option value="ev">{t.categories.ev}</option>
+                <option value="machinery">{t.categories.machinery}</option>
+                <option value="textiles">{t.categories.textiles}</option>
+                <option value="hardware">{t.categories.hardware}</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="calc-row">
+            <div class="field">
+              <label for="tcalc-fob">{t.labels.fobValue}</label>
+              <input id="tcalc-fob" type="number" min="500" step="500" value="15000" />
+            </div>
+            <div class="field">
+              <label for="tcalc-cbm">{t.labels.volume}</label>
+              <input id="tcalc-cbm" type="number" min="1" max="100" step="0.5" value="10" />
+            </div>
+          </div>
+
+          <div class="calc-actions">
+            <button type="button" class="btn btn-primary" id="tcalc-go">{t.calculate}</button>
+            <button type="button" class="btn btn-ghost" id="tcalc-reset">{t.reset}</button>
+          </div>
+        </div>
+
+        <div class="calc-result" id="tcalc-result" hidden aria-live="polite"></div>
+      </div>
+
+      <div class="quick-answer calc-note" data-reveal>
+        <p class="qa-label">{t.included.label}</p>
+        <p>
+          {t.included.before} <strong>{t.included.bold}</strong> {t.included.after}
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style is:global>
+  .calc {
+    max-width: 46rem;
+    margin-inline: auto;
+  }
+
+  .calc-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .calc-row + .calc-row {
+    margin-top: 1.2rem;
+  }
+
+  .calc-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-top: 1.4rem;
+  }
+
+  .calc-result {
+    border-top: 1px solid var(--line);
+    margin-top: 1.8rem;
+    padding-top: 1.8rem;
+  }
+
+  .cost-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .cost-total {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    font-size: var(--step-4);
+    font-weight: 600;
+  }
+
+  .cost-total-label {
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+  }
+
+  .tcalc-transit {
+    margin-top: 0.6rem;
+    font-size: 0.82rem;
+    color: var(--accent-text);
+    letter-spacing: 0.04em;
+  }
+
+  table.cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1.3rem;
+    font-size: 0.95rem;
+  }
+
+  table.cost-table th,
+  table.cost-table td {
+    text-align: start;
+    padding: 0.65rem 0.5rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  table.cost-table th {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  table.cost-table td:last-child {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    text-align: end;
+    white-space: nowrap;
+  }
+
+  table.cost-table tbody tr:last-child td strong {
+    font-weight: 600;
+  }
+
+  .cost-note {
+    margin-top: 1.2rem;
+    font-size: 0.85rem;
+    color: var(--ink-faint);
+    line-height: 1.6;
+  }
+
+  .cost-actions {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .calc-note {
+    max-width: 46rem;
+    margin: 2rem auto 0;
+  }
+
+  .field.field-missing label {
+    color: var(--err);
+  }
+
+  .field.field-missing select,
+  .field.field-missing input {
+    border-color: var(--err);
+    animation: field-nudge 0.35s var(--ease-out);
+  }
+
+  @keyframes field-nudge {
+    0%,
+    100% {
+      transform: translateX(0);
+    }
+    30% {
+      transform: translateX(-4px);
+    }
+    60% {
+      transform: translateX(3px);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .field-missing select,
+    .field-missing input {
+      animation: none;
+    }
+  }
+
+  .calc-result.is-revealed {
+    animation: result-in 0.5s var(--ease-out);
+  }
+
+  @keyframes result-in {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .calc-result.is-revealed {
+      animation: none;
+    }
+  }
+
+  @media (max-width: 40rem) {
+    .calc-row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .cost-total,
+  table.cost-table td:not(:first-child) {
+    direction: ltr;
+    unicode-bidi: isolate;
+  }
+</style>
+
+<script>
+  import { intlTag, localizeHref, readI18n } from '../../lib/i18n-client';
+  import type { TradeCostStrings } from '../../i18n/tools/trade-cost-calculator';
+
+  const root = document.getElementById('tcalc-root');
+  const T = readI18n<TradeCostStrings['script']>(root);
+  const nf = new Intl.NumberFormat(intlTag(), {
+    style: 'currency',
+    currency: 'USD',
+    currencyDisplay: 'narrowSymbol',
+    maximumFractionDigits: 0,
+  });
+
+  const go = document.getElementById('tcalc-go') as HTMLButtonElement | null;
+  const resetBtn = document.getElementById('tcalc-reset') as HTMLButtonElement | null;
+  const result = document.getElementById('tcalc-result') as HTMLElement;
+
+  const FIELD_IDS = [
+    'tcalc-origin',
+    'tcalc-dest',
+    'tcalc-mode',
+    'tcalc-cat',
+    'tcalc-fob',
+    'tcalc-cbm',
+  ] as const;
+
+  const PARAM_KEYS: Record<(typeof FIELD_IDS)[number], string> = {
+    'tcalc-origin': 'origin',
+    'tcalc-dest': 'dest',
+    'tcalc-mode': 'mode',
+    'tcalc-cat': 'cat',
+    'tcalc-fob': 'fob',
+    'tcalc-cbm': 'cbm',
+  };
+
+  const STORE_KEY = 'rta-trade-cost-v1';
+
+  const readValues = () =>
+    Object.fromEntries(
+      FIELD_IDS.map((id) => [
+        id,
+        (document.getElementById(id) as HTMLSelectElement | HTMLInputElement).value,
+      ])
+    ) as Record<(typeof FIELD_IDS)[number], string>;
+
+  function saveInputs() {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(readValues()));
+    } catch {}
+  }
+
+  function restoreInputs() {
+    let values: Record<string, string> = {};
+    try {
+      values = JSON.parse(localStorage.getItem(STORE_KEY) || '{}');
+    } catch {}
+    const params = new URLSearchParams(location.search);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      const val = params.get(key) || values[id] || '';
+      const el = document.getElementById(id) as HTMLSelectElement | HTMLInputElement | null;
+      if (!el || !val) continue;
+      if (el instanceof HTMLSelectElement) {
+        if ([...el.options].some((o) => o.value === val)) el.value = val;
+      } else {
+        el.value = val;
+      }
+    }
+  }
+
+  function syncUrl(values: Record<string, string>) {
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) {
+      const key = PARAM_KEYS[id];
+      if (values[id]) url.searchParams.set(key, values[id]!);
+      else url.searchParams.delete(key);
+    }
+    history.replaceState({}, '', url);
+  }
+
+  // Base freight tables [low, high] in USD
+  // fcl20, fcl40hq: per container; lcl: per CBM; air: per kg (1 CBM ≈ 167 kg)
+  const FREIGHT: Record<
+    string,
+    { fcl20: [number, number]; fcl40hq: [number, number]; lcl: [number, number]; airKg: [number, number]; seaDays: string; airDays: string }
+  > = {
+    india: { fcl20: [950, 1450], fcl40hq: [1550, 2350], lcl: [55, 85], airKg: [2.8, 4.1], seaDays: '14–20', airDays: '4–6' },
+    gcc: { fcl20: [1200, 1850], fcl40hq: [1950, 2900], lcl: [65, 95], airKg: [3.2, 4.6], seaDays: '16–22', airDays: '4–6' },
+    africa: { fcl20: [2200, 3200], fcl40hq: [3500, 4900], lcl: [105, 155], airKg: [4.2, 6.0], seaDays: '26–36', airDays: '5–8' },
+    europe: { fcl20: [2400, 3600], fcl40hq: [3900, 5600], lcl: [95, 145], airKg: [3.6, 5.2], seaDays: '28–38', airDays: '5–7' },
+    americas: { fcl20: [2600, 4100], fcl40hq: [4200, 6400], lcl: [110, 165], airKg: [4.0, 5.8], seaDays: '22–34', airDays: '5–8' },
+    sea: { fcl20: [550, 900], fcl40hq: [950, 1500], lcl: [35, 60], airKg: [1.9, 2.9], seaDays: '6–12', airDays: '2–4' },
+  };
+
+  // Origin port multiplier (slight THC / feeder variance)
+  const ORIGIN_MULT: Record<string, number> = {
+    shenzhen: 1.0,
+    guangzhou: 1.02,
+    ningbo: 0.98,
+    shanghai: 1.03,
+  };
+
+  // Indicative destination import duty + VAT/GST combined % [low, high]
+  const DUTY_BANDS: Record<string, Record<string, [number, number]>> = {
+    india: { electronics: [0.22, 0.31], solar: [0.18, 0.28], ev: [0.24, 0.34], machinery: [0.18, 0.25], textiles: [0.20, 0.28], hardware: [0.20, 0.29] },
+    gcc: { electronics: [0.05, 0.10], solar: [0.05, 0.10], ev: [0.05, 0.10], machinery: [0.05, 0.10], textiles: [0.05, 0.10], hardware: [0.05, 0.10] },
+    africa: { electronics: [0.20, 0.32], solar: [0.10, 0.20], ev: [0.20, 0.30], machinery: [0.10, 0.20], textiles: [0.25, 0.38], hardware: [0.20, 0.32] },
+    europe: { electronics: [0.19, 0.24], solar: [0.19, 0.23], ev: [0.22, 0.29], machinery: [0.19, 0.24], textiles: [0.25, 0.32], hardware: [0.20, 0.26] },
+    americas: { electronics: [0.08, 0.25], solar: [0.12, 0.28], ev: [0.10, 0.27], machinery: [0.05, 0.18], textiles: [0.14, 0.28], hardware: [0.08, 0.22] },
+    sea: { electronics: [0.07, 0.15], solar: [0.05, 0.12], ev: [0.08, 0.18], machinery: [0.05, 0.12], textiles: [0.10, 0.20], hardware: [0.08, 0.16] },
+  };
+
+  const fmt = (n: number) => nf.format(Math.round(n));
+  const key = <K extends string>(map: Record<K, string>, k: string) => map[k as K] ?? k;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let renderTimer: number | undefined;
+
+  function countUp(el: HTMLElement, lo: number, hi: number) {
+    if (reduced) {
+      el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      return;
+    }
+    const duration = 900;
+    const start = performance.now();
+    const step = (now: number) => {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      if (p < 1) {
+        el.textContent = fmt(hi * eased);
+        requestAnimationFrame(step);
+      } else {
+        el.textContent = `${fmt(lo)} – ${fmt(hi)}`;
+      }
+    };
+    requestAnimationFrame(step);
+  }
+
+  function flagMissing(ids: string[]) {
+    ids.forEach((id) => {
+      const el = document.getElementById(id);
+      el?.closest('.field')?.classList.add('field-missing');
+      el?.addEventListener('change', () => el.closest('.field')?.classList.remove('field-missing'), { once: true });
+    });
+  }
+
+  function hideResult() {
+    result.hidden = true;
+    result.innerHTML = '';
+    result.classList.remove('is-revealed');
+  }
+
+  go?.addEventListener('click', () => {
+    const origin = (document.getElementById('tcalc-origin') as HTMLSelectElement).value;
+    const dest = (document.getElementById('tcalc-dest') as HTMLSelectElement).value;
+    const mode = (document.getElementById('tcalc-mode') as HTMLSelectElement).value;
+    const cat = (document.getElementById('tcalc-cat') as HTMLSelectElement).value;
+    const fob = parseFloat((document.getElementById('tcalc-fob') as HTMLInputElement).value);
+    const cbm = parseFloat((document.getElementById('tcalc-cbm') as HTMLInputElement).value);
+
+    const missing = [
+      !origin && 'tcalc-origin',
+      !dest && 'tcalc-dest',
+      !mode && 'tcalc-mode',
+      !cat && 'tcalc-cat',
+      (!fob || fob < 100) && 'tcalc-fob',
+      (!cbm || cbm <= 0) && 'tcalc-cbm',
+    ].filter(Boolean) as string[];
+
+    if (missing.length) {
+      document.querySelectorAll('.field-missing').forEach((f) => f.classList.remove('field-missing'));
+      flagMissing(missing);
+      hideResult();
+      return;
+    }
+
+    const values = readValues();
+    saveInputs();
+    syncUrl(values);
+
+    const lane = FREIGHT[dest]!;
+    const mult = ORIGIN_MULT[origin] ?? 1;
+
+    let freightLo = 0;
+    let freightHi = 0;
+    let freightBasis = '';
+    let originLo = 180;
+    let originHi = 280;
+    let destLo = 220;
+    let destHi = 360;
+
+    if (mode === 'fcl20') {
+      freightLo = lane.fcl20[0] * mult;
+      freightHi = lane.fcl20[1] * mult;
+      freightBasis = '1 × 20ft FCL';
+      originLo = 260;
+      originHi = 380;
+      destLo = 350;
+      destHi = 550;
+    } else if (mode === 'fcl40hq') {
+      freightLo = lane.fcl40hq[0] * mult;
+      freightHi = lane.fcl40hq[1] * mult;
+      freightBasis = '1 × 40ft HQ';
+      originLo = 340;
+      originHi = 490;
+      destLo = 480;
+      destHi = 740;
+    } else if (mode === 'lcl') {
+      const billableCbm = Math.max(1, cbm);
+      freightLo = lane.lcl[0] * billableCbm * mult;
+      freightHi = lane.lcl[1] * billableCbm * mult;
+      freightBasis = `${billableCbm} CBM`;
+      originLo = 110 + billableCbm * 18;
+      originHi = 170 + billableCbm * 25;
+      destLo = 180 + billableCbm * 22;
+      destHi = 280 + billableCbm * 32;
+    } else {
+      const kg = Math.max(45, Math.round(cbm * 167));
+      freightLo = lane.airKg[0] * kg * mult;
+      freightHi = lane.airKg[1] * kg * mult;
+      freightBasis = `${kg} kg vol.`;
+      originLo = 120;
+      originHi = 210;
+      destLo = 160;
+      destHi = 280;
+    }
+
+    const insLo = (fob + freightLo) * 0.0035;
+    const insHi = (fob + freightHi) * 0.005;
+
+    const cifLo = fob + freightLo + insLo;
+    const cifHi = fob + freightHi + insHi;
+
+    const [dutyPctLo, dutyPctHi] = DUTY_BANDS[dest]![cat]!;
+    const dutyLo = cifLo * dutyPctLo;
+    const dutyHi = cifHi * dutyPctHi;
+
+    const totalLo = fob + originLo + freightLo + insLo + dutyLo + destLo;
+    const totalHi = fob + originHi + freightHi + insHi + dutyHi + destHi;
+
+    const transitStr =
+      mode === 'air'
+        ? T.daysAir.replace('{d}', lane.airDays)
+        : T.daysSea.replace('{d}', lane.seaDays);
+
+    if (renderTimer) clearTimeout(renderTimer);
+    result.hidden = false;
+    result.innerHTML = `
+      <div class="cost-headline">
+        <span class="skeleton skeleton-text" style="width: 14rem; height: 2.6rem;"></span>
+        <span class="skeleton skeleton-text w-40" style="width: 14rem;"></span>
+      </div>
+      <div style="margin-top: 1.5rem; display: grid; gap: 0.75rem;">
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-80"></span>
+        <span class="skeleton skeleton-text w-60"></span>
+      </div>
+    `;
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+    const render = () => {
+      const label = T.totalLabel
+        .replace('{mode}', key(T.modeShort, mode))
+        .replace('{origin}', key(T.originShort, origin))
+        .replace('{dest}', key(T.destShort, dest));
+
+      result.innerHTML = `
+        <div class="cost-headline">
+          <p class="cost-total num">
+            <span class="visually-hidden">${fmt(totalLo)} – ${fmt(totalHi)}</span>
+            <span aria-hidden="true" data-count>${fmt(0)}</span>
+          </p>
+          <p class="cost-total-label">${label}</p>
+        </div>
+        <p class="tcalc-transit num">${T.transitLabel}: ${transitStr}</p>
+        <table class="cost-table">
+          <thead>
+            <tr><th>${T.thItem}</th><th>${T.thRate}</th><th>${T.thAmount}</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>${T.fobRow}</td><td>100%</td><td>${fmt(fob)}</td></tr>
+            <tr><td>${T.originRow}</td><td>THC + B/L</td><td>${fmt(originLo)} – ${fmt(originHi)}</td></tr>
+            <tr><td>${T.freightRow}</td><td>${freightBasis}</td><td>${fmt(freightLo)} – ${fmt(freightHi)}</td></tr>
+            <tr><td>${T.insuranceRow}</td><td>0.35% – 0.50%</td><td>${fmt(insLo)} – ${fmt(insHi)}</td></tr>
+            <tr><td>${T.dutyRow}</td><td>${Math.round(dutyPctLo * 100)}% – ${Math.round(dutyPctHi * 100)}% CIF</td><td>${fmt(dutyLo)} – ${fmt(dutyHi)}</td></tr>
+            <tr><td>${T.destRow}</td><td>Port + CHB</td><td>${fmt(destLo)} – ${fmt(destHi)}</td></tr>
+            <tr><td><strong>${T.totalRow}</strong></td><td><strong>CIF + Duty + Port</strong></td><td><strong>${fmt(totalLo)} – ${fmt(totalHi)}</strong></td></tr>
+          </tbody>
+        </table>
+        <p class="cost-note">${T.note}</p>
+        <div class="cost-actions">
+          <a class="btn btn-primary" href="${localizeHref('/trade#enquire')}">${T.ctaQuote}</a>
+          <a class="btn btn-outline" href="${localizeHref('/trade#catalog')}">${T.ctaCatalog}</a>
+          <button type="button" class="btn btn-ghost" data-share>${T.copyLink}</button>
+        </div>
+      `;
+      result.classList.add('is-revealed');
+      const totalEl = result.querySelector<HTMLElement>('[data-count]');
+      if (totalEl) countUp(totalEl, totalLo, totalHi);
+
+      result.querySelector<HTMLButtonElement>('[data-share]')?.addEventListener('click', async (e) => {
+        const btn = e.currentTarget as HTMLButtonElement;
+        try {
+          await navigator.clipboard.writeText(location.href);
+          btn.textContent = T.linkCopied;
+        } catch {
+          btn.textContent = T.copyFailed;
+        }
+        setTimeout(() => {
+          btn.textContent = T.copyLink;
+        }, 2200);
+      });
+    };
+
+    if (reduced) {
+      render();
+    } else {
+      renderTimer = window.setTimeout(() => {
+        renderTimer = undefined;
+        render();
+      }, 650);
+    }
+  });
+
+  FIELD_IDS.forEach((id) => {
+    document.getElementById(id)?.addEventListener('change', () => {
+      saveInputs();
+      document.getElementById(id)?.closest('.field')?.classList.remove('field-missing');
+    });
+  });
+
+  resetBtn?.addEventListener('click', () => {
+    if (renderTimer) clearTimeout(renderTimer);
+    renderTimer = undefined;
+    FIELD_IDS.forEach((id) => {
+      const el = document.getElementById(id) as HTMLSelectElement | HTMLInputElement;
+      if (el instanceof HTMLSelectElement) el.value = '';
+      else if (id === 'tcalc-fob') el.value = '15000';
+      else if (id === 'tcalc-cbm') el.value = '10';
+      el.closest('.field')?.classList.remove('field-missing');
+    });
+    hideResult();
+    try {
+      localStorage.removeItem(STORE_KEY);
+    } catch {}
+    const url = new URL(location.href);
+    for (const id of FIELD_IDS) url.searchParams.delete(PARAM_KEYS[id]);
+    history.replaceState({}, '', url);
+    (document.getElementById(FIELD_IDS[0]) as HTMLSelectElement)?.focus();
+  });
+
+  restoreInputs();
+
+  if (['origin', 'dest', 'mode', 'cat'].every((k) => new URLSearchParams(location.search).has(k))) {
+    go?.click();
+  }
+</script>

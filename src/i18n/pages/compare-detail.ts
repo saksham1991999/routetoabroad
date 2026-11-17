@@ -47,6 +47,10 @@ export interface CompareDetailStrings {
       sourcingGuide: string;
       tradeDesk: string;
     };
+    tourism: {
+      travelGuide: string;
+      planTrip: string;
+    };
   };
 }
 
@@ -80,6 +84,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
         sourcingGuide: 'Read the sourcing guide',
         tradeDesk: 'Talk to the trade desk',
       },
+      tourism: {
+        travelGuide: 'Read the travel guide',
+        planTrip: 'Plan a trip',
+      },
     },
   },
 
@@ -111,6 +119,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
       trade: {
         sourcingGuide: '阅读采购指南',
         tradeDesk: '与贸易团队洽谈',
+      },
+      tourism: {
+        travelGuide: '阅读旅行指南',
+        planTrip: '规划行程',
       },
     },
   },
@@ -144,6 +156,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
         sourcingGuide: 'Lire le guide de sourcing',
         tradeDesk: 'Parler à la cellule commerce',
       },
+      tourism: {
+        travelGuide: 'Lire le guide de voyage',
+        planTrip: 'Planifier un voyage',
+      },
     },
   },
 
@@ -175,6 +191,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
       trade: {
         sourcingGuide: 'اقرأ دليل التوريد',
         tradeDesk: 'تحدث مع فريق التجارة',
+      },
+      tourism: {
+        travelGuide: 'اقرأ دليل السفر',
+        planTrip: 'خطط لرحلتك',
       },
     },
   },
@@ -208,6 +228,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
         sourcingGuide: 'Lee la guía de sourcing',
         tradeDesk: 'Hablar con el equipo de comercio',
       },
+      tourism: {
+        travelGuide: 'Lee la guía de viaje',
+        planTrip: 'Planificar un viaje',
+      },
     },
   },
 
@@ -239,6 +263,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
       trade: {
         sourcingGuide: 'Beschaffungsleitfaden lesen',
         tradeDesk: 'Mit dem Trade-Desk sprechen',
+      },
+      tourism: {
+        travelGuide: 'Reiseführer lesen',
+        planTrip: 'Reise planen',
       },
     },
   },
@@ -272,6 +300,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
         sourcingGuide: '調達ガイドを読む',
         tradeDesk: '貿易デスクに相談する',
       },
+      tourism: {
+        travelGuide: '旅行ガイドを読む',
+        planTrip: '旅行を計画する',
+      },
     },
   },
 
@@ -304,6 +336,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
         sourcingGuide: 'Ler o guia de suprimentos',
         tradeDesk: 'Falar com a mesa de comércio',
       },
+      tourism: {
+        travelGuide: 'Ler o guia de viagem',
+        planTrip: 'Planejar uma viagem',
+      },
     },
   },
 
@@ -335,6 +371,10 @@ export const COMPARE_DETAIL: Record<Locale, CompareDetailStrings> = {
       trade: {
         sourcingGuide: 'सोर्सिंग गाइड पढ़ें',
         tradeDesk: 'व्यापार डेस्क से बात करें',
+      },
+      tourism: {
+        travelGuide: 'यात्रा गाइड पढ़ें',
+        planTrip: 'यात्रा की योजना बनाएँ',
       },
     },
   },

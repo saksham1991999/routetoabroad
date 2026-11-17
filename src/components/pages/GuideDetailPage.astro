@@ -15,7 +15,7 @@ import { SITE } from '../../lib/site';
 import Breadcrumbs from '../Breadcrumbs.astro';
 import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
-import { articleSchema, faqSchema } from '../../lib/schema';
+import { articleSchema, faqSchema, speakableSchema } from '../../lib/schema';
 import { entrySlug } from '../../lib/content';
 import { GUIDE_DETAIL } from '../../i18n/pages/guide-detail';
 
@@ -70,6 +70,7 @@ const pillarColor: Record<string, string> = {
       section: data.pillar,
     }),
     ...(faqs.length ? [faqSchema(faqs)] : []),
+    speakableSchema({ url, cssSelector: ['h1', '.lede'] }),
   ]}
 >
   <article class="container-text guide">

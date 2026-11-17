@@ -7,9 +7,9 @@
 export const SITE = {
   name: 'RouteToAbroad',
   legalName: 'RouteToAbroad Consulting',
-  title: 'RouteToAbroad — Study in China, Travel East Asia, Trade Across Borders',
+  title: 'RouteToAbroad — Study in China, Travel East Asia, Trade From All Countries to China',
   description:
-    'Education, tourism and trade across East Asia. RouteToAbroad places students in Chinese universities, designs journeys through China and Japan, and runs India–China trade operations from New Delhi and Guangzhou.',
+    'Education, tourism and trade from all countries to China and East Asia. RouteToAbroad places international students in Chinese universities, designs private and group journeys across China and Japan, and runs global-to-China sourcing and trade operations.',
   url: 'https://routetoabroad.com',
   email: 'info@routetoabroad.com',
   phoneIndia: '+91 96330 61109',
@@ -18,6 +18,17 @@ export const SITE = {
   whatsapp: 'https://wa.me/919633061109',
   hours: 'Mon–Sat, 9:00–18:00 IST',
   founded: 2012, // {{VERIFY}} site copy says 2018, schema said 2012 — confirm
+  registeredOffice: {
+    id: 'sheridan',
+    code: 'USA',
+    country: 'US',
+    city: 'Sheridan',
+    street: '30 N Gould St, Ste R',
+    postal: '82801',
+    region: 'WY',
+    lat: 44.7972,
+    lng: -106.9562,
+  },
   offices: [
     {
       id: 'delhi',

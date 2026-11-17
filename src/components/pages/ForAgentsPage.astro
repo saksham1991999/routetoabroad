@@ -7,7 +7,8 @@
  */
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import PageHero from '../PageHero.astro';
-import { SITE } from '../../lib/site';
+import { SITE, FORMSPREE_ENDPOINT } from '../../lib/site';
+import SectionHead from '../SectionHead.astro';
 import CtaBand from '../CtaBand.astro';
 import { uiFor } from '../../i18n/ui';
 import { FOR_AGENTS } from '../../i18n/pages/for-agents';
@@ -88,7 +89,117 @@ const t = FOR_AGENTS[locale];
           <a href={SITE.whatsapp} class="btn btn-outline" rel="noopener">{t.cta.whatsapp.replace('{phone}', SITE.phoneIndia)}</a>
         </div>
       </div>
-      <p class="portal-note num">{t.portal}</p>
+    </div>
+  </section>
+
+  <!-- B2B Partnership Tiers -->
+  <section class="section section-sunken" id="tiers">
+    <div class="container">
+      <SectionHead
+        eyebrow={t.tiers.eyebrow}
+        index="B2B / 01"
+        title={t.tiers.title}
+        lede={t.tiers.lede}
+      />
+      <div class="tiers-grid">
+        {t.tiers.items.map((tier, i) => (
+          <article class="tier-card card card-pad" data-reveal style={`--reveal-delay: ${i * 80}ms`}>
+            <p class="eyebrow tier-badge num">{tier.badge}</p>
+            <h3>{tier.name}</h3>
+            <p class="tier-summary">{tier.summary}</p>
+            <ul class="tier-bullets">
+              {tier.bullets.map((b) => <li>{b}</li>)}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Live B2B Partner Onboarding Form -->
+  <section class="section" id="onboard">
+    <div class="container onboard-wrap">
+      <div class="onboard-head" data-reveal>
+        <SectionHead
+          eyebrow={t.onboarding.eyebrow}
+          index="B2B / 02"
+          title={t.onboarding.title}
+          lede={t.onboarding.lede}
+        />
+      </div>
+      <div class="card card-pad onboard-card" data-reveal>
+        <form
+          class="enquiry-form"
+          action={FORMSPREE_ENDPOINT}
+          method="POST"
+          data-formspree
+          data-form-type="b2b-partner"
+          data-success-msg={t.onboarding.success}
+          novalidate
+        >
+          <input type="hidden" name="formType" value="B2B Partner Onboarding" />
+          <div class="form-fields">
+            <div class="form-row">
+              <div class="field">
+                <label for="b2b-agency">{t.onboarding.fields.agencyName} <span class="req" aria-hidden="true">*</span></label>
+                <input id="b2b-agency" name="agencyName" type="text" required autocomplete="organization" />
+              </div>
+              <div class="field">
+                <label for="b2b-contact">{t.onboarding.fields.contactName} <span class="req" aria-hidden="true">*</span></label>
+                <input id="b2b-contact" name="fullName" type="text" required autocomplete="name" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="b2b-email">{t.onboarding.fields.email} <span class="req" aria-hidden="true">*</span></label>
+                <input id="b2b-email" name="email" type="email" required autocomplete="email" placeholder="partner@agency.com" />
+              </div>
+              <div class="field">
+                <label for="b2b-phone">{t.onboarding.fields.phone} <span class="req" aria-hidden="true">*</span></label>
+                <input id="b2b-phone" name="phone" type="tel" required autocomplete="tel" placeholder="+971 / +91 / +234 …" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="field">
+                <label for="b2b-country">{t.onboarding.fields.country} <span class="req" aria-hidden="true">*</span></label>
+                <input id="b2b-country" name="country" type="text" required autocomplete="country-name" />
+              </div>
+              <div class="field">
+                <label for="b2b-tier">{t.onboarding.fields.tier}</label>
+                <select id="b2b-tier" name="partnershipTier">
+                  {t.onboarding.fields.tierOptions.map((opt) => (
+                    <option value={opt}>{opt}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row form-row--single">
+              <div class="field">
+                <label for="b2b-volume">{t.onboarding.fields.volume}</label>
+                <select id="b2b-volume" name="estimatedVolume">
+                  {t.onboarding.fields.volumeOptions.map((opt) => (
+                    <option value={opt}>{opt}</option>
+                  ))}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row form-row--single">
+              <div class="field">
+                <label for="b2b-notes">{t.onboarding.fields.notes}</label>
+                <textarea id="b2b-notes" name="message" rows="3" placeholder={t.onboarding.fields.notesPlaceholder}></textarea>
+              </div>
+            </div>
+          </div>
+
+          <p class="form-status" role="status"></p>
+          <button type="submit" class="btn btn-primary btn-lg">{t.onboarding.submit}</button>
+          <p class="form-fineprint">{t.onboarding.fineprint}</p>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -190,16 +301,66 @@ const t = FOR_AGENTS[locale];
     flex-wrap: wrap;
   }
 
-  .portal-note {
-    margin-top: 1.4rem;
-    font-size: 0.6875rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-faint);
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.3rem;
+  }
+
+  .tier-card {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tier-badge {
+    color: var(--accent-text);
+  }
+
+  .tier-card h3 {
+    margin-top: 0.7rem;
+    font-size: var(--step-2);
+  }
+
+  .tier-summary {
+    margin-top: 0.6rem;
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    line-height: 1.6;
+  }
+
+  .tier-bullets {
+    margin-top: 1.2rem;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid var(--line);
+  }
+
+  .tier-bullets li {
+    padding: 0.65rem 0 0.65rem 1.2rem;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    position: relative;
+  }
+
+  .tier-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent-text);
+  }
+
+  .onboard-wrap {
+    max-width: 54rem;
+  }
+
+  .onboard-card {
+    margin-top: 1.5rem;
   }
 
   @media (max-width: 64rem) {
-    .agent-grid {
+    .agent-grid,
+    .tiers-grid {
       grid-template-columns: 1fr;
     }
   }
