@@ -506,23 +506,29 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
       };
 
       let toneQueued = false;
-      const updateTone = () => {
-        toneQueued = false;
-        // Sample behind the fixed header, not a quarter down the viewport:
-        // a dark band starting below the header must not flip the chrome
-        // white while it is still sitting over paper.
-        const probe = 40;
+      const sampleTone = (probe: number) => {
         let next = 'light';
         for (const section of toneSections) {
           const rect = section.getBoundingClientRect();
           if (rect.top <= probe && rect.bottom >= probe) {
-            next = section.dataset.tone || 'light';
-            break;
+            return section.dataset.tone || 'light';
           }
           // Below every tone region (e.g. inside the footer): keep the last tone.
           if (rect.top > probe) break;
+          next = section.dataset.tone || next;
         }
-        if (document.body.dataset.tone !== next) document.body.dataset.tone = next;
+        return next;
+      };
+      const updateTone = () => {
+        toneQueued = false;
+        // Sample behind the fixed header and behind the bottom HUD separately
+        // so dark-band boundaries don't desync the bottom HUD contrast.
+        const headTone = sampleTone(40);
+        if (document.body.dataset.tone !== headTone) document.body.dataset.tone = headTone;
+        if (hud) {
+          const hudTone = sampleTone(window.innerHeight - 28);
+          if (hud.dataset.tone !== hudTone) hud.dataset.tone = hudTone;
+        }
       };
 
       const onScrollChrome = () => {
@@ -817,8 +823,13 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
     transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s var(--ease-out);
   }
 
-  :global(body[data-tone='dark']) .rta-hud {
+  .rta-hud[data-tone='dark'] {
     color: #F4F2EC;
+  }
+
+  .no-js .rta-hud {
+    color: #ffffff;
+    mix-blend-mode: difference;
   }
 
   .rta-hud.is-hidden {

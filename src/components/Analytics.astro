@@ -5,15 +5,14 @@ const { gtmId, gaMeasurementId, posthogKey, posthogHost } = ANALYTICS;
 const posthogAssetsHost = posthogHost.includes('.i.posthog.com')
   ? posthogHost.replace('.i.posthog.com', '-assets.i.posthog.com')
   : posthogHost;
-const googleTagSrc = gtmId
-  ? `https://www.googletagmanager.com/gtm.js?id=${gtmId}`
-  : gaMeasurementId
-    ? `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`
-    : '';
+const googleTagSrcs = [
+  gtmId ? `https://www.googletagmanager.com/gtm.js?id=${gtmId}` : '',
+  gaMeasurementId ? `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}` : '',
+].filter(Boolean);
 ---
 
-{googleTagSrc && (
-  <script is:inline define:vars={{ gTagSrc: googleTagSrc, gtmContainerId: gtmId, gaId: gaMeasurementId }}>
+{googleTagSrcs.length > 0 && (
+  <script is:inline define:vars={{ gTagSrcs: googleTagSrcs, gtmContainerId: gtmId, gaId: gaMeasurementId }}>
     (function (doc, win) {
       win.dataLayer = win.dataLayer || [];
       win.gtag =
@@ -32,10 +31,12 @@ const googleTagSrc = gtmId
       function loadGtag() {
         if (loaded) return;
         loaded = true;
-        var s = doc.createElement('script');
-        s.async = true;
-        s.src = gTagSrc;
-        doc.head.appendChild(s);
+        for (var i = 0; i < gTagSrcs.length; i++) {
+          var s = doc.createElement('script');
+          s.async = true;
+          s.src = gTagSrcs[i];
+          doc.head.appendChild(s);
+        }
       }
       function schedule() {
         if ('requestIdleCallback' in win) {
