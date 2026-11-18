@@ -226,7 +226,12 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             {ui.hud.tagline}
           </span>
           <div class="rta-hud-right">
-            <a class="rta-hud-link" href={SITE.whatsapp} rel="noopener">
+            <a
+              class="rta-hud-link"
+              href={`${SITE.whatsapp}?text=${encodeURIComponent(ui.chat.whatsappPrefill)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               WhatsApp <bdi>{SITE.phoneIndia}</bdi>
             </a>
             <span class="rta-hud-item" aria-hidden="true">{ui.hud.scroll}</span>
@@ -406,15 +411,15 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             const words =
               loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
-            startLogoMotion(words.length * 1080);
+            startLogoMotion(words.length * 620);
             if (word) {
               for (const next of words) {
                 word.textContent = next;
                 word.classList.add('is-in');
-                await wait(450 + 280); // in 0.45s + hold 0.28s
+                await wait(260 + 160); // in 0.26s + hold 0.16s
                 word.classList.remove('is-in');
                 word.classList.add('is-out');
-                await wait(350); // out 0.35s
+                await wait(200); // out 0.20s
                 word.classList.remove('is-out');
               }
             }
@@ -424,7 +429,7 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             try {
               sessionStorage.setItem('rta-loader', '1');
             } catch {}
-            await wait(1050);
+            await wait(620);
             loader.remove();
             document.body.classList.remove('rta-locked');
           };
@@ -501,23 +506,29 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
       };
 
       let toneQueued = false;
-      const updateTone = () => {
-        toneQueued = false;
-        // Sample behind the fixed header, not a quarter down the viewport:
-        // a dark band starting below the header must not flip the chrome
-        // white while it is still sitting over paper.
-        const probe = 40;
+      const sampleTone = (probe: number) => {
         let next = 'light';
         for (const section of toneSections) {
           const rect = section.getBoundingClientRect();
           if (rect.top <= probe && rect.bottom >= probe) {
-            next = section.dataset.tone || 'light';
-            break;
+            return section.dataset.tone || 'light';
           }
           // Below every tone region (e.g. inside the footer): keep the last tone.
           if (rect.top > probe) break;
+          next = section.dataset.tone || next;
         }
-        if (document.body.dataset.tone !== next) document.body.dataset.tone = next;
+        return next;
+      };
+      const updateTone = () => {
+        toneQueued = false;
+        // Sample behind the fixed header and behind the bottom HUD separately
+        // so dark-band boundaries don't desync the bottom HUD contrast.
+        const headTone = sampleTone(40);
+        if (document.body.dataset.tone !== headTone) document.body.dataset.tone = headTone;
+        if (hud) {
+          const hudTone = sampleTone(window.innerHeight - 28);
+          if (hud.dataset.tone !== hudTone) hud.dataset.tone = hudTone;
+        }
       };
 
       const onScrollChrome = () => {
@@ -695,7 +706,7 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
     right: 0;
     height: 50.5%;
     background: var(--paper);
-    transition: transform 1s cubic-bezier(0.76, 0, 0.24, 1);
+    transition: transform 0.6s cubic-bezier(0.76, 0, 0.24, 1);
   }
 
   .rta-loader-cover--top {
@@ -767,13 +778,13 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
   .rta-loader-word.is-in {
     transform: translateY(0);
     opacity: 1;
-    transition: transform 0.45s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.45s linear;
+    transition: transform 0.26s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.26s linear;
   }
 
   .rta-loader-word.is-out {
     transform: translateY(-115%);
     opacity: 0;
-    transition: transform 0.35s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.35s linear;
+    transition: transform 0.2s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.2s linear;
   }
 
   .no-js .rta-loader {
@@ -807,10 +818,18 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
     padding-inline: var(--gutter);
     font-size: 11px;
     letter-spacing: 0.08em;
+    color: var(--ink);
+    pointer-events: none;
+    transition: color 0.3s ease, opacity 0.4s ease, transform 0.4s var(--ease-out);
+  }
+
+  .rta-hud[data-tone='dark'] {
+    color: #F4F2EC;
+  }
+
+  .no-js .rta-hud {
     color: #ffffff;
     mix-blend-mode: difference;
-    pointer-events: none;
-    transition: opacity 0.4s ease, transform 0.4s var(--ease-out);
   }
 
   .rta-hud.is-hidden {
@@ -829,7 +848,7 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
 
   .rta-hud-link {
     pointer-events: auto;
-    color: #ffffff;
+    color: inherit;
     text-decoration: none;
     /* 44px tap target inside the 54px HUD row; transparent padding keeps the
        visible label pixel-identical and the row height untouched. */

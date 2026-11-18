@@ -1,24 +1,60 @@
 ---
 import { ANALYTICS } from '../lib/site';
 
-const { gaMeasurementId, posthogKey, posthogHost } = ANALYTICS;
+const { gtmId, gaMeasurementId, posthogKey, posthogHost } = ANALYTICS;
 const posthogAssetsHost = posthogHost.includes('.i.posthog.com')
   ? posthogHost.replace('.i.posthog.com', '-assets.i.posthog.com')
   : posthogHost;
+const googleTagSrcs = [
+  gtmId ? `https://www.googletagmanager.com/gtm.js?id=${gtmId}` : '',
+  gaMeasurementId ? `https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}` : '',
+].filter(Boolean);
 ---
 
-{gaMeasurementId && (
-  <>
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}></script>
-    <script is:inline define:vars={{ gaId: gaMeasurementId }}>
-      window.dataLayer = window.dataLayer || [];
-      window.gtag = function gtag() {
-        window.dataLayer.push(arguments);
-      };
-      window.gtag('js', new Date());
-      window.gtag('config', gaId);
-    </script>
-  </>
+{googleTagSrcs.length > 0 && (
+  <script is:inline define:vars={{ gTagSrcs: googleTagSrcs, gtmContainerId: gtmId, gaId: gaMeasurementId }}>
+    (function (doc, win) {
+      win.dataLayer = win.dataLayer || [];
+      win.gtag =
+        win.gtag ||
+        function gtag() {
+          win.dataLayer.push(arguments);
+        };
+      win.gtag('js', new Date());
+      if (gtmContainerId) {
+        win.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      }
+      if (gaId) {
+        win.gtag('config', gaId);
+      }
+      var loaded = false;
+      function loadGtag() {
+        if (loaded) return;
+        loaded = true;
+        for (var i = 0; i < gTagSrcs.length; i++) {
+          var s = doc.createElement('script');
+          s.async = true;
+          s.src = gTagSrcs[i];
+          doc.head.appendChild(s);
+        }
+      }
+      function schedule() {
+        if ('requestIdleCallback' in win) {
+          win.requestIdleCallback(loadGtag, { timeout: 2000 });
+        } else {
+          win.setTimeout(loadGtag, 1200);
+        }
+      }
+      if (doc.readyState === 'complete') {
+        schedule();
+      } else {
+        win.addEventListener('load', schedule, { once: true });
+      }
+      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
+        win.addEventListener(ev, loadGtag, { once: true, passive: true });
+      });
+    })(document, window);
+  </script>
 )}
 
 {posthogKey && (
@@ -67,19 +103,13 @@ const posthogAssetsHost = posthogHost.includes('.i.posthog.com')
         ph._i.push([token, config, name]);
       };
       ph.__SV = 1;
-      var script = doc.createElement('script');
-      script.type = 'text/javascript';
-      script.async = true;
-      script.crossOrigin = 'anonymous';
-      script.src = phAssets.replace(/\/$/, '') + '/static/array.js';
-      var firstScript = doc.getElementsByTagName('script')[0];
-      firstScript.parentNode.insertBefore(script, firstScript);
       ph.init(phKey, {
         api_host: phHost,
         person_profiles: 'always',
         autocapture: true,
         capture_pageview: true,
         capture_pageleave: true,
+        disable_surveys: true,
         disable_session_recording: false,
         session_recording: {
           maskAllInputs: false,
@@ -87,6 +117,33 @@ const posthogAssetsHost = posthogHost.includes('.i.posthog.com')
           blockSelector: '',
           captureCanvas: { recordCanvas: true },
         },
+      });
+      var phLoaded = false;
+      function loadPosthog() {
+        if (phLoaded) return;
+        phLoaded = true;
+        var script = doc.createElement('script');
+        script.type = 'text/javascript';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        script.src = phAssets.replace(/\/$/, '') + '/static/array.js';
+        var firstScript = doc.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+      }
+      function schedulePh() {
+        if ('requestIdleCallback' in win) {
+          win.requestIdleCallback(loadPosthog, { timeout: 2500 });
+        } else {
+          win.setTimeout(loadPosthog, 1500);
+        }
+      }
+      if (doc.readyState === 'complete') {
+        schedulePh();
+      } else {
+        win.addEventListener('load', schedulePh, { once: true });
+      }
+      ['pointerdown', 'keydown', 'scroll'].forEach(function (ev) {
+        win.addEventListener(ev, loadPosthog, { once: true, passive: true });
       });
     })(document, window);
   </script>
