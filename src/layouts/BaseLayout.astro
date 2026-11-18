@@ -155,11 +155,67 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
         <div class="rta-loader" id="rta-loader" aria-hidden="true" data-loader-words={ui.hud.loaderWords.join('|')}>
           <div class="rta-loader-cover rta-loader-cover--top" />
           <div class="rta-loader-cover rta-loader-cover--bottom" />
-          <p class="rta-loader-line">
-            <span class="rta-loader-word" data-loader-word>
-              {ui.hud.loaderWords[0]}
-            </span>
-          </p>
+          <div class="rta-loader-stack">
+            <svg
+              class="rta-loader-mark"
+              data-loader-mark
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 507.677 425.523"
+              focusable="false"
+            >
+              <defs>
+                <clipPath id="rta-clip-bowl">
+                  <polygon points="79.693,62.762 420,62.762 420,400 50,400 50,220 141.387,94.012" />
+                </clipPath>
+                <clipPath id="rta-clip-leg">
+                  <polygon points="79.693,62.762 141.387,94.012 420,94.012 420,400 50,400" />
+                </clipPath>
+              </defs>
+              <path
+                data-plane-guide
+                fill="none"
+                stroke="none"
+                d="M 78.555 361.512 C 93 287 125 245.887 243.665 245.887 A 83.75 83.75 0 1 0 243.665 78.387 L 126 78.387 Q 110.54 78.387 119.65 90.8 L 243.657 259.784 C 274.42 301.71 288 346.512 384.916 346.512"
+              />
+              <path
+                data-rta-leg
+                clip-path="url(#rta-clip-leg)"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="31.25"
+                stroke-linecap="butt"
+                d="M 91.608 52.588 L 243.657 259.784 C 274.42 301.71 288 346.512 384.916 346.512"
+              />
+              <path
+                data-rta-halo
+                fill="none"
+                stroke="var(--paper)"
+                stroke-width="39.5"
+                stroke-linecap="butt"
+                d="M 78.555 361.512 C 93 287 125 245.887 243.665 245.887"
+              />
+              <path
+                data-rta-bowl
+                clip-path="url(#rta-clip-bowl)"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="31.25"
+                stroke-linecap="butt"
+                d="M 78.555 361.512 C 93 287 125 245.887 243.665 245.887 A 83.75 83.75 0 1 0 243.665 78.387 L 79.693 78.387"
+              />
+              <g data-rta-plane>
+                <g transform="rotate(25.02) translate(-393.04, -335.887)">
+                  <polygon fill="currentColor" points="375.54,312.137 390.54,331.512 444.915,310.262" />
+                  <polygon fill="currentColor" points="411.165,362.762 444.29,313.387 395.54,340.262" />
+                </g>
+              </g>
+            </svg>
+            <p class="rta-loader-line">
+              <span class="rta-loader-word" data-loader-word>
+                {ui.hud.loaderWords[0]}
+              </span>
+            </p>
+          </div>
         </div>
       )
     }
@@ -222,6 +278,127 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
           window.dispatchEvent(new CustomEvent('rta:loaded'));
         } else {
           const wait = (ms: number) => new Promise<void>((resolve) => setTimeout(resolve, ms));
+          const easeInOut = (t: number) =>
+            t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+          const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
+          const easeInQuad = (t: number) => t * t;
+          const sliceStroke = (el: SVGPathElement, total: number, start: number, end: number) => {
+            const len = end - start;
+            if (len <= 0.5) {
+              el.style.strokeDasharray = `0 ${total.toFixed(2)}`;
+              el.style.strokeDashoffset = '0';
+              return;
+            }
+            el.style.strokeDasharray = `${len.toFixed(2)} ${total.toFixed(2)}`;
+            el.style.strokeDashoffset = `${(-start).toFixed(2)}`;
+          };
+
+          const startLogoMotion = (totalMs: number) => {
+            const mark = loader.querySelector<SVGSVGElement>('[data-loader-mark]');
+            const bowl = loader.querySelector<SVGPathElement>('[data-rta-bowl]');
+            const halo = loader.querySelector<SVGPathElement>('[data-rta-halo]');
+            const leg = loader.querySelector<SVGPathElement>('[data-rta-leg]');
+            const guide = loader.querySelector<SVGPathElement>('[data-plane-guide]');
+            const plane = loader.querySelector<SVGGElement>('[data-rta-plane]');
+            if (!mark || !bowl || !halo || !leg || !guide || !plane) return;
+
+            const lBowl = bowl.getTotalLength();
+            const lCorner = lBowl - 30.85;
+            const lHalo = halo.getTotalLength();
+            const lLeg = leg.getTotalLength();
+            const lGuide = guide.getTotalLength();
+            const dTotal = lCorner + (lLeg - 32);
+
+            const restX = 393.04;
+            const restY = 335.887;
+            const restAngle = -25.02;
+            const rad = (restAngle * Math.PI) / 180;
+
+            const tDrawEnd = totalMs * 0.4;
+            const tHoldEnd = totalMs * 0.74;
+            const tOutEnd = totalMs * 0.985;
+            const startedAt = performance.now();
+
+            const renderFrame = (now: number) => {
+              if (!loader.isConnected) return;
+              const elapsed = now - startedAt;
+
+              let dStart = 0;
+              let dEnd = dTotal;
+              let planeX = restX;
+              let planeY = restY;
+              let planeDeg = restAngle;
+              let planeOpacity = 1;
+
+              if (elapsed < tDrawEnd) {
+                const u = Math.max(0, Math.min(1, elapsed / tDrawEnd));
+                const p = easeInOut(u);
+                dEnd = p * dTotal;
+
+                const dPlane = Math.min(lGuide, p * lGuide + 14);
+                const pt = guide.getPointAtLength(dPlane);
+                const p0 = guide.getPointAtLength(Math.max(0, dPlane - 2.5));
+                const p1 = guide.getPointAtLength(Math.min(lGuide, dPlane + 2.5));
+                let deg = Math.atan2(p1.y - p0.y, p1.x - p0.x) * (180 / Math.PI);
+
+                if (p > 0.86) {
+                  const blend = easeOutCubic((p - 0.86) / 0.14);
+                  planeX = pt.x + (restX - pt.x) * blend;
+                  planeY = pt.y + (restY - pt.y) * blend;
+                  // Normalize small tail angle near 0deg before pitching up to -25.02deg
+                  planeDeg = deg + (restAngle - deg) * blend;
+                } else {
+                  planeX = pt.x;
+                  planeY = pt.y;
+                  planeDeg = deg;
+                }
+                planeOpacity = Math.min(1, u / 0.08);
+              } else if (elapsed >= tHoldEnd) {
+                const u = Math.max(0, Math.min(1, (elapsed - tHoldEnd) / (tOutEnd - tHoldEnd)));
+                const eraseP = easeInOut(u);
+                dStart = eraseP * dTotal;
+
+                const flyDist = easeInQuad(u) * 340;
+                planeX = restX + Math.cos(rad) * flyDist;
+                planeY = restY + Math.sin(rad) * flyDist;
+                planeDeg = restAngle;
+                planeOpacity = u > 0.65 ? Math.max(0, 1 - (u - 0.65) / 0.35) : 1;
+              }
+
+              const bowlStart = dStart <= lCorner ? dStart : lCorner + Math.min(30.85, dStart - lCorner);
+              const bowlEnd = dEnd <= lCorner ? dEnd : lCorner + Math.min(30.85, dEnd - lCorner);
+              const legStart =
+                dStart < lCorner - 32
+                  ? 0
+                  : dStart <= lCorner
+                    ? ((dStart - (lCorner - 32)) / 32) * 32
+                    : Math.min(lLeg, 32 + (dStart - lCorner));
+              const legEnd =
+                dEnd < lCorner - 10
+                  ? 0
+                  : dEnd <= lCorner
+                    ? 1 + ((dEnd - (lCorner - 10)) / 10) * 31
+                    : Math.min(lLeg, 32 + (dEnd - lCorner));
+
+              sliceStroke(bowl, lBowl, bowlStart, bowlEnd);
+              sliceStroke(halo, lHalo, Math.min(lHalo, bowlStart), Math.min(lHalo, bowlEnd));
+              sliceStroke(leg, lLeg, legStart, legEnd);
+
+              plane.setAttribute(
+                'transform',
+                `translate(${planeX.toFixed(2)}, ${planeY.toFixed(2)}) rotate(${planeDeg.toFixed(2)})`
+              );
+              plane.style.opacity = planeOpacity.toFixed(3);
+              mark.classList.add('is-ready');
+
+              if (elapsed < tOutEnd) {
+                requestAnimationFrame(renderFrame);
+              }
+            };
+
+            renderFrame(startedAt);
+          };
+
           const run = async () => {
             const word = loader.querySelector<HTMLElement>('[data-loader-word]');
             // Localized loader words (fallback: English), joined with '|' in
@@ -229,6 +406,7 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             const words =
               loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
+            startLogoMotion(words.length * 1080);
             if (word) {
               for (const next of words) {
                 word.textContent = next;
@@ -536,9 +714,41 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
     transform: translateY(101%);
   }
 
-  .rta-loader-line {
+  .rta-loader-stack {
     position: relative;
     z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.85rem, 2vw, 1.35rem);
+    transition: opacity 0.35s ease, transform 0.45s cubic-bezier(0.32, 0, 0.2, 1);
+  }
+
+  .rta-loader.is-split .rta-loader-stack {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  .rta-loader-mark {
+    width: clamp(112px, 16vw, 168px);
+    height: auto;
+    display: block;
+    direction: ltr;
+    overflow: visible;
+    color: var(--accent);
+    opacity: 0;
+  }
+
+  :global(html[data-theme='dark']) .rta-loader-mark {
+    color: #ffffff;
+  }
+
+  .rta-loader-mark.is-ready {
+    opacity: 1;
+  }
+
+  .rta-loader-line {
+    position: relative;
     height: 1.1em;
     overflow: hidden;
     font-size: clamp(2.25rem, 6vw, 4.5rem);
