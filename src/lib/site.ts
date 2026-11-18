@@ -101,6 +101,8 @@ export const FORMSPREE_ENDPOINT =
 export const ANALYTICS = {
   /** Google Search Console verification token (<meta name="google-site-verification">). */
   googleSiteVerification: import.meta.env.PUBLIC_GSC_VERIFICATION ?? '',
+  /** Google Tag Manager container ID, e.g. GTM-XXXXXXXX. */
+  gtmId: import.meta.env.PUBLIC_GTM_ID || 'GTM-NGNSK3JN',
   /** Google Analytics 4 Measurement ID, e.g. G-XXXXXXXXXX. */
   gaMeasurementId: import.meta.env.PUBLIC_GA_MEASUREMENT_ID ?? '',
   /** PostHog project API key, e.g. phc_... */
