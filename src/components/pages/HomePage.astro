@@ -156,7 +156,7 @@ const tools = [
               <Picture
                 src={campusImg}
                 alt={t.journey.campusImgAlt}
-                widths={[960, 1600, 2000]}
+                widths={[480, 640, 960, 1600, 2000]}
                 sizes="(max-width: 64rem) 92vw, 66vw"
                 formats={['avif', 'webp']}
                 loading="lazy"
@@ -436,7 +436,7 @@ const tools = [
     font-size: 0.66rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: color-mix(in srgb, var(--ink) 52%, transparent);
+    color: color-mix(in srgb, var(--ink) 70%, transparent);
   }
 
   .journey-title {
@@ -454,7 +454,7 @@ const tools = [
     max-width: 38ch;
     font-size: clamp(0.95rem, 1.1vw, 1.05rem);
     line-height: 1.6;
-    color: color-mix(in srgb, var(--ink) 62%, transparent);
+    color: color-mix(in srgb, var(--ink) 72%, transparent);
     text-wrap: pretty;
   }
 
@@ -1021,7 +1021,7 @@ const tools = [
   }
 
   .illum-line [data-word] {
-    color: color-mix(in srgb, var(--accent) 25%, transparent);
+    color: color-mix(in srgb, var(--accent-text) 72%, var(--paper));
     transition: color 0.3s ease;
   }
 
@@ -1035,7 +1035,7 @@ const tools = [
     max-width: 40ch;
     font-size: 14px;
     line-height: 1.6;
-    color: color-mix(in srgb, var(--ink) 60%, transparent);
+    color: color-mix(in srgb, var(--ink) 72%, transparent);
     opacity: 1;
     transition: opacity 0.7s ease 0.1s;
   }
