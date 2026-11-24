@@ -7,12 +7,8 @@ imageAlt: 'Montanhas cársticas ao longo do Rio Li, perto de Guilin, China'
 stats:
   - label: 'Estudantes colocados'
     value: '500+'
-  - label: 'Universidades parceiras'
-    value: '150+'
   - label: 'Ingressos por ano'
     value: '2 (set e mar)'
-  - label: 'Taxa de sucesso de vistos'
-    value: '98%' # {{VERIFY}}
 study:
   heading: 'Estudar na China'
   text: 'A China opera o maior sistema internacional de estudantes da Ásia: graduações em inglês listadas pelo MOE, a bolsa estatal CSC e mensalidades em uma fração dos destinos ocidentais. Medicina, engenharia e negócios são as rotas principais.'

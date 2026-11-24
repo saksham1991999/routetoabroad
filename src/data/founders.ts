@@ -15,7 +15,7 @@ const vijeeshImg = (await import('../assets/founders/director_vijeesh.jpg')).def
 
 const POINTS = {
   minhaj: {
-    en: ['Sets direction and the partnerships we keep', 'Runs the trade desk', 'Fifteen years across the corridor'],
+    en: ['Sets direction and the partnerships we keep', 'Runs the trade desk', 'Works across the corridor'],
     zh: ['把握方向并维系合作网络', '主持贸易业务', '深耕走廊十五年'],
     fr: ['Fixe le cap et entretient nos partenariats', 'Dirige le pôle commerce', 'Quinze ans sur le corridor'],
     ar: ['يحدد التوجه ويحافظ على شراكاتنا', 'يدير مكتب التجارة', 'خمسة عشر عامًا على الممر'],

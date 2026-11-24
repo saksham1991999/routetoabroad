@@ -45,7 +45,7 @@ export interface UniversitiesIndexStrings {
 export const UNIVERSITIES_INDEX: Record<Locale, UniversitiesIndexStrings> = {
   en: {
     meta: {
-      title: 'Chinese University Profiles for International Students',
+      title: 'Chinese University Profiles',
       description:
         'Honest profiles of the universities we place into: Peking, Tsinghua, Fudan, Zhejiang and Shanghai Jiao Tong — programmes, real costs, admission realities and FAQs.',
     },

@@ -27,14 +27,12 @@ programmes:
   - 'MBA（安泰学院，英文授课）'
   - '材料科学（研究型方向）'
 costs:
-  tuition: '通常每年 US$4,000–9,000；CSC获奖者可获全额资助'
+  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
   dorm: '校内住宿每年 US$1,000–1,800'
-  living: '在上海每月 US$550–900'
+  living: '在上海每月 {{VERIFY}}'
 facts:
   - label: '城市'
     value: '上海（闵行与黄埔校区）'
-  - label: '国际学生'
-    value: '各学位层次合计约 3,000+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '工程、医学、科研'
   - label: '入学时间'

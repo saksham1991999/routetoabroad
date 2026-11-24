@@ -11,7 +11,7 @@ image: '../../assets/images/blog-beijing-sites.jpg'
 imageAlt: 'The Temple of Heaven in Beijing against a clear morning sky'
 ---
 
-Beijing has been the political and cultural heart of China for over 700 years. Its historical sites are not merely tourist attractions — they are living documents of a civilisation that shaped the entire region. If you are visiting for the first time, these five are non-negotiable.
+The five historical sites every first-time Beijing visitor should see are the Forbidden City, the Great Wall at Mutianyu, the Temple of Heaven, the Summer Palace and the 798 Art District. Beijing has been China's political and cultural heart for over 700 years, and these sites are living documents of that history.
 
 ## 1. The Forbidden City (故宫)
 

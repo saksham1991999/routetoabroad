@@ -1,6 +1,6 @@
 ---
 title: 'HSK Exam Preparation: Levels, Strategy and Study Timelines'
-description: 'What HSK levels 1–6 mean, which level each goal needs (MBBS rotations = HSK 4, Chinese-taught degrees = HSK 5), realistic study timelines, and a preparation strategy that works alongside a degree.'
+description: 'HSK levels 1–6 explained: MBBS rotations need HSK 4, Chinese-taught degrees need HSK 5, plus realistic study timelines that work alongside a degree.'
 pillar: 'education'
 pubDate: 2025-03-01
 readTime: 6
@@ -42,8 +42,8 @@ The pattern that works: 30–45 minutes daily beats 6 hours every Sunday. Charac
 
 ## Exam mechanics
 
-HSK runs paper-based and internet-based at test centres worldwide several times a year (registration closes about 3 weeks ahead). Listening, reading, writing — HSK 4 adds paragraph writing; HSK 5–6 add composition. There is also HSKK, the separate speaking exam, required by some Chinese-taught programmes.
+HSK runs paper-based and internet-based at test centres worldwide several times a year (registration closes about 3 weeks ahead). Listening, reading, writing — HSK 4 adds paragraph writing; HSK 5–6 add composition. There is also HSKK, the separate speaking exam, required by some [Chinese-taught programmes](/guides/study-in-china-from-india/).
 
 ## How we run HSK support
 
-Placement test first, then a level-mapped study plan with exam dates baked into your programme timeline. For MBBS students, HSK 4 is scheduled before clinical years begin — not during them. Group classes in major student cities and online cohorts for everyone else.
+Placement test first, then a level-mapped study plan with exam dates baked into your [programme timeline](/tools/timeline-planner/). [For MBBS students](/guides/mbbs-in-china/), HSK 4 is scheduled before clinical years begin — not during them. Group classes in major student cities and online cohorts for everyone else.

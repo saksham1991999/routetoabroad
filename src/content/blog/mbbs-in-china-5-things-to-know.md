@@ -11,7 +11,7 @@ image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical students studying around an anatomy model in a university laboratory'
 ---
 
-China has emerged as one of the top destinations for Indian students pursuing MBBS degrees. With globally listed universities, English-taught programmes, and significant scholarship opportunities, the appeal is undeniable. But there are critical nuances every applicant should understand before committing.
+China is a top destination for Indian students pursuing MBBS, with globally listed universities, English-taught programmes and significant scholarship opportunities. Five points decide whether a Chinese MBBS works for you: recognition, language, scholarships, JW202 timing and arrival support. Check each one before you commit.
 
 ## 1. Recognition is non-negotiable
 

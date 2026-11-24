@@ -33,8 +33,6 @@ costs:
 facts:
   - label: '都市'
     value: '杭州（浙江省）'
-  - label: '留学生数'
-    value: '全課程合計で約 2,500+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: '工学・CS・費用対効果重視の留学'
   - label: '入学時期'

@@ -1,0 +1,52 @@
+{
+  "Route Blue": {
+    "hex": "#2142E6",
+    "rgb": [
+      33,
+      66,
+      230
+    ],
+    "cmyk": "C88 M72 Y0 K0",
+    "spot": "Pantone 2728 C (nearest)"
+  },
+  "Corridor Ink": {
+    "hex": "#0B1533",
+    "rgb": [
+      11,
+      21,
+      51
+    ],
+    "cmyk": "C100 M85 Y35 K55",
+    "spot": "Pantone 2767 C (nearest)"
+  },
+  "Paper": {
+    "hex": "#F4F2EC",
+    "rgb": [
+      244,
+      242,
+      236
+    ],
+    "cmyk": "C3 M3 Y7 K0",
+    "spot": "warm-white uncoated stock"
+  },
+  "Sky": {
+    "hex": "#DCE4FF",
+    "rgb": [
+      220,
+      228,
+      255
+    ],
+    "cmyk": "C14 M9 Y0 K0",
+    "spot": "Pantone 2706 C (nearest)"
+  },
+  "Stone": {
+    "hex": "#B9B6AD",
+    "rgb": [
+      185,
+      182,
+      173
+    ],
+    "cmyk": "C30 M25 Y30 K0",
+    "spot": "Pantone Warm Gray 4 C (nearest)"
+  }
+}

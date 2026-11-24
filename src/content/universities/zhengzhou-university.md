@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '1956'
 nickname: 'Double First-Class comprehensive giant in Central China'
 intro: 'Zhengzhou University (ZZU) is a national Double First-Class and Project 211 comprehensive university in Henan Province — offering English-taught MBBS, MBA, Computer Science, and Civil Engineering alongside generous CSC and provincial scholarships.'
+metaDescription: 'Zhengzhou University (ZZU): Henan''s flagship comprehensive university with English-taught MBBS, MBA, computer science and civil engineering. Costs and intakes.'
 image: '../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'University campus architecture representing Zhengzhou University'
 strengths:
@@ -35,9 +36,6 @@ facts:
     value: 'Double First-Class / Project 211'
   - label: 'Best for'
     value: 'MBBS, MBA, CS, CSC scholarship applicants'
-  # {{VERIFY}} Confirm current international student enrolment count
-  - label: 'International cohort'
-    value: '2,500+ international students'
 recognitions:
   - 'MOE-listed (verify current intake)'
   - 'WDOMS-listed'

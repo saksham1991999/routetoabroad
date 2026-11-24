@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1931'
 nickname: 'Historic pioneer of modern medical education in China'
 intro: 'China Medical University (CMU) in Shenyang is one of the country''s flagship medical institutions, offering a long-running English-medium MBBS programme backed by MOE/WHO/WDOMS/NMC recognition and major affiliated teaching hospitals in Northeast China.'
+metaDescription: 'China Medical University (CMU) in Shenyang: a long-running English-medium MBBS with major affiliated teaching hospitals in Northeast China. Costs and intakes.'
 image: '../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'University campus architecture in China representing China Medical University'
 strengths:

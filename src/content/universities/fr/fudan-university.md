@@ -27,14 +27,12 @@ programmes:
   - 'Commerce international (licence, enseigné en anglais)'
   - 'Santé publique (master, enseigné en anglais)'
 costs:
-  tuition: 'Généralement US$4,000–9,000/an ; la CSC couvre 100% pour les lauréats'
-  dorm: 'US$1,000–2,000/an sur le campus'
-  living: 'US$550–900/mois à Shanghai'
+  tuition: 'Généralement {{VERIFY}}/an ; la CSC couvre 100% pour les lauréats'
+  dorm: '{{VERIFY}}/an sur le campus'
+  living: '{{VERIFY}}/mois à Shanghai'
 facts:
   - label: 'Ville'
     value: 'Shanghai (district de Yangpu)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Carrières dans le commerce, la médecine, les médias'
   - label: 'Rentrées'

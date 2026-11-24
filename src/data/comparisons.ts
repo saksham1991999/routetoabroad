@@ -90,7 +90,6 @@ const COMPARISONS_EN: Comparison[] = [
       { label: 'Flagship for internationals', a: 'CS/AI, engineering, Schwarzman, MBA', b: 'Economics, IR, Chinese studies, Yenching' },
       { label: 'Campus character', a: 'Red-brick collegiate + modern labs', b: 'Imperial gardens, Weiming Lake' },
       { label: 'Industry adjacency', a: 'Zhongguancun: Baidu, ByteDance, MSR Asia', b: 'Think tanks, finance, government pathways' },
-      { label: 'International cohort', a: '~3,000+ across degrees', b: '~3,000+ across degrees' },
       { label: 'Best-fit applicant', a: 'Builder/researcher in STEM', b: 'Analyst/policy/humanities mind' },
     ],
     verdict: {
@@ -171,7 +170,6 @@ const COMPARISONS_EN: Comparison[] = [
     updated: '2026-11-17',
     rows: [
       { label: 'Total 5.5–6 yr cost', a: 'US$38.5–65k (MOE-listed public)', b: 'US$22–32k (mostly private)' },
-      { label: 'Hospital scale', a: '1,500–3,000+ bed affiliated teaching hospitals', b: 'Smaller municipal/private clinics shared across cohorts' },
       { label: 'FMGE / NExT track record', a: 'Higher at established MOE-listed public schools', b: 'Uneven across newer private campuses' },
       { label: 'Language requirement', a: 'English + HSK 4 for clinical communication', b: 'English + Russian/Kyrgyz for ward interaction' },
       { label: 'Infrastructure & dorms', a: 'Purpose-built international campuses, high-speed rail', b: 'Variable by city; Bishkek/Osh concentrated' },
@@ -372,7 +370,6 @@ const COMPARISONS_ZH: Comparison[] = [
       { label: '面向国际生的旗舰项目', a: '计算机/AI、工程、苏世民学者、MBA', b: '经济、国际关系、中国研究、燕京学堂' },
       { label: '校园气质', a: '红砖学院风 + 现代实验室', b: '皇家园林，未名湖' },
       { label: '产业毗邻', a: '中关村：百度、字节跳动、微软亚洲研究院', b: '智库、金融、政府通道' },
-      { label: '国际学生规模', a: '各学位合计约 3,000+', b: '各学位合计约 3,000+' },
       { label: '最适合的申请者', a: 'STEM 的建设者/研究者', b: '分析/政策/人文型头脑' },
     ],
     verdict: {
@@ -447,7 +444,6 @@ const COMPARISONS_ZH: Comparison[] = [
     updated: '2026-11-17',
     rows: [
       { label: '5.5–6 年总花费', a: 'US$38.5–65k（教育部名单公办）', b: 'US$22–32k（多为私立）' },
-      { label: '医院规模', a: '1,500–3,000+ 床位附属教学医院', b: '规模较小的市立/私立诊所共用' },
       { label: 'FMGE / NExT 记录', a: '老牌教育部名单公办院校表现更稳', b: '新建私立校区之间差异明显' },
       { label: '语言要求', a: '英语 + 临床沟通需 HSK 4', b: '英语 + 病房沟通需俄语/吉尔吉斯语' },
       { label: '校园与宿舍', a: '专用国际生校园、高铁互联', b: '因城市而异，集中在比什凯克/奥什' },
@@ -646,7 +642,6 @@ const COMPARISONS_FR: Comparison[] = [
       { label: 'Fleurons pour les internationaux', a: 'CS/IA, ingénierie, Schwarzman, MBA', b: 'Économie, RI, études chinoises, Yenching' },
       { label: 'Caractère du campus', a: 'Collegiate brique rouge + labs modernes', b: 'Jardins impériaux, lac Weiming' },
       { label: 'Proximité industrielle', a: 'Zhongguancun : Baidu, ByteDance, MSR Asia', b: 'Think tanks, finance, voies gouvernementales' },
-      { label: 'Cohorte internationale', a: '~3,000+ tous cursus', b: '~3,000+ tous cursus' },
       { label: 'Candidat au meilleur profil', a: 'Bâtisseur/chercheur en STEM', b: 'Esprit analyste/politique/humanités' },
     ],
     verdict: {
@@ -919,7 +914,6 @@ const COMPARISONS_AR: Comparison[] = [
       { label: 'البرامج الرائدة للدوليين', a: 'حاسوب/AI، هندسة، شوارتزمان، MBA', b: 'اقتصاد، علاقات دولية، دراسات صينية، ين-تشنغ' },
       { label: 'طابع الحرم', a: 'طابع جامعي بطوب أحمر + مختبرات حديثة', b: 'حدائق إمبراطورية، بحر وي-مينغ' },
       { label: 'الجوار الصناعي', a: 'تشونغقوانتسون: بايدو، بايت دانس، MSR آسيا', b: 'مراكز أبحاث، تمويل، مسارات حكومية' },
-      { label: 'الحجم الدولي', a: '~3,000+ عبر الدرجات', b: '~3,000+ عبر الدرجات' },
       { label: 'المتقدم الأنسب', a: 'باني/باحث في STEM', b: 'عقل محلل/سياسات/إنساني' },
     ],
     verdict: {
@@ -994,7 +988,6 @@ const COMPARISONS_AR: Comparison[] = [
     updated: '2026-11-17',
     rows: [
       { label: 'التكلفة الإجمالية لـ 5.5–6 سنوات', a: 'US$38.5–65k (حكومية مدرجة لدى MOE)', b: 'US$22–32k (معظمها خاصة)' },
-      { label: 'حجم المستشفيات', a: 'مستشفيات جامعية بسعة 1,500–3,000+ سرير', b: 'عيادات بلدية/خاصة أصغر حجماً' },
       { label: 'نتائج FMGE / NExT', a: 'أعلى استقراراً في الجامعات الحكومية العريقة', b: 'متفاوتة بين الكليات الخاصة الحديثة' },
       { label: 'متطلب اللغة', a: 'الإنجليزية + HSK 4 للتواصل السريري', b: 'الإنجليزية + الروسية/القيرغيزية في الأقسام' },
       { label: 'البنية التحتية والسكن', a: 'حرم دولي مجهز وشبكة قطارات سريعة', b: 'متفاوتة؛ تتركز في بيشكيك وأوش' },
@@ -1192,7 +1185,6 @@ const COMPARISONS_ES: Comparison[] = [
       { label: 'Programas insignia para internacionales', a: 'CS/IA, ingeniería, Schwarzman, MBA', b: 'Economía, RRII, estudios chinos, Yenching' },
       { label: 'Carácter del campus', a: 'Colegiado de ladrillo rojo + labs modernos', b: 'Jardines imperiales, lago Weiming' },
       { label: 'Vecindad industrial', a: 'Zhongguancun: Baidu, ByteDance, MSR Asia', b: 'Think tanks, finanzas, vías gubernamentales' },
-      { label: 'Cohorte internacional', a: '~3,000+ en grados', b: '~3,000+ en grados' },
       { label: 'Candidato ideal', a: 'Constructor/investigador STEM', b: 'Mente analista/política/humanidades' },
     ],
     verdict: {
@@ -1467,7 +1459,6 @@ const COMPARISONS_DE: Comparison[] = [
       { label: 'Flaggschiffe für internationale Studierende', a: 'CS/KI, Ingenieurwesen, Schwarzman, MBA', b: 'Ökonomie, Internationale Beziehungen, Chinastudien, Yenching' },
       { label: 'Campus-Charakter', a: 'Rotziegel-Collegiate + moderne Labore', b: 'Kaiserliche Gärten, Weiming-See' },
       { label: 'Industrienähe', a: 'Zhongguancun: Baidu, ByteDance, MSR Asia', b: 'Think Tanks, Finanzen, Regierungspfade' },
-      { label: 'Internationale Kohorte', a: '~3,000+ über alle Abschlüsse', b: '~3,000+ über alle Abschlüsse' },
       { label: 'Am besten passender Bewerber', a: 'Bauer/Forscher im MINT-Bereich', b: 'Analytiker-/Politik-/Geisteswissenschafts-Kopf' },
     ],
     verdict: {
@@ -2295,7 +2286,6 @@ const COMPARISONS_HI: Comparison[] = [
       { label: 'अंतरराष्ट्रीय छात्रों के लिए प्रमुख कार्यक्रम', a: 'CS/AI, इंजीनियरिंग, श्वार्ट्ज़मैन, MBA', b: 'अर्थशास्त्र, अंतरराष्ट्रीय संबंध, चीनी अध्ययन, येनचिंग' },
       { label: 'कैंपस का स्वभाव', a: 'लाल-ईंट कॉलेजिएट + आधुनिक लैब', b: 'शाही बाग, वेइमिंग झील' },
       { label: 'उद्योग निकटता', a: 'झोंगग्वानचुन: बैडू, बाइटडांस, MSR एशिया', b: 'थिंक टैंक, वित्त, सरकारी मार्ग' },
-      { label: 'अंतरराष्ट्रीय समूह', a: 'सभी डिग्री में ~3,000+', b: 'सभी डिग्री में ~3,000+' },
       { label: 'सबसे उपयुक्त आवेदक', a: 'STEM का निर्माता/शोधकर्ता', b: 'विश्लेषक/नीति/मानविकी मस्तिष्क' },
     ],
     verdict: {
@@ -2371,7 +2361,6 @@ const COMPARISONS_HI: Comparison[] = [
     updated: '2026-11-17',
     rows: [
       { label: '5.5–6 वर्ष की कुल लागत', a: 'US$38.5–65k (MOE-सूचीबद्ध सरकारी)', b: 'US$22–32k (अधिकतर निजी)' },
-      { label: 'अस्पताल का आकार', a: '1,500–3,000+ बेड वाले संबद्ध अस्पताल', b: 'छोटे नगर/निजी क्लिनिक' },
       { label: 'FMGE / NExT ट्रैक रिकॉर्ड', a: 'प्रतिष्ठित MOE सरकारी कॉलेजों में बेहतर', b: 'नए निजी कैंपसों में असमान' },
       { label: 'भाषा आवश्यकता', a: 'अंग्रेज़ी + क्लिनिकल वर्षों हेतु HSK 4', b: 'अंग्रेज़ी + वार्ड हेतु रूसी/किर्गिज़' },
       { label: 'बुनियादी ढाँचा', a: 'समर्पित अंतरराष्ट्रीय कैंपस, हाई-स्पीड रेल', b: 'शहर-निर्भर; बिश्केक/ओश केंद्रित' },

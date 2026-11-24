@@ -3,6 +3,7 @@ name: 'Tokyo'
 chineseName: '東京'
 country: 'Japan'
 intro: 'Tokyo is Japan''s capital and the world''s largest metropolitan economy — a city where precision rail, Michelin-level street food, quiet shrine precincts, and neon commercial districts coexist within minutes of each other.'
+metaDescription: 'Tokyo guide: Japan''s capital and the world''s largest metropolitan economy, with precision rail, street food, quiet shrines and neon districts.'
 image: '../../assets/images/country-japan.jpg'
 imageAlt: 'Mount Fuji rising above traditional Japanese architecture and autumn foliage'
 studentMonthly:

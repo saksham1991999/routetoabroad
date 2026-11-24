@@ -7,6 +7,7 @@ type: 'technical'
 founded: '1958'
 nickname: 'Applied engineering university in North China'
 intro: 'Hebei University of Engineering (HEBEU) in Handan is a specialized technical university recognized for Civil, Mechanical, and Architectural Engineering — offering engineering tracks aligned with China''s Washington Accord-participating accreditation framework (verify programme-level accreditation for your specific intake) and practical degrees for international students at low northern living costs.'
+metaDescription: 'Hebei University of Engineering in Handan: civil, mechanical and architectural engineering at low northern living costs. Costs and intakes.'
 image: '../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'Engineering campus architecture representing Hebei University of Engineering'
 strengths:

@@ -27,14 +27,12 @@ programmes:
   - 'Negocios internacionales (grado, en inglés)'
   - 'Salud pública (máster, en inglés)'
 costs:
-  tuition: 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'
-  dorm: 'US$1,000–2,000/año en el campus'
-  living: 'US$550–900/mes en Shanghái'
+  tuition: 'Normalmente {{VERIFY}}/año; la CSC cubre el 100% para los ganadores'
+  dorm: '{{VERIFY}}/año en el campus'
+  living: '{{VERIFY}}/mes en Shanghái'
 facts:
   - label: 'Ciudad'
     value: 'Shanghái (distrito de Yangpu)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Carreras de negocios, medicina y medios'
   - label: 'Ingresos'

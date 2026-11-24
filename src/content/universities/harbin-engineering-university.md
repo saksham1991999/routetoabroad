@@ -7,6 +7,7 @@ type: 'technical'
 founded: '1953'
 nickname: 'Project 211 & Double First-Class engineering powerhouse'
 intro: 'Harbin Engineering University (HEU) is a national Project 211 and Double First-Class university in Heilongjiang Province, renowned globally for Marine & Ocean Engineering, Computer Science, AI, and Aerospace — with strong CSC scholarship availability for international master''s and PhD candidates.'
+metaDescription: 'Harbin Engineering University (HEU): Project 211 and Double First-Class, known for marine engineering, computer science, AI and aerospace. Costs and intakes.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'Technical engineering university campus representing Harbin Engineering University'
 strengths:

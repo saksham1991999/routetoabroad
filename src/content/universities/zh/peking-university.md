@@ -27,14 +27,12 @@ programmes:
   - 'MBBS（教育部备案英文授课，名额有限）'
   - '博士项目（CSC资助，导师指导）'
 costs:
-  tuition: '通常每年 US$5,000–10,000；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 US$1,200–2,400'
-  living: '在北京（海淀）每月 US$500–850'
+  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
+  dorm: '校内住宿每年 {{VERIFY}}'
+  living: '在北京（海淀）每月 {{VERIFY}}'
 facts:
   - label: '城市'
     value: '北京（海淀区）'
-  - label: '国际学生'
-    value: '来自100多个国家的约 3,000+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '高分申请者、科研、人文'
   - label: '入学时间'

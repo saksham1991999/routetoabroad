@@ -27,14 +27,12 @@ programmes:
   - 'MBA / マネジメントサイエンス（英語開講）'
   - '中国語（IEP、中国語開講）'
 costs:
-  tuition: '一般的に US$5,000–10,000/年。CSC奨学金の採用者は100%給付'
-  dorm: '学内寮 US$1,200–2,000/年'
-  living: '北京（海淀）の生活費 US$500–850/月'
+  tuition: '一般的に {{VERIFY}}/年。CSC奨学金の採用者は100%給付'
+  dorm: '学内寮 {{VERIFY}}/年'
+  living: '北京（海淀）の生活費 {{VERIFY}}/月'
 facts:
   - label: '都市'
     value: '北京（海淀区）'
-  - label: '留学生数'
-    value: '全課程合計で約 3,000+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: '工学・CS/AI・研究職志望'
   - label: '入学時期'

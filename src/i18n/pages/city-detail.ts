@@ -45,7 +45,7 @@ export interface CityDetailStrings {
 
 export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   en: {
-    metaTitleTemplate: '{name} City Guide — Costs, Universities & Travel',
+    metaTitleTemplate: '{name} City Guide: Costs & Universities',
     crumb: 'Cities',
     costs: {
       studentPerMonth: 'student / month',
@@ -71,7 +71,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   zh: {
-    metaTitleTemplate: '{name}城市指南 —— 费用、大学与旅行',
+    metaTitleTemplate: '{name}城市指南：费用与大学',
     crumb: '城市',
     costs: {
       studentPerMonth: '学生 / 月',
@@ -97,7 +97,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   fr: {
-    metaTitleTemplate: 'Guide de {name} — Coûts, universités et voyage',
+    metaTitleTemplate: 'Guide de {name} : coûts et universités',
     crumb: 'Villes',
     costs: {
       studentPerMonth: 'étudiant / mois',
@@ -123,7 +123,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   ar: {
-    metaTitleTemplate: 'دليل مدينة {name} — التكاليف والجامعات والسفر',
+    metaTitleTemplate: 'دليل مدينة {name}: التكاليف والجامعات',
     crumb: 'المدن',
     costs: {
       studentPerMonth: 'طالب / شهر',
@@ -149,7 +149,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   es: {
-    metaTitleTemplate: 'Guía de {name} — Costes, universidades y viaje',
+    metaTitleTemplate: 'Guía de {name}: costes y universidades',
     crumb: 'Ciudades',
     costs: {
       studentPerMonth: 'estudiante / mes',
@@ -175,7 +175,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   de: {
-    metaTitleTemplate: 'Stadtführer {name} — Kosten, Universitäten & Reisen',
+    metaTitleTemplate: 'Stadtführer {name}: Kosten & Universitäten',
     crumb: 'Städte',
     costs: {
       studentPerMonth: 'Studierende / Monat',
@@ -201,7 +201,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   ja: {
-    metaTitleTemplate: '{name} 都市ガイド — 費用・大学・旅',
+    metaTitleTemplate: '{name}都市ガイド：費用と大学',
     crumb: '都市',
     costs: {
       studentPerMonth: '学生 / 月',
@@ -227,7 +227,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   pt: {
-    metaTitleTemplate: 'Guia de {name} — Custos, universidades e viagem',
+    metaTitleTemplate: 'Guia de {name}: custos e universidades',
     crumb: 'Cidades',
     costs: {
       studentPerMonth: 'estudante / mês',
@@ -253,7 +253,7 @@ export const CITY_DETAIL: Record<Locale, CityDetailStrings> = {
   },
 
   hi: {
-    metaTitleTemplate: '{name} शहर गाइड — लागत, विश्वविद्यालय और यात्रा',
+    metaTitleTemplate: '{name} शहर गाइड: लागत और विश्वविद्यालय',
     crumb: 'शहर',
     costs: {
       studentPerMonth: 'विद्यार्थी / माह',

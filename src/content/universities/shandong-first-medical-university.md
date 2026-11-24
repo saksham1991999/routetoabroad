@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1974'
 nickname: 'Major provincial medical powerhouse across Jinan and Tai''an'
 intro: 'Shandong First Medical University (SDFMU) — formed by merging Taishan Medical University and the Shandong Academy of Medical Sciences — is a top-tier provincial medical university offering English MBBS, BDS, Nursing, and Pharmacy across modern campuses in Jinan and Tai''an.'
+metaDescription: 'Shandong First Medical University (SDFMU): English MBBS, BDS, Nursing and Pharmacy across campuses in Jinan and Tai''an. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical training and laboratory environment representing Shandong First Medical University'
 strengths:
@@ -25,7 +26,7 @@ programmes:
   - 'Master & PhD in Clinical Medicine & Public Health'
 costs:
   tuition: 'RMB 25,000–30,000/yr (~US$3,450–4,150/yr)'
-  dorm: 'RMB 4,000–6,500/yr (~US$550–900/yr) on campus'
+  dorm: 'RMB 4,000–6,500/yr (~{{VERIFY}}/yr) on campus'
   living: 'US$220–340/month in Jinan / Tai''an'
 facts:
   - label: 'Cities'

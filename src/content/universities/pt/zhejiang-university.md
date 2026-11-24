@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Cidade'
     value: 'Hangzhou (província de Zhejiang)'
-  - label: 'Estudantes internacionais'
-    value: 'cerca de 2,500+ em todos os níveis' # {{VERIFY}} current intake figures
   - label: 'Melhor para'
     value: 'Engenharia, CS, estudo custo-benefício'
   - label: 'Períodos de ingresso'

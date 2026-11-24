@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1933'
 nickname: 'Spring City medical hub with mild year-round climate'
 intro: 'Kunming Medical University (KMU) is Yunnan Province''s largest and highest-ranked medical institution, widely chosen by international students for its MOE-listed and WDOMS-listed English MBBS, low living costs, and Kunming''s mild year-round weather.'
+metaDescription: 'Kunming Medical University (KMU): Yunnan''s largest medical institution, with English MBBS, low living costs and mild year-round weather. Costs and intakes.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'University study environment representing Kunming Medical University'
 strengths:

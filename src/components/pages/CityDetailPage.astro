@@ -8,7 +8,7 @@
  * dictionary in src/i18n/pages/city-detail.ts; links localize through
  * translatePath and slugs always come from entrySlug, never raw entry.id.
  */
-import { render } from 'astro:content';
+import { getCollection, render } from 'astro:content';
 import { Picture } from 'astro:assets';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE } from '../../lib/site';
@@ -20,7 +20,7 @@ import { faqSchema } from '../../lib/schema';
 
 
 import { translatePath, DEFAULT_LOCALE, localizeHtmlLinks, type Locale } from '../../lib/i18n';
-import { entrySlug } from '../../lib/content';
+import { entrySlug, localizedEntries } from '../../lib/content';
 import { CITY_DETAIL } from '../../i18n/pages/city-detail';
 import type { CollectionEntry } from 'astro:content';
 
@@ -35,12 +35,19 @@ const slug = entrySlug(city);
 const { data } = city;
 const { Content } = await render(city);
 const hasBody = Boolean(city.body && city.body.trim());
+// City entries list university names, not slugs. Each name links to its English
+// university entry; a name with no entry stays plain text.
+const universityEntries = localizedEntries(await getCollection('universities'), DEFAULT_LOCALE);
+const universityHref = (name: string) => {
+  const hit = universityEntries.find((e) => e.data.name === name);
+  return hit ? translatePath(`/universities/${entrySlug(hit)}`, locale) : undefined;
+};
 ---
 
 <BaseLayout
   locale={locale}
   title={t.metaTitleTemplate.replace('{name}', data.name)}
-  description={data.intro}
+  description={data.metaDescription ?? data.intro}
   path={`/cities/${slug}`}
   crumbs={[
     { name: t.crumb, url: translatePath('/cities', locale) },
@@ -121,7 +128,10 @@ const hasBody = Boolean(city.body && city.body.trim());
             <div class="card card-pad" data-reveal>
               <h2 class="c-side-title">{t.side.uniTitle}</h2>
               <ul class="c-uni-list">
-                {data.universities.map((u) => <li>{u}</li>)}
+                {data.universities.map((u) => {
+                  const href = universityHref(u);
+                  return <li>{href ? <a href={href}>{u}</a> : u}</li>;
+                })}
               </ul>
               <a href={translatePath('/universities', locale)} class="arrow-link c-side-link">{t.side.uniLink}</a>
             </div>

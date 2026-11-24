@@ -33,8 +33,6 @@ costs:
 facts:
   - label: '城市'
     value: '杭州（浙江省）'
-  - label: '国际学生'
-    value: '各学位层次合计约 2,500+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '工程、计算机、高性价比留学'
   - label: '入学时间'

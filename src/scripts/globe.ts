@@ -166,6 +166,22 @@ export function initGlobe(
   let running = false;
   let raf = 0;
 
+  // The homepage loader covers the globe until it dispatches 'rta:loaded'.
+  // Hold the spin until then (3 s fallback) so the loader keeps the main thread.
+  const loaderEl = document.getElementById('rta-loader');
+  let held =
+    document.documentElement.hasAttribute('data-loader') &&
+    !!loaderEl &&
+    !loaderEl.classList.contains('is-split');
+  let holdTimer = 0;
+  const release = () => {
+    if (!held) return;
+    held = false;
+    window.clearTimeout(holdTimer);
+    window.removeEventListener('rta:loaded', release);
+    start();
+  };
+
   function size() {
     const w = canvas.clientWidth;
     const h = canvas.clientHeight;
@@ -487,7 +503,7 @@ export function initGlobe(
   const io = new IntersectionObserver(
     (entries) => {
       visible = entries[0]?.isIntersecting ?? true;
-      if (visible) start();
+      if (visible && !held) start();
     },
     { threshold: 0 }
   );
@@ -507,7 +523,12 @@ export function initGlobe(
 
   size();
   draw();
-  start();
+  if (held) {
+    window.addEventListener('rta:loaded', release);
+    holdTimer = window.setTimeout(release, 3000);
+  } else {
+    start();
+  }
 
   return () => {
     stop();
@@ -516,5 +537,7 @@ export function initGlobe(
     themeObserver.disconnect();
     document.removeEventListener('visibilitychange', onVisibility);
     window.clearTimeout(resumeTimer);
+    window.clearTimeout(holdTimer);
+    window.removeEventListener('rta:loaded', release);
   };
 }

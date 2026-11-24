@@ -27,14 +27,12 @@ programmes:
   - 'MBA（安泰経済与管理学院、英語開講）'
   - '材料科学（研究系コース）'
 costs:
-  tuition: '一般的に US$4,000–9,000/年。CSC奨学金の採用者は100%給付'
+  tuition: '一般的に {{VERIFY}}/年。CSC奨学金の採用者は100%給付'
   dorm: '学内寮 US$1,000–1,800/年'
-  living: '上海の生活費 US$550–900/月'
+  living: '上海の生活費 {{VERIFY}}/月'
 facts:
   - label: '都市'
     value: '上海（閔行・黄浦キャンパス）'
-  - label: '留学生数'
-    value: '全課程合計で約 3,000+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: '工学・医学・研究志望'
   - label: '入学時期'

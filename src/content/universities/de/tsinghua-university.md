@@ -27,14 +27,12 @@ programmes:
   - 'MBA / Management Science (englischsprachig)'
   - 'Chinesische Sprache (IEP, chinesischsprachig)'
 costs:
-  tuition: 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: 'US$1,200–2,000/Jahr auf dem Campus'
-  living: 'US$500–850/Monat in Beijing (Haidian)'
+  tuition: 'typischerweise {{VERIFY}}/Jahr; CSC deckt 100 % für Stipendiaten ab'
+  dorm: '{{VERIFY}}/Jahr auf dem Campus'
+  living: '{{VERIFY}}/Monat in Beijing (Haidian)'
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Informatik/KI, Forschungskarrieren'
   - label: 'Studienbeginn'

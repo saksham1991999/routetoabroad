@@ -3,6 +3,7 @@ name: 'Kyoto'
 chineseName: '京都'
 country: 'Japan'
 intro: 'Kyoto was Japan''s imperial capital for over a thousand years and remains the cultural heart of the country — home to 17 UNESCO World Heritage sites, wooden machiya townhouses, bamboo groves, and traditional kaiseki dining.'
+metaDescription: 'Kyoto guide: Japan''s imperial capital for over a thousand years, 17 UNESCO World Heritage sites, machiya townhouses and kaiseki dining.'
 image: '../../assets/images/hero-tourism.jpg'
 imageAlt: 'Traditional East Asian temple architecture framed by seasonal foliage'
 studentMonthly:

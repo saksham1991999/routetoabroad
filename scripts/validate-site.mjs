@@ -11,7 +11,7 @@
  *  - <html lang>/dir matching the URL locale (ar → dir="rtl")
  *  - sitemap coverage in both directions, source-page-aware
  *  - internal links + fragment anchors resolve against the built file set
- *  - no trailing slashes on internal href/canonical/sitemap URLs (trailingSlash: 'never')
+ *  - every internal href, canonical and sitemap URL ends in a slash (trailingSlash: 'always'); the root is '/'
  *  - OG/Twitter meta completeness; og:image absolute on host and its file present in dist/
  *  - locale lists agree across astro.config.mjs, src/lib/i18n.ts and this file
  *  - {{VERIFY}} markers survive in src/ (owner-confirmation contract)
@@ -30,6 +30,32 @@ const SITE = 'https://routetoabroad.com'; // keep in sync with astro.config.mjs 
 const errors = [];
 const warnings = [];
 
+// ---- body-language check (i18n) constants.
+// A localized page must carry localized body copy, not an English body under a
+// translated <html lang>. The check measures the Latin-script words inside
+// <main> and the share that are common English function words. English pages
+// measured a median of about 19% (minimum about 7%); non-English locale pages
+// measured 0% to 4%. The 10% limit sits between the two groups.
+const BODY_LANG_MAX_ENGLISH_SHARE = 0.1;
+// A page with fewer Latin-script words than this has no reliable share (zh, ja,
+// ar and hi bodies carry few Latin words). Such pages are reported as warnings.
+const BODY_LANG_MIN_LATIN_WORDS = 20;
+// A page must also contain this many English function words to fail. Proper
+// names such as "University of Tokyo" add a few matches to otherwise translated
+// pages. A page of English prose has dozens of matches.
+const BODY_LANG_MIN_ENGLISH_WORDS = 8;
+// Pages a human has approved despite a high English share. Entries are built
+// paths such as 'ja/tools/example/index.html'. Keep empty unless approved.
+const BODY_LANG_ALLOW = [];
+// English function words that are not common words in the other locales.
+// Short words such as a, an, as, do, in, on, or, it, is, be, at and by also
+// occur in Portuguese, German, Spanish and French, so they are left out.
+const BODY_LANG_ENGLISH_WORDS = new Set([
+  'the', 'and', 'of', 'to', 'for', 'with', 'you', 'your', 'our',
+  'we', 'can', 'this', 'that', 'from', 'are', 'will', 'which', 'not', 'have', 'has',
+  'more', 'their', 'they', 'but', 'about', 'when', 'what', 'how', 'there', 'these',
+  'its', 'may', 'each', 'all', 'who', 'into', 'than', 'other', 'if',
+]);
 // i18n: the site supports 9 locales. English lives at the unprefixed root;
 // zh / fr / ar / es / de / ja / pt / hi pages live under /<locale>/. This
 // list must stay in sync with astro.config.mjs i18n.locales and
@@ -41,6 +67,17 @@ const LOCALES = ['en', 'zh', 'fr', 'ar', 'es', 'de', 'ja', 'pt', 'hi'];
 const localeOf = (rel) => {
   const seg = rel.split('/')[0];
   return LOCALES.includes(seg) ? seg : 'en';
+};
+
+// Product rich results need an offer, review, or rating (Google product snippet rules).
+const checkProducts = (node, rel) => {
+  if (Array.isArray(node)) return node.forEach((n) => checkProducts(n, rel));
+  if (!node || typeof node !== 'object') return;
+  if ([].concat(node['@type'] ?? []).includes('Product') &&
+      !('offers' in node || 'review' in node || 'aggregateRating' in node)) {
+    errors.push(`${rel}: Product "${node.name ?? '?'}" has no offers, review, or aggregateRating`);
+  }
+  Object.values(node).forEach((v) => checkProducts(v, rel));
 };
 
 // ---- locale-list consistency. Adding a locale means touching several
@@ -223,11 +260,10 @@ for (const rel of htmlRels) {
   const canonical = html.match(/<link rel="canonical" href="([^"]+)"/)?.[1];
   if (!canonical) errors.push(`${rel}: missing canonical`);
   else {
-    // Only the site root legitimately carries a trailing slash
-    // (trailingSlash: 'never'); locale roots are built and canonicalized
-    // slash-less (e.g. https://…com/zh).
-    if (canonical.endsWith('/') && canonical !== SITE + '/') {
-      errors.push(`${rel}: canonical ends with "/": ${canonical} (trailingSlash: 'never')`);
+    // trailingSlash: 'always': every canonical ends in a slash, including the
+    // site root (https://…com/) and the locale roots (https://…com/zh/).
+    if (!canonical.endsWith('/')) {
+      errors.push(`${rel}: canonical has no trailing slash: ${canonical} (trailingSlash: 'always')`);
     }
     if (!seenCans.has(canonical)) seenCans.set(canonical, []);
     seenCans.get(canonical).push(rel);
@@ -327,10 +363,13 @@ for (const rel of htmlRels) {
 
     refs.push({ attr, raw, path, hash, hashOnly });
 
-    // trailing-slash check on href URLs — only the site root "/" is a
-    // legitimate slash URL under trailingSlash: 'never'.
-    if (attr === 'href' && !hashOnly && path.endsWith('/') && path !== '/') {
-      slashOffenders.push(`${rel}: URL ends with "/": ${raw}`);
+    // trailing-slash check on href URLs — under trailingSlash: 'always' every
+    // internal page link ends in "/". File-like paths (/favicon.ico,
+    // /og/default.jpg, /rss.xml) are assets and are exempt.
+    const lastSeg = path.split('/').pop() ?? '';
+    const isAsset = /\.[a-z0-9]+$/i.test(lastSeg);
+    if (attr === 'href' && !hashOnly && path !== '' && !path.endsWith('/') && !isAsset) {
+      slashOffenders.push(`${rel}: URL has no trailing slash: ${raw}`);
     }
   }
   pages.push({ rel, dir, refs });
@@ -345,6 +384,7 @@ for (const rel of htmlRels) {
       errors.push(`${rel}: unparseable JSON-LD — ${e.message}`);
       continue;
     }
+    checkProducts(schema, rel);
     const schemas = Array.isArray(schema) ? schema : [schema];
     for (const s of schemas) {
       if (!s['@type']) {
@@ -508,7 +548,7 @@ function resolveInternal(path, fromDir) {
     }
     p = '/' + parts.join('/');
   }
-  p = p.replace(/\/+$/, ''); // trailingSlash: 'never' — a trailing slash never changes the target
+  p = p.replace(/\/+$/, ''); // trailingSlash: 'always' — resolve with or without the slash; the href check flags a missing one
   if (p === '' || p === '/') return 'index.html';
   const clean = p.replace(/^\//, '');
   if (clean === '404') return '404.html'; // links to /404 are ignored (never an error)
@@ -545,7 +585,7 @@ for (const page of pages) {
 }
 
 // ---- trailing-slash href violations become errors ----
-for (const offender of slashOffenders) errors.push(`${offender} (trailingSlash: 'never')`);
+for (const offender of slashOffenders) errors.push(`${offender} (trailingSlash: 'always')`);
 
 // ---- {{VERIFY}} survival: the marker contract is that owners confirm facts ----
 const TEXT_EXT = /\.(?:astro|ts|tsx|js|jsx|mjs|cjs|md|mdx|json|css|scss|txt|yaml|yml|html)$/;
@@ -569,14 +609,16 @@ const sitemapUrls = [...readFileSync(join(DIST, 'sitemap-0.xml'), 'utf8').matchA
   (m) => m[1]
 );
 for (const url of sitemapUrls) {
-  if (url.endsWith('/') && url !== SITE + '/') {
-    errors.push(`sitemap URL ends with "/": ${url}`);
+  if (!url.endsWith('/')) {
+    errors.push(`sitemap URL has no trailing slash: ${url} (trailingSlash: 'always')`);
   }
 }
+// Built URLs in canonical form: every page URL ends in a slash.
 const builtUrls = new Set(
   htmlRels.map((rel) => {
     const u = rel.replace(/index\.html$/, '').replace(/\.html$/, '');
-    return new URL('/' + u, SITE).href.replace(/\/$/, '');
+    const withSlash = u === '' || u.endsWith('/') ? u : u + '/';
+    return new URL('/' + withSlash, SITE).href;
   })
 );
 
@@ -585,10 +627,7 @@ const builtUrls = new Set(
 const EXCLUDED_FROM_SITEMAP = new Set(['privacy', 'terms']);
 
 for (const url of sitemapUrls) {
-  const normalized = url.replace(/\/$/, '');
-  const normalizedBuilt = normalized.replace(SITE, '');
-  const found = [...builtUrls].some((b) => b === normalized || b.endsWith(normalizedBuilt));
-  if (!found) errors.push(`sitemap URL has no built page: ${url}`);
+  if (!builtUrls.has(url)) errors.push(`sitemap URL has no built page: ${url}`);
 }
 // Reverse direction: the sitemap must not contain error pages (noindex 404s)
 // or the excluded legal pages. A 404 or excluded page in the sitemap is an
@@ -612,7 +651,7 @@ for (const b of builtUrls) {
   if (path === '/404' || path.includes('/404')) continue;
   const tail = path.split('/').filter((s) => s && !LOCALES.includes(s));
   if (EXCLUDED_FROM_SITEMAP.has(tail[tail.length - 1])) continue;
-  const pathNoRoot = path.replace(/^\//, '');
+  const pathNoRoot = path.replace(/^\/|\/$/g, '');
   const htmlRel =
     pathNoRoot === ''
       ? 'index.html'
@@ -620,10 +659,7 @@ for (const b of builtUrls) {
         ? pathNoRoot + '/index.html'
         : pathNoRoot + '.html';
   if (!isSourcePageHtml(htmlRel)) continue;
-  const inSitemap = sitemapUrls.some((u) => {
-    const up = u.replace(SITE, '').replace(/\/$/, '') || '/';
-    return up === path;
-  });
+  const inSitemap = sitemapUrls.includes(b);
   if (!inSitemap) errors.push(`built page missing from sitemap: ${path}`);
 }
 
@@ -637,10 +673,58 @@ for (const [rel, meta] of pageMeta) {
   if (meta.noindex) continue; // noindex pages have no canonical requirement
   if (!meta.canonical) continue; // missing canonical already flagged above
   // The page's own URL, derived from the built path.
-  const ownUrl =
-    new URL('/' + rel.replace(/index\.html$/, '').replace(/\.html$/, ''), SITE).href.replace(/\/$/, '');
+  const ownPath = rel.replace(/index\.html$/, '').replace(/\.html$/, '');
+  const ownUrl = new URL('/' + (ownPath === '' || ownPath.endsWith('/') ? ownPath : ownPath + '/'), SITE).href;
   if (meta.canonical !== ownUrl) {
     errors.push(`${rel}: canonical "${meta.canonical}" != own URL "${ownUrl}" (must self-canonicalize)`);
+  }
+}
+
+// ---- body-language check (i18n). Runs after the self-canonical check so the
+// legal-page list (EXCLUDED_FROM_SITEMAP) is already defined.
+const bodyLangStats = { measured: 0, failed: 0, allowed: 0, unmeasured: 0 };
+for (const rel of htmlRels) {
+  if (rel === '404.html' || rel.includes('/404/')) continue;
+  const loc = localeOf(rel);
+  if (loc === 'en') continue;
+  // legal pages: same exclusion list the sitemap check uses
+  const slug = rel
+    .replace(/index\.html$/, '')
+    .split('/')
+    .filter((s) => s && !LOCALES.includes(s))
+    .pop();
+  if (EXCLUDED_FROM_SITEMAP.has(slug)) continue;
+  const html = readFileSync(join(DIST, rel), 'utf8');
+  const mainMatch = html.match(/<main[\s>][\s\S]*?<\/main>/);
+  if (!mainMatch) continue;
+  const text = mainMatch[0]
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&#x([0-9a-f]+);/gi, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&[a-zA-Z][a-zA-Z0-9]*;/g, ' ');
+  // apostrophes stay inside a word so "Xi'an" is not read as the function word "an"
+  const words = text.match(/[A-Za-z\u00C0-\u024F]+(?:['’][A-Za-z\u00C0-\u024F]+)*/g) ?? [];
+  if (words.length < BODY_LANG_MIN_LATIN_WORDS) {
+    bodyLangStats.unmeasured++;
+    warnings.push(
+      `${rel}: body language not measured (locale ${loc}): ${words.length} Latin-script words, minimum ${BODY_LANG_MIN_LATIN_WORDS}`
+    );
+    continue;
+  }
+  bodyLangStats.measured++;
+  const english = words.filter((w) => BODY_LANG_ENGLISH_WORDS.has(w.toLowerCase())).length;
+  const share = english / words.length;
+  if (share <= BODY_LANG_MAX_ENGLISH_SHARE || english < BODY_LANG_MIN_ENGLISH_WORDS) continue;
+  const line = `${rel}: body is ${(share * 100).toFixed(1)}% English function words (locale ${loc}, limit ${BODY_LANG_MAX_ENGLISH_SHARE * 100}%)`;
+  if (BODY_LANG_ALLOW.includes(rel)) {
+    bodyLangStats.allowed++;
+    warnings.push(`${line} - allowlisted in BODY_LANG_ALLOW`);
+  } else {
+    bodyLangStats.failed++;
+    errors.push(line);
   }
 }
 
@@ -653,6 +737,9 @@ console.log(`Anchors: ${fragStats.checked} checked, ${fragStats.dangling} dangli
 console.log(`Trailing slashes: ${slashOffenders.length} offending URLs`);
 console.log(`OG meta: ${ogStats.pages}/${htmlRels.length} pages complete, ${ogStats.files} og:image files verified`);
 console.log(`{{VERIFY}} files: ${verifyCount}`);
+console.log(
+  `Body language: ${bodyLangStats.measured} locale pages measured, ${bodyLangStats.failed} over ${BODY_LANG_MAX_ENGLISH_SHARE * 100}% English, ${bodyLangStats.allowed} allowlisted, ${bodyLangStats.unmeasured} not measured (<${BODY_LANG_MIN_LATIN_WORDS} Latin words)`
+);
 console.log('');
 if (warnings.length) {
   console.log(`⚠ ${warnings.length} warnings:`);

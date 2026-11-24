@@ -15,9 +15,8 @@ import FaqAccordion from '../FaqAccordion.astro';
 import CtaBand from '../CtaBand.astro';
 import StatsBand from '../StatsBand.astro';
 import { GENERAL_FAQS } from '../../data/faqs';
-import { TESTIMONIALS } from '../../data/testimonials';
 import { cityName } from '../../data/city-names';
-import { faqSchema, reviewSchema } from '../../lib/schema';
+import { faqSchema } from '../../lib/schema';
 import { SITE } from '../../lib/site';
 import { translatePath, DEFAULT_LOCALE, DATE_TAG, type Locale } from '../../lib/i18n';
 import { localizedEntries, entrySlug } from '../../lib/content';
@@ -43,10 +42,59 @@ const posts = localizedEntries(await getCollection('blog'), locale)
 
 const homeFaqs = GENERAL_FAQS[locale].slice(0, 5);
 
-// Hero review JSON-LD reuses the locale's first testimonial so the schema
-// matches the copy visitors actually see. Locales without translated
-// testimonials yet fall back to the English source quote.
-const heroTestimonial = TESTIMONIALS[locale]?.[0] ?? TESTIMONIALS.en[0];
+// Guides and universities blocks: entries are picked by slug from the
+// collections, so titles, descriptions and images come from the entries.
+const GUIDE_PICKS = ['china-visa-types', 'csc-scholarship', 'mbbs-in-china', 'china-travel-guide', 'china-sourcing-guide'];
+const UNIVERSITY_PICKS = ['peking-university', 'tsinghua-university', 'fudan-university', 'shanghai-jiao-tong-university', 'zhejiang-university'];
+function pickBySlug<T extends { id: string }>(entries: T[], slugs: string[]): T[] {
+  return slugs.map((slug) => {
+    const hit = entries.find((e) => entrySlug(e) === slug);
+    if (!hit) throw new Error(`HomePage: no entry for slug "${slug}" in locale "${locale}"`);
+    return hit;
+  });
+}
+const guidePicks = pickBySlug(localizedEntries(await getCollection('guides'), locale), GUIDE_PICKS);
+const universityPicks = pickBySlug(localizedEntries(await getCollection('universities'), locale), UNIVERSITY_PICKS);
+
+/** Block headings. Locales other than en are machine-assisted and need native review. */
+const PICK_COPY: Record<Locale, { guides: { eyebrow: string; title: string; action: string }; universities: { eyebrow: string; title: string; action: string } }> = {
+  en: {
+    guides: { eyebrow: 'Guides', title: 'Start with a guide', action: 'All guides' },
+    universities: { eyebrow: 'Universities', title: 'Five universities to start with', action: 'All universities' },
+  },
+  zh: {
+    guides: { eyebrow: '指南', title: '从一份指南开始', action: '全部指南' },
+    universities: { eyebrow: '大学', title: '先看这五所大学', action: '全部大学' },
+  },
+  fr: {
+    guides: { eyebrow: 'Guides', title: 'Commencez par un guide', action: 'Tous les guides' },
+    universities: { eyebrow: 'Universités', title: 'Cinq universités pour commencer', action: 'Toutes les universités' },
+  },
+  ar: {
+    guides: { eyebrow: 'الأدلة', title: 'ابدأ بأحد الأدلة', action: 'كل الأدلة' },
+    universities: { eyebrow: 'الجامعات', title: 'خمس جامعات للبدء', action: 'كل الجامعات' },
+  },
+  es: {
+    guides: { eyebrow: 'Guías', title: 'Empieza por una guía', action: 'Todas las guías' },
+    universities: { eyebrow: 'Universidades', title: 'Cinco universidades para empezar', action: 'Todas las universidades' },
+  },
+  de: {
+    guides: { eyebrow: 'Leitfäden', title: 'Mit einem Leitfaden beginnen', action: 'Alle Leitfäden' },
+    universities: { eyebrow: 'Universitäten', title: 'Fünf Universitäten zum Einstieg', action: 'Alle Universitäten' },
+  },
+  ja: {
+    guides: { eyebrow: 'ガイド', title: 'ガイドから始める', action: 'すべてのガイド' },
+    universities: { eyebrow: '大学', title: 'まず見る5つの大学', action: 'すべての大学' },
+  },
+  pt: {
+    guides: { eyebrow: 'Guias', title: 'Comece por um guia', action: 'Todos os guias' },
+    universities: { eyebrow: 'Universidades', title: 'Cinco universidades para começar', action: 'Todas as universidades' },
+  },
+  hi: {
+    guides: { eyebrow: 'गाइड', title: 'किसी गाइड से शुरू करें', action: 'सभी गाइड' },
+    universities: { eyebrow: 'विश्वविद्यालय', title: 'शुरू करने के लिए पाँच विश्वविद्यालय', action: 'सभी विश्वविद्यालय' },
+  },
+};
 
 // Corridor coordinates — single source of truth, same pattern as PageHero:
 // the instrument labels below and the canvas-globe markers all derive from
@@ -64,9 +112,7 @@ const globeMarkers = [
 ];
 
 const stats = [
-  { value: '500+', counter: '500', suffix: '+', label: t.stats.labels[0] },
   { value: '12+', counter: '12', suffix: '+', label: t.stats.labels[1] },
-  { value: '98%', counter: '98', suffix: '%', label: t.stats.labels[2] },
   { value: '3', counter: '3', label: t.stats.labels[3] },
 ];
 
@@ -92,9 +138,7 @@ const tools = [
   title={t.meta.title}
   description={t.meta.description}
   path="/"
-  jsonLd={[faqSchema(homeFaqs), reviewSchema(
-    [{ author: heroTestimonial.name, reviewBody: heroTestimonial.quote, rating: 5 }]
-  )]}
+  jsonLd={[faqSchema(homeFaqs)]}
 >
   <!-- ============================================================
        1 · PINNED JOURNEY HERO — two 100vw slides on a flex track,
@@ -333,6 +377,70 @@ const tools = [
               <Picture
                 src={post.data.image}
                 alt={post.data.imageAlt}
+                widths={[320, 480]}
+                sizes="(max-width: 64rem) 28vw, 176px"
+                formats={['avif', 'webp']}
+                loading="lazy"
+              />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7a · GUIDES — same ruled-row markup as insights -->
+  <section class="section insights" data-tone="light" aria-labelledby="guides-title">
+    <div class="container">
+      <SectionHead
+        eyebrow={PICK_COPY[locale].guides.eyebrow}
+        title={`<span id='guides-title'>${PICK_COPY[locale].guides.title}</span>`}
+        action={{ href: translatePath('/guides', locale), label: PICK_COPY[locale].guides.action }}
+      />
+      <div class="post-rows">
+        {guidePicks.map((g, i) => (
+          <a href={translatePath(`/guides/${entrySlug(g)}`, locale)} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+            <div class="post-body">
+              <h3 class="post-title">{g.data.title}</h3>
+              <p class="post-desc">{g.data.description}</p>
+              <p class="post-meta">{t.insights.readTime.replace('{n}', String(g.data.readTime))}</p>
+            </div>
+            <div class="post-thumb">
+              <Picture
+                src={g.data.image}
+                alt={g.data.imageAlt}
+                widths={[320, 480]}
+                sizes="(max-width: 64rem) 28vw, 176px"
+                formats={['avif', 'webp']}
+                loading="lazy"
+              />
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 7b · UNIVERSITIES — same ruled-row markup as insights -->
+  <section class="section insights" data-tone="light" aria-labelledby="universities-title">
+    <div class="container">
+      <SectionHead
+        eyebrow={PICK_COPY[locale].universities.eyebrow}
+        title={`<span id='universities-title'>${PICK_COPY[locale].universities.title}</span>`}
+        action={{ href: translatePath('/universities', locale), label: PICK_COPY[locale].universities.action }}
+      />
+      <div class="post-rows">
+        {universityPicks.map((u, i) => (
+          <a href={translatePath(`/universities/${entrySlug(u)}`, locale)} class="post-row" data-reveal style={`--reveal-delay: ${i * 70}ms`}>
+            <div class="post-body">
+              <h3 class="post-title">{u.data.name}</h3>
+              <p class="post-desc">{u.data.intro}</p>
+              <p class="post-meta">{u.data.city}</p>
+            </div>
+            <div class="post-thumb">
+              <Picture
+                src={u.data.image}
+                alt={u.data.imageAlt}
                 widths={[320, 480]}
                 sizes="(max-width: 64rem) 28vw, 176px"
                 formats={['avif', 'webp']}

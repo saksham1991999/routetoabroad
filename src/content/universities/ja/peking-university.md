@@ -27,14 +27,12 @@ programmes:
   - 'MBBS（教育部リスト掲載・英語開講、定員少数）'
   - '博士課程（CSC支援、指導教員制）'
 costs:
-  tuition: '一般的に US$5,000–10,000/年。CSC奨学金の採用者は100%給付'
-  dorm: '学内寮 US$1,200–2,400/年'
-  living: '北京（海淀）の生活費 US$500–850/月'
+  tuition: '一般的に {{VERIFY}}/年。CSC奨学金の採用者は100%給付'
+  dorm: '学内寮 {{VERIFY}}/年'
+  living: '北京（海淀）の生活費 {{VERIFY}}/月'
 facts:
   - label: '都市'
     value: '北京（海淀区）'
-  - label: '留学生数'
-    value: '100か国以上から約 3,000+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: '高得点の志望者、研究志望、人文系志望'
   - label: '入学時期'

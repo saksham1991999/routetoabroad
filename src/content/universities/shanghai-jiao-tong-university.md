@@ -7,6 +7,7 @@ type: 'technical'
 founded: '1896'
 nickname: 'China''s engineering aristocracy'
 intro: 'Shanghai Jiao Tong University (SJTU) is a top-5 Chinese engineering institution with over a century of history — the strongest fit for engineering, medicine and business students who want Shanghai placement power with deep technical brand value.'
+metaDescription: 'Shanghai Jiao Tong University (SJTU): top-5 Chinese engineering institution with over a century of history, strong in medicine and business. Costs and intakes.'
 image: '../../assets/images/university-sjtu.jpg'
 imageAlt: 'Contemporary research buildings at Shanghai Jiao Tong University'
 strengths:
@@ -26,14 +27,12 @@ programmes:
   - 'MBA (Antai College, English-taught)'
   - 'Materials Science (research tracks)'
 costs:
-  tuition: 'US$4,000–9,000/yr typical; CSC covers 100% for winners'
+  tuition: '{{VERIFY}}/yr typical; CSC covers 100% for winners'
   dorm: 'US$1,000–1,800/yr on campus'
-  living: 'US$550–900/month in Shanghai'
+  living: '{{VERIFY}}/month in Shanghai'
 facts:
   - label: 'City'
     value: 'Shanghai (Minhang & Huangpu campuses)'
-  - label: 'International students'
-    value: '~3,000+ across degrees' # {{VERIFY}} current intake figures
   - label: 'Best for'
     value: 'Engineering, medicine, research'
   - label: 'Intakes'

@@ -27,14 +27,12 @@ programmes:
   - 'International Business (Bachelor, englischsprachig)'
   - 'Public Health (Master, englischsprachig)'
 costs:
-  tuition: 'typischerweise US$4,000–9,000/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: 'US$1,000–2,000/Jahr auf dem Campus'
-  living: 'US$550–900/Monat in Shanghai'
+  tuition: 'typischerweise {{VERIFY}}/Jahr; CSC deckt 100 % für Stipendiaten ab'
+  dorm: '{{VERIFY}}/Jahr auf dem Campus'
+  living: '{{VERIFY}}/Monat in Shanghai'
 facts:
   - label: 'Stadt'
     value: 'Shanghai (Bezirk Yangpu)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Wirtschaft, Medizin, Medienkarrieren'
   - label: 'Studienbeginn'

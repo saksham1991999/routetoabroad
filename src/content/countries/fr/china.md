@@ -7,12 +7,8 @@ imageAlt: 'Montagnes karstiques le long de la rivière Li près de Guilin, en Ch
 stats:
   - label: 'Étudiants placés'
     value: '500+'
-  - label: 'Universités partenaires'
-    value: '150+'
   - label: 'Rentrées par an'
     value: '2 (sept. et mars)'
-  - label: 'Taux de réussite des visas'
-    value: '98%' # {{VERIFY}}
 study:
   heading: 'Étudier en Chine'
   text: 'La Chine gère le plus grand système d''étudiants internationaux d''Asie : diplômes enseignés en anglais homologués MOE, bourse gouvernementale CSC, et des frais de scolarité à une fraction des destinations occidentales. Médecine, ingénierie et commerce sont les voies phares.'

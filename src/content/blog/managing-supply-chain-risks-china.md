@@ -11,7 +11,7 @@ image: '../../assets/images/blog-supply-chain.jpg'
 imageAlt: 'A quality inspector checking goods on shelves in a factory warehouse'
 ---
 
-Supply chain disruptions cost businesses billions every year. For India–China trade specifically, the risks are amplified by distance, regulatory complexity, language barriers, and the sheer scale of China's manufacturing ecosystem. Based on the shipments we manage, here are the five risks we see most often — and the frameworks that counter them.
+Five supply chain risks appear most often in India–China shipments: quality drift after sample approval, supplier financial instability, customs classification errors, port congestion and communication breakdown. Distance, regulatory complexity, language barriers and China's manufacturing scale amplify each one. Based on the shipments we manage, each risk has a counter-framework.
 
 ## Risk 1: Quality deviation after sample approval
 

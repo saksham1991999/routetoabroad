@@ -1,6 +1,6 @@
 ---
 title: 'Study in China from India: The Complete Roadmap'
-description: 'From India to a Chinese university: eligible profiles, costs in real numbers, scholarships, the application timeline by month, visa handling, and what the first week in China looks like.'
+description: 'Study in China from India: eligible profiles, real costs, scholarships, a month-by-month application timeline, visa steps, and what your first week looks like.'
 pillar: 'education'
 pubDate: 2025-01-20
 updatedDate: 2026-11-05
@@ -15,7 +15,7 @@ faqs:
     answer: 'Yes — CSC government scholarships (full or partial), provincial scholarships, and university merit awards. Competitive profiles with 80%+ marks have realistic chances at partial-to-full funding.'
 ---
 
-**Short answer: China works for Indian students who want accredited degrees in medicine, engineering or business at substantially lower tuition than private Indian seats — provided you verify the right approvals for your programme: MOE listing for MBBS in English, and the university's and programme's own accreditation/recognition for engineering and business — and treat language and licensing exams as part of the plan, not an afterthought.**
+**Short answer: China works for Indian students who want accredited degrees in medicine, engineering or business at lower tuition than private Indian seats. Verify approvals first: MOE listing for English MBBS, and accreditation for engineering and business. Treat language and licensing exams as part of the plan.**
 
 ## Who this route fits
 
@@ -34,7 +34,7 @@ faqs:
 | Living (Beijing/Shanghai vs second-tier) | 4,200 – 8,400 |
 | Insurance, permit, misc | 400 – 800 |
 
-Scholarships change the math: a full CSC award zeroes tuition, dorm and most living costs. Our cost calculator produces a personalised estimate in under a minute.
+Scholarships change the math: a [full CSC award](/guides/csc-scholarship/) zeroes tuition, dorm and most living costs. Our [cost calculator](/tools/cost-calculator/) produces a personalised estimate in under a minute.
 
 ## The month-by-month roadmap (September intake)
 
@@ -42,7 +42,7 @@ Scholarships change the math: a full CSC award zeroes tuition, dorm and most liv
 - **Oct–Dec:** document prep, study plan, supervisor emails (research degrees)
 - **Jan–Mar:** applications + CSC/provincial scholarship windows
 - **Apr–May:** offers land; accept, pay deposit to university account only
-- **May–Jun:** JW202 + Admission Notice; physical exam
+- **May–Jun:** [JW202](/guides/china-student-visa/) + Admission Notice; physical exam
 - **Jun–Jul:** X1 visa at CVASC; book flights
 - **Aug–Sep:** arrival, registration, residence permit, SIM + bank
 
@@ -51,9 +51,9 @@ Scholarships change the math: a full CSC award zeroes tuition, dorm and most liv
 1. **University accreditation status** (MOE list) over rankings aesthetics
 2. **City size** — second-tier cities cost 30–40% less to live in
 3. **Scholarship strategy** — three applications beat one
-4. **Language plan** — HSK timetable from semester one
+4. **Language plan** — [HSK timetable](/guides/hsk-exam-preparation/) from semester one
 5. **Licensing plan** — FMGE/NExT prep alongside coursework for MBBS
 
 ## What we handle for you
 
-Shortlisting, applications, scholarship files, visa paperwork, arrival logistics and first-week setup — plus an advisor in Delhi reachable at +91 96330 61109 and a team on the ground in Guangzhou. Start with the four-question fit check for an honest read on your profile.
+Shortlisting, applications, scholarship files, visa paperwork, arrival logistics and first-week setup — plus an advisor in Delhi reachable at +91 96330 61109 and a team on the ground in Guangzhou. Start with the [four-question fit check](/tools/fit-check/) for an honest read on your profile.

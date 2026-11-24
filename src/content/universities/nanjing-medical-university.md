@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1934'
 nickname: 'One of China''s top independent medical universities'
 intro: 'Nanjing Medical University (NMU) is a premier Chinese MOE-listed medical school offering English-medium MBBS for international students worldwide, with strong clinical rotations, WDOMS listing, and preparation for international licensing pathways subject to home-country medical council rules.'
+metaDescription: 'Nanjing Medical University (NMU): MOE-listed English-medium MBBS for international students, with strong clinical rotations. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical students and clinical laboratory setting representing Nanjing Medical University'
 strengths:

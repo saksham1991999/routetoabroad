@@ -27,14 +27,12 @@ programmes:
   - '国际商务（本科，英文授课）'
   - '公共卫生（硕士，英文授课）'
 costs:
-  tuition: '通常每年 US$4,000–9,000；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 US$1,000–2,000'
-  living: '在上海每月 US$550–900'
+  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
+  dorm: '校内住宿每年 {{VERIFY}}'
+  living: '在上海每月 {{VERIFY}}'
 facts:
   - label: '城市'
     value: '上海（杨浦区）'
-  - label: '国际学生'
-    value: '各学位层次合计约 3,000+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '商科、医学、媒体职业'
   - label: '入学时间'

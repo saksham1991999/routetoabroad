@@ -27,14 +27,12 @@ programmes:
   - 'MBBS (enseigné en anglais, homologué MOE, places limitées)'
   - 'Programmes de doctorat (financés par la CSC, sous direction de superviseur)'
 costs:
-  tuition: 'Généralement US$5,000–10,000/an ; la CSC couvre 100% pour les lauréats'
-  dorm: 'US$1,200–2,400/an sur le campus'
-  living: 'US$500–850/mois à Pékin (Haidian)'
+  tuition: 'Généralement {{VERIFY}}/an ; la CSC couvre 100% pour les lauréats'
+  dorm: '{{VERIFY}}/an sur le campus'
+  living: '{{VERIFY}}/mois à Pékin (Haidian)'
 facts:
   - label: 'Ville'
     value: 'Pékin (district de Haidian)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ de plus de 100 pays' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Candidats à haut score, recherche, humanités'
   - label: 'Rentrées'

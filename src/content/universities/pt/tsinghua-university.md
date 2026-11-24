@@ -27,14 +27,12 @@ programmes:
   - 'MBA / Ciência da Gestão (em inglês)'
   - 'Língua Chinesa (IEP, em chinês)'
 costs:
-  tuition: 'tipicamente US$5,000–10,000/ano; o CSC cobre 100% para os selecionados'
-  dorm: 'US$1,200–2,000/ano no campus'
-  living: 'US$500–850/mês em Pequim (Haidian)'
+  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
+  dorm: '{{VERIFY}}/ano no campus'
+  living: '{{VERIFY}}/mês em Pequim (Haidian)'
 facts:
   - label: 'Cidade'
     value: 'Pequim (distrito de Haidian)'
-  - label: 'Estudantes internacionais'
-    value: 'cerca de 3,000+ em todos os níveis' # {{VERIFY}} current intake figures
   - label: 'Melhor para'
     value: 'Engenharia, CS/IA, carreiras de pesquisa'
   - label: 'Períodos de ingresso'

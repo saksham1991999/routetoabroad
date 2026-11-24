@@ -27,14 +27,12 @@ programmes:
   - 'MBA (Antai College, em inglês)'
   - 'Ciência dos Materiais (trilhas de pesquisa)'
 costs:
-  tuition: 'tipicamente US$4,000–9,000/ano; o CSC cobre 100% para os selecionados'
+  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
   dorm: 'US$1,000–1,800/ano no campus'
-  living: 'US$550–900/mês em Xangai'
+  living: '{{VERIFY}}/mês em Xangai'
 facts:
   - label: 'Cidade'
     value: 'Xangai (campus de Minhang e Huangpu)'
-  - label: 'Estudantes internacionais'
-    value: 'cerca de 3,000+ em todos os níveis' # {{VERIFY}} current intake figures
   - label: 'Melhor para'
     value: 'Engenharia, medicina, pesquisa'
   - label: 'Períodos de ingresso'

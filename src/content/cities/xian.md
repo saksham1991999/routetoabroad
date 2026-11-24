@@ -2,7 +2,8 @@
 name: 'Xi''an'
 chineseName: '西安'
 country: 'China'
-intro: 'Xi''an is the eastern terminus of the Silk Road and one of China''s most affordable major university cities — home to Xi''an Jiaotong University, C9-league engineering, and 3,000 years of imperial history from the Terracotta Army to the intact Ming City Wall.'
+intro: 'Xi''an is the eastern terminus of the Silk Road and one of China''s most affordable major university cities. It is home to Xi''an Jiaotong University and C9-league engineering, with 3,000 years of imperial history, from the Terracotta Army to the intact Ming City Wall.'
+metaDescription: 'Xi''an guide: Silk Road terminus and affordable university city, home to Xi''an Jiaotong University, the Terracotta Army and the intact Ming City Wall.'
 image: '../../assets/images/hero-tourism.jpg'
 imageAlt: 'Historic East Asian architecture and travel scenery representing Xi''an'
 studentMonthly:

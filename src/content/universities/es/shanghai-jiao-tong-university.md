@@ -27,14 +27,12 @@ programmes:
   - 'MBA (Colegio Antai, en inglés)'
   - 'Ciencia de materiales (itinerarios de investigación)'
 costs:
-  tuition: 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'
+  tuition: 'Normalmente {{VERIFY}}/año; la CSC cubre el 100% para los ganadores'
   dorm: 'US$1,000–1,800/año en el campus'
-  living: 'US$550–900/mes en Shanghái'
+  living: '{{VERIFY}}/mes en Shanghái'
 facts:
   - label: 'Ciudad'
     value: 'Shanghái (campus de Minhang y Huangpu)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Ingeniería, medicina, investigación'
   - label: 'Ingresos'

@@ -27,14 +27,12 @@ programmes:
   - 'MBA / ciencia de la dirección (en inglés)'
   - 'Lengua china (IEP, en chino)'
 costs:
-  tuition: 'Normalmente US$5,000–10,000/año; la CSC cubre el 100% para los ganadores'
-  dorm: 'US$1,200–2,000/año en el campus'
-  living: 'US$500–850/mes en Pekín (Haidian)'
+  tuition: 'Normalmente {{VERIFY}}/año; la CSC cubre el 100% para los ganadores'
+  dorm: '{{VERIFY}}/año en el campus'
+  living: '{{VERIFY}}/mes en Pekín (Haidian)'
 facts:
   - label: 'Ciudad'
     value: 'Pekín (distrito de Haidian)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Ingeniería, CS/IA, carreras de investigación'
   - label: 'Ingresos'

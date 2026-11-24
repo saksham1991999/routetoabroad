@@ -29,12 +29,10 @@ programmes:
 costs:
   tuition: 'Généralement US$4 000–9 000/an ; la CSC couvre 100% pour les lauréats'
   dorm: 'US$1 000–1 800/an sur le campus'
-  living: 'US$550–900/mois à Shanghai'
+  living: '{{VERIFY}}/mois à Shanghai'
 facts:
   - label: 'Ville'
     value: 'Shanghai (campus de Minhang et Huangpu)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, médecine, recherche'
   - label: 'Rentrées'

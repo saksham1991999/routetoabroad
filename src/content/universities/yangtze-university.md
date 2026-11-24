@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '2003'
 nickname: 'Affordable comprehensive hub on the Yangtze River'
 intro: 'Yangtze University in Jingzhou (Hubei Province) is a well-established provincial comprehensive university known across Asia and Africa for its affordable English-taught MBBS, Computer Science, AI, and Petroleum Engineering programmes.'
+metaDescription: 'Yangtze University in Jingzhou, Hubei: affordable English-taught MBBS, computer science, AI and petroleum engineering at a provincial comprehensive university.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'University study and campus setting representing Yangtze University'
 strengths:

@@ -102,7 +102,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'Study in China — MBBS, Engineering & Scholarships',
       description:
-        'University placement in China end to end: MOE-listed universities, CSC scholarships, MBBS and engineering programmes, visa processing and arrival support. 500+ students placed.',
+        'University placement in China end to end: MOE-listed universities, CSC scholarships, MBBS and engineering programmes, visa processing and arrival support.',
     },
     crumb: 'Education',
     schema: {
@@ -122,7 +122,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'Tuition from', value: 'US$2,500 / yr' },
         { label: 'Intakes', value: 'Sep · Feb' },
         { label: 'Language', value: 'English-taught' },
-        { label: 'Placed', value: '500+ students' },
       ],
       primaryCta: 'Check your fit',
       secondaryCta: 'See programmes',
@@ -225,7 +224,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'Check eligibility',
       stats: [
         { num: '$2M+', label: 'scholarships won by our students' },
-        { num: '150+', label: 'partner universities' },
       ],
     },
     unis: {
@@ -291,7 +289,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: '在中国留学 — MBBS、工科与奖学金',
       description:
-        '一站式中国大学申请服务：教育部认可高校、CSC 奖学金、MBBS 与工科课程、签证办理与落地支持。已送 500+ 名学生入学。',
+        '一站式中国大学申请服务：教育部认可高校、CSC 奖学金、MBBS 与工科课程、签证办理与落地支持。',
     },
     crumb: '教育',
     schema: {
@@ -310,7 +308,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: '学费低至', value: 'US$2,500 / 年' },
         { label: '入学时间', value: '9月 · 2月' },
         { label: '授课语言', value: '英文授课' },
-        { label: '已送学生', value: '500+ 名' },
       ],
       primaryCta: '检查你的适配',
       secondaryCta: '查看课程',
@@ -413,7 +410,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: '检查资格',
       stats: [
         { num: '$2M+', label: '我们的学生累计获得的奖学金' },
-        { num: '150+', label: '合作大学' },
       ],
     },
     unis: {
@@ -454,7 +450,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'Étudier en Chine — MBBS, ingénierie et bourses',
       description:
-        'Placement universitaire en Chine de bout en bout : universités reconnues par le ministère de l’Éducation, bourses CSC, programmes MBBS et ingénierie, traitement des visas et accompagnement à l’arrivée. 500+ étudiants placés.',
+        'Placement universitaire en Chine de bout en bout : universités reconnues par le ministère de l’Éducation, bourses CSC, programmes MBBS et ingénierie, traitement des visas et accompagnement à l’arrivée.',
     },
     crumb: 'Études',
     schema: {
@@ -474,7 +470,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'Frais dès', value: 'US$2,500 / an' },
         { label: 'Intakes', value: 'Sep · Fév' },
         { label: 'Langue', value: 'Enseignement en anglais' },
-        { label: 'Placés', value: '500+ étudiants' },
       ],
       primaryCta: 'Tester votre profil',
       secondaryCta: 'Voir les programmes',
@@ -577,7 +572,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'Vérifier l’éligibilité',
       stats: [
         { num: '$2M+', label: 'de bourses remportées par nos étudiants' },
-        { num: '150+', label: 'universités partenaires' },
       ],
     },
     unis: {
@@ -618,7 +612,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'الدراسة في الصين — MBBS والهندسة والمنح',
       description:
-        'قبول جامعي في الصين من البداية للنهاية: جامعات معتمدة من وزارة التعليم، منح CSC، برامج MBBS والهندسة، معالجة التأشيرات ودعم الوصول. أكثر من 500 طالب التحقوا بجامعاتهم.',
+        'قبول جامعي في الصين من البداية للنهاية: جامعات معتمدة من وزارة التعليم، منح CSC، برامج MBBS والهندسة، معالجة التأشيرات ودعم الوصول.',
     },
     crumb: 'التعليم',
     schema: {
@@ -637,7 +631,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'الرسوم تبدأ من', value: 'US$2,500 / سنة' },
         { label: 'موعد الالتحاق', value: 'سبتمبر · فبراير' },
         { label: 'اللغة', value: 'تدريس بالإنجليزية' },
-        { label: 'الالتحاقات', value: '500+ طالب' },
       ],
       primaryCta: 'تحقق من ملاءمتك',
       secondaryCta: 'استعرض البرامج',
@@ -740,7 +733,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'تحقق من الأهلية',
       stats: [
         { num: '$2M+', label: 'من المنح فاز بها طلابنا' },
-        { num: '150+', label: 'جامعة شريكة' },
       ],
     },
     unis: {
@@ -781,7 +773,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'Estudiar en China — MBBS, ingeniería y becas',
       description:
-        'Admisiones universitarias en China de principio a fin: universidades reconocidas por el Ministerio de Educación, becas CSC, programas de MBBS e ingeniería, gestión de visados y apoyo a la llegada. Más de 500 estudiantes colocados.',
+        'Admisiones universitarias en China de principio a fin: universidades reconocidas por el Ministerio de Educación, becas CSC, programas de MBBS e ingeniería, gestión de visados y apoyo a la llegada.',
     },
     crumb: 'Estudios',
     schema: {
@@ -801,7 +793,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'Matrícula desde', value: 'US$2,500 / año' },
         { label: 'Intakes', value: 'Sep · Feb' },
         { label: 'Idioma', value: 'Enseñanza en inglés' },
-        { label: 'Colocados', value: '500+ estudiantes' },
       ],
       primaryCta: 'Comprueba si encajas',
       secondaryCta: 'Ver programas',
@@ -904,7 +895,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'Comprobar elegibilidad',
       stats: [
         { num: '$2M+', label: 'en becas ganadas por nuestros estudiantes' },
-        { num: '150+', label: 'universidades asociadas' },
       ],
     },
     unis: {
@@ -945,7 +935,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'In China studieren — MBBS, Ingenieurwissenschaften & Stipendien',
       description:
-        'Universitätsvermittlung in China von A bis Z: MOE-gelistete Universitäten, CSC-Stipendien, MBBS- und Ingenieurstudiengänge, Visabearbeitung und Ankunftssupport. Über 500 vermittelte Studierende.',
+        'Universitätsvermittlung in China von A bis Z: MOE-gelistete Universitäten, CSC-Stipendien, MBBS- und Ingenieurstudiengänge, Visabearbeitung und Ankunftssupport.',
     },
     crumb: 'Bildung',
     schema: {
@@ -965,7 +955,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'Studiengebühren ab', value: 'US$2,500 / Jahr' },
         { label: 'Studienbeginn', value: 'Sep · Feb' },
         { label: 'Sprache', value: 'Englischsprachig' },
-        { label: 'Vermittelt', value: '500+ Studierende' },
       ],
       primaryCta: 'Eignung prüfen',
       secondaryCta: 'Studiengänge ansehen',
@@ -1068,7 +1057,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'Anspruch prüfen',
       stats: [
         { num: '$2M+', label: 'Stipendien, die unsere Studierenden gewonnen haben' },
-        { num: '150+', label: 'Partneruniversitäten' },
       ],
     },
     unis: {
@@ -1109,7 +1097,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: '中国で学ぶ — MBBS・工学・奨学金',
       description:
-        '中国の大学への進学を一貫サポート：教育部認可大学、CSC 奨学金、MBBS・工学系プログラム、ビザ手続き、到着後サポート。500 名以上の進学実績。',
+        '中国の大学への進学を一貫サポート：教育部認可大学、CSC 奨学金、MBBS・工学系プログラム、ビザ手続き、到着後サポート。',
     },
     crumb: '教育',
     schema: {
@@ -1128,7 +1116,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: '学費（最低）', value: 'US$2,500 / 年' },
         { label: '入学時期', value: '9月 · 2月' },
         { label: '言語', value: '英語で開講' },
-        { label: '進学者', value: '500 名以上' },
       ],
       primaryCta: 'マッチングを診断する',
       secondaryCta: 'プログラムを見る',
@@ -1231,7 +1218,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: '対象か診断する',
       stats: [
         { num: '$2M+', label: '私たちの学生が獲得した奨学金' },
-        { num: '150+', label: '提携大学' },
       ],
     },
     unis: {
@@ -1272,7 +1258,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'Estudar na China — MBBS, engenharia e bolsas',
       description:
-        'Admissão universitária na China de ponta a ponta: universidades listadas pelo MOE, bolsas CSC, programas de MBBS e engenharia, tramitação de vistos e apoio na chegada. Mais de 500 estudantes matriculados.',
+        'Admissão universitária na China de ponta a ponta: universidades listadas pelo MOE, bolsas CSC, programas de MBBS e engenharia, tramitação de vistos e apoio na chegada.',
     },
     crumb: 'Educação',
     schema: {
@@ -1292,7 +1278,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'Mensalidade a partir de', value: 'US$2,500 / ano' },
         { label: 'Ingressos', value: 'Set · Fev' },
         { label: 'Idioma', value: 'Aulas em inglês' },
-        { label: 'Matriculados', value: '500+ estudantes' },
       ],
       primaryCta: 'Verifique seu perfil',
       secondaryCta: 'Ver programas',
@@ -1395,7 +1380,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'Verificar elegibilidade',
       stats: [
         { num: '$2M+', label: 'em bolsas ganhas por nossos estudantes' },
-        { num: '150+', label: 'universidades parceiras' },
       ],
     },
     unis: {
@@ -1436,7 +1420,7 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
     meta: {
       title: 'चीन में पढ़ाई — MBBS, इंजीनियरिंग और छात्रवृत्तियाँ',
       description:
-        'चीन में विश्वविद्यालय प्रवेश, शुरू से अंत तक: MOE सूचीबद्ध विश्वविद्यालय, CSC छात्रवृत्तियाँ, MBBS और इंजीनियरिंग प्रोग्राम, वीज़ा प्रक्रिया और आगमन सहायता। 500+ विद्यार्थी प्रवेश पा चुके हैं।',
+        'चीन में विश्वविद्यालय प्रवेश, शुरू से अंत तक: MOE सूचीबद्ध विश्वविद्यालय, CSC छात्रवृत्तियाँ, MBBS और इंजीनियरिंग प्रोग्राम, वीज़ा प्रक्रिया और आगमन सहायता।',
     },
     crumb: 'शिक्षा',
     schema: {
@@ -1455,7 +1439,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
         { label: 'ट्यूशन से शुरू', value: 'US$2,500 / वर्ष' },
         { label: 'प्रवेश सत्र', value: 'सित · फ़र' },
         { label: 'भाषा', value: 'अंग्रेज़ी माध्यम' },
-        { label: 'प्रवेश दिलाए', value: '500+ विद्यार्थी' },
       ],
       primaryCta: 'फ़िट जाँचें',
       secondaryCta: 'प्रोग्राम देखें',
@@ -1558,7 +1541,6 @@ export const EDUCATION: Record<Locale, EducationStrings> = {
       cta: 'पात्रता जाँचें',
       stats: [
         { num: '$2M+', label: 'हमारे विद्यार्थियों ने छात्रवृत्तियाँ जीतीं' },
-        { num: '150+', label: 'साझेदार विश्वविद्यालय' },
       ],
     },
     unis: {

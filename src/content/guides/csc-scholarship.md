@@ -1,6 +1,6 @@
 ---
 title: 'CSC Scholarship Guide: How Full Funding Actually Works'
-description: 'The Chinese Government Scholarship explained: Type A vs Type B, what "full coverage" includes, realistic odds by profile, the document list, and the timeline that keeps you eligible.'
+description: 'The Chinese Government Scholarship explained: Type A vs Type B, what full coverage includes, realistic odds by profile, the document list, and the timeline.'
 pillar: 'education'
 pubDate: 2025-02-01
 updatedDate: 2026-11-05
@@ -18,7 +18,7 @@ verify:
   - 'CSC stipend: confirm stipend bands for the current intake'
 ---
 
-**Short answer: the CSC scholarship can fund your entire Chinese degree, but full awards are competitive and partial awards are the norm — apply broadly, file perfectly, and never pay anyone who promises a guaranteed CSC.**
+**Short answer: the CSC scholarship can fund your entire Chinese degree, but full awards are competitive and partial awards are the norm. Type A goes through your home government. Type B goes direct to the university. Apply broadly, file perfectly, and never pay anyone who promises a guaranteed CSC.**
 
 The China Scholarship Council administers the Chinese Government Scholarship. For students who prepare properly it is the single biggest cost lever in a Chinese degree. For students who prepare badly it is a February-to-April heartbreak. This guide exists to put you in the first group.
 
@@ -41,7 +41,7 @@ Monthly stipend figures are indicative; the schedule is updated periodically —
 
 ## The realistic odds
 
-Full CSC awards at top-tier universities (Tsinghua, Peking, Fudan) are highly competitive — think single-digit acceptance for international applicants across all countries. Provincial universities and less-exported programmes have meaningfully better odds. A smart strategy pairs one reach, one target, one safety — exactly like university applications.
+Full CSC awards at top-tier universities ([Tsinghua](/universities/tsinghua-university/), [Peking](/universities/peking-university/), [Fudan](/universities/fudan-university/)) are highly competitive — think single-digit acceptance for international applicants across all countries. Provincial universities and less-exported programmes have meaningfully better odds. A smart strategy pairs one reach, one target, one safety — exactly like university applications.
 
 ## Documents that decide it
 
@@ -65,4 +65,4 @@ Full CSC awards at top-tier universities (Tsinghua, Peking, Fudan) are highly co
 
 ## The honesty clause
 
-No consultancy — including us — can guarantee a CSC award. Committees decide. What we do is position you properly: right university mix, a study plan that reads like a researcher wrote it, and a file with zero avoidable defects. Run the scholarship eligibility check to see where your profile sits, then talk to us if the answer is promising.
+No consultancy — including us — can guarantee a CSC award. Committees decide. What we do is position you properly: right university mix, a study plan that reads like a researcher wrote it, and a file with zero avoidable defects. Run the [scholarship eligibility check](/tools/scholarship-eligibility/) to see where your profile sits, then talk to us if the answer is promising.

@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1989'
 nickname: 'Focused medical university in Hunan''s vibrant capital'
 intro: 'Changsha Medical University (CSMU) is a specialized medical institution in Changsha, Hunan Province, offering an English-medium MBBS programme with strong international student enrolment, modern simulation labs, and direct access to southern China''s transport network.'
+metaDescription: 'Changsha Medical University (CSMU): English-medium MBBS, modern simulation labs and southern China transport links in Changsha, Hunan. Costs and intakes.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'Medical campus and lecture hall representing Changsha Medical University'
 strengths:

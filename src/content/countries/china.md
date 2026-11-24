@@ -6,12 +6,8 @@ imageAlt: 'Karst mountains along the Li River near Guilin, China'
 stats:
   - label: 'Students we''ve placed'
     value: '500+'
-  - label: 'Partner universities'
-    value: '150+'
   - label: 'Intakes per year'
     value: '2 (Sep & Mar)'
-  - label: 'Visa success rate'
-    value: '98%' # {{VERIFY}}
 study:
   heading: 'Study in China'
   text: 'China runs the largest international-student system in Asia: MOE-listed English-medium degrees, the CSC government scholarship, and tuition at a fraction of Western destinations. Medicine, engineering and business are the flagship routes.'

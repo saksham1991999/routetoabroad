@@ -69,17 +69,34 @@ export function localeFromPath(pathname: string): Locale {
 }
 
 /**
+ * Add a trailing slash to a site path (trailingSlash: 'always'). A query
+ * string or hash stays after the slash. The root '/' is returned unchanged.
+ * Paths whose last segment looks like a file (/favicon.ico, /rss.xml) are
+ * returned unchanged: they are assets, not pages.
+ */
+export function withTrailingSlash(path: string): string {
+  const m = path.match(/^([^?#]*)([\s\S]*)$/);
+  const pathname = m?.[1] ?? path;
+  const rest = m?.[2] ?? '';
+  if (pathname === '' || pathname === '/' || pathname.endsWith('/')) return path;
+  const last = pathname.split('/').pop() ?? '';
+  if (/\.[a-z0-9]+$/i.test(last)) return path;
+  return `${pathname}/${rest}`;
+}
+
+/**
  * Translate a site path (e.g. '/education') into the path for `locale`.
- * The default locale strips any prefix; other locales add one.
+ * The default locale strips any prefix; other locales add one. The result
+ * ends in a slash (the English root stays '/'). Query strings and hashes are kept.
  * Accepts absolute (starts with /) or relative paths.
  */
 export function translatePath(path: string, locale: Locale): string {
   const stripped = path.replace(PREFIX_RE, '');
   const p = stripped.startsWith('/') ? stripped : `/${stripped}`;
   if (locale === DEFAULT_LOCALE) {
-    return p === '/' ? '/' : p.replace(/\/$/, '');
+    return withTrailingSlash(p);
   }
-  return p === '/' ? `/${locale}` : `/${locale}${p}`;
+  return withTrailingSlash(p === '/' ? `/${locale}` : `/${locale}${p}`);
 }
 
 
@@ -112,7 +129,7 @@ export const DATE_TAG: Record<Locale, string> = { ...INTL_TAG, en: 'en-IN' };
  * mailto/tel and relative links pass through untouched.
  */
 export function localizeHtmlLinks(html: string, locale: Locale): string {
-  if (locale === DEFAULT_LOCALE) return html;
+  // English included: the trailing slash is added to every internal link.
   return html.replace(/(<a\s[^>]*?\bhref=")(\/(?!\/)[^"]*)(")/g, (_m, pre, href, post) => {
     return pre + translatePath(href, locale) + post;
   });

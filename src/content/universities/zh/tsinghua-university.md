@@ -27,14 +27,12 @@ programmes:
   - 'MBA / 管理科学（英文授课）'
   - '汉语（IEP，中文授课）'
 costs:
-  tuition: '通常每年 US$5,000–10,000；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 US$1,200–2,000'
-  living: '在北京（海淀）每月 US$500–850'
+  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
+  dorm: '校内住宿每年 {{VERIFY}}'
+  living: '在北京（海淀）每月 {{VERIFY}}'
 facts:
   - label: '城市'
     value: '北京（海淀区）'
-  - label: '国际学生'
-    value: '各学位层次合计约 3,000+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '工程、计算机/人工智能、科研职业'
   - label: '入学时间'

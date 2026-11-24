@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1953'
 nickname: 'Integrative medicine and English MBBS in scenic Hangzhou'
 intro: 'Zhejiang Chinese Medical University (ZCMU) combines modern clinical medicine (English MBBS) with world-leading Traditional Chinese Medicine and acupuncture programmes in Hangzhou — one of China''s safest, cleanest, and most liveable university cities.'
+metaDescription: 'Zhejiang Chinese Medical University in Hangzhou: English MBBS alongside Traditional Chinese Medicine and acupuncture programmes. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical education and clinical training setting representing Zhejiang Chinese Medical University'
 strengths:

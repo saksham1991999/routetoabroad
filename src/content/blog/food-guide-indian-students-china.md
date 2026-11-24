@@ -11,7 +11,7 @@ image: '../../assets/images/blog-food.jpg'
 imageAlt: 'A chef hand-pulling noodles in a Lanzhou noodle shop'
 ---
 
-For most Indian students arriving in China, food is the first and biggest culture shock. The smells are different, the flavours are unfamiliar, and you cannot read the menu. Here is what actually helps — from a student who has been there.
+For most Indian students, food is the first and biggest culture shock in China. The smells, flavours and menus are unfamiliar. You can eat well from week one with three tools: the international student canteen, Indian grocery shops and five restaurant phrases. Below, we also cover the Chinese dishes Indian palates tend to love.
 
 ## The international student canteen is your first stop
 

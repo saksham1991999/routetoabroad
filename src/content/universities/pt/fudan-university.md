@@ -27,14 +27,12 @@ programmes:
   - 'Negócios Internacionais (graduação, em inglês)'
   - 'Saúde Pública (mestrado, em inglês)'
 costs:
-  tuition: 'tipicamente US$4,000–9,000/ano; o CSC cobre 100% para os selecionados'
-  dorm: 'US$1,000–2,000/ano no campus'
-  living: 'US$550–900/mês em Xangai'
+  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
+  dorm: '{{VERIFY}}/ano no campus'
+  living: '{{VERIFY}}/mês em Xangai'
 facts:
   - label: 'Cidade'
     value: 'Xangai (distrito de Yangpu)'
-  - label: 'Estudantes internacionais'
-    value: 'cerca de 3,000+ em todos os níveis' # {{VERIFY}} current intake figures
   - label: 'Melhor para'
     value: 'Carreiras em negócios, medicina e mídia'
   - label: 'Períodos de ingresso'

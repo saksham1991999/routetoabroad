@@ -27,14 +27,12 @@ programmes:
   - 'MBBS (vom Bildungsministerium gelistet, englischsprachig, begrenzte Plätze)'
   - 'PhD-Programme (CSC-gefördert, betreut durch Doktorvater/-mutter)'
 costs:
-  tuition: 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: 'US$1,200–2,400/Jahr auf dem Campus'
-  living: 'US$500–850/Monat in Beijing (Haidian)'
+  tuition: 'typischerweise {{VERIFY}}/Jahr; CSC deckt 100 % für Stipendiaten ab'
+  dorm: '{{VERIFY}}/Jahr auf dem Campus'
+  living: '{{VERIFY}}/Monat in Beijing (Haidian)'
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ aus über 100 Ländern' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Bewerber mit Top-Noten, Forschung, Geisteswissenschaften'
   - label: 'Studienbeginn'

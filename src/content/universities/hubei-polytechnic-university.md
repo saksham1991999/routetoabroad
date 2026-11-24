@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1975'
 nickname: 'Low-cost lakeside MBBS & engineering campus near Wuhan'
 intro: 'Hubei Polytechnic University (HBPU) in Huangshi — just 30 minutes by high-speed rail from Wuhan — offers one of China''s most accessible and budget-friendly English-medium MBBS programmes alongside practical engineering degrees.'
+metaDescription: 'Hubei Polytechnic University in Huangshi: English-medium MBBS and practical engineering, 30 minutes by high-speed rail from Wuhan. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical training laboratory representing Hubei Polytechnic University'
 strengths:

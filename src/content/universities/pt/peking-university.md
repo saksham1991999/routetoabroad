@@ -27,14 +27,12 @@ programmes:
   - 'MBBS (listado pelo MOE, em inglês, vagas limitadas)'
   - 'Programas de doutorado (financiados pelo CSC, com orientador)'
 costs:
-  tuition: 'tipicamente US$5,000–10,000/ano; o CSC cobre 100% para os selecionados'
-  dorm: 'US$1,200–2,400/ano no campus'
-  living: 'US$500–850/mês em Pequim (Haidian)'
+  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
+  dorm: '{{VERIFY}}/ano no campus'
+  living: '{{VERIFY}}/mês em Pequim (Haidian)'
 facts:
   - label: 'Cidade'
     value: 'Pequim (distrito de Haidian)'
-  - label: 'Estudantes internacionais'
-    value: 'cerca de 3,000+ de mais de 100 países' # {{VERIFY}} current intake figures
   - label: 'Melhor para'
     value: 'Candidatos com notas altas, pesquisa, humanidades'
   - label: 'Períodos de ingresso'

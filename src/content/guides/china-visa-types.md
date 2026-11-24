@@ -1,6 +1,6 @@
 ---
 title: 'China Visa Types Explained: L, M, F, X, Z and What They Allow'
-description: 'Every Chinese visa category that matters for visitors from India — tourist L, business M, exchange F, student X, work Z — with what each permits, typical validity, and how not to pick the wrong one.'
+description: 'Chinese visa types for Indian visitors: tourist L, business M, exchange F, student X and work Z. What each allows, typical validity and how to choose.'
 pillar: 'tourism'
 pubDate: 2025-03-10
 updatedDate: 2026-11-05
@@ -19,7 +19,7 @@ faqs:
     answer: 'No. Meetings, trade fairs and contract negotiations need the M (business) visa, usually with an invitation letter from a Chinese company. Actual employment requires the Z visa.'
 ---
 
-**Short answer: tourism = L, business meetings = M, short academic exchange = F, degree study = X1, employment = Z. Working or studying on the wrong visa type causes real legal trouble in China — match the visa to the activity.**
+**Short answer: tourism = L, business meetings = M, short academic exchange = F, degree study = X1, employment = Z. Working or studying on the wrong visa type causes real legal trouble in China — match the visa to the activity. Check the category before you book any flight.**
 
 China's visa alphabet is dense but logical. These are the categories that matter for India–East Asia travel:
 
@@ -35,11 +35,11 @@ China's visa alphabet is dense but logical. These are the categories that matter
 
 ## L — the tourist visa
 
-Apply with passport, form, photo, a simple day-wise itinerary, hotel bookings and confirmed onward travel. Indian applicants apply through CVASC centres; standard processing runs about 4 working days plus queue time. Multi-entry versions exist for frequent travellers.
+Apply with passport, form, photo, a simple [day-wise itinerary](/guides/china-travel-guide/), hotel bookings and confirmed onward travel. Indian applicants apply through CVASC centres; standard processing runs about 4 working days plus queue time. Multi-entry versions exist for frequent travellers.
 
 ## M — the business visa
 
-For sourcing trips, Canton Fair, factory audits and contract negotiations. The invitation letter from the Chinese counterparty is the hinge document — we issue these for trade clients through the Guangzhou office. Employment is explicitly prohibited on M.
+For [sourcing trips](/guides/china-sourcing-guide/), [Canton Fair](/cities/guangzhou/), factory audits and contract negotiations. The invitation letter from the Chinese counterparty is the hinge document — we issue these for trade clients through the Guangzhou office. Employment is explicitly prohibited on M.
 
 ## F — exchange and short programmes
 
