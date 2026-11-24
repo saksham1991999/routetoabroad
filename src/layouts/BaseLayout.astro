@@ -411,12 +411,12 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             const words =
               loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
-            startLogoMotion(words.length * 460);
+            startLogoMotion(words.length * 360);
             if (word) {
               for (const next of words) {
                 word.textContent = next;
                 word.classList.add('is-in');
-                await wait(200 + 100); // in 0.20s + hold 0.10s
+                await wait(200); // in 0.20s, no hold
                 word.classList.remove('is-in');
                 word.classList.add('is-out');
                 await wait(160); // out 0.16s
