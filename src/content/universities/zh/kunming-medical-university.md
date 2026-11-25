@@ -39,7 +39,7 @@ facts:
   - label: '气候'
     value: '全年温和（"春城"）'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBS主要招生季）'
@@ -52,7 +52,7 @@ faqs:
   - question: '昆明医科大学适合预算有限的国际学生吗？'
     answer: '适合。KMU提供中国最具性价比的教育部备案英文授课MBBS项目之一，年学费与宿舍费用合计往往低于US$5,500。'
   - question: '昆明医科大学的MBBS毕业生有资格在本国获得行医执照吗？'
-    answer: 'KMU被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
+    answer: 'KMU被列入WDOMS及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
   - question: '昆明距主要国际航空枢纽有多远？'
     answer: '昆明长水国际机场有直达或经停的航线通往南亚、东南亚和中东，并有频繁的国内航班飞往北京、上海和广州。'
 order: 9

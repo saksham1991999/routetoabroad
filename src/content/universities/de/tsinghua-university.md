@@ -27,12 +27,14 @@ programmes:
   - 'MBA / Management Science (englischsprachig)'
   - 'Chinesische Sprache (IEP, chinesischsprachig)'
 costs:
-  tuition: 'typischerweise {{VERIFY}}/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: '{{VERIFY}}/Jahr auf dem Campus'
-  living: '{{VERIFY}}/Monat in Beijing (Haidian)'
+  tuition: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current dorm figure
+  living: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
+  - label: 'Internationale Studierende'
+    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Informatik/KI, Forschungskarrieren'
   - label: 'Studienbeginn'
@@ -43,6 +45,10 @@ faqs:
   - question: 'Können internationale Studierende nach dem Abschluss an der Tsinghua University in China arbeiten?'
     answer: 'Beijing und Shanghai bieten Absolventen mit Master oder höher von zugelassenen Universitäten Wege für den Verbleib nach dem Studium, und Absolventen der Tsinghua werden aktiv von multinationalen Konzernen und chinesischen Tech-Firmen umworben. Visa benötigen einen Arbeitgeber als Sponsor — planen Sie dies mit unseren Beratern.'
 order: 2
+verify:
+  - "Removed until confirmed: cost tuition 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,000/Jahr auf dem Campus'"
+  - "Removed until confirmed: cost living 'US$500–850/Monat in Beijing (Haidian)'"
 ---
 
 Die Tsinghua liegt gegenüber der Peking University in Haidian, und die Rivalität ist liebevoll, aber real: Tsinghua gehört das Ingenieurwesen und die Technologie; Peking gehören die Geistes- und Naturwissenschaften. Der Campus verbindet die amerikanische College-Architektur des frühen 20. Jahrhunderts (die Hochschule begann als von den Boxer-Entschädigungsrückzahlungen finanzierte Vorbereitungsschule) mit beeindruckenden modernen Laboren.

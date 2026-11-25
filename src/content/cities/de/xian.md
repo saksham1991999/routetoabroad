@@ -27,7 +27,7 @@ universities:
 bestTime: 'April bis Mai und September bis Oktober (milde Temperaturen, klarer Himmel zum Gehen auf der Mauer)'
 faqs:
   - question: 'Ist Xi’an eine gute Stadt für internationale Medizin- und Ingenieurstudierende?'
-    answer: 'Ja. Die Xi’an Jiaotong University ist eine Spitzenuniversität der C9-Liga mit englischsprachigem MBBS (aktuelle MOE-Listung für Ihren Jahrgang prüfen) und Ingenieurstudiengängen. Die Lebenshaltungskosten von US$320–580 pro Monat liegen deutlich unter denen der Küsten-Großstädte.'
+    answer: 'Ja. Die Xi’an Jiaotong University ist eine Spitzenuniversität der C9-Liga mit englischsprachigem MBBS und Ingenieurstudiengängen. Die Lebenshaltungskosten von US$320–580 pro Monat liegen deutlich unter denen der Küsten-Großstädte.'
   - question: 'Ist halal Essen in Xi’an leicht zu finden?'
     answer: 'Xi’an hat eine der ältesten Hui-Muslim-Gemeinschaften Chinas. Halal-Restaurants, Lebensmittelgeschäfte und Halal-Mensen an den Universitäten sind in der ganzen Stadt weit verbreitet.'
 order: 5

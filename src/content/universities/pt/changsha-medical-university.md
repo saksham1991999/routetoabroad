@@ -39,7 +39,7 @@ facts:
   - label: 'Polo mais próximo'
     value: '2.5 horas de trem até Guangzhou'
 recognitions:
-  - 'Listada pelo MOE (verificar ingresso atual)'
+  - 'Listada pelo MOE'
   - 'Listada na WDOMS'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Setembro (principal ingresso do MBBS)'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: 'Nenhum na entrada para o MBBS em inglês; HSK 4 exigido antes do estágio clínico e da formatura'
 faqs:
   - question: 'A Changsha Medical University está listada na WDOMS e é reconhecida para MBBS?'
-    answer: 'A Changsha Medical University está listada no World Directory of Medical Schools (WDOMS) e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para caminhos de licenciamento internacional, como ECFMG/USMLE, GMC/PLAB e NMC FMGE/NExT, depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'
+    answer: 'A Changsha Medical University está listada no World Directory of Medical Schools (WDOMS) e na lista do MOE da China. A elegibilidade para caminhos de licenciamento internacional, como ECFMG/USMLE, GMC/PLAB e NMC FMGE/NExT, depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'
   - question: 'Como é a vida estudantil em Changsha?'
     answer: 'Changsha é conhecida em toda a China pela cultura jovem animada, pela culinária de Hunan a preços acessíveis e pelas conexões práticas de metrô e trem de alta velocidade.'
 order: 13

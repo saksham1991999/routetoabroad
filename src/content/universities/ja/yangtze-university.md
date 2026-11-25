@@ -38,7 +38,7 @@ facts:
   - label: '生活費'
     value: '中国でも最も低い水準のひとつ'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: '9月（主要）、3月（一部の非医学・言語課程）'
 scholarships: '湖北省政府奨学金、長江大学優秀賞'

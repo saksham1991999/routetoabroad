@@ -38,7 +38,7 @@ facts:
   - label: 'Nodo más cercano'
     value: '45 min en tren a Shanghái'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'Septiembre (principal), marzo (itinerarios seleccionados de idiomas/MTC)'
 scholarships: 'Beca del Gobierno Provincial de Zhejiang y Beca Internacional ZCMU para Estudiantes'

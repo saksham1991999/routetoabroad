@@ -38,7 +38,7 @@ facts:
   - label: '最寄りのハブ'
     value: '鉄道で上海まで45分'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: '9月（主要）、3月（一部の言語・中医学課程）'
 scholarships: '浙江省政府奨学金、ZCMU留学生奨学金'

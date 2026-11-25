@@ -7,13 +7,10 @@ citySlug: 'handan'
 type: 'technical'
 founded: '1958'
 nickname: 'Universidade de engenharia aplicada no norte da China'
-intro: 'A Hebei University of Engineering (HEBEU), em Handan, é uma universidade técnica especializada reconhecida em Engenharia Civil, Mecânica e de Arquitetura. Oferece trilhas de engenharia alinhadas ao sistema de credenciamento chinês participante do Washington Accord (verificar o credenciamento por programa para o seu ingresso específico) e cursos práticos para estudantes internacionais, com baixo custo de vida no norte.'
+intro: 'A Hebei University of Engineering (HEBEU), em Handan, é uma universidade técnica especializada reconhecida em Engenharia Civil, Mecânica e de Arquitetura. Oferece trilhas de engenharia e cursos práticos para estudantes internacionais, com baixo custo de vida no norte.'
 image: '../../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'Arquitetura de campus de engenharia, representando a Hebei University of Engineering'
 strengths:
-  # {{VERIFY}} Confirm which specific engineering majors at HEBEU hold current CEEAA/Washington Accord programme-level accreditation
-  - title: 'Padrões de engenharia por programa'
-    text: 'Currículos selecionados de Engenharia Civil e Mecânica seguem os padrões CEEAA/Washington Accord baseados em resultados. Verifique o status atual de credenciamento por programa para a graduação pretendida.'
   - title: 'Foco em infraestrutura prática'
     text: 'Corpo docente forte em Engenharia Civil, Recursos Hídricos, Arquitetura, Projeto Mecânico e Ciência da Computação, com treinamento prático em laboratório.'
   - title: 'Custo de matrícula baixo'
@@ -42,7 +39,6 @@ facts:
 recognitions:
   - 'MOE China'
   # {{VERIFY}} Confirm which specific engineering majors at HEBEU hold current CEEAA/Washington Accord programme-level accreditation
-  - 'Washington Accord (programas credenciados selecionados)'
 intakes: 'Setembro (principal), março (preparatório de língua chinesa)'
 scholarships: 'Bolsa do Governo Provincial de Hebei e Prêmios Internacionais para Estudantes da HEBEU'
 taughtLanguages:
@@ -50,8 +46,6 @@ taughtLanguages:
   - 'Chinês'
 hskRequirement: 'Nenhum HSK na entrada para turmas em inglês e no preparatório de 1 ano de chinês; HSK 4 exigido para cursos de engenharia em chinês'
 faqs:
-  - question: 'Por que o reconhecimento do Washington Accord importa para estudantes de engenharia?'
-    answer: 'A China é signatária plena do Washington Accord por meio da CEEAA. Isso significa que programas de engenharia específicos e credenciados, e não a universidade inteira, seguem resultados com padrão internacional reconhecidos pelos países signatários. Sempre verifique se a sua trilha exata na HEBEU tem credenciamento atual por programa.'
   - question: 'Como é Handan para estudantes internacionais?'
     answer: 'Handan é uma cidade histórica e acessível no norte, com um campus universitário moderno e recente e ligações diretas de trem de alta velocidade com Pequim e Zhengzhou.'
 order: 15

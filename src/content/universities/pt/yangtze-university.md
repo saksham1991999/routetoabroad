@@ -38,7 +38,7 @@ facts:
   - label: 'Custo de vida'
     value: 'Um dos mais baixos da China'
 recognitions:
-  - 'Listada pelo MOE (verificar ingresso atual)'
+  - 'Listada pelo MOE'
   - 'Listada na WDOMS'
 intakes: 'Setembro (principal), março (trilhas selecionadas não médicas e de língua)'
 scholarships: 'Bolsa do Governo Provincial de Hubei e Prêmios de Excelência da Yangtze University'

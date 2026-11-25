@@ -1,7 +1,7 @@
 ---
 locale: 'es'
 name: 'Tokio'
-chineseName: '東京'
+chineseName: '东京'
 country: 'Japón'
 intro: 'Tokio es la capital de Japón y la mayor economía metropolitana del mundo: una ciudad donde el transporte ferroviario de precisión, la comida callejera de nivel Michelin, los tranquilos recintos sintoístas y los distritos comerciales de neón conviven a pocos minutos unos de otros.'
 image: '../../../assets/images/country-japan.jpg'

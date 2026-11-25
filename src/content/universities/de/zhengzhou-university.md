@@ -37,7 +37,7 @@ facts:
   - label: 'Am besten geeignet für'
     value: 'MBBS, MBA, Informatik, CSC-Stipendienbewerbende'
 recognitions:
-  - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'
+  - 'Im MOE-Verzeichnis'
   - 'WDOMS-gelistet'
   - 'CSC Designated'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -51,7 +51,7 @@ faqs:
   - question: 'Kann ich mich an der Zhengzhou University um CSC-Stipendien bewerben?'
     answer: 'Ja. Die Zhengzhou University ist eine von der CSC benannte Universität für Master-, PhD- und ausgewählte Bachelorstudiengänge und verwaltet außerdem die Stipendien der Provinzregierung Henan.'
   - question: 'Ist das MBBS der Zhengzhou University international anerkannt?'
-    answer: 'Die ZZU ist in der WDOMS und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen medizinischen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
+    answer: 'Die ZZU ist in der WDOMS und auf der MOE-Liste Chinas geführt. Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen medizinischen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
 order: 10
 ---
 

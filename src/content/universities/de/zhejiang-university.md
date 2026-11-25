@@ -33,6 +33,8 @@ costs:
 facts:
   - label: 'Stadt'
     value: 'Hangzhou (Provinz Zhejiang)'
+  - label: 'Internationale Studierende'
+    value: 'ca. 2,500+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Informatik, preisgünstiges Studium'
   - label: 'Studienbeginn'

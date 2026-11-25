@@ -38,7 +38,7 @@ facts:
   - label: 'Duración'
     value: '6 años (5 de estudio + 1 de prácticas)'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Septiembre (principal convocatoria del MBBS)'
@@ -51,7 +51,7 @@ faqs:
   - question: '¿Qué tan cerca está la Universidad Politécnica de Hubei de Wuhán?'
     answer: 'Huangshi está a unos 30 minutos de Wuhán en tren de alta velocidad y a unos 90 minutos en coche del aeropuerto internacional de Tianhe de Wuhán, lo que facilita los viajes internacionales.'
   - question: '¿Pueden los graduados de MBBS de la HBPU presentarse a exámenes de licencia?'
-    answer: 'La facultad de medicina de la HBPU figura en la WDOMS y en la lista del Ministerio de Educación de China (verifique el estado de la convocatoria del año en curso). La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB o NMC FMGE/NExT depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso, y debe comprobarse antes de matricularse.'
+    answer: 'La facultad de medicina de la HBPU figura en la WDOMS y en la lista del Ministerio de Educación de China. La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB o NMC FMGE/NExT depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso, y debe comprobarse antes de matricularse.'
 order: 12
 ---
 

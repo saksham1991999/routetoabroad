@@ -39,9 +39,8 @@ facts:
 recognitions:
   - 'MOE China'
   - 'WHO'
-  - 'WDOMS'
+  - 'WDOMS-listed'
   - 'NMC'
-  - 'ECFMG'
 intakes: '9月（MBBSの年次入学）'
 scholarships: 'CSC奨学金（大学院）、遼寧省政府奨学金、CMU優秀学生賞'
 taughtLanguages:

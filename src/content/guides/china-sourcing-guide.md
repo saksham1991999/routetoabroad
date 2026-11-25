@@ -62,8 +62,8 @@ Paperwork built during production clears in days; paperwork built after arrival 
 ## Step 7: Logistics choice
 
 - **LCL** (shared container) for trials up to ~12–15 CBM
-- **FCL** 20ft/40ft at scale; [sea {{VERIFY}} days](/guides/india-china-trade-corridor/) to Indian west coast ports
-- **Air** {{VERIFY}} days at 5–8× cost — for launches, spares, high-value density goods
+- **FCL** 20ft/40ft at scale; [sea freight](/guides/india-china-trade-corridor/) to Indian west coast ports; transit depends on carrier and season
+- **Air** is much faster than sea, at 5–8× cost — for launches, spares, high-value density goods
 
 ## Where we come in
 

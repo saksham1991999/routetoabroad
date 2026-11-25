@@ -39,7 +39,7 @@ facts:
   - label: 'Hub le plus proche'
     value: '2,5 h de train jusqu''à Guangzhou'
 recognitions:
-  - 'Inscrite au MOE (vérifier l''admission en cours)'
+  - 'Inscrite au MOE'
   - 'Inscrite à la WDOMS'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Septembre (rentrée principale du MBBS)'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: 'Aucun HSK à l''entrée pour le MBBS en anglais ; HSK 4 requis avant le stage clinique et la remise du diplôme'
 faqs:
   - question: 'La Changsha Medical University figure-t-elle à la WDOMS et est-elle reconnue pour le MBBS ?'
-    answer: 'La CSMU figure dans le World Directory of Medical Schools (WDOMS) et sur la liste du ministère de l''Éducation chinois (MOE) (vérifier le statut d''admission de l''année en cours). L''éligibilité aux voies de licence internationales telles que ECFMG/USMLE, GMC/PLAB et NMC FMGE/NExT dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
+    answer: 'La CSMU figure dans le World Directory of Medical Schools (WDOMS) et sur la liste du ministère de l''Éducation chinois (MOE). L''éligibilité aux voies de licence internationales telles que ECFMG/USMLE, GMC/PLAB et NMC FMGE/NExT dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
   - question: 'Comment se passe la vie étudiante à Changsha ?'
     answer: 'Changsha est réputée dans toute la Chine pour sa culture jeune et animée, sa cuisine du Hunan abordable et ses liaisons pratiques en métro et en TGV.'
 order: 13

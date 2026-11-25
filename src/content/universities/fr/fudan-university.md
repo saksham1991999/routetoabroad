@@ -27,12 +27,14 @@ programmes:
   - 'Commerce international (licence, enseigné en anglais)'
   - 'Santé publique (master, enseigné en anglais)'
 costs:
-  tuition: 'Généralement {{VERIFY}}/an ; la CSC couvre 100% pour les lauréats'
-  dorm: '{{VERIFY}}/an sur le campus'
-  living: '{{VERIFY}}/mois à Shanghai'
+  tuition: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current dorm figure
+  living: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ville'
     value: 'Shanghai (district de Yangpu)'
+  - label: 'Étudiants internationaux'
+    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Carrières dans le commerce, la médecine, les médias'
   - label: 'Rentrées'
@@ -43,6 +45,10 @@ faqs:
   - question: 'Comment Fudan se compare-t-elle à Peking et Tsinghua ?'
     answer: 'Les classements se tiennent dans un cheveu (top 5 chinois). La vraie différence est géographique : Fudan vous place dans l''écosystème commercial de Shanghai, ce qui compte le plus pour les carrières dans le commerce, la finance et les médias.'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition 'Généralement US$4,000–9,000/an ; la CSC couvre 100% pour les lauréats'"
+  - "Removed until confirmed: cost dorm 'US$1,000–2,000/an sur le campus'"
+  - "Removed until confirmed: cost living 'US$550–900/mois à Shanghai'"
 ---
 
 Le campus de Handan Road de Fudan se situe dans le district de Yangpu, un quartier étudiant de Shanghai qui abrite également l'université Tongji. Le nom signifie « la lumière du ciel se répand sur la terre » — une assurance à l'image de l'université. Pour les étudiants internationaux, Fudan équilibre prestige académique et avantage pratique de Shanghai : tout, du travail à temps partiel (qui requiert l'autorisation de l'université et, pour les emplois hors campus, une approbation supplémentaire de l'immigration — votre permis de séjour étudiant comporte des conditions) aux liaisons aéroport, y est plus simple.

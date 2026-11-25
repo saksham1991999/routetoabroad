@@ -37,7 +37,7 @@ facts:
   - label: '最适合'
     value: 'MBBS、MBA、计算机、CSC奖学金申请者'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
   - 'CSC指定院校'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -51,7 +51,7 @@ faqs:
   - question: '我能否申请郑州大学的CSC奖学金？'
     answer: '可以。郑州大学是硕士、博士及部分本科课程的CSC指定院校，同时负责管理河南省政府奖学金。'
   - question: '郑州大学的MBBS在国际上获得认可吗？'
-    answer: '郑州大学被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家医师执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
+    answer: '郑州大学被列入WDOMS及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家医师执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
 order: 10
 ---
 

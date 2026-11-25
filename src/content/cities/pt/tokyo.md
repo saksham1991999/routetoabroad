@@ -1,7 +1,7 @@
 ---
 locale: 'pt'
 name: 'Tóquio'
-chineseName: '東京'
+chineseName: '东京'
 country: 'Japan'
 intro: 'Tóquio é a capital do Japão e a maior economia metropolitana do mundo: uma cidade em que ferrovias de precisão, comida de rua de nível Michelin, recantos xintoístas silenciosos e distritos comerciais de neon coexistem a poucos minutos uns dos outros.'
 image: '../../../assets/images/country-japan.jpg'

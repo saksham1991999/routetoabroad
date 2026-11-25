@@ -16,7 +16,7 @@ strengths:
   - title: 'Campus « petite ONU »'
     text: 'Plus de 150 nationalités étudient côte à côte dans le quartier universitaire de Wudaokou, à Haidian, pour une communauté internationale d''une diversité exceptionnelle.'
   - title: 'Parcours courts et diplômes flexibles'
-    text: 'Programmes d''un semestre, d''un an et de licence en quatre ans en langue chinoise, chinois des affaires, traduction et relations internationales.'
+    text: 'Programmes d''un semestre et d''un an, ainsi que licences de quatre ans en langue chinoise, chinois des affaires, traduction et relations internationales.'
   - title: 'Emplacement idéal à Haidian'
     text: 'Située à côté de l''université Tsinghua et à une courte ligne de métro de l''université de Pékin, dans le quartier de Wudaokou, elle constitue une année de fondation idéale avant d''entrer dans les diplômes de premier plan enseignés en chinois.'
 programmes:

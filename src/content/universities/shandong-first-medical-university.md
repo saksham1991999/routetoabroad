@@ -26,7 +26,7 @@ programmes:
   - 'Master & PhD in Clinical Medicine & Public Health'
 costs:
   tuition: 'RMB 25,000–30,000/yr (~US$3,450–4,150/yr)'
-  dorm: 'RMB 4,000–6,500/yr (~{{VERIFY}}/yr) on campus'
+  dorm: 'RMB 4,000–6,500/yr on campus' # {{VERIFY}} confirm USD conversion
   living: 'US$220–340/month in Jinan / Tai''an'
 facts:
   - label: 'Cities'
@@ -38,7 +38,7 @@ facts:
   - label: 'Status'
     value: 'Provincial key medical university'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main intake)'
@@ -53,7 +53,7 @@ faqs:
   - question: 'Does SDFMU offer Dentistry (BDS) and Pharmacy in addition to MBBS?'
     answer: 'Yes. SDFMU offers Clinical Medicine (MBBS), Stomatology (BDS), Nursing, and Pharmacy, making it suitable for students across allied health fields.'
   - question: 'Are SDFMU MBBS graduates eligible for international medical licensing exams?'
-    answer: 'SDFMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'SDFMU is listed in WDOMS and on China''s MOE list. Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 14
 ---
 

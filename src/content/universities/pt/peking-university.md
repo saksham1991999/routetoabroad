@@ -27,9 +27,9 @@ programmes:
   - 'MBBS (listado pelo MOE, em inglês, vagas limitadas)'
   - 'Programas de doutorado (financiados pelo CSC, com orientador)'
 costs:
-  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
-  dorm: '{{VERIFY}}/ano no campus'
-  living: '{{VERIFY}}/mês em Pequim (Haidian)'
+  tuition: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Cidade'
     value: 'Pequim (distrito de Haidian)'
@@ -43,6 +43,10 @@ faqs:
   - question: 'A Peking University oferece bolsas CSC?'
     answer: 'Sim, a Peking é uma universidade credenciada para as candidaturas CSC Tipo A e Tipo B, além de bolsas próprias da universidade (entre elas a Yenching, para programas de mestrado selecionados).'
 order: 1
+verify:
+  - "Removed until confirmed: cost tuition 'tipicamente US$5,000–10,000/ano; o CSC cobre 100% para os selecionados'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,400/ano no campus'"
+  - "Removed until confirmed: cost living 'US$500–850/mês em Pequim (Haidian)'"
 ---
 
 A Peking University (Bei Da) ancora o distrito acadêmico de Haidian, no noroeste de Pequim. Para estudantes internacionais, oferece o mais profundo portfólio do país de mestrados em inglês em economia, políticas públicas e estudos chineses, além de doutorados de pesquisa nas ciências. A vida no campus gira em torno do Lago Weiming e dos jardins da era imperial ao redor.

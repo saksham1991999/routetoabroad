@@ -27,9 +27,9 @@ programmes:
   - 'MBA / Ciência da Gestão (em inglês)'
   - 'Língua Chinesa (IEP, em chinês)'
 costs:
-  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
-  dorm: '{{VERIFY}}/ano no campus'
-  living: '{{VERIFY}}/mês em Pequim (Haidian)'
+  tuition: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Cidade'
     value: 'Pequim (distrito de Haidian)'
@@ -43,6 +43,10 @@ faqs:
   - question: 'Estudantes internacionais podem trabalhar na China após se formar na Tsinghua?'
     answer: 'Pequim e Xangai oferecem caminhos de trabalho pós-estudos para graduados de mestrado ou acima de universidades credenciadas, e os formados pela Tsinghua são ativamente recrutados por multinacionais e empresas de tecnologia chinesas. Os vistos exigem patrocínio do empregador — planeje com nossos consultores.'
 order: 2
+verify:
+  - "Removed until confirmed: cost tuition 'tipicamente US$5,000–10,000/ano; o CSC cobre 100% para os selecionados'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,000/ano no campus'"
+  - "Removed until confirmed: cost living 'US$500–850/mês em Pequim (Haidian)'"
 ---
 
 A Tsinghua fica em frente à Peking University, em Haidian, e a rivalidade é afetuosa, mas real: Tsinghua domina a engenharia e a tecnologia; Peking, as humanidades e as ciências puras. O campus combina a arquitetura universitária americana do início do século XX (começou como uma escola preparatória financiada com as restituições da Indenização Boxer) com laboratórios modernos impressionantes.

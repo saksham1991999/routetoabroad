@@ -37,7 +37,7 @@ facts:
   - label: 'Ideal para'
     value: 'MBBS, MBA, informática, solicitantes de becas CSC'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
   - 'CSC Designated'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -51,7 +51,7 @@ faqs:
   - question: '¿Puedo solicitar becas CSC en la Universidad de Zhengzhou?'
     answer: 'Sí. La Universidad de Zhengzhou es universidad designada por el CSC para másteres, doctorados y algunos itinerarios de grado, y además gestiona las Becas del Gobierno Provincial de Henan.'
   - question: '¿Está reconocido internacionalmente el MBBS de la Universidad de Zhengzhou?'
-    answer: 'La ZZU figura en la WDOMS y en la lista del Ministerio de Educación de China (verifique el estado de la convocatoria del año en curso). La elegibilidad para presentarse a ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT y otros exámenes nacionales de licencia médica depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'
+    answer: 'La ZZU figura en la WDOMS y en la lista del Ministerio de Educación de China. La elegibilidad para presentarse a ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT y otros exámenes nacionales de licencia médica depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'
 order: 10
 ---
 

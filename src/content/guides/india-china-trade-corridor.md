@@ -37,10 +37,10 @@ verify:
 
 | China port | India port | Sea transit |
 | --- | --- | --- |
-| Guangzhou / Shenzhen (Nansha, Yantian) | Mundra / JNPT (Nhava Sheva) | ~{{VERIFY}} days |
+| Guangzhou / Shenzhen (Nansha, Yantian) | Mundra / JNPT (Nhava Sheva) | Varies by carrier and season |
 | Shanghai / Ningbo | Mundra / JNPT | ~20–28 days |
 
-[Air freight](/tools/trade-cost-calculator/) (PVG/CAN → DEL/BOM): {{VERIFY}} days door-to-door at 5–8× sea cost. Watch peak-season roll risk ([Canton Fair weeks](/cities/guangzhou/), pre-Chinese New Year rush) and Golden Week port blank sailings.
+[Air freight](/tools/trade-cost-calculator/) (PVG/CAN → DEL/BOM): much faster door-to-door, at 5–8× sea cost. Watch peak-season roll risk ([Canton Fair weeks](/cities/guangzhou/), pre-Chinese New Year rush) and Golden Week port blank sailings.
 
 ## Payment rails
 

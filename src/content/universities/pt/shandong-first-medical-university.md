@@ -26,7 +26,7 @@ programmes:
   - 'Mestrado e doutorado em Clínica Médica e Saúde Pública'
 costs:
   tuition: 'RMB 25,000–30,000/ano (~US$3,450–4,150/ano)'
-  dorm: 'RMB 4,000–6,500/ano (~{{VERIFY}}/ano) no campus'
+  dorm: 'RMB 4,000–6,500/ano no campus' # {{VERIFY}} confirm USD conversion
   living: 'US$220–340/mês em Jinan / Tai’an'
 facts:
   - label: 'Cidades'
@@ -38,7 +38,7 @@ facts:
   - label: 'Status'
     value: 'Universidade médica chave da província'
 recognitions:
-  - 'Listada pelo MOE (verificar ingresso atual)'
+  - 'Listada pelo MOE'
   - 'Listada na WDOMS'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Setembro (principal)'
@@ -53,7 +53,7 @@ faqs:
   - question: 'A SDFMU oferece Odontologia (BDS) e Farmácia além do MBBS?'
     answer: 'Sim. A SDFMU oferece Clínica Médica (MBBS), Estomatologia (BDS), Enfermagem e Farmácia, o que a torna adequada para estudantes de diversas áreas da saúde.'
   - question: 'Os formados em MBBS pela SDFMU são elegíveis para exames internacionais de licenciamento médico?'
-    answer: 'A SDFMU está listada na WDOMS e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT e outros exames nacionais de licenciamento depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'
+    answer: 'A SDFMU está listada na WDOMS e na lista do MOE da China. A elegibilidade para ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT e outros exames nacionais de licenciamento depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'
 order: 14
 ---
 

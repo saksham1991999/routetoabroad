@@ -38,7 +38,7 @@ facts:
   - label: 'Duração'
     value: '6 anos (5 anos de estudo + 1 ano de estágio)'
 recognitions:
-  - 'Listada pelo MOE (verificar ingresso atual)'
+  - 'Listada pelo MOE'
   - 'Listada na WDOMS'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Setembro (principal ingresso do MBBS)'
@@ -51,7 +51,7 @@ faqs:
   - question: 'Quão perto a Hubei Polytechnic University fica de Wuhan?'
     answer: 'Huangshi fica a cerca de 30 minutos de Wuhan de trem de alta velocidade e a cerca de 90 minutos de carro do aeroporto internacional Wuhan Tianhe, o que torna as viagens internacionais simples.'
   - question: 'Os formados em MBBS pela HBPU são elegíveis para exames de licenciamento?'
-    answer: 'A faculdade de medicina da HBPU está listada na WDOMS e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para exames como ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão, e deve ser verificada antes da matrícula.'
+    answer: 'A faculdade de medicina da HBPU está listada na WDOMS e na lista do MOE da China. A elegibilidade para exames como ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão, e deve ser verificada antes da matrícula.'
 order: 12
 ---
 

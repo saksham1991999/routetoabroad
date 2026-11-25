@@ -27,9 +27,9 @@ programmes:
   - 'MBA / マネジメントサイエンス（英語開講）'
   - '中国語（IEP、中国語開講）'
 costs:
-  tuition: '一般的に {{VERIFY}}/年。CSC奨学金の採用者は100%給付'
-  dorm: '学内寮 {{VERIFY}}/年'
-  living: '北京（海淀）の生活費 {{VERIFY}}/月'
+  tuition: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current tuition figure
+  dorm: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current dorm figure
+  living: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current living figure
 facts:
   - label: '都市'
     value: '北京（海淀区）'
@@ -43,6 +43,10 @@ faqs:
   - question: '清華大学卒業後、留学生は中国で働けますか？'
     answer: '北京と上海は、指定大学の修士以上の卒業者に対する就職チャネルを設けており、清華大学の卒業生は多国籍企業や中国のテック企業から活発に採用されています。ビザには雇用主のスポンサーシップが必要です——当社のカウンセラーと一緒に計画を立てましょう。'
 order: 2
+verify:
+  - "Removed until confirmed: cost tuition '一般的に US$5,000–10,000/年。CSC奨学金の採用者は100%給付'"
+  - "Removed until confirmed: cost dorm '学内寮 US$1,200–2,000/年'"
+  - "Removed until confirmed: cost living '北京（海淀）の生活費 US$500–850/月'"
 ---
 
 清華大学は海淀で北京大学のほど近くに位置し、両校のライバル関係は親しみを込めつつも本物です。工学とテクノロジーは清華、人文と純粋科学は北大がリードします。キャンパスは、20世紀初頭のアメリカ風カレッジ建築（前身は義和団賠償金の返還金で設立された留米予備学校です）と印象的な現代の実験棟が調和しています。

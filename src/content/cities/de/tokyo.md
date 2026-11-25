@@ -1,7 +1,7 @@
 ---
 locale: 'de'
 name: 'Tokio'
-chineseName: '東京'
+chineseName: '东京'
 country: 'Japan'
 intro: 'Tokio ist die Hauptstadt Japans und die größte Metropolwirtschaft der Welt. Präzise Bahnen, Street Food auf Michelin-Niveau, stille Schreinbezirke und grelle Geschäftsviertel liegen hier nur wenige Minuten voneinander entfernt.'
 image: '../../../assets/images/country-japan.jpg'

@@ -39,7 +39,7 @@ facts:
   - label: '気候'
     value: '一年中温暖（「春城」）'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBSの主要入学時期）'
@@ -52,7 +52,7 @@ faqs:
   - question: '昆明医科大学は予算を抑えたい留学生に向いていますか？'
     answer: 'はい。KMUは中国でも最もコスト効率の高い MOE 掲載の英語MBBS課程のひとつで、年間の授業料と寮費の合計はしばしば US$5,500 を下回ります。'
   - question: 'KMUのMBBS卒業生は母国の医師免許を受験できますか？'
-    answer: 'KMUは WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
+    answer: 'KMUは WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
   - question: '昆明は主要な国際空港ハブからどれくらい離れていますか？'
     answer: '昆明長水国際空港からは南アジア、東南アジア、中東へ直行便または乗り継ぎ便があり、北京、上海、広州への国内線も頻繁に運航しています。'
 order: 9

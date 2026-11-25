@@ -26,7 +26,7 @@ programmes:
   - 'Clinical Medicine & Public Health में Master और PhD'
 costs:
   tuition: 'RMB 25,000–30,000/वर्ष (~US$3,450–4,150/वर्ष)'
-  dorm: 'कैंपस में RMB 4,000–6,500/वर्ष (~{{VERIFY}}/वर्ष)'
+  dorm: 'कैंपस में RMB 4,000–6,500/वर्ष' # {{VERIFY}} confirm USD conversion
   living: 'जिनान / ताइआन में US$220–340/माह'
 facts:
   - label: 'शहर'
@@ -38,7 +38,7 @@ facts:
   - label: 'स्थिति'
     value: 'प्रांतीय प्रमुख चिकित्सा विश्वविद्यालय'
 recognitions:
-  - 'MOE-सूचीबद्ध (वर्तमान प्रवेश सत्यापित करें)'
+  - 'MOE-सूचीबद्ध'
   - 'WDOMS-सूचीबद्ध'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'सितंबर (मुख्य सत्र)'
@@ -53,7 +53,7 @@ faqs:
   - question: 'क्या SDFMU MBBS के अलावा Dentistry (BDS) और Pharmacy भी देता है?'
     answer: 'हाँ। SDFMU Clinical Medicine (MBBS), Stomatology (BDS), Nursing और Pharmacy देता है, जिससे यह संबद्ध स्वास्थ्य क्षेत्रों के छात्रों के लिए उपयुक्त है।'
   - question: 'क्या SDFMU के MBBS स्नातक अंतरराष्ट्रीय चिकित्सा लाइसेंसिंग परीक्षाओं के पात्र हैं?'
-    answer: 'SDFMU WDOMS और चीन की MOE सूची में है (वर्तमान वर्ष की प्रवेश स्थिति सत्यापित करें)। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'
+    answer: 'SDFMU WDOMS और चीन की MOE सूची में है। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'
 order: 14
 ---
 

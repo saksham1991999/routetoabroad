@@ -10,6 +10,8 @@ tags: ['Trade', 'Supply Chain', 'Sourcing']
 featured: true
 image: '../../assets/images/blog-trade-corridor.jpg'
 imageAlt: 'Aerial view of a loaded container ship crossing open water'
+verify:
+  - "Removed until confirmed: Sea freight from Chinese ports (Guangzhou, Shanghai, Ningbo) to Mundra or JNPT takes roughly {{VERIFY}} days port to port. Air freight via direct routes takes {{VERIFY}} days but costs 5–8× more. For "
 ---
 
 India–China bilateral trade crossed $100 billion in 2024, driven by Indian demand for electronics, machinery, chemicals and intermediate goods. The opportunity is large and the complexity is real. This guide covers the regulatory landscape, factory verification, compliance checkpoints, logistics and payment terms, from our Guangzhou desk.
@@ -32,7 +34,6 @@ The most common mistake Indian importers make is relying solely on Alibaba listi
 
 ## Logistics: sea vs air
 
-Sea freight from Chinese ports (Guangzhou, Shanghai, Ningbo) to Mundra or JNPT takes roughly {{VERIFY}} days port to port. Air freight via direct routes takes {{VERIFY}} days but costs 5–8× more. For high-value or time-sensitive goods, air pays. For bulk, sea is the only economical option — and LCL (shared container) exists for trial volumes.
 
 ## Currency and payment
 

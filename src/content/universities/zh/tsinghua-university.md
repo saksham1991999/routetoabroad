@@ -27,9 +27,9 @@ programmes:
   - 'MBA / 管理科学（英文授课）'
   - '汉语（IEP，中文授课）'
 costs:
-  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 {{VERIFY}}'
-  living: '在北京（海淀）每月 {{VERIFY}}'
+  tuition: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current tuition figure
+  dorm: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current dorm figure
+  living: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current living figure
 facts:
   - label: '城市'
     value: '北京（海淀区）'
@@ -43,6 +43,10 @@ faqs:
   - question: '国际学生从清华毕业后能在中国工作吗？'
     answer: '北京和上海为指定高校的硕士及以上毕业生提供毕业后工作通道，清华毕业生深受跨国公司和中国科技企业青睐。签证需要雇主担保——请与我们的顾问一起规划。'
 order: 2
+verify:
+  - "Removed until confirmed: cost tuition '通常每年 US$5,000–10,000；CSC获奖者可获全额资助'"
+  - "Removed until confirmed: cost dorm '校内住宿每年 US$1,200–2,000'"
+  - "Removed until confirmed: cost living '在北京（海淀）每月 US$500–850'"
 ---
 
 清华与北大隔街相望于海淀，两校的较量亲切而真实：清华执工程与技术之牛耳，北大领人文与纯科学之风骚。校园融合了20世纪初的美式学院建筑（其前身是用庚子赔款退款创办的留美预备学校）与令人瞩目的现代化实验室。

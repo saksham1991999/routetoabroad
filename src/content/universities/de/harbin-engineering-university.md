@@ -16,7 +16,7 @@ strengths:
   - title: 'Weltklasse-Labore für Meerestechnik und Informatik'
     text: 'Weltweit in der Spitzengruppe in Schiffs- und Meerestechnik, Automatisierung, Robotik und Informatik.'
   - title: 'Starkes CSC-Stipendienkontingent'
-    text: 'CSC-Gastuniversität für englischsprachige Master- und Promotionsprogramme. Vollstipendien decken Studiengebühren, Wohnheim und ein monatliches Lebenshaltungsstipendium für erfolgreiche Bewerberinnen und Bewerber.'
+    text: 'CSC-Gastuniversität für englischsprachige Master- und Promotionsprogramme. Je nach Stipendientyp können Stipendien Studiengebühren, Wohnheim und ein monatliches Lebenshaltungsstipendium für erfolgreiche Bewerberinnen und Bewerber abdecken.'
   - title: 'Günstige Forschungsstadt im Norden'
     text: 'Harbin verbindet europäisch geprägte Architektur und eine berühmte Winterkultur mit sehr günstigen Wohnkosten außerhalb und innerhalb des Campus.'
 programmes:
@@ -26,7 +26,7 @@ programmes:
   - 'Nuklearwissenschaft & Energietechnik'
   - 'Internationale Wirtschaft & Management (auf Englisch)'
 costs:
-  tuition: 'RMB 20,000–32,000/Jahr (~US$2,800–4,450/Jahr); 100 % nur für erfolgreiche CSC-Stipendiatinnen und -Stipendiaten gedeckt'
+  tuition: 'RMB 20,000–32,000/Jahr (~US$2,800–4,450/Jahr); je nach Stipendientyp für erfolgreiche CSC-Stipendiatinnen und -Stipendiaten gedeckt'
   dorm: 'RMB 5,000–8,000/Jahr (~US$700–1,100/Jahr) auf dem Campus'
   living: 'US$220–350/Monat in Harbin'
 facts:
@@ -44,7 +44,7 @@ recognitions:
   - 'CSC Designated'
   - 'Washington Accord (Ingenieurwesen)'
 intakes: 'September (Haupttermin; CSC-Fristen meist Januar bis März)'
-scholarships: 'CSC-Vollstipendien Typ A/B, Stipendium der Provinzregierung Heilongjiang und HEU-Forschungsstipendien für Graduierte'
+scholarships: 'CSC-Stipendien Typ A/B, Stipendium der Provinzregierung Heilongjiang und HEU-Forschungsstipendien für Graduierte'
 taughtLanguages:
   - 'Englisch'
   - 'Chinesisch'
@@ -59,4 +59,4 @@ order: 17
 
 Die 1953 gegründete Harbin Engineering University ist eine nationale technische Universität im Rahmen von Projekt 211 und Double First-Class im Nordosten Chinas. Bekannt für ihre historische sino-russische Campusarchitektur und ihre staatlichen Schlüssellabore, ist die HEU ein bevorzugtes Ziel für internationale Ingenieurinnen und Ingenieure sowie Forschende, die englischsprachige Aufbaustudiengänge und CSC-Stipendien suchen.
 
-**Wen wir hier platzieren:** internationale Bewerberinnen und Bewerber aus Ingenieurwesen und Informatik, vor allem Master- und Promotionskandidatinnen und -kandidaten, die CSC-Vollstipendien in KI, Robotik, Schiffstechnik und Maschinenbau anstreben.
+**Wen wir hier platzieren:** internationale Bewerberinnen und Bewerber aus Ingenieurwesen und Informatik, vor allem Master- und Promotionskandidatinnen und -kandidaten, die CSC-Stipendien in KI, Robotik, Schiffstechnik und Maschinenbau anstreben.

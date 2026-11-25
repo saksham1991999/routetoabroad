@@ -38,7 +38,7 @@ facts:
   - label: 'Lebenshaltung'
     value: 'Eine der niedrigsten in China'
 recognitions:
-  - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'
+  - 'Im MOE-Verzeichnis'
   - 'WDOMS-gelistet'
 intakes: 'September (Haupttermin), März (ausgewählte nichtmedizinische und Sprachstudiengänge)'
 scholarships: 'Stipendium der Provinzregierung Hubei & Exzellenzstipendien der Yangtze University'

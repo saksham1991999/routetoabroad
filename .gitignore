@@ -31,3 +31,6 @@ agnes-out/
 *.njsproj
 *.sln
 *.sw?
+.claude/settings.local.json*
+trajector-doctor-*.tar.gz
+trajector-doctor-*/

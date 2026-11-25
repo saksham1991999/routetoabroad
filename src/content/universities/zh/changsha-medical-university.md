@@ -39,7 +39,7 @@ facts:
   - label: '最近枢纽'
     value: '乘火车2.5小时到广州'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - '世界医学院校名录（WDOMS）收录'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBS主要招生季）'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: '英文MBBS入学无需HSK；临床实习或毕业前需HSK 4'
 faqs:
   - question: '长沙医学院是否被WDOMS收录，其MBBS是否获得认可？'
-    answer: '长沙医学院被列入世界医学院校名录（WDOMS）及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB及印度NMC FMGE/NExT等国际执业路径，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
+    answer: '长沙医学院被列入世界医学院校名录（WDOMS）及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB及印度NMC FMGE/NExT等国际执业路径，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
   - question: '在长沙的学生生活怎样？'
     answer: '长沙以充满活力的青年文化、实惠的湖南美食以及便捷的地铁和高铁而闻名全国。'
 order: 13

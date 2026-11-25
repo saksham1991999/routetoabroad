@@ -33,6 +33,8 @@ costs:
 facts:
   - label: 'Ville'
     value: 'Hangzhou (province du Zhejiang)'
+  - label: 'Étudiants internationaux'
+    value: '~2,500+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, informatique, études au meilleur rapport qualité-prix'
   - label: 'Rentrées'

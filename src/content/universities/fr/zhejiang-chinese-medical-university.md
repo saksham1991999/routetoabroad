@@ -38,7 +38,7 @@ facts:
   - label: 'Hub le plus proche'
     value: '45 min en train jusqu''à Shanghai'
 recognitions:
-  - 'Inscrite au MOE (vérifier l''admission en cours)'
+  - 'Inscrite au MOE'
   - 'Inscrite à la WDOMS'
 intakes: 'Septembre (principale), mars (parcours de langue/MTC sélectionnés)'
 scholarships: 'Bourse du gouvernement provincial du Zhejiang et bourse d''étudiant international de la ZCMU'

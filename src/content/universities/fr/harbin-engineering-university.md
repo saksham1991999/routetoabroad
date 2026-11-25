@@ -16,7 +16,7 @@ strengths:
   - title: 'Laboratoires maritimes et informatiques de rang mondial'
     text: 'Parmi le premier cercle mondial en génie maritime et océanique, automatisation, robotique et informatique.'
   - title: 'Important quota de bourses CSC'
-    text: 'Université d''accueil CSC pour les masters et doctorats enseignés en anglais ; les bourses complètes couvrent les frais de scolarité, la résidence et une allocation mensuelle pour les lauréats.'
+    text: 'Université d''accueil CSC pour les masters et doctorats enseignés en anglais ; les bourses peuvent couvrir les frais de scolarité, la résidence et une allocation mensuelle, selon le type de bourse.'
   - title: 'Ville de recherche du Nord à faible coût'
     text: 'Harbin allie une architecture d''influence européenne et une célèbre culture hivernale, avec des coûts de logement sur campus et hors campus très abordables.'
 programmes:
@@ -26,7 +26,7 @@ programmes:
   - 'Science et génie nucléaires et énergétiques'
   - 'Commerce international et management (enseigné en anglais)'
 costs:
-  tuition: 'RMB 20,000–32,000/an (environ US$2,800–4,450/an) ; couverts à 100% uniquement pour les lauréats de la bourse CSC'
+  tuition: 'RMB 20,000–32,000/an (environ US$2,800–4,450/an) ; pouvant être couverts pour les lauréats de la bourse CSC, selon le type de bourse'
   dorm: 'RMB 5,000–8,000/an (environ US$700–1,100/an) sur le campus'
   living: 'US$220–350/mois à Harbin'
 facts:
@@ -44,7 +44,7 @@ recognitions:
   - 'Désignée CSC'
   - 'Accord de Washington (ingénierie)'
 intakes: 'Septembre (rentrée principale ; échéances CSC généralement de janvier à mars)'
-scholarships: 'Bourses complètes CSC type A/B, bourse du gouvernement du Heilongjiang et bourses de recherche doctorale de la HEU'
+scholarships: 'Bourses CSC type A/B, bourse du gouvernement du Heilongjiang et bourses de recherche doctorale de la HEU'
 taughtLanguages:
   - 'Anglais'
   - 'Chinois'
@@ -59,4 +59,4 @@ order: 17
 
 Fondée en 1953, la Harbin Engineering University est une université technique nationale Projet 211 et Double Premier Rang dans le nord-est de la Chine. Connue pour son architecture historique de campus sino-russe et ses laboratoires d'État, la HEU est une destination de premier plan pour les ingénieurs et chercheurs internationaux qui recherchent des diplômes de troisième cycle enseignés en anglais et des bourses CSC.
 
-**Pour qui nous plaçons ici :** les candidats internationaux en ingénierie et en informatique, en particulier les candidats au master et au doctorat qui visent les bourses CSC complètes en IA, robotique, génie maritime et systèmes mécaniques.
+**Pour qui nous plaçons ici :** les candidats internationaux en ingénierie et en informatique, en particulier les candidats au master et au doctorat qui visent les bourses CSC en IA, robotique, génie maritime et systèmes mécaniques.

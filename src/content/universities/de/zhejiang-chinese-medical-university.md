@@ -38,7 +38,7 @@ facts:
   - label: 'Nächster Knotenpunkt'
     value: '45 Min. mit dem Zug nach Shanghai'
 recognitions:
-  - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'
+  - 'Im MOE-Verzeichnis'
   - 'WDOMS-gelistet'
 intakes: 'September (Haupttermin), März (ausgewählte Sprach- und TCM-Studiengänge)'
 scholarships: 'Stipendium der Provinzregierung Zhejiang & ZCMU-Stipendium für internationale Studierende'

@@ -38,7 +38,7 @@ facts:
   - label: 'निकटतम केंद्र'
     value: 'रेल से शंघाई तक 45 मिनट'
 recognitions:
-  - 'MOE-सूचीबद्ध (वर्तमान प्रवेश सत्यापित करें)'
+  - 'MOE-सूचीबद्ध'
   - 'WDOMS-सूचीबद्ध'
 intakes: 'सितंबर (मुख्य), मार्च (चुनिंदा भाषा/TCM ट्रैक)'
 scholarships: 'झेजियांग प्रांतीय सरकारी छात्रवृत्ति और ZCMU International Student Scholarship'

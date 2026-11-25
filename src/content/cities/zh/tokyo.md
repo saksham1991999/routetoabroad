@@ -1,7 +1,7 @@
 ---
 locale: 'zh'
 name: 'Tokyo'
-chineseName: '東京'
+chineseName: '东京'
 country: 'Japan'
 intro: '东京是日本首都，也是全球最大的都市经济体。精准的铁路、媲美米其林水准的街头美食、宁静的神社区与霓虹闪烁的商业街区，相距仅几分钟路程。'
 image: '../../../assets/images/country-japan.jpg'

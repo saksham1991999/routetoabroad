@@ -14,7 +14,7 @@ strengths:
   - title: 'Globale Listung im medizinischen Verzeichnis'
     text: 'In der WDOMS und auf der MOE-Liste Chinas für englischsprachiges MBBS geführt. Absolventinnen und Absolventen können Prüfungen wie ECFMG/USMLE (USA), GMC/PLAB (Vereinigtes Königreich), AMC (Australien) und NMC FMGE/NExT (Indien) ablegen, vorbehaltlich der aktuellen Regeln der jeweiligen Ärztekammer.'
   # {{VERIFY}} Confirm current affiliated teaching hospital count
-  - title: '20+ angeschlossene Lehrkrankenhäuser'
+  - title: 'Angeschlossene Lehrkrankenhäuser'
     text: 'Umfangreiche klinische Ausbildung an den Tertiärkliniken der Provinz Jiangsu mit hoher Patientenzahl und strukturierten Stationsrotationen für Studierende im letzten Studienjahr.'
   - title: 'Eigenständiges englischsprachiges MBBS'
     text: 'Strukturierter, sechsjähriger (5 + 1 Jahr Praktikum) englischsprachiger MBBS-Studiengang mit Anatomiekursen in kleinen Gruppen, Simulationszentren und Kursen zur klinischen Kommunikation auf Chinesisch.'
@@ -39,7 +39,7 @@ facts:
   - label: 'Unterrichtssprache'
     value: 'Englisch (mit Mandarin auf den Stationen)'
 recognitions:
-  - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'
+  - 'Im MOE-Verzeichnis'
   - 'WDOMS-gelistet'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (Haupttermin MBBS)'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: 'Kein HSK bei Zulassung zum englischsprachigen MBBS erforderlich; HSK 4 vor dem klinischen Praktikum bzw. dem Abschluss erforderlich'
 faqs:
   - question: 'Ist die Nanjing Medical University in der WDOMS gelistet und für internationale Lizenzen zugelassen?'
-    answer: 'Die NMU ist im World Directory of Medical Schools (WDOMS) und auf der Liste des chinesischen Bildungsministeriums (MOE) der englischsprachigen MBBS-Einrichtungen geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu Prüfungen wie ECFMG/USMLE, GMC/PLAB, AMC oder NMC FMGE/NExT Indiens hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
+    answer: 'Die NMU ist im World Directory of Medical Schools (WDOMS) und auf der Liste des chinesischen Bildungsministeriums (MOE) der englischsprachigen MBBS-Einrichtungen geführt. Die Zulassung zu Prüfungen wie ECFMG/USMLE, GMC/PLAB, AMC oder NMC FMGE/NExT Indiens hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
   - question: 'Müssen internationale Medizinstudierende Chinesisch lernen?'
     answer: 'Alle medizinischen Kernfächer werden auf Englisch unterrichtet. Die Studierenden besuchen jedoch in den Jahren 1 bis 4 verpflichtende Mandarin-Kurse, damit sie während der klinischen Rotationen mit Patientinnen und Patienten kommunizieren und den HSK-4-Richtwert für den Abschluss erreichen können.'
 order: 6

@@ -39,9 +39,8 @@ facts:
 recognitions:
   - '教育部'
   - '世界卫生组织（WHO）'
-  - 'WDOMS'
+  - 'WDOMS-listed'
   - 'NMC'
-  - 'ECFMG'
 intakes: '9月（年度MBBS招生）'
 scholarships: 'CSC奖学金（研究生）、辽宁省政府奖学金及CMU优秀学生奖'
 taughtLanguages:

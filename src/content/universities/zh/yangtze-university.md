@@ -38,7 +38,7 @@ facts:
   - label: '生活成本'
     value: '全国最低之一'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
 intakes: '9月（主要）、3月（部分非医学及语言方向）'
 scholarships: '湖北省政府奖学金及长江大学优秀奖学金'

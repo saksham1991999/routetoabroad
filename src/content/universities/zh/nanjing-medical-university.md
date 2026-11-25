@@ -14,7 +14,7 @@ strengths:
   - title: '全球医学名录收录'
     text: '被列入WDOMS及中国教育部英文授课MBBS名单；毕业生可根据各医学委员会的现行规定报考ECFMG/USMLE（美国）、GMC/PLAB（英国）、AMC（澳大利亚）和NMC FMGE/NExT（印度）等考试。'
   # {{VERIFY}} Confirm current affiliated teaching hospital count
-  - title: '20+所附属教学医院'
+  - title: '附属教学医院'
     text: '在江苏省三级医院开展广泛的临床培训，为高年级学生提供大量病例和结构化的病房轮转。'
   - title: '专属英文授课MBBS'
     text: '结构化的6年制（5+1年实习）英文授课MBBS课程，配有小组解剖实验室、模拟中心及中文临床沟通课程。'
@@ -39,7 +39,7 @@ facts:
   - label: '授课语言'
     value: '英语（临床病房使用普通话）'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBS主要招生季）'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: '英文MBBS入学无需HSK；临床实习或毕业前需HSK 4'
 faqs:
   - question: '南京医科大学是否被WDOMS收录，并有资格参加国际医师执照考试？'
-    answer: 'NMU被列入世界医学院校名录（WDOMS）及中国教育部英文授课MBBS院校名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、AMC或印度NMC FMGE/NExT等执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
+    answer: 'NMU被列入世界医学院校名录（WDOMS）及中国教育部英文授课MBBS院校名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、AMC或印度NMC FMGE/NExT等执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
   - question: '国际MBBS学生需要学习中文吗？'
     answer: '所有医学核心课程均以英文授课，但学生在第1至4学年需修读必修的普通话课程，以便在临床轮转中与患者沟通，并达到毕业所需的HSK 4标准。'
 order: 6

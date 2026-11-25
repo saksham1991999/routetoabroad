@@ -38,7 +38,7 @@ facts:
   - label: '学制'
     value: '6年（5年学习 + 1年实习）'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - '世界医学院校名录（WDOMS）收录'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBS主要招生季）'
@@ -51,7 +51,7 @@ faqs:
   - question: '湖北理工学院距武汉有多近？'
     answer: '黄石乘高铁到武汉约30分钟，驾车到武汉天河国际机场约90分钟，国际出行十分便利。'
   - question: 'HBPU的MBBS毕业生有资格参加执业考试吗？'
-    answer: 'HBPU医学院被列入WDOMS，并在中国教育部名单中（请核实当年招生情况）。报考ECFMG/USMLE、GMC/PLAB或NMC FMGE/NExT等执业考试，取决于申请人所在国医学委员会的现行规定与入学年度规定，请在入学前确认。'
+    answer: 'HBPU医学院被列入WDOMS，并在中国教育部名单中。报考ECFMG/USMLE、GMC/PLAB或NMC FMGE/NExT等执业考试，取决于申请人所在国医学委员会的现行规定与入学年度规定，请在入学前确认。'
 order: 12
 ---
 

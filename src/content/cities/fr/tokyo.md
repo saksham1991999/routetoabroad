@@ -1,7 +1,7 @@
 ---
 locale: 'fr'
 name: 'Tokyo'
-chineseName: '東京'
+chineseName: '东京'
 country: 'Japan'
 intro: 'Tokyo est la capitale du Japon et la plus grande économie métropolitaine du monde : une ville où la précision ferroviaire, la street food de niveau Michelin, les enceintes calmes des sanctuaires et les quartiers commerçants illuminés de néons coexistent à quelques minutes les uns des autres.'
 image: '../../../assets/images/country-japan.jpg'

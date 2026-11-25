@@ -39,7 +39,7 @@ facts:
   - label: '最寄りのハブ'
     value: '鉄道で広州まで2.5時間'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBSの主要入学時期）'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: '英語MBBSは入学時にHSK不要。臨床実習・卒業前に HSK 4 が必要'
 faqs:
   - question: '長沙医学院はWDOMSに掲載され、MBBSは認められていますか？'
-    answer: '長沙医学院は世界医学校名簿（WDOMS）と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国際的な受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
+    answer: '長沙医学院は世界医学校名簿（WDOMS）と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国際的な受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
   - question: '長沙での学生生活はどのようなものですか？'
     answer: '長沙は、活気ある若者文化、手頃な湖南料理、便利な地下鉄と高速鉄道で中国中に知られています。'
 order: 13

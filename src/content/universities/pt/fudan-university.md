@@ -27,9 +27,9 @@ programmes:
   - 'Negócios Internacionais (graduação, em inglês)'
   - 'Saúde Pública (mestrado, em inglês)'
 costs:
-  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
-  dorm: '{{VERIFY}}/ano no campus'
-  living: '{{VERIFY}}/mês em Xangai'
+  tuition: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Cidade'
     value: 'Xangai (distrito de Yangpu)'
@@ -43,6 +43,10 @@ faqs:
   - question: 'Como a Fudan se compara a Peking e Tsinghua?'
     answer: 'Os rankings ficam a um fio de distância um do outro (top-5 da China). A verdadeira diferença é geográfica: a Fudan coloca você no ecossistema comercial de Xangai, o que pesa mais para carreiras em negócios, finanças e mídia.'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition 'tipicamente US$4,000–9,000/ano; o CSC cobre 100% para os selecionados'"
+  - "Removed until confirmed: cost dorm 'US$1,000–2,000/ano no campus'"
+  - "Removed until confirmed: cost living 'US$550–900/mês em Xangai'"
 ---
 
 O campus da Handan Road da Fudan fica no distrito de Yangpu, um bairro estudantil de Xangai que também abriga a Tongji University. O nome significa "a luz celestial se espalha sobre a terra" — uma afirmação confiante, como a própria universidade. Para estudantes internacionais, a Fudan equilibra prestígio acadêmico com a vantagem prática de Xangai: tudo, desde trabalho em tempo parcial (que exige permissão da universidade e, para vagas fora do campus, aprovação adicional de imigração — seu visto de residência estudantil tem condições) até as conexões com o aeroporto, é mais fácil aqui.

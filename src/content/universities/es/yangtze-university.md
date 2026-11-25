@@ -38,7 +38,7 @@ facts:
   - label: 'Coste de vida'
     value: 'Uno de los más bajos de China'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'Septiembre (principal), marzo (algunos itinerarios no médicos y de idiomas)'
 scholarships: 'Beca del Gobierno Provincial de Hubei y Premios de Excelencia de la Universidad del Yangtsé'

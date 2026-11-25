@@ -27,7 +27,7 @@ universities:
 bestTime: 'Avril–mai et septembre–octobre (températures douces, ciel dégagé pour marcher sur les remparts)'
 faqs:
   - question: 'Xi''an est-elle une bonne ville pour les étudiants internationaux en MBBS et en ingénierie ?'
-    answer: 'Oui. L''université Jiaotong de Xi''an est une université de premier plan du C9 qui propose un MBBS enseigné en anglais (vérifier l''inscription au MOE de l''année en cours pour votre rentrée) et des filières d''ingénierie. Les coûts de la vie de US$320–580/mois sont nettement inférieurs à ceux des villes côtières de premier rang.'
+    answer: 'Oui. L''université Jiaotong de Xi''an est une université de premier plan du C9 qui propose un MBBS enseigné en anglais et des filières d''ingénierie. Les coûts de la vie de US$320–580/mois sont nettement inférieurs à ceux des villes côtières de premier rang.'
   - question: 'Trouve-t-on facilement de la nourriture halal à Xi''an ?'
     answer: 'Xi''an compte l''une des plus anciennes communautés musulmanes hui de Chine. Restaurants halal, épiceries et cantines halal universitaires sont très répandus dans la ville.'
 order: 5

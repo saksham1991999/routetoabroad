@@ -39,9 +39,8 @@ facts:
 recognitions:
   - 'MOE China'
   - 'WHO'
-  - 'WDOMS'
+  - 'WDOMS-listed'
   - 'NMC'
-  - 'ECFMG'
 intakes: 'Septiembre (convocatoria anual del MBBS)'
 scholarships: 'Beca CSC (posgrado), Beca del Gobierno Provincial de Liaoning y Premios CMU a Estudiantes Destacados'
 taughtLanguages:

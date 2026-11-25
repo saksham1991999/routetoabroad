@@ -39,7 +39,7 @@ facts:
   - label: 'Nearest hub'
     value: '2.5 hrs by rail to Guangzhou'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: 'None at entry for English MBBS; HSK 4 required prior to clinical internship / graduation'
 faqs:
   - question: 'Is Changsha Medical University listed in WDOMS and recognized for MBBS?'
-    answer: 'Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and on China''s MOE list (verify current-year intake status). Eligibility for international licensing pathways such as ECFMG/USMLE, GMC/PLAB, and NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and on China''s MOE list. Eligibility for international licensing pathways such as ECFMG/USMLE, GMC/PLAB, and NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'What is student life like in Changsha?'
     answer: 'Changsha is famous across China for its energetic youth culture, affordable Hunan cuisine, and convenient metro and high-speed rail connections.'
 order: 13

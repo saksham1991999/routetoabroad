@@ -27,9 +27,9 @@ programmes:
   - 'MBA (Antai College, em inglês)'
   - 'Ciência dos Materiais (trilhas de pesquisa)'
 costs:
-  tuition: 'tipicamente {{VERIFY}}/ano; o CSC cobre 100% para os selecionados'
+  tuition: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current tuition figure
   dorm: 'US$1,000–1,800/ano no campus'
-  living: '{{VERIFY}}/mês em Xangai'
+  living: 'Consulte nossos consultores sobre as taxas atuais' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Cidade'
     value: 'Xangai (campus de Minhang e Huangpu)'
@@ -43,6 +43,9 @@ faqs:
   - question: 'A SJTU ou a Fudan é melhor para engenharia?'
     answer: 'A SJTU. A Fudan lidera em humanidades/negócios; a SJTU lidera em engenharia e medicina clínica. Ambas são instituições abrangentes top-5 em Xangai.'
 order: 5
+verify:
+  - "Removed until confirmed: cost tuition 'tipicamente US$4,000–9,000/ano; o CSC cobre 100% para os selecionados'"
+  - "Removed until confirmed: cost living 'US$550–900/mês em Xangai'"
 ---
 
 A SJTU abrange o campus principal verdejante de Minhang e locais históricos no centro da cidade. Sua lista de ex-alunos se lê como a indústria chinesa moderna: Jiang Zemin, Qian Xuesen (o pai da foguetística chinesa) e fundadores da construção naval, do setor automotivo e dos semicondutores. Para estudantes internacionais, entrega as vantagens de uma metrópole como Xangai com uma cultura voltada à engenharia.

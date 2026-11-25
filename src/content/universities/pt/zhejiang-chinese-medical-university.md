@@ -38,7 +38,7 @@ facts:
   - label: 'Polo mais próximo'
     value: '45 min de trem até Xangai'
 recognitions:
-  - 'Listada pelo MOE (verificar ingresso atual)'
+  - 'Listada pelo MOE'
   - 'Listada na WDOMS'
 intakes: 'Setembro (principal), março (trilhas selecionadas de língua e MTC)'
 scholarships: 'Bolsa do Governo Provincial de Zhejiang e Bolsa para Estudantes Internacionais da ZCMU'

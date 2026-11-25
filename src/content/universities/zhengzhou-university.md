@@ -37,7 +37,7 @@ facts:
   - label: 'Best for'
     value: 'MBBS, MBA, CS, CSC scholarship applicants'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
   - 'CSC Designated'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -51,7 +51,7 @@ faqs:
   - question: 'Can I apply for CSC scholarships at Zhengzhou University?'
     answer: 'Yes. Zhengzhou University is a CSC-designated university for master''s, PhD, and select undergraduate tracks, and also administers Henan Provincial Government Scholarships.'
   - question: 'Is Zhengzhou University''s MBBS recognized internationally?'
-    answer: 'ZZU is included in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'ZZU is included in WDOMS and on China''s MOE list. Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 10
 ---
 

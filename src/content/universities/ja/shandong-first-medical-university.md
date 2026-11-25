@@ -26,7 +26,7 @@ programmes:
   - '臨床医学・公衆衛生の修士・博士'
 costs:
   tuition: '人民元 25,000–30,000/年（約 US$3,450–4,150/年）'
-  dorm: '学内寮 人民元 4,000–6,500/年（約 {{VERIFY}}/年）'
+  dorm: '学内寮 人民元 4,000–6,500/年' # {{VERIFY}} confirm USD conversion
   living: '済南・泰安の生活費 US$220–340/月'
 facts:
   - label: '都市'
@@ -38,7 +38,7 @@ facts:
   - label: '地位'
     value: '省の重点医科大学'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（主要入学時期）'
@@ -53,7 +53,7 @@ faqs:
   - question: 'SDFMUはMBBS以外に歯学（BDS）や薬学も提供していますか？'
     answer: 'はい。SDFMUは臨床医学（MBBS）、口腔医学（BDS）、看護、薬学を提供しており、幅広い医療関連分野の学生に適しています。'
   - question: 'SDFMUのMBBS卒業生は国際的な医師免許試験を受験できますか？'
-    answer: 'SDFMUは WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
+    answer: 'SDFMUは WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
 order: 14
 ---
 

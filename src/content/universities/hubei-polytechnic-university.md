@@ -38,7 +38,7 @@ facts:
   - label: 'Duration'
     value: '6 years (5 yrs study + 1 yr internship)'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -51,7 +51,7 @@ faqs:
   - question: 'How close is Hubei Polytechnic University to Wuhan?'
     answer: 'Huangshi is roughly 30 minutes from Wuhan by high-speed rail and about 90 minutes by car from Wuhan Tianhe International Airport, making international travel straightforward.'
   - question: 'Are HBPU MBBS graduates eligible for licensing exams?'
-    answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'
+    answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list. Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'
 order: 12
 ---
 

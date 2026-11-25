@@ -67,7 +67,7 @@ const pillarColor: Record<string, string> = {
       datePublished: data.pubDate.toISOString(),
       dateModified: (data.updatedDate ?? data.pubDate).toISOString(),
       // The editorial desk is an Organization, not a named person.
-      authorName: 'RouteToAbroad Desk',
+      authorName: chrome.guideDeskByline,
       authorType: 'Organization',
       section: data.pillar,
     }),

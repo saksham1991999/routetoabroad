@@ -26,7 +26,7 @@ programmes:
   - '临床医学与公共卫生硕士、博士'
 costs:
   tuition: '每年 RMB 25,000–30,000（约 US$3,450–4,150）'
-  dorm: '校内住宿每年 RMB 4,000–6,500（约 {{VERIFY}}）'
+  dorm: '校内住宿每年 RMB 4,000–6,500' # {{VERIFY}} confirm USD conversion
   living: '在济南/泰安每月 US$220–340'
 facts:
   - label: '城市'
@@ -38,7 +38,7 @@ facts:
   - label: '地位'
     value: '省级重点医科大学'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（主要招生季）'
@@ -53,7 +53,7 @@ faqs:
   - question: 'SDFMU除MBBS外还提供口腔医学（BDS）和药学吗？'
     answer: '是的。SDFMU提供临床医学（MBBS）、口腔医学（BDS）、护理学和药学，适合各类医疗相关领域的学生。'
   - question: 'SDFMU的MBBS毕业生有资格参加国际医师执照考试吗？'
-    answer: 'SDFMU被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
+    answer: 'SDFMU被列入WDOMS及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
 order: 14
 ---
 

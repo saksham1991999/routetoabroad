@@ -27,9 +27,9 @@ programmes:
   - '国际商务（本科，英文授课）'
   - '公共卫生（硕士，英文授课）'
 costs:
-  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 {{VERIFY}}'
-  living: '在上海每月 {{VERIFY}}'
+  tuition: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current tuition figure
+  dorm: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current dorm figure
+  living: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current living figure
 facts:
   - label: '城市'
     value: '上海（杨浦区）'
@@ -43,6 +43,10 @@ faqs:
   - question: '复旦与北大、清华相比如何？'
     answer: '排名相差无几（中国前五）。真正的差异在于地理位置：复旦让你身处上海的商务生态圈，这对商科、金融与媒体职业最为关键。'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition '通常每年 US$4,000–9,000；CSC获奖者可获全额资助'"
+  - "Removed until confirmed: cost dorm '校内住宿每年 US$1,000–2,000'"
+  - "Removed until confirmed: cost living '在上海每月 US$550–900'"
 ---
 
 复旦大学邯郸路校区位于杨浦区——上海的学生聚集区，同济大学也坐落于此。校名意为"日月光华，旦复旦兮"，气度自信，一如这所大学。对国际学生而言，复旦将学术声望与上海的务实优势结合在一起：无论是兼职工作（需经学校许可，校外工作还需额外的移民审批——你的学生居留许可附有相关条件），还是往返机场，在这里都更加便利。

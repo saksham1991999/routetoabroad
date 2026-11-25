@@ -14,7 +14,7 @@ strengths:
   - title: 'Inclusión en el directorio médico mundial'
     text: 'Figura en la WDOMS y en la lista del MOE de China de programas de MBBS en inglés; los graduados pueden presentarse a exámenes como ECFMG/USMLE (EE. UU.), GMC/PLAB (Reino Unido), AMC (Australia) y NMC FMGE/NExT (India), sujetos a las normas vigentes de cada consejo.'
   # {{VERIFY}} Confirm current affiliated teaching hospital count
-  - title: 'Más de 20 hospitales docentes afiliados'
+  - title: 'Hospitales docentes afiliados'
     text: 'Amplia formación clínica en los hospitales terciarios de la provincia de Jiangsu, que ofrece a los estudiantes de último curso una gran casuística y rotaciones estructuradas por planta.'
   - title: 'MBBS en inglés con dedicación exclusiva'
     text: 'Plan de estudios de MBBS en inglés de 6 años (5 + 1 de prácticas), con laboratorios de anatomía en grupos reducidos, centros de simulación y clases de comunicación clínica en chino.'
@@ -39,7 +39,7 @@ facts:
   - label: 'Idioma'
     value: 'Inglés (con mandarín en las plantas clínicas)'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Septiembre (principal convocatoria del MBBS)'
@@ -50,7 +50,7 @@ taughtLanguages:
 hskRequirement: 'No se exige HSK al ingreso para el MBBS en inglés; HSK 4 exigido antes de la práctica clínica o la graduación'
 faqs:
   - question: '¿Figura la Universidad Médica de Nankín en la WDOMS y es elegible para la licencia médica internacional?'
-    answer: 'La NMU figura en el Directorio Mundial de Escuelas de Medicina (WDOMS) y en la lista del Ministerio de Educación (MOE) de China de instituciones con MBBS en inglés (verifique el estado de la convocatoria del año en curso). La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB, AMC o el NMC FMGE/NExT de la India depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'
+    answer: 'La NMU figura en el Directorio Mundial de Escuelas de Medicina (WDOMS) y en la lista del Ministerio de Educación (MOE) de China de instituciones con MBBS en inglés. La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB, AMC o el NMC FMGE/NExT de la India depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'
   - question: '¿Necesitan aprender chino los estudiantes internacionales de MBBS?'
     answer: 'Todas las ciencias médicas básicas se imparten en inglés, pero los estudiantes cursan clases obligatorias de mandarín en los años 1 a 4 para poder comunicarse con los pacientes durante las rotaciones clínicas y alcanzar el referente de HSK 4 para la graduación.'
 order: 6

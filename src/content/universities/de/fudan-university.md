@@ -27,12 +27,14 @@ programmes:
   - 'International Business (Bachelor, englischsprachig)'
   - 'Public Health (Master, englischsprachig)'
 costs:
-  tuition: 'typischerweise {{VERIFY}}/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: '{{VERIFY}}/Jahr auf dem Campus'
-  living: '{{VERIFY}}/Monat in Shanghai'
+  tuition: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current dorm figure
+  living: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Stadt'
     value: 'Shanghai (Bezirk Yangpu)'
+  - label: 'Internationale Studierende'
+    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Wirtschaft, Medizin, Medienkarrieren'
   - label: 'Studienbeginn'
@@ -43,6 +45,10 @@ faqs:
   - question: 'Wie schneidet die Fudan University im Vergleich zu Peking und Tsinghua ab?'
     answer: 'Die Ranglisten liegen haarscharf beieinander (Top-5 Chinas). Der echte Unterschied ist die Geografie: Die Fudan University versetzt Sie in Shanghais wirtschaftliches Ökosystem — entscheidend für Karrieren in Wirtschaft, Finanzen und Medien.'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition 'typischerweise US$4,000–9,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
+  - "Removed until confirmed: cost dorm 'US$1,000–2,000/Jahr auf dem Campus'"
+  - "Removed until confirmed: cost living 'US$550–900/Monat in Shanghai'"
 ---
 
 Der Handan-Road-Campus der Fudan University liegt im Bezirk Yangpu, einem Studentenviertel Shanghais, in dem auch die Tongji University beheimatet ist. Der Name bedeutet „himmlisches Licht breitet sich über der Erde aus" — selbstbewusst, genau wie die Universität. Für internationale Studierende verbindet die Fudan University akademisches Prestige mit dem praktischen Vorteil von Shanghai: alles vom Teilzeitjob (der die Genehmigung der Universität und für Tätigkeiten außerhalb des Campus zusätzlich eine einschlägige Einwanderungsfreigabe erfordert — Ihr Studienaufenthaltstitel ist an Bedingungen geknüpft) bis zur Flughafenanbindung ist hier unkomplizierter.

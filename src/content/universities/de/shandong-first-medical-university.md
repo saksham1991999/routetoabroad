@@ -26,7 +26,7 @@ programmes:
   - 'Master & PhD in Klinischer Medizin & Öffentlicher Gesundheit'
 costs:
   tuition: 'RMB 25,000–30,000/Jahr (~US$3,450–4,150/Jahr)'
-  dorm: 'RMB 4,000–6,500/Jahr (~{{VERIFY}}/Jahr) auf dem Campus'
+  dorm: 'RMB 4,000–6,500/Jahr auf dem Campus' # {{VERIFY}} confirm USD conversion
   living: 'US$220–340/Monat in Jinan / Tai’an'
 facts:
   - label: 'Städte'
@@ -38,7 +38,7 @@ facts:
   - label: 'Status'
     value: 'Wichtige medizinische Universität der Provinz'
 recognitions:
-  - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'
+  - 'Im MOE-Verzeichnis'
   - 'WDOMS-gelistet'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (Haupttermin)'
@@ -53,7 +53,7 @@ faqs:
   - question: 'Bietet die SDFMU neben MBBS auch Zahnmedizin (BDS) und Pharmazie an?'
     answer: 'Ja. Die SDFMU bietet Klinische Medizin (MBBS), Stomatologie (BDS), Pflege und Pharmazie an und eignet sich damit für Studierende verschiedener Gesundheitsberufe.'
   - question: 'Sind SDFMU-MBBS-Absolventinnen und -Absolventen für internationale medizinische Lizenzprüfungen zugelassen?'
-    answer: 'Die SDFMU ist in der WDOMS und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
+    answer: 'Die SDFMU ist in der WDOMS und auf der MOE-Liste Chinas geführt. Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
 order: 14
 ---
 

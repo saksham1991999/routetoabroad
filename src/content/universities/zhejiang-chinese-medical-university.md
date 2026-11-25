@@ -38,7 +38,7 @@ facts:
   - label: 'Nearest hub'
     value: '45 min by rail to Shanghai'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'September (main), March (selected language/TCM tracks)'
 scholarships: 'Zhejiang Provincial Government Scholarship & ZCMU International Student Scholarship'

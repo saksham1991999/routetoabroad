@@ -38,7 +38,7 @@ facts:
   - label: 'Living cost'
     value: 'One of the lowest in China'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'September (main), March (select non-medical & language tracks)'
 scholarships: 'Hubei Provincial Government Scholarship & Yangtze University Excellence Awards'

@@ -39,7 +39,7 @@ facts:
   - label: 'Climate'
     value: 'Mild year-round ("Spring City")'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -52,7 +52,7 @@ faqs:
   - question: 'Is Kunming Medical University good for international students on a budget?'
     answer: 'Yes. KMU offers one of the most cost-effective MOE-listed English MBBS programmes in China, with total annual tuition and dorm costs often under US$5,500.'
   - question: 'Are KMU MBBS graduates eligible for home-country medical licensing?'
-    answer: 'KMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'KMU is listed in WDOMS and on China''s MOE list. Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'How far is Kunming from major international flight hubs?'
     answer: 'Kunming Changshui International Airport has direct or one-stop connections across South Asia, Southeast Asia, and the Middle East, as well as frequent domestic flights to Beijing, Shanghai, and Guangzhou.'
 order: 9

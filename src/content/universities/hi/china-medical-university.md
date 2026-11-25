@@ -39,9 +39,8 @@ facts:
 recognitions:
   - 'MOE China'
   - 'WHO'
-  - 'WDOMS'
+  - 'WDOMS-listed'
   - 'NMC'
-  - 'ECFMG'
 intakes: 'सितंबर (वार्षिक MBBS सत्र)'
 scholarships: 'CSC Scholarship (स्नातकोत्तर), लियाओनिंग प्रांतीय सरकारी छात्रवृत्ति और CMU Outstanding Student Awards'
 taughtLanguages:

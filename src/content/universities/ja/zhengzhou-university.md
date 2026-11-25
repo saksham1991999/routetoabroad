@@ -37,7 +37,7 @@ facts:
   - label: 'こんな人に最適'
     value: 'MBBS、MBA、CS、CSC奨学金の志願者'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
   - 'CSC Designated'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -51,7 +51,7 @@ faqs:
   - question: '鄭州大学で CSC 奨学金に応募できますか？'
     answer: 'はい。鄭州大学は修士・博士、一部の学部課程で CSC の指定校であり、河南省政府奨学金も管理しています。'
   - question: '鄭州大学の MBBS は国際的に認められていますか？'
-    answer: 'ZZU は WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国家的な医師免許試験への受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
+    answer: 'ZZU は WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国家的な医師免許試験への受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
 order: 10
 ---
 

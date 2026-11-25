@@ -27,9 +27,9 @@ programmes:
   - 'International Business (bachelor''s, English-taught)'
   - 'Public Health (master''s, English-taught)'
 costs:
-  tuition: '{{VERIFY}}/yr typical; CSC covers 100% for winners'
-  dorm: '{{VERIFY}}/yr on campus'
-  living: '{{VERIFY}}/month in Shanghai'
+  tuition: 'Ask our advisors for current fees' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Ask our advisors for current fees' # {{VERIFY}} confirm current dorm figure
+  living: 'Ask our advisors for current fees' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'City'
     value: 'Shanghai (Yangpu district)'
@@ -42,15 +42,28 @@ faqs:
     answer: 'Yes — Shanghai Medical College is MOE-listed for English-medium MBBS with excellent hospital rotations, and it is one of the most competitive medical programmes in the country for international seats.'
   - question: 'How does Fudan compare to Peking and Tsinghua?'
     answer: 'Rankings sit within a hair of each other (China top-5). The real difference is geography: Fudan puts you in Shanghai''s commercial ecosystem, which matters most for business, finance and media careers.'
-  - question: 'What HSK level do I need for Fudan?'
-    answer: 'English-taught programmes need no HSK for admission. Chinese-taught degrees typically require HSK 5, sometimes HSK 6. The exact level for your programme is {{VERIFY}}.'
-  - question: 'How much does a year at Fudan cost?'
-    answer: 'Tuition is typically {{VERIFY}} per year, and on-campus dorms are {{VERIFY}} per year. Living in Shanghai runs {{VERIFY}} per month. CSC covers 100% for winners.'
-  - question: 'When is the Fudan intake?'
-    answer: 'September is the main intake, and some programmes take March entry. Application windows and deadlines are {{VERIFY}}.'
-  - question: 'Does Fudan offer CSC scholarships?'
-    answer: 'Full CSC awards cover tuition, on-campus accommodation, medical insurance and a monthly stipend. Fudan''s CSC route by type is {{VERIFY}}. Read the CSC guide at /guides/csc-scholarship/ first.'
 order: 3
+verify:
+  - "Removed until confirmed: FAQ - question: 'What HSK level do I need for Fudan?'"
+  - "Removed until confirmed: FAQ - question: 'How much does a year at Fudan cost?'"
+  - "Removed until confirmed: FAQ - question: 'When is the Fudan intake?'"
+  - "Removed until confirmed: FAQ - question: 'Does Fudan offer CSC scholarships?'"
+  - "Removed until confirmed: - **Academic record:** minimum marks {{VERIFY}}. CSC candidates typically compete at around 80%+ or CGPA 3.3+ ([CSC guide](/guides/csc-scholarship/))."
+  - "Removed until confirmed: - **Language:** English-taught programmes need no HSK for admission. Chinese-taught degrees typically need HSK 5, sometimes HSK 6 ([HSK guide](/guides/hsk-exam-preparation/)). Exact level: {{VERIFY}}."
+  - "Removed until confirmed: - **Documents:** full list {{VERIFY}}. The [document checklist](/tools/document-checklist/) builds the general list."
+  - "Removed until confirmed: | Tuition | {{VERIFY}} per year (typical). CSC covers 100% for winners. |"
+  - "Removed until confirmed: | On-campus dorm | {{VERIFY}} per year |"
+  - "Removed until confirmed: | Living in Shanghai | {{VERIFY}} per month |"
+  - "Removed until confirmed: | Application fee | {{VERIFY}} |"
+  - "Removed until confirmed: | Medical insurance | {{VERIFY}} |"
+  - "Removed until confirmed: | September (main) | September | {{VERIFY}} | {{VERIFY}} |"
+  - "Removed until confirmed: | Some programmes | March | {{VERIFY}} | {{VERIFY}} |"
+  - "Removed until confirmed: 3. For CSC funding, read the [CSC guide](/guides/csc-scholarship/). Fudan's CSC route by type: {{VERIFY}}."
+  - "Removed until confirmed: 5. Submit before the deadline: {{VERIFY}} date."
+  - "Removed until confirmed: The CSC is the main funding route for winners, who receive 100% coverage. Fudan's CSC route by type and any university or provincial awards: {{VERIFY}}."
+  - "Removed until confirmed: cost tuition 'US$4,000–9,000/yr typical; CSC covers 100% for winners'"
+  - "Removed until confirmed: cost dorm 'US$1,000–2,000/yr on campus'"
+  - "Removed until confirmed: cost living 'US$550–900/month in Shanghai'"
 ---
 
 Fudan's Handan Road campus sits in Yangpu district, a student quarter of Shanghai that also houses Tongji University. The name means "heavenly light spreads over the earth" — confident, like the university. For international students, Fudan balances academic prestige with the practical advantage of Shanghai: everything from part-time work (which requires university permission and, for off-campus roles, additional immigration approval — your student residence permit has conditions) to airport connections is easier here.
@@ -65,11 +78,8 @@ Fudan's programmes span business, economics, medicine and media. English-taught 
 
 Fudan suits business and economics applicants, MBBS candidates targeting Shanghai Medical College, and CSC applicants who want a comprehensive university in a global city. The MBBS programme is one of the most competitive for international seats.
 
-- **Academic record:** minimum marks {{VERIFY}}. CSC candidates typically compete at around 80%+ or CGPA 3.3+ ([CSC guide](/guides/csc-scholarship/)).
-- **Language:** English-taught programmes need no HSK for admission. Chinese-taught degrees typically need HSK 5, sometimes HSK 6 ([HSK guide](/guides/hsk-exam-preparation/)). Exact level: {{VERIFY}}.
 - **MBBS:** HSK 4 is required before clinical rotations, per the [MBBS guide](/guides/mbbs-in-china/).
 - **Study plan:** for postgraduate entry, the study plan matters as much as marks.
-- **Documents:** full list {{VERIFY}}. The [document checklist](/tools/document-checklist/) builds the general list.
 
 ## Costs
 
@@ -77,11 +87,6 @@ Figures are per year unless stated.
 
 | Item | Estimate |
 | --- | --- |
-| Tuition | {{VERIFY}} per year (typical). CSC covers 100% for winners. |
-| On-campus dorm | {{VERIFY}} per year |
-| Living in Shanghai | {{VERIFY}} per month |
-| Application fee | {{VERIFY}} |
-| Medical insurance | {{VERIFY}} |
 
 A full CSC award covers tuition, dorm and most living costs. Use the [cost calculator](/tools/cost-calculator/) for a personal estimate.
 
@@ -89,8 +94,6 @@ A full CSC award covers tuition, dorm and most living costs. Use the [cost calcu
 
 | Intake | Start | Application window | Deadline |
 | --- | --- | --- | --- |
-| September (main) | September | {{VERIFY}} | {{VERIFY}} |
-| Some programmes | March | {{VERIFY}} | {{VERIFY}} |
 
 September is the main intake, and some programmes take March entry. Confirm each window with the university before you plan a file.
 
@@ -102,9 +105,7 @@ Fudan's Handan Road campus sits in Yangpu district, a student quarter of Shangha
 
 1. Shortlist programmes against the admissions checks above.
 2. Confirm the language level for your programme.
-3. For CSC funding, read the [CSC guide](/guides/csc-scholarship/). Fudan's CSC route by type: {{VERIFY}}.
 4. Prepare documents with the [document checklist](/tools/document-checklist/).
-5. Submit before the deadline: {{VERIFY}} date.
 6. After an offer, the Admission Notice and JW202 start the [student visa](/guides/china-student-visa/) process.
 
 ## Realistic odds
@@ -139,7 +140,6 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
-The CSC is the main funding route for winners, who receive 100% coverage. Fudan's CSC route by type and any university or provincial awards: {{VERIFY}}.
 
 ## Timeline
 

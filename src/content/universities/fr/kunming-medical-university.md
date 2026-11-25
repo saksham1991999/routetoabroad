@@ -39,7 +39,7 @@ facts:
   - label: 'Climat'
     value: 'Doux toute l''année (« Cité du Printemps »)'
 recognitions:
-  - 'Inscrite au MOE (vérifier l''admission en cours)'
+  - 'Inscrite au MOE'
   - 'Inscrite à la WDOMS'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'Septembre (rentrée principale du MBBS)'
@@ -52,7 +52,7 @@ faqs:
   - question: 'La Kunming Medical University est-elle un bon choix pour les étudiants internationaux à petit budget ?'
     answer: 'Oui. La KMU propose l''un des MBBS en anglais inscrits au MOE les plus rentables de Chine, avec des frais de scolarité et de résidence annuels souvent inférieurs à US$5,500.'
   - question: 'Les diplômés MBBS de la KMU peuvent-ils obtenir une licence médicale dans leur pays ?'
-    answer: 'La KMU figure à la WDOMS et sur la liste du MOE (vérifier le statut d''admission de l''année en cours). L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et à d''autres examens de licence dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
+    answer: 'La KMU figure à la WDOMS et sur la liste du MOE. L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et à d''autres examens de licence dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
   - question: 'À quelle distance Kunming se trouve-t-elle des grands hubs aériens internationaux ?'
     answer: 'L''aéroport international de Kunming Changshui propose des liaisons directes ou avec escale vers l''Asie du Sud, l''Asie du Sud-Est et le Moyen-Orient, ainsi que des vols intérieurs fréquents vers Pékin, Shanghai et Canton.'
 order: 9

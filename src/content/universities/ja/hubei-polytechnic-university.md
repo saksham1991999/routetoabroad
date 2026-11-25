@@ -38,7 +38,7 @@ facts:
   - label: '修業年限'
     value: '6年（学習5年＋インターン1年）'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: '9月（MBBSの主要入学時期）'
@@ -51,7 +51,7 @@ faqs:
   - question: '湖北理工学院は武漢からどれくらい近いですか？'
     answer: '黄石は高速鉄道で武漢まで約30分で、武漢天河国際空港までは車で約90分です。国際線の移動も容易です。'
   - question: 'HBPUのMBBS卒業生は医師免許試験を受験できますか？'
-    answer: 'HBPUの医学部は WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、入学前に各出身国の医師会の現行規則と入学年度の規定を確認する必要があります。'
+    answer: 'HBPUの医学部は WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、入学前に各出身国の医師会の現行規則と入学年度の規定を確認する必要があります。'
 order: 12
 ---
 

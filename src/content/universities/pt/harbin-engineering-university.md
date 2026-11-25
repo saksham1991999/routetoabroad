@@ -16,7 +16,7 @@ strengths:
   - title: 'Laboratórios de Marinha e Computação de nível mundial'
     text: 'Classificada entre o topo global em Engenharia Marítima e Oceânica, Automação, Robótica e Ciência da Computação.'
   - title: 'Forte cota de bolsas CSC'
-    text: 'Universidade anfitriã da CSC para programas de mestrado e doutorado ministrados em inglês; as bolsas integrais cobrem mensalidade, dormitório e uma bolsa mensal de subsistência para os bolsistas selecionados.'
+    text: 'Universidade anfitriã da CSC para programas de mestrado e doutorado ministrados em inglês; as bolsas podem cobrir mensalidade, dormitório e uma bolsa mensal de subsistência para os bolsistas selecionados, conforme o tipo de bolsa.'
   - title: 'Cidade de pesquisa no norte, com baixo custo'
     text: 'Harbin combina arquitetura de influência europeia e uma famosa cultura de inverno com custos de moradia fora do campus e no dormitório muito acessíveis.'
 programmes:
@@ -26,7 +26,7 @@ programmes:
   - 'Ciência Nuclear e Engenharia de Energia'
   - 'Administração e Negócios Internacionais (em inglês)'
 costs:
-  tuition: 'RMB 20,000–32,000/ano (~US$2,800–4,450/ano); 100% coberto apenas para bolsistas CSC selecionados'
+  tuition: 'RMB 20,000–32,000/ano (~US$2,800–4,450/ano); pode ser coberto para bolsistas CSC selecionados, conforme o tipo de bolsa'
   dorm: 'RMB 5,000–8,000/ano (~US$700–1,100/ano) no campus'
   living: 'US$220–350/mês em Harbin'
 facts:
@@ -59,4 +59,4 @@ order: 17
 
 A Harbin Engineering University, fundada em 1953, é uma universidade técnica nacional do Projeto 211 e do Duplo Primeiro Nível, no nordeste da China. Conhecida por sua arquitetura histórica sino-russa e por seus laboratórios estaduais-chave, a HEU é um destino importante para engenheiros e pesquisadores internacionais que buscam pós-graduação em inglês e bolsas CSC.
 
-**Para quem indicamos:** candidatos internacionais de engenharia e ciência da computação, especialmente candidatos a mestrado e doutorado que visam bolsas integrais CSC em IA, Robótica, Engenharia Marítima e sistemas mecânicos.
+**Para quem indicamos:** candidatos internacionais de engenharia e ciência da computação, especialmente candidatos a mestrado e doutorado que visam bolsas CSC em IA, Robótica, Engenharia Marítima e sistemas mecânicos.

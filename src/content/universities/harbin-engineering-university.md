@@ -16,7 +16,7 @@ strengths:
   - title: 'World-class Marine & CS labs'
     text: 'Ranked among the global top tier in Marine & Ocean Engineering, Automation, Robotics, and Computer Science.'
   - title: 'Strong CSC scholarship quota'
-    text: 'CSC host university for English-taught master''s and PhD programmes; full awards cover tuition, dormitory, and a monthly living stipend for successful scholarship award recipients.'
+    text: 'CSC host university for English-taught master''s and PhD programmes; awards may cover tuition, dormitory, and a monthly living stipend, depending on the award type.'
   - title: 'Low-cost northern research city'
     text: 'Harbin combines European-influenced architecture and famous winter culture with very affordable off-campus and dormitory living costs.'
 programmes:
@@ -26,7 +26,7 @@ programmes:
   - 'Nuclear Science & Energy Engineering'
   - 'International Business & Management (English-taught)'
 costs:
-  tuition: 'RMB 20,000–32,000/yr (~US$2,800–4,450/yr); 100% covered only for successful CSC scholarship award recipients'
+  tuition: 'RMB 20,000–32,000/yr (~US$2,800–4,450/yr); may be covered for successful CSC scholarship recipients, depending on award type'
   dorm: 'RMB 5,000–8,000/yr (~US$700–1,100/yr) on campus'
   living: 'US$220–350/month in Harbin'
 facts:
@@ -44,7 +44,7 @@ recognitions:
   - 'CSC Designated'
   - 'Washington Accord (Engineering)'
 intakes: 'September (main intake; CSC deadlines typically Jan–Mar)'
-scholarships: 'CSC Type A/B Full Scholarships, Heilongjiang Government Scholarship, and HEU Graduate Research Fellowships'
+scholarships: 'CSC Type A/B scholarships, Heilongjiang Government Scholarship, and HEU Graduate Research Fellowships'
 taughtLanguages:
   - 'English'
   - 'Chinese'
@@ -59,4 +59,4 @@ order: 17
 
 Harbin Engineering University, founded in 1953, is a national Project 211 and Double First-Class technical university in northeast China. Known for its historic Russian-Chinese campus architecture and state-key laboratories, HEU is a premier destination for international engineers and researchers seeking English-taught postgraduate degrees and CSC scholarships.
 
-**Who we place here:** international engineering and computer science applicants — especially master's and PhD candidates targeting CSC full scholarships in AI, Robotics, Marine Engineering, and Mechanical systems.
+**Who we place here:** international engineering and computer science applicants — especially master's and PhD candidates targeting CSC scholarships in AI, Robotics, Marine Engineering, and Mechanical systems.

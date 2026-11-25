@@ -16,7 +16,7 @@ strengths:
   - title: '„Kleine UNO“-Campus'
     text: 'Über 150 Nationalitäten studieren im Universitätsviertel Wudaokou im Bezirk Haidian Seite an Seite und bilden eine außergewöhnlich vielfältige internationale Gemeinschaft.'
   - title: 'Flexible Kurz- und Studiengänge'
-    text: 'Angebot an 1-Semester-, 1-Jahres- und 4-jährigen BA-Programmen in Chinesischer Sprache, Business Chinese, Übersetzung und Internationaler Politik.'
+    text: 'Angebot an 1-Semester- und 1-Jahres-Programmen sowie 4-jährigen BA-Programmen in Chinesischer Sprache, Business Chinese, Übersetzung und Internationaler Politik.'
   - title: 'Lage im Herzen von Haidian'
     text: 'Direkt neben der Tsinghua University und mit kurzer U-Bahn-Fahrt zur Peking-Universität im Wudaokou-Viertel gelegen. Ideal als Vorbereitungsjahr vor chinesischsprachigen Studiengängen.'
 programmes:

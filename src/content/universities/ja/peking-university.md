@@ -27,9 +27,9 @@ programmes:
   - 'MBBS（教育部リスト掲載・英語開講、定員少数）'
   - '博士課程（CSC支援、指導教員制）'
 costs:
-  tuition: '一般的に {{VERIFY}}/年。CSC奨学金の採用者は100%給付'
-  dorm: '学内寮 {{VERIFY}}/年'
-  living: '北京（海淀）の生活費 {{VERIFY}}/月'
+  tuition: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current tuition figure
+  dorm: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current dorm figure
+  living: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current living figure
 facts:
   - label: '都市'
     value: '北京（海淀区）'
@@ -43,6 +43,10 @@ faqs:
   - question: '北京大学はCSC奨学金を提供していますか？'
     answer: 'はい。北京大学はCSCのA類・B類いずれの出願にも対応する指定校です。さらに大学独自の奨学金（一部の修士プログラム対象の燕京奨学金など）もあります。'
 order: 1
+verify:
+  - "Removed until confirmed: cost tuition '一般的に US$5,000–10,000/年。CSC奨学金の採用者は100%給付'"
+  - "Removed until confirmed: cost dorm '学内寮 US$1,200–2,400/年'"
+  - "Removed until confirmed: cost living '北京（海淀）の生活費 US$500–850/月'"
 ---
 
 北京大学（北大）は北京北西部の学術地区・海淀の中心に位置します。留学生には、経済・政策・中国研究分野で中国最深級の英語開講修士プログラムと、理学系の研究型博士課程を提供しています。キャンパスライフは未名湖と周囲の旧皇室庭園を中心に展開します。

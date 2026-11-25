@@ -27,9 +27,9 @@ programmes:
   - 'MBA（安泰学院，英文授课）'
   - '材料科学（研究型方向）'
 costs:
-  tuition: '通常每年 {{VERIFY}}；CSC获奖者可获全额资助'
+  tuition: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current tuition figure
   dorm: '校内住宿每年 US$1,000–1,800'
-  living: '在上海每月 {{VERIFY}}'
+  living: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current living figure
 facts:
   - label: '城市'
     value: '上海（闵行与黄埔校区）'
@@ -43,6 +43,9 @@ faqs:
   - question: '工程方面上交大和复旦哪个更好？'
     answer: '上交大。复旦在人文/商科领先；上交大在工程与临床医学领先。两者都是上海排名前五的综合性学府。'
 order: 5
+verify:
+  - "Removed until confirmed: cost tuition '通常每年 US$4,000–9,000；CSC获奖者可获全额资助'"
+  - "Removed until confirmed: cost living '在上海每月 US$550–900'"
 ---
 
 上海交通大学拥有绿地环绕的闵行主校区，以及市中心的多个历史校区。其校友名单宛如中国现代工业名人录：江泽民、钱学森（中国航天之父），以及造船、汽车与半导体领域的众多创业者。对国际学生而言，这里既有上海的城市优势，又有工程至上的文化。

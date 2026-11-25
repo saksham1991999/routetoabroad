@@ -38,7 +38,7 @@ facts:
   - label: 'Coût de la vie'
     value: 'Parmi les plus bas de Chine'
 recognitions:
-  - 'Inscrite au MOE (vérifier l''admission en cours)'
+  - 'Inscrite au MOE'
   - 'Inscrite à la WDOMS'
 intakes: 'Septembre (principale), mars (certains parcours non médicaux et de langue)'
 scholarships: 'Bourse du gouvernement provincial du Hubei et prix d''excellence de la Yangtze University'

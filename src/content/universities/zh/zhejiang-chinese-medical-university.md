@@ -38,7 +38,7 @@ facts:
   - label: '最近枢纽'
     value: '乘火车45分钟到上海'
 recognitions:
-  - '教育部备案（请核实当前招生情况）'
+  - '教育部备案'
   - 'WDOMS收录'
 intakes: '9月（主要）、3月（部分语言/中医药方向）'
 scholarships: '浙江省政府奖学金及ZCMU国际学生奖学金'
