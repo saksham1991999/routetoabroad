@@ -54,8 +54,7 @@ faqs:
     answer: 'La ZZU figure à la WDOMS et sur la liste du MOE. L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et aux autres examens nationaux de licence médicale dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
 order: 10
 verify:
-  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
-  - "Removed until confirmed: answer: 'La ZZU figure à la WDOMS et sur la liste du MOE (vérifier le statut d''admission de l''année en cours). L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et aux autres examens nationaux de licence médicale dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 La Zhengzhou University est l'université polyvalente phare de la province du Henan et une institution nationale Double Premier Rang. Située au carrefour du réseau ferroviaire à grande vitesse du centre de la Chine, la ZZU associe une échelle hospitalière de premier plan pour les étudiants en MBBS à des diplômes d'ingénierie, d'informatique et de MBA enseignés en anglais, à une fraction du coût de la vie du littoral.

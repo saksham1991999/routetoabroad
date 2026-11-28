@@ -55,9 +55,8 @@ faqs:
     answer: 'Todas las ciencias médicas básicas se imparten en inglés, pero los estudiantes cursan clases obligatorias de mandarín en los años 1 a 4 para poder comunicarse con los pacientes durante las rotaciones clínicas y alcanzar el referente de HSK 4 para la graduación.'
 order: 6
 verify:
-  - "Removed until confirmed: - title: 'Más de 20 hospitales docentes afiliados'"
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'La NMU figura en el Directorio Mundial de Escuelas de Medicina (WDOMS) y en la lista del Ministerio de Educación (MOE) de China de instituciones con MBBS en inglés (verifique el estado de la convocatoria del año en curso). La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB, AMC o el NMC FMGE/NExT de la India depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: affiliated teaching hospital count ('20+ affiliated teaching hospitals')"
 ---
 
 Nankín es una de las universidades médicas independientes más antiguas y respetadas de China, fundada en 1934 y situada de forma constante entre las principales instituciones médicas de la provincia de Jiangsu. Para estudiantes internacionales del sur de Asia, África, Oriente Medio y el sudeste asiático, la NMU ofrece un programa de MBBS en inglés disciplinado e integrado en el hospital, sin el precio de las escuelas médicas privadas.

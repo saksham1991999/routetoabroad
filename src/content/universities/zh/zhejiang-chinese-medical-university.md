@@ -53,7 +53,7 @@ faqs:
     answer: '杭州兼具沿海城市的医院设施与安全性，且住房和餐饮成本低于上海，并拥有热情友好的国际社群。'
 order: 8
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 浙江中医药大学位于浙江省省会杭州，既向国际学生开放英文授课的西医MBBS项目，也面向其享誉国际的中医药和针灸学院。其附属医院是华东地区最繁忙的综合医学中心之一。

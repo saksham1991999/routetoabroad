@@ -41,7 +41,7 @@ faqs:
   - question: 'How hard is admission to Peking University as an international student?'
     answer: 'Very. Undergraduate admission is exam/interview based with tiny quotas; master''s and PhD entry is realistic for strong profiles, especially with a compelling study plan and, for research degrees, prior supervisor contact.'
   - question: 'Does Peking University offer CSC scholarships?'
-    answer: 'Yes, Peking is a CSC-designated university for both Type A and Type B applications, plus university-run scholarships (Yenching for select master''s programmes among others).'
+    answer: 'Peking accepts CSC Type A and Type B applications alongside university-run awards; confirm current programme eligibility with the university.'
   - question: 'How do I apply for a CSC scholarship through Peking?'
     answer: 'Type B applications go direct to the university, which forwards your file if it wants you. Type A runs through your home government. Read the CSC guide at /guides/csc-scholarship/ before you file.'
 order: 1
@@ -60,7 +60,7 @@ verify:
   - "Removed until confirmed: | September (main) | September | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: | Some programmes | March | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: 5. Submit before the deadline: {{VERIFY}} date."
-  - "Removed until confirmed: Peking is a CSC-designated university for both Type A and Type B applications. University-run scholarships include Yenching for select master's programmes, among others. Current eligibility for each a"
+  - "Pending confirmation: current CSC Type A/B designation and university-run scholarship eligibility/amounts (Yenching and others)"
   - "Removed until confirmed: cost tuition 'US$5,000–10,000/yr typical; CSC covers 100% for winners'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,400/yr on campus'"
   - "Removed until confirmed: cost living 'US$500–850/month in Beijing (Haidian)'"
@@ -99,7 +99,7 @@ Peking sits in Haidian, the academic district of northwest Beijing. Campus life 
 
 1. Shortlist programmes against the admissions checks above.
 2. Confirm the language level for each programme.
-3. For CSC funding, pick Type A (through your home government) or Type B (direct to the university). Peking is CSC-designated for both.
+3. For CSC funding, pick Type A (through your home government) or Type B (direct to the university), and confirm current programme eligibility with Peking.
 4. Prepare documents with the [document checklist](/tools/document-checklist/).
 6. After an offer, the Admission Notice and JW202 start the [student visa](/guides/china-student-visa/) process.
 
@@ -135,7 +135,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
-Peking is a CSC-designated university for both Type A and Type B applications. Read the [CSC guide](/guides/csc-scholarship/) for application routes, and confirm current university or provincial awards directly with Peking.
+Read the [CSC guide](/guides/csc-scholarship/) for application routes, and confirm current university or provincial awards directly with Peking.
 
 ## Timeline
 

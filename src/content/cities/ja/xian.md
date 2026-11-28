@@ -32,7 +32,7 @@ faqs:
     answer: '西安は中国で最も古い回族コミュニティのひとつを持っています。ハラールのレストラン、食料品店、大学のハラール食堂が市内に広く分布しています。'
 order: 5
 verify:
-  - "Removed until confirmed: answer: 'はい。西安交通大学は C9 の最上位大学で、英語開講の MBBS（入学年度の MOE 掲載状況は要確認）と工学課程を提供しています。月 US$320–580 の生活費は、沿岸の一線都市よりかなり低くなっています。'"
+  - "Pending confirmation: current-year MOE listing status for Xi'an Jiaotong University's English-medium MBBS intake"
 ---
 
 西安は、長安という名で13の王朝の都でした。その規模感を、この街は今も無理なく保っています。明代の城壁の内側では広い大通りと静かな中庭の路地が交わり、外側では高速鉄道が西安と北京を4時間、成都を3時間で結んでいます。学生には C9 の研究の名声と内陸部の手頃さを、旅行者には上海と北京の歴史的な対極を提供します。

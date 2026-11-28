@@ -55,9 +55,8 @@ faqs:
     answer: 'Alle medizinischen Kernfächer werden auf Englisch unterrichtet. Die Studierenden besuchen jedoch in den Jahren 1 bis 4 verpflichtende Mandarin-Kurse, damit sie während der klinischen Rotationen mit Patientinnen und Patienten kommunizieren und den HSK-4-Richtwert für den Abschluss erreichen können.'
 order: 6
 verify:
-  - "Removed until confirmed: - title: '20+ angeschlossene Lehrkrankenhäuser'"
-  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
-  - "Removed until confirmed: answer: 'Die NMU ist im World Directory of Medical Schools (WDOMS) und auf der Liste des chinesischen Bildungsministeriums (MOE) der englischsprachigen MBBS-Einrichtungen geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu Prüfungen wie ECFMG/USMLE, GMC/PLAB, AMC oder NMC FMGE/NExT Indiens hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: affiliated teaching hospital count ('20+ affiliated teaching hospitals')"
 ---
 
 Die Nanjing Medical University ist eine der ältesten und angesehensten unabhängigen Medizinuniversitäten Chinas. Sie wurde 1934 gegründet und zählt in der Provinz Jiangsu durchgehend zu den führenden medizinischen Einrichtungen. Für internationale Studierende aus Südasien, Afrika, dem Nahen Osten und Südostasien bietet die NMU ein diszipliniertes, in die Krankenhäuser integriertes englischsprachiges MBBS, ohne den Preis privater Medizinhochschulen.

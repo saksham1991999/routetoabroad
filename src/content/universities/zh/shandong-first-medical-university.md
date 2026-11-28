@@ -56,9 +56,7 @@ faqs:
     answer: 'SDFMU被列入WDOMS及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
 order: 14
 verify:
-  - "Removed until confirmed: dorm: '校内住宿每年 RMB 4,000–6,500（约 {{VERIFY}}）'"
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: 'SDFMU被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
   - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 

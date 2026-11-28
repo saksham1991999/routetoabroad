@@ -55,8 +55,8 @@ faqs:
     answer: '长沙以充满活力的青年文化、实惠的湖南美食以及便捷的地铁和高铁而闻名全国。'
 order: 13
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: '长沙医学院被列入世界医学院校名录（WDOMS）及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB及印度NMC FMGE/NExT等国际执业路径，取决于申请人所在国医学委员会的现行规定与入学年度规定。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student enrolment scale fact row"
 ---
 
 长沙医学院位于长沙望城区，是培养临床医生、牙医、护士和药师的专业医学院校。其英文授课的MBBS项目已成为国际学生在中国中南部寻求专业医学校园时的稳定选择。

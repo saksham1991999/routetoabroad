@@ -32,7 +32,7 @@ faqs:
     answer: 'Xi''an compte l''une des plus anciennes communautés musulmanes hui de Chine. Restaurants halal, épiceries et cantines halal universitaires sont très répandus dans la ville.'
 order: 5
 verify:
-  - "Removed until confirmed: answer: 'Oui. L''université Jiaotong de Xi''an est une université de premier plan du C9 qui propose un MBBS enseigné en anglais (vérifier l''inscription au MOE de l''année en cours pour votre rentrée) et des filières d''ingénierie. Les coûts de la vie de US$320–580/mois sont nettement inférieurs à ceux des villes côtières de premier rang.'"
+  - "Pending confirmation: current-year MOE listing status for Xi'an Jiaotong University's English-medium MBBS intake"
 ---
 
 Xi'an a été la capitale de treize dynasties sous le nom de Chang'an, et la ville porte encore cette envergure avec aisance. À l'intérieur des remparts de l'époque Ming, de larges avenues rencontrent des ruelles de cours paisibles ; à l'extérieur, le TGV relie Xi'an à Pékin en quatre heures et à Chengdu en trois. Pour les étudiants, elle associe le prestige de recherche du C9 à une vie abordable à l'intérieur des terres ; pour les voyageurs, elle constitue le contrepoids historique indispensable à Shanghai et Pékin.

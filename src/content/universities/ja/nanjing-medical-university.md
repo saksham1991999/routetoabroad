@@ -55,10 +55,8 @@ faqs:
     answer: '医学の中核科目はすべて英語で教えられますが、1～4年次に必修の中国語の授業があります。これは、臨床ローテーション中に患者と意思疎通するため、また卒業基準の HSK 4 を満たすためです。'
 order: 6
 verify:
-  - "Removed until confirmed: text: 'WDOMS と中国の MOE 英語開講 MBBS 一覧に掲載されています。卒業生は ECFMG/USMLE（米国）、GMC/PLAB（英国）、AMC（豪州）、NMC FMGE/NExT（インド）などの試験を、各医師会の現行規則に従って受験できます。'"
-  - "Removed until confirmed: - title: '20以上の附属教育病院'"
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'NMUは世界医学校名簿（WDOMS）と中国教育部（MOE）の英語開講 MBBS 機関の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、AMC、インドの NMC FMGE/NExT などの試験の受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: affiliated teaching hospital count ('20+ affiliated teaching hospitals')"
 ---
 
 南京医科大学は、1934年に創立された中国で最も古く、最も評価の高い独立系医科大学のひとつで、江蘇省の医学機関の上位に常に位置付けられています。南アジア、アフリカ、中東、東南アジアからの留学生に対し、私立医科大学の価格を伴わない、規律ある病院統合型の英語 MBBS 課程を提供しています。

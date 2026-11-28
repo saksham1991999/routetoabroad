@@ -53,7 +53,7 @@ faqs:
     answer: 'Ja. Neben MBBS bietet die Yangtze University englischsprachige Bachelor- und Masterprogramme in Informatik, KI, Erdölingenieurwesen und Betriebswirtschaft an.'
 order: 11
 verify:
-  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Die Yangtze University liegt in der historischen Stadt Jingzhou am Jangtsekiang in der Provinz Hubei. Sie ist eine umfassende Provinzuniversität, die aus vier spezialisierten Hochschulen hervorgegangen ist. Für internationale Studierende bietet sie einen praktischen, preisgünstigen Weg zu englischsprachigem MBBS, Informatik und Ingenieurstudiengängen.

@@ -55,8 +55,8 @@ faqs:
     answer: 'Changsha ist in ganz China für seine lebhafte Jugendkultur, die günstige Hunan-Küche und praktische U-Bahn- und Hochgeschwindigkeitsbahn-Verbindungen bekannt.'
 order: 13
 verify:
-  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
-  - "Removed until confirmed: answer: 'Die Changsha Medical University ist im World Directory of Medical Schools (WDOMS) und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu internationalen Lizenzwegen wie ECFMG/USMLE, GMC/PLAB und NMC FMGE/NExT hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student enrolment scale fact row"
 ---
 
 Die Changsha Medical University liegt im Bezirk Wangcheng in Changsha und bildet spezialisiert Ärztinnen und Ärzte, Zahnärztinnen und Zahnärzte, Pflegekräfte und Pharmazeutinnen und Pharmazeuten aus. Ihr englischsprachiges MBBS-Programm ist für internationale Studierende, die einen fokussierten Medizincampus im Süden Zentralchinas suchen, eine verlässliche Wahl.

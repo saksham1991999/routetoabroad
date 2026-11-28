@@ -55,8 +55,8 @@ faqs:
     answer: 'चांगशा पूरे चीन में अपनी ऊर्जावान युवा संस्कृति, किफ़ायती हुनान व्यंजनों और सुविधाजनक मेट्रो व हाई-स्पीड रेल संपर्क के लिए प्रसिद्ध है।'
 order: 13
 verify:
-  - "Removed until confirmed: - 'MOE-सूचीबद्ध (वर्तमान प्रवेश सत्यापित करें)'"
-  - "Removed until confirmed: answer: 'Changsha Medical University विश्व मेडिकल स्कूल निर्देशिका (WDOMS) और चीन की MOE सूची में है (वर्तमान वर्ष की प्रवेश स्थिति सत्यापित करें)। ECFMG/USMLE, GMC/PLAB और NMC FMGE/NExT जैसे अंतरराष्ट्रीय लाइसेंसिंग मार्गों की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student enrolment scale fact row"
 ---
 
 Changsha Medical University, चांगशा के वांगचेंग ज़िले में स्थित, क्लिनिशियन, दंत चिकित्सक, नर्स और फ़ार्मासिस्ट तैयार करने के लिए समर्पित एक विशेष चिकित्सा संस्थान है। इसका अंग्रेज़ी माध्यम MBBS कार्यक्रम दक्षिण-मध्य चीन में एक केंद्रित मेडिकल परिसर चाहने वाले अंतरराष्ट्रीय छात्रों के लिए एक स्थिर विकल्प बन गया है।

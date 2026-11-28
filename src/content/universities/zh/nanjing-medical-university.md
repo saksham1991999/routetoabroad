@@ -55,9 +55,8 @@ faqs:
     answer: '所有医学核心课程均以英文授课，但学生在第1至4学年需修读必修的普通话课程，以便在临床轮转中与患者沟通，并达到毕业所需的HSK 4标准。'
 order: 6
 verify:
-  - "Removed until confirmed: - title: '20+所附属教学医院'"
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: 'NMU被列入世界医学院校名录（WDOMS）及中国教育部英文授课MBBS院校名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、AMC或印度NMC FMGE/NExT等执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: affiliated teaching hospital count ('20+ affiliated teaching hospitals')"
 ---
 
 南京医科大学是中国最古老、最受尊重的独立医科大学之一，创办于1934年，常年位居江苏省顶尖医学机构之列。对于来自南亚、非洲、中东和东南亚的国际学生，南京医科大学提供严谨、与医院深度融合的英文授课MBBS项目，且无需支付私立医学院的高昂学费。

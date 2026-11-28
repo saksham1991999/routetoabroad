@@ -54,8 +54,7 @@ faqs:
     answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list. Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'
 order: 12
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Hubei Polytechnic University sits beside Cihu Lake in Huangshi, a green industrial and university city southeast of Wuhan. While originally rooted in engineering, its medical faculty has become a popular destination for international students seeking an affordable English-taught MBBS close to a major international airport hub.

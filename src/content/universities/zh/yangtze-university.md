@@ -53,7 +53,7 @@ faqs:
     answer: '是的。除MBBS外，长江大学还提供英文授课的计算机科学、人工智能、石油工程和商科本科及硕士项目。'
 order: 11
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 长江大学位于湖北省历史文化名城荆州，沿长江而建，是由四所专业学院组成的省属综合性大学。对国际学生而言，它是通往英文授课MBBS、计算机科学和工程学位的务实且经济的途径。

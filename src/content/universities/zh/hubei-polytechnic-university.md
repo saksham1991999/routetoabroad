@@ -54,8 +54,7 @@ faqs:
     answer: 'HBPU医学院被列入WDOMS，并在中国教育部名单中。报考ECFMG/USMLE、GMC/PLAB或NMC FMGE/NExT等执业考试，取决于申请人所在国医学委员会的现行规定与入学年度规定，请在入学前确认。'
 order: 12
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: 'HBPU医学院被列入WDOMS，并在中国教育部名单中（请核实当年招生情况）。报考ECFMG/USMLE、GMC/PLAB或NMC FMGE/NExT等执业考试，取决于申请人所在国医学委员会的现行规定与入学年度规定，请在入学前确认。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 湖北理工学院位于黄石市磁湖之滨，黄石是武汉东南方向一座绿色的工业与高校城市。该校起初以工程为根基，如今其医学院已成为国际学生寻求价格亲民、英文授课MBBS的热门选择，且靠近重要的国际航空枢纽。

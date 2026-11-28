@@ -56,9 +56,7 @@ faqs:
     answer: 'SDFMU WDOMS और चीन की MOE सूची में है। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'
 order: 14
 verify:
-  - "Removed until confirmed: dorm: 'कैंपस में RMB 4,000–6,500/वर्ष (~{{VERIFY}}/वर्ष)'"
-  - "Removed until confirmed: - 'MOE-सूचीबद्ध (वर्तमान प्रवेश सत्यापित करें)'"
-  - "Removed until confirmed: answer: 'SDFMU WDOMS और चीन की MOE सूची में है (वर्तमान वर्ष की प्रवेश स्थिति सत्यापित करें)। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'"
+  - "Pending confirmation: current-year intake status for MOE listing"
   - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 

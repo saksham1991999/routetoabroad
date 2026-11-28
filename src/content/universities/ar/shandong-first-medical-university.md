@@ -56,9 +56,7 @@ faqs:
     answer: 'SDFMU مدرجة في WDOMS وفي قائمة وزارة التعليم الصينية. تعتمد الأهلية لـ ECFMG/USMLE وGMC/PLAB وNMC FMGE/NExT وغيرها من امتحانات الترخيص الوطنية على القواعد الحالية لمجلس الطب في بلد المنشأ وأنظمة سنة القبول.'
 order: 14
 verify:
-  - "Removed until confirmed: dorm: 'RMB 4,000–6,500 سنويًا (حوالي {{VERIFY}} سنويًا) في السكن الجامعي'"
-  - "Removed until confirmed: - 'مدرجة في MOE (تحقق من القبول الحالي)'"
-  - "Removed until confirmed: answer: 'SDFMU مدرجة في WDOMS وفي قائمة وزارة التعليم الصينية (تحقق من حالة القبول للعام الحالي). تعتمد الأهلية لـ ECFMG/USMLE وGMC/PLAB وNMC FMGE/NExT وغيرها من امتحانات الترخيص الوطنية على القواعد الحالية لمجلس الطب في بلد المنشأ وأنظمة سنة القبول.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
   - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 

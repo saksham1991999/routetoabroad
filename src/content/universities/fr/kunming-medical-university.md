@@ -57,8 +57,8 @@ faqs:
     answer: 'L''aéroport international de Kunming Changshui propose des liaisons directes ou avec escale vers l''Asie du Sud, l''Asie du Sud-Est et le Moyen-Orient, ainsi que des vols intérieurs fréquents vers Pékin, Shanghai et Canton.'
 order: 9
 verify:
-  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
-  - "Removed until confirmed: answer: 'La KMU figure à la WDOMS et sur la liste du MOE (vérifier le statut d''admission de l''année en cours). L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et à d''autres examens de licence dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student nationality count fact row"
 ---
 
 La Kunming Medical University, fondée en 1933, structure l'enseignement médical du sud-ouest de la Chine depuis son campus moderne de la cité universitaire de Chenggong. Connue dans la région comme une destination accueillante et abordable pour le MBBS en anglais, la KMU associe un coût de la vie maîtrisé au plus grand réseau d'hôpitaux universitaires du Yunnan.

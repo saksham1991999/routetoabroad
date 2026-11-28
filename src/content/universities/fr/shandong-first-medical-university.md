@@ -56,9 +56,7 @@ faqs:
     answer: 'La SDFMU figure à la WDOMS et sur la liste du MOE. L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et à d''autres examens nationaux de licence dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'
 order: 14
 verify:
-  - "Removed until confirmed: dorm: 'RMB 4,000–6,500/an (environ {{VERIFY}}/an) sur le campus'"
-  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
-  - "Removed until confirmed: answer: 'La SDFMU figure à la WDOMS et sur la liste du MOE (vérifier le statut d''admission de l''année en cours). L''éligibilité à l''ECFMG/USMLE, au GMC/PLAB, au NMC FMGE/NExT et à d''autres examens nationaux de licence dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
   - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 

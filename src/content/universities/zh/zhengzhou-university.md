@@ -54,8 +54,7 @@ faqs:
     answer: '郑州大学被列入WDOMS及中国教育部名单。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家医师执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'
 order: 10
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: '郑州大学被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他国家医师执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 郑州大学是河南省的旗舰综合性大学，也是国家"双一流"高校。学校位于中国中部高铁交汇的要冲，为MBBS学生提供一流的医院规模，同时以远低于沿海的生活成本提供英文授课的工程、计算机和MBA学位。

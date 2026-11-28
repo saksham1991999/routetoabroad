@@ -57,8 +57,8 @@ faqs:
     answer: '昆明长水国际机场有直达或经停的航线通往南亚、东南亚和中东，并有频繁的国内航班飞往北京、上海和广州。'
 order: 9
 verify:
-  - "Removed until confirmed: - '教育部备案（请核实当前招生情况）'"
-  - "Removed until confirmed: answer: 'KMU被列入WDOMS及中国教育部名单（请核实当年招生情况）。是否有资格报考ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT及其他执照考试，取决于申请人所在国医学委员会的现行规定与入学年度规定。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student nationality count fact row"
 ---
 
 昆明医科大学创办于1933年，从呈贡大学城的现代化校园出发，为中国西南地区的医学教育提供支撑。学校以热情友好、价格亲民的英文授课MBBS项目闻名区域内，将务实的生活成本与云南规模最大的附属医院网络结合在一起。

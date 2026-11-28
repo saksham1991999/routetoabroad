@@ -56,9 +56,7 @@ faqs:
     answer: 'SDFMUは WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
 order: 14
 verify:
-  - "Removed until confirmed: dorm: '学内寮 人民元 4,000–6,500/年（約 {{VERIFY}}/年）'"
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'SDFMUは WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
   - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 

@@ -60,7 +60,7 @@ verify:
   - "Removed until confirmed: | September (main) | September | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: | Other intakes | {{VERIFY}} | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: 5. Submit before the deadline: {{VERIFY}} date."
-  - "Removed until confirmed: Tsinghua offers CSC Type A and Type B routes, university presidential awards, and departmental assistantships for research degrees. Current eligibility and amounts for each award: {{VERIFY}}."
+  - "Pending confirmation: current eligibility and award amounts for CSC Type A/B, presidential awards, and departmental assistantships"
   - "Removed until confirmed: cost tuition 'US$5,000–10,000/yr typical; CSC covers 100% for winners'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,000/yr on campus'"
   - "Removed until confirmed: cost living 'US$500–850/month in Beijing (Haidian)'"
@@ -133,7 +133,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
-Tsinghua offers CSC Type A and Type B routes, university awards and departmental assistantships for research degrees. Read the [CSC guide](/guides/csc-scholarship/) and confirm current eligibility and amounts directly with Tsinghua.
+Read the [CSC guide](/guides/csc-scholarship/) for application routes, and confirm current university awards and departmental assistantships directly with Tsinghua.
 
 ## Timeline
 

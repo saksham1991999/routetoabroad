@@ -53,7 +53,7 @@ faqs:
     answer: '杭州は沿岸都市並みの病院インフラと安全性を備え、上海より住居費と食費が低く、留学生コミュニティも温かく迎えてくれます。'
 order: 8
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 浙江中医薬大学は浙江省の省都・杭州にあり、英語で行う西洋医学の MBBS 課程と、国際的に知られる中医学・鍼灸の学部の両方に留学生を迎えています。附属病院は、華東地域で最も忙しい統合医療センターの一部に数えられています。

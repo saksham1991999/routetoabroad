@@ -54,8 +54,7 @@ faqs:
     answer: 'La faculté de médecine de la HBPU figure à la WDOMS et sur la liste du MOE. L''éligibilité aux examens de licence tels que ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission, à vérifier avant l''inscription.'
 order: 12
 verify:
-  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
-  - "Removed until confirmed: answer: 'La faculté de médecine de la HBPU figure à la WDOMS et sur la liste du MOE (vérifier le statut d''admission de l''année en cours). L''éligibilité aux examens de licence tels que ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission, à vérifier avant l''inscription.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 La Hubei Polytechnic University est située au bord du lac Cihu, à Huangshi, ville industrielle et universitaire verdoyante au sud-est de Wuhan. Ancrée à l'origine dans l'ingénierie, sa faculté de médecine est devenue une destination prisée des étudiants internationaux qui cherchent un MBBS abordable enseigné en anglais, près d'un grand hub aéroportuaire international.

@@ -54,8 +54,7 @@ faqs:
     answer: 'ZZU は WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国家的な医師免許試験への受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'
 order: 10
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'ZZU は WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国家的な医師免許試験への受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 鄭州大学は河南省の旗艦総合大学で、国家の Double First-Class 機関です。中国の中部を走る高速鉄道の主要な交差点に位置し、MBBS 学生向けの大規模な病院の臨床規模と、沿岸都市の何分の一かの生活費で学べる英語開講の工学、コンピュータサイエンス、MBA の学位を組み合わせています。

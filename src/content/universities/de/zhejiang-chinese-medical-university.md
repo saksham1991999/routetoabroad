@@ -53,7 +53,7 @@ faqs:
     answer: 'Hangzhou verbindet die Krankenhausinfrastruktur und Sicherheit einer Küstenstadt mit niedrigeren Wohn- und Lebensmittelkosten als Shanghai sowie einer einladenden internationalen Gemeinschaft.'
 order: 8
 verify:
-  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Die Zhejiang Chinese Medical University liegt in Hangzhou, der Hauptstadt der Provinz Zhejiang. Sie nimmt internationale Studierende sowohl in ihrem englischsprachigen westlichen MBBS-Programm als auch in ihren weltbekannten Schulen für Traditionelle Chinesische Medizin und Akupunktur auf. Ihre angeschlossenen Krankenhäuser gehören zu den betriebsamsten integrativen Medizinzentren Ostchinas.

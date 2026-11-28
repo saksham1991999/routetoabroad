@@ -53,7 +53,7 @@ faqs:
     answer: 'Yes. In addition to MBBS, Yangtze University offers English-taught undergraduate and master''s programmes in Computer Science, AI, Petroleum Engineering, and Business.'
 order: 11
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Located in the historic city of Jingzhou along the Yangtze River in Hubei Province, Yangtze University is a comprehensive provincial university formed from four specialized colleges. For international students, it provides a practical, budget-friendly gateway to English-taught MBBS, computer science, and engineering degrees.

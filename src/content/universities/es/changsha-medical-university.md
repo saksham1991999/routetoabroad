@@ -55,8 +55,8 @@ faqs:
     answer: 'Changsha es conocida en toda China por su cultura juvenil enérgica, su cocina de Hunán asequible y sus buenas conexiones de metro y tren de alta velocidad.'
 order: 13
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'La Universidad Médica de Changsha figura en el Directorio Mundial de Escuelas de Medicina (WDOMS) y en la lista del Ministerio de Educación de China (verifique el estado de la convocatoria del año en curso). La elegibilidad para vías de licencia internacionales como ECFMG/USMLE, GMC/PLAB y NMC FMGE/NExT depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: international student enrolment scale fact row"
 ---
 
 La Universidad Médica de Changsha, situada en el distrito de Wangcheng de Changsha, es una institución médica especializada que forma a clínicos, odontólogos, enfermeros y farmacéuticos. Su programa de MBBS en inglés se ha consolidado como una opción sólida para estudiantes internacionales que buscan un campus médico centrado en el centro-sur de China.

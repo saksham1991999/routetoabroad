@@ -54,8 +54,7 @@ faqs:
     answer: 'La facultad de medicina de la HBPU figura en la WDOMS y en la lista del Ministerio de Educación de China. La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB o NMC FMGE/NExT depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso, y debe comprobarse antes de matricularse.'
 order: 12
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'La facultad de medicina de la HBPU figura en la WDOMS y en la lista del Ministerio de Educación de China (verifique el estado de la convocatoria del año en curso). La elegibilidad para exámenes de licencia como ECFMG/USMLE, GMC/PLAB o NMC FMGE/NExT depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso, y debe comprobarse antes de matricularse.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 La Universidad Politécnica de Hubei se encuentra junto al lago Cihu, en Huangshi, una ciudad verde de industria y universidades al sureste de Wuhán. Aunque tuvo sus raíces en la ingeniería, su facultad de medicina se ha convertido en un destino popular para estudiantes internacionales que buscan un MBBS asequible impartido en inglés, cerca de un gran aeropuerto internacional.

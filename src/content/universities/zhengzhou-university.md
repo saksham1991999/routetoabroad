@@ -54,8 +54,7 @@ faqs:
     answer: 'ZZU is included in WDOMS and on China''s MOE list. Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 10
 verify:
-  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
-  - "Removed until confirmed: answer: 'ZZU is included in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'"
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Zhengzhou University is Henan Province's flagship comprehensive university and a national Double First-Class institution. Situated at China's central high-speed rail crossroads, ZZU combines top-tier hospital scale for MBBS students with English-taught engineering, computer science, and MBA degrees at a fraction of coastal living costs.
