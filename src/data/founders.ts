@@ -10,7 +10,7 @@ import type { ImageMetadata } from 'astro';
 import { LOCALES, type Locale } from '../lib/i18n';
 import { AUTHORS } from './authors';
 
-const minhajImg = (await import('../assets/founders/ceo_minhaj.png')).default;
+const minhajImg = (await import('../assets/founders/ceo_minhaj.jpg')).default;
 
 const POINTS = {
   minhaj: {

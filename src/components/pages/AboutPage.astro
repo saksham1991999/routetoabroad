@@ -129,7 +129,7 @@ const founderLead = AUTHORS.minhaj;
         {founders.map((f, i) => (
           <article class="member card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
             <div class="member-photo">
-              <Picture src={f.image} alt={t.team.portraitAlt.replace('{name}', f.name)} widths={[480, 800]} sizes="(max-width: 48rem) 100vw, 360px" formats={['avif', 'webp']} loading="lazy" />
+              <Picture src={f.image} alt={t.team.portraitAlt.replace('{name}', f.name)} widths={[480, 800]} sizes="(max-width: 48rem) min(100vw, 28rem), 20rem" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="member-body">
               <h3>{f.name}</h3>
