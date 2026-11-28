@@ -129,7 +129,7 @@ const founderLead = AUTHORS.minhaj;
         {founders.map((f, i) => (
           <article class="member card" data-reveal style={`--reveal-delay: ${i * 90}ms`}>
             <div class="member-photo">
-              <Picture src={f.image} alt={t.team.portraitAlt.replace('{name}', f.name)} widths={[480, 800]} sizes="(max-width: 64rem) 100vw, 50vw" formats={['avif', 'webp']} loading="lazy" />
+              <Picture src={f.image} alt={t.team.portraitAlt.replace('{name}', f.name)} widths={[480, 800]} sizes="(max-width: 48rem) min(100vw, 28rem), 20rem" formats={['avif', 'webp']} loading="lazy" />
             </div>
             <div class="member-body">
               <h3>{f.name}</h3>
@@ -264,18 +264,21 @@ const founderLead = AUTHORS.minhaj;
 
   .team-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 
   .member {
     overflow: hidden;
-    max-width: 44rem;
+    max-width: 52rem;
     margin-inline: auto;
+    display: grid;
+    grid-template-columns: minmax(16rem, 20rem) 1fr;
+    align-items: stretch;
   }
 
   .member-photo {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     background: var(--paper-sunken);
   }
@@ -289,7 +292,10 @@ const founderLead = AUTHORS.minhaj;
   }
 
   .member-body {
-    padding: 1.5rem 1.6rem 1.7rem;
+    padding: 1.75rem 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .member-body h3 {
@@ -352,6 +358,16 @@ const founderLead = AUTHORS.minhaj;
     }
     .nap {
       position: static;
+    }
+  }
+
+  @media (max-width: 48rem) {
+    .member {
+      grid-template-columns: 1fr;
+      max-width: 28rem;
+    }
+    .member-body {
+      padding: 1.5rem 1.6rem 1.7rem;
     }
   }
 </style>

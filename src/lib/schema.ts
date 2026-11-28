@@ -61,7 +61,7 @@ export function organizationSchema() {
       },
     ],
     sameAs: Object.values(SITE.socials),
-    founder: [AUTHORS.minhaj, AUTHORS.vijeesh].map((a) => ({
+    founder: [AUTHORS.minhaj].map((a) => ({
       '@type': 'Person',
       '@id': founderId(a.name),
       name: a.name,

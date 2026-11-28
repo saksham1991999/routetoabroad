@@ -142,8 +142,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'Leadership',
       index: '02 / 02',
-      title: 'The two names on the door',
-      lede: "A small senior team on purpose. Every file has a name attached, and it's one of these.",
+      title: 'The name on the door',
+      lede: 'Founder-led on purpose. Every file has a name attached, and accountability starts here.',
       portraitAlt: 'Portrait of {name}',
       notePre: "Student contributors write with us too — you'll find their bylines on the ",
       noteLink: 'insights page',
@@ -217,8 +217,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: '管理层',
       index: '02 / 02',
-      title: '门上写着的那两个名字',
-      lede: '我们刻意保持小而资深。每一份文件都有具体的负责人，就在这两位之中。',
+      title: '门上写着的名字',
+      lede: '我们刻意保持小而资深。每一份文件都有具体的负责人，责任直达创始人。',
       portraitAlt: '{name} 的肖像',
       notePre: '学生投稿人也与我们一同写作——你可以在 ',
       noteLink: '洞察页',
@@ -230,18 +230,18 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     meta: {
       title: 'À propos — Les visages derrière RouteToAbroad',
       description:
-        'RouteToAbroad opère depuis New Delhi et Canton : placement universitaire mené par les fondateurs, tourisme et services de commerce Inde–Chine. Rencontrez l’équipe et l’exigence de notre travail.',
+        'RouteToAbroad opère depuis New Delhi et Canton : placement universitaire mené par le fondateur, tourisme et services de commerce Inde–Chine. Rencontrez l’équipe et l’exigence de notre travail.',
     },
     crumb: 'À propos',
     hero: {
       eyebrow: 'À propos',
       index: 'ABT / 07',
       title: 'Nous ne connectons pas seulement des pays. Nous connectons des personnes.',
-      lede: 'Un conseil mené par ses fondateurs, qui travaille un seul corridor en profondeur — l’Inde et l’Asie de l’Est — avec des bureaux des deux côtés et quelque chose à perdre des deux côtés.',
+      lede: 'Un conseil mené par son fondateur, qui travaille un seul corridor en profondeur — l’Inde et l’Asie de l’Est — avec des bureaux des deux côtés et quelque chose à perdre des deux côtés.',
       facts: [
         { label: 'Bureaux', value: 'Delhi · Canton' },
         { label: 'Pratique', value: 'Études · Voyages · Commerce' },
-        { label: 'Équipe', value: 'Menée par les fondateurs' },
+        { label: 'Équipe', value: 'Menée par le fondateur' },
         { label: 'Standard', value: 'Sans raccourci' },
       ],
       actionTeam: 'Rencontrer l’équipe',
@@ -293,8 +293,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'Direction',
       index: '02 / 02',
-      title: 'Les deux noms sur la porte',
-      lede: 'Une petite équipe senior, c’est voulu. Chaque dossier porte un nom — et c’est l’un de ceux-là.',
+      title: 'Le nom sur la porte',
+      lede: 'Une équipe menée par son fondateur, c’est voulu. Chaque dossier porte un nom — et la responsabilité s’arrête ici.',
       portraitAlt: 'Portrait de {name}',
       notePre: 'Des étudiants contributeurs écrivent aussi avec nous — leurs signatures sont sur la ',
       noteLink: 'page analyses',
@@ -306,18 +306,18 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     meta: {
       title: 'من نحن — الأشخاص الذين يقفون خلف RouteToAbroad',
       description:
-        'تُدير RouteToAbroad أعمالها من نيودلهي وقوانغتشو: قبول جامعي بقيادة المؤسسين، وخدمات سياحة وتجارة بين الهند والصين. تعرّف على الفريق والمعيار الذي نعمل به.',
+        'تُدير RouteToAbroad أعمالها من نيودلهي وقوانغتشو: قبول جامعي بقيادة المؤسس، وخدمات سياحة وتجارة بين الهند والصين. تعرّف على الفريق والمعيار الذي نعمل به.',
     },
     crumb: 'من نحن',
     hero: {
       eyebrow: 'من نحن',
       index: 'ABT / 07',
       title: 'نحن لا نربط الدول فقط، بل نربط الناس.',
-      lede: 'شركة استشارات يقودها مؤسسوها، تعمل على ممر واحد بعمق — الهند وشرق آسيا — بمكتبين على الجانبين واهتمام حقيقي في كليهما.',
+      lede: 'شركة استشارات يقودها مؤسسها، تعمل على ممر واحد بعمق — الهند وشرق آسيا — بمكتبين على الجانبين واهتمام حقيقي في كليهما.',
       facts: [
         { label: 'المكاتب', value: 'دلهي · قوانغتشو' },
         { label: 'المجال', value: 'تعليم · سفر · تجارة' },
-        { label: 'الفريق', value: 'قيادة المؤسسين' },
+        { label: 'الفريق', value: 'قيادة المؤسس' },
         { label: 'المعيار', value: 'بلا اختصارات' },
       ],
       actionTeam: 'تعرّف على الفريق',
@@ -368,8 +368,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'القيادة',
       index: '02 / 02',
-      title: 'الاسمان على الباب',
-      lede: 'فريق صغير من الكفاءات العليا عن قصد. كل ملف يحمل اسمًا — وهو أحد هذين الاسمين.',
+      title: 'الاسم على الباب',
+      lede: 'فريق يقوده المؤسس عن قصد. كل ملف يحمل اسمًا — والمسؤولية تبدأ هنا.',
       portraitAlt: 'صورة {name}',
       notePre: 'طلاب مساهمون يكتبون معنا أيضًا — ستجد أسماءهم في ',
       noteLink: 'صفحة الرؤى',
@@ -381,18 +381,18 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     meta: {
       title: 'Nosotros — Las personas detrás de RouteToAbroad',
       description:
-        'RouteToAbroad opera desde Nueva Delhi y Cantón: colocación educativa liderada por sus fundadores, turismo y servicios de comercio India–China. Conoce al equipo y el estándar con el que trabajamos.',
+        'RouteToAbroad opera desde Nueva Delhi y Cantón: colocación educativa liderada por su fundador, turismo y servicios de comercio India–China. Conoce al equipo y el estándar con el que trabajamos.',
     },
     crumb: 'Nosotros',
     hero: {
       eyebrow: 'Nosotros',
       index: 'ABT / 07',
       title: 'No solo conectamos países. Conectamos personas.',
-      lede: 'Una consultoría liderada por sus fundadores que trabaja a fondo un solo corredor — India y Asia Oriental — con oficinas en ambos lados y algo que perder en ambos.',
+      lede: 'Una consultoría liderada por su fundador que trabaja a fondo un solo corredor — India y Asia Oriental — con oficinas en ambos lados y algo que perder en ambos.',
       facts: [
         { label: 'Oficinas', value: 'Delhi · Cantón' },
         { label: 'Práctica', value: 'Educación · Viajes · Comercio' },
-        { label: 'Equipo', value: 'Liderado por fundadores' },
+        { label: 'Equipo', value: 'Liderado por su fundador' },
         { label: 'Estándar', value: 'Sin atajos' },
       ],
       actionTeam: 'Conoce al equipo',
@@ -444,8 +444,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'Dirección',
       index: '02 / 02',
-      title: 'Los dos nombres en la puerta',
-      lede: 'Un equipo senior pequeño a propósito. Cada expediente lleva un nombre adjunto, y es uno de estos.',
+      title: 'El nombre en la puerta',
+      lede: 'Un equipo liderado por su fundador a propósito. Cada expediente lleva un nombre adjunto, y la responsabilidad empieza aquí.',
       portraitAlt: 'Retrato de {name}',
       notePre: 'Estudiantes colaboradores también escriben con nosotros — encontrarás sus firmas en la ',
       noteLink: 'página de análisis',
@@ -520,8 +520,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'Führung',
       index: '02 / 02',
-      title: 'Die zwei Namen auf dem Türschild',
-      lede: 'Ein kleines Senior-Team — mit Absicht. Jede Akte trägt einen Namen, und es ist einer von diesen.',
+      title: 'Der Name auf dem Türschild',
+      lede: 'Gründergeführt — mit Absicht. Jede Akte trägt einen Namen, und die Verantwortung beginnt hier.',
       portraitAlt: 'Porträt von {name}',
       notePre: 'Auch studierende Mitwirkende schreiben mit uns — ihre Signaturen finden Sie auf der ',
       noteLink: 'Einblicke-Seite',
@@ -595,8 +595,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: '経営陣',
       index: '02 / 02',
-      title: '扉に掲げられた二つの名前',
-      lede: 'あえて小さなシニアチームで運営しています。すべての案件に担当者の名前がつき、それはこの二人のうちの一人です。',
+      title: '扉に掲げられた名前',
+      lede: 'あえて創業者主導の体制で運営しています。すべての案件に担当者の名前がつき、責任の所在を明確にしています。',
       portraitAlt: '{name} のポートレート',
       notePre: '学生ライターも私たちと一緒に記事を書いています — 彼らの署名は ',
       noteLink: 'インサイトページ',
@@ -608,18 +608,18 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     meta: {
       title: 'Sobre nós — As pessoas por trás da RouteToAbroad',
       description:
-        'A RouteToAbroad opera de Nova Délhi e Guangzhou: colocação educacional liderada pelos fundadores, turismo e serviços de comércio entre Índia e China. Conheça a equipe e o padrão com que trabalhamos.',
+        'A RouteToAbroad opera de Nova Délhi e Guangzhou: colocação educacional liderada pelo fundador, turismo e serviços de comércio entre Índia e China. Conheça a equipe e o padrão com que trabalhamos.',
     },
     crumb: 'Sobre nós',
     hero: {
       eyebrow: 'Sobre nós',
       index: 'ABT / 07',
       title: 'Não conectamos apenas países. Conectamos pessoas.',
-      lede: 'Uma consultoria liderada pelos fundadores, que trabalha a fundo um único corredor — Índia e Ásia Oriental — com escritórios dos dois lados e algo a perder dos dois lados.',
+      lede: 'Uma consultoria liderada pelo fundador, que trabalha a fundo um único corredor — Índia e Ásia Oriental — com escritórios dos dois lados e algo a perder dos dois lados.',
       facts: [
         { label: 'Escritórios', value: 'Délhi · Guangzhou' },
         { label: 'Atuação', value: 'Educação · Viagens · Comércio' },
-        { label: 'Equipe', value: 'Liderada pelos fundadores' },
+        { label: 'Equipe', value: 'Liderada pelo fundador' },
         { label: 'Padrão', value: 'Sem atalhos' },
       ],
       actionTeam: 'Conheça a equipe',
@@ -671,8 +671,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'Liderança',
       index: '02 / 02',
-      title: 'Os dois nomes na porta',
-      lede: 'Uma equipe sênior pequena de propósito. Cada processo tem um nome anexado, e é um destes.',
+      title: 'O nome na porta',
+      lede: 'Uma equipe liderada pelo fundador de propósito. Cada processo tem um nome anexado, e a responsabilidade começa aqui.',
       portraitAlt: 'Retrato de {name}',
       notePre: 'Estudantes colaboradores também escrevem conosco — você encontrará as assinaturas deles na ',
       noteLink: 'página de análises',
@@ -746,8 +746,8 @@ export const ABOUT: Record<Locale, AboutStrings> = {
     team: {
       eyebrow: 'नेतृत्व',
       index: '02 / 02',
-      title: 'दरवाज़े पर लिखे दो नाम',
-      lede: 'जान-बूझकर छोटी वरिष्ठ टीम। हर फ़ाइल के साथ एक नाम जुड़ा है, और वह इन्हीं में से एक है।',
+      title: 'दरवाज़े पर लिखा नाम',
+      lede: 'जान-बूझकर संस्थापक-नेतृत्व वाली टीम। हर फ़ाइल के साथ एक नाम जुड़ा है, और ज़िम्मेदारी यहीं से शुरू होती है।',
       portraitAlt: '{name} का पोर्ट्रेट',
       notePre: 'छात्र योगदानकर्ता भी हमारे साथ लिखते हैं — उनके नाम ',
       noteLink: 'इनसाइट्स पृष्ठ',

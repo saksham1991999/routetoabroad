@@ -99,7 +99,7 @@ export interface UiStrings {
     desc: string;
     groups: FooterLinkGroup[];
     socialAria: string;
-    socials: { linkedin: string; instagram: string; twitter: string; youtube: string };
+    socials: { facebook: string; linkedin: string; instagram: string; twitter: string; youtube: string };
     allRights: string;
     openNote: string;
     /**
@@ -317,7 +317,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: '社交账号',
-      socials: { linkedin: '领英', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: '领英', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
       allRights: '版权所有。',
       openNote: '工作时间',
       hoursValue: `周一至周六 ${HOURS_RANGE}（IST）`,
@@ -600,7 +600,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'Profils sociaux',
-      socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
       allRights: 'Tous droits réservés.',
       openNote: 'Ouvert',
       hoursValue: `Lun–Sam, ${HOURS_RANGE} (IST)`,
@@ -883,7 +883,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'الملفات الاجتماعية',
-      socials: { linkedin: 'لينكدإن', instagram: 'إنستغرام', twitter: 'إكس', youtube: 'يوتيوب' },
+      socials: { facebook: 'فيسبوك', linkedin: 'لينكدإن', instagram: 'إنستغرام', twitter: 'إكس', youtube: 'يوتيوب' },
       allRights: 'جميع الحقوق محفوظة.',
       openNote: 'ساعات العمل',
       hoursValue: `الاثنين–السبت، ${HOURS_RANGE} بتوقيت الهند`,
@@ -1168,7 +1168,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'Perfiles sociales',
-      socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X', youtube: 'YouTube' },
       allRights: 'Todos los derechos reservados.',
       openNote: 'Horario',
       hoursValue: `Lun–Sáb, ${HOURS_RANGE} (IST)`,
@@ -1451,7 +1451,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'Social-Media-Profile',
-      socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
       allRights: 'Alle Rechte vorbehalten.',
       openNote: 'Öffnungszeiten',
       hoursValue: `Mo–Sa, ${HOURS_RANGE} IST`,
@@ -1734,7 +1734,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'SNSアカウント',
-      socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
       allRights: '全著作権所有。',
       openNote: '受付時間',
       hoursValue: `月～土 ${HOURS_RANGE}（IST）`,
@@ -2017,7 +2017,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'Perfis sociais',
-      socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
+      socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
       allRights: 'Todos os direitos reservados.',
       openNote: 'Horário',
       hoursValue: `Seg–Sáb, ${HOURS_RANGE} (IST)`,
@@ -2300,7 +2300,7 @@ export const UI: Record<Exclude<Locale, typeof DEFAULT_LOCALE>, UiStrings> = {
         },
       ],
       socialAria: 'सोशल प्रोफ़ाइल',
-      socials: { linkedin: 'लिंक्डइन', instagram: 'इंस्टाग्राम', twitter: 'एक्स / ट्विटर', youtube: 'यूट्यूब' },
+      socials: { facebook: 'फ़ेसबुक', linkedin: 'लिंक्डइन', instagram: 'इंस्टाग्राम', twitter: 'एक्स / ट्विटर', youtube: 'यूट्यूब' },
       allRights: 'सर्वाधिकार सुरक्षित।',
       openNote: 'कार्य समय',
     hoursValue: `सोम–शनि, ${HOURS_RANGE} IST`,
@@ -2617,7 +2617,7 @@ export const UI_EN: UiStrings = {
       },
     ],
     socialAria: 'Social profiles',
-    socials: { linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
+    socials: { facebook: 'Facebook', linkedin: 'LinkedIn', instagram: 'Instagram', twitter: 'X / Twitter', youtube: 'YouTube' },
     allRights: 'All rights reserved.',
     openNote: 'Open',
     hoursValue: SITE.hours,

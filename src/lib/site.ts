@@ -54,8 +54,9 @@ export const SITE = {
     },
   ],
   socials: {
+    facebook: 'https://www.facebook.com/people/Route-To-Abroad/61596993773595/',
+    instagram: 'https://www.instagram.com/routetoabroadofficial',
     linkedin: 'https://www.linkedin.com/company/routetoabroad',
-    instagram: 'https://www.instagram.com/routetoabroad',
     twitter: 'https://twitter.com/routetoabroad',
     youtube: 'https://www.youtube.com/@routetoabroad',
   },
