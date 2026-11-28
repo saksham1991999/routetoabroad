@@ -56,7 +56,7 @@ faqs:
 order: 13
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student enrolment scale fact row"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 Changsha Medical University, चांगशा के वांगचेंग ज़िले में स्थित, क्लिनिशियन, दंत चिकित्सक, नर्स और फ़ार्मासिस्ट तैयार करने के लिए समर्पित एक विशेष चिकित्सा संस्थान है। इसका अंग्रेज़ी माध्यम MBBS कार्यक्रम दक्षिण-मध्य चीन में एक केंद्रित मेडिकल परिसर चाहने वाले अंतरराष्ट्रीय छात्रों के लिए एक स्थिर विकल्प बन गया है।

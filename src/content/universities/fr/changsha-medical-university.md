@@ -56,7 +56,7 @@ faqs:
 order: 13
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student enrolment scale fact row"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 Changsha Medical University, située dans le district de Wangcheng à Changsha, est un établissement médical spécialisé qui forme médecins, dentistes, infirmiers et pharmaciens. Son programme MBBS en anglais est devenu un choix constant pour les étudiants internationaux qui cherchent un campus médical dédié dans le centre-sud de la Chine.

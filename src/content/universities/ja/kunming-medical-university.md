@@ -58,7 +58,7 @@ faqs:
 order: 9
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student nationality count fact row"
+  - "Pending confirmation: international student nationality count ('over 40 countries' in strengths)"
 ---
 
 昆明医科大学は1933年に創立され、近代的な呈貢大学城のキャンパスから中国西南部の医学教育を担っています。英語開講のMBBSを求める人にとって地域で歓迎される手頃な進学先として知られ、雲南省最大の附属教育病院ネットワークと、無理のない生活費を組み合わせています。

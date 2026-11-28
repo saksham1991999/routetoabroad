@@ -58,7 +58,7 @@ faqs:
 order: 9
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student nationality count fact row"
+  - "Pending confirmation: international student nationality count ('over 40 countries' in strengths)"
 ---
 
 A Kunming Medical University, fundada em 1933, sustenta a educação médica no sudoeste da China a partir de seu moderno campus na cidade universitária de Chenggong. Conhecida na região como um destino acolhedor e acessível para o MBBS em inglês, a KMU combina custos de vida diretos com a maior rede de hospitais universitários de Yunnan.

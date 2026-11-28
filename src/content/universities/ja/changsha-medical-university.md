@@ -56,7 +56,7 @@ faqs:
 order: 13
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student enrolment scale fact row"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 長沙医学院は長沙市望城区にあり、臨床医、歯科医、看護師、薬剤師を養成する専門機関です。英語で行う MBBS 課程は、中国南中部で医学に特化したキャンパスを求める留学生にとって、安定した選択肢になっています。

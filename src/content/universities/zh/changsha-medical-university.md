@@ -56,7 +56,7 @@ faqs:
 order: 13
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student enrolment scale fact row"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 长沙医学院位于长沙望城区，是培养临床医生、牙医、护士和药师的专业医学院校。其英文授课的MBBS项目已成为国际学生在中国中南部寻求专业医学校园时的稳定选择。

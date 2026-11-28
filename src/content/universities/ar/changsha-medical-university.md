@@ -56,7 +56,7 @@ faqs:
 order: 13
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student enrolment scale fact row"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 تقع جامعة تشانغشا الطبية في منطقة وانغتشينغ بتشانغشا، وهي مؤسسة طبية متخصصة تُعنى بتدريب الأطباء وأطباء الأسنان والممرضين والصيادلة. وقد أصبح برنامج MBBS فيها باللغة الإنجليزية خيارًا ثابتًا للطلاب الدوليين الباحثين عن حرم طبي مركّز في وسط جنوب الصين.

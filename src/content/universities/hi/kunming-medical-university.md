@@ -58,7 +58,7 @@ faqs:
 order: 9
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student nationality count fact row"
+  - "Pending confirmation: international student nationality count ('over 40 countries' in strengths)"
 ---
 
 Kunming Medical University, 1933 में स्थापित, अपने आधुनिक चेंगगोंग विश्वविद्यालय नगर परिसर से दक्षिण-पश्चिम चीन में चिकित्सा शिक्षा का केंद्र है। क्षेत्र में अंग्रेज़ी-माध्यम MBBS के लिए स्वागतपूर्ण और किफ़ायती गंतव्य के रूप में जाना जाने वाला KMU सीधी जीवन-यापन लागत को युन्नान के सबसे बड़े शिक्षण अस्पताल नेटवर्क के साथ जोड़ता है।

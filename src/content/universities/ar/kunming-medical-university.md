@@ -58,7 +58,7 @@ faqs:
 order: 9
 verify:
   - "Pending confirmation: current-year intake status for MOE listing"
-  - "Removed until confirmed: international student nationality count fact row"
+  - "Pending confirmation: international student nationality count ('over 40 countries' in strengths)"
 ---
 
 تأسست جامعة كونمينغ الطبية عام 1933، وتتصدر التعليم الطبي في جنوب غرب الصين من حرمها الحديث في مدينة تشنغقونغ الجامعية. وتُعرف في المنطقة بأنها وجهة مرحبة وميسورة لـ MBBS باللغة الإنجليزية، وتجمع KMU بين تكاليف معيشة معقولة وأكبر شبكة من المستشفيات التعليمية في يونان.

@@ -43,7 +43,7 @@ faqs:
   - question: 'Can international students work in China after graduating from Tsinghua?'
     answer: 'Beijing and Shanghai offer post-study work pathways for master''s+ graduates from designated universities, and Tsinghua graduates are actively recruited by multinationals and Chinese tech firms. Visas require employer sponsorship — plan with our advisors.'
   - question: 'Does Tsinghua offer CSC scholarships?'
-    answer: 'Yes. Tsinghua offers CSC Type A and Type B routes, university presidential awards and departmental assistantships for research degrees.'
+    answer: 'Yes. Tsinghua offers CSC Type A and Type B routes, university presidential awards and departmental assistantships for research degrees. Confirm current eligibility and amounts directly with Tsinghua.'
 order: 2
 verify:
   - "Removed until confirmed: FAQ - question: 'Do I need HSK for an English-taught programme at Tsinghua?'"
@@ -60,7 +60,7 @@ verify:
   - "Removed until confirmed: | September (main) | September | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: | Other intakes | {{VERIFY}} | {{VERIFY}} | {{VERIFY}} |"
   - "Removed until confirmed: 5. Submit before the deadline: {{VERIFY}} date."
-  - "Pending confirmation: current eligibility and award amounts for CSC Type A/B, presidential awards, and departmental assistantships"
+  - "Pending confirmation: current eligibility and award amounts for Tsinghua university presidential awards and departmental assistantships (routes published; exact amounts/criteria pending confirmation)"
   - "Removed until confirmed: cost tuition 'US$5,000–10,000/yr typical; CSC covers 100% for winners'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,000/yr on campus'"
   - "Removed until confirmed: cost living 'US$500–850/month in Beijing (Haidian)'"
@@ -120,7 +120,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 **Schwarzman and international programmes.** Flagship English-taught offerings attract a globally competitive cohort. They also raise the value of every degree's network.
 
-**CSC and scholarship depth.** The menu includes CSC Type A and Type B, university presidential awards, and departmental assistantships for research degrees.
+**CSC and scholarship depth.** The menu includes CSC Type A and Type B, university presidential awards, and departmental assistantships for research degrees; confirm current eligibility and amounts directly with Tsinghua.
 
 ## Programmes offered
 
@@ -133,7 +133,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
-Read the [CSC guide](/guides/csc-scholarship/) for application routes, and confirm current university awards and departmental assistantships directly with Tsinghua.
+Tsinghua offers CSC Type A and Type B routes, university presidential awards, and departmental assistantships for research degrees. Read the [CSC guide](/guides/csc-scholarship/) and confirm current eligibility and amounts directly with Tsinghua.
 
 ## Timeline
 
