@@ -52,6 +52,8 @@ faqs:
   - question: 'Why choose Hangzhou for medical studies?'
     answer: 'Hangzhou combines coastal-tier hospital infrastructure and safety with lower housing and food costs than Shanghai, plus a welcoming international community.'
 order: 8
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
 ---
 
 Zhejiang Chinese Medical University sits in Hangzhou, the capital of Zhejiang Province, and welcomes international students into both its English-medium Western MBBS programme and its internationally renowned Traditional Chinese Medicine and Acupuncture schools. Its affiliated hospitals rank among the busiest integrative medical centres in eastern China.

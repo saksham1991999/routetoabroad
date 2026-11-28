@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Informatik/KI, Forschungskarrieren'
   - label: 'Studienbeginn'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Beijing und Shanghai bieten Absolventen mit Master oder höher von zugelassenen Universitäten Wege für den Verbleib nach dem Studium, und Absolventen der Tsinghua werden aktiv von multinationalen Konzernen und chinesischen Tech-Firmen umworben. Visa benötigen einen Arbeitgeber als Sponsor — planen Sie dies mit unseren Beratern.'
 order: 2
 verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 3,000+ über alle Abschlüsse hinweg'"
   - "Removed until confirmed: cost tuition 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,000/Jahr auf dem Campus'"
   - "Removed until confirmed: cost living 'US$500–850/Monat in Beijing (Haidian)'"

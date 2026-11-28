@@ -83,17 +83,9 @@ The engineering and computer science intake is small and intensely competitive. 
 
 ## Costs
 
-Figures are per year unless stated.
-
-| Item | Estimate |
-| --- | --- |
-
 A full CSC award covers tuition, dorm and most living costs. Use the [cost calculator](/tools/cost-calculator/) for a personal estimate.
 
 ## Intakes
-
-| Intake | Start | Application window | Deadline |
-| --- | --- | --- | --- |
 
 September is Tsinghua's main intake. Confirm whether any programme takes another entry month, and confirm each application window with the university.
 
@@ -141,6 +133,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
+Tsinghua offers CSC Type A and Type B routes, university awards and departmental assistantships for research degrees. Read the [CSC guide](/guides/csc-scholarship/) and confirm current eligibility and amounts directly with Tsinghua.
 
 ## Timeline
 

@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ aus über 100 Ländern' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Bewerber mit Top-Noten, Forschung, Geisteswissenschaften'
   - label: 'Studienbeginn'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Ja. Für CSC Typ B (direkte Bewerbung an der Universität) ist die Peking University als CSC-Hochschule zugelassen; Typ A läuft dagegen über Regierungskanäle — die chinesische Botschaft bzw. die benannte Vermittlungsstelle Ihres Landes — und wird nicht über die Universität beantragt. Dazu kommen universitätseigene Stipendien (u. a. Yenching für ausgewählte Masterprogramme).'
 order: 1
 verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 3,000+ aus über 100 Ländern'"
   - "Removed until confirmed: cost tuition 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,400/Jahr auf dem Campus'"
   - "Removed until confirmed: cost living 'US$500–850/Monat in Beijing (Haidian)'"

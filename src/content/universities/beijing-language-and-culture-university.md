@@ -16,7 +16,7 @@ strengths:
   - title: '"Little United Nations" campus'
     text: 'Over 150 nationalities study side by side in Haidian''s Wudaokou university quarter, creating an extraordinarily diverse international community.'
   - title: 'Flexible short & degree tracks'
-    text: 'Offers 1-semester and 1-year programmes, plus 4-year BA programmes in Chinese Language, Business Chinese, Translation, and International Politics.'
+    text: 'Offers 1-semester and 1-year programmes, plus 4-year BA programmes in Chinese Language, Business Chinese, and Translation.'
   - title: 'Prime Haidian location'
     text: 'Located next to Tsinghua University and a short metro ride from Peking University in Beijing''s Wudaokou district, making it an ideal foundation year before entering top Chinese-taught degrees.'
 programmes:

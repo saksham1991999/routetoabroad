@@ -7,7 +7,7 @@ citySlug: 'handan'
 type: 'technical'
 founded: '1958'
 nickname: 'Anwendungsorientierte Ingenieurhochschule in Nordchina'
-intro: 'Die Hebei University of Engineering (HEBEU) in Handan ist eine spezialisierte technische Hochschule mit anerkannten Studiengängen in Bauingenieurwesen, Maschinenbau und Architektur. Hinzu kommen praxisnahe Abschlüsse für internationale Studierende bei niedrigen Lebenshaltungskosten im Norden.'
+intro: 'Die Hebei University of Engineering (HEBEU) in Handan ist eine spezialisierte technische Hochschule mit Studiengängen in Bauingenieurwesen, Maschinenbau und Architektur. Hinzu kommen praxisnahe Abschlüsse für internationale Studierende bei niedrigen Lebenshaltungskosten im Norden.'
 image: '../../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'Ingenieurcampus-Architektur als Sinnbild für die Hebei University of Engineering'
 strengths:
@@ -49,6 +49,8 @@ faqs:
   - question: 'Wie ist Handan für internationale Studierende?'
     answer: 'Handan ist eine historische, günstige Stadt im Norden mit einem neuen, modernen Universitätscampus und direkten Hochgeschwindigkeitsbahn-Verbindungen nach Peking und Zhengzhou.'
 order: 15
+verify:
+  - "Removed until confirmed: Washington Accord / CEEAA programme-level accreditation claim in intro ('anerkannten Studiengängen')"
 ---
 
 Die Hebei University of Engineering liegt in der historischen Stadt Handan im Süden der Provinz Hebei. Sie ist eine spezialisierte technische Einrichtung mit Schwerpunkt auf Bauwesen, Maschinenbau, Architektur und Wasserwirtschaft. Der neue Campus verfügt über moderne Ingenieurwerkstätten und Prüflabore zu einem Bruchteil der Lebenshaltungskosten Pekings.

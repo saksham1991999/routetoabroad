@@ -31,6 +31,8 @@ faqs:
   - question: 'É fácil encontrar comida halal em Xi’an?'
     answer: 'Xi’an tem uma das comunidades muçulmanas hui mais antigas da China. Restaurantes halal, mercados e refeitórios halal das universidades são amplamente disponíveis na cidade.'
 order: 5
+verify:
+  - "Removed until confirmed: answer: 'Sim. A Universidade Jiaotong de Xi’an é uma universidade de primeiro nível da liga C9, com MBBS em inglês (verificar a listagem atual do MOE para o seu ingresso) e cursos de engenharia, enquanto o custo de vida de US$320–580/mês é bem mais baixo do que nas cidades costeiras de primeira linha.'"
 ---
 
 Xi’an foi a capital da China por treze dinastias, sob o nome de Chang’an, e a cidade ainda carrega essa escala com naturalidade. Dentro das muralhas da era Ming, avenidas largas encontram becos silenciosos de pátio; fora delas, o trem de alta velocidade liga Xi’an a Pequim em quatro horas e a Chengdu em três. Para estudantes, combina o prestígio de pesquisa da C9 com a acessibilidade do interior. Para viajantes, é o contraponto histórico essencial a Xangai e Pequim.

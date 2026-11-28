@@ -54,6 +54,9 @@ faqs:
   - question: '長沙での学生生活はどのようなものですか？'
     answer: '長沙は、活気ある若者文化、手頃な湖南料理、便利な地下鉄と高速鉄道で中国中に知られています。'
 order: 13
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Removed until confirmed: answer: '長沙医学院は世界医学校名簿（WDOMS）と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの国際的な受験資格は、各出身国の医師会の現行規則と入学年度の規定によります。'"
 ---
 
 長沙医学院は長沙市望城区にあり、臨床医、歯科医、看護師、薬剤師を養成する専門機関です。英語で行う MBBS 課程は、中国南中部で医学に特化したキャンパスを求める留学生にとって、安定した選択肢になっています。

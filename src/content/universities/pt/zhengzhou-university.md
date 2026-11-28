@@ -53,6 +53,9 @@ faqs:
   - question: 'O MBBS da Zhengzhou University é reconhecido internacionalmente?'
     answer: 'A ZZU está incluída na WDOMS e na lista do MOE da China. A elegibilidade para se candidatar ao ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT e outros exames nacionais de licenciamento médico depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'
 order: 10
+verify:
+  - "Removed until confirmed: - 'Listada pelo MOE (verificar ingresso atual)'"
+  - "Removed until confirmed: answer: 'A ZZU está incluída na WDOMS e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para se candidatar ao ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT e outros exames nacionais de licenciamento médico depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'"
 ---
 
 A Zhengzhou University é a principal universidade abrangente da província de Henan e uma instituição nacional de Duplo Primeiro Nível. Situada no principal entroncamento ferroviário de alta velocidade do centro da China, a ZZU combina a escala hospitalar de primeiro nível para estudantes de MBBS com cursos em inglês de engenharia, ciência da computação e MBA, a uma fração dos custos de vida do litoral.

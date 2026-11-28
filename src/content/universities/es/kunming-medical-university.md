@@ -56,6 +56,9 @@ faqs:
   - question: '¿Qué tan lejos está Kunming de los grandes nodos aéreos internacionales?'
     answer: 'El aeropuerto internacional de Changshui de Kunming tiene conexiones directas o con una escala en el sur de Asia, el sudeste asiático y Oriente Medio, además de vuelos nacionales frecuentes a Pekín, Shanghái y Cantón.'
 order: 9
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Removed until confirmed: answer: 'La KMU figura en la WDOMS y en la lista del Ministerio de Educación de China (verifique el estado de la convocatoria del año en curso). La elegibilidad para ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT y otros exámenes de licencia depende de las normas vigentes del consejo médico de cada país de origen y de su normativa para el año de ingreso.'"
 ---
 
 La Universidad Médica de Kunming, fundada en 1933, es un referente de la educación médica en el suroeste de China desde su moderno campus de la ciudad universitaria de Chenggong. Conocida en la región como un destino acogedor y asequible para el MBBS en inglés, la KMU combina costes de vida sencillos con la mayor red de hospitales docentes de Yunnan.

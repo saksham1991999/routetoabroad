@@ -52,6 +52,8 @@ faqs:
   - question: 'Pourquoi choisir Hangzhou pour des études de médecine ?'
     answer: 'Hangzhou combine une infrastructure hospitalière et une sécurité de niveau côtier avec un coût du logement et de l''alimentation inférieur à celui de Shanghai, ainsi qu''une communauté internationale accueillante.'
 order: 8
+verify:
+  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
 ---
 
 La Zhejiang Chinese Medical University est située à Hangzhou, capitale de la province du Zhejiang, et accueille les étudiants internationaux dans son programme de MBBS occidental en anglais comme dans ses écoles de médecine traditionnelle chinoise et d'acupuncture, de renommée internationale. Ses hôpitaux affiliés comptent parmi les centres de médecine intégrative les plus fréquentés de l'est de la Chine.

@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Ville'
     value: 'Shanghai (campus de Minhang et Huangpu)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, médecine, recherche'
   - label: 'Rentrées'
@@ -46,6 +44,7 @@ faqs:
     answer: 'SJTU. Fudan domine en humanités/commerce ; SJTU domine en ingénierie et médecine clinique. Les deux sont des institutions pluridisciplinaires du top 5 à Shanghai.'
 order: 5
 verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ tous diplômes confondus'"
   - "Removed until confirmed: cost living 'US$550–900/mois à Shanghai'"
 ---
 

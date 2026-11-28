@@ -7,7 +7,7 @@ citySlug: 'shenyang'
 type: 'medical'
 founded: '1931'
 nickname: '中国近代医学教育の歴史的パイオニア'
-intro: '瀋陽の中国医科大学（CMU）は、国内を代表する医学機関の一つです。MOE・WHO・WDOMS・NMC の認定を受けた、長い歴史を持つ英語開講の MBBS 課程と、東北中国の主要な附属教育病院を備えています。'
+intro: '瀋陽の中国医科大学（CMU）は、国内を代表する医学機関の一つです。MOEリストおよびWDOMS掲載（NMC受験資格ルート対応）の長い歴史を持つ英語開講のMBBS課程と、東北中国の主要な附属教育病院を備えています。'
 image: '../../../assets/images/hero-campus-ink.jpg'
 imageAlt: '中国医科大学を表す中国の大学キャンパスの建築'
 strengths:
@@ -38,7 +38,6 @@ facts:
     value: '瀋北新区（現代的な専用キャンパス）'
 recognitions:
   - 'MOE China'
-  - 'WHO'
   - 'WDOMS-listed'
   - 'NMC'
 intakes: '9月（MBBSの年次入学）'

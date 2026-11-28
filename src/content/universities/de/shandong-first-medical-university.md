@@ -55,6 +55,11 @@ faqs:
   - question: 'Sind SDFMU-MBBS-Absolventinnen und -Absolventen für internationale medizinische Lizenzprüfungen zugelassen?'
     answer: 'Die SDFMU ist in der WDOMS und auf der MOE-Liste Chinas geführt. Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'
 order: 14
+verify:
+  - "Removed until confirmed: dorm: 'RMB 4,000–6,500/Jahr (~{{VERIFY}}/Jahr) auf dem Campus'"
+  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
+  - "Removed until confirmed: answer: 'Die SDFMU ist in der WDOMS und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen nationalen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'"
+  - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 
 Die Shandong First Medical University ist die führende medizinische Universität der Provinz Shandong. Sie vereint die lange internationale Lehrtradition der Taishan Medical University mit den Forschungskliniken der Shandong Academy of Medical Sciences. Mit Campussen in Jinan und Tai’an bietet sie ein hohes klinisches Volumen zu moderaten Provinzkosten.

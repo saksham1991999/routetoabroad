@@ -32,8 +32,8 @@ faqs:
     answer: 'The Pearl River Delta is the world''s densest manufacturing cluster — Shenzhen electronics, Foshan furniture, Dongguan factories are all within 1–2 hours. Our Guangzhou desk (Victory Plaza, Tianhe) puts audits and QC within same-day reach of almost any supplier.'
 order: 3
 verify:
-  - "Removed until confirmed: Treat Canton Fair contacts as candidates, not suppliers. Check the business licence, the export licence for your HS code and years in operation. Then audit the factory. A one-day audit confirms the re"
-  - "Removed until confirmed: Sea freight from Guangzhou or Shenzhen (Nansha, Yantian) to Mundra or JNPT takes about {{VERIFY}} days. Air freight from PVG or CAN to DEL or BOM takes {{VERIFY}} days door-to-door, at {{VERIFY}} time"
+  - "Removed until confirmed: Treat Canton Fair contacts as candidates, not suppliers. Check the business licence, the export licence for your HS code and years in operation. Then audit the factory. A one-day audit confirms the registered address, real capacity and quality control. Our Guangzhou desk runs audits with photo-video reports, typically turned around within 72 hours {{VERIFY}}."
+  - "Removed until confirmed: Sea freight from Guangzhou or Shenzhen (Nansha, Yantian) to Mundra or JNPT takes about {{VERIFY}} days. Air freight from PVG or CAN to DEL or BOM takes {{VERIFY}} days door-to-door, at {{VERIFY}} times the sea cost. Canton Fair weeks and the pre-Chinese New Year rush can roll cargo, so plan around them."
 ---
 
 Guangzhou (Canton) has traded with the world since the Silk Road sea routes, and it shows: this is the pragmatic, food-obsessed, deal-making south. Travellers find it less polished than Shanghai and more fun for it. Business visitors find the point of the entire India–China trade corridor within a metro ride of our office.
@@ -53,6 +53,7 @@ Do not pay 100% in advance. A common first-order structure is 30% deposit by TT 
 
 ### Shipping from Guangzhou
 
+Sea freight from Guangzhou or Shenzhen (Nansha, Yantian) to Mundra or JNPT varies by carrier and season; air freight from PVG or CAN to DEL or BOM is much faster door-to-door. Ask our Guangzhou desk for current transit schedules and landed-cost estimates.
 
 ### Business visas
 

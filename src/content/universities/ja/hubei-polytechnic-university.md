@@ -53,6 +53,9 @@ faqs:
   - question: 'HBPUのMBBS卒業生は医師免許試験を受験できますか？'
     answer: 'HBPUの医学部は WDOMS と中国教育部の一覧に掲載されています。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、入学前に各出身国の医師会の現行規則と入学年度の規定を確認する必要があります。'
 order: 12
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Removed until confirmed: answer: 'HBPUの医学部は WDOMS と中国教育部の一覧に掲載されています（当年度の入学状況は要確認）。ECFMG/USMLE、GMC/PLAB、NMC FMGE/NExT などの試験の受験資格は、入学前に各出身国の医師会の現行規則と入学年度の規定を確認する必要があります。'"
 ---
 
 湖北理工学院は、武漢の南東に位置する緑豊かな工業・大学都市、黄石の磁湖のほとりにあります。元々は工学に根ざしていますが、その医学部は、主要な国際空港ハブに近く、英語で学べる手頃なMBBSを求める留学生の人気校になっています。

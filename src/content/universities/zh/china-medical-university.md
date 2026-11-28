@@ -7,7 +7,7 @@ citySlug: 'shenyang'
 type: 'medical'
 founded: '1931'
 nickname: '中国现代医学教育的历史先驱'
-intro: '沈阳的中国医科大学（CMU）是国内旗舰医学院校之一，设有历史悠久的英文授课MBBS项目，获教育部、世界卫生组织（WHO）、WDOMS和NMC认可，并拥有东北地区重要的附属教学医院。'
+intro: '沈阳的中国医科大学（CMU）是国内旗舰医学院校之一，设有历史悠久的英文授课MBBS项目，入选教育部名单并被WDOMS收录（具备NMC报考路径），并拥有东北地区重要的附属教学医院。'
 image: '../../../assets/images/hero-campus-ink.jpg'
 imageAlt: '中国大学校园建筑，代表中国医科大学'
 strengths:
@@ -38,7 +38,6 @@ facts:
     value: '沈北新区（现代化专用校园）'
 recognitions:
   - '教育部'
-  - '世界卫生组织（WHO）'
   - 'WDOMS-listed'
   - 'NMC'
 intakes: '9月（年度MBBS招生）'

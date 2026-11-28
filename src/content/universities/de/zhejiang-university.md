@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Stadt'
     value: 'Hangzhou (Provinz Zhejiang)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 2,500+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Informatik, preisgünstiges Studium'
   - label: 'Studienbeginn'
@@ -45,6 +43,8 @@ faqs:
   - question: 'Wie vergleicht sich die Zhejiang University mit der Fudan University?'
     answer: 'Akademisch tauschen beide in den Top 5 die Plätze. Die ZJU punktet mit Tiefe in Ingenieurwesen/Informatik und Lebenshaltungskosten; Fudan punktet bei Finance-/Business-Platzierungen im eigentlichen Shanghai.'
 order: 4
+verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 2,500+ über alle Abschlüsse hinweg'"
 ---
 
 Die Zhijiang- und Yuquan-Campuse der Zhejiang University schlängeln sich durch Hangzhous grüne Hügel nahe dem Westsee. 1998 fusionierte die Universität mit der Hangzhou University, der Zhejiang Agricultural University und der Zhejiang Medical University — seither ist sie eine der größten umfassenden Hochschulen Chinas und eine der ergiebigsten Gründerinnen.

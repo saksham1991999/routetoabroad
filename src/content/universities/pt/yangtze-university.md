@@ -52,6 +52,8 @@ faqs:
   - question: 'A Yangtze University oferece cursos em inglês fora da área médica?'
     answer: 'Sim. Além do MBBS, a Yangtze University oferece graduação e mestrado em inglês em Ciência da Computação, IA, Engenharia de Petróleo e Administração.'
 order: 11
+verify:
+  - "Removed until confirmed: - 'Listada pelo MOE (verificar ingresso atual)'"
 ---
 
 Localizada na histórica cidade de Jingzhou, às margens do rio Yangtzé, na província de Hubei, a Yangtze University é uma universidade abrangente provincial formada a partir de quatro faculdades especializadas. Para estudantes internacionais, oferece um caminho prático e econômico para cursos de MBBS, Ciência da Computação e Engenharia em inglês.

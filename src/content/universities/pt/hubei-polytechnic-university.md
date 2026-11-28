@@ -53,6 +53,9 @@ faqs:
   - question: 'Os formados em MBBS pela HBPU são elegíveis para exames de licenciamento?'
     answer: 'A faculdade de medicina da HBPU está listada na WDOMS e na lista do MOE da China. A elegibilidade para exames como ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão, e deve ser verificada antes da matrícula.'
 order: 12
+verify:
+  - "Removed until confirmed: - 'Listada pelo MOE (verificar ingresso atual)'"
+  - "Removed until confirmed: answer: 'A faculdade de medicina da HBPU está listada na WDOMS e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para exames como ECFMG/USMLE, GMC/PLAB ou NMC FMGE/NExT depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão, e deve ser verificada antes da matrícula.'"
 ---
 
 A Hubei Polytechnic University fica ao lado do Lago Cihu, em Huangshi, uma cidade verde, industrial e universitária a sudeste de Wuhan. Embora originalmente enraizada na engenharia, sua faculdade de medicina tornou-se um destino popular para estudantes internacionais que buscam um MBBS em inglês acessível, perto de um grande polo aeroportuário internacional.

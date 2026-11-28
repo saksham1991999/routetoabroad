@@ -55,6 +55,11 @@ faqs:
   - question: 'क्या SDFMU के MBBS स्नातक अंतरराष्ट्रीय चिकित्सा लाइसेंसिंग परीक्षाओं के पात्र हैं?'
     answer: 'SDFMU WDOMS और चीन की MOE सूची में है। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'
 order: 14
+verify:
+  - "Removed until confirmed: dorm: 'कैंपस में RMB 4,000–6,500/वर्ष (~{{VERIFY}}/वर्ष)'"
+  - "Removed until confirmed: - 'MOE-सूचीबद्ध (वर्तमान प्रवेश सत्यापित करें)'"
+  - "Removed until confirmed: answer: 'SDFMU WDOMS और चीन की MOE सूची में है (वर्तमान वर्ष की प्रवेश स्थिति सत्यापित करें)। ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT और अन्य राष्ट्रीय लाइसेंसिंग परीक्षाओं की पात्रता हर गृह-देश मेडिकल परिषद के वर्तमान नियमों और प्रवेश-वर्ष के नियमों पर निर्भर है।'"
+  - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 
 Shandong First Medical University शानदोंग प्रांत का प्रमुख चिकित्सा विश्वविद्यालय है, जो Taishan Medical University की लंबी अंतरराष्ट्रीय शिक्षण विरासत को Shandong Academy of Medical Sciences के शोध अस्पतालों के साथ जोड़ता है। जिनान और ताइआन दोनों में परिसरों के साथ यह मध्यम प्रांतीय लागत पर उच्च क्लिनिकल अनुभव देता है।

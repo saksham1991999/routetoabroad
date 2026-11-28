@@ -9,6 +9,10 @@ tags: ['MBBS', 'China', 'Scholarships']
 featured: true
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical students studying around an anatomy model in a university laboratory'
+verify:
+  - "Removed until confirmed: CGPA ~3.5 competitiveness claim ('students with a CGPA above roughly 3.5')"
+  - "Removed until confirmed: 8–12-week offer-to-visa JW202 timing ('can take 8–12 weeks')"
+  - "Removed until confirmed: 48-hour consultant-programme match promise ('within 48 hours')"
 ---
 
 China is a top destination for Indian students pursuing MBBS, with globally listed universities, English-taught programmes and significant scholarship opportunities. Five points decide whether a Chinese MBBS works for you: recognition, language, scholarships, JW202 timing and arrival support. Check each one before you commit.
@@ -23,11 +27,11 @@ Most MBBS programmes are taught in English for the first years. Clinical rotatio
 
 ## 3. The CSC scholarship is real — but competitive
 
-The Chinese Government Scholarship (CSC) can cover full tuition, accommodation, and a monthly stipend. It is merit-based and competitive: students with a CGPA above roughly 3.5 and strong extracurriculars have the best chances. University-level scholarships are a parallel — often less competitive — route, and mostly partial.
+The Chinese Government Scholarship (CSC) can cover full tuition, accommodation, and a monthly stipend. It is merit-based and competitive: students with strong academic grades and extracurriculars have the best chances. University-level scholarships are a parallel — often less competitive — route, and mostly partial.
 
 ## 4. The JW202 process takes time
 
-The JW202 is the official visa application form for study, issued by the university together with your Admission Notice. From university offer to visa in hand can take 8–12 weeks. Apply early. Missing intake windows is one of the most common — and most avoidable — mistakes we see.
+The JW202 is the official visa application form for study, issued by the university together with your Admission Notice. From university offer to visa in hand takes several weeks. Apply early. Missing intake windows is one of the most common — and most avoidable — mistakes we see.
 
 ## 5. On-ground support is not a luxury
 
@@ -41,4 +45,4 @@ Airport pickups, dormitory registration, SIM cards, bank accounts — these oper
 - Secure proof of financial means (even for scholarship applicants)
 - Register for HSK preparation early
 
-Ready to start your application? Our consultants can assess your eligibility and match you with a best-fit programme within 48 hours.
+Ready to start your application? Our consultants can assess your eligibility and match you with a best-fit programme.

@@ -54,6 +54,10 @@ faqs:
   - question: 'Les étudiants internationaux en MBBS doivent-ils apprendre le chinois ?'
     answer: 'Toutes les sciences médicales de base sont enseignées en anglais, mais les étudiants suivent des cours de mandarin obligatoires des années 1 à 4 pour communiquer avec les patients pendant les rotations cliniques et atteindre le niveau HSK 4 exigé pour la diplomation.'
 order: 6
+verify:
+  - "Removed until confirmed: - title: '20+ hôpitaux universitaires affiliés'"
+  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
+  - "Removed until confirmed: answer: 'La NMU figure dans le World Directory of Medical Schools (WDOMS) et sur la liste du ministère de l''Éducation chinois (MOE) des établissements de MBBS en anglais (vérifier le statut d''admission de l''année en cours). L''éligibilité à des examens tels que l''ECFMG/USMLE, le GMC/PLAB, l''AMC ou le NMC FMGE/NExT de l''Inde dépend des règles en vigueur du conseil médical de chaque pays d''origine et des règlements de l''année d''admission.'"
 ---
 
 La Nanjing Medical University est l'une des plus anciennes et des plus respectées universités médicales indépendantes de Chine, fondée en 1934 et régulièrement classée parmi les établissements médicaux de premier plan de la province du Jiangsu. Pour les étudiants internationaux venus d'Asie du Sud, d'Afrique, du Moyen-Orient et d'Asie du Sud-Est, la NMU propose un programme MBBS en anglais rigoureux et intégré à l'hôpital, sans le prix des écoles de médecine privées.

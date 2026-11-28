@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Ville'
     value: 'Shanghai (district de Yangpu)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Carrières dans le commerce, la médecine, les médias'
   - label: 'Rentrées'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Les classements se tiennent dans un cheveu (top 5 chinois). La vraie différence est géographique : Fudan vous place dans l''écosystème commercial de Shanghai, ce qui compte le plus pour les carrières dans le commerce, la finance et les médias.'
 order: 3
 verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ tous diplômes confondus'"
   - "Removed until confirmed: cost tuition 'Généralement US$4,000–9,000/an ; la CSC couvre 100% pour les lauréats'"
   - "Removed until confirmed: cost dorm 'US$1,000–2,000/an sur le campus'"
   - "Removed until confirmed: cost living 'US$550–900/mois à Shanghai'"

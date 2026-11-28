@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Stadt'
     value: 'Shanghai (Bezirk Yangpu)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Wirtschaft, Medizin, Medienkarrieren'
   - label: 'Studienbeginn'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Die Ranglisten liegen haarscharf beieinander (Top-5 Chinas). Der echte Unterschied ist die Geografie: Die Fudan University versetzt Sie in Shanghais wirtschaftliches Ökosystem — entscheidend für Karrieren in Wirtschaft, Finanzen und Medien.'
 order: 3
 verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 3,000+ über alle Abschlüsse hinweg'"
   - "Removed until confirmed: cost tuition 'typischerweise US$4,000–9,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
   - "Removed until confirmed: cost dorm 'US$1,000–2,000/Jahr auf dem Campus'"
   - "Removed until confirmed: cost living 'US$550–900/Monat in Shanghai'"

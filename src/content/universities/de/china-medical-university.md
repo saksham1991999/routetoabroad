@@ -7,7 +7,7 @@ citySlug: 'shenyang'
 type: 'medical'
 founded: '1931'
 nickname: 'Historischer Wegbereiter der modernen Medizinausbildung in China'
-intro: 'Die China Medical University (CMU) in Shenyang gehört zu Chinas führenden medizinischen Einrichtungen. Sie bietet ein langjährig etabliertes englischsprachiges MBBS-Programm mit Anerkennungen durch MOE, WHO, WDOMS und NMC sowie große angeschlossene Lehrkrankenhäuser im Nordosten Chinas.'
+intro: 'Die China Medical University (CMU) in Shenyang gehört zu Chinas führenden medizinischen Einrichtungen. Sie bietet ein langjährig etabliertes englischsprachiges MBBS-Programm (auf der MOE-Liste und in der WDOMS gelistet, mit NMC-Zulassungswegen) sowie große angeschlossene Lehrkrankenhäuser im Nordosten Chinas.'
 image: '../../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'Universitätscampus-Architektur in China als Sinnbild für die China Medical University'
 strengths:
@@ -38,7 +38,6 @@ facts:
     value: 'Shenbei New District (moderner Neubau-Campus)'
 recognitions:
   - 'MOE China'
-  - 'WHO'
   - 'WDOMS-listed'
   - 'NMC'
 intakes: 'September (jährlicher MBBS-Jahrgang)'

@@ -53,6 +53,9 @@ faqs:
   - question: 'Sind HBPU-MBBS-Absolventinnen und -Absolventen für Lizenzprüfungen zugelassen?'
     answer: 'Die medizinische Fakultät der HBPU ist in der WDOMS und auf der MOE-Liste Chinas geführt. Die Zulassung zu Prüfungen wie ECFMG/USMLE, GMC/PLAB oder NMC FMGE/NExT hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab und sollte vor der Einschreibung geprüft werden.'
 order: 12
+verify:
+  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
+  - "Removed until confirmed: answer: 'Die medizinische Fakultät der HBPU ist in der WDOMS und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu Prüfungen wie ECFMG/USMLE, GMC/PLAB oder NMC FMGE/NExT hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab und sollte vor der Einschreibung geprüft werden.'"
 ---
 
 Die Hubei Polytechnic University liegt am Cihu-See in Huangshi, einer grünen Industrie- und Universitätsstadt südöstlich von Wuhan. Ursprünglich im Ingenieurwesen verwurzelt, ist ihre medizinische Fakultät zu einem beliebten Ziel für internationale Studierende geworden, die ein günstiges englischsprachiges MBBS nahe einem großen internationalen Luftverkehrsdrehkreuz suchen.

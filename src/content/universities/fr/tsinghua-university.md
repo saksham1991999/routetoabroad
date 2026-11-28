@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Ville'
     value: 'Pékin (district de Haidian)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, CS/IA, carrières de recherche'
   - label: 'Rentrées'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Pékin et Shanghai offrent des parcours de travail post-études aux diplômés master+ d''universités désignées, et les diplômés de Tsinghua sont activement courtés par les multinationales et les entreprises technologiques chinoises. Les visas exigent le parrainage d''un employeur — planifiez avec nos conseillers.'
 order: 2
 verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ tous diplômes confondus'"
   - "Removed until confirmed: cost tuition 'Généralement US$5,000–10,000/an ; la CSC couvre 100% pour les lauréats'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,000/an sur le campus'"
   - "Removed until confirmed: cost living 'US$500–850/mois à Pékin (Haidian)'"

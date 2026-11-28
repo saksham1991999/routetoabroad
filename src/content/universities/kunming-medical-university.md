@@ -56,6 +56,9 @@ faqs:
   - question: 'How far is Kunming from major international flight hubs?'
     answer: 'Kunming Changshui International Airport has direct or one-stop connections across South Asia, Southeast Asia, and the Middle East, as well as frequent domestic flights to Beijing, Shanghai, and Guangzhou.'
 order: 9
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
+  - "Removed until confirmed: answer: 'KMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'"
 ---
 
 Kunming Medical University, founded in 1933, anchors medical education in southwest China from its modern Chenggong university town campus. Known across the region as a welcoming, affordable destination for English-medium MBBS, KMU pairs straightforward living costs with Yunnan's largest network of teaching hospitals.

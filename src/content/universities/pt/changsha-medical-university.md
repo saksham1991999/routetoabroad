@@ -54,6 +54,9 @@ faqs:
   - question: 'Como é a vida estudantil em Changsha?'
     answer: 'Changsha é conhecida em toda a China pela cultura jovem animada, pela culinária de Hunan a preços acessíveis e pelas conexões práticas de metrô e trem de alta velocidade.'
 order: 13
+verify:
+  - "Removed until confirmed: - 'Listada pelo MOE (verificar ingresso atual)'"
+  - "Removed until confirmed: answer: 'A Changsha Medical University está listada no World Directory of Medical Schools (WDOMS) e na lista do MOE da China (verificar a situação de ingresso do ano corrente). A elegibilidade para caminhos de licenciamento internacional, como ECFMG/USMLE, GMC/PLAB e NMC FMGE/NExT, depende das regras atuais do conselho médico do país de origem e das normas do ano de admissão.'"
 ---
 
 A Changsha Medical University, localizada no distrito de Wangcheng, em Changsha, é uma instituição médica especializada que forma médicos clínicos, dentistas, enfermeiros e farmacêuticos. Seu programa de MBBS em inglês tornou-se uma escolha constante para estudantes internacionais que buscam um campus médico focado no centro-sul da China.

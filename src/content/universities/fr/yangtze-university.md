@@ -52,6 +52,8 @@ faqs:
   - question: 'La Yangtze University propose-t-elle des diplômes en anglais hors médecine ?'
     answer: 'Oui. En plus du MBBS, la Yangtze University propose des licences et des masters enseignés en anglais en informatique, IA, génie pétrolier et commerce.'
 order: 11
+verify:
+  - "Removed until confirmed: - 'Inscrite au MOE (vérifier l''admission en cours)'"
 ---
 
 Située dans la ville historique de Jingzhou, sur le fleuve Yangtsé, dans la province du Hubei, la Yangtze University est une université polyvalente provinciale formée à partir de quatre collèges spécialisés. Pour les étudiants internationaux, elle offre une voie pratique et économique vers des diplômes de MBBS, d'informatique et d'ingénierie enseignés en anglais.

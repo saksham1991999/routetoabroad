@@ -16,7 +16,7 @@ strengths:
   - title: 'Campus de la "pequeña ONU"'
     text: 'Más de 150 nacionalidades estudian codo con codo en el barrio universitario de Wudaokou, en Haidian, lo que crea una comunidad internacional extraordinariamente diversa.'
   - title: 'Itinerarios flexibles, cortos y de grado'
-    text: 'Ofrece programas de 1 semestre y de 1 año, además de grados de 4 años en Lengua China, Chino de Negocios, Traducción y Política Internacional.'
+    text: 'Ofrece programas de 1 semestre y de 1 año, además de grados de 4 años en Lengua China, Chino de Negocios y Traducción.'
   - title: 'Ubicación privilegiada en Haidian'
     text: 'Está junto a la Universidad de Tsinghua y a un corto trayecto de metro de la Universidad de Pekín, en el distrito de Wudaokou. Es un año de base ideal antes de entrar en los grados top impartidos en chino.'
 programmes:

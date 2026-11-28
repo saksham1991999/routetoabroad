@@ -44,7 +44,7 @@ recognitions:
   - 'CSC Designated'
   - 'Washington Accord (Engenharia)'
 intakes: 'Setembro (ingresso principal; prazos da CSC normalmente de janeiro a março)'
-scholarships: 'Bolsas integrais CSC Tipo A/B, Bolsa do Governo de Heilongjiang e Bolsas de Pesquisa de Pós-Graduação da HEU'
+scholarships: 'Bolsas CSC Tipo A/B, Bolsa do Governo de Heilongjiang e Bolsas de Pesquisa de Pós-Graduação da HEU'
 taughtLanguages:
   - 'Inglês'
   - 'Chinês'

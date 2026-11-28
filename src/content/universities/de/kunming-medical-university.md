@@ -56,6 +56,9 @@ faqs:
   - question: 'Wie weit ist Kunming von großen internationalen Flugdrehkreuzen entfernt?'
     answer: 'Der internationale Flughafen Kunming Changshui hat Direkt- oder Umsteigeverbindungen nach Südasien, Südostasien und in den Nahen Osten sowie häufige Inlandsflüge nach Peking, Shanghai und Guangzhou.'
 order: 9
+verify:
+  - "Removed until confirmed: - 'Im MOE-Verzeichnis (aktuellen Jahrgang prüfen)'"
+  - "Removed until confirmed: answer: 'Die KMU ist in der WDOMS und auf der MOE-Liste Chinas geführt (aktuellen Jahrgangsstatus prüfen). Die Zulassung zu ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT und anderen Lizenzprüfungen hängt von den aktuellen Regeln der Ärztekammer im Herkunftsland und den Vorschriften des Zulassungsjahres ab.'"
 ---
 
 Die 1933 gegründete Kunming Medical University prägt die medizinische Ausbildung im Südwesten Chinas von ihrem modernen Campus in der Hochschulstadt Chenggong aus. In der Region als einladendes, erschwingliches Ziel für englischsprachiges MBBS bekannt, verbindet die KMU niedrige Lebenshaltungskosten mit dem größten Netz an Lehrkrankenhäusern Yunnans.

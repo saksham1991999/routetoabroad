@@ -16,6 +16,7 @@ faqs:
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'Payments: confirm current RBI/banking practice guidance per transaction size before publishing as advice'
+  - 'Transit: confirm Guangzhou/Shenzhen (~18–25 days) and Shanghai/Ningbo (~20–28 days) sea days and air-freight door-to-door days (3–7 days) before publishing'
 ---
 
 **Short answer: the corridor is bigger and more functional than the headlines suggest — $100B+ a year of mostly routine commerce. What changed since 2020 is scrutiny, not prohibition. Importers who run tight documentation and inspection pipelines move goods smoothly; everyone else funds the demurrage economy.**
@@ -38,7 +39,7 @@ verify:
 | China port | India port | Sea transit |
 | --- | --- | --- |
 | Guangzhou / Shenzhen (Nansha, Yantian) | Mundra / JNPT (Nhava Sheva) | Varies by carrier and season |
-| Shanghai / Ningbo | Mundra / JNPT | ~20–28 days |
+| Shanghai / Ningbo | Mundra / JNPT | Varies by carrier and season |
 
 [Air freight](/tools/trade-cost-calculator/) (PVG/CAN → DEL/BOM): much faster door-to-door, at 5–8× sea cost. Watch peak-season roll risk ([Canton Fair weeks](/cities/guangzhou/), pre-Chinese New Year rush) and Golden Week port blank sailings.
 

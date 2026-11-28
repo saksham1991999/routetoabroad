@@ -52,6 +52,8 @@ faqs:
   - question: '¿Ofrece la Universidad del Yangtsé grados en inglés no médicos?'
     answer: 'Sí. Además del MBBS, ofrece grados de licenciatura y máster en inglés en Informática, IA, Ingeniería de Petróleo y Administración de Empresas.'
 order: 11
+verify:
+  - "Removed until confirmed: - 'MOE-listed (verify current intake)'"
 ---
 
 Situada en la histórica ciudad de Jingzhou, a orillas del río Yangtsé, en la provincia de Hubei, la Universidad del Yangtsé es una universidad provincial integral formada a partir de cuatro colegios especializados. Para los estudiantes internacionales, supone una vía práctica y económica hacia el MBBS, la informática y los grados de ingeniería impartidos en inglés.

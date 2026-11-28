@@ -33,8 +33,6 @@ costs:
 facts:
   - label: 'Ville'
     value: 'Pékin (district de Haidian)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ de plus de 100 pays' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Candidats à haut score, recherche, humanités'
   - label: 'Rentrées'
@@ -46,6 +44,7 @@ faqs:
     answer: 'Oui, Pékin est une université désignée CSC pour les candidatures de type A et de type B, plus des bourses internes à l''université (Yenching pour certains masters, entre autres).'
 order: 1
 verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ de plus de 100 pays'"
   - "Removed until confirmed: cost tuition 'Généralement US$5,000–10,000/an ; la CSC couvre 100% pour les lauréats'"
   - "Removed until confirmed: cost dorm 'US$1,200–2,400/an sur le campus'"
   - "Removed until confirmed: cost living 'US$500–850/mois à Pékin (Haidian)'"

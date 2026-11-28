@@ -83,17 +83,9 @@ Fudan suits business and economics applicants, MBBS candidates targeting Shangha
 
 ## Costs
 
-Figures are per year unless stated.
-
-| Item | Estimate |
-| --- | --- |
-
 A full CSC award covers tuition, dorm and most living costs. Use the [cost calculator](/tools/cost-calculator/) for a personal estimate.
 
 ## Intakes
-
-| Intake | Start | Application window | Deadline |
-| --- | --- | --- | --- |
 
 September is the main intake, and some programmes take March entry. Confirm each window with the university before you plan a file.
 
@@ -140,6 +132,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
+Read the [CSC guide](/guides/csc-scholarship/) for national application routes, and confirm current university or provincial awards directly with Fudan.
 
 ## Timeline
 
@@ -152,7 +145,7 @@ These dates follow the [CSC guide](/guides/csc-scholarship/) timeline. Check eac
 
 ## Living in Shanghai
 
-Shanghai living costs appear in the table above. The [Shanghai city guide](/cities/shanghai/) covers districts, daily life and transport.
+The [Shanghai city guide](/cities/shanghai/) covers districts, daily life, typical student budgets and transport.
 
 ## Common mistakes to avoid
 

@@ -85,23 +85,15 @@ Undergraduate entry is exam and interview based, with very small quotas. Master'
 
 ## Costs
 
-Figures are per year unless stated.
-
-| Item | Estimate |
-| --- | --- |
-
 A full CSC award covers tuition, dorm and most living costs. Use the [cost calculator](/tools/cost-calculator/) for a personal estimate.
 
 ## Intakes
-
-| Intake | Start | Application window | Deadline |
-| --- | --- | --- | --- |
 
 Peking's main intake is September. Some programmes also take March entry. Confirm the programme list and each window with the university before you plan a file.
 
 ## Campus and location
 
-Peking sits in Haidian, the academic district of northwest Beijing. Campus life centres on Weiming Lake. The Weiming Lake campus is a former imperial garden. Yan Yuan is arguably the most beautiful campus in China, and it sits minutes from Haidian's tech corridor. For living costs in Haidian, see the table above.
+Peking sits in Haidian, the academic district of northwest Beijing. Campus life centres on Weiming Lake. The Weiming Lake campus is a former imperial garden. Yan Yuan is arguably the most beautiful campus in China, and it sits minutes from Haidian's tech corridor.
 
 ## How to apply
 
@@ -143,6 +135,7 @@ No consultancy can guarantee admission or a CSC award. Committees decide. Apply 
 
 ## Scholarship options
 
+Peking is a CSC-designated university for both Type A and Type B applications. Read the [CSC guide](/guides/csc-scholarship/) for application routes, and confirm current university or provincial awards directly with Peking.
 
 ## Timeline
 
