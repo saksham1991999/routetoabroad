@@ -27,14 +27,12 @@ programmes:
   - 'MBBS（教育部备案英文授课，名额有限）'
   - '博士项目（CSC资助，导师指导）'
 costs:
-  tuition: '通常每年 US$5,000–10,000；CSC获奖者可获全额资助'
-  dorm: '校内住宿每年 US$1,200–2,400'
-  living: '在北京（海淀）每月 US$500–850'
+  tuition: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current tuition figure
+  dorm: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current dorm figure
+  living: '请向我们的顾问咨询当前费用' # {{VERIFY}} confirm current living figure
 facts:
   - label: '城市'
     value: '北京（海淀区）'
-  - label: '国际学生'
-    value: '来自100多个国家的约 3,000+' # {{VERIFY}} current intake figures
   - label: '最适合'
     value: '高分申请者、科研、人文'
   - label: '入学时间'
@@ -45,6 +43,10 @@ faqs:
   - question: '北京大学提供CSC奖学金吗？'
     answer: '提供。北大是CSC A类和B类申请的指定院校，此外还有校设奖学金（如面向部分硕士项目的燕京奖学金等）。'
 order: 1
+verify:
+  - "Removed until confirmed: cost tuition '通常每年 US$5,000–10,000；CSC获奖者可获全额资助'"
+  - "Removed until confirmed: cost dorm '校内住宿每年 US$1,200–2,400'"
+  - "Removed until confirmed: cost living '在北京（海淀）每月 US$500–850'"
 ---
 
 北京大学（北大）坐落于北京西北部的海淀学术区。对国际学生而言，这里提供全国最深厚的英文授课硕士课程，涵盖经济、政策与中国研究，理科领域亦有研究型博士项目。校园生活以未名湖及周边的皇家园林为中心。

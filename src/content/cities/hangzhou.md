@@ -3,6 +3,7 @@ name: 'Hangzhou'
 chineseName: '杭州'
 country: 'China'
 intro: 'Hangzhou pairs West Lake scenery with China''s digital-economy capital — the best student city for value: top-5 university prestige (Zhejiang University) at living costs roughly 30% below Beijing and Shanghai.'
+metaDescription: 'Hangzhou guide: West Lake, China''s digital-economy capital, Zhejiang University and living costs roughly 30% below Beijing and Shanghai.'
 image: '../../assets/images/university-zhejiang.jpg'
 imageAlt: 'Lakeside campus buildings of Zhejiang University near West Lake, Hangzhou'
 studentMonthly:

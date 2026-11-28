@@ -10,6 +10,10 @@ tags: ['MBBS', 'Chine', 'Bourses']
 featured: true
 image: '../../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Des étudiants en médecine étudient autour d''un modèle d''anatomie dans un laboratoire universitaire'
+verify:
+  - "Removed until confirmed: CGPA ~3.5 competitiveness claim"
+  - "Removed until confirmed: 8–12-week offer-to-visa JW202 timing"
+  - "Removed until confirmed: 48-hour consultant-programme match promise"
 ---
 
 La Chine s'est imposée comme l'une des premières destinations pour les étudiants indiens souhaitant poursuivre un MBBS. Universités listées à l'international, programmes enseignés en anglais, opportunités de bourses significatives : l'attrait est indéniable. Mais il existe des nuances critiques que tout candidat doit comprendre avant de s'engager.
@@ -24,11 +28,11 @@ La plupart des programmes de MBBS sont enseignés en anglais les premières ann�
 
 ## 3. La bourse CSC est réelle — mais compétitive
 
-La bourse du gouvernement chinois (CSC) peut couvrir l'intégralité des frais de scolarité, l'hébergement et une allocation mensuelle. Elle est fondée sur le mérite et compétitive : les étudiants avec un CGPA supérieur à environ 3,5 et de solides activités extrascolaires ont les meilleures chances. Les bourses universitaires constituent une voie parallèle — souvent moins compétitive — et généralement partielle.
+La bourse du gouvernement chinois (CSC) peut couvrir l'intégralité des frais de scolarité, l'hébergement et une allocation mensuelle. Elle est fondée sur le mérite et compétitive : les étudiants présentant de solides résultats académiques et activités extrascolaires ont les meilleures chances. Les bourses universitaires constituent une voie parallèle — souvent moins compétitive — et généralement partielle.
 
 ## 4. Le processus JW202 prend du temps
 
-Le JW202 est le formulaire officiel de demande de visa pour études, délivré par l'université avec votre lettre d'admission. De l'offre universitaire au visa en main, comptez 8 à 12 semaines. Déposez tôt. Rater une fenêtre de rentrée est l'une des erreurs les plus courantes — et les plus évitables — que nous observons.
+Le JW202 est le formulaire officiel de demande de visa pour études, délivré par l'université avec votre lettre d'admission. De l'offre universitaire au visa en main, comptez plusieurs semaines. Déposez tôt. Rater une fenêtre de rentrée est l'une des erreurs les plus courantes — et les plus évitables — que nous observons.
 
 ## 5. Le support sur place n'est pas un luxe
 
@@ -42,4 +46,4 @@ Accueil à l'aéroport, enregistrement à la résidence, cartes SIM, comptes ban
 - Sécurisez une preuve de moyens financiers (même pour les boursiers)
 - Inscrivez-vous tôt à la préparation HSK
 
-Prêt à lancer votre candidature ? Nos consultants peuvent évaluer votre éligibilité et vous orienter vers un programme adapté sous 48 heures.
+Prêt à lancer votre candidature ? Nos consultants peuvent évaluer votre éligibilité et vous orienter vers un programme adapté.

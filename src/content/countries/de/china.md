@@ -7,12 +7,8 @@ imageAlt: 'Karstberge am Li-Fluss bei Guilin, China'
 stats:
   - label: 'Vermittelte Studierende'
     value: '500+'
-  - label: 'Partneruniversitäten'
-    value: '150+'
   - label: 'Studienbeginn pro Jahr'
     value: '2 (Sep & Mär)'
-  - label: 'Visa-Erfolgsquote'
-    value: '98%' # {{VERIFY}}
 study:
   heading: 'Studieren in China'
   text: 'China betreibt das größte internationale Studierendensystem Asiens: MOE-gelistete englischsprachige Abschlüsse, das CSC-Staatsstipendium und Studiengebühren auf einen Bruchteil westlicher Ziele. Medizin, Ingenieurwesen und Wirtschaft sind die Flaggschiff-Routen.'

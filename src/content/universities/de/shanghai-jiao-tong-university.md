@@ -27,14 +27,12 @@ programmes:
   - 'MBA (Antai College, englischsprachig)'
   - 'Materials Science (Forschungsstrecken)'
 costs:
-  tuition: 'typischerweise US$4,000–9,000/Jahr; CSC deckt 100 % für Stipendiaten ab'
+  tuition: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current tuition figure
   dorm: 'US$1,000–1,800/Jahr auf dem Campus'
-  living: 'US$550–900/Monat in Shanghai'
+  living: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Stadt'
     value: 'Shanghai (Campus Minhang & Huangpu)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ über alle Abschlüsse hinweg' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Ingenieurwesen, Medizin, Forschung'
   - label: 'Studienbeginn'
@@ -45,6 +43,10 @@ faqs:
   - question: 'Ist die SJTU oder die Fudan besser für Ingenieurwesen?'
     answer: 'Die SJTU. Fudan führt in Geisteswissenschaften/Wirtschaft; die SJTU führt in Ingenieurwesen und klinischer Medizin. Beide sind Top-5-umfassende Institutionen in Shanghai.'
 order: 5
+verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 3,000+ über alle Abschlüsse hinweg'"
+  - "Removed until confirmed: cost tuition 'typischerweise US$4,000–9,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
+  - "Removed until confirmed: cost living 'US$550–900/Monat in Shanghai'"
 ---
 
 Die SJTU erstreckt sich über den grünen Hauptcampus Minhang und historische Standorte im Stadtzentrum. Ihre Alumniliste liest sich wie die moderne chinesische Industrie: Jiang Zemin, Qian Xuesen (der Vater der chinesischen Raketenforschung) und Gründer aus Schiffbau, Automobilbau und Halbleitern. Für internationale Studierende vereint sie die Vorteile der Metropole Shanghai mit einer vom Ingenieurwesen geprägten Kultur.

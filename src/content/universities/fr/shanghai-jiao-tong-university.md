@@ -29,12 +29,10 @@ programmes:
 costs:
   tuition: 'Généralement US$4 000–9 000/an ; la CSC couvre 100% pour les lauréats'
   dorm: 'US$1 000–1 800/an sur le campus'
-  living: 'US$550–900/mois à Shanghai'
+  living: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ville'
     value: 'Shanghai (campus de Minhang et Huangpu)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, médecine, recherche'
   - label: 'Rentrées'
@@ -45,6 +43,9 @@ faqs:
   - question: 'SJTU ou Fudan, laquelle est meilleure en ingénierie ?'
     answer: 'SJTU. Fudan domine en humanités/commerce ; SJTU domine en ingénierie et médecine clinique. Les deux sont des institutions pluridisciplinaires du top 5 à Shanghai.'
 order: 5
+verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ tous diplômes confondus'"
+  - "Removed until confirmed: cost living 'US$550–900/mois à Shanghai'"
 ---
 
 SJTU s'étend du campus principal verdoyant de Minhang aux sites historiques du centre-ville. Sa liste d'alumni ressemble à l'industrie chinoise moderne : Jiang Zemin, Qian Xuesen (père de la fusée chinoise), et des fondateurs dans la construction navale, l'automobile et les semi-conducteurs. Pour les étudiants internationaux, elle conjugue les avantages urbains de Shanghai et une culture tournée vers l'ingénierie avant tout.

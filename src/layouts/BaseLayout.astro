@@ -411,15 +411,15 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
             const words =
               loader.dataset.loaderWords?.split('|').filter(Boolean) ?? ['Choose', 'Apply', 'Enroll'];
             document.body.classList.add('rta-locked');
-            startLogoMotion(words.length * 620);
+            startLogoMotion(words.length * 360);
             if (word) {
               for (const next of words) {
                 word.textContent = next;
                 word.classList.add('is-in');
-                await wait(260 + 160); // in 0.26s + hold 0.16s
+                await wait(200); // in 0.20s, no hold
                 word.classList.remove('is-in');
                 word.classList.add('is-out');
-                await wait(200); // out 0.20s
+                await wait(160); // out 0.16s
                 word.classList.remove('is-out');
               }
             }
@@ -778,13 +778,13 @@ const isHome = ['', '/'].includes(stripLocalePrefix(Astro.url.pathname) || '/');
   .rta-loader-word.is-in {
     transform: translateY(0);
     opacity: 1;
-    transition: transform 0.26s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.26s linear;
+    transition: transform 0.2s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.2s linear;
   }
 
   .rta-loader-word.is-out {
     transform: translateY(-115%);
     opacity: 0;
-    transition: transform 0.2s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.2s linear;
+    transition: transform 0.16s cubic-bezier(0.32, 0, 0.2, 1), opacity 0.16s linear;
   }
 
   .no-js .rta-loader {

@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1989'
 nickname: 'Focused medical university in Hunan''s vibrant capital'
 intro: 'Changsha Medical University (CSMU) is a specialized medical institution in Changsha, Hunan Province, offering an English-medium MBBS programme with strong international student enrolment, modern simulation labs, and direct access to southern China''s transport network.'
+metaDescription: 'Changsha Medical University (CSMU): English-medium MBBS, modern simulation labs and southern China transport links in Changsha, Hunan. Costs and intakes.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'Medical campus and lecture hall representing Changsha Medical University'
 strengths:
@@ -38,7 +39,7 @@ facts:
   - label: 'Nearest hub'
     value: '2.5 hrs by rail to Guangzhou'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -49,10 +50,13 @@ taughtLanguages:
 hskRequirement: 'None at entry for English MBBS; HSK 4 required prior to clinical internship / graduation'
 faqs:
   - question: 'Is Changsha Medical University listed in WDOMS and recognized for MBBS?'
-    answer: 'Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and on China''s MOE list (verify current-year intake status). Eligibility for international licensing pathways such as ECFMG/USMLE, GMC/PLAB, and NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'Changsha Medical University is listed in the World Directory of Medical Schools (WDOMS) and on China''s MOE list. Eligibility for international licensing pathways such as ECFMG/USMLE, GMC/PLAB, and NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'What is student life like in Changsha?'
     answer: 'Changsha is famous across China for its energetic youth culture, affordable Hunan cuisine, and convenient metro and high-speed rail connections.'
 order: 13
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Pending confirmation: international student enrolment scale ('hundreds of international medical students' in strengths)"
 ---
 
 Changsha Medical University, located in the Wangcheng District of Changsha, is a specialized medical institution dedicated to training clinicians, dentists, nurses, and pharmacists. Its English-medium MBBS programme has become a steady choice for international students seeking a focused medical campus in south-central China.

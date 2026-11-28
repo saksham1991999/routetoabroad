@@ -61,6 +61,8 @@ const universities = defineCollection({
       founded: z.string(),
       nickname: z.string().optional(),
       intro: z.string(), // answer-first paragraph
+      metaDescription: z.string().max(160).optional(),
+      website: z.string().url().optional(),
       image: image(),
       imageAlt: z.string(),
       strengths: z.array(z.object({ title: z.string(), text: z.string() })),
@@ -92,6 +94,7 @@ const cities = defineCollection({
       chineseName: z.string(),
       country: z.string(),
       intro: z.string(),
+      metaDescription: z.string().max(160).optional(),
       image: image(),
       imageAlt: z.string(),
       studentMonthly: z.object({ low: z.number(), high: z.number() }), // USD/month

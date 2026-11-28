@@ -27,14 +27,12 @@ programmes:
   - 'Negocios internacionales (grado, en inglés)'
   - 'Salud pública (máster, en inglés)'
 costs:
-  tuition: 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'
-  dorm: 'US$1,000–2,000/año en el campus'
-  living: 'US$550–900/mes en Shanghái'
+  tuition: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ciudad'
     value: 'Shanghái (distrito de Yangpu)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Carreras de negocios, medicina y medios'
   - label: 'Ingresos'
@@ -45,6 +43,10 @@ faqs:
   - question: '¿Cómo se compara Fudan con Peking y Tsinghua?'
     answer: 'Los rankings están a un pelo (top 5 de China). La verdadera diferencia es geográfica: Fudan te sitúa en el ecosistema comercial de Shanghái, lo que más importa para carreras de negocios, finanzas y medios.'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'"
+  - "Removed until confirmed: cost dorm 'US$1,000–2,000/año en el campus'"
+  - "Removed until confirmed: cost living 'US$550–900/mes en Shanghái'"
 ---
 
 El campus de Handan Road de Fudan está en el distrito de Yangpu, un barrio estudiantil de Shanghái que también acoge a la Universidad Tongji. El nombre significa "la luz del cielo se extiende sobre la tierra" — una confianza digna de la universidad. Para los estudiantes internacionales, Fudan equilibra prestigio académico con la ventaja práctica de Shanghái: todo, desde el trabajo a tiempo parcial (que requiere permiso de la universidad y, para empleos fuera del campus, una aprobación migratoria adicional — tu permiso de residencia estudiantil tiene condiciones) hasta las conexiones con el aeropuerto, es más fácil aquí.

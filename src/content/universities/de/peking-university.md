@@ -27,14 +27,12 @@ programmes:
   - 'MBBS (vom Bildungsministerium gelistet, englischsprachig, begrenzte Plätze)'
   - 'PhD-Programme (CSC-gefördert, betreut durch Doktorvater/-mutter)'
 costs:
-  tuition: 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'
-  dorm: 'US$1,200–2,400/Jahr auf dem Campus'
-  living: 'US$500–850/Monat in Beijing (Haidian)'
+  tuition: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current dorm figure
+  living: 'Aktuelle Gebühren bei unseren Beratern erfragen' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Stadt'
     value: 'Beijing (Bezirk Haidian)'
-  - label: 'Internationale Studierende'
-    value: 'ca. 3,000+ aus über 100 Ländern' # {{VERIFY}} current intake figures
   - label: 'Am besten geeignet für'
     value: 'Bewerber mit Top-Noten, Forschung, Geisteswissenschaften'
   - label: 'Studienbeginn'
@@ -45,6 +43,11 @@ faqs:
   - question: 'Bietet die Peking University CSC-Stipendien an?'
     answer: 'Ja. Für CSC Typ B (direkte Bewerbung an der Universität) ist die Peking University als CSC-Hochschule zugelassen; Typ A läuft dagegen über Regierungskanäle — die chinesische Botschaft bzw. die benannte Vermittlungsstelle Ihres Landes — und wird nicht über die Universität beantragt. Dazu kommen universitätseigene Stipendien (u. a. Yenching für ausgewählte Masterprogramme).'
 order: 1
+verify:
+  - "Removed until confirmed: fact 'Internationale Studierende' 'ca. 3,000+ aus über 100 Ländern'"
+  - "Removed until confirmed: cost tuition 'typischerweise US$5,000–10,000/Jahr; CSC deckt 100 % für Stipendiaten ab'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,400/Jahr auf dem Campus'"
+  - "Removed until confirmed: cost living 'US$500–850/Monat in Beijing (Haidian)'"
 ---
 
 Die Peking University (Bei Da) bildet das Zentrum des akademischen Bezirks Haidian im Nordwesten Beijings. Für internationale Studierende bietet sie das tiefste Angebot des Landes an englischsprachigen Masterprogrammen in Volkswirtschaftslehre, Politik und Chinastudien sowie forschungsorientierte Doktorarbeiten in den Naturwissenschaften. Das Campusleben konzentriert sich auf den Weiming-See und die umliegenden Gärten aus der Kaiserzeit.

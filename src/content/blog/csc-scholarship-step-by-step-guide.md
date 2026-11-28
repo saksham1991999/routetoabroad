@@ -11,7 +11,9 @@ image: '../../assets/images/blog-csc.jpg'
 imageAlt: 'Graduates in gowns celebrating at a university graduation ceremony'
 ---
 
-The China Scholarship Council (CSC) scholarship is one of the most generous academic funding opportunities available to international students. A full award can cover tuition, accommodation, a monthly stipend, and medical insurance — though exact coverage varies by award and university — and it can make an otherwise expensive degree completely accessible. Here is how to apply — from someone who did.
+The CSC scholarship funds Chinese degrees for international students. A full award can cover tuition, accommodation, a monthly stipend and medical insurance, though exact coverage varies by award and university. Here is the step-by-step route, from choosing Type A or Type B to tracking your file after you submit.
+
+For the full reference on routes, documents and odds, read the [CSC Scholarship Guide](/guides/csc-scholarship/).
 
 ## Step 1: Determine your route — Type A vs Type B
 

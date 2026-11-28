@@ -7,6 +7,7 @@ type: 'technical'
 founded: '1896'
 nickname: 'China''s engineering aristocracy'
 intro: 'Shanghai Jiao Tong University (SJTU) is a top-5 Chinese engineering institution with over a century of history — the strongest fit for engineering, medicine and business students who want Shanghai placement power with deep technical brand value.'
+metaDescription: 'Shanghai Jiao Tong University (SJTU): top-5 Chinese engineering institution with over a century of history, strong in medicine and business. Costs and intakes.'
 image: '../../assets/images/university-sjtu.jpg'
 imageAlt: 'Contemporary research buildings at Shanghai Jiao Tong University'
 strengths:
@@ -26,14 +27,12 @@ programmes:
   - 'MBA (Antai College, English-taught)'
   - 'Materials Science (research tracks)'
 costs:
-  tuition: 'US$4,000–9,000/yr typical; CSC covers 100% for winners'
+  tuition: 'Ask our advisors for current fees' # {{VERIFY}} confirm current tuition figure
   dorm: 'US$1,000–1,800/yr on campus'
-  living: 'US$550–900/month in Shanghai'
+  living: 'Ask our advisors for current fees' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'City'
     value: 'Shanghai (Minhang & Huangpu campuses)'
-  - label: 'International students'
-    value: '~3,000+ across degrees' # {{VERIFY}} current intake figures
   - label: 'Best for'
     value: 'Engineering, medicine, research'
   - label: 'Intakes'
@@ -44,6 +43,9 @@ faqs:
   - question: 'Is SJTU or Fudan better for engineering?'
     answer: 'SJTU. Fudan leads in humanities/business; SJTU leads in engineering and clinical medicine. Both are top-5 comprehensive institutions in Shanghai.'
 order: 5
+verify:
+  - "Removed until confirmed: cost tuition 'US$4,000–9,000/yr typical; CSC covers 100% for winners'"
+  - "Removed until confirmed: cost living 'US$550–900/month in Shanghai'"
 ---
 
 SJTU spans the green Minhang main campus and historic city-centre sites. Its alumni list reads like modern Chinese industry: Jiang Zemin, Qian Xuesen (father of Chinese rocketry), and founders across shipbuilding, autos and semiconductors. For international students it delivers Shanghai city advantages with an engineering-first culture.

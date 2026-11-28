@@ -2,7 +2,8 @@
 name: 'Osaka'
 chineseName: '大阪'
 country: 'Japan'
-intro: 'Osaka is Japan''s kitchen and commercial port — louder, warmer, and more affordable than Tokyo, anchoring the Kansai region with street food in Dotonbori, Osaka Castle, and effortless day trips to Kyoto, Nara, and Kobe.'
+intro: 'Osaka is Japan''s kitchen and commercial port, anchoring the Kansai region. It is louder, warmer and more affordable than Tokyo. Street food in Dotonbori, Osaka Castle and easy day trips to Kyoto, Nara and Kobe make it a practical base for Kansai.'
+metaDescription: 'Osaka guide: Japan''s kitchen and commercial port in Kansai, with Dotonbori street food, Osaka Castle and day trips to Kyoto, Nara and Kobe.'
 image: '../../assets/images/country-japan.jpg'
 imageAlt: 'Japanese cityscape and landmark scenery with clear skies'
 studentMonthly:

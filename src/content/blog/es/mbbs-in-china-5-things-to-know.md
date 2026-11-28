@@ -10,6 +10,10 @@ tags: ['MBBS', 'China', 'Becas']
 featured: true
 image: '../../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Estudiantes de medicina estudiando alrededor de un modelo de anatomía en un laboratorio universitario'
+verify:
+  - "Removed until confirmed: <!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->"
+  - "Removed until confirmed: <!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->"
+  - "Removed until confirmed: <!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->"
 ---
 
 China se ha consolidado como uno de los principales destinos para los estudiantes indios que persiguen un título de MBBS. Con universidades listadas a nivel global, programas impartidos en inglés y oportunidades significativas de becas, el atractivo es innegable. Pero hay matices críticos que todo solicitante debe entender antes de comprometerse.
@@ -24,15 +28,13 @@ La mayoría de los programas de MBBS se imparten en inglés durante los primeros
 
 ## 3. La beca CSC es real — pero competitiva
 
-La Beca del Gobierno Chino (CSC) puede cubrir la matrícula completa, el alojamiento y una asignación mensual. Se basa en el mérito y es competitiva: los estudiantes con un CGPA superior a unos 3,5 y buen expediente extracurricular tienen las mejores probabilidades. Las becas universitarias son una vía paralela — a menudo menos competitiva — y en su mayoría parciales.
+La Beca del Gobierno Chino (CSC) puede cubrir la matrícula completa, el alojamiento y una asignación mensual. Se basa en el mérito y es competitiva: los estudiantes con sólidas calificaciones académicas y buen expediente extracurricular tienen las mejores probabilidades. Las becas universitarias son una vía paralela — a menudo menos competitiva — y en su mayoría parciales.
 
-<!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->
 
 ## 4. El proceso del JW202 lleva tiempo
 
-El JW202 es el formulario oficial de solicitud de visado para estudios, emitido por la universidad junto con tu Carta de Admisión. Desde la oferta de la universidad hasta el visado en mano pueden pasar de 8 a 12 semanas. Aplica pronto. Perder las ventanas de admisión es uno de los errores más comunes — y más evitables — que vemos.
+El JW202 es el formulario oficial de solicitud de visado para estudios, emitido por la universidad junto con tu Carta de Admisión. Desde la oferta de la universidad hasta el visado en mano pueden pasar varias semanas. Aplica pronto. Perder las ventanas de admisión es uno de los errores más comunes — y más evitables — que vemos.
 
-<!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->
 
 ## 5. El apoyo sobre el terreno no es un lujo
 
@@ -46,6 +48,4 @@ Recogidas en el aeropuerto, registro del dormitorio, tarjetas SIM, cuentas banca
 - Asegura prueba de solvencia económica (incluso para solicitantes de becas)
 - Regístrate pronto en la preparación del HSK
 
-¿Listo para empezar tu solicitud? Nuestros consultores pueden evaluar tu elegibilidad y emparejarte con un programa adecuado en 48 horas.
-
-<!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->
+¿Listo para empezar tu solicitud? Nuestros consultores pueden evaluar tu elegibilidad y emparejarte con un programa adecuado.

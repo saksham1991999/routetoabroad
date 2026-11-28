@@ -27,14 +27,12 @@ programmes:
   - 'MBA（安泰経済与管理学院、英語開講）'
   - '材料科学（研究系コース）'
 costs:
-  tuition: '一般的に US$4,000–9,000/年。CSC奨学金の採用者は100%給付'
+  tuition: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current tuition figure
   dorm: '学内寮 US$1,000–1,800/年'
-  living: '上海の生活費 US$550–900/月'
+  living: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current living figure
 facts:
   - label: '都市'
     value: '上海（閔行・黄浦キャンパス）'
-  - label: '留学生数'
-    value: '全課程合計で約 3,000+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: '工学・医学・研究志望'
   - label: '入学時期'
@@ -45,6 +43,9 @@ faqs:
   - question: '工学ではSJTUと復旦大学のどちらが良いですか？'
     answer: 'SJTUです。復旦は人文・ビジネス系で、SJTUは工学と臨床医学でリードしています。どちらも上海のトップ5総合大学です。'
 order: 5
+verify:
+  - "Removed until confirmed: cost tuition '一般的に US$4,000–9,000/年。CSC奨学金の採用者は100%給付'"
+  - "Removed until confirmed: cost living '上海の生活費 US$550–900/月'"
 ---
 
 上海交通大学は緑豊かな閔行メインキャンパスと、市内中心部の歴史あるキャンパス群を擁します。卒業生リストは中国の近代産業史そのものです。江沢民、銭学森（中国ロケット開発の父）、そして造船・自動車・半導体分野の創業者たち。留学生にとっては、上海という都市の利点と、工学第一の文化の両方が得られる大学です。

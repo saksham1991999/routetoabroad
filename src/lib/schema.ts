@@ -4,6 +4,7 @@
  */
 import { SITE } from './site';
 import { DEFAULT_LOCALE, translatePath, type Locale } from './i18n';
+import { AUTHORS } from '../data/authors';
 
 type Crumb = { name: string; url: string };
 
@@ -17,6 +18,20 @@ function absUrl(u: string): string {
   return /^https?:\/\//i.test(u) ? u : new URL(u, SITE.url).href;
 }
 
+/**
+ * @id of a founder's Person node. AboutPage.astro emits Person nodes with the
+ * same string, so the Organization founder and the About page person are one entity.
+ */
+export function founderId(name: string): string {
+  const slug = name
+    .toLowerCase()
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  return `${SITE.url}/about#founder-${slug}`;
+}
+
 export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
@@ -27,7 +42,6 @@ export function organizationSchema() {
     url: SITE.url,
     logo: `${SITE.url}/icon-512.png?v=2`,
     email: SITE.email,
-    foundingDate: String(SITE.founded),
     description: SITE.description,
     address: [SITE.registeredOffice, ...SITE.offices].map((o) => ({
       '@type': 'PostalAddress',
@@ -47,6 +61,11 @@ export function organizationSchema() {
       },
     ],
     sameAs: Object.values(SITE.socials),
+    founder: [AUTHORS.minhaj, AUTHORS.vijeesh].map((a) => ({
+      '@type': 'Person',
+      '@id': founderId(a.name),
+      name: a.name,
+    })),
   };
 }
 
@@ -167,8 +186,9 @@ export function courseSchema(opts: {
   name: string;
   description: string;
   url: string;
-  /** The actual teaching institution — name and page URL. */
-  providerName?: string;
+  /** The teaching institution. */
+  providerName: string;
+  /** The institution's own website. Omit when the owner has not supplied one. */
   providerUrl?: string;
 }) {
   return {
@@ -177,12 +197,16 @@ export function courseSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: absUrl(opts.url),
-    provider: {
-      '@type': 'CollegeOrUniversity',
-      '@id': opts.providerUrl ? absUrl(opts.providerUrl) : `${SITE.url}/#organization`,
-      name: opts.providerName ?? SITE.name,
-      sameAs: opts.providerUrl ? absUrl(opts.providerUrl) : SITE.url,
-    },
+    // Never RouteToAbroad as provider: with no website, the provider is the
+    // institution by name only.
+    provider: opts.providerUrl
+      ? {
+          '@type': 'CollegeOrUniversity',
+          '@id': absUrl(opts.providerUrl),
+          name: opts.providerName,
+          sameAs: absUrl(opts.providerUrl),
+        }
+      : { '@type': 'Organization', name: opts.providerName },
   };
 }
 
@@ -213,6 +237,8 @@ export function articleSchema(opts: {
   datePublished: string;
   dateModified: string;
   authorName: string;
+  /** Person for named authors (blog); Organization for the editorial desk (guides). */
+  authorType?: 'Person' | 'Organization';
   authorUrl?: string;
   section?: string;
 }) {
@@ -225,7 +251,7 @@ export function articleSchema(opts: {
     datePublished: opts.datePublished,
     dateModified: opts.dateModified,
     author: {
-      '@type': 'Person',
+      '@type': opts.authorType ?? 'Person',
       name: opts.authorName,
       ...(opts.authorUrl ? { url: opts.authorUrl } : {}),
     },
@@ -318,13 +344,13 @@ export function tradeOfferCatalogSchema(
     itemListElement: items.map((item, i) => ({
       '@type': 'ListItem',
       position: i + 1,
+      // Thing, not Product: RouteToAbroad sources these items and does not sell them.
       item: {
-        '@type': 'Product',
+        '@type': 'Thing',
         name: item.name,
-        sku: item.sku,
-        category: item.category,
         description: item.description,
-        brand: { '@type': 'Brand', name: SITE.name },
+        category: item.category,
+        identifier: { '@type': 'PropertyValue', propertyID: 'SKU', value: item.sku },
       },
     })),
   };

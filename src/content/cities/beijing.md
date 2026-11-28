@@ -2,7 +2,8 @@
 name: 'Beijing'
 chineseName: '北京'
 country: 'China'
-intro: 'Beijing is China''s political, academic and cultural capital — the best student city for prestige universities and imperial history, and the priciest after Shanghai. Expect four real seasons, world-class transit, and 700 years of monuments in daily view.'
+intro: 'Beijing is China''s political, academic and cultural capital. It is the best city for prestige universities and imperial history, and the second-costliest after Shanghai. Expect four real seasons, world-class transit and 700 years of monuments in daily view, and student life is subsidised on campus.'
+metaDescription: 'Beijing guide for students: prestige universities, imperial history, four real seasons, world-class transit and the cost of living in China''s capital.'
 image: '../../assets/images/city-beijing.jpg'
 imageAlt: 'Golden rooftops of the Forbidden City in Beijing at sunset'
 studentMonthly:

@@ -10,9 +10,11 @@ tags: ['Trade', 'Supply Chain', 'Sourcing']
 featured: true
 image: '../../assets/images/blog-trade-corridor.jpg'
 imageAlt: 'Aerial view of a loaded container ship crossing open water'
+verify:
+  - "Removed until confirmed: sea freight transit days ('roughly 18–25 days port to port') and air freight transit days ('3–7 days')"
 ---
 
-India–China trade is one of the most consequential and complex bilateral relationships in the world. Despite diplomatic tensions, bilateral trade crossed $100 billion in 2024, driven by India's demand for electronics, machinery, chemicals, and intermediate goods. The opportunity is enormous. So is the complexity. Here is the practical picture from our Guangzhou desk.
+India–China bilateral trade crossed $100 billion in 2024, driven by Indian demand for electronics, machinery, chemicals and intermediate goods. The opportunity is large and the complexity is real. This guide covers the regulatory landscape, factory verification, compliance checkpoints, logistics and payment terms, from our Guangzhou desk.
 
 ## The regulatory landscape has shifted
 
@@ -32,7 +34,7 @@ The most common mistake Indian importers make is relying solely on Alibaba listi
 
 ## Logistics: sea vs air
 
-Sea freight from Chinese ports (Guangzhou, Shanghai, Ningbo) to Mundra or JNPT takes roughly 18–25 days port to port. Air freight via direct routes takes 3–7 days but costs 5–8× more. For high-value or time-sensitive goods, air pays. For bulk, sea is the only economical option — and LCL (shared container) exists for trial volumes.
+Sea freight from Chinese ports (Guangzhou, Shanghai, Ningbo) to Mundra or JNPT is the slower option; air freight via direct routes costs 5–8× more. For high-value or time-sensitive goods, air pays. For bulk, sea is the only economical option — and LCL (shared container) exists for trial volumes.
 
 ## Currency and payment
 

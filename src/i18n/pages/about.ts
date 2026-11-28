@@ -51,7 +51,6 @@ export interface AboutStrings {
     phoneLabel: string;
     hoursLabel: string;
     studentsLabel: string;
-    ratingLabel: string;
     note: string;
   };
   values: {
@@ -118,7 +117,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'Phone',
       hoursLabel: 'Hours',
       studentsLabel: 'Students placed',
-      ratingLabel: 'Google rating',
       note: 'Consistent NAP details — also published in our structured data.',
     },
     values: {
@@ -194,7 +192,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: '电话',
       hoursLabel: '工作时间',
       studentsLabel: '成功入学',
-      ratingLabel: 'Google 评分',
       note: 'NAP 信息保持一致——同样发布在我们的结构化数据中。',
     },
     values: {
@@ -271,7 +268,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'Téléphone',
       hoursLabel: 'Horaires',
       studentsLabel: 'Étudiants placés',
-      ratingLabel: 'Note Google',
       note: 'Coordonnées NAP cohérentes — également publiées dans nos données structurées.',
     },
     values: {
@@ -347,7 +343,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'الهاتف',
       hoursLabel: 'ساعات العمل',
       studentsLabel: 'طلاب التحقوا بجامعات',
-      ratingLabel: 'تقييم Google',
       note: 'بيانات NAP متسقة — منشورة أيضًا في بياناتنا المنظمة.',
     },
     values: {
@@ -424,7 +419,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'Teléfono',
       hoursLabel: 'Horario',
       studentsLabel: 'Estudiantes colocados',
-      ratingLabel: 'Valoración de Google',
       note: 'Datos NAP consistentes — también publicados en nuestros datos estructurados.',
     },
     values: {
@@ -501,7 +495,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'Telefon',
       hoursLabel: 'Öffnungszeiten',
       studentsLabel: 'Vermittelte Studierende',
-      ratingLabel: 'Google-Bewertung',
       note: 'Konsistente NAP-Angaben — auch in unseren strukturierten Daten veröffentlicht.',
     },
     values: {
@@ -577,7 +570,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: '電話',
       hoursLabel: '受付時間',
       studentsLabel: '進学者数',
-      ratingLabel: 'Google の評価',
       note: 'NAP 情報は一貫して管理 — 構造化データにも同じ内容を公開しています。',
     },
     values: {
@@ -654,7 +646,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'Telefone',
       hoursLabel: 'Horário',
       studentsLabel: 'Estudantes matriculados',
-      ratingLabel: 'Avaliação do Google',
       note: 'Dados de NAP consistentes — também publicados em nossos dados estruturados.',
     },
     values: {
@@ -730,7 +721,6 @@ export const ABOUT: Record<Locale, AboutStrings> = {
       phoneLabel: 'फ़ोन',
       hoursLabel: 'समय',
       studentsLabel: 'प्रवेश पाए विद्यार्थी',
-      ratingLabel: 'Google रेटिंग',
       note: 'NAP विवरण सुसंगत — हमारे संरचित डेटा में भी प्रकाशित।',
     },
     values: {

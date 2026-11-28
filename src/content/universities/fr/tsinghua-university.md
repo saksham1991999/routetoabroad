@@ -27,14 +27,12 @@ programmes:
   - 'MBA / sciences de gestion (enseigné en anglais)'
   - 'Langue chinoise (IEP, enseigné en chinois)'
 costs:
-  tuition: 'Généralement US$5,000–10,000/an ; la CSC couvre 100% pour les lauréats'
-  dorm: 'US$1,200–2,000/an sur le campus'
-  living: 'US$500–850/mois à Pékin (Haidian)'
+  tuition: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current dorm figure
+  living: 'Demandez à nos conseillers les frais actuels' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ville'
     value: 'Pékin (district de Haidian)'
-  - label: 'Étudiants internationaux'
-    value: '~3,000+ tous diplômes confondus' # {{VERIFY}} current intake figures
   - label: 'Idéal pour'
     value: 'Ingénierie, CS/IA, carrières de recherche'
   - label: 'Rentrées'
@@ -45,6 +43,11 @@ faqs:
   - question: 'Les étudiants internationaux peuvent-ils travailler en Chine après un diplôme de Tsinghua ?'
     answer: 'Pékin et Shanghai offrent des parcours de travail post-études aux diplômés master+ d''universités désignées, et les diplômés de Tsinghua sont activement courtés par les multinationales et les entreprises technologiques chinoises. Les visas exigent le parrainage d''un employeur — planifiez avec nos conseillers.'
 order: 2
+verify:
+  - "Removed until confirmed: fact 'Étudiants internationaux' '~3,000+ tous diplômes confondus'"
+  - "Removed until confirmed: cost tuition 'Généralement US$5,000–10,000/an ; la CSC couvre 100% pour les lauréats'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,000/an sur le campus'"
+  - "Removed until confirmed: cost living 'US$500–850/mois à Pékin (Haidian)'"
 ---
 
 Tsinghua fait face à l'université de Pékin à Haidian, et la rivalité est affectueuse mais bien réelle : Tsinghua règne sur l'ingénierie et la technologie ; Pékin règne sur les humanités et les sciences pures. Le campus mêle l'architecture universitaire américaine du début du XXe siècle (il commença comme école préparatoire financée par les restitutions des indemnités des Boxers) à des laboratoires modernes spectaculaires.

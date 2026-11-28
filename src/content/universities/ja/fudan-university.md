@@ -27,14 +27,12 @@ programmes:
   - '国際ビジネス（学部、英語開講）'
   - '公衆衛生（修士、英語開講）'
 costs:
-  tuition: '一般的に US$4,000–9,000/年。CSC奨学金の採用者は100%給付'
-  dorm: '学内寮 US$1,000–2,000/年'
-  living: '上海の生活費 US$550–900/月'
+  tuition: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current tuition figure
+  dorm: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current dorm figure
+  living: '最新の費用は担当カウンセラーにお問い合わせください' # {{VERIFY}} confirm current living figure
 facts:
   - label: '都市'
     value: '上海（楊浦区）'
-  - label: '留学生数'
-    value: '全課程合計で約 3,000+' # {{VERIFY}} current intake figures
   - label: 'こんな人に最適'
     value: 'ビジネス・医療・メディアのキャリア志望'
   - label: '入学時期'
@@ -45,6 +43,10 @@ faqs:
   - question: '復旦大学は北京大学や清華大学と比べてどうですか？'
     answer: 'ランキングの差はごくわずかです（中国トップ5）。本当の違いは立地です。復旦大学なら上海のビジネスエコシステムの中で学べるため、ビジネス・金融・メディアのキャリアを考える学生にとって最大の強みになります。'
 order: 3
+verify:
+  - "Removed until confirmed: cost tuition '一般的に US$4,000–9,000/年。CSC奨学金の採用者は100%給付'"
+  - "Removed until confirmed: cost dorm '学内寮 US$1,000–2,000/年'"
+  - "Removed until confirmed: cost living '上海の生活費 US$550–900/月'"
 ---
 
 復旦大学の邯鄲路キャンパスは、上海の学生街である楊浦区にあります。同じ区には同济大学もあります。大学名は「日月光華、旦復旦兮（天の光が地に満ちる）」に由来し、その自負は大学の風格そのものです。留学生にとって復旦大学は、学術的な名声と上海の実利を両立させられる大学です。アルバイト（大学の許可が必要で、キャンパス外の勤務はさらに出入国管理上の許可も必要です——学生居留許可には条件が付きます）から空港アクセスまで、何をするにも上海が便利です。

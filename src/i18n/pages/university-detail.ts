@@ -51,7 +51,7 @@ export interface UniversityDetailStrings {
 
 export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   en: {
-    metaTitleTemplate: '{name} — Programs, Costs & Admission for International Students',
+    metaTitleTemplate: '{name}: Admissions',
     crumb: 'Universities',
     schemaStudyAtTemplate: 'Study at {name}',
     headings: {
@@ -82,7 +82,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   zh: {
-    metaTitleTemplate: '{name} — 专业、费用与国际学生录取指南',
+    metaTitleTemplate: '{name}：录取与费用',
     crumb: '大学',
     schemaStudyAtTemplate: '在{name}就读',
     headings: {
@@ -113,7 +113,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   fr: {
-    metaTitleTemplate: '{name} — Programmes, coûts et admission pour étudiants internationaux',
+    metaTitleTemplate: '{name} : admission et frais',
     crumb: 'Universités',
     schemaStudyAtTemplate: 'Étudier à {name}',
     headings: {
@@ -144,7 +144,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   ar: {
-    metaTitleTemplate: '{name} — البرامج والتكاليف والقبول للطلاب الدوليين',
+    metaTitleTemplate: '{name}: القبول والرسوم',
     crumb: 'الجامعات',
     schemaStudyAtTemplate: 'الدراسة في {name}',
     headings: {
@@ -175,7 +175,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   es: {
-    metaTitleTemplate: '{name} — Programas, costes y admisión para estudiantes internacionales',
+    metaTitleTemplate: '{name}: admisión y costes',
     crumb: 'Universidades',
     schemaStudyAtTemplate: 'Estudiar en {name}',
     headings: {
@@ -206,7 +206,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   de: {
-    metaTitleTemplate: '{name} — Studiengänge, Kosten & Zulassung für internationale Studierende',
+    metaTitleTemplate: '{name}: Zulassung & Kosten',
     crumb: 'Universitäten',
     schemaStudyAtTemplate: 'Studieren an {name}',
     headings: {
@@ -237,7 +237,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   ja: {
-    metaTitleTemplate: '{name} — 外国人学生のためのプログラム・費用・入学ガイド',
+    metaTitleTemplate: '{name}：入学と費用',
     crumb: '大学',
     schemaStudyAtTemplate: '{name} で学ぶ',
     headings: {
@@ -268,7 +268,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   pt: {
-    metaTitleTemplate: '{name} — Programas, custos e admissão para estudantes internacionais',
+    metaTitleTemplate: '{name}: admissão e custos',
     crumb: 'Universidades',
     schemaStudyAtTemplate: 'Estudar na {name}',
     headings: {
@@ -299,7 +299,7 @@ export const UNIVERSITY_DETAIL: Record<Locale, UniversityDetailStrings> = {
   },
 
   hi: {
-    metaTitleTemplate: '{name} — अंतरराष्ट्रीय विद्यार्थियों के लिए प्रोग्राम, लागत और प्रवेश',
+    metaTitleTemplate: '{name}: प्रवेश और लागत',
     crumb: 'विश्वविद्यालय',
     schemaStudyAtTemplate: '{name} में पढ़ाई',
     headings: {

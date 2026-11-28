@@ -38,15 +38,16 @@ const founderLead = AUTHORS.minhaj;
   path="/about"
   locale={locale}
   crumbs={[{ name: t.crumb, url: translatePath('/about', locale) }]}
-  jsonLd={founders.map((f) =>
-    personSchema({
+  jsonLd={founders.map((f) => ({
+    ...personSchema({
       name: f.name,
       jobTitle: f.role,
       url: f.linkedin,
       sameAs: f.linkedin ? [f.linkedin] : undefined,
       description: f.bio,
-    })
-  )}
+    }),
+    '@id': `${SITE.url}/about#founder-${f.name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`,
+  }))}
 >
   <PageHero
     eyebrow={t.hero.eyebrow}
@@ -85,14 +86,12 @@ const founderLead = AUTHORS.minhaj;
       <aside class="nap card card-pad" data-reveal="right" aria-label={t.nap.aria}>
         <p class="eyebrow">{t.nap.eyebrow}</p>
         <dl class="nap-list num">
-          <div><dt>{t.nap.foundedLabel}</dt><dd>{SITE.founded} {t.nap.foundedNote}</dd></div>
           <div><dt>{t.nap.officesLabel}</dt><dd>{SITE.offices[0].city} · {SITE.offices[1].city}</dd></div>
           <div><dt>{t.nap.registeredLabel}</dt><dd>{SITE.registeredOffice.street}, {SITE.registeredOffice.city}, {SITE.registeredOffice.region} {SITE.registeredOffice.postal}</dd></div>
           <div><dt>{t.nap.emailLabel}</dt><dd>{SITE.email}</dd></div>
           <div><dt>{t.nap.phoneLabel}</dt><dd><bdi>{SITE.phoneIndia}</bdi></dd></div>
           <div><dt>{t.nap.hoursLabel}</dt><dd><bdi>{ui.footer.hoursValue}</bdi></dd></div>
           <div><dt>{t.nap.studentsLabel}</dt><dd>{CLAIMS.studentsPlaced}</dd></div>
-          <div><dt>{t.nap.ratingLabel}</dt><dd>{CLAIMS.googleRating} ★</dd></div>
         </dl>
         <p class="nap-note">{t.nap.note}</p>
       </aside>

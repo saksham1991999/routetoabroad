@@ -27,14 +27,12 @@ programmes:
   - 'MBBS (en inglés, homologado por el MOE, plazas limitadas)'
   - 'Programas de doctorado (con financiación CSC, bajo dirección de supervisor)'
 costs:
-  tuition: 'Normalmente US$5,000–10,000/año; la CSC cubre el 100% para los ganadores'
-  dorm: 'US$1,200–2,400/año en el campus'
-  living: 'US$500–850/mes en Pekín (Haidian)'
+  tuition: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ciudad'
     value: 'Pekín (distrito de Haidian)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ de más de 100 países' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Candidatos con notas altas, investigación, humanidades'
   - label: 'Ingresos'
@@ -45,6 +43,10 @@ faqs:
   - question: '¿Ofrece becas CSC la Universidad de Pekín?'
     answer: 'Sí, Pekín es una universidad designada CSC para candidaturas Tipo A y Tipo B, además de becas propias de la universidad (Yenching para ciertos másteres, entre otras).'
 order: 1
+verify:
+  - "Removed until confirmed: cost tuition 'Normalmente US$5,000–10,000/año; la CSC cubre el 100% para los ganadores'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,400/año en el campus'"
+  - "Removed until confirmed: cost living 'US$500–850/mes en Pekín (Haidian)'"
 ---
 
 La Universidad de Pekín (Bei Da) ancla el distrito académico de Haidian, al noroeste de Pekín. Para los estudiantes internacionales ofrece la oferta más profunda del país de másteres en inglés en economía, políticas y estudios chinos, además de doctorados de investigación en todas las ciencias. La vida del campus gira en torno al lago Weiming y los jardines imperiales de alrededor.

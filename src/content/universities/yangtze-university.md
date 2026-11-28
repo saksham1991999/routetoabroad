@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '2003'
 nickname: 'Affordable comprehensive hub on the Yangtze River'
 intro: 'Yangtze University in Jingzhou (Hubei Province) is a well-established provincial comprehensive university known across Asia and Africa for its affordable English-taught MBBS, Computer Science, AI, and Petroleum Engineering programmes.'
+metaDescription: 'Yangtze University in Jingzhou, Hubei: affordable English-taught MBBS, computer science, AI and petroleum engineering at a provincial comprehensive university.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'University study and campus setting representing Yangtze University'
 strengths:
@@ -37,7 +38,7 @@ facts:
   - label: 'Living cost'
     value: 'One of the lowest in China'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'September (main), March (select non-medical & language tracks)'
 scholarships: 'Hubei Provincial Government Scholarship & Yangtze University Excellence Awards'
@@ -51,6 +52,8 @@ faqs:
   - question: 'Does Yangtze University offer non-medical English degrees?'
     answer: 'Yes. In addition to MBBS, Yangtze University offers English-taught undergraduate and master''s programmes in Computer Science, AI, Petroleum Engineering, and Business.'
 order: 11
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Located in the historic city of Jingzhou along the Yangtze River in Hubei Province, Yangtze University is a comprehensive provincial university formed from four specialized colleges. For international students, it provides a practical, budget-friendly gateway to English-taught MBBS, computer science, and engineering degrees.

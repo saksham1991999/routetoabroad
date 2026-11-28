@@ -40,7 +40,7 @@ const hasBody = Boolean(university.body && university.body.trim());
 <BaseLayout
   locale={locale}
   title={t.metaTitleTemplate.replace('{name}', data.name)}
-  description={data.intro}
+  description={data.metaDescription ?? data.intro}
   path={`/universities/${slug}`}
   crumbs={[
     { name: t.crumb, url: translatePath('/universities', locale) },
@@ -51,9 +51,10 @@ const hasBody = Boolean(university.body && university.body.trim());
       name: t.schemaStudyAtTemplate.replace('{name}', data.name),
       description: data.intro,
       url: `${SITE.url}${translatePath(`/universities/${slug}`, locale)}`,
-      // The provider is the university itself, not the consultancy.
+      // The provider is the university. Its own website is used only when the
+      // owner has set one. RouteToAbroad is never the provider.
       providerName: data.name,
-      providerUrl: `${SITE.url}${translatePath(`/universities/${slug}`, locale)}`,
+      providerUrl: data.website,
     }),
     faqSchema(faqs),
   ]}

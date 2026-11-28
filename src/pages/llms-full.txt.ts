@@ -2,7 +2,7 @@ import type { APIContext } from 'astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../lib/site';
 import { localizedEntries } from '../lib/content';
-import { DEFAULT_LOCALE } from '../lib/i18n';
+import { DEFAULT_LOCALE, withTrailingSlash } from '../lib/i18n';
 import { COMPARISONS } from '../data/comparisons';
 import { GLOSSARY } from '../data/glossary';
 import { EDUCATION_FAQS, TOURISM_FAQS, TRADE_FAQS, GENERAL_FAQS } from '../data/faqs';
@@ -42,7 +42,7 @@ export async function GET({ site }: APIContext) {
     lines.push('---');
     lines.push('');
     lines.push(`## Guide: ${g.data.title}`);
-    lines.push(`URL: ${new URL(`/guides/${g.id}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/guides/${g.id}`), base)}`);
     lines.push('');
     lines.push(clean(g.body));
     lines.push('');
@@ -52,7 +52,7 @@ export async function GET({ site }: APIContext) {
     lines.push('---');
     lines.push('');
     lines.push(`## Article: ${p.data.title}`);
-    lines.push(`URL: ${new URL(`/blog/${p.id}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/blog/${p.id}`), base)}`);
     lines.push(`Author: ${p.data.author} · Published: ${p.data.pubDate.toISOString().slice(0, 10)}`);
     lines.push('');
     lines.push(clean(p.body));
@@ -63,7 +63,7 @@ export async function GET({ site }: APIContext) {
     lines.push('---');
     lines.push('');
     lines.push(`## University: ${u.data.name} (${u.data.chineseName})`);
-    lines.push(`URL: ${new URL(`/universities/${u.id}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/universities/${u.id}`), base)}`);
     lines.push('');
     lines.push(u.data.intro);
     lines.push('');
@@ -78,7 +78,7 @@ export async function GET({ site }: APIContext) {
     lines.push('---');
     lines.push('');
     lines.push(`## City: ${c.data.name} (${c.data.chineseName})`);
-    lines.push(`URL: ${new URL(`/cities/${c.id}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/cities/${c.id}`), base)}`);
     lines.push('');
     lines.push(c.data.intro);
     lines.push(
@@ -93,7 +93,7 @@ export async function GET({ site }: APIContext) {
     lines.push('---');
     lines.push('');
     lines.push(`## Country: ${c.data.name}`);
-    lines.push(`URL: ${new URL(`/countries/${c.id}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/countries/${c.id}`), base)}`);
     lines.push('');
     lines.push(c.data.intro);
     lines.push('');
@@ -110,7 +110,7 @@ export async function GET({ site }: APIContext) {
   lines.push('');
   for (const c of COMPARISONS.en) {
     lines.push(`### ${c.title}`);
-    lines.push(`URL: ${new URL(`/compare/${c.slug}`, base)}`);
+    lines.push(`URL: ${new URL(withTrailingSlash(`/compare/${c.slug}`), base)}`);
     lines.push('');
     lines.push(`Short answer: ${c.answer}`);
     lines.push('');
@@ -125,9 +125,9 @@ export async function GET({ site }: APIContext) {
   lines.push('---');
   lines.push('');
   lines.push('## Trade & China Sourcing Catalog');
-  lines.push(`URL: ${new URL('/trade', base)}`);
+  lines.push(`URL: ${new URL(withTrailingSlash('/trade'), base)}`);
   lines.push('');
-  lines.push('Note: FOB price ranges and MOQs listed below are indicative benchmarks subject to supplier quotation (verify before quoting).');
+  lines.push('Note: FOB price ranges and MOQs listed below are indicative benchmarks subject to supplier quotation.');
   lines.push('');
   lines.push(`Categories: ${TRADE_CATEGORIES.map((c) => c.name).join(', ')}`);
   lines.push('');

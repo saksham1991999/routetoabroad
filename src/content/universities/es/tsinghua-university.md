@@ -27,14 +27,12 @@ programmes:
   - 'MBA / ciencia de la dirección (en inglés)'
   - 'Lengua china (IEP, en chino)'
 costs:
-  tuition: 'Normalmente US$5,000–10,000/año; la CSC cubre el 100% para los ganadores'
-  dorm: 'US$1,200–2,000/año en el campus'
-  living: 'US$500–850/mes en Pekín (Haidian)'
+  tuition: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current tuition figure
+  dorm: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current dorm figure
+  living: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ciudad'
     value: 'Pekín (distrito de Haidian)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Ingeniería, CS/IA, carreras de investigación'
   - label: 'Ingresos'
@@ -45,6 +43,10 @@ faqs:
   - question: '¿Pueden los estudiantes internacionales trabajar en China tras graduarse en Tsinghua?'
     answer: 'Pekín y Shanghái ofrecen vías de trabajo postestudio a graduados de máster o superior de universidades designadas, y los titulados de Tsinghua son activamente reclutados por multinacionales y tecnológicas chinas. Los visados requieren patrocinio del empleador — planifica con nuestros asesores.'
 order: 2
+verify:
+  - "Removed until confirmed: cost tuition 'Normalmente US$5,000–10,000/año; la CSC cubre el 100% para los ganadores'"
+  - "Removed until confirmed: cost dorm 'US$1,200–2,000/año en el campus'"
+  - "Removed until confirmed: cost living 'US$500–850/mes en Pekín (Haidian)'"
 ---
 
 Tsinghua se enfrenta a la Universidad de Pekín en Haidian, y la rivalidad es afectuosa pero real: Tsinghua domina la ingeniería y la tecnología; Pekín domina las humanidades y las ciencias puras. El campus mezcla arquitectura universitaria estadounidense de principios del siglo XX (comenzó como escuela preparatoria financiada con los reembolsos de las indemnizaciones de los Bóxers) con laboratorios modernos llamativos.

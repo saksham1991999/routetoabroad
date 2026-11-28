@@ -7,13 +7,14 @@ type: 'medical'
 founded: '1934'
 nickname: 'One of China''s top independent medical universities'
 intro: 'Nanjing Medical University (NMU) is a premier Chinese MOE-listed medical school offering English-medium MBBS for international students worldwide, with strong clinical rotations, WDOMS listing, and preparation for international licensing pathways subject to home-country medical council rules.'
+metaDescription: 'Nanjing Medical University (NMU): MOE-listed English-medium MBBS for international students, with strong clinical rotations. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical students and clinical laboratory setting representing Nanjing Medical University'
 strengths:
   - title: 'Global medical directory listing'
     text: 'Listed in WDOMS and on China''s MOE English-medium MBBS list; graduates may apply for exams such as ECFMG/USMLE (USA), GMC/PLAB (UK), AMC (Australia), and NMC FMGE/NExT (India), subject to each council''s current rules.'
   # {{VERIFY}} Confirm current affiliated teaching hospital count
-  - title: '20+ affiliated teaching hospitals'
+  - title: 'Affiliated teaching hospitals'
     text: 'Extensive clinical training across Jiangsu Province''s tertiary hospitals, giving final-year students high patient volume and structured ward rotations.'
   - title: 'Dedicated English-medium MBBS'
     text: 'Structured 6-year (5+1 internship) English-taught MBBS curriculum with small-group anatomy labs, simulation centres, and Chinese clinical communication classes.'
@@ -38,7 +39,7 @@ facts:
   - label: 'Medium'
     value: 'English (with Mandarin for clinical wards)'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -49,10 +50,13 @@ taughtLanguages:
 hskRequirement: 'No HSK required at entry for English MBBS; HSK 4 required prior to clinical internship / graduation'
 faqs:
   - question: 'Is Nanjing Medical University listed in WDOMS and eligible for international medical licensing?'
-    answer: 'NMU is listed in the World Directory of Medical Schools (WDOMS) and on China''s Ministry of Education (MOE) list of English-medium MBBS institutions (verify current-year intake status). Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, AMC, or India''s NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'NMU is listed in the World Directory of Medical Schools (WDOMS) and on China''s Ministry of Education (MOE) list of English-medium MBBS institutions. Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, AMC, or India''s NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'Do international MBBS students need to learn Chinese?'
     answer: 'All core medical sciences are taught in English, but students take compulsory Mandarin classes during years 1–4 so they can communicate with patients during clinical rotations and meet the HSK 4 graduation benchmark.'
 order: 6
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Removed until confirmed: affiliated teaching hospital count ('20+ affiliated teaching hospitals')"
 ---
 
 Nanjing Medical University is one of China's oldest and most respected independent medical universities, founded in 1934 and consistently ranked among the top medical institutions in Jiangsu Province. For international students from South Asia, Africa, the Middle East, and Southeast Asia, NMU offers a disciplined, hospital-integrated English MBBS programme without the price tag of private medical colleges.

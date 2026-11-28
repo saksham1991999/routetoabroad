@@ -1,6 +1,6 @@
 ---
 title: 'China Travel Guide 2026: Routes, Costs and First-Timer Advice'
-description: 'How to plan a China trip from India in 2026 — the classic first-timer route, realistic daily budgets, visa basics, payments (Alipay/WeChat), trains vs flights, and when to go.'
+description: 'Plan a 2026 China trip from India: the classic first-timer route, daily budgets, visa basics, Alipay and WeChat payments, trains vs flights, and when to go.'
 pillar: 'tourism'
 pubDate: 2025-04-01
 updatedDate: 2026-11-05
@@ -15,13 +15,13 @@ faqs:
     answer: 'Budget roughly US$90–150 per person per day mid-range (hotel, food, transport, entries) excluding international flights. Group tours bring that down; private tours go up.'
 ---
 
-**Short answer: for a first trip, fly into Beijing, take the high-speed rail west to Xi'an, then south to Shanghai — 10–12 days, roughly US$90–150/day mid-range, with the visa handled 4–6 weeks out.**
+**Short answer: a first trip to China takes 10–12 days. Fly into Beijing, take high-speed rail west to Xi'an, then south to Shanghai. Budget roughly US$90–150 per day mid-range, and handle the visa 4–6 weeks before you fly. Group tours cost less per day than private tours.**
 
 ## The classic first-timer route
 
 **Days 1–4 · Beijing** — Forbidden City, Great Wall at Mutianyu, Temple of Heaven, hutong walks, Peking duck.
-**Days 5–6 · Xi'an** — Terracotta Army, intact Ming city wall by bicycle, Muslim Quarter food streets.
-**Days 7–9 · Shanghai** — The Bund and Pudong skyline, Yu Garden, water-town day trip (Zhujiajiao), French Concession cafés.
+**Days 5–6 · Xi'an** — [Terracotta Army](/cities/xian/), intact Ming city wall by bicycle, Muslim Quarter food streets.
+**Days 7–9 · Shanghai** — [The Bund and Pudong skyline](/cities/shanghai/), Yu Garden, water-town day trip (Zhujiajiao), French Concession cafés.
 **Optional Days 10–12 · Guilin/Yangshuo** — Li River karst scenery, bamboo rafts, cycling villages.
 
 ## Money: payments make or break the trip
@@ -46,7 +46,7 @@ High-speed rail (300+ km/h) beats flying under ~1,200 km: Beijing→Xi'an ≈ 4.
 - **Best:** April–May and September–October (mild, blossom/foliage)
 - **Avoid:** Golden Weeks (1–7 Oct, CNY) — crowds and peak prices
 - **Cheapest:** November–March (cold, but clear and quiet)
-- **Japan pairing:** April for sakura in Kyoto after northern China warms
+- **Japan pairing:** [April for sakura in Kyoto](/guides/japan-travel-guide/) after northern China warms
 
 ## Visa and paperwork
 

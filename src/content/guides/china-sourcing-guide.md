@@ -1,6 +1,6 @@
 ---
 title: 'China Sourcing Guide: From Alibaba Listing to Verified Supplier'
-description: 'How to source from China without getting burned: supplier shortlisting, factory audits, sampling, AQL inspections, Incoterms, payment structures, and the India-specific compliance stack (BIS/WPC, HS codes).'
+description: 'Source from China safely: shortlist and audit suppliers, sample, inspect with AQL, agree Incoterms and payment terms, and meet India''s BIS, WPC and HS rules.'
 pillar: 'trade'
 pubDate: 2025-03-20
 updatedDate: 2026-11-05
@@ -26,7 +26,7 @@ Alibaba and Canton Fair contacts are candidates, not suppliers. Filter by: manuf
 
 ## Step 2: Audit before you negotiate
 
-A one-day factory audit answers questions no certificate can: does the registered address match the plant, what's the real capacity, whose machines are those, how do they handle QC today. Cost is trivial against a bad container. Our Guangzhou desk runs audits with photo-video reports, typically turned around within 72 hours.
+A one-day factory audit answers questions no certificate can: does the registered address match the plant, what's the real capacity, whose machines are those, how do they handle QC today. Cost is trivial against a bad container. Our [Guangzhou desk](/cities/guangzhou/) runs audits with photo-video reports, typically turned around within 72 hours.
 
 ## Step 3: Sample like it's a contract (it is)
 
@@ -62,9 +62,9 @@ Paperwork built during production clears in days; paperwork built after arrival 
 ## Step 7: Logistics choice
 
 - **LCL** (shared container) for trials up to ~12–15 CBM
-- **FCL** 20ft/40ft at scale; sea 18–25 days to Indian west coast ports
-- **Air** 3–7 days at 5–8× cost — for launches, spares, high-value density goods
+- **FCL** 20ft/40ft at scale; [sea freight](/guides/india-china-trade-corridor/) to Indian west coast ports; transit depends on carrier and season
+- **Air** is much faster than sea, at 5–8× cost — for launches, spares, high-value density goods
 
 ## Where we come in
 
-This entire pipeline — shortlist, audit, sampling, gates, customs, freight — is our standard operating procedure for trade clients, on a success fee tied to shipped value. Bring us a product idea and a target price; we'll come back with a landed-cost picture.
+This entire pipeline — shortlist, audit, sampling, gates, customs, freight — is our standard operating procedure for trade clients, on a success fee tied to shipped value. Bring us a product idea and a target price; we'll come back with a [landed-cost picture](/tools/trade-cost-calculator/).

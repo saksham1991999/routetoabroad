@@ -10,6 +10,10 @@ tags: ['MBBS', 'China', 'Bolsas']
 featured: true
 image: '../../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Estudantes de medicina estudando em torno de um modelo de anatomia em um laboratório universitário'
+verify:
+  - "Removed until confirmed: <!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->"
+  - "Removed until confirmed: <!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->"
+  - "Removed until confirmed: <!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->"
 ---
 
 A China emergiu como um dos principais destinos para estudantes indianos que buscam o diploma de MBBS. Com universidades listadas globalmente, programas ministrados em inglês e oportunidades significativas de bolsas, o apelo é inegável. Mas há nuances críticas que todo candidato deve entender antes de se comprometer.
@@ -24,15 +28,13 @@ A maioria dos programas de MBBS é ministrada em inglês nos primeiros anos. As 
 
 ## 3. A bolsa CSC é real — mas concorrida
 
-A Bolsa do Governo Chinês (CSC) pode cobrir mensalidade integral, acomodação e um estipêndio mensal. Ela é baseada em mérito e concorrida: estudantes com CGPA acima de aproximadamente 3,5 e boas atividades extracurriculares têm as melhores chances. Bolsas no nível das universidades são um caminho paralelo — geralmente menos concorrido — e em sua maioria parciais.
+A Bolsa do Governo Chinês (CSC) pode cobrir mensalidade integral, acomodação e um estipêndio mensal. Ela é baseada em mérito e concorrida: estudantes com ótimo desempenho acadêmico e boas atividades extracurriculares têm as melhores chances. Bolsas no nível das universidades são um caminho paralelo — geralmente menos concorrido — e em sua maioria parciais.
 
-<!-- {{VERIFY}} CGPA ~3.5 competitiveness claim — confirm before launch -->
 
 ## 4. O processo do JW202 leva tempo
 
-O JW202 é o formulário oficial de solicitação de visto de estudo, emitido pela universidade junto com a Carta de Admissão. Da oferta da universidade ao visto na mão podem levar de 8 a 12 semanas. Candidate-se cedo. Perder as janelas de ingresso é um dos erros mais comuns — e mais evitáveis — que vemos.
+O JW202 é o formulário oficial de solicitação de visto de estudo, emitido pela universidade junto com a Carta de Admissão. Da oferta da universidade ao visto na mão pode levar várias semanas. Candidate-se cedo. Perder as janelas de ingresso é um dos erros mais comuns — e mais evitáveis — que vemos.
 
-<!-- {{VERIFY}} 8–12-week offer-to-visa JW202 timing — confirm before launch -->
 
 ## 5. Apoio no local não é luxo
 
@@ -46,6 +48,4 @@ Recepção no aeroporto, registro no dormitório, chips de celular, contas banc�
 - Garanta comprovante de meios financeiros (mesmo para candidatos a bolsa)
 - Inscreva-se cedo na preparação para o HSK
 
-Pronto para começar sua candidatura? Nossos consultores podem avaliar sua elegibilidade e indicar o programa ideal em até 48 horas.
-
-<!-- {{VERIFY}} 48-hour consultant-programme match promise — confirm before launch -->
+Pronto para começar sua candidatura? Nossos consultores podem avaliar sua elegibilidade e indicar o programa ideal.

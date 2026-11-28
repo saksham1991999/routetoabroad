@@ -1,6 +1,6 @@
 ---
 title: 'The India–China Trade Corridor: A 2026 Field Guide'
-description: 'How the $100B+ India–China trade corridor actually works in 2026: what flows, the compliance reality since 2020, port pairs and transit times, payment rails, and risk management that holds up.'
+description: 'How the $100B+ India–China trade corridor works in 2026: what flows, compliance since 2020, port pairs, transit times, payment rails and risk controls.'
 pillar: 'trade'
 pubDate: 2025-05-01
 updatedDate: 2026-11-05
@@ -16,6 +16,7 @@ faqs:
 # Owner-confirmation notes ({{VERIFY}}) — never rendered; verify before launch.
 verify:
   - 'Payments: confirm current RBI/banking practice guidance per transaction size before publishing as advice'
+  - 'Transit: confirm Guangzhou/Shenzhen (~18–25 days) and Shanghai/Ningbo (~20–28 days) sea days and air-freight door-to-door days (3–7 days) before publishing'
 ---
 
 **Short answer: the corridor is bigger and more functional than the headlines suggest — $100B+ a year of mostly routine commerce. What changed since 2020 is scrutiny, not prohibition. Importers who run tight documentation and inspection pipelines move goods smoothly; everyone else funds the demurrage economy.**
@@ -37,10 +38,10 @@ verify:
 
 | China port | India port | Sea transit |
 | --- | --- | --- |
-| Guangzhou / Shenzhen (Nansha, Yantian) | Mundra / JNPT (Nhava Sheva) | ~18–25 days |
-| Shanghai / Ningbo | Mundra / JNPT | ~20–28 days |
+| Guangzhou / Shenzhen (Nansha, Yantian) | Mundra / JNPT (Nhava Sheva) | Varies by carrier and season |
+| Shanghai / Ningbo | Mundra / JNPT | Varies by carrier and season |
 
-Air freight (PVG/CAN → DEL/BOM): 3–7 days door-to-door at 5–8× sea cost. Watch peak-season roll risk (Canton Fair weeks, pre-Chinese New Year rush) and Golden Week port blank sailings.
+[Air freight](/tools/trade-cost-calculator/) (PVG/CAN → DEL/BOM): much faster door-to-door, at 5–8× sea cost. Watch peak-season roll risk ([Canton Fair weeks](/cities/guangzhou/), pre-Chinese New Year rush) and Golden Week port blank sailings.
 
 ## Payment rails
 
@@ -48,7 +49,7 @@ USD-settled by default. TT 30/70 for standard engagements; LC at sight for enter
 
 ## Risk stack that holds up
 
-1. Supplier audit before commitment
+1. [Supplier audit](/guides/china-sourcing-guide/) before commitment
 2. Bilingual spec + golden sample
 3. 30/70 payments, escrow for firsts
 4. AQL gates at 20%/80%

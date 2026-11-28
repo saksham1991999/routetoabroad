@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '1956'
 nickname: 'Double First-Class comprehensive giant in Central China'
 intro: 'Zhengzhou University (ZZU) is a national Double First-Class and Project 211 comprehensive university in Henan Province — offering English-taught MBBS, MBA, Computer Science, and Civil Engineering alongside generous CSC and provincial scholarships.'
+metaDescription: 'Zhengzhou University (ZZU): Henan''s flagship comprehensive university with English-taught MBBS, MBA, computer science and civil engineering. Costs and intakes.'
 image: '../../assets/images/hero-campus-ink.jpg'
 imageAlt: 'University campus architecture representing Zhengzhou University'
 strengths:
@@ -35,11 +36,8 @@ facts:
     value: 'Double First-Class / Project 211'
   - label: 'Best for'
     value: 'MBBS, MBA, CS, CSC scholarship applicants'
-  # {{VERIFY}} Confirm current international student enrolment count
-  - label: 'International cohort'
-    value: '2,500+ international students'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
   - 'CSC Designated'
 # {{VERIFY}} Confirm current intake and scholarship details
@@ -53,8 +51,10 @@ faqs:
   - question: 'Can I apply for CSC scholarships at Zhengzhou University?'
     answer: 'Yes. Zhengzhou University is a CSC-designated university for master''s, PhD, and select undergraduate tracks, and also administers Henan Provincial Government Scholarships.'
   - question: 'Is Zhengzhou University''s MBBS recognized internationally?'
-    answer: 'ZZU is included in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'ZZU is included in WDOMS and on China''s MOE list. Eligibility to apply for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national medical licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 10
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Zhengzhou University is Henan Province's flagship comprehensive university and a national Double First-Class institution. Situated at China's central high-speed rail crossroads, ZZU combines top-tier hospital scale for MBBS students with English-taught engineering, computer science, and MBA degrees at a fraction of coastal living costs.

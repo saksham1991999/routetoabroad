@@ -15,13 +15,13 @@ faqs:
     answer: 'Eight to ten days covers Tokyo, Kyoto/Osaka and Nara comfortably. Add Hiroshima or Hakone/Fuji at +2–3 days.'
 ---
 
-**Short answer: fly into Tokyo, out of Osaka (or reverse), anchor on Kyoto 4 nights + Tokyo 3–4 nights, buy Shinkansen tickets individually, and budget US$120–200/day mid-range. Ten days, done properly.**
+**Short answer: fly into Tokyo and out of Osaka, or the reverse. Anchor on Kyoto for 4 nights and Tokyo for 3–4 nights, buy Shinkansen tickets individually, and budget US$120–200 per day mid-range. Plan ten days for the whole route, done properly.**
 
 ## The golden route (8–10 days)
 
-**Days 1–4 · Tokyo** — Asakusa temples, Shibuya crossing, teamLab, Tsukiji outer market, day trip options (Nikko, Kamakura).
-**Days 5–7 · Kyoto** — Fushimi Inari at dawn, Kinkaku-ji, Arashiyama bamboo grove, Gion in the evening; Nara's deer and Todai-ji as a half-day trip.
-**Days 8–10 · Osaka (fly out)** — Dotonbori street food, Osaka Castle, or swap a day for Nara or Himeji Castle.
+**Days 1–4 · Tokyo** — Asakusa temples, [Shibuya crossing](/cities/tokyo/), teamLab, Tsukiji outer market, day trip options (Nikko, Kamakura).
+**Days 5–7 · Kyoto** — [Fushimi Inari at dawn](/cities/kyoto/), Kinkaku-ji, Arashiyama bamboo grove, Gion in the evening; Nara's deer and Todai-ji as a half-day trip.
+**Days 8–10 · Osaka (fly out)** — [Dotonbori street food](/cities/osaka/), Osaka Castle, or swap a day for Nara or Himeji Castle.
 
 ## Budget reality (per person, mid-range)
 
@@ -47,4 +47,4 @@ Indians need a Japan visa in advance (tourist, single/multi-entry) — documents
 
 ## China + Japan in one trip?
 
-A classic combo: Beijing/Xi'an week, then a Shanghai→Tokyo flight. Two visas, two currencies, one itinerary built to breathe. Our custom tours run this route with guides who hand you over city to city — luggage and all.
+A classic combo: [Beijing/Xi'an week](/guides/china-travel-guide/), then a Shanghai→Tokyo flight. Two visas, two currencies, one itinerary built to breathe. Our custom tours run this route with guides who hand you over city to city — luggage and all.

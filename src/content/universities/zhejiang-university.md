@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '1897'
 nickname: 'The Silicon Valley of China''s campus'
 intro: 'Zhejiang University pairs top-5 Chinese university prestige with Hangzhou''s startup economy — the best value among China''s elite for engineering, CS and business students, with living costs well below Beijing and Shanghai.'
+metaDescription: 'Zhejiang University in Hangzhou: top-5 Chinese university prestige with lower living costs than Beijing or Shanghai, for engineering, CS and business students.'
 image: '../../assets/images/university-zhejiang.jpg'
 imageAlt: 'Lakeside campus buildings of Zhejiang University in Hangzhou'
 strengths:
@@ -32,8 +33,6 @@ costs:
 facts:
   - label: 'City'
     value: 'Hangzhou (Zhejiang province)'
-  - label: 'International students'
-    value: '~2,500+ across degrees' # {{VERIFY}} current intake figures
   - label: 'Best for'
     value: 'Engineering, CS, value-for-money study'
   - label: 'Intakes'

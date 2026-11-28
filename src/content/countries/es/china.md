@@ -7,12 +7,8 @@ imageAlt: 'Montañas kársticas a lo largo del río Li cerca de Guilin, China'
 stats:
   - label: 'Estudiantes ubicados'
     value: '500+'
-  - label: 'Universidades asociadas'
-    value: '150+'
   - label: 'Convocatorias al año'
     value: '2 (sept. y mar.)'
-  - label: 'Tasa de éxito de visados'
-    value: '98%' # {{VERIFY}}
 study:
   heading: 'Estudiar en China'
   text: 'China gestiona el mayor sistema de estudiantes internacionales de Asia: títulos en inglés homologados por el MOE, la beca gubernamental CSC y matrículas que son una fracción de las de los destinos occidentales. Medicina, ingeniería y negocios son las vías insignia.'

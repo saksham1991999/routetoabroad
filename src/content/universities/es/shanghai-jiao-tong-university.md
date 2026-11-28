@@ -27,14 +27,12 @@ programmes:
   - 'MBA (Colegio Antai, en inglés)'
   - 'Ciencia de materiales (itinerarios de investigación)'
 costs:
-  tuition: 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'
+  tuition: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current tuition figure
   dorm: 'US$1,000–1,800/año en el campus'
-  living: 'US$550–900/mes en Shanghái'
+  living: 'Consulta la tarifa actual con nuestros asesores' # {{VERIFY}} confirm current living figure
 facts:
   - label: 'Ciudad'
     value: 'Shanghái (campus de Minhang y Huangpu)'
-  - label: 'Estudiantes internacionales'
-    value: '~3,000+ en todos los grados' # {{VERIFY}} current intake figures
   - label: 'Ideal para'
     value: 'Ingeniería, medicina, investigación'
   - label: 'Ingresos'
@@ -45,6 +43,9 @@ faqs:
   - question: '¿SJTU o Fudan, cuál es mejor para ingeniería?'
     answer: 'SJTU. Fudan lidera en humanidades/negocios; SJTU lidera en ingeniería y medicina clínica. Ambas son instituciones integrales top 5 en Shanghái.'
 order: 5
+verify:
+  - "Removed until confirmed: cost tuition 'Normalmente US$4,000–9,000/año; la CSC cubre el 100% para los ganadores'"
+  - "Removed until confirmed: cost living 'US$550–900/mes en Shanghái'"
 ---
 
 SJTU se extiende entre el verdor del campus principal de Minhang y sedes históricas del centro de la ciudad. Su lista de alumni se lee como la industria china moderna: Jiang Zemin, Qian Xuesen (padre de la cohetería china) y fundadores de la construcción naval, el automóvil y los semiconductores. Para los estudiantes internacionales ofrece las ventajas de la ciudad de Shanghái con una cultura de ingeniería ante todo.

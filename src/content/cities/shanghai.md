@@ -2,7 +2,8 @@
 name: 'Shanghai'
 chineseName: '上海'
 country: 'China'
-intro: 'Shanghai is China''s financial engine and most international city — the best student city for business careers and internships, and the easiest Chinese megacity for foreigners to live in. Plan on the highest living costs in the country.'
+intro: 'Shanghai has no Great Wall and no imperial palace. It is China''s financial engine and most international city, the best student city for business careers and internships, and the easiest Chinese megacity for foreigners to live in. Plan on the highest living costs in the country.'
+metaDescription: 'Shanghai guide: China''s financial engine and most international city, with business internships, Yangpu campuses and China''s highest living costs.'
 image: '../../assets/images/city-shanghai.jpg'
 imageAlt: 'The Shanghai Bund skyline and Pudong towers at dusk'
 studentMonthly:

@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1933'
 nickname: 'Spring City medical hub with mild year-round climate'
 intro: 'Kunming Medical University (KMU) is Yunnan Province''s largest and highest-ranked medical institution, widely chosen by international students for its MOE-listed and WDOMS-listed English MBBS, low living costs, and Kunming''s mild year-round weather.'
+metaDescription: 'Kunming Medical University (KMU): Yunnan''s largest medical institution, with English MBBS, low living costs and mild year-round weather. Costs and intakes.'
 image: '../../assets/images/hero-education.jpg'
 imageAlt: 'University study environment representing Kunming Medical University'
 strengths:
@@ -38,7 +39,7 @@ facts:
   - label: 'Climate'
     value: 'Mild year-round ("Spring City")'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -51,10 +52,13 @@ faqs:
   - question: 'Is Kunming Medical University good for international students on a budget?'
     answer: 'Yes. KMU offers one of the most cost-effective MOE-listed English MBBS programmes in China, with total annual tuition and dorm costs often under US$5,500.'
   - question: 'Are KMU MBBS graduates eligible for home-country medical licensing?'
-    answer: 'KMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'KMU is listed in WDOMS and on China''s MOE list. Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
   - question: 'How far is Kunming from major international flight hubs?'
     answer: 'Kunming Changshui International Airport has direct or one-stop connections across South Asia, Southeast Asia, and the Middle East, as well as frequent domestic flights to Beijing, Shanghai, and Guangzhou.'
 order: 9
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Pending confirmation: international student nationality count ('over 40 countries' in strengths)"
 ---
 
 Kunming Medical University, founded in 1933, anchors medical education in southwest China from its modern Chenggong university town campus. Known across the region as a welcoming, affordable destination for English-medium MBBS, KMU pairs straightforward living costs with Yunnan's largest network of teaching hospitals.

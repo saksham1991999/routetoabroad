@@ -1,6 +1,6 @@
 ---
 title: 'MBBS in China: The Complete Guide for 2026 Applicants'
-description: 'A Chinese MBBS can cost a third of a private Indian medical seat — if you pick an MOE-listed university and plan for FMGE. Costs, recognition, language, admissions timeline, and how to avoid the traps.'
+description: 'Chinese MBBS for Indian students: costs, MOE-listed university choice, FMGE recognition, language, admissions timeline, and the traps to avoid.'
 pillar: 'education'
 pubDate: 2025-01-15
 updatedDate: 2026-11-05
@@ -17,13 +17,13 @@ faqs:
     answer: 'Yes — Indian students must qualify NEET-UG to be eligible for the FMGE route after graduating abroad. There is no separate entrance exam for most Chinese medical universities.'
 ---
 
-**Short answer: yes, a Chinese MBBS is a legitimate, affordable route to a medical career — provided you choose an MOE-listed university, budget for the full six years, and plan for your home country's licensing exam from day one.**
+**Short answer: yes, a Chinese MBBS is a legitimate, affordable route to a medical career. Choose an MOE-listed university, budget for the full six years, and plan for your home country's licensing exam from day one. Clinical rotations require HSK 4.**
 
 China enrolls more international medical students than almost any other country. The draw is simple: English-medium MBBS programmes at government universities, tuition far below private medical seats in India, and modern teaching hospitals. The risks are equally simple: unlisted universities, agents who overpromise, and students who ignore the language requirement until clinical years force the issue.
 
 ## What an MOE-listed MBBS actually is
 
-Every year China's Ministry of Education publishes the list of universities approved to teach MBBS in English to international students. If a school is not on that list, its English-medium MBBS is not officially sanctioned — walk away. The programme itself runs 5–6 years: pre-clinical years on campus, then clinical rotations in affiliated hospitals, with HSK 4 required before ward work.
+Every year China's Ministry of Education publishes the list of universities approved to teach MBBS in English to international students. If a school is not on that list, its English-medium MBBS is not officially sanctioned — walk away. The programme itself runs 5–6 years: pre-clinical years on campus, then clinical rotations in affiliated hospitals, with [HSK 4](/guides/hsk-exam-preparation/) required before ward work.
 
 ## Recognition: the three checkpoints
 
@@ -42,14 +42,14 @@ All three matter. We shortlist only universities that clear all three.
 | Living costs (city-dependent) | 2,400 – 5,000 |
 | Insurance & residence permit | 300 – 600 |
 
-A five-and-a-half-year programme therefore lands roughly between US$38,500 and US$83,000 for the costs listed above — before one-time extras such as flights, visa fees, application charges and initial setup. That is still a fraction of a private Indian MBBS seat at ₹60 lakh–1 crore+. CSC and university scholarships can reduce tuition substantially for strong applicants.
+A five-and-a-half-year programme therefore lands roughly between US$38,500 and US$83,000 for the costs listed above — before one-time extras such as flights, visa fees, application charges and initial setup. That is still a fraction of a private Indian MBBS seat at ₹60 lakh–1 crore+. [CSC](/guides/csc-scholarship/) and university scholarships can reduce tuition substantially for strong applicants.
 
 ## Admission timeline (September intake)
 
 - **June–September (previous year):** shortlist universities, sit NEET if Indian
 - **October–December:** prepare documents, personal statement, physical exam
 - **January–March:** applications open and scholarship windows peak
-- **April–June:** offers, JW202 issuance, visa file
+- **April–June:** offers, [JW202 issuance](/guides/china-student-visa/), visa file
 - **July–August:** X1 visa at the embassy, flight, arrival support
 - **September:** registration and residence permit
 
@@ -62,4 +62,4 @@ A five-and-a-half-year programme therefore lands roughly between US$38,500 and U
 
 ## How we help
 
-We shortlist MOE-listed universities matched to your marks and budget, run the application and scholarship files, process the JW202 and visa, and stay with you through arrival and registration. The fit check takes four questions and gives you an honest yes/maybe/not-this-intake.
+We shortlist MOE-listed universities matched to your marks and budget, run the application and scholarship files, process the JW202 and visa, and stay with you through arrival and registration. The [fit check](/tools/fit-check/) takes four questions and gives you an honest yes/maybe/not-this-intake.

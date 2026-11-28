@@ -36,7 +36,7 @@ export const AUTHORS: Record<string, Author> = {
       hi: 'संस्थापक और CEO',
     },
     bio: {
-      en: 'Fifteen years across India–China logistics and trade operations. Minhaj leads RouteToAbroad from the New Delhi office and keeps the Guangzhou desk honest about what can actually be delivered.',
+      en: 'Works across India–China logistics and trade operations. Minhaj leads RouteToAbroad from the New Delhi office and keeps the Guangzhou desk honest about what can actually be delivered.',
       zh: '在印中物流与贸易运营领域深耕十五年。Minhaj 在新德里办公室统筹 RouteToAbroad，并确保广州团队对“什么真正做得到”保持坦诚。',
       fr: 'Quinze ans de logistique et de commerce entre l’Inde et la Chine. Minhaj dirige RouteToAbroad depuis le bureau de New Delhi et garde le bureau de Canton honnête sur ce qui peut réellement être livré.',
       ar: 'خمسة عشر عاماً في عمليات اللوجستيات والتجارة بين الهند والصين. يقود Minhaj فريق RouteToAbroad من مكتب نيودلهي، ويُبقي مكتب قوانغتشو صادقاً بشأن ما يمكن تسليمه فعلاً.',

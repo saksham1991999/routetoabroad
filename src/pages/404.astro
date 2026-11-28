@@ -26,9 +26,9 @@ import { PREFIXED_LOCALES } from '../lib/i18n';
       <p class="nf-sub" data-404-sub>The link is old, mistyped, or the page has moved. Nothing lost.</p>
       <div class="nf-actions">
         <a href="/" class="btn btn-primary" data-404-home>Go home</a>
-        <a href="/tools/fit-check" class="btn btn-outline" data-404-fit>Start the fit check</a>
+        <a href="/tools/fit-check/" class="btn btn-outline" data-404-fit>Start the fit check</a>
       </div>
-      <p class="nf-hint"><span data-404-hintpre>Or try: </span><a href="/education" data-404-edu>Education</a> · <a href="/tourism" data-404-tour>Tourism</a> · <a href="/trade" data-404-trade>Trade</a> · <a href="/guides" data-404-guides>Guides</a></p>
+      <p class="nf-hint"><span data-404-hintpre>Or try: </span><a href="/education/" data-404-edu>Education</a> · <a href="/tourism/" data-404-tour>Tourism</a> · <a href="/trade/" data-404-trade>Trade</a> · <a href="/guides/" data-404-guides>Guides</a></p>
     </div>
   </section>
 
@@ -69,13 +69,13 @@ import { PREFIXED_LOCALES } from '../lib/i18n';
       var fit = document.querySelector('[data-404-fit]');
       if (fit) {
         fit.textContent = t.fitCheck;
-        fit.href = p + '/tools/fit-check';
+        fit.href = p + '/tools/fit-check/';
       }
       var links = [
-        ['[data-404-edu]', 'education', '/education'],
-        ['[data-404-tour]', 'tourism', '/tourism'],
-        ['[data-404-trade]', 'trade', '/trade'],
-        ['[data-404-guides]', 'guides', '/guides'],
+        ['[data-404-edu]', 'education', '/education/'],
+        ['[data-404-tour]', 'tourism', '/tourism/'],
+        ['[data-404-trade]', 'trade', '/trade/'],
+        ['[data-404-guides]', 'guides', '/guides/'],
       ];
       links.forEach(function (l) {
         var el = document.querySelector(l[0]);

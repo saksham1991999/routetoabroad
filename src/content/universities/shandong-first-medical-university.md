@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1974'
 nickname: 'Major provincial medical powerhouse across Jinan and Tai''an'
 intro: 'Shandong First Medical University (SDFMU) — formed by merging Taishan Medical University and the Shandong Academy of Medical Sciences — is a top-tier provincial medical university offering English MBBS, BDS, Nursing, and Pharmacy across modern campuses in Jinan and Tai''an.'
+metaDescription: 'Shandong First Medical University (SDFMU): English MBBS, BDS, Nursing and Pharmacy across campuses in Jinan and Tai''an. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical training and laboratory environment representing Shandong First Medical University'
 strengths:
@@ -25,7 +26,7 @@ programmes:
   - 'Master & PhD in Clinical Medicine & Public Health'
 costs:
   tuition: 'RMB 25,000–30,000/yr (~US$3,450–4,150/yr)'
-  dorm: 'RMB 4,000–6,500/yr (~US$550–900/yr) on campus'
+  dorm: 'RMB 4,000–6,500/yr on campus' # {{VERIFY}} confirm USD conversion
   living: 'US$220–340/month in Jinan / Tai''an'
 facts:
   - label: 'Cities'
@@ -37,7 +38,7 @@ facts:
   - label: 'Status'
     value: 'Provincial key medical university'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main intake)'
@@ -52,8 +53,11 @@ faqs:
   - question: 'Does SDFMU offer Dentistry (BDS) and Pharmacy in addition to MBBS?'
     answer: 'Yes. SDFMU offers Clinical Medicine (MBBS), Stomatology (BDS), Nursing, and Pharmacy, making it suitable for students across allied health fields.'
   - question: 'Are SDFMU MBBS graduates eligible for international medical licensing exams?'
-    answer: 'SDFMU is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
+    answer: 'SDFMU is listed in WDOMS and on China''s MOE list. Eligibility for ECFMG/USMLE, GMC/PLAB, NMC FMGE/NExT, and other national licensing exams depends on each home-country medical council''s current rules and admission-year regulations.'
 order: 14
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
+  - "Pending confirmation: dorm USD conversion (~US$550–900/yr equivalent of RMB 4,000–6,500/yr)"
 ---
 
 Shandong First Medical University is Shandong Province's flagship medical university, uniting the long-running international teaching heritage of Taishan Medical University with the research hospitals of the Shandong Academy of Medical Sciences. With campuses in both Jinan and Tai'an, it offers high clinical volume at moderate provincial costs.

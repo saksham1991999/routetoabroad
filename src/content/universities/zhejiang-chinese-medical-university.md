@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1953'
 nickname: 'Integrative medicine and English MBBS in scenic Hangzhou'
 intro: 'Zhejiang Chinese Medical University (ZCMU) combines modern clinical medicine (English MBBS) with world-leading Traditional Chinese Medicine and acupuncture programmes in Hangzhou — one of China''s safest, cleanest, and most liveable university cities.'
+metaDescription: 'Zhejiang Chinese Medical University in Hangzhou: English MBBS alongside Traditional Chinese Medicine and acupuncture programmes. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical education and clinical training setting representing Zhejiang Chinese Medical University'
 strengths:
@@ -37,7 +38,7 @@ facts:
   - label: 'Nearest hub'
     value: '45 min by rail to Shanghai'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 intakes: 'September (main), March (selected language/TCM tracks)'
 scholarships: 'Zhejiang Provincial Government Scholarship & ZCMU International Student Scholarship'
@@ -51,6 +52,8 @@ faqs:
   - question: 'Why choose Hangzhou for medical studies?'
     answer: 'Hangzhou combines coastal-tier hospital infrastructure and safety with lower housing and food costs than Shanghai, plus a welcoming international community.'
 order: 8
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Zhejiang Chinese Medical University sits in Hangzhou, the capital of Zhejiang Province, and welcomes international students into both its English-medium Western MBBS programme and its internationally renowned Traditional Chinese Medicine and Acupuncture schools. Its affiliated hospitals rank among the busiest integrative medical centres in eastern China.

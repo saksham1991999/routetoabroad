@@ -2,7 +2,8 @@
 name: 'Xi''an'
 chineseName: '西安'
 country: 'China'
-intro: 'Xi''an is the eastern terminus of the Silk Road and one of China''s most affordable major university cities — home to Xi''an Jiaotong University, C9-league engineering, and 3,000 years of imperial history from the Terracotta Army to the intact Ming City Wall.'
+intro: 'Xi''an is the eastern terminus of the Silk Road and one of China''s most affordable major university cities. It is home to Xi''an Jiaotong University and C9-league engineering, with 3,000 years of imperial history, from the Terracotta Army to the intact Ming City Wall.'
+metaDescription: 'Xi''an guide: Silk Road terminus and affordable university city, home to Xi''an Jiaotong University, the Terracotta Army and the intact Ming City Wall.'
 image: '../../assets/images/hero-tourism.jpg'
 imageAlt: 'Historic East Asian architecture and travel scenery representing Xi''an'
 studentMonthly:
@@ -26,10 +27,12 @@ universities:
 bestTime: 'April–May and September–October (mild temperatures, clear skies for walking the wall)'
 faqs:
   - question: 'Is Xi''an a good city for international MBBS and engineering students?'
-    answer: 'Yes. Xi''an Jiaotong University is a top-tier C9 university offering English-medium MBBS (verify current-year MOE listing for your intake) and engineering programmes, while living costs of US$320–580/month are noticeably lower than coastal Tier-1 cities.'
+    answer: 'Yes. Xi''an Jiaotong University is a top-tier C9 university offering English-medium MBBS and engineering programmes, while living costs of US$320–580/month are noticeably lower than coastal Tier-1 cities.'
   - question: 'Is halal food easy to find in Xi''an?'
     answer: 'Xi''an has one of China''s oldest Hui Muslim communities. Halal restaurants, groceries, and university halal canteens are widespread across the city.'
 order: 5
+verify:
+  - "Pending confirmation: current-year MOE listing status for Xi'an Jiaotong University's English-medium MBBS intake"
 ---
 
 Xi'an was China's capital for thirteen dynasties under the name Chang'an, and the city still wears that scale comfortably. Inside the Ming-era walls, wide avenues meet quiet courtyard lanes; outside them, high-speed rail links Xi'an to Beijing in four hours and Chengdu in three. For students, it pairs C9 research prestige with inland affordability. For travellers, it is the essential historical counterweight to Shanghai and Beijing.

@@ -7,6 +7,7 @@ type: 'comprehensive'
 founded: '1962'
 nickname: 'The "Little United Nations" for Mandarin & HSK mastery'
 intro: 'Beijing Language and Culture University (BLCU) is China''s premier university dedicated to teaching Chinese language and culture to international students — the gold-standard launchpad for HSK 1–6, Translation, International Business, and China Studies in Beijing''s Wudaokou district.'
+metaDescription: 'Beijing Language and Culture University (BLCU): Chinese language, HSK preparation, translation and China studies in Wudaokou, Beijing. Costs and intakes.'
 image: '../../assets/images/guide-hsk.jpg'
 imageAlt: 'Chinese language study and HSK preparation representing Beijing Language and Culture University'
 strengths:
@@ -15,7 +16,7 @@ strengths:
   - title: '"Little United Nations" campus'
     text: 'Over 150 nationalities study side by side in Haidian''s Wudaokou university quarter, creating an extraordinarily diverse international community.'
   - title: 'Flexible short & degree tracks'
-    text: 'Offers 1-semester, 1-year, and 4-year BA programmes in Chinese Language, Business Chinese, Translation, and International Politics.'
+    text: 'Offers 1-semester and 1-year programmes, plus 4-year BA programmes in Chinese Language, Business Chinese, and Translation.'
   - title: 'Prime Haidian location'
     text: 'Located next to Tsinghua University and a short metro ride from Peking University in Beijing''s Wudaokou district, making it an ideal foundation year before entering top Chinese-taught degrees.'
 programmes:

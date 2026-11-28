@@ -7,6 +7,7 @@ type: 'medical'
 founded: '1975'
 nickname: 'Low-cost lakeside MBBS & engineering campus near Wuhan'
 intro: 'Hubei Polytechnic University (HBPU) in Huangshi — just 30 minutes by high-speed rail from Wuhan — offers one of China''s most accessible and budget-friendly English-medium MBBS programmes alongside practical engineering degrees.'
+metaDescription: 'Hubei Polytechnic University in Huangshi: English-medium MBBS and practical engineering, 30 minutes by high-speed rail from Wuhan. Costs and intakes.'
 image: '../../assets/images/blog-mbbs.jpg'
 imageAlt: 'Medical training laboratory representing Hubei Polytechnic University'
 strengths:
@@ -37,7 +38,7 @@ facts:
   - label: 'Duration'
     value: '6 years (5 yrs study + 1 yr internship)'
 recognitions:
-  - 'MOE-listed (verify current intake)'
+  - 'MOE-listed'
   - 'WDOMS-listed'
 # {{VERIFY}} Confirm current intake and scholarship details
 intakes: 'September (main MBBS intake)'
@@ -50,8 +51,10 @@ faqs:
   - question: 'How close is Hubei Polytechnic University to Wuhan?'
     answer: 'Huangshi is roughly 30 minutes from Wuhan by high-speed rail and about 90 minutes by car from Wuhan Tianhe International Airport, making international travel straightforward.'
   - question: 'Are HBPU MBBS graduates eligible for licensing exams?'
-    answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list (verify current-year intake status). Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'
+    answer: 'HBPU''s medical school is listed in WDOMS and on China''s MOE list. Eligibility for licensing exams such as ECFMG/USMLE, GMC/PLAB, or NMC FMGE/NExT depends on each home-country medical council''s current rules and admission-year regulations before enrolling.'
 order: 12
+verify:
+  - "Pending confirmation: current-year intake status for MOE listing"
 ---
 
 Hubei Polytechnic University sits beside Cihu Lake in Huangshi, a green industrial and university city southeast of Wuhan. While originally rooted in engineering, its medical faculty has become a popular destination for international students seeking an affordable English-taught MBBS close to a major international airport hub.
